@@ -13,6 +13,8 @@ import PhotoCredit from '../components/PhotoCredit.astro';
 import { cityPhoto } from '../data/photos.js';
 import Icon from '../components/Icon.astro';
 import HeroSlider from '../components/HeroSlider.astro';
+import VideoRow from '../components/VideoRow.astro';
+import RateBoard from '../components/RateBoard.astro';
 
 // 인기 여행지 (처음에 보이는 카드)
 const POP = ['japan', 'vietnam', 'thailand', 'philippines', 'taiwan', 'china', 'guam-saipan', 'singapore'];
@@ -93,6 +95,10 @@ const guides = GUIDES.map((g) => CITIES.find((x) => x.slug === g.city)).filter(B
       <p><a class="btn ghost" href="/popular/">인기 도시 전체 순위</a></p>
     </>
   )}
+
+  <VideoRow order={popTop.map((r) => r.city).filter(Boolean)} />
+
+  <RateBoard />
 
   <div class="tools">
     <a href="/my/"><b>🧳 나의 여행</b><span>여행지·날짜 넣고 D-day·안전·날씨 한눈에</span></a>
@@ -191,7 +197,7 @@ const guides = GUIDES.map((g) => CITIES.find((x) => x.slug === g.city)).filter(B
   .chips a { display: inline-flex; align-items: center; gap: 6px; text-decoration: none; background: #fff; border: 1px solid var(--line); border-radius: 999px; padding: 8px 14px; font-weight: 600; font-size: 14.5px; }
   .chips a.all { color: var(--sea); }
   .two { display: grid; grid-template-columns: 1fr 1fr; gap: 0 22px; }
-  .tools { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; margin-top: 22px; }
+  .tools { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; margin-top: 34px; }
   .tools a { display: flex; flex-direction: column; gap: 3px; text-decoration: none; color: inherit; background: #fff; border: 1px solid var(--line); border-radius: 14px; padding: 14px 16px; }
   .tools a:hover { border-color: var(--coral); }
   .tools b { font-size: 16px; }

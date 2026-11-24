@@ -1,0 +1,87 @@
+---
+// 홈 "오늘의 환율" — 한국은행 매매기준율, 전날 대비 · 한 달 그래프
+import rates from '../data/archive/rates.json';
+import { bySlug, flagOf } from '../data/countries.js';
+import Flag from './Flag.astro';
+
+const PICK = ['japan', 'usa', 'vietnam', 'thailand', 'taiwan', 'philippines', 'china', 'singapore', 'hongkong', 'malaysia'];
+const LABEL = { USD: '미국 달러', EUR: '유로' };
+const fmt = (n) => n.toLocaleString('ko-KR', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+const rows = PICK.map((s) => {
+  const c = bySlug[s];
+  const r = c && rates[c.cur];
+  if (!r || !r.value) return null;
+  const h = Array.isArray(r.hist) && r.hist.length > 1 ? r.hist : null;
+  const prev = h ? h[h.length - 2] : null;
+  const diff = prev ? r.value - prev : 0;
+  let line = '';
+  if (h) {
+    const lo = Math.min(...h), hi = Math.max(...h), sp = hi - lo || 1;
+    line = h.map((v, i) => `${((i / (h.length - 1)) * 100).toFixed(1)},${(30 - ((v - lo) / sp) * 26 - 2).toFixed(1)}`).join(' ');
+  }
+  const name = LABEL[c.cur] || (c.curName.startsWith(c.ko) ? c.curName : `${c.ko} ${c.curName}`);
+  return { c, cur: c.cur, name, unit: `${r.unit.toLocaleString('ko-KR')}${c.curName.split(' ').pop()}`, value: fmt(r.value), diff, pct: prev ? (diff / prev) * 100 : 0, line, date: String(r.date || '') };
+}).filter(Boolean).slice(0, 8);
+const h0 = (r) => !!r.line;
+const d = rows[0]?.date || '';
+const dateTxt = d.length === 8 ? `${+d.slice(4, 6)}월 ${+d.slice(6)}일` : '';
+---
+{rows.length > 0 && (
+  <section class="rb">
+    <div class="rb-h">
+      <div>
+        <p class="rb-k">EXCHANGE RATES</p>
+        <h2>오늘의 환율</h2>
+      </div>
+      <p class="rb-m">{dateTxt} 한국은행 매매기준율 · 전날 대비<br /><a href="/rates/">전체 통화 보기 →</a></p>
+    </div>
+    <div class="rb-g">
+      {rows.map((r) => (
+        <a class="rt" href={`/country/${r.c.slug}/info/`}>
+          <span class="rt-top"><Flag iso={flagOf(r.c)} size={20} /><b>{r.cur}</b><span class="rt-n">{r.name}</span></span>
+          <span class="rt-v"><small>{r.unit} =</small> {r.value}<i>원</i></span>
+          <span class="rt-bot">
+            {r.diff ? <span class={`rt-d ${r.diff > 0 ? 'up' : 'dn'}`}>{r.diff > 0 ? '▲' : '▼'} {Math.abs(r.diff).toFixed(2)} <em>({r.diff > 0 ? '+' : '-'}{Math.abs(r.pct).toFixed(2)}%)</em></span> : <span class="rt-d">{h0(r) ? '변동 없음' : ''}</span>}
+            {r.line && <svg class={`rt-s ${r.diff >= 0 ? 'up' : 'dn'}`} viewBox="0 0 100 32" preserveAspectRatio="none" aria-hidden="true"><polyline points={r.line} /></svg>}
+          </span>
+        </a>
+      ))}
+    </div>
+  </section>
+)}
+
+<style>
+  .rb { margin: 44px 0 0; padding: 26px 26px 24px; border-radius: 22px; color: #F7EDE6; background: radial-gradient(120% 140% at 100% 0%, #4A3229 0%, #2A1E19 55%, #1F1713 100%); box-shadow: 0 18px 40px -22px rgba(46, 36, 32, .6); }
+  .rb-h { display: flex; justify-content: space-between; align-items: flex-end; gap: 16px; margin-bottom: 18px; }
+  .rb-k { margin: 0 0 4px; font-size: 11.5px; letter-spacing: .22em; color: #E8A27F; font-weight: 700; }
+  .rb h2 { margin: 0; color: #fff; font-size: 22px; }
+  .rb-m { margin: 0; text-align: right; font-size: 12.5px; color: #BFA99C; line-height: 1.7; }
+  .rb-m a { color: #F2B795; text-decoration: none; font-weight: 700; }
+  .rb-g { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1px; background: rgba(255,255,255,.08); border-radius: 14px; overflow: hidden; }
+  .rt { display: flex; flex-direction: column; gap: 8px; padding: 16px 16px 14px; background: #2A1F1A; color: inherit; text-decoration: none; transition: background .2s; }
+  .rt:hover { background: #33251F; }
+  .rt-top { display: flex; align-items: center; gap: 7px; font-size: 13px; }
+  .rt-top b { letter-spacing: .04em; color: #fff; }
+  .rt-n { color: #A8948A; margin-left: auto; font-size: 12px; }
+  .rt-v { font-size: 24px; font-weight: 800; color: #fff; font-variant-numeric: tabular-nums; letter-spacing: -.02em; }
+  .rt-v small { display: block; font-size: 12px; font-weight: 500; color: #A8948A; letter-spacing: 0; margin-bottom: 2px; }
+  .rt-v i { font-style: normal; font-size: 14px; font-weight: 600; color: #CDB8AC; margin-left: 2px; }
+  .rt-bot { display: flex; align-items: flex-end; justify-content: space-between; gap: 8px; min-height: 30px; }
+  .rt-d { font-size: 12.5px; font-weight: 700; color: #A8948A; font-variant-numeric: tabular-nums; white-space: nowrap; }
+  .rt-d em { font-style: normal; font-weight: 500; opacity: .85; }
+  .rt-d.up { color: #FF8A7A; } .rt-d.dn { color: #7FB6FF; }
+  .rt-s { width: 86px; height: 30px; flex: none; overflow: visible; }
+  .rt-s polyline { fill: none; stroke-width: 1.8; vector-effect: non-scaling-stroke; stroke-linejoin: round; stroke-linecap: round; }
+  .rt-s.up polyline { stroke: #FF8A7A; } .rt-s.dn polyline { stroke: #7FB6FF; }
+  @media (max-width: 760px) {
+    .rb { margin: 34px -6px 0; padding: 20px 14px 16px; border-radius: 18px; }
+    .rb-h { flex-direction: column; align-items: flex-start; gap: 6px; }
+    .rb-m { text-align: left; }
+    .rb-g { grid-template-columns: 1fr 1fr; }
+    .rt { padding: 13px 12px 12px; }
+    .rt-n { display: none; }
+    .rt-v { font-size: 19px; }
+    .rt-s { width: 54px; }
+    .rt-d em { display: none; }
+  }
+</style>

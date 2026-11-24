@@ -1,0 +1,81 @@
+---
+// 홈 "영상으로 미리 보는 여행지" — 공식 홍보영상, 누르면 이 화면 위에서 재생(새 창 X)
+import { VIDEOS } from '../data/videos.js';
+import { cityBySlug } from '../data/cities.js';
+import { bySlug, flagOf } from '../data/countries.js';
+import Flag from './Flag.astro';
+const { order = [] } = Astro.props;
+const keys = [...new Set([...order.filter((k) => VIDEOS[k]), ...Object.keys(VIDEOS)])].slice(0, 8);
+const list = keys.map((k) => ({ k, v: VIDEOS[k], c: cityBySlug[k] })).filter((x) => x.c);
+---
+{list.length > 0 && (
+  <section class="vr" id="vrow">
+    <h2>🎬 영상으로 미리 보는 여행지 <small>관광청 공식 영상</small></h2>
+    <div class="vr-g">
+      {list.map(({ k, v, c }) => (
+        <button type="button" class="vt" data-id={v.id} data-t={`${c.ko} 공식 홍보영상`} data-by={v.by}>
+          <span class="vt-img"><img src={`https://i.ytimg.com/vi/${v.id}/hqdefault.jpg`} alt="" loading="lazy" /><span class="vt-p" aria-hidden="true">▶</span></span>
+          <span class="vt-n"><Flag iso={flagOf(bySlug[c.country])} size={16} /> <b>{c.ko}</b><span>{v.by.replace(/ \(.*\)$/, '')}</span></span>
+        </button>
+      ))}
+    </div>
+    <dialog class="vr-d" id="vr-d">
+      <div class="vr-in"><button type="button" class="vr-x" aria-label="닫기">✕</button><div class="vr-f"></div><p class="vr-s"></p></div>
+    </dialog>
+  </section>
+)}
+
+<script>
+  const root = document.getElementById('vrow');
+  if (root) {
+    const dlg = root.querySelector<HTMLDialogElement>('#vr-d')!;
+    const box = dlg.querySelector<HTMLElement>('.vr-f')!;
+    const src = dlg.querySelector<HTMLElement>('.vr-s')!;
+    const close = () => { box.innerHTML = ''; dlg.close(); };
+    root.querySelectorAll<HTMLButtonElement>('.vt').forEach((b) => {
+      const img = b.querySelector('img')!;
+      const check = () => { if (img.naturalWidth && img.naturalWidth <= 120) b.hidden = true; };
+      img.complete ? check() : img.addEventListener('load', check);
+      img.addEventListener('error', () => (b.hidden = true));
+      b.addEventListener('click', () => {
+        const f = document.createElement('iframe');
+        f.src = `https://www.youtube-nocookie.com/embed/${b.dataset.id}?autoplay=1&rel=0&playsinline=1`;
+        f.title = b.dataset.t || '홍보영상';
+        f.allow = 'autoplay; encrypted-media; picture-in-picture; fullscreen';
+        f.allowFullscreen = true;
+        box.replaceChildren(f);
+        src.textContent = `${b.dataset.t} · 출처: ${b.dataset.by} · YouTube`;
+        dlg.showModal();
+      });
+    });
+    dlg.querySelector('.vr-x')!.addEventListener('click', close);
+    dlg.addEventListener('click', (e) => { if (e.target === dlg) close(); });
+    dlg.addEventListener('cancel', () => { box.innerHTML = ''; });
+  }
+</script>
+
+<style>
+  .vr-g { display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; }
+  .vt { display: flex; flex-direction: column; gap: 8px; padding: 0; border: 0; background: none; text-align: left; cursor: pointer; font: inherit; color: inherit; }
+  .vt[hidden] { display: none; }
+  .vt-img { position: relative; display: block; aspect-ratio: 16 / 9; border-radius: 14px; overflow: hidden; background: #2E2420; }
+  .vt-img img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform .4s; }
+  .vt-img::after { content: ''; position: absolute; inset: 0; background: linear-gradient(transparent 50%, rgba(0,0,0,.35)); }
+  .vt:hover .vt-img img { transform: scale(1.05); }
+  .vt-p { position: absolute; z-index: 1; left: 12px; bottom: 10px; width: 38px; height: 38px; border-radius: 50%; display: grid; place-items: center; background: rgba(255,255,255,.95); color: var(--sea); font-size: 14px; padding-left: 3px; box-shadow: 0 4px 12px rgba(0,0,0,.25); transition: transform .2s; }
+  .vt:hover .vt-p { transform: scale(1.1); }
+  .vt-n { display: flex; align-items: center; gap: 6px; font-size: 15px; }
+  .vt-n span { margin-left: auto; font-size: 12px; color: var(--sub); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; max-width: 60%; }
+  .vr-d { width: min(960px, 94vw); padding: 0; border: 0; border-radius: 16px; background: #000; overflow: visible; }
+  .vr-d::backdrop { background: rgba(20, 14, 11, .78); }
+  .vr-in { position: relative; }
+  .vr-f :global(iframe) { display: block; width: 100%; aspect-ratio: 16 / 9; border: 0; border-radius: 16px; }
+  .vr-x { position: absolute; top: -44px; right: 0; width: 36px; height: 36px; border-radius: 50%; border: 0; background: rgba(255,255,255,.92); font-size: 16px; cursor: pointer; }
+  .vr-s { position: absolute; left: 0; bottom: -30px; margin: 0; font-size: 12.5px; color: #E8DAD1; }
+  @media (max-width: 760px) {
+    .vr-g { display: flex; overflow-x: auto; scroll-snap-type: x mandatory; gap: 10px; margin: 0 -18px; padding: 0 18px 4px; scrollbar-width: none; }
+    .vr-g::-webkit-scrollbar { display: none; }
+    .vt { flex: 0 0 72%; scroll-snap-align: start; }
+    .vt-n span { display: none; }
+  }
+</style>

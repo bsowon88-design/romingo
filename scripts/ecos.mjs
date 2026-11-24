@@ -27,7 +27,7 @@ const ymd = (d) => d.toISOString().slice(0, 10).replace(/-/g, '');
 
 export async function fetchRates(key) {
   const end = new Date(Date.now() + 9 * 36e5); // 한국 날짜
-  const start = new Date(end.getTime() - 14 * 864e5);
+  const start = new Date(end.getTime() - 45 * 864e5); // 그래프용 한 달치
   const url = `https://ecos.bok.or.kr/api/StatisticSearch/${encodeURIComponent(key)}/json/kr/1/2000/${STAT}/D/${ymd(start)}/${ymd(end)}`;
   const res = await fetch(url);
   const text = await res.text();
@@ -42,10 +42,12 @@ export async function fetchRates(key) {
 
   // 항목별로 가장 최근 날짜 값
   const latest = {};
+  const series = {}; // 항목별 날짜순 값 (작은 그래프 · 전날 대비)
   for (const r of rows) {
     const name = String(r.ITEM_NAME1 || '');
     const v = parseFloat(String(r.DATA_VALUE || '').replace(/,/g, ''));
     if (!name || !isFinite(v)) continue;
+    (series[name] ||= []).push([r.TIME, v]);
     if (!latest[name] || r.TIME > latest[name].time) latest[name] = { name, time: r.TIME, value: v };
   }
   const names = Object.keys(latest);
@@ -58,7 +60,8 @@ export async function fetchRates(key) {
     if (!hit) continue;
     const x = latest[hit];
     const unit = parseInt((hit.match(/\((\d+)/) || [])[1] || '1', 10);
-    out[code] = { value: x.value, unit, date: x.time, name: hit };
+    const hist = (series[hit] || []).sort((a, b) => (a[0] < b[0] ? -1 : 1)).slice(-22).map((h) => h[1]);
+    out[code] = { value: x.value, unit, date: x.time, name: hit, hist };
   }
   return out;
 }

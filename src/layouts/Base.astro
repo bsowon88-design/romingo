@@ -105,7 +105,7 @@ const isOn = (href) => (href === '/' ? path === '/' : path.startsWith(href) || (
       return n;
     };
 
-    function render(text: string) {
+    function render(text: string, res: HTMLElement | null) {
       if (!res) return;
       const t = text.trim().toLowerCase().replace(/\s+/g, '');
       res.replaceChildren();
@@ -141,9 +141,23 @@ const isOn = (href) => (href === '/' ? path === '/' : path.startsWith(href) || (
         res.append(g);
       }
     }
-    q?.addEventListener('input', () => render(q.value));
+    q?.addEventListener('input', () => render(q.value, res));
     q?.addEventListener('keydown', (e) => {
       if (e.key === 'Enter') { const a = res?.querySelector('a') as HTMLAnchorElement | null; if (a) location.href = a.href; }
+    });
+
+    // 페이지 안에 있는 검색창 (홈 등) — 창을 띄우지 않고 바로 아래에 결과를 펼침
+    document.querySelectorAll<HTMLInputElement>('[data-search-inline]').forEach((inp) => {
+      const wrap = inp.closest('.isearch');
+      const out = wrap?.querySelector<HTMLElement>('.ires') || null;
+      const show = () => { const v = inp.value.trim(); if (out) { out.hidden = !v; if (v) render(inp.value, out); } };
+      inp.addEventListener('input', show);
+      inp.addEventListener('focus', show);
+      inp.addEventListener('keydown', (e) => {
+        if (e.key === 'Enter') { const a = out?.querySelector('a') as HTMLAnchorElement | null; if (a) location.href = a.href; }
+        if (e.key === 'Escape' && out) out.hidden = true;
+      });
+      document.addEventListener('click', (e) => { if (out && wrap && !wrap.contains(e.target as Node)) out.hidden = true; });
     });
   </script>
   <script>
@@ -231,6 +245,9 @@ const isOn = (href) => (href === '/' ? path === '/' : path.startsWith(href) || (
   a.sl:hover { background: #FFF0E6; }
   .wrow a { color: var(--sea); text-decoration: none; font-weight: 600; }
   body.noscroll { overflow: hidden; }
+  .isearch { position: relative; }
+  .ires { position: absolute; left: 0; right: 0; top: calc(100% + 6px); z-index: 30; background: #fff; border: 1px solid var(--line); border-radius: 16px; box-shadow: 0 16px 40px rgba(90,50,30,.18); max-height: 70vh; }
+  .ires[hidden] { display: none; }
   .hasbg { position: relative; overflow: hidden; isolation: isolate; }
   .hasbg > .bgimg { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; z-index: -2; }
   .hasbg.photo::after { content: ''; position: absolute; inset: 0; z-index: -1; background: linear-gradient(180deg, rgba(0,0,0,.15) 0%, rgba(0,0,0,.55) 100%); }

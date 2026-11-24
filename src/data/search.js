@@ -22,7 +22,7 @@ export const SEARCH_INDEX = COUNTRIES.map((c) => {
     k: c.ko,
     f: flagOf(c),
     e: `${c.slug} ${(c.photoQ || '').toLowerCase()} ${c.cities.join(' ')}`,
-    a: al && al.max ? `외교부 ${al.max}단계 ${ALARM_KO[al.max].label}` : '',
+    a: al && al.max ? `외교부 ${al.levels.every((l) => /일부/.test(l.region)) ? '일부 지역 ' : ''}${al.max}단계 ${ALARM_KO[al.max].label}` : '',
     r: rate ? rate.line1 : '',
     c: cities,
   };

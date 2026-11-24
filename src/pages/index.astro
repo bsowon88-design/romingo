@@ -35,10 +35,13 @@ const guides = GUIDES.map((g) => CITIES.find((x) => x.slug === g.city)).filter(B
       <h1>지금 그 나라, 가도 괜찮을까?</h1>
       <p class="lead">안전·날씨·환율·여행 가이드를 한곳에서 확인하세요.</p>
     </div>
-    <button class="search" data-open-search type="button">
-      <Icon name="search" size={20} />
-      <span>나라나 도시 이름 (예: 다낭, 오사카)</span>
-    </button>
+    <div class="isearch">
+      <label class="search">
+        <Icon name="search" size={20} />
+        <input data-search-inline type="search" placeholder="나라나 도시 이름 (예: 다낭, 오사카)" autocomplete="off" />
+      </label>
+      <div class="ires sres" hidden></div>
+    </div>
   </section>
   {warn.length > 0 && (
     <p class="warnline">⚠️ 재난 소식 확인:
@@ -114,7 +117,10 @@ const guides = GUIDES.map((g) => CITIES.find((x) => x.slug === g.city)).filter(B
   .intro { display: flex; align-items: flex-end; justify-content: space-between; gap: 20px; flex-wrap: wrap; margin-top: 6px; }
   .intro h1 { margin: 0; font-size: 28px; }
   .intro .lead { margin: 4px 0 0; }
-  .search { display: flex; align-items: center; gap: 10px; width: 100%; max-width: 420px; background: #fff; border: 1px solid var(--line); border-radius: 14px; padding: 13px 16px; box-shadow: 0 6px 18px rgba(140,70,30,.08); font: inherit; font-size: 15.5px; color: #A8917F; cursor: pointer; text-align: left; }
+  .isearch { width: 100%; max-width: 420px; }
+  .search input { flex: 1; min-width: 0; border: 0; outline: 0; font: inherit; font-size: 16px; color: var(--ink); background: transparent; padding: 0; }
+  .search { display: flex; align-items: center; gap: 10px; width: 100%; background: #fff; border: 1px solid var(--line); border-radius: 14px; padding: 13px 16px; box-shadow: 0 6px 18px rgba(140,70,30,.08); font: inherit; font-size: 15.5px; color: #A8917F; cursor: text; text-align: left; }
+  .search:focus-within { border-color: var(--coral); box-shadow: 0 0 0 3px rgba(232,121,74,.15); }
   .search:hover { border-color: var(--coral); color: var(--sea); }
   .warnline { margin: 12px 0 0; font-size: 14px; font-weight: 600; color: var(--sub); }
   .warnline a { color: var(--sea); }
@@ -138,7 +144,8 @@ const guides = GUIDES.map((g) => CITIES.find((x) => x.slug === g.city)).filter(B
     .intro { gap: 10px; }
     .intro h1 { font-size: 20px; }
     .intro .lead { display: none; }
-    .search { max-width: none; padding: 11px 14px; font-size: 15px; }
+    .isearch { max-width: none; }
+    .search { padding: 11px 14px; }
     .warnline { margin-top: 8px; font-size: 13px; }
     h2 { font-size: 17px; margin: 22px 0 10px; }
     .cgrid { grid-template-columns: 1fr 1fr; gap: 10px; }

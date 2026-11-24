@@ -1278,5 +1278,75 @@
   "userUrl": "https://unsplash.com/@jcs_chen",
   "page": "https://unsplash.com/photos/rock-formations-PAm1uP9hLI0",
   "pick": 0
+ },
+ "spot:okinawa:3": {
+  "id": "8kTsEwjs8C4",
+  "raw": "https://images.unsplash.com/photo-1611210040662-dcd41b879c8f?ixid=M3wxMTQzNTA5fDB8MXxzZWFyY2h8MXx8S291cmklMjBCcmlkZ2UlMjBPa2luYXdhfGVufDF8MHx8fDE3OTU1NDY3NzR8MA&ixlib=rb-4.1.0",
+  "color": "#59a6f3",
+  "alt": "white flowers near sea under blue sky during daytime",
+  "name": "Samuel Berner",
+  "userUrl": "https://unsplash.com/@reduxxphotography",
+  "page": "https://unsplash.com/photos/white-flowers-near-sea-under-blue-sky-during-daytime-8kTsEwjs8C4",
+  "pick": 0
+ },
+ "spot:okinawa:4": {
+  "id": "Ebas4I_-FeI",
+  "raw": "https://images.unsplash.com/photo-1776966227782-521f1000f0c5?ixid=M3wxMTQzNTA5fDB8MXxzZWFyY2h8MXx8QW1lcmljYW4lMjBWaWxsYWdlJTIwQ2hhdGFufGVufDF8MHx8fDE3OTU1NDY3NzR8MA&ixlib=rb-4.1.0",
+  "color": "#f3f3f3",
+  "alt": "Cars driving on a highway near the ocean",
+  "name": "Monineath Horn",
+  "userUrl": "https://unsplash.com/@neathhorn",
+  "page": "https://unsplash.com/photos/cars-driving-on-a-highway-near-the-ocean-Ebas4I_-FeI",
+  "pick": 0
+ },
+ "spot:beijing:0": {
+  "id": "LkyYLdL3WxE",
+  "raw": "https://images.unsplash.com/photo-1614555383820-941c466f1b52?ixid=M3wxMTQzNTA5fDB8MXxzZWFyY2h8MXx8Rm9yYmlkZGVuJTIwQ2l0eSUyMEJlaWppbmd8ZW58MXwwfHx8MTc5NTU0Njc3NXww&ixlib=rb-4.1.0",
+  "color": "#262626",
+  "alt": "A bronze guardian lion statue before the Hall of Supreme Harmony in Beijing, China",
+  "name": "Rafik Wahba",
+  "userUrl": "https://unsplash.com/@rafikwahba",
+  "page": "https://unsplash.com/photos/guardian-lion-at-hall-of-supreme-harmony-LkyYLdL3WxE",
+  "pick": 0
+ },
+ "spot:beijing:1": {
+  "id": "zhiQORykuwQ",
+  "raw": "https://images.unsplash.com/photo-1558981012-236ee58eb5c9?ixid=M3wxMTQzNTA5fDB8MXxzZWFyY2h8MXx8R3JlYXQlMjBXYWxsJTIwTXV0aWFueXV8ZW58MXwwfHx8MTc5NTU0Njc3NXww&ixlib=rb-4.1.0",
+  "color": "#404026",
+  "alt": "Great Wall of China",
+  "name": "Jamie Street",
+  "userUrl": "https://unsplash.com/@jamie452",
+  "page": "https://unsplash.com/photos/great-wall-of-china-zhiQORykuwQ",
+  "pick": 0
+ },
+ "spot:beijing:2": {
+  "id": "0xn9T2cEigE",
+  "raw": "https://images.unsplash.com/photo-1584872589930-e99fe5bf4408?ixid=M3wxMTQzNTA5fDB8MXxzZWFyY2h8MXx8VGVtcGxlJTIwb2YlMjBIZWF2ZW4lMjBCZWlqaW5nfGVufDF8MHx8fDE3OTU1NDY3NzV8MA&ixlib=rb-4.1.0",
+  "color": "#8cc0d9",
+  "alt": "The Temple of Heaven with its tiered blue roof in Beijing, China",
+  "name": "Victor He",
+  "userUrl": "https://unsplash.com/@victorhwn725",
+  "page": "https://unsplash.com/photos/temple-of-heaven-in-beijing-0xn9T2cEigE",
+  "pick": 0
+ },
+ "spot:beijing:3": {
+  "id": "oKt5o6wFKRA",
+  "raw": "https://images.unsplash.com/photo-1586788630595-bbd71f6f8646?ixid=M3wxMTQzNTA5fDB8MXxzZWFyY2h8MXx8U3VtbWVyJTIwUGFsYWNlJTIwQmVpamluZ3xlbnwxfDB8fHwxNzk1NTQ2Nzc2fDA&ixlib=rb-4.1.0",
+  "color": "#8ca6d9",
+  "alt": "brown and green temple surrounded by green trees during daytime",
+  "name": "Nick Fewings",
+  "userUrl": "https://unsplash.com/@jannerboy62",
+  "page": "https://unsplash.com/photos/brown-and-green-temple-surrounded-by-green-trees-during-daytime-oKt5o6wFKRA",
+  "pick": 0
+ },
+ "spot:beijing:4": {
+  "id": "lQJBKf4A-V8",
+  "raw": "https://images.unsplash.com/photo-1674974216429-02fca3c9f5a5?ixid=M3wxMTQzNTA5fDB8MXxzZWFyY2h8MXx8TmFubHVvZ3V4aWFuZyUyMGh1dG9uZyUyMEJlaWppbmd8ZW58MXwwfHx8MTc5NTU0Njc3N3ww&ixlib=rb-4.1.0",
+  "color": "#598cd9",
+  "alt": "a tall building with a clock on top of it",
+  "name": "wang binghua",
+  "userUrl": "https://unsplash.com/@wangbinghua",
+  "page": "https://unsplash.com/photos/a-tall-building-with-a-clock-on-top-of-it-lQJBKf4A-V8",
+  "pick": 0
  }
 }

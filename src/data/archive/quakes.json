@@ -1,5 +1,17 @@
 [
  {
+  "id": "us6000ud6h",
+  "mag": 6.4,
+  "place": "Mauritius - Reunion region",
+  "time": 1795518374036,
+  "lat": -17.7,
+  "lon": 65.7,
+  "depth": 10,
+  "tsunami": 0,
+  "alert": "green",
+  "url": "https://earthquake.usgs.gov/earthquakes/eventpage/us6000ud6h"
+ },
+ {
   "id": "us6000ud3i",
   "mag": 5.3,
   "place": "67 km WNW of Mangan, India",

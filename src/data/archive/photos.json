@@ -838,5 +838,55 @@
   "userUrl": "https://unsplash.com/@jamie452",
   "page": "https://unsplash.com/photos/black-and-grey-buddha-statue-on-top-of-hill-88IMbX3wZmI",
   "pick": 0
+ },
+ "spot:hongkong:4": {
+  "id": "zRnU-14t4Bw",
+  "raw": "https://images.unsplash.com/photo-1710431398794-f71752ffc90b?ixid=M3wxMTQzNTA5fDB8MXxzZWFyY2h8MXx8U3RhciUyMEZlcnJ5JTIwSG9uZyUyMEtvbmd8ZW58MXwwfHx8MTc5NTUyMTU1Nnww&ixlib=rb-4.1.0",
+  "color": "#c0c0c0",
+  "alt": "a ferry is docked in front of a large building",
+  "name": "Richard Haas",
+  "userUrl": "https://unsplash.com/@rhaas",
+  "page": "https://unsplash.com/photos/a-ferry-is-docked-in-front-of-a-large-building-zRnU-14t4Bw",
+  "pick": 0
+ },
+ "spot:qingdao:0": {
+  "id": "3VhHKpPSum0",
+  "raw": "https://images.unsplash.com/photo-1739433748002-5b2cc70a99e6?ixid=M3wxMTQzNTA5fDB8MXxzZWFyY2h8MXx8WmhhbnFpYW8lMjBwaWVyJTIwUWluZ2Rhb3xlbnwxfDB8fHwxNzk1NTIxNTU3fDA&ixlib=rb-4.1.0",
+  "color": "#0c5959",
+  "alt": "An aerial view of a pier with a boat in the water",
+  "name": "R HAI",
+  "userUrl": "https://unsplash.com/@huakaiqingyou",
+  "page": "https://unsplash.com/photos/an-aerial-view-of-a-pier-with-a-boat-in-the-water-3VhHKpPSum0",
+  "pick": 0
+ },
+ "spot:qingdao:2": {
+  "id": "VwtQgS9FfYA",
+  "raw": "https://images.unsplash.com/photo-1682426182468-0e9492f00cc2?ixid=M3wxMTQzNTA5fDB8MXxzZWFyY2h8MXx8QmFkYWd1YW4lMjBRaW5nZGFvfGVufDF8MHx8fDE3OTU1MjE1NTh8MA&ixlib=rb-4.1.0",
+  "color": "#260c0c",
+  "alt": "a neon sign that says tsingtato on it",
+  "name": "Hyory Liu",
+  "userUrl": "https://unsplash.com/@lxrsone",
+  "page": "https://unsplash.com/photos/a-neon-sign-that-says-tsingtato-on-it-VwtQgS9FfYA",
+  "pick": 0
+ },
+ "spot:qingdao:3": {
+  "id": "VwtQgS9FfYA",
+  "raw": "https://images.unsplash.com/photo-1682426182468-0e9492f00cc2?ixid=M3wxMTQzNTA5fDB8MXxzZWFyY2h8MXx8TWF5JTIwRm91cnRoJTIwU3F1YXJlJTIwUWluZ2Rhb3xlbnwxfDB8fHwxNzk1NTIxNTU4fDA&ixlib=rb-4.1.0",
+  "color": "#260c0c",
+  "alt": "a neon sign that says tsingtato on it",
+  "name": "Hyory Liu",
+  "userUrl": "https://unsplash.com/@lxrsone",
+  "page": "https://unsplash.com/photos/a-neon-sign-that-says-tsingtato-on-it-VwtQgS9FfYA",
+  "pick": 0
+ },
+ "spot:weihai:0": {
+  "id": "I7oLRdM9YIw",
+  "raw": "https://images.unsplash.com/photo-1559128010-7c1ad6e1b6a5?ixid=M3wxMTQzNTA5fDB8MXxzZWFyY2h8MXx8TGl1Z29uZyUyMGlzbGFuZCUyMFdlaWhhaXxlbnwxfDB8fHwxNzk1NTIxNTU5fDA&ixlib=rb-4.1.0",
+  "color": "#a6c0c0",
+  "alt": "green trees on cliff",
+  "name": "Tom Winckels",
+  "userUrl": "https://unsplash.com/@twinckels",
+  "page": "https://unsplash.com/photos/green-trees-on-cliff-I7oLRdM9YIw",
+  "pick": 0
  }
 }

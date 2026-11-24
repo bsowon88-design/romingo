@@ -9,9 +9,9 @@ import { cityPhoto } from '../../data/photos.js';
 
 const list = GUIDES.map((g) => ({ g, x: cityBySlug[g.city] })).filter((o) => o.x).map((o) => ({ ...o, co: bySlug[o.x.country] }));
 ---
-<Base title="해외 도시 여행 가이드 - 숙소 위치·공항 이동·추천 일정" desc="다낭, 오사카, 방콕 등 인기 해외 도시의 숙소 잡기 좋은 곳, 공항에서 시내 가는 법, 추천 일정, 주의할 점을 정리했어요.">
-  <p class="crumb"><a href="/">홈</a> › 도시 가이드</p>
-  <h1>도시 여행 가이드</h1>
+<Base title="해외 도시 여행가이드 - 숙소 위치·공항 이동·추천 일정" desc="다낭, 오사카, 방콕 등 인기 해외 도시의 숙소 잡기 좋은 곳, 공항에서 시내 가는 법, 추천 일정, 주의할 점을 정리했어요.">
+  <p class="crumb"><a href="/">홈</a> › 여행가이드</p>
+  <h1>도시 여행가이드</h1>
   <p class="lead">숙소 위치, 공항 이동, 추천 일정, 주의할 점을 도시별로 정리했어요. 계속 늘려 갈게요.</p>
   <div class="glist">
     {list.map(({ g, x, co }) => (

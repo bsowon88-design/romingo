@@ -1,9 +1,16 @@
-// 도시 가이드 — 자주 바뀌는 가격·시간표는 넣지 않음. 고친 날짜(updated)를 꼭 바꿀 것.
+// 여행가이드 — 자주 바뀌는 가격·시간표는 넣지 않음. 고친 날짜(updated)를 꼭 바꿀 것.
 // city: cities.js 의 slug
 export const GUIDES = [
   {
     city: 'danang',
     updated: '2026-11-24',
+    spots: [
+      { name: '바나힐 골든 브리지', desc: '거대한 손이 받치는 다리로 유명한 산 위 테마파크', q: 'Golden Bridge Ba Na Hills' },
+      { name: '미케 해변', desc: '시내에서 가까운 긴 모래 해변, 아침 산책 명소', q: 'My Khe beach Da Nang' },
+      { name: '호이안 올드타운', desc: '등불이 켜지는 밤 풍경이 아름다운 옛 거리', q: 'Hoi An ancient town lanterns' },
+      { name: '용다리', desc: '주말 밤에 불과 물을 뿜는 한강 위 용 모양 다리', q: 'Dragon Bridge Da Nang night' },
+      { name: '오행산', desc: '동굴과 사원이 있는 대리석 산, 전망이 좋아요', q: 'Marble Mountains Da Nang' },
+    ],
     intro: '해변 휴양과 가까운 관광지(호이안·바나힐)를 함께 즐길 수 있는 베트남 중부 도시예요. 공항이 시내와 아주 가까워서 짧은 일정에도 부담이 적어요.',
     areas: [
       { name: '미케 해변 주변', why: '바다 전망 호텔이 많고 해변 산책이 편해요. 가족·휴양 여행에 잘 맞아요.' },
@@ -39,6 +46,13 @@ export const GUIDES = [
   {
     city: 'osaka',
     updated: '2026-11-24',
+    spots: [
+      { name: '도톤보리', desc: '글리코 간판과 먹자골목이 있는 오사카 대표 거리', q: 'Dotonbori Osaka canal' },
+      { name: '오사카성', desc: '공원에 둘러싸인 성, 봄 벚꽃 명소', q: 'Osaka Castle' },
+      { name: '신세카이·츠텐카쿠', desc: '레트로한 골목과 쿠시카츠 가게가 모인 곳', q: 'Shinsekai Tsutenkaku Osaka' },
+      { name: '구로몬 시장', desc: '해산물·길거리 음식을 맛볼 수 있는 시장', q: 'Kuromon market Osaka' },
+      { name: '교토 후시미이나리', desc: '수천 개 붉은 도리이 길, 오사카에서 당일치기', q: 'Fushimi Inari torii gates' },
+    ],
     intro: '먹거리와 쇼핑이 강한 도시예요. 교토·나라·고베가 가까워서 하루씩 다녀오기 좋아요.',
     areas: [
       { name: '난바·도톤보리', why: '먹자골목과 쇼핑 거리 한가운데라 첫 오사카 여행에 가장 편해요. 간사이공항 가는 열차도 있어요.' },
@@ -73,6 +87,13 @@ export const GUIDES = [
   {
     city: 'bangkok',
     updated: '2026-11-24',
+    spots: [
+      { name: '왕궁', desc: '방콕을 대표하는 화려한 궁전과 에메랄드 사원', q: 'Grand Palace Bangkok' },
+      { name: '왓아룬', desc: '강 건너에서 보는 노을과 야경이 멋진 새벽 사원', q: 'Wat Arun Bangkok' },
+      { name: '왓포', desc: '길이 46m의 거대한 와불상이 있는 사원', q: 'Wat Pho reclining Buddha' },
+      { name: '짜뚜짝 주말시장', desc: '주말에만 열리는 아주 큰 시장', q: 'Chatuchak weekend market' },
+      { name: '담넌사두억 수상시장', desc: '배 위에서 물건을 파는 수상시장', q: 'Damnoen Saduak floating market' },
+    ],
     intro: '사원·야시장·쇼핑몰·마사지까지 즐길 거리가 아주 많은 태국의 수도예요. 물가가 비교적 저렴해서 자유여행 입문지로 인기가 많아요.',
     areas: [
       { name: '수쿰윗 (아속·프롬퐁 주변)', why: 'BTS 지상철과 지하철이 만나 이동이 편하고 식당·쇼핑몰이 많아요.' },

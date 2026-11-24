@@ -1,0 +1,73 @@
+---
+// 사진 슬라이드 (여러 개 써도 됨) — PC 2장, 폰 1장. items: [{ ph, title, sub }]
+const { items = [], label = '사진' } = Astro.props;
+const list = items.filter((x) => x.ph);
+---
+{list.length > 0 && (
+  <section class="ps" aria-label={label} data-ps>
+    <div class="ps-track">
+      {list.map(({ ph, title, sub }, i) => (
+        <figure class="ps-slide" style={`background:${ph.color}`}>
+          <img src={ph.src(720, 450)} srcset={ph.srcset(720, 450)} alt={ph.alt || title} loading={i < 2 ? 'eager' : 'lazy'} decoding="async" />
+          <span class="ps-shade"></span>
+          <figcaption>
+            <b>{title}</b>
+            {sub && <span>{sub}</span>}
+          </figcaption>
+          <span class="ps-credit">Photo by <a href={ph.userUrl} target="_blank" rel="noopener">{ph.name}</a> on <a href={ph.unsplashUrl} target="_blank" rel="noopener">Unsplash</a></span>
+        </figure>
+      ))}
+    </div>
+    {list.length > 2 && <button class="ps-arrow prev" aria-label="이전"><span>‹</span></button>}
+    {list.length > 2 && <button class="ps-arrow next" aria-label="다음"><span>›</span></button>}
+    {list.length > 1 && <div class="ps-dots">{list.map((x, i) => <button aria-label={x.title} data-i={i} class={i === 0 ? 'on' : ''}></button>)}</div>}
+  </section>
+)}
+
+<script>
+  document.querySelectorAll<HTMLElement>('[data-ps]').forEach((sec) => {
+    const track = sec.querySelector<HTMLElement>('.ps-track');
+    if (!track) return;
+    const slides = [...track.querySelectorAll<HTMLElement>('.ps-slide')];
+    const dots = [...sec.querySelectorAll<HTMLButtonElement>('.ps-dots button')];
+    const step = () => (slides[1] ? slides[1].offsetLeft - slides[0].offsetLeft : track.clientWidth);
+    const cur = () => Math.round(track.scrollLeft / step());
+    const perView = () => Math.max(1, Math.round(track.clientWidth / step()));
+    const go = (i: number) => {
+      const last = Math.max(0, slides.length - perView());
+      const n = i > last ? 0 : i < 0 ? last : i;
+      track.scrollTo({ left: n * step(), behavior: 'smooth' });
+    };
+    track.addEventListener('scroll', () => requestAnimationFrame(() => { const i = cur(); dots.forEach((d, k) => d.classList.toggle('on', k === i)); }), { passive: true });
+    sec.querySelector('.ps-arrow.prev')?.addEventListener('click', () => go(cur() - 1));
+    sec.querySelector('.ps-arrow.next')?.addEventListener('click', () => go(cur() + 1));
+    dots.forEach((d) => d.addEventListener('click', () => go(+(d.dataset.i || 0))));
+  });
+</script>
+
+<style>
+  .ps { position: relative; margin: 4px 0 8px; }
+  .ps-track { display: flex; gap: 12px; overflow-x: auto; scroll-snap-type: x mandatory; scrollbar-width: none; border-radius: 16px; }
+  .ps-track::-webkit-scrollbar { display: none; }
+  .ps-slide { position: relative; flex: 0 0 calc(50% - 6px); aspect-ratio: 16 / 10; margin: 0; border-radius: 16px; overflow: hidden; scroll-snap-align: start; color: #fff; isolation: isolate; }
+  .ps-slide img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; z-index: -2; }
+  .ps-shade { position: absolute; inset: 0; z-index: -1; background: linear-gradient(180deg, rgba(40,20,10,0) 45%, rgba(40,20,10,.75) 100%); }
+  figcaption { position: absolute; left: 16px; right: 16px; bottom: 14px; display: flex; flex-direction: column; gap: 2px; }
+  figcaption b { font-size: 19px; text-shadow: 0 1px 3px rgba(0,0,0,.4); }
+  figcaption span { font-size: 13.5px; opacity: .95; text-shadow: 0 1px 3px rgba(0,0,0,.4); }
+  .ps-credit { position: absolute; top: 8px; right: 10px; font-size: 10.5px; color: rgba(255,255,255,.85); text-shadow: 0 1px 2px rgba(0,0,0,.6); }
+  .ps-credit a { color: #fff; }
+  .ps-arrow { position: absolute; top: calc(50% - 14px); transform: translateY(-50%); width: 40px; height: 40px; border-radius: 50%; border: 0; background: rgba(255,255,255,.92); box-shadow: 0 4px 14px rgba(90,50,30,.25); color: var(--ink); font-size: 28px; line-height: 1; cursor: pointer; display: grid; place-items: center; }
+  .ps-arrow span { margin-top: -4px; }
+  .ps-arrow.prev { left: -12px; }
+  .ps-arrow.next { right: -12px; }
+  .ps-arrow:hover { color: var(--sea); }
+  .ps-dots { display: flex; justify-content: center; gap: 6px; margin-top: 8px; }
+  .ps-dots button { width: 7px; height: 7px; padding: 0; border: 0; border-radius: 999px; background: #E8D3C5; cursor: pointer; transition: width .2s; }
+  .ps-dots button.on { width: 20px; background: var(--coral); }
+  @media (max-width: 760px) {
+    .ps-slide { flex-basis: 100%; }
+    .ps-arrow { display: none; }
+    figcaption b { font-size: 17px; }
+  }
+</style>

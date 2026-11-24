@@ -80,14 +80,14 @@ const desc = `${c.ko} 여행 전 한눈에: 안전 상태, 외교부 여행경�
 
     {guides.length > 0 && (
       <>
-        <h2>📖 도시 가이드</h2>
+        <h2>📖 여행가이드</h2>
         <div class="gcards">
           {guides.map((x) => {
             const p = cityPhoto(x.slug);
             return (
               <a class="gcard" href={`/guide/${x.slug}/`}>
                 <span class:list={['gimg', 'hasbg', { photo: p }]} style={`--c1:${c.color[0]};--c2:${c.color[1]}`}>{p && <img class="bgimg" src={p.src(400, 220)} alt={x.ko} loading="lazy" />}</span>
-                <b>{x.ko} 여행 가이드</b>
+                <b>{x.ko} 여행가이드</b>
               </a>
             );
           })}

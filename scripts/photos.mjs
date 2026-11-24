@@ -4,6 +4,7 @@
 import { COUNTRIES } from '../src/data/countries.js';
 import { CITIES } from '../src/data/cities.js';
 import { PHOTO_PICK } from '../src/data/photo-pick.js';
+import { GUIDES } from '../src/data/guides.js';
 
 const API = 'https://api.unsplash.com';
 const MAX = 20;
@@ -11,9 +12,13 @@ const MAX = 20;
 const PEOPLE = /\b(man|men|woman|women|person|people|girl|boy|portrait|couple|child|kid|selfie|model|face)\b/i;
 
 export function photoTargets() {
+  // 순서 = 받는 순서: 나라 → 가이드 도시 → 가이드 관광지 → 나머지 도시
+  const gset = new Set(GUIDES.map((g) => g.city));
   return [
     ...COUNTRIES.map((c) => ({ key: `country:${c.slug}`, q: c.photoQ })),
-    ...CITIES.map((c) => ({ key: `city:${c.slug}`, q: c.photoQ })),
+    ...CITIES.filter((c) => gset.has(c.slug)).map((c) => ({ key: `city:${c.slug}`, q: c.photoQ })),
+    ...GUIDES.flatMap((g) => (g.spots || []).map((sp, i) => ({ key: `spot:${g.city}:${i}`, q: sp.q }))),
+    ...CITIES.filter((c) => !gset.has(c.slug)).map((c) => ({ key: `city:${c.slug}`, q: c.photoQ })),
   ].filter((t) => t.q);
 }
 

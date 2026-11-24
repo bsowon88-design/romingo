@@ -10,7 +10,7 @@ const path = Astro.url.pathname;
 const nav = [
   ['/', '홈', 'house', true],
   ['/country/', '나라별', 'globe', true],
-  ['/guide/', '도시 가이드', 'book-open', false],
+  ['/guide/', '여행가이드', 'book-open', false],
   ['/weather/', '날씨', 'cloud-sun', true],
   ['/safety/', '안전 정보', 'shield-check', true],
   ['/rates/', '환율', 'coins', true],
@@ -127,7 +127,7 @@ const isOn = (href) => (href === '/' ? path === '/' : path.startsWith(href) || (
         const list = el('div', 'slinks');
         // 나라 이름이 맞으면 그 나라 도시 전부, 도시만 맞으면 그 도시 먼저
         const cities = cHit ? [...cityHits, ...c.c.filter((x) => !cityHits.includes(x))] : cityHits;
-        for (const x of cities.filter((x) => x.g)) list.append(el('a', 'sl', `📖 ${x.k} 여행 가이드`, `/guide/${x.s}/`));
+        for (const x of cities.filter((x) => x.g)) list.append(el('a', 'sl', `📖 ${x.k} 여행가이드`, `/guide/${x.s}/`));
         const wc = cities.filter((x) => x.w).slice(0, 6);
         if (wc.length) {
           const row = el('span', 'sl wrow');

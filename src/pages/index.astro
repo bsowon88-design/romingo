@@ -33,7 +33,7 @@ const guides = GUIDES.map((g) => CITIES.find((x) => x.slug === g.city)).filter(B
   <section class="intro">
     <div>
       <h1>지금 그 나라, 가도 괜찮을까?</h1>
-      <p class="lead">안전·날씨·환율·여행 가이드를 한곳에서 확인하세요.</p>
+      <p class="lead">안전·날씨·환율·여행가이드를 한곳에서 확인하세요.</p>
     </div>
     <div class="isearch">
       <label class="search">
@@ -79,7 +79,7 @@ const guides = GUIDES.map((g) => CITIES.find((x) => x.slug === g.city)).filter(B
 
   {guides.length > 0 && (
     <>
-      <h2>📖 도시 가이드</h2>
+      <h2>📖 여행가이드</h2>
       <div class="chips">
         {guides.map((x) => <a href={`/guide/${x.slug}/`}><Flag iso={flagOf(bySlug[x.country])} size={18} /> {x.ko}</a>)}
         <a href="/guide/" class="all">전체 보기 →</a>

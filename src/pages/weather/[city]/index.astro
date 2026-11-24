@@ -45,7 +45,7 @@ const others = CITIES.filter((x) => x.country === city.country && x.slug !== cit
   </div>
 
   <div class="links">
-    {guideByCity[city.slug] && <a class="btn coral" href={`/guide/${city.slug}/`}>📖 {city.ko} 여행 가이드</a>}
+    {guideByCity[city.slug] && <a class="btn coral" href={`/guide/${city.slug}/`}>📖 {city.ko} 여행가이드</a>}
     <a class="btn" href={`/country/${co.slug}/`}><Flag iso={flagOf(co)} /> {co.ko} 안전·여행 정보</a>
   </div>
 

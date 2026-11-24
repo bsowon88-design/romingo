@@ -1,7 +1,8 @@
 ---
 import Flag from '../../components/Flag.astro';
 import PhotoCredit from '../../components/PhotoCredit.astro';
-import { cityPhoto } from '../../data/photos.js';
+import { cityPhoto, countryPhoto, photoOf } from '../../data/photos.js';
+import PhotoSlider from '../../components/PhotoSlider.astro';
 import { flagOf } from '../../data/countries.js';
 import Base from '../../layouts/Base.astro';
 import { GUIDES } from '../../data/guides.js';
@@ -16,23 +17,26 @@ export function getStaticPaths() {
 const { g } = Astro.props;
 const city = cityBySlug[g.city];
 const co = bySlug[city.country];
-const ph = cityPhoto(city.slug);
+const ph = cityPhoto(city.slug) || countryPhoto(co.slug);
+const spots = (g.spots || []).map((sp, i) => ({ ...sp, ph: photoOf(`spot:${g.city}:${i}`) }));
+const spotItems = spots.map((sp) => ({ ph: sp.ph, title: sp.name, sub: sp.desc }));
 const best = HAS_CLIMATE(city.slug) ? bestMonths(city.slug) : [];
 const nowM = +new Intl.DateTimeFormat('en-US', { timeZone: 'Asia/Seoul', month: 'numeric' }).format(new Date());
-const title = `${city.ko} 여행 가이드 - 숙소 위치·공항 이동·추천 일정·주의할 점`;
+const title = `${city.ko} 여행가이드 - 숙소 위치·공항 이동·추천 일정·주의할 점`;
 ---
 <Base title={title} desc={`${city.ko} 자유여행 준비: ${g.intro}`}>
-  <p class="crumb"><a href="/">홈</a> › <a href={`/country/${co.slug}/`}>{co.ko}</a> › {city.ko} 가이드</p>
+  <p class="crumb"><a href="/">홈</a> › <a href={`/country/${co.slug}/`}>{co.ko}</a> › {city.ko} 여행가이드</p>
 
   <section class:list={['ghero', 'hasbg', { photo: ph }]} style={`--c1:${co.color[0]};--c2:${co.color[1]}`}>
     {ph && <img class="bgimg" src={ph.src(1200, 460)} srcset={ph.srcset(1200, 460)} alt={ph.alt || city.ko} style={`background:${ph.color}`} />}
     {ph && <PhotoCredit p={ph} />}
     <p class="eyebrow"><Flag iso={flagOf(co)} /> {co.ko}</p>
-    <h1>{city.ko} 여행 가이드</h1>
+    <h1>{city.ko} 여행가이드</h1>
     <p>{g.intro}</p>
   </section>
 
   <nav class="toc">
+    {spots.length > 0 && <a href="#spots">📸 인기 관광지</a>}
     <a href="#areas">🏨 숙소 위치</a><a href="#airport">✈️ 공항 이동</a><a href="#move">🚇 시내 교통</a>
     <a href="#plan">🗓️ 추천 일정</a><a href="#money">💵 돈·결제</a><a href="#caution">⚠️ 주의할 점</a>
   </nav>
@@ -42,6 +46,17 @@ const title = `${city.ko} 여행 가이드 - 숙소 위치·공항 이동·추�
     {HAS_CLIMATE(city.slug) && <a class="q" href={`/weather/${city.slug}/${nowM}/`}><span>날씨</span><b>{nowM}월 날씨 보기 →</b></a>}
     <a class="q" href={`/country/${co.slug}/`}><span>안전·환율·긴급번호</span><b>{co.ko} 정보 보기 →</b></a>
   </div>
+
+  {spots.length > 0 && (
+    <>
+      <h2 id="spots">📸 {city.ko} 인기 관광지</h2>
+      {spotItems.some((x) => x.ph) ? (
+        <PhotoSlider items={spotItems} label={`${city.ko} 인기 관광지`} />
+      ) : (
+        <div class="spotlist">{spots.map((sp) => <div class="card"><b>{sp.name}</b><p>{sp.desc}</p></div>)}</div>
+      )}
+    </>
+  )}
 
   <h2 id="areas">🏨 숙소 잡기 좋은 곳</h2>
   <div class="areas">
@@ -80,6 +95,8 @@ const title = `${city.ko} 여행 가이드 - 숙소 위치·공항 이동·추�
   .q { display: flex; flex-direction: column; text-decoration: none; background: #FFF8F3; border: 1px solid #F6D9C7; border-radius: 14px; padding: 12px 14px; }
   .q span { font-size: 12.5px; color: var(--sub); font-weight: 600; }
   .q b { color: var(--sea); }
+  .spotlist { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 10px; }
+  .spotlist p { margin: 4px 0 0; color: var(--sub); font-size: 14px; }
   .areas { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 10px; }
   .areas p { margin: 4px 0 0; color: var(--sub); font-size: 14.5px; }
   .list { margin: 0; padding-left: 34px; }

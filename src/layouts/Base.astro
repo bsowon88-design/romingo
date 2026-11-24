@@ -233,6 +233,18 @@ const isOn = (href) => (href === '/' ? path === '/' : path.startsWith(href) || (
     tick();
     setInterval(tick, 30000);
   </script>
+  <script is:inline>
+    // PC 에서는 제목 앞 이모티콘을 빼서 깔끔하게 (폰은 그대로)
+    (function () {
+      if (!matchMedia('(min-width: 1024px)').matches) return;
+      var re = /^\s*(?:\p{Extended_Pictographic}|\p{Regional_Indicator}|[\u200d\ufe0f\u20e3])+\s*/u;
+      document.querySelectorAll('main h1, main h2, main h3, .tools b').forEach(function (h) {
+        var n = h.firstChild;
+        while (n && n.nodeType === 3 && !n.nodeValue.trim()) n = n.nextSibling;
+        if (n && n.nodeType === 3 && re.test(n.nodeValue)) n.nodeValue = n.nodeValue.replace(re, '');
+      });
+    })();
+  </script>
 </body>
 </html>
 
@@ -353,6 +365,25 @@ const isOn = (href) => (href === '/' ? path === '/' : path.startsWith(href) || (
   h1 { font-size: 26px; line-height: 1.35; letter-spacing: -0.02em; margin: 6px 0 8px; }
   h2 { font-size: 19px; letter-spacing: -0.01em; margin: 34px 0 12px; display: flex; align-items: center; gap: 8px; }
   h2 small { font-size: 13px; color: var(--sub); font-weight: 500; }
+
+  /* ── PC 디자인 (1024px 이상) — 넓게, 얇은 머리글, 흰 바탕 ── */
+  @media (min-width: 1024px) {
+    :root { --bg: #fff; }
+    .wrap { max-width: 1200px; padding: 0 24px; }
+    .top { background: rgba(255,255,255,.96); }
+    .top-in { height: 60px; gap: 28px; }
+    .logo { font-size: 19px; }
+    .top nav { justify-content: flex-start; gap: 2px; }
+    .top nav a { font-size: 15px; font-weight: 600; color: #5C4A40; padding: 8px 12px; border-radius: 0; }
+    .top nav a:hover { background: none; color: var(--ink); }
+    .top nav a .ico { display: none; }
+    .top nav a.on { color: var(--ink); font-weight: 800; }
+    .top nav a.on::after { bottom: -11px; height: 2px; left: 12px; right: 12px; background: var(--ink); }
+    .sbtn { font-size: 14px; font-weight: 600; padding: 6px 12px; background: #fff; }
+    .ibtn { width: 36px; height: 36px; }
+    h1 { font-size: 30px; letter-spacing: -0.03em; }
+    h2 { font-size: 22px; letter-spacing: -0.025em; margin: 44px 0 14px; }
+  }
   .lead { color: var(--sub); margin: 0 0 6px; }
   .muted { color: var(--sub); font-size: 14px; }
   .crumb { font-size: 13px; color: var(--sub); }

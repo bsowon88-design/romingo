@@ -33,7 +33,7 @@ const bigQ = st.quakes.filter((q) => q.mag >= 5 && BUILT_AT - q.time <= 90 * 864
 const others = COUNTRIES.filter((x) => x.region === c.region && x.slug !== c.slug);
 const partial = alarm && alarm.levels.length && alarm.levels.every((l) => /일부/.test(l.region));
 
-const title = `${c.ko} 여행 정보 모아보기 - 지금 가도 괜찮을까? 안전·날씨·환율`;
+const title = `${c.ko} 여행 정보 모아보기 - 안전·날씨·환율·가이드`;
 const desc = `${c.ko} 여행 전 한눈에: 안전 상태, 외교부 여행경보, ${nowM}월 날씨, ${tzDiffText(diff)}, ${c.volt} ${c.plug}${rate ? `, 환율 ${rate.line1}` : ''}.`;
 ---
 <Base title={title} desc={desc}>

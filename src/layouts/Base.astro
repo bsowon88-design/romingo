@@ -32,7 +32,9 @@ const isOn = (href) => (href === '/' ? path === '/' : path.startsWith(href) || (
   <meta property="og:description" content={desc} />
   <meta property="og:url" content={canonical} />
   <meta name="theme-color" content="#ffffff" />
-  <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+  <link rel="icon" href="/favicon-32.png" type="image/png" sizes="32x32" />
+  <link rel="icon" href="/favicon-48.png" type="image/png" sizes="48x48" />
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
   <link rel="preconnect" href="https://cdn.jsdelivr.net" />
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css" />
   <slot name="head" />
@@ -40,7 +42,7 @@ const isOn = (href) => (href === '/' ? path === '/' : path.startsWith(href) || (
 <body>
   <header class="top">
     <div class="wrap top-in">
-      <a href="/" class="logo"><span class="logo-mark">◎</span>로밍고<small>{SITE_TAGLINE}</small></a>
+      <a href="/" class="logo"><img class="logo-img" src="/favicon-48.png" srcset="/favicon-48.png 1x, /apple-touch-icon.png 2x" width="30" height="30" alt="" />로밍고<small>{SITE_TAGLINE}</small></a>
       <nav id="mainnav">
         {nav.map(([href, label, icon]) => (
           <a href={href} class={isOn(href) ? 'on' : ''}><Icon name={icon} size={18} />{label}</a>
@@ -231,7 +233,8 @@ const isOn = (href) => (href === '/' ? path === '/' : path.startsWith(href) || (
   .top { background: rgba(255,253,251,.95); backdrop-filter: blur(8px); color: var(--ink); position: sticky; top: 0; z-index: 10; border-bottom: 1px solid var(--line); }
   .top-in { display: grid; grid-template-columns: auto 1fr auto; align-items: center; gap: 16px; height: 64px; }
   .logo { text-decoration: none; font-weight: 800; font-size: 20px; display: flex; align-items: baseline; gap: 6px; letter-spacing: -0.02em; }
-  .logo-mark { color: var(--coral); }
+  .logo { align-items: center !important; }
+  .logo-img { width: 30px; height: 30px; flex: none; align-self: center; }
   .logo small { font-weight: 500; font-size: 12px; color: var(--sub); }
   .top nav { display: flex; justify-content: center; gap: 4px; }
   .top nav a { position: relative; display: inline-flex; align-items: center; gap: 6px; text-decoration: none; font-size: 16px; font-weight: 700; color: #4A3A32; padding: 10px 12px; border-radius: 10px; white-space: nowrap; }

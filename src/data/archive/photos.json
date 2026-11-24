@@ -1408,5 +1408,65 @@
   "userUrl": "https://unsplash.com/@thattravelblog",
   "page": "https://unsplash.com/photos/green-and-red-pagoda-temple-ZAwMMAoabrU",
   "pick": 0
+ },
+ "city:phuket": {
+  "id": "z6-wQHB6p2Y",
+  "raw": "https://images.unsplash.com/photo-1551418843-01c6b62e864d?ixid=M3wxMTQzNTA5fDB8MXxzZWFyY2h8MXx8UGh1a2V0JTIwYmVhY2h8ZW58MXwwfHx8MTc5NTU1MzgxOXww&ixlib=rb-4.1.0",
+  "color": "#f3f3d9",
+  "alt": "two brown boats on seashore",
+  "name": "The DK Photography",
+  "userUrl": "https://unsplash.com/@deepain108",
+  "page": "https://unsplash.com/photos/two-brown-boats-on-seashore-z6-wQHB6p2Y",
+  "pick": 0
+ },
+ "city:chiangmai": {
+  "id": "F07KhNovxRk",
+  "raw": "https://images.unsplash.com/photo-1599576838688-8a6c11263108?ixid=M3wxMTQzNTA5fDB8MXxzZWFyY2h8MXx8Q2hpYW5nJTIwTWFpJTIwdGVtcGxlfGVufDF8MHx8fDE3OTU1NTM4MTl8MA&ixlib=rb-4.1.0",
+  "color": "#c0c0c0",
+  "alt": "brown and white concrete house surrounded by green trees during daytime",
+  "name": "Peter Borter",
+  "userUrl": "https://unsplash.com/@peter_borter",
+  "page": "https://unsplash.com/photos/brown-and-white-concrete-house-surrounded-by-green-trees-during-daytime-F07KhNovxRk",
+  "pick": 0
+ },
+ "city:pattaya": {
+  "id": "jWKk-0ZBUyg",
+  "raw": "https://images.unsplash.com/photo-1552465011-b4e21bf6e79a?ixid=M3wxMTQzNTA5fDB8MXxzZWFyY2h8MXx8UGF0dGF5YSUyMGJlYWNofGVufDF8MHx8fDE3OTU1NTM4MjB8MA&ixlib=rb-4.1.0",
+  "color": "#0c59c0",
+  "alt": "five brown wooden boats",
+  "name": "Sumit Chinchane",
+  "userUrl": "https://unsplash.com/@sumit_ac",
+  "page": "https://unsplash.com/photos/five-brown-wooden-boats-jWKk-0ZBUyg",
+  "pick": 0
+ },
+ "city:boracay": {
+  "id": "u0wbwPCGlQo",
+  "raw": "https://images.unsplash.com/photo-1708195559744-c2b3e60dbe27?ixid=M3wxMTQzNTA5fDB8MXxzZWFyY2h8MXx8Qm9yYWNheSUyMGJlYWNofGVufDF8MHx8fDE3OTU1NTM4MjB8MA&ixlib=rb-4.1.0",
+  "color": "#408cd9",
+  "alt": "a colorful surfboard sitting on a beach next to a life guard tower",
+  "name": "Maksim Grigorev",
+  "userUrl": "https://unsplash.com/@maxgrig",
+  "page": "https://unsplash.com/photos/a-colorful-surfboard-sitting-on-a-beach-next-to-a-life-guard-tower-u0wbwPCGlQo",
+  "pick": 0
+ },
+ "city:bohol": {
+  "id": "39LNOwlQIyQ",
+  "raw": "https://images.unsplash.com/photo-1708353234006-5f1a3f92a63a?ixid=M3wxMTQzNTA5fDB8MXxzZWFyY2h8MXx8Qm9ob2wlMjBDaG9jb2xhdGUlMjBIaWxsc3xlbnwxfDB8fHwxNzk1NTUzODIxfDA&ixlib=rb-4.1.0",
+  "color": "#a6c0d9",
+  "alt": "a group of large mounds in the middle of a forest",
+  "name": "Maksim Grigorev",
+  "userUrl": "https://unsplash.com/@maxgrig",
+  "page": "https://unsplash.com/photos/a-group-of-large-mounds-in-the-middle-of-a-forest-39LNOwlQIyQ",
+  "pick": 0
+ },
+ "city:manila": {
+  "id": "vL2h7xYiIlk",
+  "raw": "https://images.unsplash.com/photo-1598258710957-db8614c2881e?ixid=M3wxMTQzNTA5fDB8MXxzZWFyY2h8MXx8TWFuaWxhJTIwc2t5bGluZXxlbnwxfDB8fHwxNzk1NTUzODIxfDA&ixlib=rb-4.1.0",
+  "color": "#8cc0d9",
+  "alt": "city skyline under blue sky during daytime",
+  "name": "Alexes Gerard",
+  "userUrl": "https://unsplash.com/@xlexes",
+  "page": "https://unsplash.com/photos/city-skyline-under-blue-sky-during-daytime-vL2h7xYiIlk",
+  "pick": 0
  }
 }

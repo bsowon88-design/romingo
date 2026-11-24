@@ -11,5 +11,7 @@ export const VIDEOS = {
   guam: { id: 'Y-aT2vseF9M', by: '괌정부관광청' },
   nhatrang: { id: 'hjimn6SOyoE', by: '베트남관광청 (Vietnam Tourism)' },
   cebu: { id: 'jmCwWbAWyZ8', by: '필리핀관광부 (Tourism Philippines)' },
+  nagoya: { id: 'KBjUSiXEEcg', by: '나고야시 관광 (VISIT NAGOYA)' },
+  kualalumpur: { id: 'oOQ1SbkU_c4', by: '말레이시아관광청 (Malaysia Truly Asia)', note: '말레이시아 전체 홍보영상' },
   danang: { id: 'K9tDoB0cKnk', by: '다낭관광청 협업 (Danang FantastiCity × OnlyC)' },
 };

@@ -83,11 +83,11 @@ function normKac(r, ap, ymd) {
 export async function fetchKacDay(key, ymd) {
   const all = [];
   for (const ap of KAC_AIRPORTS) {
-    for (let page = 1; page <= 5; page++) {
+    for (let page = 1; page <= 10; page++) {
       const u = new URL(URL_KAC);
       u.searchParams.set('serviceKey', key);
       u.searchParams.set('type', 'json');
-      u.searchParams.set('numOfRows', '500');
+      u.searchParams.set('numOfRows', '100');
       u.searchParams.set('pageNo', String(page));
       u.searchParams.set('searchday', ymd);
       u.searchParams.set('airport_code', ap);
@@ -97,10 +97,12 @@ export async function fetchKacDay(key, ymd) {
       let j;
       try { j = JSON.parse(text); } catch { throw new Error(`${ap} JSON 아님 (HTTP ${res.status}): ${text.slice(0, 160)}`); }
       const items = findItems(j) || [];
+      // 받은 게 없으면 응답 앞부분을 기록 (원인 확인용 — 키는 응답에 없음)
+      if (page === 1 && !items.length) console.log(`  공항공사 ${ap} ${ymd} 빈 응답 (HTTP ${res.status}):`, text.slice(0, 300));
       if (!kacLogged && items[0]) { kacLogged = true; console.log(`  공항공사 ${ap} 항목 이름:`, Object.keys(items[0]).join(', ')); console.log('  예시:', JSON.stringify(items[0]).slice(0, 400)); }
       all.push(...items.filter((r) => { const l = pick(r, /^line$|line_?type|^io_?line$/i); return !l || /^i$|국제/i.test(String(l)); }).map((r) => normKac(r, ap, ymd)));
       const total = findTotal(j);
-      if (items.length < 500 || (total != null && page * 500 >= total)) break;
+      if (items.length < 100 || (total != null && page * 100 >= total)) break;
     }
   }
   return all;
@@ -132,7 +134,7 @@ const kst = (d) => new Date(d.getTime() + 9 * 36e5).toISOString().slice(0, 10);
 export async function updatePopular(key, old) {
   const today = kst(new Date());
   const base = old && !Array.isArray(old) ? old : {};
-  if (base.checked === today && base.v === 2) return { out: base, changed: false };
+  if (base.checked === today && base.v === 3) return { out: base, changed: false };
   const days = { ...(base.days || {}) };
   const meta = { ...(base.meta || {}) };
   let got = 0;
@@ -153,7 +155,7 @@ export async function updatePopular(key, old) {
   // 60일 넘은 기록은 지움
   const cut = kst(new Date(Date.now() - 60 * 864e5));
   for (const d of Object.keys(days)) if (d < cut) delete days[d];
-  return { out: { v: 2, checked: today, days, meta }, changed: true };
+  return { out: { v: 3, checked: today, days, meta }, changed: true };
 }
 
 // ── 오늘 운항 현황 (1시간마다) — 도시별 [편수, 결항, 지연] ──

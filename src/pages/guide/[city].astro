@@ -39,7 +39,7 @@ const title = `${city.ko} 여행가이드 - 숙소 위치·공항 이동·추천
 
   <nav class="toc">
     {spots.length > 0 && <a href="#spots">📸 인기 관광지</a>}
-    <a href="#city-safety">🛡️ 안전 현황</a><a href="#areas">🏨 숙소 위치</a><a href="#airport">✈️ 공항 이동</a><a href="#move">🚇 시내 교통</a>
+    <a href="#forecast">🌤️ 날씨 예보</a><a href="#city-safety">🛡️ 안전 현황</a><a href="#areas">🏨 숙소 위치</a><a href="#airport">✈️ 공항 이동</a><a href="#move">🚇 시내 교통</a>
     <a href="#plan">🗓️ 추천 일정</a><a href="#money">💵 돈·결제</a><a href="#caution">⚠️ 주의할 점</a>
   </nav>
 
@@ -49,9 +49,6 @@ const title = `${city.ko} 여행가이드 - 숙소 위치·공항 이동·추천
     <a class="q" href={`/country/${co.slug}/`}><span>안전·환율·긴급번호</span><b>{co.ko} 정보 보기 →</b></a>
   </div>
 
-  <CitySafety city={city} />
-  <Forecast city={city} />
-  <a class="addtrip" href={`/my/?add=${city.slug}`}>🧳 {city.ko} 여행을 나의 여행에 추가</a>
 
   {spots.length > 0 && (
     <>
@@ -63,6 +60,10 @@ const title = `${city.ko} 여행가이드 - 숙소 위치·공항 이동·추천
       )}
     </>
   )}
+
+  <Forecast city={city} />
+  <CitySafety city={city} />
+  <a class="addtrip" href={`/my/?add=${city.slug}`}>🧳 {city.ko} 여행을 나의 여행에 추가</a>
 
   <h2 id="areas">🏨 숙소 잡기 좋은 곳</h2>
   <div class="areas">

@@ -41,7 +41,7 @@ const opts = CITY_GROUPS;
 
   <div id="cmp" class="cmp"></div>
   <Updated />
-  <p class="muted small">비행시간은 서울에서 직선거리로 어림한 값이에요(직항 기준, 실제와 조금 다를 수 있어요). 날씨는 최근 10년 평균(NASA POWER), 오늘 운항은 인천공항 자료예요.</p>
+  <p class="muted small">비행시간은 서울에서 직선거리로 어림한 값이에요(직항 기준, 실제와 조금 다를 수 있어요). 날씨는 최근 10년 평균(NASA POWER), 오늘 운항은 인천국제공항공사·한국공항공사 자료예요(인천·김포·김해·제주 출발).</p>
 
   <script type="application/json" id="tdata" set:html={JSON.stringify(TRIP_DATA)}></script>
   <script type="application/json" id="tlabels" set:html={JSON.stringify(labels)}></script>
@@ -133,7 +133,7 @@ const opts = CITY_GROUPS;
     })));
     t.append(row('환율', cs.map((c) => (c.rate ? frag(el('b', '', c.rate[0]), el('small', '', c.rate[1])) : '-'))));
     t.append(row('전압·플러그', cs.map((c) => `${c.volt} · ${c.plug}`)));
-    t.append(row('오늘 인천 출발편', slugs.map((s) => {
+    t.append(row('오늘 한국 출발편', slugs.map((s) => {
       if (FL === undefined) return '확인 중…';
       if (FL === null) return '확인 중';
       const v = FL.c?.[`c:${s}`];

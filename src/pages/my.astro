@@ -176,11 +176,11 @@ const quick = ['danang', 'osaka', 'tokyo', 'bangkok', 'cebu', 'taipei'];
 
     // 오늘 운항
     const f = el('div', 'tile');
-    f.append(el('span', 'tl', '오늘 인천 출발편'));
+    f.append(el('span', 'tl', '오늘 한국 출발편'));
     const v = fl?.c?.[`c:${t.city}`];
     if (fl === undefined) f.append(el('b', '', '확인 중…'));
     else if (fl === null) f.append(el('b', '', '확인 중'), el('small', '', '운항 정보를 불러오지 못했어요'));
-    else if (!v) f.append(el('b', '', '직항 없음'), el('small', '', `오늘 인천 → ${c.ko} 직항이 없어요`));
+    else if (!v) f.append(el('b', '', '직항 없음'), el('small', '', `오늘 한국 → ${c.ko} 직항이 없어요`));
     else f.append(el('b', '', `${v[0]}편`), el('small', v[1] ? 'bad' : v[2] ? 'warn' : '', `결항 ${v[1]} · 지연 ${v[2]}`));
     tiles.append(f);
 

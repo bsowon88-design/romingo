@@ -13,10 +13,10 @@ const max = list[0]?.flights || 1;
 const nowM = +new Intl.DateTimeFormat('en-US', { timeZone: 'Asia/Seoul', month: 'numeric' }).format(new Date());
 const fmt = (d) => d.slice(5).replace('-', '.');
 ---
-<Base title="인기 도시 - 이번 주 인천공항 출발 많은 해외 도시 순위" desc="이번 주 인천공항에서 출발하는 비행기가 가장 많은 해외 도시 순위. 요즘 사람들이 많이 가는 여행지를 실제 항공편 수로 확인하세요.">
+<Base title="인기 도시 - 이번 주 한국에서 출발 많은 해외 도시 순위" desc="이번 주 인천·김포·김해·제주에서 출발하는 국제선이 가장 많은 해외 도시 순위. 요즘 사람들이 많이 가는 여행지를 실제 항공편 수로 확인하세요.">
   <p class="crumb"><a href="/">홈</a> › 인기 도시</p>
   <h1>인기 도시</h1>
-  <p class="lead">이번 주 <b>인천공항에서 출발하는 여객기</b>가 가장 많은 도시 순위예요. 요즘 사람들이 실제로 많이 가는 곳이에요.</p>
+  <p class="lead">이번 주 <b>인천·김포·김해·제주에서 출발하는 국제선 여객기</b>가 가장 많은 도시 순위예요. 요즘 사람들이 실제로 많이 가는 곳이에요.</p>
 
   {POP_READY && list.length ? (
     <>
@@ -53,10 +53,10 @@ const fmt = (d) => d.slice(5).replace('-', '.');
           );
         })}
       </ol>
-      <p class="muted" style="margin-top:16px">▲▼는 지난주 같은 기간보다 출발편이 늘었는지 줄었는지예요. 자료: 인천국제공항공사 운항 정보 (공공데이터포털). 김포·김해 등 다른 공항 출발은 아직 포함되지 않았어요.</p>
+      <p class="muted" style="margin-top:16px">▲▼는 지난주 같은 기간보다 출발편이 늘었는지 줄었는지예요. 자료: 인천국제공항공사·한국공항공사 운항 정보 (공공데이터포털). 청주·대구 등 다른 지방공항 출발은 포함되지 않았어요.</p>
     </>
   ) : (
-    <p class="card empty">인천공항 출발편 자료를 모으는 중이에요. 하루 안에 순위가 채워져요.</p>
+    <p class="card empty">출발편 자료를 모으는 중이에요. 하루 안에 순위가 채워져요.</p>
   )}
 </Base>
 

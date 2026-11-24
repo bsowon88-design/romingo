@@ -1,5 +1,5 @@
 ---
-// 도시 기준 안전 현황 — 반경 안 지진·재난 + 외교부 경보 + 오늘 인천 출발편
+// 도시 기준 안전 현황 — 반경 안 지진·재난 + 외교부 경보 + 오늘 한국 출발편
 import { citySafety, CITY_STATUS_NOTE, QUAKE_KM } from '../data/near.js';
 import { STATUS_KO, ALARM_KO } from '../data/load.js';
 import { bySlug } from '../data/countries.js';
@@ -63,7 +63,7 @@ const qLink = (q) => (q.mag >= 5 ? `/quake/${q.id}/` : q.url);
     </div>
 
     <div class="tile" data-flight={`c:${city.slug}`} data-name={city.ko}>
-      <span class="tl">오늘 인천 출발편</span>
+      <span class="tl">오늘 한국 출발편</span>
       <b class="fl-main">확인 중…</b>
       <small class="fl-sub">결항·지연 편수</small>
     </div>
@@ -95,7 +95,7 @@ const qLink = (q) => (q.mag >= 5 ? `/quake/${q.id}/` : q.url);
           const sub = b.querySelector('.fl-sub')!;
           if (!v) {
             main.textContent = '직항 없음';
-            sub.textContent = `오늘 인천 → ${b.dataset.name} 직항이 없어요`;
+            sub.textContent = `오늘 한국 → ${b.dataset.name} 직항이 없어요`;
             return;
           }
           const [n, cancel, delay] = v;

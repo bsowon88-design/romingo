@@ -39,6 +39,23 @@ const desc = `${c.ko} 여행 전 한눈에: 안전 상태, 외교부 여행경�
 ---
 <Base title={title} desc={desc}>
   <CountryShell c={c}>
+    {guides.length > 0 && (
+      <>
+        <h2 class="gtop">📖 {c.ko} 여행가이드</h2>
+        <div class="gcards">
+          {guides.map((x) => {
+            const p = cityPhoto(x.slug);
+            return (
+              <a class="gcard" href={`/guide/${x.slug}/`}>
+                <span class:list={['gimg', 'hasbg', { photo: p }]} style={`--c1:${c.color[0]};--c2:${c.color[1]}`}>{p && <img class="bgimg" src={p.src(400, 220)} alt={x.ko} loading="lazy" />}</span>
+                <b>{x.ko} 여행가이드</b>
+              </a>
+            );
+          })}
+        </div>
+      </>
+    )}
+
     <section class="sumgrid">
       <a class={`card sbox s-${st.level}`} href={`/country/${c.slug}/safety/`}>
         <span class="tl">자연재난</span>
@@ -83,23 +100,6 @@ const desc = `${c.ko} 여행 전 한눈에: 안전 상태, 외교부 여행경�
 
     <HolidayBox c={c} />
 
-    {guides.length > 0 && (
-      <>
-        <h2>📖 여행가이드</h2>
-        <div class="gcards">
-          {guides.map((x) => {
-            const p = cityPhoto(x.slug);
-            return (
-              <a class="gcard" href={`/guide/${x.slug}/`}>
-                <span class:list={['gimg', 'hasbg', { photo: p }]} style={`--c1:${c.color[0]};--c2:${c.color[1]}`}>{p && <img class="bgimg" src={p.src(400, 220)} alt={x.ko} loading="lazy" />}</span>
-                <b>{x.ko} 여행가이드</b>
-              </a>
-            );
-          })}
-        </div>
-      </>
-    )}
-
     {(adjusts.length > 0 || bigQ.length > 0) && (
       <>
         <h2>📢 최근 안전 소식</h2>
@@ -136,6 +136,7 @@ const desc = `${c.ko} 여행 전 한눈에: 안전 상태, 외교부 여행경�
 </Base>
 
 <style>
+  .gtop { margin-top: 18px; }
   .sumgrid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-top: 14px; }
   .sbox { display: flex; flex-direction: column; gap: 6px; align-items: flex-start; text-decoration: none; }
   .sbox:hover { border-color: var(--sea); }

@@ -1,4 +1,4 @@
-// 인기 도시 순위 — 인천공항 출발 여객편 수 (앞으로 7일) + 지난주와 비교
+// 인기 도시 순위 — 인천·김포·김해·제주 출발 국제선 여객편 수 (앞으로 7일) + 지난주와 비교
 import pop from './archive/popular.json';
 import { cityKeyOf, AIRPORTS } from './airports.js';
 const BY_NAME = {};

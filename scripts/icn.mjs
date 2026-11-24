@@ -51,6 +51,61 @@ async function fetchDay(key, ymd) {
   return rows;
 }
 
+// ── 김포·김해·제주 출발 국제선 (한국공항공사_실시간 항공기 운항정보 조회_GW, 같은 DATA_GO_KR_KEY) ──
+const URL_KAC = 'https://apis.data.go.kr/B551178/flight-status/depart';
+export const KAC_AIRPORTS = ['GMP', 'PUS', 'CJU'];
+let kacLogged = false;
+const pickKey = (o, re) => { for (const k of Object.keys(o)) if (re.test(k) && o[k] != null && o[k] !== '') return k; return null; };
+const withDate = (ymd, v) => { const t = String(v || '').replace(/\D/g, ''); return t.length === 4 ? ymd + t : t.length >= 12 ? t : ''; };
+
+function normKac(r, ap, ymd) {
+  // 도착 공항 코드 — 이름이 확실치 않아 여러 후보를 봄. 기준 공항(ap)과 같으면 다른 칸을 씀
+  let code = pick(r, /^arr_?airport_?code$|arrAirportCode|^arrv?_?city_?code$|^arr_?code$|arrivedCode/i);
+  if (!code) {
+    for (const [k, v] of Object.entries(r)) if (/airport_?code|city_?code/i.test(k) && String(v).toUpperCase() !== ap) { code = v; break; }
+  }
+  const name = pick(r, /^arr_?airport$|arrAirport(?!Code)|^arrv?_?city$|boardingEng|arr_?airport_?eng/i) || '';
+  const fl = pick(r, /^flight_?id$|flightId|^flt_?no$/i) || '';
+  const master = pick(r, /masterflightid|master_?flight/i) || '';
+  const cs = String(pick(r, /codeshare|code_?share/i) || '');
+  const slave = /^y$/i.test(cs) && master && master !== fl;
+  return {
+    airportCode: String(code || '').toUpperCase(),
+    airport: name,
+    fid: pick(r, /^f_?id$/i) || `${ap}-${master || fl}-${ymd}`,
+    codeshare: slave ? 'Slave' : 'Master',
+    remark: pick(r, /status|remark|rmk/i) || '',
+    scheduleDateTime: withDate(ymd, pick(r, /^std$|^sch(edule)?_?(time|date_?time)?$|plan_?time|^schTime$|scheduled/i)),
+    estimatedDateTime: withDate(ymd, pick(r, /^etd$|^est(imated)?_?(time|date_?time)?$|chg_?time|change_?time|^etdTime$|estimated/i)),
+  };
+}
+
+export async function fetchKacDay(key, ymd) {
+  const all = [];
+  for (const ap of KAC_AIRPORTS) {
+    for (let page = 1; page <= 5; page++) {
+      const u = new URL(URL_KAC);
+      u.searchParams.set('serviceKey', key);
+      u.searchParams.set('type', 'json');
+      u.searchParams.set('numOfRows', '500');
+      u.searchParams.set('pageNo', String(page));
+      u.searchParams.set('searchday', ymd);
+      u.searchParams.set('airport_code', ap);
+      u.searchParams.set('line', 'I');
+      const res = await fetch(u);
+      const text = await res.text();
+      let j;
+      try { j = JSON.parse(text); } catch { throw new Error(`${ap} JSON 아님 (HTTP ${res.status}): ${text.slice(0, 160)}`); }
+      const items = findItems(j) || [];
+      if (!kacLogged && items[0]) { kacLogged = true; console.log(`  공항공사 ${ap} 항목 이름:`, Object.keys(items[0]).join(', ')); console.log('  예시:', JSON.stringify(items[0]).slice(0, 400)); }
+      all.push(...items.filter((r) => { const l = pick(r, /^line$|line_?type|^io_?line$/i); return !l || /^i$|국제/i.test(String(l)); }).map((r) => normKac(r, ap, ymd)));
+      const total = findTotal(j);
+      if (items.length < 500 || (total != null && page * 500 >= total)) break;
+    }
+  }
+  return all;
+}
+
 // 하루치: { 도시열쇠: 편수 } — 코드셰어(같은 비행기의 다른 편명)는 빼고 셈
 function countDay(rows, meta) {
   const out = {};
@@ -77,7 +132,7 @@ const kst = (d) => new Date(d.getTime() + 9 * 36e5).toISOString().slice(0, 10);
 export async function updatePopular(key, old) {
   const today = kst(new Date());
   const base = old && !Array.isArray(old) ? old : {};
-  if (base.checked === today) return { out: base, changed: false };
+  if (base.checked === today && base.v === 2) return { out: base, changed: false };
   const days = { ...(base.days || {}) };
   const meta = { ...(base.meta || {}) };
   let got = 0;
@@ -86,6 +141,8 @@ export async function updatePopular(key, old) {
     const ymd = kst(d).replace(/-/g, '');
     try {
       const rows = await fetchDay(key, ymd);
+      // 김포·김해·제주 국제선도 같이 셈 (실패해도 인천은 그대로)
+      try { rows.push(...(await fetchKacDay(key, ymd))); } catch (e) { if (k === -3) console.warn('  공항공사 실패:', e.message); }
       if (rows.length) { days[kst(d)] = countDay(rows, meta); got++; }
     } catch (e) {
       console.warn(`  ${ymd} 실패:`, e.message);
@@ -96,7 +153,7 @@ export async function updatePopular(key, old) {
   // 60일 넘은 기록은 지움
   const cut = kst(new Date(Date.now() - 60 * 864e5));
   for (const d of Object.keys(days)) if (d < cut) delete days[d];
-  return { out: { checked: today, days, meta }, changed: true };
+  return { out: { v: 2, checked: today, days, meta }, changed: true };
 }
 
 // ── 오늘 운항 현황 (1시간마다) — 도시별 [편수, 결항, 지연] ──
@@ -110,6 +167,7 @@ export async function fetchTodayFlights(key) {
   const now = new Date();
   const ymd = kst(now).replace(/-/g, '');
   const rows = await fetchDay(key, ymd);
+  try { rows.push(...(await fetchKacDay(key, ymd))); } catch (e) { console.warn('  공항공사 실패:', e.message); }
   if (!rows.length) return null;
   const c = {};
   const seen = new Set();

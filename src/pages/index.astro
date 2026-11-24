@@ -54,7 +54,7 @@ const guides = GUIDES.map((g) => CITIES.find((x) => x.slug === g.city)).filter(B
 
   {popTop.length > 0 && (
     <>
-      <h2>✈️ 이번 주 인기 도시 <small>인천공항 출발편 기준</small></h2>
+      <h2>✈️ 이번 주 인기 도시 <small>인천·김포·김해·제주 출발 기준</small></h2>
       <div class="good">
         {popTop.map((r, i) => {
           const c = r.city ? cityBySlug[r.city] : null;

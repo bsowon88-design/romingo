@@ -618,5 +618,55 @@
   "userUrl": "https://unsplash.com/@jayjayli",
   "page": "https://unsplash.com/photos/cityscape-with-illuminated-buildings-reflecting-in-water-at-night-cAKKzIgOKEQ",
   "pick": 0
+ },
+ "spot:cebu:1": {
+  "id": "Abj_zUko6Mg",
+  "raw": "https://images.unsplash.com/photo-1544552866-49ce864ff896?ixid=M3wxMTQzNTA5fDB8MXxzZWFyY2h8MXx8T3Nsb2IlMjB3aGFsZSUyMHNoYXJrfGVufDF8MHx8fDE3OTU1MTU2MzZ8MA&ixlib=rb-4.1.0",
+  "color": "#0c8cd9",
+  "alt": "A whale shark swimming through deep blue ocean water with light rays above",
+  "name": "Sebastian Pena Lambarri",
+  "userUrl": "https://unsplash.com/@sebaspenalambarri",
+  "page": "https://unsplash.com/photos/whale-shark-swimming-in-blue-ocean-Abj_zUko6Mg",
+  "pick": 0
+ },
+ "spot:cebu:2": {
+  "id": "LBMvueaBKT8",
+  "raw": "https://images.unsplash.com/photo-1495443942462-81f29560f7e0?ixid=M3wxMTQzNTA5fDB8MXxzZWFyY2h8MXx8S2F3YXNhbiUyMEZhbGxzJTIwQ2VidXxlbnwxfDB8fHwxNzk1NTE1NjM2fDA&ixlib=rb-4.1.0",
+  "color": "#26400c",
+  "alt": "photography of dam during daytime",
+  "name": "Toa Heftiba",
+  "userUrl": "https://unsplash.com/@heftiba",
+  "page": "https://unsplash.com/photos/photography-of-dam-during-daytime-LBMvueaBKT8",
+  "pick": 0
+ },
+ "spot:cebu:3": {
+  "id": "oO7d1Q9mJZQ",
+  "raw": "https://images.unsplash.com/photo-1495162048225-6b3b37b8a69e?ixid=M3wxMTQzNTA5fDB8MXxzZWFyY2h8MXx8Q2VidSUyMGlzbGFuZCUyMGhvcHBpbmclMjBzbm9ya2VsaW5nfGVufDF8MHx8fDE3OTU1MTU2Mzd8MA&ixlib=rb-4.1.0",
+  "color": "#0c2640",
+  "alt": "aerial photography of several white boats near island",
+  "name": "Ken Suarez",
+  "userUrl": "https://unsplash.com/@kensuarez",
+  "page": "https://unsplash.com/photos/aerial-photography-of-several-white-boats-near-island-oO7d1Q9mJZQ",
+  "pick": 0
+ },
+ "spot:cebu:4": {
+  "id": "oQSLTSK5NMU",
+  "raw": "https://images.unsplash.com/photo-1771868455008-c86fa226d9ee?ixid=M3wxMTQzNTA5fDB8MXxzZWFyY2h8MXx8QmFzaWxpY2ElMjBTYW50byUyME5pbm8lMjBDZWJ1fGVufDF8MHx8fDE3OTU1MTU2Mzd8MA&ixlib=rb-4.1.0",
+  "color": "#59a6d9",
+  "alt": "A large building with a tall tower and a courtyard",
+  "name": "Angelyn Sanjorjo",
+  "userUrl": "https://unsplash.com/@kiisstherain",
+  "page": "https://unsplash.com/photos/a-large-building-with-a-tall-tower-and-a-courtyard-oQSLTSK5NMU",
+  "pick": 0
+ },
+ "spot:nhatrang:0": {
+  "id": "dLkyhhC-e6Y",
+  "raw": "https://images.unsplash.com/photo-1533002832-1721d16b4bb9?ixid=M3wxMTQzNTA5fDB8MXxzZWFyY2h8MXx8TmhhJTIwVHJhbmclMjBiZWFjaHxlbnwxfDB8fHwxNzk1NTE1NjM3fDA&ixlib=rb-4.1.0",
+  "color": "#8cd9f3",
+  "alt": "aerial view of beach",
+  "name": "Huy",
+  "userUrl": "https://unsplash.com/@huykutis",
+  "page": "https://unsplash.com/photos/aerial-view-of-beach-dLkyhhC-e6Y",
+  "pick": 0
  }
 }

@@ -1202,11 +1202,11 @@
  {
   "id": "us7000tv4i",
   "mag": 5.4,
-  "place": "24 km NNW of Rioblanco, Colombia",
-  "time": 1793697194972,
-  "lat": 3.7,
-  "lon": -75.7,
-  "depth": 10,
+  "place": "15 km NW of Chaparral, Colombia",
+  "time": 1793697196656,
+  "lat": 3.8,
+  "lon": -75.6,
+  "depth": 20,
   "tsunami": 0,
   "alert": "green",
   "url": "https://earthquake.usgs.gov/earthquakes/eventpage/us7000tv4i"

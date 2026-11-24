@@ -1348,5 +1348,65 @@
   "userUrl": "https://unsplash.com/@wangbinghua",
   "page": "https://unsplash.com/photos/a-tall-building-with-a-clock-on-top-of-it-lQJBKf4A-V8",
   "pick": 0
+ },
+ "spot:kualalumpur:0": {
+  "id": "uPJzWWhPcP4",
+  "raw": "https://images.unsplash.com/photo-1472017053394-b29fded587cd?ixid=M3wxMTQzNTA5fDB8MXxzZWFyY2h8MXx8UGV0cm9uYXMlMjBUd2luJTIwVG93ZXJzJTIwbmlnaHR8ZW58MXwwfHx8MTc5NTU1MDY3N3ww&ixlib=rb-4.1.0",
+  "color": "#0c2626",
+  "alt": "Petronas Tower",
+  "name": "Vlad Shapochnikov",
+  "userUrl": "https://unsplash.com/@vladshap",
+  "page": "https://unsplash.com/photos/petronas-tower-uPJzWWhPcP4",
+  "pick": 0
+ },
+ "spot:kualalumpur:1": {
+  "id": "-d1BvBeb-2c",
+  "raw": "https://images.unsplash.com/photo-1681814677030-72ab971ac45b?ixid=M3wxMTQzNTA5fDB8MXxzZWFyY2h8MXx8QmF0dSUyMENhdmVzJTIwcmFpbmJvdyUyMHN0YWlyc3xlbnwxfDB8fHwxNzk1NTUwNjc4fDA&ixlib=rb-4.1.0",
+  "color": "#262626",
+  "alt": "a large statue of a god in front of a mountain",
+  "name": "Bo Zhang",
+  "userUrl": "https://unsplash.com/@bozh_ntu",
+  "page": "https://unsplash.com/photos/a-large-statue-of-a-god-in-front-of-a-mountain--d1BvBeb-2c",
+  "pick": 0
+ },
+ "spot:kualalumpur:2": {
+  "id": "vqxnSwBhN0Y",
+  "raw": "https://images.unsplash.com/photo-1663237155810-a292cca8fe47?ixid=M3wxMTQzNTA5fDB8MXxzZWFyY2h8MXx8TWVyZGVrYSUyMFNxdWFyZSUyMEt1YWxhJTIwTHVtcHVyfGVufDF8MHx8fDE3OTU1NTA2Nzh8MA&ixlib=rb-4.1.0",
+  "color": "#f3f3f3",
+  "alt": "a large building with a clock tower with Merdeka Square, Kuala Lumpur in the background",
+  "name": "Yosuke Ota",
+  "userUrl": "https://unsplash.com/@yosuke_ota",
+  "page": "https://unsplash.com/photos/a-large-building-with-a-clock-tower-with-merdeka-square-kuala-lumpur-in-the-background-vqxnSwBhN0Y",
+  "pick": 0
+ },
+ "spot:kualalumpur:4": {
+  "id": "YNmcd0wqBWg",
+  "raw": "https://images.unsplash.com/photo-1704858049694-de79dd04b558?ixid=M3wxMTQzNTA5fDB8MXxzZWFyY2h8NXx8TWFsYWNjYSUyMEpvbmtlciUyMFN0cmVldHxlbnwxfDB8fHwxNzk1NTUwNjc5fDA&ixlib=rb-4.1.0",
+  "color": "#262626",
+  "alt": "a market with a lot of food on display",
+  "name": "Joylynn Goh",
+  "userUrl": "https://unsplash.com/@joylynn_goh",
+  "page": "https://unsplash.com/photos/a-market-with-a-lot-of-food-on-display-YNmcd0wqBWg",
+  "pick": 0
+ },
+ "city:zhangjiajie": {
+  "id": "CRvaC071ZXo",
+  "raw": "https://images.unsplash.com/photo-1567266565245-c08dc046815f?ixid=M3wxMTQzNTA5fDB8MXxzZWFyY2h8MXx8WmhhbmdqaWFqaWUlMjBtb3VudGFpbnN8ZW58MXwwfHx8MTc5NTU1MDY4MHww&ixlib=rb-4.1.0",
+  "color": "#d9d9d9",
+  "alt": "Tall sandstone pillars rising above a misty valley in Zhangjiajie National Forest Park",
+  "name": "Robynne O",
+  "userUrl": "https://unsplash.com/@roborobs",
+  "page": "https://unsplash.com/photos/sandstone-pillars-in-zhangjiajie-national-park-CRvaC071ZXo",
+  "pick": 0
+ },
+ "city:kaohsiung": {
+  "id": "ZAwMMAoabrU",
+  "raw": "https://images.unsplash.com/photo-1571555788467-71d9e3add426?ixid=M3wxMTQzNTA5fDB8MXxzZWFyY2h8MXx8S2FvaHNpdW5nJTIwVGFpd2FufGVufDF8MHx8fDE3OTU1NTA2ODB8MA&ixlib=rb-4.1.0",
+  "color": "#f3f3f3",
+  "alt": "green and red pagoda temple",
+  "name": "Dave Weatherall",
+  "userUrl": "https://unsplash.com/@thattravelblog",
+  "page": "https://unsplash.com/photos/green-and-red-pagoda-temple-ZAwMMAoabrU",
+  "pick": 0
  }
 }

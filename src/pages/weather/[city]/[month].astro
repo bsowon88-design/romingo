@@ -1,0 +1,121 @@
+---
+import Base from '../../../layouts/Base.astro';
+import { CITIES } from '../../../data/cities.js';
+import { bySlug } from '../../../data/countries.js';
+import { HAS_CLIMATE, climateOf, seoulM, MONTHS, clothes, rainInfo, travelScore, scoreLabel, bestMonths, t1 } from '../../../data/weather.js';
+
+export function getStaticPaths() {
+  return CITIES.filter((c) => HAS_CLIMATE(c.slug)).flatMap((city) =>
+    MONTHS.map((m) => ({ params: { city: city.slug, month: String(m) }, props: { city, m } })),
+  );
+}
+
+const { city, m } = Astro.props;
+const co = bySlug[city.country];
+const cl = climateOf(city.slug);
+const d = cl.m[m - 1];
+const cw = clothes(d);
+const rn = rainInfo(d);
+const score = travelScore(d);
+const sl = scoreLabel(score);
+const best = bestMonths(city.slug);
+const se = seoulM(m);
+const diff = se ? Math.round((d.hi + d.lo) / 2 - (se.hi + se.lo) / 2) : null;
+const prev = m === 1 ? 12 : m - 1;
+const next = m === 12 ? 1 : m + 1;
+const sameCountry = CITIES.filter((x) => x.country === city.country && x.slug !== city.slug && HAS_CLIMATE(x.slug));
+
+const title = `${city.ko} ${m}월 날씨 - 기온·강수량·옷차림`;
+const desc = `${city.ko} ${m}월 평균 최고 ${t1(d.hi)}, 최저 ${t1(d.lo)}, 강수량 ${d.rain}mm(${rn.label}). ${cw.title}: ${cw.items.slice(0, 2).join(', ')}. ${sl.label}.`;
+---
+<Base title={title} desc={desc}>
+  <p class="crumb"><a href="/">홈</a> › <a href="/weather/">월별 날씨</a> › <a href={`/weather/${city.slug}/`}>{city.ko}</a> › {m}월</p>
+
+  <section class={`whero ${sl.cls}`}>
+    <div>
+      <p class="eyebrow">{co.flag} {co.ko}</p>
+      <h1>{city.ko} {m}월 날씨</h1>
+      <p class="sum">{cw.icon} 평균 {t1(d.lo)} ~ {t1(d.hi)} · {rn.label}</p>
+    </div>
+    <div class="score"><b>{score}</b><span>{sl.label}</span></div>
+  </section>
+
+  <div class="tiles">
+    <div class="tile"><span class="tl">평균 최고 기온</span><b class="hi">{t1(d.hi)}</b></div>
+    <div class="tile"><span class="tl">평균 최저 기온</span><b class="lo">{t1(d.lo)}</b></div>
+    <div class="tile"><span class="tl">한 달 강수량</span><b>{d.rain}mm</b><small>비 오는 날 약 {d.rdays}일</small></div>
+    <div class="tile"><span class="tl">평균 습도</span><b>{d.hum}%</b></div>
+  </div>
+
+  {diff !== null && (
+    <p class="note cmp">🇰🇷 같은 {m}월 서울(평균 {t1(se.lo)} ~ {t1(se.hi)})보다 <b>{diff === 0 ? '비슷해요' : `${Math.abs(diff)}도 ${diff > 0 ? '따뜻해요' : '추워요'}`}</b></p>
+  )}
+
+  <h2>{cw.icon} {m}월 {city.ko} 옷차림</h2>
+  <div class="card">
+    <b>{cw.title}</b>
+    <ul>{cw.items.map((x) => <li>{x}</li>)}</ul>
+  </div>
+
+  <h2>💧 비 오는 정도</h2>
+  <div class="card"><b>{rn.label}</b><p>{rn.text}</p></div>
+
+  <h2>📅 {city.ko} 여행하기 좋은 달</h2>
+  <div class="mnav">
+    {MONTHS.map((x) => (
+      <a href={`/weather/${city.slug}/${x}/`} class={`${x === m ? 'on' : ''} ${best.includes(x) ? 'best' : ''}`}>{x}월</a>
+    ))}
+  </div>
+  <p class="muted">초록 테두리가 기온과 비를 함께 봤을 때 여행하기 좋은 달이에요.</p>
+
+  <div class="pn">
+    <a class="btn ghost" href={`/weather/${city.slug}/${prev}/`}>← {prev}월 날씨</a>
+    <a class="btn ghost" href={`/weather/${city.slug}/${next}/`}>{next}월 날씨 →</a>
+  </div>
+
+  <h2>🧳 {co.ko} 여행 전에</h2>
+  <div class="links">
+    <a class="btn" href={`/country/${co.slug}/`}>{co.flag} {co.ko} 안전·환율·긴급번호 보기</a>
+  </div>
+
+  {sameCountry.length > 0 && (
+    <>
+      <h2>{co.ko} 다른 도시 {m}월 날씨</h2>
+      <div class="chips">{sameCountry.map((x) => <a href={`/weather/${x.slug}/${m}/`}>{x.ko}</a>)}</div>
+    </>
+  )}
+
+  <p class="muted" style="margin-top:20px">최근 10년({cl.years}) 평균이에요. 자료: NASA POWER. 실제 날씨는 해마다 다를 수 있으니 출발 전 일기예보도 확인하세요.</p>
+</Base>
+
+<style>
+  .whero { display: flex; justify-content: space-between; align-items: center; gap: 16px; margin-top: 10px; padding: 24px 22px; border-radius: 20px; color: #fff; background: linear-gradient(135deg, #0a84c6, #49d1b4); }
+  .whero.ok { background: linear-gradient(135deg, #4b6b86, #7fa6b8); }
+  .whero.bad { background: linear-gradient(135deg, #6a7a8a, #9aa7b3); }
+  .eyebrow { margin: 0; font-weight: 700; opacity: .9; }
+  .whero h1 { margin: 2px 0 4px; font-size: 30px; }
+  .sum { margin: 0; font-weight: 600; }
+  .score { display: flex; flex-direction: column; align-items: center; background: rgba(255,255,255,.2); border-radius: 16px; padding: 10px 16px; min-width: 96px; }
+  .score b { font-size: 30px; line-height: 1.1; }
+  .score span { font-size: 12.5px; font-weight: 700; }
+  .tiles { display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; margin-top: 14px; }
+  .tile { display: flex; flex-direction: column; gap: 2px; background: #fff; border: 1px solid var(--line); border-radius: 14px; padding: 14px; }
+  .tl { font-size: 12.5px; color: var(--sub); font-weight: 600; }
+  .tile b { font-size: 24px; }
+  .tile small { color: var(--sub); }
+  .hi { color: #d9603b; } .lo { color: #2f78c4; }
+  .cmp { margin-top: 12px; }
+  .card ul { margin: 6px 0 0; padding-left: 20px; }
+  .card p { margin: 4px 0 0; }
+  .mnav { display: grid; grid-template-columns: repeat(6, 1fr); gap: 6px; }
+  .mnav a { text-align: center; text-decoration: none; background: #fff; border: 1px solid var(--line); border-radius: 10px; padding: 8px 0; font-weight: 600; font-size: 14px; }
+  .mnav a.best { border: 2px solid var(--green); }
+  .mnav a.on { background: var(--sea); color: #fff; border-color: var(--sea); }
+  .pn { display: flex; justify-content: space-between; margin-top: 14px; }
+  .chips { display: flex; flex-wrap: wrap; gap: 8px; }
+  .chips a { text-decoration: none; background: #fff; border: 1px solid var(--line); border-radius: 999px; padding: 7px 13px; font-weight: 600; font-size: 14px; }
+  @media (max-width: 620px) {
+    .tiles { grid-template-columns: 1fr 1fr; }
+    .whero h1 { font-size: 25px; }
+  }
+</style>

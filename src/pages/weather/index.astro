@@ -1,0 +1,47 @@
+---
+import Base from '../../layouts/Base.astro';
+import { COUNTRIES } from '../../data/countries.js';
+import { CITIES } from '../../data/cities.js';
+import { HAS_CLIMATE, bestMonths } from '../../data/weather.js';
+
+const nowM = +new Intl.DateTimeFormat('en-US', { timeZone: 'Asia/Seoul', month: 'numeric' }).format(new Date());
+const groups = COUNTRIES.map((c) => ({ c, cities: CITIES.filter((x) => x.country === c.slug) })).filter((g) => g.cities.length);
+const ready = CITIES.some((c) => HAS_CLIMATE(c.slug));
+---
+<Base title="해외 여행지 월별 날씨 - 기온·강수량·옷차림" desc="다낭, 오사카, 방콕, 세부 등 인기 해외 여행지의 월별 평균 기온, 강수량, 옷차림, 여행하기 좋은 달을 한눈에 확인하세요.">
+  <p class="crumb"><a href="/">홈</a> › 월별 날씨</p>
+  <h1>해외 여행지 월별 날씨</h1>
+  <p class="lead">도시를 누르면 12달 날씨와 달마다 옷차림, 비 오는 정도, 여행하기 좋은 달을 볼 수 있어요.</p>
+  {!ready && <p class="note" style="margin-top:12px">날씨 자료를 모으는 중이에요. 곧 자동으로 채워져요.</p>}
+
+  {groups.map(({ c, cities }) => (
+    <section>
+      <h2>{c.flag} {c.ko}</h2>
+      <div class="wgrid">
+        {cities.map((x) => {
+          const ok = HAS_CLIMATE(x.slug);
+          const best = ok ? bestMonths(x.slug) : [];
+          return ok ? (
+            <a class="wc" href={`/weather/${x.slug}/`}>
+              <b>{x.ko}</b>
+              <span class="muted">추천 {best.map((m) => `${m}월`).join('·')}</span>
+              <span class="now">{nowM}월 날씨 보기 →</span>
+            </a>
+          ) : (
+            <span class="wc off"><b>{x.ko}</b><span class="muted">준비 중</span></span>
+          );
+        })}
+      </div>
+    </section>
+  ))}
+</Base>
+
+<style>
+  .wgrid { display: grid; grid-template-columns: repeat(auto-fill, minmax(170px, 1fr)); gap: 10px; }
+  .wc { display: flex; flex-direction: column; gap: 2px; background: #fff; border: 1px solid var(--line); border-radius: 14px; padding: 13px 14px; text-decoration: none; }
+  .wc:hover { border-color: var(--sea); }
+  .wc b { font-size: 16px; }
+  .wc .muted { font-size: 13px; }
+  .wc .now { font-size: 12.5px; color: var(--sea); font-weight: 600; margin-top: 4px; }
+  .wc.off { opacity: .55; }
+</style>

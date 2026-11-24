@@ -1,0 +1,81 @@
+---
+import Base from '../../../layouts/Base.astro';
+import { CITIES } from '../../../data/cities.js';
+import { bySlug } from '../../../data/countries.js';
+import { HAS_CLIMATE, climateOf, MONTHS, travelScore, scoreLabel, rainInfo, bestMonths, t1 } from '../../../data/weather.js';
+
+export function getStaticPaths() {
+  return CITIES.filter((c) => HAS_CLIMATE(c.slug)).map((city) => ({ params: { city: city.slug }, props: { city } }));
+}
+
+const { city } = Astro.props;
+const co = bySlug[city.country];
+const cl = climateOf(city.slug);
+const best = bestMonths(city.slug);
+const allHi = cl.m.map((d) => d.hi);
+const allLo = cl.m.map((d) => d.lo);
+const minT = Math.floor(Math.min(...allLo)) - 2;
+const maxT = Math.ceil(Math.max(...allHi)) + 2;
+const pct = (t) => ((t - minT) / (maxT - minT)) * 100;
+const others = CITIES.filter((x) => x.country === city.country && x.slug !== city.slug && HAS_CLIMATE(x.slug));
+---
+<Base title={`${city.ko} 월별 날씨 - 여행하기 좋은 달, 기온·강수량`} desc={`${city.ko} 1월부터 12월까지 평균 기온과 강수량, 옷차림. 여행하기 좋은 달은 ${best.map((m) => `${m}월`).join(', ')}이에요.`}>
+  <p class="crumb"><a href="/">홈</a> › <a href="/weather/">월별 날씨</a> › {city.ko}</p>
+  <h1>{co.flag} {city.ko} 월별 날씨</h1>
+  <p class="lead">여행하기 좋은 달: <b class="best">{best.map((m) => `${m}월`).join(' · ')}</b></p>
+
+  <div class="months">
+    {MONTHS.map((m) => {
+      const d = cl.m[m - 1];
+      const s = scoreLabel(travelScore(d));
+      const r = rainInfo(d);
+      return (
+        <a class={`mrow ${s.cls}`} href={`/weather/${city.slug}/${m}/`}>
+          <span class="mm">{m}월</span>
+          <span class="bar"><span class="fill" style={`left:${pct(d.lo)}%;width:${Math.max(4, pct(d.hi) - pct(d.lo))}%`}></span>
+            <span class="lo" style={`left:${pct(d.lo)}%`}>{t1(d.lo)}</span><span class="hi" style={`left:${pct(d.hi)}%`}>{t1(d.hi)}</span></span>
+          <span class="rain">💧 {d.rain}mm <small>{r.label}</small></span>
+          <span class={`sc ${s.cls}`}>{s.label}</span>
+        </a>
+      );
+    })}
+  </div>
+
+  <div class="links">
+    <a class="btn" href={`/country/${co.slug}/`}>{co.flag} {co.ko} 안전·여행 정보</a>
+  </div>
+
+  {others.length > 0 && (
+    <>
+      <h2>{co.ko} 다른 도시 날씨</h2>
+      <div class="chips">{others.map((x) => <a href={`/weather/${x.slug}/`}>{x.ko}</a>)}</div>
+    </>
+  )}
+  <p class="muted" style="margin-top:20px">최근 10년({cl.years}) 평균이에요. 자료: NASA POWER. 실제 날씨는 해마다 다를 수 있어요.</p>
+</Base>
+
+<style>
+  .best { color: var(--sea); }
+  .months { display: flex; flex-direction: column; gap: 6px; margin-top: 16px; }
+  .mrow { display: grid; grid-template-columns: 44px 1fr 150px 110px; gap: 12px; align-items: center; background: #fff; border: 1px solid var(--line); border-radius: 12px; padding: 10px 14px; text-decoration: none; }
+  .mrow:hover { border-color: var(--sea); }
+  .mm { font-weight: 800; }
+  .bar { position: relative; height: 30px; }
+  .fill { position: absolute; top: 12px; height: 7px; border-radius: 4px; background: linear-gradient(90deg, #6bb4f0, #ff9a6b); }
+  .lo, .hi { position: absolute; top: -3px; font-size: 12px; font-weight: 700; transform: translateX(-50%); }
+  .lo { color: #2f78c4; } .hi { color: #d9603b; }
+  .rain { font-size: 13px; }
+  .rain small { color: var(--sub); }
+  .sc { font-size: 12px; font-weight: 700; padding: 3px 8px; border-radius: 999px; text-align: center; }
+  .sc.good { background: #dff3e8; color: #1d7a4c; }
+  .sc.ok { background: #eef1f4; color: #55636e; }
+  .sc.bad { background: #fde8e3; color: #b3452a; }
+  .links { margin-top: 16px; }
+  .chips { display: flex; flex-wrap: wrap; gap: 8px; }
+  .chips a { text-decoration: none; background: #fff; border: 1px solid var(--line); border-radius: 999px; padding: 7px 13px; font-weight: 600; font-size: 14px; }
+  @media (max-width: 620px) {
+    .mrow { grid-template-columns: 38px 1fr 90px; }
+    .rain { display: none; }
+    .sc { font-size: 11px; padding: 3px 5px; }
+  }
+</style>

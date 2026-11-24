@@ -6,12 +6,15 @@ import {
 } from '../src/data/normalize.js';
 import { fetchAlarms, fetchAdjusts } from './mofa.mjs';
 import { fetchRates } from './ecos.mjs';
+import { fetchClimate } from './climate.mjs';
+import { CITIES, SEOUL } from '../src/data/cities.js';
 
 const Q_FILE = new URL('../src/data/archive/quakes.json', import.meta.url);
 const D_FILE = new URL('../src/data/archive/disasters.json', import.meta.url);
 const A_FILE = new URL('../src/data/archive/alarms.json', import.meta.url);
 const J_FILE = new URL('../src/data/archive/adjusts.json', import.meta.url);
 const R_FILE = new URL('../src/data/archive/rates.json', import.meta.url);
+const C_FILE = new URL('../src/data/archive/climate.json', import.meta.url);
 
 async function readList(file) {
   try {
@@ -92,6 +95,26 @@ if (!EKEY) {
   } catch (e) {
     console.warn('환율 수집 실패:', e.message);
   }
+}
+
+// 도시 월별 날씨 — 아직 없는 도시만 받아 옴 (처음 한 번)
+try {
+  const old = await readList(C_FILE);
+  const clim = Array.isArray(old) ? {} : { ...old };
+  const todo = [SEOUL, ...CITIES].filter((c) => !clim[c.slug]);
+  if (todo.length) console.log(`날씨: ${todo.length}개 도시 받기`);
+  for (const c of todo) {
+    try {
+      clim[c.slug] = await fetchClimate(c);
+      console.log(`  ${c.ko} 완료`);
+    } catch (e) {
+      console.warn(`  ${c.ko} 실패:`, e.message);
+    }
+    await new Promise((r) => setTimeout(r, 800));
+  }
+  if (todo.length) changed = (await save(C_FILE, old, clim, '날씨')) || changed;
+} catch (e) {
+  console.warn('날씨 수집 실패:', e.message);
 }
 
 console.log(changed ? '→ 바뀐 것 있음' : '→ 그대로');

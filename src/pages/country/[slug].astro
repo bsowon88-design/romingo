@@ -6,6 +6,8 @@ import { COUNTRIES, tzDiff, tzDiffText, CONSULAR_CALL } from '../../data/countri
 import { countryStatus, STATUS_KO, BUILT_AT, countryAlarm, countryAdjusts, ALARM_KO, HAS_ALARMS, countryRate } from '../../data/load.js';
 import { translatePlace, kstDateTime, kstDate } from '../../data/place.js';
 import { MOFA_URL } from '../../site.js';
+import { CITIES } from '../../data/cities.js';
+import { HAS_CLIMATE } from '../../data/weather.js';
 
 export function getStaticPaths() {
   return COUNTRIES.map((c) => ({ params: { slug: c.slug }, props: { c } }));
@@ -22,6 +24,8 @@ const alarm = countryAlarm(c);
 const adjusts = countryAdjusts(c);
 const rate = countryRate(c);
 const regionText = (r) => (/일부/.test(r) ? '일부 지역' : /전/.test(r) ? '전 지역' : r || '');
+const wcities = CITIES.filter((x) => x.country === c.slug && HAS_CLIMATE(x.slug));
+const nowM = +new Intl.DateTimeFormat('en-US', { timeZone: 'Asia/Seoul', month: 'numeric' }).format(new Date());
 const others = COUNTRIES.filter((x) => x.region === c.region && x.slug !== c.slug);
 
 const title = `${c.ko} 여행 정보 - 지금 가도 괜찮을까? 안전·시차·전압·긴급번호`;
@@ -103,6 +107,13 @@ const desc = `${c.ko} 여행 전 확인할 것: 지금 안전 상태(지진·태
     <div class="tile"><span class="ti">🏛️</span><span class="tl">수도</span><b>{c.capital}</b></div>
     {c.flight && <div class="tile"><span class="ti">✈️</span><span class="tl">인천에서 직항</span><b>{c.flight}</b></div>}
   </div>
+
+  {wcities.length > 0 && (
+    <>
+      <h2>🌤️ {c.ko} 월별 날씨</h2>
+      <div class="others">{wcities.map((x) => <a href={`/weather/${x.slug}/${nowM}/`}>{x.ko} {nowM}월 날씨</a>)}</div>
+    </>
+  )}
 
   <h2>📞 긴급 연락처</h2>
   <div class="tiles">

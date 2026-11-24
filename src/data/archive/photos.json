@@ -1568,5 +1568,55 @@
   "userUrl": "https://unsplash.com/@calebrussell",
   "page": "https://unsplash.com/photos/sydney-opera-house-near-body-of-water-during-daytime-JmuyB_LibRo",
   "pick": 0
+ },
+ "city:melbourne": {
+  "id": "dW8dOC8r7O4",
+  "raw": "https://images.unsplash.com/photo-1595434971780-79d5c20c5090?ixid=M3wxMTQzNTA5fDB8MXxzZWFyY2h8MXx8TWVsYm91cm5lJTIwY2l0eXxlbnwxfDB8fHwxNzk1NTY0Mjc3fDA&ixlib=rb-4.1.0",
+  "color": "#262626",
+  "alt": "city skyline during day time",
+  "name": "Urlaubstracker",
+  "userUrl": "https://unsplash.com/@urlaubstracker",
+  "page": "https://unsplash.com/photos/city-skyline-during-day-time-dW8dOC8r7O4",
+  "pick": 0
+ },
+ "city:goldcoast": {
+  "id": "O3ji6Tv0PtY",
+  "raw": "https://images.unsplash.com/photo-1607309843659-f4ad95cf3277?ixid=M3wxMTQzNTA5fDB8MXxzZWFyY2h8MXx8R29sZCUyMENvYXN0JTIwQXVzdHJhbGlhfGVufDF8MHx8fDE3OTU1NjQyNzd8MA&ixlib=rb-4.1.0",
+  "color": "#c0d9f3",
+  "alt": "aerial view of city buildings near sea during daytime",
+  "name": "City of Gold Coast",
+  "userUrl": "https://unsplash.com/@cityofgoldcoast",
+  "page": "https://unsplash.com/photos/aerial-view-of-city-buildings-near-sea-during-daytime-O3ji6Tv0PtY",
+  "pick": 0
+ },
+ "city:auckland": {
+  "id": "v9FIx0J-KAA",
+  "raw": "https://images.unsplash.com/photo-1595125990323-885cec5217ff?ixid=M3wxMTQzNTA5fDB8MXxzZWFyY2h8MXx8QXVja2xhbmQlMjBza3lsaW5lfGVufDF8MHx8fDE3OTU1NjQyNzh8MA&ixlib=rb-4.1.0",
+  "color": "#8cc0c0",
+  "alt": "The Auckland skyline and harbor under a warm low sun in New Zealand",
+  "name": "Sulthan Auliya",
+  "userUrl": "https://unsplash.com/@swafie",
+  "page": "https://unsplash.com/photos/auckland-skyline-and-harbor-in-new-zealand-v9FIx0J-KAA",
+  "pick": 0
+ },
+ "city:queenstown": {
+  "id": "5BuxuWIJF1Q",
+  "raw": "https://images.unsplash.com/photo-1547314283-befb6cc5cf29?ixid=M3wxMTQzNTA5fDB8MXxzZWFyY2h8MXx8UXVlZW5zdG93biUyME5ldyUyMFplYWxhbmR8ZW58MXwwfHx8MTc5NTU2NDI3OHww&ixlib=rb-4.1.0",
+  "color": "#262626",
+  "alt": "buildings near body of water and mountains under clear blue sky and white clouds at daytime",
+  "name": "Ömer Faruk Bekdemir",
+  "userUrl": "https://unsplash.com/@ofbekdemir",
+  "page": "https://unsplash.com/photos/buildings-near-body-of-water-and-mountains-under-clear-blue-sky-and-white-clouds-at-daytime-5BuxuWIJF1Q",
+  "pick": 0
+ },
+ "city:istanbul": {
+  "id": "2uemAqyp9rk",
+  "raw": "https://images.unsplash.com/photo-1623439844752-524658b16ce6?ixid=M3wxMTQzNTA5fDB8MXxzZWFyY2h8MXx8SXN0YW5idWwlMjBtb3NxdWV8ZW58MXwwfHx8MTc5NTU2NDI3OXww&ixlib=rb-4.1.0",
+  "color": "#c0f3f3",
+  "alt": "The Süleymaniye Mosque overlooking the city skyline and harbor in İstanbul, Türkiye",
+  "name": "Ibrahim Uzun",
+  "userUrl": "https://unsplash.com/@ibuzn",
+  "page": "https://unsplash.com/photos/suleymaniye-mosque-skyline-in-istanbul-2uemAqyp9rk",
+  "pick": 0
  }
 }

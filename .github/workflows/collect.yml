@@ -22,6 +22,9 @@ jobs:
           node-version: 22
       - name: 공식 데이터 모으기
         run: node scripts/collect.mjs
+        env:
+          DATA_GO_KR_KEY: ${{ secrets.DATA_GO_KR_KEY }}
+          ECOS_KEY: ${{ secrets.ECOS_KEY }}
       - name: 바뀐 것만 올리기
         run: |
           git config user.name "romingo-bot"

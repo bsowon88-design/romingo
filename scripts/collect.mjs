@@ -4,9 +4,12 @@ import { readFile, writeFile } from 'node:fs/promises';
 import {
   USGS_MONTH, gdacsUrl, normQuake, normDisaster, mergeById, getJson, ARCHIVE_MIN_MAG,
 } from '../src/data/normalize.js';
+import { fetchAlarms, fetchAdjusts } from './mofa.mjs';
 
 const Q_FILE = new URL('../src/data/archive/quakes.json', import.meta.url);
 const D_FILE = new URL('../src/data/archive/disasters.json', import.meta.url);
+const A_FILE = new URL('../src/data/archive/alarms.json', import.meta.url);
+const J_FILE = new URL('../src/data/archive/adjusts.json', import.meta.url);
 
 async function readList(file) {
   try {
@@ -46,6 +49,31 @@ try {
   changed = (await save(D_FILE, old, mergeById(old, list, 'from'), '재난 경보')) || changed;
 } catch (e) {
   console.warn('재난 경보 수집 실패:', e.message);
+}
+
+// 외교부 여행경보 — 키가 있을 때만
+const KEY = process.env.DATA_GO_KR_KEY;
+if (!KEY) {
+  console.log('외교부: DATA_GO_KR_KEY 없음, 건너뜀');
+} else {
+  try {
+    const alarms = await fetchAlarms(KEY);
+    if (Object.keys(alarms).length) {
+      const old = await readList(A_FILE);
+      changed = (await save(A_FILE, old, alarms, '여행경보')) || changed;
+    } else console.warn('여행경보: 받은 것 없음');
+  } catch (e) {
+    console.warn('여행경보 수집 실패:', e.message);
+  }
+  try {
+    const adj = await fetchAdjusts(KEY);
+    if (adj.length) {
+      const old = await readList(J_FILE);
+      changed = (await save(J_FILE, old, adj, '여행경보 조정')) || changed;
+    } else console.warn('여행경보 조정: 받은 것 없음');
+  } catch (e) {
+    console.warn('여행경보 조정 수집 실패:', e.message);
+  }
 }
 
 console.log(changed ? '→ 바뀐 것 있음' : '→ 그대로');

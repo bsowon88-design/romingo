@@ -2,10 +2,21 @@
 import Base from '../../layouts/Base.astro';
 import CountryCard from '../../components/CountryCard.astro';
 import { countryCards } from '../../data/load.js';
+import { REGIONS } from '../../data/countries.js';
 ---
-<Base title="나라별 여행 안전 정보" desc="일본, 대만, 베트남, 태국, 필리핀 등 인기 여행지의 최근 지진·태풍·홍수 소식과 안전 상태를 나라별로 확인하세요.">
+<Base title="나라별 여행 정보 - 안전·시차·전압·긴급번호" desc="일본, 대만, 베트남, 태국, 필리핀 등 인기 여행지의 안전 상태와 시차, 통화, 전압, 긴급번호를 나라별로 확인하세요.">
   <p class="crumb"><a href="/">홈</a> › 나라별</p>
-  <h1>나라별 여행 안전 정보</h1>
-  <p class="lead">가려는 나라를 누르면 최근 지진, 재난 경보, 외교부 안내를 한 번에 볼 수 있어요.</p>
-  <div class="grid" style="margin-top:18px">{countryCards.map((c) => <CountryCard c={c} />)}</div>
+  <h1>나라별 여행 정보</h1>
+  <p class="lead">가려는 나라를 누르면 안전 상태, 현지 시각, 통화, 전압, 긴급번호를 한 번에 볼 수 있어요.</p>
+  {REGIONS.map(([key, label]) => (
+    <section>
+      <h2>{label}</h2>
+      <div class="grid cgrid">{countryCards.filter((c) => c.region === key).map((c) => <CountryCard c={c} />)}</div>
+    </section>
+  ))}
 </Base>
+
+<style>
+  .cgrid { grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); }
+  @media (max-width: 520px) { .cgrid { grid-template-columns: 1fr 1fr; gap: 10px; } }
+</style>

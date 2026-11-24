@@ -2,6 +2,8 @@
 // 보관함(src/data/archive/*.json) + 지금 공식 데이터를 합침. 불러오기 실패하면 보관함만 씀.
 import quakeArchive from './archive/quakes.json';
 import disasterArchive from './archive/disasters.json';
+import alarmArchive from './archive/alarms.json';
+import adjustArchive from './archive/adjusts.json';
 import { USGS_MONTH, gdacsUrl, normQuake, normDisaster, mergeById, getJson } from './normalize.js';
 import { COUNTRIES, slugFromIso3 } from './countries.js';
 import { countryOf } from './place.js';
@@ -67,4 +69,31 @@ export const STATUS_KO = {
   calm: { label: '큰 재난 없음', note: '최근 7일 동안 큰 자연재난 소식이 없어요.' },
 };
 
-export const countryCards = COUNTRIES.map((c) => ({ ...c, st: countryStatus(c.slug) }));
+
+
+// ── 외교부 여행경보 ──
+export const ALARM_KO = {
+  1: { label: '여행유의', cls: 'm1', act: '신변 안전에 유의하세요' },
+  2: { label: '여행자제', cls: 'm2', act: '불필요한 여행은 자제하세요' },
+  3: { label: '출국권고', cls: 'm3', act: '여행을 취소·연기하고, 현지에 있으면 출국을 권고해요' },
+  4: { label: '여행금지', cls: 'm4', act: '방문이 금지된 곳이에요 (허가 없이 방문하면 처벌될 수 있어요)' },
+};
+export const HAS_ALARMS = Object.keys(alarmArchive || {}).length > 0;
+
+// 나라 페이지에 쓸 외교부 경보 (iso2 목록 중 처음 찾은 것)
+export function countryAlarm(c) {
+  for (const iso of c.iso2 || []) {
+    const a = alarmArchive?.[iso];
+    if (a) return a;
+  }
+  return null;
+}
+
+export function countryAdjusts(c, n = 5) {
+  const set = new Set(c.iso2 || []);
+  return (adjustArchive || []).filter((x) => set.has(x.iso)).slice(0, n);
+}
+
+export const latestAdjusts = (adjustArchive || []).slice(0, 6);
+
+export const countryCards = COUNTRIES.map((c) => ({ ...c, st: countryStatus(c.slug), alarm: countryAlarm(c) }));

@@ -888,5 +888,145 @@
   "userUrl": "https://unsplash.com/@twinckels",
   "page": "https://unsplash.com/photos/green-trees-on-cliff-I7oLRdM9YIw",
   "pick": 0
+ },
+ "spot:weihai:1": {
+  "id": "cpv1acLqUUE",
+  "raw": "https://images.unsplash.com/photo-1670852453932-cb1438198fb7?ixid=M3wxMTQzNTA5fDB8MXxzZWFyY2h8MXx8V2VpaGFpJTIwSGFwcGluZXNzJTIwR2F0ZXxlbnwxfDB8fHwxNzk1NTI2MjcwfDA&ixlib=rb-4.1.0",
+  "color": "#d9d9d9",
+  "alt": "a chinese archway decorated with christmas lights and decorations",
+  "name": "Jordan Ling",
+  "userUrl": "https://unsplash.com/@jordanl",
+  "page": "https://unsplash.com/photos/a-chinese-archway-decorated-with-christmas-lights-and-decorations-cpv1acLqUUE",
+  "pick": 0
+ },
+ "spot:weihai:2": {
+  "id": "tsDAuYfZ_PQ",
+  "raw": "https://images.unsplash.com/photo-1687620076842-39a78d0181e8?ixid=M3wxMTQzNTA5fDB8MXxzZWFyY2h8Mnx8V2VpaGFpJTIwYmVhY2h8ZW58MXwwfHx8MTc5NTUyNjI3MXww&ixlib=rb-4.1.0",
+  "color": "#c0c0c0",
+  "alt": "a bottle with a label on it sitting in the sand",
+  "name": "Marko Sun",
+  "userUrl": "https://unsplash.com/@amgras",
+  "page": "https://unsplash.com/photos/a-bottle-with-a-label-on-it-sitting-in-the-sand-tsDAuYfZ_PQ",
+  "pick": 0
+ },
+ "spot:weihai:3": {
+  "id": "5h_dMuX_7RE",
+  "raw": "https://images.unsplash.com/photo-1474181487882-5abf3f0ba6c2?ixid=M3wxMTQzNTA5fDB8MXxzZWFyY2h8MXx8SHVheGlhJTIwY2l0eSUyMFdlaWhhaXxlbnwxfDB8fHwxNzk1NTI2MjcxfDA&ixlib=rb-4.1.0",
+  "color": "#264059",
+  "alt": "architectural photograph of lighted city sky",
+  "name": "Li Yang",
+  "userUrl": "https://unsplash.com/@ly0ns",
+  "page": "https://unsplash.com/photos/architectural-photograph-of-lighted-city-sky-5h_dMuX_7RE",
+  "pick": 0
+ },
+ "spot:shanghai:0": {
+  "id": "5h_dMuX_7RE",
+  "raw": "https://images.unsplash.com/photo-1474181487882-5abf3f0ba6c2?ixid=M3wxMTQzNTA5fDB8MXxzZWFyY2h8MXx8VGhlJTIwQnVuZCUyMFNoYW5naGFpJTIwbmlnaHR8ZW58MXwwfHx8MTc5NTUyNjI3Mnww&ixlib=rb-4.1.0",
+  "color": "#264059",
+  "alt": "architectural photograph of lighted city sky",
+  "name": "Li Yang",
+  "userUrl": "https://unsplash.com/@ly0ns",
+  "page": "https://unsplash.com/photos/architectural-photograph-of-lighted-city-sky-5h_dMuX_7RE",
+  "pick": 0
+ },
+ "spot:shanghai:1": {
+  "id": "tEN0d72opoY",
+  "raw": "https://images.unsplash.com/photo-1682847842472-3c9051e506cd?ixid=M3wxMTQzNTA5fDB8MXxzZWFyY2h8MXx8THVqaWF6dWklMjBPcmllbnRhbCUyMFBlYXJsJTIwVG93ZXJ8ZW58MXwwfHx8MTc5NTUyNjI3M3ww&ixlib=rb-4.1.0",
+  "color": "#262640",
+  "alt": "a city at night with a lot of tall buildings",
+  "name": "krzhck",
+  "userUrl": "https://unsplash.com/@krzhck",
+  "page": "https://unsplash.com/photos/a-city-at-night-with-a-lot-of-tall-buildings-tEN0d72opoY",
+  "pick": 0
+ },
+ "spot:shanghai:2": {
+  "id": "qOAvqG6-Kmc",
+  "raw": "https://images.unsplash.com/photo-1609088399054-7661a95fe0e2?ixid=M3wxMTQzNTA5fDB8MXxzZWFyY2h8MXx8WXUlMjBHYXJkZW4lMjBTaGFuZ2hhaXxlbnwxfDB8fHwxNzk1NTI2MjczfDA&ixlib=rb-4.1.0",
+  "color": "#d9d9d9",
+  "alt": "red and white temple under white clouds during daytime",
+  "name": "Timothée Gidenne",
+  "userUrl": "https://unsplash.com/@timgid",
+  "page": "https://unsplash.com/photos/red-and-white-temple-under-white-clouds-during-daytime-qOAvqG6-Kmc",
+  "pick": 0
+ },
+ "spot:shanghai:3": {
+  "id": "SsV4Ck4GISU",
+  "raw": "https://images.unsplash.com/photo-1595414440701-da000c40df9c?ixid=M3wxMTQzNTA5fDB8MXxzZWFyY2h8M3x8VGlhbnppZmFuZyUyMFNoYW5naGFpfGVufDF8MHx8fDE3OTU1MjYyNzR8MA&ixlib=rb-4.1.0",
+  "color": "#262626",
+  "alt": "brown and white concrete building",
+  "name": "Max van den Oetelaar",
+  "userUrl": "https://unsplash.com/@maxvdo",
+  "page": "https://unsplash.com/photos/brown-and-white-concrete-building-SsV4Ck4GISU",
+  "pick": 0
+ },
+ "spot:shanghai:4": {
+  "id": "5h_dMuX_7RE",
+  "raw": "https://images.unsplash.com/photo-1474181487882-5abf3f0ba6c2?ixid=M3wxMTQzNTA5fDB8MXxzZWFyY2h8MXx8WGludGlhbmRpJTIwU2hhbmdoYWl8ZW58MXwwfHx8MTc5NTUyNjI3NHww&ixlib=rb-4.1.0",
+  "color": "#264059",
+  "alt": "architectural photograph of lighted city sky",
+  "name": "Li Yang",
+  "userUrl": "https://unsplash.com/@ly0ns",
+  "page": "https://unsplash.com/photos/architectural-photograph-of-lighted-city-sky-5h_dMuX_7RE",
+  "pick": 0
+ },
+ "spot:singapore:0": {
+  "id": "__cBlRzLSTg",
+  "raw": "https://images.unsplash.com/photo-1525625293386-3f8f99389edd?ixid=M3wxMTQzNTA5fDB8MXxzZWFyY2h8MXx8TWFyaW5hJTIwQmF5JTIwU2FuZHN8ZW58MXwwfHx8MTc5NTUyNjI3NXww&ixlib=rb-4.1.0",
+  "color": "#262626",
+  "alt": "Marina Bay Sands, Singapore",
+  "name": "Hu Chen",
+  "userUrl": "https://unsplash.com/@huchenme",
+  "page": "https://unsplash.com/photos/marina-bay-sands-singapore-__cBlRzLSTg",
+  "pick": 0
+ },
+ "spot:singapore:1": {
+  "id": "Y9-NwS8E-2w",
+  "raw": "https://images.unsplash.com/photo-1620055103363-6b2b80a46215?ixid=M3wxMTQzNTA5fDB8MXxzZWFyY2h8MXx8R2FyZGVucyUyMGJ5JTIwdGhlJTIwQmF5JTIwU3VwZXJ0cmVlfGVufDF8MHx8fDE3OTU1MjYyNzV8MA&ixlib=rb-4.1.0",
+  "color": "#c0d9d9",
+  "alt": "purple flowers near gray concrete bridge under white clouds during daytime",
+  "name": "Tamal Mukhopadhyay",
+  "userUrl": "https://unsplash.com/@tamal_mukherjee",
+  "page": "https://unsplash.com/photos/purple-flowers-near-gray-concrete-bridge-under-white-clouds-during-daytime-Y9-NwS8E-2w",
+  "pick": 0
+ },
+ "spot:singapore:2": {
+  "id": "cjSsSQ7Yedk",
+  "raw": "https://images.unsplash.com/photo-1600664356348-10686526af4f?ixid=M3wxMTQzNTA5fDB8MXxzZWFyY2h8MXx8TWVybGlvbiUyMFNpbmdhcG9yZXxlbnwxfDB8fHwxNzk1NTI2Mjc2fDA&ixlib=rb-4.1.0",
+  "color": "#d9d9d9",
+  "alt": "white concrete statue near city buildings during daytime",
+  "name": "Jisun Han",
+  "userUrl": "https://unsplash.com/@hanzlog",
+  "page": "https://unsplash.com/photos/white-concrete-statue-near-city-buildings-during-daytime-cjSsSQ7Yedk",
+  "pick": 0
+ },
+ "spot:singapore:3": {
+  "id": "bHDwnh5VZDM",
+  "raw": "https://images.unsplash.com/photo-1694763746530-266a68710e05?ixid=M3wxMTQzNTA5fDB8MXxzZWFyY2h8Mnx8U2VudG9zYSUyMGJlYWNoJTIwU2luZ2Fwb3JlfGVufDF8MHx8fDE3OTU1MjYyNzZ8MA&ixlib=rb-4.1.0",
+  "color": "#d9d9d9",
+  "alt": "a sandy beach with palm trees and umbrellas",
+  "name": "Sohan Rayguru",
+  "userUrl": "https://unsplash.com/@sohan_r",
+  "page": "https://unsplash.com/photos/a-sandy-beach-with-palm-trees-and-umbrellas-bHDwnh5VZDM",
+  "pick": 0
+ },
+ "spot:singapore:4": {
+  "id": "A9vyPB9iCVQ",
+  "raw": "https://images.unsplash.com/photo-1536163713675-42cf53cbd4f5?ixid=M3wxMTQzNTA5fDB8MXxzZWFyY2h8MXx8Q2hpbmF0b3duJTIwU2luZ2Fwb3JlfGVufDF8MHx8fDE3OTU1MjYyNzd8MA&ixlib=rb-4.1.0",
+  "color": "#8cc0d9",
+  "alt": "china town and high rise buildings",
+  "name": "Adrian Jakob",
+  "userUrl": "https://unsplash.com/@aj_photo",
+  "page": "https://unsplash.com/photos/china-town-and-high-rise-buildings-A9vyPB9iCVQ",
+  "pick": 0
+ },
+ "spot:sapporo:0": {
+  "id": "9mZRkvQ5jZA",
+  "raw": "https://images.unsplash.com/photo-1763814026127-e3149acb3ac5?ixid=M3wxMTQzNTA5fDB8MXxzZWFyY2h8MXx8T2RvcmklMjBwYXJrJTIwU2FwcG9yb3xlbnwxfDB8fHwxNzk1NTI2Mjc3fDA&ixlib=rb-4.1.0",
+  "color": "#4073a6",
+  "alt": "Sapporo TV tower surrounded by trees and buildings",
+  "name": "Tunafish",
+  "userUrl": "https://unsplash.com/@ultratunafish",
+  "page": "https://unsplash.com/photos/sapporo-tv-tower-surrounded-by-trees-and-buildings-9mZRkvQ5jZA",
+  "pick": 0
  }
 }

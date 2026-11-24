@@ -1,5 +1,29 @@
 [
  {
+  "id": "us6000ud73",
+  "mag": 5,
+  "place": "24 km WNW of Piti Village, Guam",
+  "time": 1795521313018,
+  "lat": 13.6,
+  "lon": 144.5,
+  "depth": 108,
+  "tsunami": 0,
+  "alert": null,
+  "url": "https://earthquake.usgs.gov/earthquakes/eventpage/us6000ud73"
+ },
+ {
+  "id": "us6000ud6z",
+  "mag": 5.2,
+  "place": "93 km WSW of Puerto Madero, Mexico",
+  "time": 1795521104702,
+  "lat": 14.4,
+  "lon": -93.2,
+  "depth": 35,
+  "tsunami": 0,
+  "alert": null,
+  "url": "https://earthquake.usgs.gov/earthquakes/eventpage/us6000ud6z"
+ },
+ {
   "id": "us6000ud6h",
   "mag": 6.4,
   "place": "Mauritius - Reunion region",

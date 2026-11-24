@@ -819,10 +819,10 @@
   "id": "us7000txjg",
   "mag": 5.1,
   "place": "South Sandwich Islands region",
-  "time": 1794411565949,
+  "time": 1794411566868,
   "lat": -56,
-  "lon": -27.7,
-  "depth": 105,
+  "lon": -27.8,
+  "depth": 115,
   "tsunami": 0,
   "alert": null,
   "url": "https://earthquake.usgs.gov/earthquakes/eventpage/us7000txjg"

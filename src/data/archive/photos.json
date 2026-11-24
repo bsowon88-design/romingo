@@ -1208,5 +1208,75 @@
   "userUrl": "https://unsplash.com/@danieljerez",
   "page": "https://unsplash.com/photos/yellow-lighted-arch-tunnel-road-CD4WHrWio6Q",
   "pick": 0
+ },
+ "spot:hochiminh:4": {
+  "id": "QXcQDsMyv5c",
+  "raw": "https://images.unsplash.com/photo-1679108229348-c13dcc22cd60?ixid=M3wxMTQzNTA5fDB8MXxzZWFyY2h8M3x8TWVrb25nJTIwRGVsdGElMjBib2F0fGVufDF8MHx8fDE3OTU1NDI5Njd8MA&ixlib=rb-4.1.0",
+  "color": "#d9d9d9",
+  "alt": "a bridge over a river with boats on it",
+  "name": "Leonie Clough",
+  "userUrl": "https://unsplash.com/@leoniec",
+  "page": "https://unsplash.com/photos/a-bridge-over-a-river-with-boats-on-it-QXcQDsMyv5c",
+  "pick": 0
+ },
+ "spot:nagoya:0": {
+  "id": "8Zq_cYOJ4ZU",
+  "raw": "https://images.unsplash.com/photo-1747546314703-6c4fc20c5a37?ixid=M3wxMTQzNTA5fDB8MXxzZWFyY2h8MXx8TmFnb3lhJTIwQ2FzdGxlfGVufDF8MHx8fDE3OTU1NDI5Njd8MA&ixlib=rb-4.1.0",
+  "color": "#264073",
+  "alt": "Nagoya castle stands tall against a blue sky",
+  "name": "Gang Hao",
+  "userUrl": "https://unsplash.com/@haogang",
+  "page": "https://unsplash.com/photos/nagoya-castle-stands-tall-against-a-blue-sky-8Zq_cYOJ4ZU",
+  "pick": 0
+ },
+ "spot:nagoya:2": {
+  "id": "sRbM4c8zfgE",
+  "raw": "https://images.unsplash.com/photo-1773933782755-d3a46efb1148?ixid=M3wxMTQzNTA5fDB8MXxzZWFyY2h8MXx8QXRzdXRhJTIwU2hyaW5lJTIwTmFnb3lhfGVufDF8MHx8fDE3OTU1NDI5Njh8MA&ixlib=rb-4.1.0",
+  "color": "#73a6d9",
+  "alt": "Traditional japanese temple with blooming cherry blossoms",
+  "name": "Luo Jin Hong",
+  "userUrl": "https://unsplash.com/@logichom",
+  "page": "https://unsplash.com/photos/traditional-japanese-temple-with-blooming-cherry-blossoms-sRbM4c8zfgE",
+  "pick": 0
+ },
+ "spot:nagoya:4": {
+  "id": "jqBjrHkcGwI",
+  "raw": "https://images.unsplash.com/photo-1646220812899-e97a7711f5e1?ixid=M3wxMTQzNTA5fDB8MXxzZWFyY2h8Mnx8U2hpcmFrYXdhLWdvJTIwdmlsbGFnZXxlbnwxfDB8fHwxNzk1NTQyOTY5fDA&ixlib=rb-4.1.0",
+  "color": "#f3f3f3",
+  "alt": "a cabin in the middle of a snowy field",
+  "name": "Hyungman Jeon",
+  "userUrl": "https://unsplash.com/@hyungman",
+  "page": "https://unsplash.com/photos/a-cabin-in-the-middle-of-a-snowy-field-jqBjrHkcGwI",
+  "pick": 0
+ },
+ "spot:okinawa:0": {
+  "id": "TwFEdetZU3w",
+  "raw": "https://images.unsplash.com/photo-1657989642807-69d63982698c?ixid=M3wxMTQzNTA5fDB8MXxzZWFyY2h8NXx8T2tpbmF3YSUyMENodXJhdW1pJTIwQXF1YXJpdW18ZW58MXwwfHx8MTc5NTU0Mjk2OXww&ixlib=rb-4.1.0",
+  "color": "#d9f3f3",
+  "alt": "a building with a pool and trees by the ocean",
+  "name": "SLNC",
+  "userUrl": "https://unsplash.com/@riverse",
+  "page": "https://unsplash.com/photos/a-building-with-a-pool-and-trees-by-the-ocean-TwFEdetZU3w",
+  "pick": 0
+ },
+ "spot:okinawa:1": {
+  "id": "RHd0VtC0bLw",
+  "raw": "https://images.unsplash.com/photo-1647336963732-7446b9da7a6f?ixid=M3wxMTQzNTA5fDB8MXxzZWFyY2h8MXx8S29rdXNhaSUyMFN0cmVldCUyME5haGF8ZW58MXwwfHx8MTc5NTU0Mjk3MHww&ixlib=rb-4.1.0",
+  "color": "#c0c0c0",
+  "alt": "a city street lined with palm trees and shops",
+  "name": "Roméo A.",
+  "userUrl": "https://unsplash.com/@gronemo",
+  "page": "https://unsplash.com/photos/a-city-street-lined-with-palm-trees-and-shops-RHd0VtC0bLw",
+  "pick": 0
+ },
+ "spot:okinawa:2": {
+  "id": "PAm1uP9hLI0",
+  "raw": "https://images.unsplash.com/photo-1573044010623-6fbaf83044e0?ixid=M3wxMTQzNTA5fDB8MXxzZWFyY2h8MXx8Q2FwZSUyME1hbnphbW8lMjBPa2luYXdhfGVufDF8MHx8fDE3OTU1NDI5NzB8MA&ixlib=rb-4.1.0",
+  "color": "#c0d9f3",
+  "alt": "rock formations",
+  "name": "Zion C",
+  "userUrl": "https://unsplash.com/@jcs_chen",
+  "page": "https://unsplash.com/photos/rock-formations-PAm1uP9hLI0",
+  "pick": 0
  }
 }

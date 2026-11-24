@@ -1,1 +1,2357 @@
-{}
+{
+ "AE": {
+  "iso": "AE",
+  "name": "아랍에미리트",
+  "en": "United Arab Emirates : UAE",
+  "levels": [
+   {
+    "lvl": 3,
+    "region": "전체",
+    "note": "전 지역"
+   }
+  ],
+  "max": 3,
+  "date": null
+ },
+ "AF": {
+  "iso": "AF",
+  "name": "아프가니스탄",
+  "en": "Afghanistan",
+  "levels": [
+   {
+    "lvl": 4,
+    "region": "전체",
+    "note": "전 지역"
+   }
+  ],
+  "max": 4,
+  "date": null
+ },
+ "AL": {
+  "iso": "AL",
+  "name": "알바니아",
+  "en": "Albania",
+  "levels": [
+   {
+    "lvl": 2,
+    "region": "전체",
+    "note": "전 지역"
+   }
+  ],
+  "max": 2,
+  "date": null
+ },
+ "AM": {
+  "iso": "AM",
+  "name": "아르메니아",
+  "en": "Armenia",
+  "levels": [
+   {
+    "lvl": 4,
+    "region": "일부",
+    "note": "아제르바이잔 접경 5km 구간"
+   },
+   {
+    "lvl": 2,
+    "region": "일부",
+    "note": "아라라트주, 게가쿠니크주, 바요츠조르주, 슈니크주, 타부시주"
+   },
+   {
+    "lvl": 1,
+    "region": "일부",
+    "note": "2, 4단계 지정 지역을 제외한 지역"
+   }
+  ],
+  "max": 4,
+  "date": null
+ },
+ "AO": {
+  "iso": "AO",
+  "name": "앙골라",
+  "en": "Angola",
+  "levels": [
+   {
+    "lvl": 2,
+    "region": "전체",
+    "note": "전 지역"
+   }
+  ],
+  "max": 2,
+  "date": null
+ },
+ "AR": {
+  "iso": "AR",
+  "name": "아르헨티나",
+  "en": "Argentina",
+  "levels": [
+   {
+    "lvl": 2,
+    "region": "전체",
+    "note": "전 지역"
+   }
+  ],
+  "max": 2,
+  "date": null
+ },
+ "AT": {
+  "iso": "AT",
+  "name": "오스트리아",
+  "en": "Austria",
+  "levels": [
+   {
+    "lvl": 1,
+    "region": "전체",
+    "note": "전 지역"
+   }
+  ],
+  "max": 1,
+  "date": null
+ },
+ "AZ": {
+  "iso": "AZ",
+  "name": "아제르바이잔",
+  "en": "Azerbaijan",
+  "levels": [
+   {
+    "lvl": 4,
+    "region": "일부",
+    "note": "아르메니아 접경 5km 구간"
+   },
+   {
+    "lvl": 3,
+    "region": "일부",
+    "note": "아르메니아와 인접한 아제르바이잔 서남부 지역(아그담(Aghdam), 피줄리(Fizuli), 자브라일(Jabrayil), 장길란(Zanglian), 구바들리(Guabadly), 라친(Lachin), 켈바자르(Kelbajar)), 나흐치반 아르메니아 접경지역"
+   },
+   {
+    "lvl": 1,
+    "region": "일부",
+    "note": "3, 4단계 지정 지역을 제외한 지역"
+   }
+  ],
+  "max": 4,
+  "date": null
+ },
+ "BA": {
+  "iso": "BA",
+  "name": "보스니아헤르체고비나",
+  "en": "Bosnia-Herzegovina",
+  "levels": [
+   {
+    "lvl": 1,
+    "region": "전체",
+    "note": "전 지역"
+   }
+  ],
+  "max": 1,
+  "date": null
+ },
+ "BD": {
+  "iso": "BD",
+  "name": "방글라데시",
+  "en": "Bangladesh",
+  "levels": [
+   {
+    "lvl": 3,
+    "region": "일부",
+    "note": "동남부 치타공 힐 트랙스 지역"
+   },
+   {
+    "lvl": 2,
+    "region": "일부",
+    "note": "3단계 지정 지역을 제외한 지역"
+   }
+  ],
+  "max": 3,
+  "date": null
+ },
+ "BE": {
+  "iso": "BE",
+  "name": "벨기에",
+  "en": "Belgium",
+  "levels": [
+   {
+    "lvl": 1,
+    "region": "전체",
+    "note": "전 지역"
+   }
+  ],
+  "max": 1,
+  "date": null
+ },
+ "BF": {
+  "iso": "BF",
+  "name": "부르키나파소",
+  "en": "Burkina Faso",
+  "levels": [
+   {
+    "lvl": 3,
+    "region": "전체",
+    "note": "전 지역"
+   }
+  ],
+  "max": 3,
+  "date": null
+ },
+ "BH": {
+  "iso": "BH",
+  "name": "바레인",
+  "en": "Bahrain",
+  "levels": [
+   {
+    "lvl": 3,
+    "region": "전체",
+    "note": "전 지역"
+   }
+  ],
+  "max": 3,
+  "date": null
+ },
+ "BI": {
+  "iso": "BI",
+  "name": "부룬디",
+  "en": "Burundi",
+  "levels": [
+   {
+    "lvl": 3,
+    "region": "일부",
+    "note": "2단계 지정 지역을 제외한 지역"
+   },
+   {
+    "lvl": 2,
+    "region": "일부",
+    "note": "부줌부라시"
+   }
+  ],
+  "max": 3,
+  "date": null
+ },
+ "BJ": {
+  "iso": "BJ",
+  "name": "베냉",
+  "en": "Benin",
+  "levels": [
+   {
+    "lvl": 3,
+    "region": "일부",
+    "note": "북부 부르키나파소 접경지역(Pendjari 국립공원 및 W 국립공원)"
+   },
+   {
+    "lvl": 2,
+    "region": "일부",
+    "note": "3단계 지정 지역을 제외한 지역"
+   }
+  ],
+  "max": 3,
+  "date": null
+ },
+ "BO": {
+  "iso": "BO",
+  "name": "볼리비아",
+  "en": "Bolivia",
+  "levels": [
+   {
+    "lvl": 3,
+    "region": "일부",
+    "note": "라파스 주"
+   }
+  ],
+  "max": 3,
+  "date": null
+ },
+ "BR": {
+  "iso": "BR",
+  "name": "브라질",
+  "en": "Brazil",
+  "levels": [
+   {
+    "lvl": 2,
+    "region": "전체",
+    "note": "전 지역"
+   }
+  ],
+  "max": 2,
+  "date": null
+ },
+ "BT": {
+  "iso": "BT",
+  "name": "부탄",
+  "en": "Bhutan",
+  "levels": [
+   {
+    "lvl": 1,
+    "region": "전체",
+    "note": "전 지역"
+   }
+  ],
+  "max": 1,
+  "date": null
+ },
+ "BW": {
+  "iso": "BW",
+  "name": "보츠와나",
+  "en": "Botswana",
+  "levels": [
+   {
+    "lvl": 1,
+    "region": "전체",
+    "note": "전 지역"
+   }
+  ],
+  "max": 1,
+  "date": null
+ },
+ "BY": {
+  "iso": "BY",
+  "name": "벨라루스",
+  "en": "Belarus",
+  "levels": [
+   {
+    "lvl": 4,
+    "region": "일부",
+    "note": "벨라루스 브레스트 고멜 지역 내 우크라이나 국경에서 30km"
+   },
+   {
+    "lvl": 3,
+    "region": "일부",
+    "note": "4단계, 특별여행주의보 지정 지역을 제외한 지역"
+   }
+  ],
+  "max": 4,
+  "date": null
+ },
+ "BZ": {
+  "iso": "BZ",
+  "name": "벨리즈",
+  "en": "Belize",
+  "levels": [
+   {
+    "lvl": 2,
+    "region": "전체",
+    "note": "전 지역"
+   }
+  ],
+  "max": 2,
+  "date": null
+ },
+ "CD": {
+  "iso": "CD",
+  "name": "콩고민주공화국",
+  "en": "Democratic Republic of Congo",
+  "levels": [
+   {
+    "lvl": 4,
+    "region": "일부",
+    "note": "북키부주, 남키부주,이투리주"
+   },
+   {
+    "lvl": 3,
+    "region": "일부",
+    "note": "중앙아프리카공화국과의 국경 50km 이내 지역/ 바우엘레주, 오트우엘레주, 마니에마주, 카사이주, 카사이상트랄주, 카사이오리앙탈주,탕가니카주,오트로마미주"
+   }
+  ],
+  "max": 4,
+  "date": null
+ },
+ "CF": {
+  "iso": "CF",
+  "name": "중앙아프리카",
+  "en": "Central African Republic",
+  "levels": [
+   {
+    "lvl": 3,
+    "region": "전체",
+    "note": "전 지역"
+   }
+  ],
+  "max": 3,
+  "date": null
+ },
+ "CG": {
+  "iso": "CG",
+  "name": "콩고",
+  "en": "Congo",
+  "levels": [
+   {
+    "lvl": 2,
+    "region": "전체",
+    "note": "전 지역"
+   }
+  ],
+  "max": 2,
+  "date": null
+ },
+ "CH": {
+  "iso": "CH",
+  "name": "스위스",
+  "en": "Swiss",
+  "levels": [
+   {
+    "lvl": 1,
+    "region": "전체",
+    "note": "전 지역"
+   }
+  ],
+  "max": 1,
+  "date": null
+ },
+ "CI": {
+  "iso": "CI",
+  "name": "코트디부아르",
+  "en": "Côte D'Ivoire",
+  "levels": [
+   {
+    "lvl": 3,
+    "region": "일부",
+    "note": "라이베리아ㆍ기니와 국경을 접한 서부 지역(뎅겔레 주, 몽타뉴 주, 바핑 주), 초로고(Tchologo), 붕카니(Bounkani) 지역"
+   },
+   {
+    "lvl": 2,
+    "region": "일부",
+    "note": "3단계 지정 지역을 제외한 지역"
+   }
+  ],
+  "max": 3,
+  "date": null
+ },
+ "CL": {
+  "iso": "CL",
+  "name": "칠레",
+  "en": "Chile",
+  "levels": [
+   {
+    "lvl": 2,
+    "region": "일부",
+    "note": "발파라이소주(이스터섬 제외), 산티아고 수도주, 비오비오주"
+   },
+   {
+    "lvl": 1,
+    "region": "일부",
+    "note": "2단계 지정 지역을 제외한 지역"
+   }
+  ],
+  "max": 2,
+  "date": null
+ },
+ "CM": {
+  "iso": "CM",
+  "name": "카메룬",
+  "en": "Cameroon",
+  "levels": [
+   {
+    "lvl": 3,
+    "region": "일부",
+    "note": "노르드 주, 아다모와 주, 북서부 주, 남서부 주, 최북부 주"
+   },
+   {
+    "lvl": 2,
+    "region": "전체",
+    "note": "3단계 지정 지역을 제외한 지역"
+   }
+  ],
+  "max": 3,
+  "date": null
+ },
+ "CN": {
+  "iso": "CN",
+  "name": "중국",
+  "en": "China",
+  "levels": [
+   {
+    "lvl": 1,
+    "region": "일부",
+    "note": "특별여행주의보 지정 지역을 제외한 지역"
+   }
+  ],
+  "max": 1,
+  "date": null
+ },
+ "CO": {
+  "iso": "CO",
+  "name": "콜롬비아",
+  "en": "Colombia",
+  "levels": [
+   {
+    "lvl": 3,
+    "region": "일부",
+    "note": "베네수엘라 국경지역 20km/ 에콰도르 국경지역 20km / 바예델카우카 주(깔리 시 제외)/ 아라우카 주, 카우카 주/(*는 일부: 안티오키아 주*, 초코 주*/ 카케타 주*)  / 노르떼 데 산딴데르(Norte de Santander) 주"
+   },
+   {
+    "lvl": 2,
+    "region": "일부",
+    "note": "3단계 지정 지역을 제외한 지역"
+   }
+  ],
+  "max": 3,
+  "date": null
+ },
+ "CR": {
+  "iso": "CR",
+  "name": "코스타리카",
+  "en": "Costa Rica",
+  "levels": [
+   {
+    "lvl": 2,
+    "region": "전체",
+    "note": "전 지역"
+   }
+  ],
+  "max": 2,
+  "date": null
+ },
+ "CY": {
+  "iso": "CY",
+  "name": "사이프러스",
+  "en": "Cyprus",
+  "levels": [
+   {
+    "lvl": 3,
+    "region": "일부",
+    "note": "파마구스타 내 바로샤 지역"
+   },
+   {
+    "lvl": 2,
+    "region": "일부",
+    "note": "1, 3단계 지정 지역을 제외한 지역"
+   },
+   {
+    "lvl": 1,
+    "region": "일부",
+    "note": "남부 지역"
+   }
+  ],
+  "max": 3,
+  "date": null
+ },
+ "DJ": {
+  "iso": "DJ",
+  "name": "지부티",
+  "en": "Djibouti",
+  "levels": [
+   {
+    "lvl": 3,
+    "region": "일부",
+    "note": "에리트레아&bull;에티오피아&bull;소말리아 국경 10km 이내 접경지역"
+   },
+   {
+    "lvl": 2,
+    "region": "일부",
+    "note": "3단계 지정 지역을 제외한 지역"
+   }
+  ],
+  "max": 3,
+  "date": null
+ },
+ "DK": {
+  "iso": "DK",
+  "name": "덴마크",
+  "en": "Denmark",
+  "levels": [
+   {
+    "lvl": 1,
+    "region": "전체",
+    "note": "전 지역"
+   }
+  ],
+  "max": 1,
+  "date": null
+ },
+ "DO": {
+  "iso": "DO",
+  "name": "도미니카공화국",
+  "en": "Dominican Republic",
+  "levels": [
+   {
+    "lvl": 2,
+    "region": "전체",
+    "note": "전 지역"
+   }
+  ],
+  "max": 2,
+  "date": null
+ },
+ "DZ": {
+  "iso": "DZ",
+  "name": "알제리",
+  "en": "Algeria",
+  "levels": [
+   {
+    "lvl": 3,
+    "region": "일부",
+    "note": "국경지역(튀니지(테베사, 엘웨드 동부, 오아글라 동부), 리비아(일리지 동부), 니제르ㆍ말리ㆍ모리타니(타만라셋 남부, 아드라르 남서부, 틴두프 남서부))"
+   },
+   {
+    "lvl": 2,
+    "region": "일부",
+    "note": "카빌리 지역 6개주 산악지역(부메르데스, 부아라, 티지 우주, 베자이아, 보르즈부아레리즈, 지젤) 포함 3단계 지정 지역을 제외한 지역"
+   },
+   {
+    "lvl": 1,
+    "region": "일부",
+    "note": "알제주"
+   }
+  ],
+  "max": 3,
+  "date": null
+ },
+ "EC": {
+  "iso": "EC",
+  "name": "에콰도르",
+  "en": "Ecuador",
+  "levels": [
+   {
+    "lvl": 3,
+    "region": "일부",
+    "note": "과야스 주, 아수아이 주, 로스리오스 주, 산타엘레나 주, 엘오로 주, 마니비 주, 에스메랄다 주"
+   },
+   {
+    "lvl": 2,
+    "region": "일부",
+    "note": "출국권고를 제외한 전 지역"
+   }
+  ],
+  "max": 3,
+  "date": null
+ },
+ "EG": {
+  "iso": "EG",
+  "name": "이집트",
+  "en": "Egypt",
+  "levels": [
+   {
+    "lvl": 3,
+    "region": "일부",
+    "note": "중•북부 시나이 반도(1,2단계 지역 제외), 리비아 국경으로부터 30km까지"
+   },
+   {
+    "lvl": 2,
+    "region": "일부",
+    "note": "서부사막, 시나이반도 남부 일부지역(성캐더린•타바)"
+   },
+   {
+    "lvl": 1,
+    "region": "일부",
+    "note": "다합•샴엘셰이크지역, 카이로 등 나일강 유역 도시지역, 마르트루~지중해 유역"
+   }
+  ],
+  "max": 3,
+  "date": null
+ },
+ "ER": {
+  "iso": "ER",
+  "name": "에리트레아",
+  "en": "Eritrea",
+  "levels": [
+   {
+    "lvl": 3,
+    "region": "일부",
+    "note": "에티오피아 수단 지부티 국경 25Km 이내"
+   },
+   {
+    "lvl": 2,
+    "region": "일부",
+    "note": "3단계 지정 지역을 제외한 지역"
+   }
+  ],
+  "max": 3,
+  "date": null
+ },
+ "ES": {
+  "iso": "ES",
+  "name": "스페인",
+  "en": "Spain",
+  "levels": [
+   {
+    "lvl": 1,
+    "region": "전체",
+    "note": "전 지역"
+   }
+  ],
+  "max": 1,
+  "date": null
+ },
+ "ET": {
+  "iso": "ET",
+  "name": "에티오피아",
+  "en": "Ethiopia",
+  "levels": [
+   {
+    "lvl": 3,
+    "region": "일부",
+    "note": "암하라 주, 티그라이 주, 소말리 주, 베니샹굴-구무즈 주, 감벨라 주, 오로미아 주 일부(East Welega, West Welega, Kelam Welega, Guji, Borena 지역), 수단 및 에리트리아 국경 10km 접경지역, 아파르주에서 티그라이주 10km 접경지역, △케냐 및 남수단 국경 10km 접경 지역"
+   },
+   {
+    "lvl": 2,
+    "region": "일부",
+    "note": "아디스아바바 시, 디레다와 시, 하라르 주, SNNPR 주, SWEPR 주, 시다마 주, 오로미아 주 일부(3단계 지역 제외), 아파르 주(3단계 지역 제외)"
+   }
+  ],
+  "max": 3,
+  "date": null
+ },
+ "FJ": {
+  "iso": "FJ",
+  "name": "피지",
+  "en": "Fiji",
+  "levels": [
+   {
+    "lvl": 1,
+    "region": "전체",
+    "note": "전 지역"
+   }
+  ],
+  "max": 1,
+  "date": null
+ },
+ "FM": {
+  "iso": "FM",
+  "name": "마이크로네시아연방",
+  "en": "Federated States of Micronesia",
+  "levels": [
+   {
+    "lvl": 1,
+    "region": "전체",
+    "note": "전 지역"
+   }
+  ],
+  "max": 1,
+  "date": null
+ },
+ "FR": {
+  "iso": "FR",
+  "name": "프랑스",
+  "en": "France",
+  "levels": [
+   {
+    "lvl": 1,
+    "region": "전체",
+    "note": "전 지역"
+   }
+  ],
+  "max": 1,
+  "date": null
+ },
+ "GA": {
+  "iso": "GA",
+  "name": "가봉",
+  "en": "Gabon",
+  "levels": [
+   {
+    "lvl": 2,
+    "region": "전체",
+    "note": "전 지역"
+   }
+  ],
+  "max": 2,
+  "date": null
+ },
+ "GB": {
+  "iso": "GB",
+  "name": "영국",
+  "en": "United Kingdom",
+  "levels": [
+   {
+    "lvl": 1,
+    "region": "전체",
+    "note": "전 지역"
+   }
+  ],
+  "max": 1,
+  "date": null
+ },
+ "GE": {
+  "iso": "GE",
+  "name": "조지아",
+  "en": "Georgia",
+  "levels": [
+   {
+    "lvl": 3,
+    "region": "일부",
+    "note": "남 오세티아, 압하지아"
+   },
+   {
+    "lvl": 2,
+    "region": "일부",
+    "note": "3단계 지정 지역을 제외한 지역"
+   }
+  ],
+  "max": 3,
+  "date": null
+ },
+ "GH": {
+  "iso": "GH",
+  "name": "가나",
+  "en": "Ghana",
+  "levels": [
+   {
+    "lvl": 2,
+    "region": "전체",
+    "note": "전 지역"
+   }
+  ],
+  "max": 2,
+  "date": null
+ },
+ "GM": {
+  "iso": "GM",
+  "name": "감비아",
+  "en": "Gambia",
+  "levels": [
+   {
+    "lvl": 1,
+    "region": "전체",
+    "note": "전 지역"
+   }
+  ],
+  "max": 1,
+  "date": null
+ },
+ "GN": {
+  "iso": "GN",
+  "name": "기니",
+  "en": "Guinea",
+  "levels": [
+   {
+    "lvl": 2,
+    "region": "전체",
+    "note": "전 지역"
+   }
+  ],
+  "max": 2,
+  "date": null
+ },
+ "GQ": {
+  "iso": "GQ",
+  "name": "적도기니",
+  "en": "Equatorial Guinea",
+  "levels": [
+   {
+    "lvl": 2,
+    "region": "전체",
+    "note": "전 지역"
+   }
+  ],
+  "max": 2,
+  "date": null
+ },
+ "GR": {
+  "iso": "GR",
+  "name": "그리스",
+  "en": "Greece",
+  "levels": [
+   {
+    "lvl": 1,
+    "region": "전체",
+    "note": "전 지역"
+   }
+  ],
+  "max": 1,
+  "date": null
+ },
+ "GT": {
+  "iso": "GT",
+  "name": "과테말라",
+  "en": "Guatemala",
+  "levels": [
+   {
+    "lvl": 2,
+    "region": "전체",
+    "note": "전 지역"
+   }
+  ],
+  "max": 2,
+  "date": null
+ },
+ "GW": {
+  "iso": "GW",
+  "name": "기니비사우",
+  "en": "Guinea-Bissau",
+  "levels": [
+   {
+    "lvl": 2,
+    "region": "전체",
+    "note": "전 지역"
+   }
+  ],
+  "max": 2,
+  "date": null
+ },
+ "GY": {
+  "iso": "GY",
+  "name": "가이아나",
+  "en": "Guyana",
+  "levels": [
+   {
+    "lvl": 2,
+    "region": "전체",
+    "note": "전 지역"
+   }
+  ],
+  "max": 2,
+  "date": null
+ },
+ "HK": {
+  "iso": "HK",
+  "name": "홍콩",
+  "en": "Hongkong",
+  "levels": [
+   {
+    "lvl": 1,
+    "region": "전체",
+    "note": "전 지역"
+   }
+  ],
+  "max": 1,
+  "date": null
+ },
+ "HN": {
+  "iso": "HN",
+  "name": "온두라스",
+  "en": "Honduras",
+  "levels": [
+   {
+    "lvl": 2,
+    "region": "전체",
+    "note": "전 지역"
+   }
+  ],
+  "max": 2,
+  "date": null
+ },
+ "HT": {
+  "iso": "HT",
+  "name": "아이티",
+  "en": "Haiti",
+  "levels": [
+   {
+    "lvl": 4,
+    "region": "전체",
+    "note": "전 지역"
+   }
+  ],
+  "max": 4,
+  "date": null
+ },
+ "ID": {
+  "iso": "ID",
+  "name": "인도네시아",
+  "en": "Indonesia",
+  "levels": [
+   {
+    "lvl": 2,
+    "region": "일부",
+    "note": "서파푸아, 파푸아, 말루쿠, 아체"
+   },
+   {
+    "lvl": 1,
+    "region": "일부",
+    "note": "2단계 지정 지역을 제외한 지역"
+   }
+  ],
+  "max": 2,
+  "date": null
+ },
+ "IL": {
+  "iso": "IL",
+  "name": "이스라엘",
+  "en": "Israel",
+  "levels": [
+   {
+    "lvl": 4,
+    "region": "일부",
+    "note": "이스라엘 북부 레바논 접경지역(국경으로부터 4km), 가자지구"
+   },
+   {
+    "lvl": 3,
+    "region": "일부",
+    "note": "4단계 지정 지역을 제외한 지역"
+   }
+  ],
+  "max": 4,
+  "date": null
+ },
+ "IN": {
+  "iso": "IN",
+  "name": "인도",
+  "en": "India",
+  "levels": [
+   {
+    "lvl": 3,
+    "region": "일부",
+    "note": "카슈미르, 카르길 시"
+   },
+   {
+    "lvl": 1,
+    "region": "일부",
+    "note": "3단계 지정 지역을 제외한 지역"
+   }
+  ],
+  "max": 3,
+  "date": null
+ },
+ "IQ": {
+  "iso": "IQ",
+  "name": "이라크",
+  "en": "Iraq",
+  "levels": [
+   {
+    "lvl": 4,
+    "region": "전체",
+    "note": "전 지역"
+   }
+  ],
+  "max": 4,
+  "date": null
+ },
+ "IR": {
+  "iso": "IR",
+  "name": "이란",
+  "en": "Iran",
+  "levels": [
+   {
+    "lvl": 4,
+    "region": "전체",
+    "note": "전 지역"
+   }
+  ],
+  "max": 4,
+  "date": null
+ },
+ "IS": {
+  "iso": "IS",
+  "name": "아이슬란드",
+  "en": "Iceland",
+  "levels": [
+   {
+    "lvl": 1,
+    "region": "전체",
+    "note": "전 지역"
+   }
+  ],
+  "max": 1,
+  "date": null
+ },
+ "IT": {
+  "iso": "IT",
+  "name": "이탈리아",
+  "en": "Italia",
+  "levels": [
+   {
+    "lvl": 1,
+    "region": "전체",
+    "note": "전 지역"
+   }
+  ],
+  "max": 1,
+  "date": null
+ },
+ "JM": {
+  "iso": "JM",
+  "name": "자메이카",
+  "en": "Jamaica",
+  "levels": [
+   {
+    "lvl": 3,
+    "region": "일부",
+    "note": "킹스턴, 세인트앤드류, 세인트캐서린"
+   },
+   {
+    "lvl": 2,
+    "region": "일부",
+    "note": "3단계 지정 지역을 제외한 지역"
+   }
+  ],
+  "max": 3,
+  "date": null
+ },
+ "JO": {
+  "iso": "JO",
+  "name": "요르단",
+  "en": "Jordan",
+  "levels": [
+   {
+    "lvl": 3,
+    "region": "일부",
+    "note": "자르카 시 동편 경계선의 동부 지역"
+   }
+  ],
+  "max": 3,
+  "date": null
+ },
+ "JP": {
+  "iso": "JP",
+  "name": "일본",
+  "en": "Japan",
+  "levels": [
+   {
+    "lvl": 3,
+    "region": "일부",
+    "note": "후쿠시마 원전 반경 30km 이내 및 일본 정부 지정 피난지시구역"
+   }
+  ],
+  "max": 3,
+  "date": null
+ },
+ "KE": {
+  "iso": "KE",
+  "name": "케냐",
+  "en": "Kenya",
+  "levels": [
+   {
+    "lvl": 3,
+    "region": "일부",
+    "note": "만데라주, 와지르주, 가리사주, 라무주 전체, 타나강주 및 킬리피주 일부지역, 나이로비 북부 이스트레이 지역, 에티오피아 및 남수단 접경 25km 지역"
+   },
+   {
+    "lvl": 2,
+    "region": "일부",
+    "note": "3단계 지정 지역을 제외한 지역"
+   }
+  ],
+  "max": 3,
+  "date": null
+ },
+ "KH": {
+  "iso": "KH",
+  "name": "캄보디아",
+  "en": "Cambodia",
+  "levels": [
+   {
+    "lvl": 3,
+    "region": "일부",
+    "note": "캄보디아-태국 국경 50km 이내,시하누크빌 시 ,캄폿 주 보코산 지역, 바벳 시, 포이펫 시,"
+   },
+   {
+    "lvl": 2,
+    "region": "일부",
+    "note": "시하누크빌 주"
+   },
+   {
+    "lvl": 1,
+    "region": "일부",
+    "note": "2․3 단계 발령 지역 외 전 지역"
+   }
+  ],
+  "max": 3,
+  "date": null
+ },
+ "KI": {
+  "iso": "KI",
+  "name": "키리바시",
+  "en": "Kiribati",
+  "levels": [
+   {
+    "lvl": 1,
+    "region": "전체",
+    "note": "전 지역"
+   }
+  ],
+  "max": 1,
+  "date": null
+ },
+ "KM": {
+  "iso": "KM",
+  "name": "코모로",
+  "en": "Comoros",
+  "levels": [
+   {
+    "lvl": 2,
+    "region": "전체",
+    "note": "전 지역"
+   }
+  ],
+  "max": 2,
+  "date": null
+ },
+ "KW": {
+  "iso": "KW",
+  "name": "쿠웨이트",
+  "en": "Kuwait",
+  "levels": [
+   {
+    "lvl": 3,
+    "region": "전체",
+    "note": "전지역"
+   }
+  ],
+  "max": 3,
+  "date": null
+ },
+ "LA": {
+  "iso": "LA",
+  "name": "라오스",
+  "en": "Laos",
+  "levels": [
+   {
+    "lvl": 4,
+    "region": "일부",
+    "note": "골든트라이앵글 경제특구"
+   },
+   {
+    "lvl": 1,
+    "region": "일부",
+    "note": "4단계 지정 지역을 제외한 지역"
+   }
+  ],
+  "max": 4,
+  "date": null
+ },
+ "LB": {
+  "iso": "LB",
+  "name": "레바논",
+  "en": "Lebanon",
+  "levels": [
+   {
+    "lvl": 4,
+    "region": "일부",
+    "note": "남부 이스라엘 접경 지역(블루라인으로부터 5km 포함), 남부주, 나바티예주, 다히예의 일부 지역(베이루트 공항 및 M51 도로 제외),바알벡헤르멜주,베카주(서베카구,라샤야구)"
+   },
+   {
+    "lvl": 3,
+    "region": "일부",
+    "note": "4단계 지정 지역을 제외한 지역"
+   }
+  ],
+  "max": 4,
+  "date": null
+ },
+ "LI": {
+  "iso": "LI",
+  "name": "리히텐슈타인",
+  "en": "Liechtenstein",
+  "levels": [
+   {
+    "lvl": 1,
+    "region": "전체",
+    "note": "전 지역"
+   }
+  ],
+  "max": 1,
+  "date": null
+ },
+ "LK": {
+  "iso": "LK",
+  "name": "스리랑카",
+  "en": "Sri Lanka",
+  "levels": [
+   {
+    "lvl": 1,
+    "region": "전체",
+    "note": "전 지역"
+   }
+  ],
+  "max": 1,
+  "date": null
+ },
+ "LR": {
+  "iso": "LR",
+  "name": "라이베리아",
+  "en": "Liberia",
+  "levels": [
+   {
+    "lvl": 2,
+    "region": "전체",
+    "note": "전 지역"
+   }
+  ],
+  "max": 2,
+  "date": null
+ },
+ "LS": {
+  "iso": "LS",
+  "name": "레소토",
+  "en": "Lesotho",
+  "levels": [
+   {
+    "lvl": 2,
+    "region": "전체",
+    "note": "전 지역"
+   }
+  ],
+  "max": 2,
+  "date": null
+ },
+ "LT": {
+  "iso": "LT",
+  "name": "리투아니아",
+  "en": "Lithuania",
+  "levels": [
+   {
+    "lvl": 1,
+    "region": "전체",
+    "note": "전 지역"
+   }
+  ],
+  "max": 1,
+  "date": null
+ },
+ "LY": {
+  "iso": "LY",
+  "name": "리비아",
+  "en": "Libya",
+  "levels": [
+   {
+    "lvl": 4,
+    "region": "전체",
+    "note": "전 지역"
+   }
+  ],
+  "max": 4,
+  "date": null
+ },
+ "MA": {
+  "iso": "MA",
+  "name": "모로코",
+  "en": "Morocco",
+  "levels": [
+   {
+    "lvl": 3,
+    "region": "일부",
+    "note": "서사하라 내 모래방어벽 동쪽"
+   },
+   {
+    "lvl": 2,
+    "region": "일부",
+    "note": "서사하라 내 모래방어벽 서쪽"
+   },
+   {
+    "lvl": 1,
+    "region": "일부",
+    "note": "서사하라 이외 지역"
+   }
+  ],
+  "max": 3,
+  "date": null
+ },
+ "MG": {
+  "iso": "MG",
+  "name": "마다가스카르",
+  "en": "Madagascar",
+  "levels": [
+   {
+    "lvl": 2,
+    "region": "전체",
+    "note": "전 지역"
+   }
+  ],
+  "max": 2,
+  "date": null
+ },
+ "MH": {
+  "iso": "MH",
+  "name": "마셜제도",
+  "en": "Marshall Islands",
+  "levels": [
+   {
+    "lvl": 1,
+    "region": "전체",
+    "note": "전 지역"
+   }
+  ],
+  "max": 1,
+  "date": null
+ },
+ "ML": {
+  "iso": "ML",
+  "name": "말리",
+  "en": "Mali",
+  "levels": [
+   {
+    "lvl": 4,
+    "region": "전체",
+    "note": "전 지역"
+   }
+  ],
+  "max": 4,
+  "date": null
+ },
+ "MM": {
+  "iso": "MM",
+  "name": "미얀마",
+  "en": "Myanmar",
+  "levels": [
+   {
+    "lvl": 4,
+    "region": "일부",
+    "note": "샨주 북부 및 동부, 까야주, 라카인주, 미야와디 지역"
+   },
+   {
+    "lvl": 3,
+    "region": "일부",
+    "note": "4단계 지정 지역을 제외한 지역"
+   }
+  ],
+  "max": 4,
+  "date": null
+ },
+ "MN": {
+  "iso": "MN",
+  "name": "몽골",
+  "en": "Mongolia",
+  "levels": [
+   {
+    "lvl": 1,
+    "region": "전체",
+    "note": "전 지역"
+   }
+  ],
+  "max": 1,
+  "date": null
+ },
+ "MR": {
+  "iso": "MR",
+  "name": "모리타니아",
+  "en": "Mauritania",
+  "levels": [
+   {
+    "lvl": 3,
+    "region": "일부",
+    "note": "2단계 지정 지역을 제외한 지역"
+   },
+   {
+    "lvl": 2,
+    "region": "일부",
+    "note": "누악쇼트, 누아디브, 인시리, 트라르자 및 아다르(우아단까지 일부지역)"
+   }
+  ],
+  "max": 3,
+  "date": null
+ },
+ "MT": {
+  "iso": "MT",
+  "name": "몰타",
+  "en": "Malta",
+  "levels": [
+   {
+    "lvl": 1,
+    "region": "전체",
+    "note": "전 지역"
+   }
+  ],
+  "max": 1,
+  "date": null
+ },
+ "MV": {
+  "iso": "MV",
+  "name": "몰디브",
+  "en": "Maldives",
+  "levels": [
+   {
+    "lvl": 1,
+    "region": "전체",
+    "note": "전 지역"
+   }
+  ],
+  "max": 1,
+  "date": null
+ },
+ "MW": {
+  "iso": "MW",
+  "name": "말라위",
+  "en": "Malawi",
+  "levels": [
+   {
+    "lvl": 1,
+    "region": "전체",
+    "note": "전 지역"
+   }
+  ],
+  "max": 1,
+  "date": null
+ },
+ "MX": {
+  "iso": "MX",
+  "name": "멕시코",
+  "en": "Mexico",
+  "levels": [
+   {
+    "lvl": 3,
+    "region": "일부",
+    "note": "치아파스주, 시날로아주"
+   },
+   {
+    "lvl": 2,
+    "region": "일부",
+    "note": "3단계 지정 지역을 제외한 지역"
+   }
+  ],
+  "max": 3,
+  "date": null
+ },
+ "MY": {
+  "iso": "MY",
+  "name": "말레이시아",
+  "en": "Malaysia",
+  "levels": [
+   {
+    "lvl": 3,
+    "region": "일부",
+    "note": "사바주 동부도서 지역 및 동부해안"
+   },
+   {
+    "lvl": 2,
+    "region": "일부",
+    "note": "사바주 동부 해안"
+   },
+   {
+    "lvl": 1,
+    "region": "일부",
+    "note": "3단계 지정 지역을 제외한 지역"
+   }
+  ],
+  "max": 3,
+  "date": null
+ },
+ "MZ": {
+  "iso": "MZ",
+  "name": "모잠비크",
+  "en": "Mozambique",
+  "levels": [
+   {
+    "lvl": 3,
+    "region": "일부",
+    "note": "카보델가도 주"
+   },
+   {
+    "lvl": 2,
+    "region": "일부",
+    "note": "3단계 및 특별여행주의보 지정 지역을 제외한 지역"
+   }
+  ],
+  "max": 3,
+  "date": null
+ },
+ "NA": {
+  "iso": "NA",
+  "name": "나미비아",
+  "en": "Namibia",
+  "levels": [
+   {
+    "lvl": 1,
+    "region": "전체",
+    "note": "전 지역"
+   }
+  ],
+  "max": 1,
+  "date": null
+ },
+ "NE": {
+  "iso": "NE",
+  "name": "니제르",
+  "en": "Niger",
+  "levels": [
+   {
+    "lvl": 4,
+    "region": "일부",
+    "note": "수도 니아메 제외 전 지역"
+   },
+   {
+    "lvl": 3,
+    "region": "일부",
+    "note": "니아메"
+   }
+  ],
+  "max": 4,
+  "date": null
+ },
+ "NG": {
+  "iso": "NG",
+  "name": "나이지리아",
+  "en": "Nigeria",
+  "levels": [
+   {
+    "lvl": 3,
+    "region": "일부",
+    "note": "2단계를 제외한 전지역"
+   },
+   {
+    "lvl": 2,
+    "region": "일부",
+    "note": "주(에보니,에키티,에누구,라고스,오군,온도,오순,오요,베누에)"
+   }
+  ],
+  "max": 3,
+  "date": null
+ },
+ "NI": {
+  "iso": "NI",
+  "name": "니카라과",
+  "en": "Nicaragua",
+  "levels": [
+   {
+    "lvl": 2,
+    "region": "전체",
+    "note": "전 지역"
+   }
+  ],
+  "max": 2,
+  "date": null
+ },
+ "NR": {
+  "iso": "NR",
+  "name": "나오에로",
+  "en": "Nauru",
+  "levels": [
+   {
+    "lvl": 1,
+    "region": "전체",
+    "note": "전 지역"
+   }
+  ],
+  "max": 1,
+  "date": null
+ },
+ "OM": {
+  "iso": "OM",
+  "name": "오만",
+  "en": "Oman",
+  "levels": [
+   {
+    "lvl": 3,
+    "region": "전체",
+    "note": "전 지역"
+   }
+  ],
+  "max": 3,
+  "date": null
+ },
+ "PA": {
+  "iso": "PA",
+  "name": "파나마",
+  "en": "Panama",
+  "levels": [
+   {
+    "lvl": 3,
+    "region": "일부",
+    "note": "콜롬비아 국경지역 40Km 지역"
+   },
+   {
+    "lvl": 2,
+    "region": "일부",
+    "note": "3단계 지정 지역을 제외한 지역"
+   }
+  ],
+  "max": 3,
+  "date": null
+ },
+ "PE": {
+  "iso": "PE",
+  "name": "페루",
+  "en": "Peru",
+  "levels": [
+   {
+    "lvl": 3,
+    "region": "일부",
+    "note": "아야쿠초 주 : 라 마르, 우안타 지역/ 우앙카벨리카 주 : 츄르캄파, 타야카하 지역/ 쿠스코 주 : 라 콘벤시온 지역/ 후닌 주 : 사티포, 우안카요, 콘셉시온 지역"
+   },
+   {
+    "lvl": 2,
+    "region": "일부",
+    "note": "3단계 지정 지역을 제외한 지역"
+   }
+  ],
+  "max": 3,
+  "date": null
+ },
+ "PG": {
+  "iso": "PG",
+  "name": "파푸아뉴기니",
+  "en": "Papua New Guinea : PNG",
+  "levels": [
+   {
+    "lvl": 3,
+    "region": "일부",
+    "note": "서던 하일랜즈 주, 헬라 주"
+   },
+   {
+    "lvl": 2,
+    "region": "일부",
+    "note": "3단계 지정 지역을 제외한 지역"
+   }
+  ],
+  "max": 3,
+  "date": null
+ },
+ "PH": {
+  "iso": "PH",
+  "name": "필리핀",
+  "en": "Philippines",
+  "levels": [
+   {
+    "lvl": 4,
+    "region": "일부",
+    "note": "민다나오의 잠보앙가, 술루‧바실란 타위타위 군도"
+   },
+   {
+    "lvl": 3,
+    "region": "일부",
+    "note": "팔라완섬 2단계 지역(아볼란, 나라, 케손) 이남, 민다나오섬 일부(2단계 및 4단계 지역 제외)"
+   },
+   {
+    "lvl": 2,
+    "region": "일부",
+    "note": "1, 3, 4단계 지역을 제외한 지역 , 시아르가오주 및 다바오 카가얀데오로시, 라귄딩안 공항 및 N9 도로 일부"
+   },
+   {
+    "lvl": 1,
+    "region": "일부",
+    "note": "수빅시, 보라카이섬, 보홀섬, 세부막탄섬(라푸라푸시)"
+   }
+  ],
+  "max": 4,
+  "date": null
+ },
+ "PK": {
+  "iso": "PK",
+  "name": "파키스탄",
+  "en": "Pakistan",
+  "levels": [
+   {
+    "lvl": 4,
+    "region": "일부",
+    "note": "발루치스탄"
+   },
+   {
+    "lvl": 3,
+    "region": "일부",
+    "note": "2단계(여행자제), 4단계(여행금지) 지역을 제외한 전 지역"
+   },
+   {
+    "lvl": 2,
+    "region": "일부",
+    "note": "이슬라마바드, 페이살라바드, 라왈핀디, 라호르, 훈자, 길깃, 스카르두"
+   }
+  ],
+  "max": 4,
+  "date": null
+ },
+ "PL": {
+  "iso": "PL",
+  "name": "폴란드",
+  "en": "Poland",
+  "levels": [
+   {
+    "lvl": 2,
+    "region": "일부",
+    "note": "우크라이나 접경 30KM지역"
+   },
+   {
+    "lvl": 1,
+    "region": "일부",
+    "note": "2단계 지정 지역을 제외한 지역"
+   }
+  ],
+  "max": 2,
+  "date": null
+ },
+ "PS": {
+  "iso": "PS",
+  "name": "팔레스타인",
+  "en": "Palestine",
+  "levels": [
+   {
+    "lvl": 4,
+    "region": "일부",
+    "note": "이스라엘 북부 레바논 접경지역(국경으로부터 4km), 가자지구"
+   },
+   {
+    "lvl": 3,
+    "region": "일부",
+    "note": "4단계 지정 지역을 제외한 지역"
+   }
+  ],
+  "max": 4,
+  "date": null
+ },
+ "PY": {
+  "iso": "PY",
+  "name": "파라과이",
+  "en": "Paraguay",
+  "levels": [
+   {
+    "lvl": 2,
+    "region": "전체",
+    "note": "전 지역"
+   }
+  ],
+  "max": 2,
+  "date": null
+ },
+ "QA": {
+  "iso": "QA",
+  "name": "카타르",
+  "en": "Qatar",
+  "levels": [
+   {
+    "lvl": 3,
+    "region": "전체",
+    "note": "전 지역"
+   }
+  ],
+  "max": 3,
+  "date": null
+ },
+ "RO": {
+  "iso": "RO",
+  "name": "루마니아",
+  "en": "Romania",
+  "levels": [
+   {
+    "lvl": 2,
+    "region": "일부",
+    "note": "우크라이나 접경 20KM지역"
+   }
+  ],
+  "max": 2,
+  "date": null
+ },
+ "RU": {
+  "iso": "RU",
+  "name": "러시아",
+  "en": "Russia",
+  "levels": [
+   {
+    "lvl": 4,
+    "region": "일부",
+    "note": "우크라이나 접경지역(쿠르스크주 전체 및 로스토프&middot;벨고로드&middot;보로네시&middot;브랸스크 지역 내 우크라이나 국경에서 30km 구간)"
+   },
+   {
+    "lvl": 3,
+    "region": "일부",
+    "note": "북카프카즈 지역(체첸/다게스탄/세베로오세티아/카바르디노발카르/잉귀시/까라차예보체르케스카야/아디게이) 및 우크라이나 접경지역(4단계 제외 로스토프, 벨고로드, 보로네시, 브랸스크 주 및 오룔 주 일부(샤블리키노, 드미트롭스크, 사스코보, 크로믜, 트로스나 5개 지역))"
+   }
+  ],
+  "max": 4,
+  "date": null
+ },
+ "RW": {
+  "iso": "RW",
+  "name": "르완다",
+  "en": "Rwanda",
+  "levels": [
+   {
+    "lvl": 3,
+    "region": "일부",
+    "note": "루바부 주"
+   },
+   {
+    "lvl": 2,
+    "region": "일부",
+    "note": "3단계 지정 지역을 제외한 지역"
+   }
+  ],
+  "max": 3,
+  "date": null
+ },
+ "SA": {
+  "iso": "SA",
+  "name": "사우디아라비아",
+  "en": "Saudi Arabia",
+  "levels": [
+   {
+    "lvl": 3,
+    "region": "전체",
+    "note": "전 지역"
+   }
+  ],
+  "max": 3,
+  "date": null
+ },
+ "SB": {
+  "iso": "SB",
+  "name": "솔로몬제도",
+  "en": "Solomon Islands",
+  "levels": [
+   {
+    "lvl": 2,
+    "region": "전체",
+    "note": "전 지역"
+   }
+  ],
+  "max": 2,
+  "date": null
+ },
+ "SD": {
+  "iso": "SD",
+  "name": "수단",
+  "en": "Sudan",
+  "levels": [
+   {
+    "lvl": 4,
+    "region": "전체",
+    "note": "전 지역"
+   }
+  ],
+  "max": 4,
+  "date": null
+ },
+ "SI": {
+  "iso": "SI",
+  "name": "슬로베니아",
+  "en": "Slovenia",
+  "levels": [
+   {
+    "lvl": 1,
+    "region": "전체",
+    "note": "전 지역"
+   }
+  ],
+  "max": 1,
+  "date": null
+ },
+ "SL": {
+  "iso": "SL",
+  "name": "시에라리온",
+  "en": "Sierra Leone",
+  "levels": [
+   {
+    "lvl": 2,
+    "region": "전체",
+    "note": "전 지역"
+   }
+  ],
+  "max": 2,
+  "date": null
+ },
+ "SM": {
+  "iso": "SM",
+  "name": "산마리노",
+  "en": "San Marino",
+  "levels": [
+   {
+    "lvl": 1,
+    "region": "전체",
+    "note": "전 지역"
+   }
+  ],
+  "max": 1,
+  "date": null
+ },
+ "SN": {
+  "iso": "SN",
+  "name": "세네갈",
+  "en": "Senegal",
+  "levels": [
+   {
+    "lvl": 1,
+    "region": "일부",
+    "note": "특별여행주의보를 제외한 전 지역"
+   }
+  ],
+  "max": 1,
+  "date": null
+ },
+ "SO": {
+  "iso": "SO",
+  "name": "소말리아",
+  "en": "Somalia",
+  "levels": [
+   {
+    "lvl": 4,
+    "region": "전체",
+    "note": "전 지역"
+   }
+  ],
+  "max": 4,
+  "date": null
+ },
+ "SR": {
+  "iso": "SR",
+  "name": "수리남",
+  "en": "Suriname",
+  "levels": [
+   {
+    "lvl": 2,
+    "region": "전체",
+    "note": "전 지역"
+   }
+  ],
+  "max": 2,
+  "date": null
+ },
+ "SS": {
+  "iso": "SS",
+  "name": "남수단",
+  "en": "South Sudan",
+  "levels": [
+   {
+    "lvl": 3,
+    "region": "전체",
+    "note": "전 지역"
+   }
+  ],
+  "max": 3,
+  "date": null
+ },
+ "ST": {
+  "iso": "ST",
+  "name": "상투메프린시페",
+  "en": "Sâo Tomé & Principe",
+  "levels": [
+   {
+    "lvl": 1,
+    "region": "전체",
+    "note": "전 지역"
+   }
+  ],
+  "max": 1,
+  "date": null
+ },
+ "SY": {
+  "iso": "SY",
+  "name": "시리아",
+  "en": "Syria",
+  "levels": [
+   {
+    "lvl": 4,
+    "region": "일부",
+    "note": "3단계를 제외한 전 지역"
+   },
+   {
+    "lvl": 3,
+    "region": "일부",
+    "note": "골란고원 일부(레바논 접경 및 UNDOF 분리선 4km 이내 지역 제외)"
+   }
+  ],
+  "max": 4,
+  "date": null
+ },
+ "SZ": {
+  "iso": "SZ",
+  "name": "에스와티니",
+  "en": "Eswatini",
+  "levels": [
+   {
+    "lvl": 1,
+    "region": "전체",
+    "note": "전 지역"
+   }
+  ],
+  "max": 1,
+  "date": null
+ },
+ "TD": {
+  "iso": "TD",
+  "name": "차드",
+  "en": "Chad",
+  "levels": [
+   {
+    "lvl": 3,
+    "region": "전체",
+    "note": "전 지역"
+   }
+  ],
+  "max": 3,
+  "date": null
+ },
+ "TG": {
+  "iso": "TG",
+  "name": "토고",
+  "en": "Togo",
+  "levels": [
+   {
+    "lvl": 2,
+    "region": "전체",
+    "note": "전 지역"
+   }
+  ],
+  "max": 2,
+  "date": null
+ },
+ "TH": {
+  "iso": "TH",
+  "name": "태국",
+  "en": "Thailand",
+  "levels": [
+   {
+    "lvl": 3,
+    "region": "일부",
+    "note": "송클라 주 남부 말레이시아 접경지역, 파타니 주, 나라티왓 주, 얄라 주, 태국-캄보디아 국경 50km 이내"
+   },
+   {
+    "lvl": 2,
+    "region": "일부",
+    "note": "딱 주"
+   },
+   {
+    "lvl": 1,
+    "region": "일부",
+    "note": "2.3단계 및 특별여행주의보 발령 지역을 제외한 지역"
+   }
+  ],
+  "max": 3,
+  "date": null
+ },
+ "TJ": {
+  "iso": "TJ",
+  "name": "타지키스탄",
+  "en": "Tajikistan",
+  "levels": [
+   {
+    "lvl": 3,
+    "region": "일부",
+    "note": "아프가니스탄 접경지역"
+   },
+   {
+    "lvl": 1,
+    "region": "일부",
+    "note": "3단계 지정 지역을 제외한 지역"
+   }
+  ],
+  "max": 3,
+  "date": null
+ },
+ "TL": {
+  "iso": "TL",
+  "name": "동티모르",
+  "en": "Timor-Leste",
+  "levels": [
+   {
+    "lvl": 1,
+    "region": "전체",
+    "note": "전 지역"
+   }
+  ],
+  "max": 1,
+  "date": null
+ },
+ "TM": {
+  "iso": "TM",
+  "name": "투르크메니스탄",
+  "en": "Turkmenistan",
+  "levels": [
+   {
+    "lvl": 1,
+    "region": "전체",
+    "note": "전 지역"
+   }
+  ],
+  "max": 1,
+  "date": null
+ },
+ "TN": {
+  "iso": "TN",
+  "name": "튀니지",
+  "en": "Tunisia",
+  "levels": [
+   {
+    "lvl": 3,
+    "region": "일부",
+    "note": "알제리 접경지역(까세린주 샴비산 일대 포함), 리비아 접경지역 및 크사르 길랜 이남 사막지역 전역"
+   },
+   {
+    "lvl": 2,
+    "region": "일부",
+    "note": "1, 3단계 지정 지역을 제외한 지역"
+   },
+   {
+    "lvl": 1,
+    "region": "일부",
+    "note": "튀니스와 수도권 지역/비제르트 주/나불 주/수스 주/모나스티르 주 마흐디아 주/스팍스 주/제르바 주"
+   }
+  ],
+  "max": 3,
+  "date": null
+ },
+ "TR": {
+  "iso": "TR",
+  "name": "튀르키예공화국",
+  "en": "Republic of Turkiye",
+  "levels": [
+   {
+    "lvl": 3,
+    "region": "일부",
+    "note": "빙괼, 바트만, 시이르트, 시르나크, 하카리, 시리아의 국경 10km 이내 지역"
+   },
+   {
+    "lvl": 2,
+    "region": "일부",
+    "note": "가지안테프,샨르우르파,툰젤리,엘라지즈,디야르바키르,마르딘,반,비틀리스"
+   },
+   {
+    "lvl": 1,
+    "region": "일부",
+    "note": "2,3단계 및 특별여행주의보 지정 지역을 제외한 지역"
+   }
+  ],
+  "max": 3,
+  "date": null
+ },
+ "TT": {
+  "iso": "TT",
+  "name": "트리니다드토바고",
+  "en": "Trinidad & Tobago",
+  "levels": [
+   {
+    "lvl": 2,
+    "region": "전체",
+    "note": "전 지역"
+   }
+  ],
+  "max": 2,
+  "date": null
+ },
+ "TZ": {
+  "iso": "TZ",
+  "name": "탄자니아",
+  "en": "Tanzania",
+  "levels": [
+   {
+    "lvl": 3,
+    "region": "일부",
+    "note": "음트와라(Mtwara) 주"
+   },
+   {
+    "lvl": 2,
+    "region": "일부",
+    "note": "3단계 지정 지역을 제외한 지역"
+   }
+  ],
+  "max": 3,
+  "date": null
+ },
+ "UA": {
+  "iso": "UA",
+  "name": "우크라이나",
+  "en": "Ukraine",
+  "levels": [
+   {
+    "lvl": 4,
+    "region": "전체",
+    "note": "전 지역"
+   }
+  ],
+  "max": 4,
+  "date": null
+ },
+ "US": {
+  "iso": "US",
+  "name": "미합중국",
+  "en": "United States of America",
+  "levels": [
+   {
+    "lvl": 1,
+    "region": "일부",
+    "note": "하와이 제외한 지역"
+   }
+  ],
+  "max": 1,
+  "date": null
+ },
+ "VE": {
+  "iso": "VE",
+  "name": "베네수엘라볼리바르",
+  "en": "Venezuela",
+  "levels": [
+   {
+    "lvl": 3,
+    "region": "전체",
+    "note": "전 지역"
+   }
+  ],
+  "max": 3,
+  "date": null
+ },
+ "VN": {
+  "iso": "VN",
+  "name": "베트남",
+  "en": "Vietnam",
+  "levels": [
+   {
+    "lvl": 1,
+    "region": "전체",
+    "note": "전 지역"
+   }
+  ],
+  "max": 1,
+  "date": null
+ },
+ "VU": {
+  "iso": "VU",
+  "name": "바누아투",
+  "en": "Vanuatu",
+  "levels": [
+   {
+    "lvl": 2,
+    "region": "전체",
+    "note": "전 지역"
+   }
+  ],
+  "max": 2,
+  "date": null
+ },
+ "XK": {
+  "iso": "XK",
+  "name": "코소보",
+  "en": "Kosovo",
+  "levels": [
+   {
+    "lvl": 3,
+    "region": "일부",
+    "note": "미트로비차 북부(Zubin Potok, Zve&ccedil;an, Leposaviq)"
+   },
+   {
+    "lvl": 2,
+    "region": "일부",
+    "note": "3단계 지정 지역을 제외한 지역"
+   }
+  ],
+  "max": 3,
+  "date": null
+ },
+ "YE": {
+  "iso": "YE",
+  "name": "예멘",
+  "en": "Yemen",
+  "levels": [
+   {
+    "lvl": 4,
+    "region": "전체",
+    "note": "전 지역"
+   }
+  ],
+  "max": 4,
+  "date": null
+ },
+ "ZA": {
+  "iso": "ZA",
+  "name": "남아프리카공화국",
+  "en": "South Africa",
+  "levels": [
+   {
+    "lvl": 2,
+    "region": "전체",
+    "note": "전 지역"
+   }
+  ],
+  "max": 2,
+  "date": null
+ },
+ "ZM": {
+  "iso": "ZM",
+  "name": "잠비아",
+  "en": "Zambia",
+  "levels": [
+   {
+    "lvl": 1,
+    "region": "전체",
+    "note": "전 지역"
+   }
+  ],
+  "max": 1,
+  "date": null
+ },
+ "ZW": {
+  "iso": "ZW",
+  "name": "짐바브웨",
+  "en": "Zimbabwe",
+  "levels": [
+   {
+    "lvl": 1,
+    "region": "전체",
+    "note": "전 지역"
+   }
+  ],
+  "max": 1,
+  "date": null
+ }
+}

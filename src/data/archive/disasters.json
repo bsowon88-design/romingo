@@ -1,1 +1,327 @@
-[]
+[
+ {
+  "id": "TC-1001346",
+  "type": "TC",
+  "name": "MURASU-26",
+  "country": "India",
+  "iso3": [
+   "IND"
+  ],
+  "level": "Red",
+  "from": 1793491200000,
+  "to": 1793685600000,
+  "sev": "Hurricane/Typhoon > 74 mph (maximum wind speed of 157 km/h)",
+  "report": "https://www.gdacs.org/report.aspx?eventid=1001346&episodeid=10&eventtype=TC",
+  "lat": 15.8,
+  "lon": 80.2
+ },
+ {
+  "id": "TC-1001345",
+  "type": "TC",
+  "name": "ARNAB-26",
+  "country": "India",
+  "iso3": [
+   "IND"
+  ],
+  "level": "Red",
+  "from": 1792972800000,
+  "to": 1793167200000,
+  "sev": "Tropical Storm (maximum wind speed of 222 km/h)",
+  "report": "https://www.gdacs.org/report.aspx?eventid=1001345&episodeid=10&eventtype=TC",
+  "lat": 16.4,
+  "lon": 81.8
+ },
+ {
+  "id": "EQ-1573141",
+  "type": "EQ",
+  "name": "Earthquake in China",
+  "country": "China",
+  "iso3": [
+   "CHN"
+  ],
+  "level": "Orange",
+  "from": 1792679620000,
+  "to": 1792679620000,
+  "sev": "Magnitude 7M, Depth:18km",
+  "report": "https://www.gdacs.org/report.aspx?eventid=1573141&episodeid=1741837&eventtype=EQ",
+  "lat": 32.4,
+  "lon": 93.8
+ },
+ {
+  "id": "TC-1001338",
+  "type": "TC",
+  "name": "CHAMPI-26",
+  "country": "Philippines, Guam, Northern Mariana Islands, Japan, China, South Korea",
+  "iso3": [
+   "PHL",
+   "GUM",
+   "JPN",
+   "CHN",
+   "KOR"
+  ],
+  "level": "Red",
+  "from": 1791979200000,
+  "to": 1792951200000,
+  "sev": "Tropical Storm (maximum wind speed of 296 km/h)",
+  "report": "https://www.gdacs.org/report.aspx?eventid=1001338&episodeid=46&eventtype=TC",
+  "lat": 31.2,
+  "lon": 127.4
+ },
+ {
+  "id": "VO-1000152",
+  "type": "VO",
+  "name": "Kanlaon",
+  "country": "Philippines",
+  "iso3": [
+   "PHL"
+  ],
+  "level": "Orange",
+  "from": 1791611880000,
+  "to": 1791611880000,
+  "sev": "",
+  "report": "https://www.gdacs.org/report.aspx?eventid=1000152&episodeid=1&eventtype=VO",
+  "lat": 10.4,
+  "lon": 123.1
+ },
+ {
+  "id": "EQ-1570339",
+  "type": "EQ",
+  "name": "Earthquake in Panama",
+  "country": "Panama",
+  "iso3": [
+   "PAN"
+  ],
+  "level": "Orange",
+  "from": 1791568566000,
+  "to": 1791568566000,
+  "sev": "Magnitude 7.7M, Depth:12.647km",
+  "report": "https://www.gdacs.org/report.aspx?eventid=1570339&episodeid=1738684&eventtype=EQ",
+  "lat": 7.6,
+  "lon": -80.8
+ },
+ {
+  "id": "VO-1000151",
+  "type": "VO",
+  "name": "Taal",
+  "country": "Philippines",
+  "iso3": [
+   "PHL"
+  ],
+  "level": "Orange",
+  "from": 1791455340000,
+  "to": 1791455340000,
+  "sev": "",
+  "report": "https://www.gdacs.org/report.aspx?eventid=1000151&episodeid=1&eventtype=VO",
+  "lat": 14,
+  "lon": 121
+ },
+ {
+  "id": "EQ-1570077",
+  "type": "EQ",
+  "name": "Earthquake in Vanuatu",
+  "country": "Vanuatu",
+  "iso3": [
+   "VUT"
+  ],
+  "level": "Orange",
+  "from": 1791450007000,
+  "to": 1791450007000,
+  "sev": "Magnitude 6.3M, Depth:10km",
+  "report": "https://www.gdacs.org/report.aspx?eventid=1570077&episodeid=1738390&eventtype=EQ",
+  "lat": -15.5,
+  "lon": 168.2
+ },
+ {
+  "id": "TC-1001335",
+  "type": "TC",
+  "name": "SIMON-26",
+  "country": "México",
+  "iso3": [],
+  "level": "Orange",
+  "from": 1791385200000,
+  "to": 1792184400000,
+  "sev": "Tropical Depression (maximum wind speed of 250 km/h)",
+  "report": "https://www.gdacs.org/report.aspx?eventid=1001335&episodeid=38&eventtype=TC",
+  "lat": 21.5,
+  "lon": -110.3
+ },
+ {
+  "id": "TC-1001334",
+  "type": "TC",
+  "name": "ISAIAS-26",
+  "country": "United States",
+  "iso3": [
+   "USA"
+  ],
+  "level": "Orange",
+  "from": 1791320400000,
+  "to": 1791730800000,
+  "sev": "Tropical Depression (maximum wind speed of 194 km/h)",
+  "report": "https://www.gdacs.org/report.aspx?eventid=1001334&episodeid=20&eventtype=TC",
+  "lat": 37.5,
+  "lon": -84
+ },
+ {
+  "id": "TC-1001325",
+  "type": "TC",
+  "name": "POLO-26",
+  "country": "Mexico",
+  "iso3": [
+   "MEX"
+  ],
+  "level": "Red",
+  "from": 1789959600000,
+  "to": 1790737200000,
+  "sev": "Tropical Depression (maximum wind speed of 287 km/h)",
+  "report": "https://www.gdacs.org/report.aspx?eventid=1001325&episodeid=38&eventtype=TC",
+  "lat": 30.5,
+  "lon": -108
+ },
+ {
+  "id": "FL-1104121",
+  "type": "FL",
+  "name": "Flood in India",
+  "country": "India",
+  "iso3": [
+   "IND"
+  ],
+  "level": "Orange",
+  "from": 1786237200000,
+  "to": 1791334800000,
+  "sev": "Magnitude 0 ",
+  "report": "https://www.gdacs.org/report.aspx?eventid=1104121&episodeid=22&eventtype=FL",
+  "lat": 11.3,
+  "lon": 78.6
+ },
+ {
+  "id": "FL-1104081",
+  "type": "FL",
+  "name": "Flood in China",
+  "country": "China",
+  "iso3": [
+   "CHN"
+  ],
+  "level": "Orange",
+  "from": 1785459600000,
+  "to": 1790470800000,
+  "sev": "Magnitude 0 ",
+  "report": "https://www.gdacs.org/report.aspx?eventid=1104081&episodeid=20&eventtype=FL",
+  "lat": 31.3,
+  "lon": 108.5
+ },
+ {
+  "id": "DR-1027450",
+  "type": "DR",
+  "name": "East Africa, Central Sahel-2026",
+  "country": "Burundi, Democratic Republic of Congo, Central African Republic, Cameroon, Eritrea, Ethiopia, Kenya, Rwanda, Sudan, South Sudan, Chad, Tanzania, Uganda",
+  "iso3": [
+   "BDI",
+   "COD",
+   "CAF",
+   "CMR",
+   "ERI",
+   "ETH",
+   "KEN",
+   "RWA",
+   "SDN",
+   "SSD",
+   "TCD",
+   "TZA",
+   "UGA"
+  ],
+  "level": "Orange",
+  "from": 1779321600000,
+  "to": 1795305600000,
+  "sev": "Medium impact for agricultural drought in 1435673 km2",
+  "report": "https://www.gdacs.org/report.aspx?eventid=1027450&episodeid=14&eventtype=DR",
+  "lat": 6.5,
+  "lon": 39.5
+ },
+ {
+  "id": "DR-1027465",
+  "type": "DR",
+  "name": "Uganda, Kenya, Tanzania, Rwanda, Burundi-2026",
+  "country": "Burundi, Democratic Republic of Congo, Kenya, Rwanda, Tanzania, Uganda",
+  "iso3": [
+   "BDI",
+   "COD",
+   "KEN",
+   "RWA",
+   "TZA",
+   "UGA"
+  ],
+  "level": "Orange",
+  "from": 1779321600000,
+  "to": 1790726400000,
+  "sev": "Medium impact for agricultural drought in 172173 km2",
+  "report": "https://www.gdacs.org/report.aspx?eventid=1027465&episodeid=9&eventtype=DR",
+  "lat": -1.2,
+  "lon": 32.1
+ },
+ {
+  "id": "DR-1027449",
+  "type": "DR",
+  "name": "Central America-2026",
+  "country": "Belize, Costa Rica, Cuba, Dominican Republic, Guatemala, Honduras, Mexico, Nicaragua, El Salvador, United States",
+  "iso3": [
+   "BLZ",
+   "CRI",
+   "CUB",
+   "DOM",
+   "GTM",
+   "HND",
+   "MEX",
+   "NIC",
+   "SLV",
+   "USA"
+  ],
+  "level": "Orange",
+  "from": 1776729600000,
+  "to": 1795305600000,
+  "sev": "Medium impact for agricultural drought in 728311 km2",
+  "report": "https://www.gdacs.org/report.aspx?eventid=1027449&episodeid=15&eventtype=DR",
+  "lat": 18.3,
+  "lon": -95.2
+ },
+ {
+  "id": "DR-1018332",
+  "type": "DR",
+  "name": "Europe-2026",
+  "country": "Albania, Austria, Bosnia & Herzegovina, Belgium, Bulgaria, Belarus, Switzerland, Czech Republic, Germany, Denmark, Spain, France, Croatia, Hungary, Ireland, Italy, Liechtenstein, Luxembourg, Montenegro, Poland, Romania, Serbia, Sweden, Slovenia, Slovakia, Ukraine, ",
+  "iso3": [
+   "ALB",
+   "AUT",
+   "BIH",
+   "BEL",
+   "BGR",
+   "BLR",
+   "CHE",
+   "CZE",
+   "DEU",
+   "DNK",
+   "ESP",
+   "FRA",
+   "HRV",
+   "HUN",
+   "IRL",
+   "ITA",
+   "LIE",
+   "LUX",
+   "MNE",
+   "POL",
+   "ROU",
+   "SRB",
+   "SWE",
+   "SVN",
+   "SVK",
+   "UKR"
+  ],
+  "level": "Orange",
+  "from": 1766275200000,
+  "to": 1795305600000,
+  "sev": "Medium impact for agricultural drought in 1121702 km2",
+  "report": "https://www.gdacs.org/report.aspx?eventid=1018332&episodeid=28&eventtype=DR",
+  "lat": 47.4,
+  "lon": 14.2
+ }
+]

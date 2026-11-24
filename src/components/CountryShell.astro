@@ -8,10 +8,10 @@ const { c, tab = '' } = Astro.props;
 const diff = tzDiff(c.tz);
 const ph = countryPhoto(c.slug);
 const tabs = [
+  ['guide', '여행가이드'],
   ['', '모아보기'],
   ['safety', '안전'],
   ['weather', '날씨'],
-  ['guide', '여행가이드'],
   ['info', '환율·긴급'],
 ];
 const label = tabs.find((t) => t[0] === tab)?.[1];
@@ -80,7 +80,7 @@ const label = tabs.find((t) => t[0] === tab)?.[1];
   .cty .more { display: inline-block; margin-top: 10px; color: var(--sea); font-weight: 700; text-decoration: none; }
 
   @media (max-width: 760px) {
-    .cty .ctabs { top: 52px; gap: 4px; margin: 10px -18px 0; padding: 6px 12px; }
+    .cty .ctabs { top: 86px; gap: 4px; margin: 10px -18px 0; padding: 6px 12px; }
     .cty .ctabs a { flex: 1; text-align: center; padding: 8px 4px; font-size: 13px; }
   }
   @media (max-width: 620px) {

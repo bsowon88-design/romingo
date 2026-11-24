@@ -76,6 +76,7 @@ const linkOf = (iso) => (isoSlug[iso] ? `/country/${isoSlug[iso]}/safety/` : nul
   .stabs { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 14px; }
   .stabs a { text-decoration: none; background: #fff; border: 1px solid var(--line); border-radius: 999px; padding: 7px 13px; font-size: 14px; font-weight: 600; }
   h2 { scroll-margin-top: 70px; }
+  @media (max-width: 760px) { h2 { scroll-margin-top: 140px; } }
   .levels { display: flex; flex-direction: column; gap: 10px; }
   .lvh { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; margin-bottom: 10px; }
   .lvh .mchip { font-size: 14px; padding: 4px 10px; }

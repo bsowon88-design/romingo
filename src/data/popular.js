@@ -1,11 +1,14 @@
 // 인기 도시 순위 — 인천공항 출발 여객편 수 (앞으로 7일) + 지난주와 비교
 import pop from './archive/popular.json';
-import { cityKeyOf } from './airports.js';
+import { cityKeyOf, AIRPORTS } from './airports.js';
+const BY_NAME = {};
+for (const [code, a] of Object.entries(AIRPORTS)) if (a[0] && !BY_NAME[a[1]]) BY_NAME[a[1]] = code;
 
 // 예전에 모르는 공항(x:코드)으로 저장된 것은 지금 목록으로 다시 묶음, 국내선은 뺌
 function norm(key) {
   if (key.startsWith('k:')) return null;
   if (key.startsWith('x:')) return cityKeyOf(key.slice(2));
+  if (key.startsWith('n:') && BY_NAME[key.slice(2)]) return cityKeyOf(BY_NAME[key.slice(2)]);
   return null;
 }
 

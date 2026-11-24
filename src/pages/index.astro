@@ -8,7 +8,8 @@ import { CITIES } from '../data/cities.js';
 import { HAS_CLIMATE, climateOf, travelScore, t1 } from '../data/weather.js';
 import { GUIDES } from '../data/guides.js';
 import PhotoCredit from '../components/PhotoCredit.astro';
-import { cityPhoto } from '../data/photos.js';
+import { cityPhoto, photoOf } from '../data/photos.js';
+import Icon from '../components/Icon.astro';
 
 // 인기 여행지 (처음에 보이는 카드)
 const POP = ['japan', 'vietnam', 'thailand', 'philippines', 'taiwan', 'china', 'guam-saipan', 'singapore'];
@@ -25,17 +26,20 @@ const goodNow = scored.filter((o) => (seenC.has(o.x.country) ? false : seenC.add
 
 const isoSlug = {};
 for (const c of COUNTRIES) for (const i of c.iso2) if (!isoSlug[i]) isoSlug[i] = c.slug;
+const hp = photoOf('home:hero');
 const guides = GUIDES.map((g) => CITIES.find((x) => x.slug === g.city)).filter(Boolean);
 ---
 <Base>
-  <section class="hero">
+  <section class:list={['hero', 'hasbg', { photo: hp }]}>
+    {hp && <img class="bgimg" src={hp.src(1400, 560)} srcset={hp.srcset(1400, 560)} alt={hp.alt || '여행'} style={`background:${hp.color}`} />}
+    {hp && <PhotoCredit p={hp} />}
     <p class="eyebrow">✈️ 해외여행 가기 전에</p>
-    <h1>지금 그 나라,<br />가도 괜찮을까?</h1>
+    <h1>지금 그 나라, <br />가도 괜찮을까?</h1>
     <p class="lead">안전·날씨·환율·여행 가이드를 한곳에서 확인하세요.</p>
-    <label class="search">
-      <span>🔍</span>
-      <input id="csearch" type="search" placeholder="나라나 도시 이름 (예: 다낭, 오사카)" autocomplete="off" />
-    </label>
+    <button class="search" data-open-search type="button">
+      <Icon name="search" size={20} />
+      <span>나라나 도시 이름 (예: 다낭, 오사카)</span>
+    </button>
     {warn.length > 0 && (
       <p class="warnline">⚠️ 재난 소식 확인:
         {warn.map((c, i) => <>{i ? ', ' : ' '}<a href={`/country/${c.slug}/safety/`}><Flag iso={flagOf(c)} size={16} /> {c.ko}</a></>)}
@@ -104,26 +108,10 @@ const guides = GUIDES.map((g) => CITIES.find((x) => x.slug === g.city)).filter(B
   </div>
 </Base>
 
-<script>
-  // 나라 검색 — 검색하면 인기 여행지 외의 나라도 보여 줌
-  const input = document.getElementById('csearch') as HTMLInputElement | null;
-  const title = document.getElementById('pop-title');
-  input?.addEventListener('input', () => {
-    const q = input.value.trim().toLowerCase();
-    let shown = 0;
-    document.querySelectorAll<HTMLElement>('#countries .cwrap').forEach((w) => {
-      const name = (w.querySelector<HTMLElement>('.ccard')?.dataset.name || '').toLowerCase();
-      const ok = q ? name.includes(q) : !!w.dataset.pop;
-      w.classList.toggle('hide', !ok);
-      if (ok) shown++;
-    });
-    if (title) title.textContent = q ? '🔍 찾은 나라' : '🧳 인기 여행지';
-    const nores = document.getElementById('nores');
-    if (nores) nores.hidden = shown > 0;
-  });
-</script>
+
 
 <style>
+  .hero.photo::after { background: linear-gradient(90deg, rgba(5,40,70,.7) 0%, rgba(5,40,70,.25) 100%); }
   .hero {
     position: relative; overflow: hidden; border-radius: 22px; padding: 34px 26px 26px; color: #fff;
     background:
@@ -134,8 +122,8 @@ const guides = GUIDES.map((g) => CITIES.find((x) => x.slug === g.city)).filter(B
   .eyebrow { margin: 0 0 6px; font-weight: 700; font-size: 14px; opacity: .9; }
   .hero h1 { margin: 0 0 8px; font-size: 32px; line-height: 1.25; }
   .hero .lead { color: rgba(255,255,255,.9); margin: 0 0 18px; }
-  .search { display: flex; align-items: center; gap: 8px; background: #fff; border-radius: 14px; padding: 0 14px; max-width: 520px; box-shadow: 0 8px 24px rgba(10,60,100,.18); }
-  .search input { border: 0; outline: 0; font: inherit; font-size: 16px; padding: 14px 0; width: 100%; color: var(--ink); background: transparent; }
+  .search { display: flex; align-items: center; gap: 10px; width: 100%; max-width: 520px; background: #fff; border: 0; border-radius: 14px; padding: 14px 16px; box-shadow: 0 8px 24px rgba(10,60,100,.18); font: inherit; font-size: 16px; color: #8a98a4; cursor: pointer; text-align: left; }
+  .search:hover { color: var(--sea); }
   .warnline { margin: 14px 0 0; font-size: 14px; font-weight: 600; }
   .warnline a { color: #fff; }
   .cgrid { grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); }
@@ -154,9 +142,15 @@ const guides = GUIDES.map((g) => CITIES.find((x) => x.slug === g.city)).filter(B
   .two { display: grid; grid-template-columns: 1fr 1fr; gap: 0 22px; }
   .sbox p { margin: 0 0 8px; }
   @media (max-width: 820px) { .two { grid-template-columns: 1fr; } }
-  @media (max-width: 520px) {
-    .hero { padding: 26px 18px 20px; }
-    .hero h1 { font-size: 27px; }
+  @media (max-width: 760px) {
+    .hero { padding: 18px 16px 16px; border-radius: 16px; }
+    .hero .eyebrow, .hero .lead { display: none; }
+    .hero h1 { font-size: 21px; margin-bottom: 12px; }
+    .hero h1 br { display: none; }
+    .search { padding: 11px 14px; font-size: 15px; }
+    .warnline { margin-top: 10px; font-size: 13px; }
+    h2 { font-size: 17px; margin: 22px 0 10px; }
     .cgrid { grid-template-columns: 1fr 1fr; gap: 10px; }
+    .good { grid-template-columns: 1fr 1fr; }
   }
 </style>

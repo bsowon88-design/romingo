@@ -1,16 +1,19 @@
 ---
 import { SITE_NAME, SITE_TAGLINE, SITE_URL, SITE_DESC, MOFA_URL } from '../site.js';
+import Icon from '../components/Icon.astro';
+import { SEARCH_INDEX } from '../data/search.js';
 const { title, desc = SITE_DESC, noindex = false } = Astro.props;
 const full = title ? `${title} | ${SITE_NAME}` : `${SITE_NAME} - ${SITE_TAGLINE}`;
 const canonical = new URL(Astro.url.pathname, SITE_URL).href;
 const path = Astro.url.pathname;
+// [주소, 이름, 아이콘, 폰 아래 메뉴에 넣을지]
 const nav = [
-  ['/', '홈'],
-  ['/country/', '나라별'],
-  ['/guide/', '도시 가이드'],
-  ['/weather/', '날씨'],
-  ['/safety/', '안전 정보'],
-  ['/rates/', '환율'],
+  ['/', '홈', 'house', true],
+  ['/country/', '나라별', 'globe', true],
+  ['/guide/', '도시 가이드', 'book-open', false],
+  ['/weather/', '날씨', 'cloud-sun', true],
+  ['/safety/', '안전 정보', 'shield-check', true],
+  ['/rates/', '환율', 'coins', true],
 ];
 const isOn = (href) => (href === '/' ? path === '/' : path.startsWith(href) || (href === '/safety/' && (path.startsWith('/quakes') || path.startsWith('/disasters') || path.startsWith('/quake/'))));
 ---
@@ -18,7 +21,7 @@ const isOn = (href) => (href === '/' ? path === '/' : path.startsWith(href) || (
 <html lang="ko">
 <head>
   <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
   <title>{full}</title>
   <meta name="description" content={desc} />
   <link rel="canonical" href={canonical} />
@@ -38,14 +41,33 @@ const isOn = (href) => (href === '/' ? path === '/' : path.startsWith(href) || (
   <header class="top">
     <div class="wrap top-in">
       <a href="/" class="logo"><span class="logo-mark">◎</span>로밍고<small>{SITE_TAGLINE}</small></a>
-      <button class="burger" aria-label="메뉴 열기" aria-expanded="false" id="burger"><span></span><span></span><span></span></button>
       <nav id="mainnav">
-        {nav.map(([href, label]) => (
-          <a href={href} class={isOn(href) ? 'on' : ''}>{label}</a>
+        {nav.map(([href, label, icon]) => (
+          <a href={href} class={isOn(href) ? 'on' : ''}><Icon name={icon} size={18} />{label}</a>
         ))}
       </nav>
+      <button class="sbtn" id="sopen" aria-label="검색"><Icon name="search" size={20} /><span>검색</span></button>
     </div>
   </header>
+
+  <nav class="bnav" aria-label="아래 메뉴">
+    {nav.filter((n) => n[3]).map(([href, label, icon]) => (
+      <a href={href} class={isOn(href) ? 'on' : ''}><Icon name={icon} size={22} /><span>{label.replace(' 정보', '')}</span></a>
+    ))}
+  </nav>
+
+  <div class="sbox-wrap" id="sbox" hidden>
+    <div class="sbox-in">
+      <div class="sbar">
+        <Icon name="search" size={20} />
+        <input id="sq" type="search" placeholder="나라나 도시 (예: 다낭, 오사카, japan)" autocomplete="off" />
+        <button id="sclose" aria-label="닫기"><Icon name="x" size={22} /></button>
+      </div>
+      <div id="sres" class="sres"><p class="shint">나라나 도시 이름을 쳐 보세요.</p></div>
+    </div>
+  </div>
+  <script type="application/json" id="sidx" set:html={JSON.stringify(SEARCH_INDEX)}></script>
+
   <main class="wrap">
     <slot />
   </main>
@@ -58,12 +80,70 @@ const isOn = (href) => (href === '/' ? path === '/' : path.startsWith(href) || (
     </div>
   </footer>
   <script>
-    // 폰 메뉴 열고 닫기
-    const bg = document.getElementById('burger');
-    const mn = document.getElementById('mainnav');
-    bg?.addEventListener('click', () => {
-      const open = mn?.classList.toggle('open');
-      bg.setAttribute('aria-expanded', open ? 'true' : 'false');
+    // 어디서나 검색
+    const box = document.getElementById('sbox');
+    const q = document.getElementById('sq') as HTMLInputElement | null;
+    const res = document.getElementById('sres');
+    let IDX: any[] | null = null;
+    const idx = () => (IDX ||= JSON.parse(document.getElementById('sidx')?.textContent || '[]'));
+    const open = () => { if (!box) return; box.hidden = false; document.body.classList.add('noscroll'); setTimeout(() => q?.focus(), 30); };
+    const close = () => { if (!box) return; box.hidden = true; document.body.classList.remove('noscroll'); };
+    document.getElementById('sopen')?.addEventListener('click', open);
+    document.querySelectorAll('[data-open-search]').forEach((el) => el.addEventListener('click', (e) => { e.preventDefault(); open(); }));
+    document.getElementById('sclose')?.addEventListener('click', close);
+    box?.addEventListener('click', (e) => { if (e.target === box) close(); });
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') close();
+      if (e.key === '/' && box?.hidden && !(e.target instanceof HTMLInputElement)) { e.preventDefault(); open(); }
+    });
+
+    const el = (tag: string, cls = '', text = '', href = '') => {
+      const n = document.createElement(href ? 'a' : tag);
+      if (cls) n.className = cls;
+      if (text) n.textContent = text;
+      if (href) n.setAttribute('href', href);
+      return n;
+    };
+
+    function render(text: string) {
+      if (!res) return;
+      const t = text.trim().toLowerCase().replace(/\s+/g, '');
+      res.replaceChildren();
+      if (!t) { res.append(el('p', 'shint', '나라나 도시 이름을 쳐 보세요.')); return; }
+      const hits = [];
+      for (const c of idx()) {
+        const cHit = c.k.replace(/\s/g, '').includes(t) || c.e.replace(/\s/g, '').includes(t);
+        const cityHits = c.c.filter((x) => x.k.replace(/\s/g, '').includes(t) || x.s.includes(t) || x.e.replace(/\s/g, '').includes(t));
+        if (cHit || cityHits.length) hits.push({ c, cityHits, cHit });
+      }
+      if (!hits.length) { res.append(el('p', 'shint', '찾는 곳이 아직 없어요. 곧 더 늘릴게요.')); return; }
+      for (const { c, cityHits, cHit } of hits.slice(0, 6)) {
+        const g = el('div', 'sgrp');
+        const head = el('a', 'shead', '', `/country/${c.s}/`);
+        const img = document.createElement('img');
+        img.src = `/flags/${c.f}.svg`; img.width = 26; img.height = 20; img.alt = ''; img.className = 'flag';
+        head.append(img, el('b', '', c.k), el('span', 'sgo', '모아보기 →'));
+        g.append(head);
+        const list = el('div', 'slinks');
+        // 나라 이름이 맞으면 그 나라 도시 전부, 도시만 맞으면 그 도시 먼저
+        const cities = cHit ? [...cityHits, ...c.c.filter((x) => !cityHits.includes(x))] : cityHits;
+        for (const x of cities.filter((x) => x.g)) list.append(el('a', 'sl', `📖 ${x.k} 여행 가이드`, `/guide/${x.s}/`));
+        const wc = cities.filter((x) => x.w).slice(0, 6);
+        if (wc.length) {
+          const row = el('span', 'sl wrow');
+          row.append(el('span', '', '🌤️ 날씨 '));
+          wc.forEach((x, i) => { if (i) row.append(document.createTextNode(' · ')); row.append(el('a', '', x.k, `/weather/${x.s}/`)); });
+          list.append(row);
+        }
+        list.append(el('a', 'sl', `🛡️ 안전 정보${c.a ? ` (${c.a})` : ''}`, `/country/${c.s}/safety/`));
+        list.append(el('a', 'sl', `💱 환율·긴급번호${c.r ? ` (${c.r})` : ''}`, `/country/${c.s}/info/`));
+        g.append(list);
+        res.append(g);
+      }
+    }
+    q?.addEventListener('input', () => render(q.value));
+    q?.addEventListener('keydown', (e) => {
+      if (e.key === 'Enter') { const a = res?.querySelector('a') as HTMLAnchorElement | null; if (a) location.href = a.href; }
     });
   </script>
   <script>
@@ -116,25 +196,60 @@ const isOn = (href) => (href === '/' ? path === '/' : path.startsWith(href) || (
   main.wrap { padding-top: 22px; padding-bottom: 48px; min-height: 60vh; }
 
   .top { background: rgba(255,255,255,.94); backdrop-filter: blur(8px); color: var(--ink); position: sticky; top: 0; z-index: 10; border-bottom: 1px solid var(--line); }
-  .top-in { display: flex; align-items: center; justify-content: space-between; gap: 12px; height: 58px; }
+  .top-in { display: grid; grid-template-columns: auto 1fr auto; align-items: center; gap: 16px; height: 64px; }
   .logo { text-decoration: none; font-weight: 800; font-size: 20px; display: flex; align-items: baseline; gap: 6px; letter-spacing: -0.02em; }
   .logo-mark { color: var(--coral); }
   .logo small { font-weight: 500; font-size: 12px; color: var(--sub); }
-  .top nav { display: flex; gap: 2px; overflow-x: auto; }
-  .top nav a { text-decoration: none; font-size: 14px; padding: 6px 10px; border-radius: 8px; opacity: .85; white-space: nowrap; }
-  .top nav a.on, .top nav a:hover { background: #e8f3fb; color: var(--sea); opacity: 1; font-weight: 600; }
-  .burger { display: none; background: none; border: 0; width: 40px; height: 40px; padding: 9px; cursor: pointer; }
-  .burger span { display: block; height: 2px; background: var(--ink); margin: 5px 0; border-radius: 2px; transition: .2s; }
+  .top nav { display: flex; justify-content: center; gap: 4px; }
+  .top nav a { position: relative; display: inline-flex; align-items: center; gap: 6px; text-decoration: none; font-size: 16px; font-weight: 700; color: #3c4b57; padding: 10px 12px; border-radius: 10px; white-space: nowrap; }
+  .top nav a .ico { color: #8a98a4; }
+  .top nav a:hover { background: #f0f6fb; color: var(--sea); }
+  .top nav a:hover .ico, .top nav a.on .ico { color: var(--sea); }
+  .top nav a.on { color: var(--sea); }
+  .top nav a.on::after { content: ''; position: absolute; left: 12px; right: 12px; bottom: -3px; height: 3px; border-radius: 3px; background: var(--sea); }
+  .sbtn { display: inline-flex; align-items: center; gap: 6px; font: inherit; font-weight: 700; font-size: 15px; color: #3c4b57; background: #f0f4f7; border: 1px solid var(--line); border-radius: 999px; padding: 8px 14px; cursor: pointer; }
+  .sbtn:hover { border-color: var(--sea); color: var(--sea); }
+
+  .bnav { display: none; }
+  .sbox-wrap { position: fixed; inset: 0; z-index: 50; background: rgba(15,30,45,.45); display: flex; justify-content: center; align-items: flex-start; padding: 70px 14px 14px; }
+  .sbox-wrap[hidden] { display: none; }
+  .sbox-in { width: 100%; max-width: 640px; background: #fff; border-radius: 18px; box-shadow: 0 20px 60px rgba(0,0,0,.25); overflow: hidden; display: flex; flex-direction: column; max-height: calc(100vh - 90px); }
+  .sbar { display: flex; align-items: center; gap: 10px; padding: 12px 14px; border-bottom: 1px solid var(--line); color: var(--sub); }
+  .sbar input { flex: 1; border: 0; outline: 0; font: inherit; font-size: 18px; color: var(--ink); background: transparent; padding: 6px 0; }
+  .sbar .ico, .sbtn .ico, .search .ico { flex: none; }
+  input[type='search']::-webkit-search-cancel-button { -webkit-appearance: none; display: none; }
+  .sbar button { background: none; border: 0; color: var(--sub); cursor: pointer; padding: 4px; }
+  .sres { overflow-y: auto; padding: 8px 10px 14px; }
+  .shint { color: var(--sub); padding: 14px 6px; margin: 0; }
+  .sgrp { border: 1px solid var(--line); border-radius: 14px; margin: 8px 0; overflow: hidden; }
+  .shead { display: flex; align-items: center; gap: 10px; padding: 12px 14px; background: #f6f9fb; text-decoration: none; font-size: 17px; }
+  .shead:hover { background: #eaf4fb; }
+  .sgo { margin-left: auto; font-size: 13px; font-weight: 700; color: var(--sea); }
+  .slinks { display: flex; flex-direction: column; padding: 6px 8px 10px; }
+  .sl { display: block; text-decoration: none; padding: 7px 8px; border-radius: 8px; font-size: 15px; }
+  a.sl:hover { background: #f0f6fb; }
+  .wrow a { color: var(--sea); text-decoration: none; font-weight: 600; }
+  body.noscroll { overflow: hidden; }
   .hasbg { position: relative; overflow: hidden; isolation: isolate; }
   .hasbg > .bgimg { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; z-index: -2; }
   .hasbg.photo::after { content: ''; position: absolute; inset: 0; z-index: -1; background: linear-gradient(180deg, rgba(0,0,0,.15) 0%, rgba(0,0,0,.55) 100%); }
   .flag { display: inline-block; vertical-align: -2px; border-radius: 2px; box-shadow: 0 0 0 1px rgba(0,0,0,.08); object-fit: cover; }
-  @media (max-width: 760px) {
+  @media (max-width: 900px) {
     .logo small { display: none; }
-    .burger { display: block; }
-    .top nav { display: none; position: absolute; top: 58px; left: 0; right: 0; flex-direction: column; background: #fff; border-bottom: 1px solid var(--line); padding: 6px 12px 12px; box-shadow: 0 10px 20px rgba(20,35,47,.08); }
-    .top nav.open { display: flex; }
-    .top nav a { padding: 12px 10px; font-size: 16px; border-radius: 10px; }
+    .top nav a { font-size: 15px; padding: 10px 8px; }
+  }
+  @media (max-width: 760px) {
+    .top-in { grid-template-columns: 1fr auto; height: 56px; }
+    .top nav { display: none; }
+    .sbtn span { display: none; }
+    .sbtn { padding: 8px; }
+    .bnav { display: flex; position: fixed; left: 0; right: 0; bottom: 0; z-index: 20; background: rgba(255,255,255,.97); backdrop-filter: blur(8px); border-top: 1px solid var(--line); padding: 6px 4px calc(6px + env(safe-area-inset-bottom)); }
+    .bnav a { flex: 1; display: flex; flex-direction: column; align-items: center; gap: 2px; text-decoration: none; font-size: 11.5px; font-weight: 600; color: #6b7a86; padding: 4px 0; }
+    .bnav a.on { color: var(--sea); }
+    .bnav a.on .ico { stroke-width: 2.4; }
+    body { padding-bottom: 66px; }
+    .sbox-wrap { padding: 10px; }
+    .sbox-in { max-height: calc(100vh - 20px); }
   }
 
   h1 { font-size: 26px; line-height: 1.35; letter-spacing: -0.02em; margin: 6px 0 8px; }

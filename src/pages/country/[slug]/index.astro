@@ -2,8 +2,10 @@
 import Base from '../../../layouts/Base.astro';
 import CountryShell from '../../../components/CountryShell.astro';
 import Flag from '../../../components/Flag.astro';
-import { COUNTRIES, flagOf, tzDiff, tzDiffText } from '../../../data/countries.js';
-import { countryStatus, STATUS_KO, countryAlarm, ALARM_KO, HAS_ALARMS, countryRate } from '../../../data/load.js';
+import { COUNTRIES, flagOf, tzDiff, tzDiffText, CONSULAR_CALL } from '../../../data/countries.js';
+import { cityPhoto } from '../../../data/photos.js';
+import { countryStatus, STATUS_KO, countryAlarm, ALARM_KO, HAS_ALARMS, countryRate, countryAdjusts, BUILT_AT } from '../../../data/load.js';
+import { translatePlace, kstShort } from '../../../data/place.js';
 import { CITIES } from '../../../data/cities.js';
 import { HAS_CLIMATE, climateOf, travelScore, scoreLabel, t1 } from '../../../data/weather.js';
 import { GUIDES } from '../../../data/guides.js';
@@ -25,10 +27,12 @@ const wc = CITIES.filter((x) => x.country === c.slug && HAS_CLIMATE(x.slug)).map
   return { x, d, s: scoreLabel(travelScore(d)) };
 });
 const guides = GUIDES.map((g) => CITIES.find((x) => x.slug === g.city)).filter((x) => x && x.country === c.slug);
+const adjusts = countryAdjusts(c, 3);
+const bigQ = st.quakes.filter((q) => q.mag >= 5 && BUILT_AT - q.time <= 90 * 864e5).slice(0, 3);
 const others = COUNTRIES.filter((x) => x.region === c.region && x.slug !== c.slug);
 const partial = alarm && alarm.levels.length && alarm.levels.every((l) => /일부/.test(l.region));
 
-const title = `${c.ko} 여행 정보 - 지금 가도 괜찮을까? 안전·날씨·환율`;
+const title = `${c.ko} 여행 정보 모아보기 - 지금 가도 괜찮을까? 안전·날씨·환율`;
 const desc = `${c.ko} 여행 전 한눈에: 안전 상태, 외교부 여행경보, ${nowM}월 날씨, ${tzDiffText(diff)}, ${c.volt} ${c.plug}${rate ? `, 환율 ${rate.line1}` : ''}.`;
 ---
 <Base title={title} desc={desc}>
@@ -77,9 +81,36 @@ const desc = `${c.ko} 여행 전 한눈에: 안전 상태, 외교부 여행경�
     {guides.length > 0 && (
       <>
         <h2>📖 도시 가이드</h2>
-        <div class="chips">{guides.map((x) => <a href={`/guide/${x.slug}/`}>{x.ko} 여행 가이드</a>)}</div>
+        <div class="gcards">
+          {guides.map((x) => {
+            const p = cityPhoto(x.slug);
+            return (
+              <a class="gcard" href={`/guide/${x.slug}/`}>
+                <span class:list={['gimg', 'hasbg', { photo: p }]} style={`--c1:${c.color[0]};--c2:${c.color[1]}`}>{p && <img class="bgimg" src={p.src(400, 220)} alt={x.ko} loading="lazy" />}</span>
+                <b>{x.ko} 여행 가이드</b>
+              </a>
+            );
+          })}
+        </div>
       </>
     )}
+
+    {(adjusts.length > 0 || bigQ.length > 0) && (
+      <>
+        <h2>📢 최근 안전 소식</h2>
+        <ul class="qlist">
+          {adjusts.map((a) => <li><a class="qrow" href={`/country/${c.slug}/safety/`}><span><span class="t">{a.title}</span><br /><span class="s">{a.date} · 외교부</span></span></a></li>)}
+          {bigQ.map((q) => <li><a class="qrow" href={`/quake/${q.id}/`}><span class="mag yellow">{q.mag.toFixed(1)}</span><span><span class="t">{translatePlace(q.place)} 지진</span><br /><span class="s">{kstShort(q.time)} (한국 시간)</span></span></a></li>)}
+        </ul>
+        <a class="more" href={`/country/${c.slug}/safety/`}>안전 정보 전체 →</a>
+      </>
+    )}
+
+    <h2>📞 긴급 연락처</h2>
+    <div class="calls">
+      {c.emergency.map(([n, num]) => <a href={`tel:${num}`}><span>{n}</span><b>{num}</b></a>)}
+      <a href={`tel:${CONSULAR_CALL.replace(/-/g, '')}`}><span>영사콜센터</span><b>{CONSULAR_CALL}</b></a>
+    </div>
 
     <h2>✅ 출발 전 체크리스트</h2>
     <ul class="card list">
@@ -117,5 +148,22 @@ const desc = `${c.ko} 여행 전 한눈에: 안전 상태, 외교부 여행경�
   .sc.ok { background: #eef1f4; color: #55636e; }
   .sc.bad { background: #fde8e3; color: #b3452a; }
   .list a { color: var(--sea); }
-  @media (max-width: 620px) { .sumgrid { grid-template-columns: 1fr; } }
+  .gcards { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 10px; }
+  .gcard { display: flex; flex-direction: column; background: #fff; border: 1px solid var(--line); border-radius: 14px; overflow: hidden; text-decoration: none; }
+  .gcard:hover { border-color: var(--sea); }
+  .gimg { display: block; height: 110px; background: linear-gradient(135deg, var(--c1), var(--c2)); }
+  .gcard b { padding: 10px 12px; }
+  .calls { display: flex; flex-wrap: wrap; gap: 8px; }
+  .calls a { display: inline-flex; align-items: baseline; gap: 8px; text-decoration: none; background: #f5fbff; border: 1px solid #cfe5f4; border-radius: 12px; padding: 9px 14px; }
+  .calls span { font-size: 13px; color: var(--sub); font-weight: 600; }
+  .calls b { color: var(--sea); font-size: 17px; }
+  @media (max-width: 620px) {
+    .sumgrid { grid-template-columns: 1fr 1fr; gap: 8px; }
+    .sbox { padding: 12px; }
+    .sbox small { display: none; }
+    .sbox .badge, .sbox .mchip { font-size: 12px; padding: 3px 8px; white-space: normal; }
+    .wrow { grid-template-columns: 1fr 1fr; }
+    .gcards { grid-template-columns: 1fr 1fr; }
+    .gimg { height: 80px; }
+  }
 </style>

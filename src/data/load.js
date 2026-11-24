@@ -111,11 +111,16 @@ const fmtNum = (n) => (n >= 100 ? Math.round(n).toLocaleString('ko-KR') : n >= 1
 export function countryRate(c) {
   const r = c.cur && rateArchive?.[c.cur];
   if (!r || !r.value) return null;
-  const perWon = (10000 / r.value) * r.unit; // 1만 원으로 바꾸면
+  const sp = c.curName.includes(' ') ? ' ' : '';
+  const won = (n) => `${Math.round(n).toLocaleString('ko-KR')}원`;
+  // 아랫줄도 윗줄과 같은 방향(외화 → 원). 원화로 5천 원 이상이 되는 가장 작은 10배 단위
+  const per1 = r.value / r.unit;
+  let amt = r.unit;
+  while (per1 * amt < 5000) amt *= 10;
   const d = String(r.date || '');
   return {
-    line1: `${r.unit.toLocaleString('ko-KR')}${c.curName.includes(' ') ? ' ' : ''}${c.curName} = ${fmtNum(r.value)}원`,
-    line2: `1만 원 ≈ ${fmtNum(perWon)}${c.curName}`,
+    line1: `${r.unit.toLocaleString('ko-KR')}${sp}${c.curName} = ${(r.value >= 1000 ? Math.round(r.value * 10) / 10 : Math.round(r.value * 100) / 100).toLocaleString('ko-KR', { maximumFractionDigits: 2 })}원`,
+    line2: `${amt.toLocaleString('ko-KR')}${sp}${c.curName} ≈ ${won(per1 * amt)}`,
     date: d.length === 8 ? `${d.slice(0, 4)}.${d.slice(4, 6)}.${d.slice(6)}` : d,
   };
 }

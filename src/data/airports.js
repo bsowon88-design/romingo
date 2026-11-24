@@ -46,7 +46,14 @@ export const AIRPORTS = {
   VIE: [null, '빈', 'at'], PRG: [null, '프라하', 'cz'], BUD: [null, '부다페스트', 'hu'], WAW: [null, '바르샤바', 'pl'],
   HEL: [null, '헬싱키', 'fi'], LIS: [null, '리스본', 'pt'], CPH: [null, '코펜하겐', 'dk'],
   DXB: [null, '두바이', 'ae'], AUH: [null, '아부다비', 'ae'], DOH: [null, '도하', 'qa'], TLV: [null, '텔아비브', 'il'],
-  ULN: [null, '울란바토르', 'mn'], VVO: [null, '블라디보스토크', 'ru'], IKT: [null, '이르쿠츠크', 'ru'],
+  ULN: [null, '울란바토르', 'mn'], UBN: [null, '울란바토르', 'mn'],
+  KTI: [null, '프놈펜', 'kh'], UKB: [null, '고베', 'jp'], SHI: [null, '미야코지마', 'jp'], TKS: [null, '도쿠시마', 'jp'], HSG: [null, '사가', 'jp'],
+  TNA: [null, '지난', 'cn'], HFE: [null, '허페이', 'cn'], CGO: [null, '정저우', 'cn'], YNZ: [null, '옌청', 'cn'], FOC: [null, '푸저우', 'cn'],
+  WUX: [null, '우시', 'cn'], WUS: [null, '우이산', 'cn'], CSX: [null, '창사', 'cn'], URC: [null, '우루무치', 'cn'], LJG: [null, '리장', 'cn'],
+  SJW: [null, '스자좡', 'cn'], HAK: [null, '하이커우', 'cn'], WDS: [null, '스옌', 'cn'], YTY: [null, '양저우', 'cn'], YIH: [null, '이창', 'cn'],
+  WNZ: [null, '원저우', 'cn'], JMU: [null, '자무쓰', 'cn'],
+  NQZ: [null, '아스타나', 'kz'], CIT: [null, '심켄트', 'kz'], ASB: [null, '아시가바트', 'tm'], MDC: [null, '마나도', 'id'],
+  BWN: [null, '반다르스리브가완', 'bn'], WRO: [null, '브로츠와프', 'pl'], VVO: [null, '블라디보스토크', 'ru'], IKT: [null, '이르쿠츠크', 'ru'],
   ALA: [null, '알마티', 'kz'], TAS: [null, '타슈켄트', 'uz'],
   PNH: [null, '프놈펜', 'kh'], REP: [null, '씨엠립', 'kh'], SAI: [null, '씨엠립', 'kh'], VTE: [null, '비엔티안', 'la'],
   RGN: [null, '양곤', 'mm'], CMB: [null, '콜롬보', 'lk'], DEL: [null, '델리', 'in'], BOM: [null, '뭄바이', 'in'],
@@ -55,9 +62,13 @@ export const AIRPORTS = {
   GRU: [null, '상파울루', 'br'], SCL: [null, '산티아고', 'cl'], LIM: [null, '리마', 'pe'],
 };
 
+// 국내선 연결편(인천→부산 등)은 해외여행 순위에서 뺌
+export const KOREA = new Set(['GMP', 'PUS', 'CJU', 'TAE', 'KWJ', 'CJJ', 'MWX', 'YNY', 'RSU', 'USN', 'HIN', 'KPO', 'KUV', 'WJU', 'ICN']);
+
 // 같은 도시 공항을 하나로 묶는 열쇠
 export function cityKeyOf(code, nameEn = '') {
   const a = AIRPORTS[code];
+  if (KOREA.has(code)) return { key: `k:${code}`, city: null, ko: code, iso: 'kr', domestic: true };
   if (!a) return { key: `x:${code}`, city: null, ko: nameEn || code, iso: '' };
   return { key: a[0] ? `c:${a[0]}` : `n:${a[1]}`, city: a[0], ko: a[1], iso: a[2] };
 }

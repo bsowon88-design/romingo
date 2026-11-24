@@ -42,7 +42,7 @@ const isOn = (href) => (href === '/' ? path === '/' : path.startsWith(href) || (
 <body>
   <header class="top">
     <div class="wrap top-in">
-      <a href="/" class="logo"><img class="logo-img" src="/favicon-48.png" srcset="/favicon-48.png 1x, /apple-touch-icon.png 2x" width="30" height="30" alt="" />로밍고<small>{SITE_TAGLINE}</small></a>
+      <a href="/" class="logo"><img class="logo-img" src="/favicon-48.png" srcset="/favicon-48.png 1x, /apple-touch-icon.png 2x" width="30" height="30" alt="로밍고 홈" /><span class="logo-txt">로밍고</span><small>{SITE_TAGLINE}</small></a>
       <nav id="mainnav">
         {nav.map(([href, label, icon]) => (
           <a href={href} class={isOn(href) ? 'on' : ''}><Icon name={icon} size={18} />{label}</a>
@@ -55,11 +55,6 @@ const isOn = (href) => (href === '/' ? path === '/' : path.startsWith(href) || (
     </div>
   </header>
 
-  <nav class="bnav" aria-label="아래 메뉴">
-    {nav.filter((n) => n[3]).map(([href, label, icon]) => (
-      <a href={href} class={isOn(href) ? 'on' : ''}><Icon name={icon} size={22} /><span>{label.replace(' 정보', '')}</span></a>
-    ))}
-  </nav>
 
   <div class="sbox-wrap" id="sbox" hidden>
     <div class="sbox-in">
@@ -181,6 +176,16 @@ const isOn = (href) => (href === '/' ? path === '/' : path.startsWith(href) || (
     });
   </script>
   <script>
+    // 폰에서 지금 메뉴가 화면 밖이면 보이게 옆으로 밀어 둠
+    const on = document.querySelector<HTMLElement>('#mainnav a.on');
+    const nav = document.getElementById('mainnav');
+    if (on && nav && nav.scrollWidth > nav.clientWidth) {
+      const left = on.getBoundingClientRect().left - nav.getBoundingClientRect().left;
+      const right = left + on.offsetWidth;
+      if (right > nav.clientWidth - 24) nav.scrollLeft = Math.max(0, left - 12);
+    }
+  </script>
+  <script>
     // 화면의 현지 시각(data-tz)을 30초마다 바꿈
     const tick = () => {
       document.querySelectorAll('[data-tz]').forEach((el) => {
@@ -250,7 +255,6 @@ const isOn = (href) => (href === '/' ? path === '/' : path.startsWith(href) || (
   .ibtn:hover { border-color: var(--sea); color: var(--sea); }
   .toast { position: fixed; left: 50%; bottom: 90px; transform: translateX(-50%); z-index: 60; background: rgba(46,36,32,.92); color: #fff; font-size: 14px; font-weight: 600; padding: 10px 16px; border-radius: 999px; pointer-events: none; }
 
-  .bnav { display: none; }
   .sbox-wrap { position: fixed; inset: 0; z-index: 50; background: rgba(60,35,20,.45); display: flex; justify-content: center; align-items: flex-start; padding: 70px 14px 14px; }
   .sbox-wrap[hidden] { display: none; }
   .sbox-in { width: 100%; max-width: 640px; background: #fff; border-radius: 18px; box-shadow: 0 20px 60px rgba(0,0,0,.25); overflow: hidden; display: flex; flex-direction: column; max-height: calc(100vh - 90px); }
@@ -282,15 +286,19 @@ const isOn = (href) => (href === '/' ? path === '/' : path.startsWith(href) || (
     .top nav a { font-size: 15px; padding: 10px 8px; }
   }
   @media (max-width: 760px) {
-    .top-in { grid-template-columns: 1fr auto; height: 56px; }
-    .top nav { display: none; }
+    .top-in { grid-template-columns: auto minmax(0, 1fr) auto; gap: 6px; height: 52px; }
+    .logo-txt, .logo small { display: none; }
+    .logo-img { width: 32px; height: 32px; }
+    .top nav { justify-content: flex-start; gap: 0; overflow-x: auto; scrollbar-width: none; -webkit-mask-image: linear-gradient(90deg, #000 85%, transparent); mask-image: linear-gradient(90deg, #000 85%, transparent); padding-right: 18px; }
+    .top nav::-webkit-scrollbar { display: none; }
+    .top nav a { flex: none; font-size: 15px; font-weight: 600; letter-spacing: -0.02em; color: #7A665B; padding: 8px 9px; border-radius: 8px; }
+    .top nav a .ico { display: none; }
+    .top nav a.on { color: var(--ink); font-weight: 800; }
+    .top nav a.on::after { left: 9px; right: 9px; bottom: -6px; height: 2.5px; background: var(--coral); }
+    .top nav a:hover { background: transparent; }
+    .tact { gap: 4px; }
+    .ibtn, .sbtn { width: 34px; height: 34px; padding: 0; display: grid; place-items: center; border-radius: 50%; }
     .sbtn span { display: none; }
-    .sbtn { padding: 8px; }
-    .bnav { display: flex; position: fixed; left: 0; right: 0; bottom: 0; z-index: 20; background: rgba(255,255,255,.97); backdrop-filter: blur(8px); border-top: 1px solid var(--line); padding: 6px 4px calc(6px + env(safe-area-inset-bottom)); }
-    .bnav a { flex: 1; display: flex; flex-direction: column; align-items: center; gap: 2px; text-decoration: none; font-size: 11.5px; font-weight: 600; color: #9A857A; padding: 4px 0; }
-    .bnav a.on { color: var(--sea); }
-    .bnav a.on .ico { stroke-width: 2.4; }
-    body { padding-bottom: 66px; }
     .sbox-wrap { padding: 10px; }
     .sbox-in { max-height: calc(100vh - 20px); }
   }

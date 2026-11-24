@@ -1,0 +1,33 @@
+---
+import { TYPE_KO, TYPE_ICON, LEVEL_KO } from '../data/normalize.js';
+import { kstDate } from '../data/place.js';
+import { bySlug } from '../data/countries.js';
+const { d } = Astro.props;
+const cs = d.countries.map((s) => bySlug[s]).filter(Boolean);
+---
+<article class="card dcard">
+  <div class="dtop">
+    <span class="dicon">{TYPE_ICON[d.type] || '⚠️'}</span>
+    <span class={`badge b-${d.level}`}>{LEVEL_KO[d.level] || d.level}</span>
+    <span class="dtype">{TYPE_KO[d.type] || d.type}</span>
+  </div>
+  <h3>{cs.length ? cs.map((c) => c.ko).join('·') : d.country} {TYPE_KO[d.type] || ''}{d.name && !/^(earthquake|flood|drought|forest fires?) in /i.test(d.name) ? ` (${d.name})` : ''}</h3>
+  <p class="muted">{kstDate(d.from)}{d.to && d.to - d.from > 864e5 ? ` ~ ${kstDate(d.to)}` : ''}</p>
+  {d.sev && <p class="sev">{d.sev}</p>}
+  <p class="dlinks">
+    {cs.map((c) => <a href={`/country/${c.slug}/`}>{c.flag} {c.ko} 안전 정보</a>)}
+    <a href={d.report} target="_blank" rel="noopener">GDACS 원문 ↗</a>
+  </p>
+</article>
+
+<style>
+  .dcard { display: flex; flex-direction: column; gap: 4px; }
+  .dtop { display: flex; align-items: center; gap: 6px; }
+  .dicon { font-size: 20px; }
+  .dtype { font-size: 13px; color: var(--sub); font-weight: 600; }
+  h3 { margin: 4px 0 0; font-size: 16px; line-height: 1.4; }
+  p { margin: 0; }
+  .sev { font-size: 13px; color: var(--sub); }
+  .dlinks { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 6px; font-size: 13px; font-weight: 600; }
+  .dlinks a { color: var(--sea); text-decoration: none; }
+</style>

@@ -1,0 +1,11 @@
+---
+import Base from '../../layouts/Base.astro';
+import CountryCard from '../../components/CountryCard.astro';
+import { countryCards } from '../../data/load.js';
+---
+<Base title="나라별 여행 안전 정보" desc="일본, 대만, 베트남, 태국, 필리핀 등 인기 여행지의 최근 지진·태풍·홍수 소식과 안전 상태를 나라별로 확인하세요.">
+  <p class="crumb"><a href="/">홈</a> › 나라별</p>
+  <h1>나라별 여행 안전 정보</h1>
+  <p class="lead">가려는 나라를 누르면 최근 지진, 재난 경보, 외교부 안내를 한 번에 볼 수 있어요.</p>
+  <div class="grid" style="margin-top:18px">{countryCards.map((c) => <CountryCard c={c} />)}</div>
+</Base>

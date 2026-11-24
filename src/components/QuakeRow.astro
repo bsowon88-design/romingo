@@ -1,0 +1,15 @@
+---
+import { translatePlace, kstShort, magLevel } from '../data/place.js';
+const { q, link = true } = Astro.props;
+const href = link && q.mag >= 5 ? `/quake/${q.id}/` : null;
+const Tag = href ? 'a' : 'div';
+---
+<li>
+  <Tag class="qrow" href={href}>
+    <span class={`mag ${magLevel(q.mag)}`}>{q.mag.toFixed(1)}</span>
+    <span>
+      <span class="t">{translatePlace(q.place)}{q.tsunami ? <span class="tag">쓰나미 안내</span> : null}</span><br />
+      <span class="s">{kstShort(q.time)} (한국 시간) · 깊이 {q.depth}km</span>
+    </span>
+  </Tag>
+</li>

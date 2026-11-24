@@ -1,0 +1,26 @@
+---
+import { STATUS_KO } from '../data/load.js';
+import { kstShort } from '../data/place.js';
+const { c } = Astro.props;
+const st = c.st;
+---
+<a class="card ccard" href={`/country/${c.slug}/`}>
+  <span class="cflag">{c.flag}</span>
+  <span class="cbody">
+    <b>{c.ko}</b>
+    <span class={`badge b-${st.level}`}>{STATUS_KO[st.level].label}</span>
+    <span class="cnote">
+      {st.count30 ? `30일 동안 규모 5 이상 지진 ${st.count30}번` : '30일 동안 큰 지진 없음'}
+      {st.latest ? ` · 최근 지진 ${kstShort(st.latest.time)}` : ''}
+    </span>
+  </span>
+</a>
+
+<style>
+  .ccard { display: flex; gap: 12px; align-items: center; text-decoration: none; transition: border-color .15s; }
+  .ccard:hover { border-color: var(--sea); }
+  .cflag { font-size: 30px; line-height: 1; }
+  .cbody { display: flex; flex-wrap: wrap; align-items: center; gap: 4px 8px; }
+  .cbody b { font-size: 16px; }
+  .cnote { width: 100%; font-size: 12.5px; color: var(--sub); }
+</style>

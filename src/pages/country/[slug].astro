@@ -1,0 +1,91 @@
+---
+import Base from '../../layouts/Base.astro';
+import QuakeRow from '../../components/QuakeRow.astro';
+import DisasterCard from '../../components/DisasterCard.astro';
+import { COUNTRIES } from '../../data/countries.js';
+import { countryStatus, STATUS_KO, BUILT_AT } from '../../data/load.js';
+import { translatePlace, kstDateTime, kstDate } from '../../data/place.js';
+import { MOFA_URL } from '../../site.js';
+
+export function getStaticPaths() {
+  return COUNTRIES.map((c) => ({ params: { slug: c.slug }, props: { c } }));
+}
+
+const { c } = Astro.props;
+const st = countryStatus(c.slug);
+const S = STATUS_KO[st.level];
+const q90 = st.quakes.filter((q) => BUILT_AT - q.time <= 90 * 864e5).slice(0, 30);
+const older = st.quakes.filter((q) => BUILT_AT - q.time > 90 * 864e5 && q.mag >= 6).slice(0, 10);
+const ds = st.disasters.slice(0, 12);
+const title = `${c.ko} 여행 안전 정보 - 최근 지진·재난 경보`;
+const desc = `${c.ko} 지금 여행 가도 괜찮을까? 최근 ${c.ko} 지진, 태풍, 홍수 등 재난 소식과 안전 상태를 공식 데이터로 정리했어요. (${kstDate(BUILT_AT)} 기준)`;
+---
+<Base title={title} desc={desc}>
+  <p class="crumb"><a href="/">홈</a> › <a href="/country/">나라별</a> › {c.ko}</p>
+  <h1>{c.flag} {c.ko} 여행 안전 정보</h1>
+
+  <section class={`status card s-${st.level}`}>
+    <span class={`badge b-${st.level}`}>{S.label}</span>
+    <p class="snote">{S.note}</p>
+    {st.maxQ && (
+      <p class="muted">30일 동안 가장 큰 지진: <a href={`/quake/${st.maxQ.id}/`}>규모 {st.maxQ.mag.toFixed(1)} · {translatePlace(st.maxQ.place)}</a> ({kstDate(st.maxQ.time)})</p>
+    )}
+    <p class="muted">마지막 업데이트: {kstDateTime(BUILT_AT)} (한국 시간)</p>
+  </section>
+
+  <div class="mofa card">
+    <div>
+      <b>치안·여행경보는 외교부에서 확인하세요</b>
+      <p class="muted">로밍고 상태는 자연재난만 본 거예요. 여행경보 단계, 테러·시위, 현지 연락처는 외교부 해외안전여행이 공식 안내예요.</p>
+    </div>
+    <a class="btn" href={MOFA_URL} target="_blank" rel="noopener">외교부 해외안전여행 ↗</a>
+  </div>
+
+  {st.active.length > 0 && (
+    <>
+      <h2>🚨 지금 {c.ko} 재난 경보</h2>
+      <div class="grid">{st.active.map((d) => <DisasterCard d={d} />)}</div>
+    </>
+  )}
+
+  <h2>🌐 최근 {c.ko} 지진 <small>최근 90일 · 규모 4.5 이상</small></h2>
+  <ul class="qlist">
+    {q90.length ? q90.map((q) => <QuakeRow q={q} />) : <li class="empty">최근 90일 동안 규모 4.5 이상 지진 기록이 없어요.</li>}
+  </ul>
+
+  {older.length > 0 && (
+    <>
+      <h2>📁 지난 큰 지진 <small>규모 6 이상</small></h2>
+      <ul class="qlist">{older.map((q) => <QuakeRow q={q} />)}</ul>
+    </>
+  )}
+
+  {ds.length > 0 && (
+    <>
+      <h2>📋 {c.ko} 재난 경보 기록</h2>
+      <div class="grid">{ds.map((d) => <DisasterCard d={d} />)}</div>
+    </>
+  )}
+
+  <h2>💡 {c.ko} 여행 전 확인할 것</h2>
+  <ul class="tips card">
+    <li>지진이 나면 숙소·항공사 공지를 먼저 확인하세요. 큰 지진 뒤에는 여진이 이어질 수 있어요.</li>
+    <li>"쓰나미 안내" 표시가 있으면 바닷가 일정은 현지 기상 당국 발표를 확인한 뒤 움직이세요.</li>
+    <li>여행자보험에 자연재해로 인한 일정 취소·지연이 보장되는지 미리 확인해 두면 좋아요.</li>
+    <li>외교부 해외안전여행 앱에서 <b>동행서비스</b>를 신청하면 현지 안전 소식을 받을 수 있어요.</li>
+  </ul>
+</Base>
+
+<style>
+  .status { display: flex; flex-direction: column; gap: 6px; margin-top: 12px; }
+  .status .badge { align-self: flex-start; font-size: 14px; padding: 5px 12px; }
+  .status p { margin: 0; }
+  .snote { font-weight: 600; }
+  .s-alert { border-color: #f1b3b4; background: #fff5f5; }
+  .s-watch { border-color: #f4cfa8; background: #fffaf3; }
+  .status a { color: var(--sea); }
+  .mofa { display: flex; gap: 14px; align-items: center; justify-content: space-between; margin-top: 12px; flex-wrap: wrap; }
+  .mofa p { margin: 4px 0 0; }
+  .tips { margin: 0; padding-left: 34px; }
+  .tips li { margin: 4px 0; }
+</style>

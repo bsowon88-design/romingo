@@ -1,0 +1,142 @@
+---
+import { SITE_NAME, SITE_TAGLINE, SITE_URL, SITE_DESC, MOFA_URL } from '../site.js';
+const { title, desc = SITE_DESC, noindex = false } = Astro.props;
+const full = title ? `${title} | ${SITE_NAME}` : `${SITE_NAME} - ${SITE_TAGLINE}`;
+const canonical = new URL(Astro.url.pathname, SITE_URL).href;
+const path = Astro.url.pathname;
+const nav = [
+  ['/', '홈'],
+  ['/country/', '나라별'],
+  ['/quakes/', '지진'],
+  ['/disasters/', '재난 경보'],
+];
+---
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>{full}</title>
+  <meta name="description" content={desc} />
+  <link rel="canonical" href={canonical} />
+  {noindex && <meta name="robots" content="noindex" />}
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content={SITE_NAME} />
+  <meta property="og:title" content={full} />
+  <meta property="og:description" content={desc} />
+  <meta property="og:url" content={canonical} />
+  <meta name="theme-color" content="#0f2a3d" />
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+  <link rel="preconnect" href="https://cdn.jsdelivr.net" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css" />
+  <slot name="head" />
+</head>
+<body>
+  <header class="top">
+    <div class="wrap top-in">
+      <a href="/" class="logo"><span class="logo-mark">◎</span>로밍고<small>{SITE_TAGLINE}</small></a>
+      <nav>
+        {nav.map(([href, label]) => (
+          <a href={href} class={(href === '/' ? path === '/' : path.startsWith(href)) ? 'on' : ''}>{label}</a>
+        ))}
+      </nav>
+    </div>
+  </header>
+  <main class="wrap">
+    <slot />
+  </main>
+  <footer class="foot">
+    <div class="wrap">
+      <p><b>자료 출처</b> 미국 지질조사국(USGS) · 국제 재난경보(GDACS) — 공식 데이터를 자동으로 정리해요.</p>
+      <p>로밍고는 참고용 정보예요. 여행 전에는 꼭 <a href={MOFA_URL} target="_blank" rel="noopener">외교부 해외안전여행</a>과 현지 정부·항공사 공지를 확인하세요.</p>
+      <p class="foot-links"><a href="/about/">로밍고 소개</a> · <a href="/privacy/">개인정보처리방침</a></p>
+      <p class="copy">© {new Date().getFullYear()} {SITE_NAME}</p>
+    </div>
+  </footer>
+</body>
+</html>
+
+<style is:global>
+  :root {
+    --ink: #10212e;
+    --sub: #5b6b78;
+    --line: #e3e8ec;
+    --bg: #f5f7f8;
+    --card: #fff;
+    --navy: #0f2a3d;
+    --sea: #127c8c;
+    --red: #d6383a;
+    --orange: #e8822a;
+    --yellow: #d9a514;
+    --green: #2f9e6a;
+    --gray: #8a97a2;
+    --radius: 14px;
+  }
+  * { box-sizing: border-box; }
+  html { -webkit-text-size-adjust: 100%; }
+  body {
+    margin: 0;
+    font-family: 'Pretendard Variable', Pretendard, -apple-system, 'Apple SD Gothic Neo', 'Malgun Gothic', sans-serif;
+    color: var(--ink);
+    background: var(--bg);
+    line-height: 1.6;
+    word-break: keep-all;
+  }
+  a { color: inherit; }
+  .wrap { max-width: 1080px; margin: 0 auto; padding: 0 18px; }
+  main.wrap { padding-top: 22px; padding-bottom: 48px; min-height: 60vh; }
+
+  .top { background: var(--navy); color: #fff; position: sticky; top: 0; z-index: 10; }
+  .top-in { display: flex; align-items: center; justify-content: space-between; gap: 12px; height: 58px; }
+  .logo { text-decoration: none; font-weight: 800; font-size: 20px; display: flex; align-items: baseline; gap: 6px; letter-spacing: -0.02em; }
+  .logo-mark { color: #5fd3c6; }
+  .logo small { font-weight: 500; font-size: 12px; opacity: .7; }
+  .top nav { display: flex; gap: 2px; overflow-x: auto; }
+  .top nav a { text-decoration: none; font-size: 14px; padding: 6px 10px; border-radius: 8px; opacity: .85; white-space: nowrap; }
+  .top nav a.on, .top nav a:hover { background: rgba(255,255,255,.12); opacity: 1; }
+  @media (max-width: 560px) {
+    .logo small { display: none; }
+    .top nav a { padding: 6px 7px; font-size: 13px; }
+  }
+
+  h1 { font-size: 26px; line-height: 1.35; letter-spacing: -0.02em; margin: 6px 0 8px; }
+  h2 { font-size: 19px; letter-spacing: -0.01em; margin: 34px 0 12px; display: flex; align-items: center; gap: 8px; }
+  h2 small { font-size: 13px; color: var(--sub); font-weight: 500; }
+  .lead { color: var(--sub); margin: 0 0 6px; }
+  .muted { color: var(--sub); font-size: 14px; }
+  .crumb { font-size: 13px; color: var(--sub); }
+  .crumb a { text-decoration: none; }
+
+  .card { background: var(--card); border: 1px solid var(--line); border-radius: var(--radius); padding: 16px; }
+  .grid { display: grid; gap: 12px; grid-template-columns: repeat(auto-fill, minmax(230px, 1fr)); }
+
+  .badge { display: inline-flex; align-items: center; gap: 4px; font-size: 12px; font-weight: 700; padding: 3px 8px; border-radius: 999px; color: #fff; white-space: nowrap; }
+  .b-red, .b-alert, .b-Red { background: var(--red); }
+  .b-orange, .b-Orange { background: var(--orange); }
+  .b-watch { background: var(--orange); }
+  .b-yellow { background: var(--yellow); }
+  .b-gray { background: var(--gray); }
+  .b-calm { background: var(--green); }
+
+  .mag { display: inline-grid; place-items: center; min-width: 46px; height: 46px; border-radius: 12px; color: #fff; font-weight: 800; font-size: 17px; flex: none; }
+  .mag.red { background: var(--red); } .mag.orange { background: var(--orange); }
+  .mag.yellow { background: var(--yellow); } .mag.gray { background: var(--gray); }
+
+  .qlist { list-style: none; margin: 0; padding: 0; background: var(--card); border: 1px solid var(--line); border-radius: var(--radius); overflow: hidden; }
+  .qlist li + li { border-top: 1px solid var(--line); }
+  .qrow { display: flex; gap: 12px; align-items: center; padding: 12px 14px; text-decoration: none; }
+  a.qrow:hover { background: #f0f6f7; }
+  .qrow .t { font-weight: 650; line-height: 1.4; }
+  .qrow .s { font-size: 13px; color: var(--sub); }
+  .qrow .tag { font-size: 11px; font-weight: 700; color: var(--sea); background: #e2f3f2; padding: 1px 6px; border-radius: 6px; margin-left: 4px; }
+  .empty { padding: 22px; text-align: center; color: var(--sub); }
+
+  .btn { display: inline-flex; align-items: center; gap: 6px; background: var(--sea); color: #fff; text-decoration: none; font-weight: 700; padding: 10px 14px; border-radius: 10px; font-size: 15px; }
+  .btn.ghost { background: #fff; color: var(--sea); border: 1px solid #b9dcdf; }
+
+  .note { background: #fff8e6; border: 1px solid #f1dfa9; border-radius: 12px; padding: 12px 14px; font-size: 14px; color: #6b5310; }
+
+  .foot { background: #e9eef1; color: var(--sub); font-size: 13px; padding: 26px 0 36px; }
+  .foot p { margin: 4px 0; }
+  .foot .copy { margin-top: 12px; }
+</style>

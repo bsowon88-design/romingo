@@ -1,0 +1,29 @@
+---
+import Base from '../layouts/Base.astro';
+import { MOFA_URL } from '../site.js';
+---
+<Base title="로밍고 소개" desc="로밍고는 해외여행자를 위해 전세계 재난 정보를 공식 데이터로 자동 정리하는 사이트예요.">
+  <h1>로밍고 소개</h1>
+  <div class="card prose">
+    <p>로밍고는 해외여행 가기 전에 <b>"지금 그 나라 가도 괜찮을까?"</b>를 빠르게 확인할 수 있게 만든 사이트예요.</p>
+    <h3>어떤 자료를 쓰나요?</h3>
+    <ul>
+      <li><b>미국 지질조사국(USGS)</b> — 전세계 지진 (규모 4.5 이상)</li>
+      <li><b>국제 재난경보(GDACS)</b> — 태풍·홍수·화산·지진·산불·가뭄 경보 (주의·위험 단계)</li>
+    </ul>
+    <p>자료는 자동으로 모아서 정리해요. 첫 화면의 최근 지진 목록은 열 때마다 바로 불러오고, 나머지 페이지는 1시간 안에 바뀌어요.</p>
+    <h3>꼭 알아 두세요</h3>
+    <ul>
+      <li>로밍고는 <b>참고용</b>이에요. 대피나 여행 취소 같은 결정은 현지 정부, 항공사, <a href={MOFA_URL} target="_blank" rel="noopener">외교부 해외안전여행</a> 발표를 따라 주세요.</li>
+      <li>위치 이름은 자동으로 한국어로 바꿔서 조금 어색할 수 있어요. 원문 링크로 확인할 수 있어요.</li>
+      <li>나라별 상태는 자연재난만 본 거예요. 치안·테러·질병 정보는 포함되지 않아요.</li>
+    </ul>
+  </div>
+</Base>
+
+<style>
+  .prose h3 { margin: 18px 0 6px; font-size: 16px; }
+  .prose ul { padding-left: 20px; margin: 6px 0; }
+  .prose p { margin: 8px 0; }
+  .prose a { color: var(--sea); }
+</style>

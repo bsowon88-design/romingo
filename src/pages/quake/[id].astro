@@ -1,0 +1,77 @@
+---
+import Base from '../../layouts/Base.astro';
+import QuakeRow from '../../components/QuakeRow.astro';
+import { bigQuakes, quakes } from '../../data/load.js';
+import { bySlug } from '../../data/countries.js';
+import { translatePlace, regionKo, kstDateTime, kstDate, magLevel } from '../../data/place.js';
+import { MOFA_URL } from '../../site.js';
+
+export function getStaticPaths() {
+  return bigQuakes.map((q) => ({ params: { id: q.id }, props: { q } }));
+}
+
+const { q } = Astro.props;
+const c = q.country ? bySlug[q.country] : null;
+const region = regionKo(q.place);
+const where = translatePlace(q.place);
+const title = `${kstDate(q.time)} ${region} 규모 ${q.mag.toFixed(1)} 지진`;
+const desc = `${kstDateTime(q.time)}(한국 시간) ${where}에서 규모 ${q.mag.toFixed(1)} 지진이 났어요. 깊이 ${q.depth}km${q.tsunami ? ', 쓰나미 관련 안내 발표' : ''}. 여행자가 확인할 내용을 정리했어요.`;
+
+let guide;
+if (q.mag >= 7) guide = '아주 큰 지진이에요. 여진과 쓰나미 관련 발표가 이어질 수 있어요. 이 지역 여행 예정이면 항공사·숙소 공지와 외교부 안내를 꼭 확인하세요.';
+else if (q.mag >= 6) guide = '건물 피해가 날 수 있는 세기예요. 진앙과 가까운 지역 여행 예정이면 현지 공지와 교통 운행 상황을 확인하세요.';
+else guide = '진앙 가까이에서는 흔들림을 느낄 수 있어요. 피해 정도는 지역마다 다르니 여행 지역과 거리를 확인해 보세요.';
+
+const d = 1.5;
+const map = `https://www.openstreetmap.org/export/embed.html?bbox=${q.lon - d},${q.lat - d},${q.lon + d},${q.lat + d}&layer=mapnik&marker=${q.lat},${q.lon}`;
+
+const near = quakes
+  .filter((x) => x.id !== q.id && Math.abs(x.lat - q.lat) < 2 && Math.abs(x.lon - q.lon) < 2 && Math.abs(x.time - q.time) < 14 * 864e5)
+  .slice(0, 10);
+---
+<Base title={title} desc={desc}>
+  <p class="crumb"><a href="/">홈</a> › <a href="/quakes/">지진</a> › {region}</p>
+  <h1>{title}</h1>
+
+  <section class="card info">
+    <span class={`mag big ${magLevel(q.mag)}`}>{q.mag.toFixed(1)}</span>
+    <dl>
+      <dt>위치</dt><dd>{where}<br /><small class="muted">{q.place}</small></dd>
+      <dt>시각</dt><dd>{kstDateTime(q.time)} (한국 시간)</dd>
+      <dt>깊이</dt><dd>{q.depth}km {q.depth < 70 ? '(얕은 지진 — 흔들림이 크게 느껴질 수 있어요)' : ''}</dd>
+      {q.tsunami ? <><dt>쓰나미</dt><dd>쓰나미 관련 안내가 발표된 지진이에요. (실제로 쓰나미가 왔다는 뜻은 아니에요)</dd></> : null}
+    </dl>
+  </section>
+
+  <p class="note" style="margin-top:12px">✈️ <b>여행자 안내</b> — {guide}</p>
+
+  <h2>📍 위치</h2>
+  <iframe class="map" src={map} title="지진 위치 지도" loading="lazy"></iframe>
+  <p class="muted">지도 © OpenStreetMap 기여자</p>
+
+  <div class="links">
+    {c && <a class="btn" href={`/country/${c.slug}/`}>{c.flag} {c.ko} 안전 정보 보기</a>}
+    <a class="btn ghost" href={q.url} target="_blank" rel="noopener">USGS 원문 ↗</a>
+    <a class="btn ghost" href={MOFA_URL} target="_blank" rel="noopener">외교부 해외안전여행 ↗</a>
+  </div>
+
+  {near.length > 0 && (
+    <>
+      <h2>🔁 근처 앞뒤 2주 지진 <small>여진 등</small></h2>
+      <ul class="qlist">{near.map((x) => <QuakeRow q={x} />)}</ul>
+    </>
+  )}
+
+  <p class="muted" style="margin-top:24px">자료: 미국 지질조사국(USGS). 규모와 위치는 나중에 조금 바뀔 수 있어요. 각 나라 기상 당국 발표와 숫자가 다를 수 있어요.</p>
+</Base>
+
+<style>
+  .info { display: flex; gap: 18px; align-items: flex-start; }
+  .mag.big { min-width: 74px; height: 74px; font-size: 28px; border-radius: 16px; }
+  dl { margin: 0; display: grid; grid-template-columns: 52px 1fr; gap: 6px 10px; }
+  dt { color: var(--sub); font-size: 14px; }
+  dd { margin: 0; font-weight: 600; }
+  .map { width: 100%; height: 320px; border: 1px solid var(--line); border-radius: var(--radius); }
+  .links { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 16px; }
+  @media (max-width: 520px) { .info { flex-direction: column; } }
+</style>

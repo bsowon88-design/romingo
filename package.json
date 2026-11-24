@@ -1,0 +1,14 @@
+{
+  "name": "romingo",
+  "type": "module",
+  "private": true,
+  "scripts": {
+    "dev": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview",
+    "collect": "node scripts/collect.mjs"
+  },
+  "dependencies": {
+    "astro": "5.18.2"
+  }
+}

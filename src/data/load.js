@@ -68,9 +68,9 @@ export function countryStatus(slug) {
 }
 
 export const STATUS_KO = {
-  alert: { label: '재난 경보', note: '큰 재난 소식이 있어요. 아래 내용과 공식 안내를 꼭 확인하세요.' },
+  alert: { label: '경보', note: '큰 재난 소식이 있어요. 아래 내용과 공식 안내를 꼭 확인하세요.' },
   watch: { label: '주의', note: '최근 지진이나 재난 경보가 있었어요. 여행 지역과 가까운지 확인하세요.' },
-  calm: { label: '큰 재난 없음', note: '최근 7일 동안 큰 자연재난 소식이 없어요.' },
+  calm: { label: '평온', note: '최근 7일 동안 큰 자연재난 소식이 없어요.' },
 };
 
 

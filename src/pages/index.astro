@@ -161,8 +161,9 @@ const guides = GUIDES.map((g) => CITIES.find((x) => x.slug === g.city)).filter(B
     .tf { margin-left: auto; font-size: 13px; color: var(--sub); }
     .tf em { font-style: normal; margin-left: 6px; font-weight: 700; }
     .tf .up { color: #d6383a; } .tf .down { color: #2f78c4; }
-    .cgrid { grid-template-columns: repeat(4, 1fr); gap: 14px; }
-    .good { grid-template-columns: repeat(4, 1fr); gap: 14px; }
+    #countries.cgrid, main .cgrid { grid-template-columns: repeat(4, 1fr); gap: 14px; }
+    main .good { grid-template-columns: repeat(7, 1fr); gap: 12px; }
+    main .good > :nth-child(n+8) { display: none; }
     .gnimg { height: 130px; }
   }
   .intro { display: flex; align-items: flex-end; justify-content: space-between; gap: 20px; flex-wrap: wrap; margin-top: 6px; }

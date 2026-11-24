@@ -12,7 +12,6 @@ const PEOPLE = /\b(man|men|woman|women|person|people|girl|boy|portrait|couple|ch
 
 export function photoTargets() {
   return [
-    { key: 'home:hero', q: 'airplane window clouds travel' },
     ...COUNTRIES.map((c) => ({ key: `country:${c.slug}`, q: c.photoQ })),
     ...CITIES.map((c) => ({ key: `city:${c.slug}`, q: c.photoQ })),
   ].filter((t) => t.q);

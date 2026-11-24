@@ -1,0 +1,111 @@
+---
+// 홈 맨 위 사진 슬라이드 — PC 2장, 폰 1장. 많이 가는 나라 순서.
+import Flag from './Flag.astro';
+import Icon from './Icon.astro';
+import { bySlug, flagOf } from '../data/countries.js';
+import { countryPhoto } from '../data/photos.js';
+import { countryStatus, STATUS_KO, countryAlarm, ALARM_KO } from '../data/load.js';
+
+const ORDER = ['japan', 'vietnam', 'thailand', 'philippines', 'taiwan', 'china', 'guam-saipan', 'singapore', 'australia', 'italy', 'hawaii', 'usa', 'indonesia', 'malaysia', 'turkiye', 'greece', 'new-zealand', 'mexico', 'nepal'];
+const slides = ORDER.map((s) => bySlug[s])
+  .filter(Boolean)
+  .map((c) => ({ c, ph: countryPhoto(c.slug), st: countryStatus(c.slug), al: countryAlarm(c) }))
+  .filter((x) => x.ph);
+---
+{slides.length > 0 && (
+  <section class="hs" aria-label="인기 여행지 사진">
+    <div class="hs-track" id="hs-track">
+      {slides.map(({ c, ph, st, al }, i) => {
+        const partial = al && al.max && al.levels.every((l) => /일부/.test(l.region));
+        return (
+          <a class="hs-slide" href={`/country/${c.slug}/`} style={`background:${ph.color}`}>
+            <img src={ph.src(800, 480)} srcset={ph.srcset(800, 480)} alt={ph.alt || c.ko} loading={i < 2 ? 'eager' : 'lazy'} decoding="async" />
+            <span class="hs-shade"></span>
+            <span class="hs-body">
+              <span class="hs-name"><Flag iso={flagOf(c)} size={30} /> <b>{c.ko}</b></span>
+              {c.landmark && <span class="hs-lm">{c.landmark}</span>}
+              <span class="hs-tags">
+                <span class={`badge b-${st.level}`}>{STATUS_KO[st.level].label}</span>
+                {al && al.max > 0 && <span class={`mchip ${ALARM_KO[al.max].cls}`}>외교부 {partial ? '일부 ' : ''}{al.max}단계</span>}
+              </span>
+              <span class="hs-go">{c.ko} 여행 정보 보기 →</span>
+            </span>
+            <span class="hs-credit">Photo · {ph.name} / Unsplash</span>
+          </a>
+        );
+      })}
+    </div>
+    <button class="hs-arrow prev" id="hs-prev" aria-label="이전"><span>‹</span></button>
+    <button class="hs-arrow next" id="hs-next" aria-label="다음"><span>›</span></button>
+    <div class="hs-dots" id="hs-dots">
+      {slides.map(({ c }, i) => <button aria-label={c.ko} data-i={i} class={i === 0 ? 'on' : ''}></button>)}
+    </div>
+  </section>
+)}
+
+<script>
+  const track = document.getElementById('hs-track');
+  const dots = [...document.querySelectorAll<HTMLButtonElement>('#hs-dots button')];
+  if (track) {
+    const slides = [...track.querySelectorAll<HTMLElement>('.hs-slide')];
+    const step = () => (slides[1] ? slides[1].offsetLeft - slides[0].offsetLeft : track.clientWidth);
+    const cur = () => Math.round(track.scrollLeft / step());
+    const perView = () => Math.max(1, Math.round(track.clientWidth / step()));
+    const go = (i: number) => {
+      const last = slides.length - perView();
+      const n = i > last ? 0 : i < 0 ? last : i;
+      track.scrollTo({ left: n * step(), behavior: 'smooth' });
+    };
+    const mark = () => { const i = cur(); dots.forEach((d, k) => d.classList.toggle('on', k === i)); };
+    track.addEventListener('scroll', () => requestAnimationFrame(mark), { passive: true });
+    document.getElementById('hs-prev')?.addEventListener('click', () => go(cur() - 1));
+    document.getElementById('hs-next')?.addEventListener('click', () => go(cur() + 1));
+    dots.forEach((d) => d.addEventListener('click', () => go(+(d.dataset.i || 0))));
+
+    // 5초마다 자동으로 넘김. 마우스를 올리거나 손가락을 대면 잠깐 멈춤
+    let paused = false;
+    let timer = setInterval(() => { if (!paused && !document.hidden) go(cur() + 1); }, 5000);
+    const sec = track.parentElement;
+    sec?.addEventListener('mouseenter', () => (paused = true));
+    sec?.addEventListener('mouseleave', () => (paused = false));
+    track.addEventListener('touchstart', () => { paused = true; clearInterval(timer); timer = setInterval(() => { if (!paused && !document.hidden) go(cur() + 1); }, 5000); setTimeout(() => (paused = false), 8000); }, { passive: true });
+  }
+</script>
+
+<style>
+  .hs { position: relative; margin-top: 14px; }
+  .hs-track { display: flex; gap: 14px; overflow-x: auto; scroll-snap-type: x mandatory; scrollbar-width: none; border-radius: 20px; }
+  .hs-track::-webkit-scrollbar { display: none; }
+  .hs-slide { position: relative; flex: 0 0 calc(50% - 7px); aspect-ratio: 5 / 3; border-radius: 20px; overflow: hidden; scroll-snap-align: start; text-decoration: none; color: #fff; isolation: isolate; }
+  .hs-slide img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; z-index: -2; transition: transform .6s; }
+  .hs-slide:hover img { transform: scale(1.04); }
+  .hs-shade { position: absolute; inset: 0; z-index: -1; background: linear-gradient(180deg, rgba(40,20,10,0) 35%, rgba(40,20,10,.72) 100%); }
+  .hs-body { position: absolute; left: 20px; right: 20px; bottom: 20px; display: flex; flex-direction: column; gap: 6px; }
+  .hs-name { display: flex; align-items: center; gap: 10px; }
+  .hs-name b { font-size: 28px; letter-spacing: -0.02em; text-shadow: 0 1px 4px rgba(0,0,0,.35); }
+  .hs-name :global(.flag) { border-radius: 4px; box-shadow: 0 0 0 2px rgba(255,255,255,.9); }
+  .hs-lm { font-size: 16px; font-weight: 600; opacity: .95; text-shadow: 0 1px 3px rgba(0,0,0,.4); }
+  .hs-tags { display: flex; gap: 6px; flex-wrap: wrap; }
+  .hs-tags .badge, .hs-tags .mchip { box-shadow: 0 0 0 1.5px rgba(255,255,255,.85); }
+  .hs-go { align-self: flex-start; margin-top: 6px; background: rgba(255,255,255,.95); color: var(--sea); font-weight: 800; font-size: 14px; padding: 8px 14px; border-radius: 999px; }
+  .hs-credit { position: absolute; top: 10px; right: 12px; font-size: 10.5px; color: rgba(255,255,255,.85); text-shadow: 0 1px 2px rgba(0,0,0,.6); }
+  .hs-arrow { position: absolute; top: calc(50% - 20px); transform: translateY(-50%); width: 44px; height: 44px; border-radius: 50%; border: 0; background: rgba(255,255,255,.92); box-shadow: 0 4px 14px rgba(90,50,30,.25); color: var(--ink); font-size: 30px; line-height: 1; cursor: pointer; display: grid; place-items: center; }
+  .hs-arrow span { margin-top: -4px; }
+  .hs-arrow.prev { left: -14px; }
+  .hs-arrow.next { right: -14px; }
+  .hs-arrow:hover { color: var(--sea); }
+  .hs-dots { display: flex; justify-content: center; gap: 6px; margin-top: 10px; }
+  .hs-dots button { width: 8px; height: 8px; padding: 0; border: 0; border-radius: 999px; background: #E8D3C5; cursor: pointer; transition: width .2s, background .2s; }
+  .hs-dots button.on { width: 22px; background: var(--coral); }
+  @media (max-width: 760px) {
+    .hs-track { gap: 10px; border-radius: 16px; }
+    .hs-slide { flex-basis: 100%; aspect-ratio: 16 / 10; border-radius: 16px; }
+    .hs-body { left: 14px; right: 14px; bottom: 14px; gap: 4px; }
+    .hs-name b { font-size: 22px; }
+    .hs-name :global(.flag) { width: 26px; height: 20px; }
+    .hs-lm { font-size: 14px; }
+    .hs-go { font-size: 12.5px; padding: 6px 11px; margin-top: 4px; }
+    .hs-arrow { display: none; }
+    .hs-dots { margin-top: 8px; }
+  }
+</style>

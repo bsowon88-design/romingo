@@ -1238,11 +1238,11 @@
  {
   "id": "us7000tuuy",
   "mag": 5.1,
-  "place": "19 km WNW of Tomohon, Indonesia",
-  "time": 1793607194014,
+  "place": "23 km WNW of Tomohon, Indonesia",
+  "time": 1793607191325,
   "lat": 1.4,
   "lon": 124.6,
-  "depth": 197,
+  "depth": 170,
   "tsunami": 0,
   "alert": null,
   "url": "https://earthquake.usgs.gov/earthquakes/eventpage/us7000tuuy"

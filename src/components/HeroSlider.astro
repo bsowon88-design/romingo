@@ -6,7 +6,7 @@ import { bySlug, flagOf } from '../data/countries.js';
 import { countryPhoto } from '../data/photos.js';
 import { countryStatus, STATUS_KO, countryAlarm, ALARM_KO } from '../data/load.js';
 
-const ORDER = ['japan', 'vietnam', 'thailand', 'philippines', 'taiwan', 'china', 'guam-saipan', 'singapore', 'australia', 'italy', 'hawaii', 'usa', 'indonesia', 'malaysia', 'turkiye', 'greece', 'new-zealand', 'mexico', 'nepal'];
+const ORDER = ['japan', 'vietnam', 'thailand', 'philippines', 'taiwan', 'hongkong', 'china', 'guam-saipan', 'singapore', 'australia', 'italy', 'hawaii', 'usa', 'indonesia', 'malaysia', 'turkiye', 'greece', 'new-zealand', 'mexico', 'nepal'];
 const slides = ORDER.map((s) => bySlug[s])
   .filter(Boolean)
   .map((c) => ({ c, ph: countryPhoto(c.slug), st: countryStatus(c.slug), al: countryAlarm(c) }))

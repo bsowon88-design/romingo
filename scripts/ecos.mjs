@@ -20,6 +20,7 @@ export const CUR_KEYS = {
   NZD: ['뉴질랜드'],
   TRY: ['튀르키예', '터키'],
   NPR: ['네팔'],
+  HKD: ['홍콩'],
 };
 
 const ymd = (d) => d.toISOString().slice(0, 10).replace(/-/g, '');

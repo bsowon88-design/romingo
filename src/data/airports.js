@@ -16,7 +16,7 @@ export const AIRPORTS = {
   HGH: [null, '항저우', 'cn'], NKG: [null, '난징', 'cn'], KWL: [null, '구이린', 'cn'], SYX: [null, '싼야', 'cn'],
   CGQ: [null, '창춘', 'cn'], HRB: [null, '하얼빈', 'cn'], TSN: [null, '톈진', 'cn'], YNT: [null, '옌타이', 'cn'],
   CKG: [null, '충칭', 'cn'], WUH: [null, '우한', 'cn'], XMN: [null, '샤먼', 'cn'], KMG: [null, '쿤밍', 'cn'],
-  HKG: [null, '홍콩', 'hk'], MFM: [null, '마카오', 'mo'],
+  HKG: ['hongkong', '홍콩', 'hk'], MFM: [null, '마카오', 'mo'],
   TPE: ['taipei', '타이베이', 'tw'], TSA: ['taipei', '타이베이', 'tw'], KHH: ['kaohsiung', '가오슝', 'tw'], RMQ: [null, '타이중', 'tw'],
   DAD: ['danang', '다낭', 'vn'], CXR: ['nhatrang', '나트랑', 'vn'], PQC: ['phuquoc', '푸꾸옥', 'vn'],
   HAN: ['hanoi', '하노이', 'vn'], SGN: ['hochiminh', '호치민', 'vn'], HPH: [null, '하이퐁', 'vn'], DLI: [null, '달랏', 'vn'],

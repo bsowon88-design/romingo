@@ -14,6 +14,7 @@ export const CITIES = [
   { slug: 'zhangjiajie', photoQ: 'Zhangjiajie mountains', ko: '장가계', country: 'china', lat: 29.12, lon: 110.48 },
   { slug: 'taipei', photoQ: 'Taipei 101', ko: '타이베이', country: 'taiwan', lat: 25.03, lon: 121.56 },
   { slug: 'kaohsiung', photoQ: 'Kaohsiung Taiwan', ko: '가오슝', country: 'taiwan', lat: 22.63, lon: 120.3 },
+  { slug: 'hongkong', photoQ: 'Hong Kong Victoria Peak view', ko: '홍콩', country: 'hongkong', lat: 22.3, lon: 114.17 },
   { slug: 'danang', photoQ: 'Da Nang Vietnam', ko: '다낭', country: 'vietnam', lat: 16.05, lon: 108.22 },
   { slug: 'nhatrang', photoQ: 'Nha Trang beach', ko: '나트랑', country: 'vietnam', lat: 12.24, lon: 109.19 },
   { slug: 'phuquoc', photoQ: 'Phu Quoc beach', ko: '푸꾸옥', country: 'vietnam', lat: 10.22, lon: 103.96 },

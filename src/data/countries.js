@@ -19,7 +19,7 @@ export const COUNTRIES = [
     tz: 'Asia/Tokyo', capital: '도쿄', currency: '엔 (JPY)', lang: '일본어',
     volt: '100V', plug: 'A·B 타입', adapter: true,
     emergency: [['경찰', '110'], ['구급·화재', '119']],
-    flight: '약 2시간 (도쿄)', cities: ['도쿄', '오사카', '후쿠오카', '삿포로', '오키나와'],
+    flight: '약 2시간 (도쿄)', cities: ['도쿄', '오사카', '후쿠오카', '삿포로', '오키나와', '나고야'],
     color: ['#e94b5b', '#f6a5a1'] },
   { slug: 'china', landmark: '만리장성', photoQ: 'Great Wall China', cur: 'CNY', curName: '위안', iso2: ['CN'], ko: '중국', flag: '🇨🇳', region: 'near', iso3: ['CHN'],
     keys: ['china', 'xizang', 'tibet', 'sichuan', 'yunnan', 'xinjiang', 'qinghai', 'gansu'],

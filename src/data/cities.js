@@ -7,6 +7,7 @@ export const CITIES = [
   { slug: 'fukuoka', photoQ: 'Fukuoka Japan', ko: '후쿠오카', country: 'japan', lat: 33.59, lon: 130.4 },
   { slug: 'sapporo', photoQ: 'Sapporo Japan', ko: '삿포로', country: 'japan', lat: 43.06, lon: 141.35 },
   { slug: 'okinawa', photoQ: 'Okinawa beach', ko: '오키나와', country: 'japan', lat: 26.21, lon: 127.68 },
+  { slug: 'nagoya', photoQ: 'Nagoya Castle', ko: '나고야', country: 'japan', lat: 35.18, lon: 136.91 },
   { slug: 'shanghai', photoQ: 'Shanghai skyline', ko: '상하이', country: 'china', lat: 31.23, lon: 121.47 },
   { slug: 'beijing', photoQ: 'Beijing Forbidden City', ko: '베이징', country: 'china', lat: 39.9, lon: 116.4 },
   { slug: 'qingdao', photoQ: 'Qingdao China', ko: '칭다오', country: 'china', lat: 36.07, lon: 120.38 },

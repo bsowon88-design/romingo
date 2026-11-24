@@ -46,7 +46,7 @@ const avg = cl ? cl.m[nowM - 1] : null;
 <style>
   .fcast h2 small { font-size: 13px; color: var(--sub); font-weight: 600; }
   .fdays { display: grid; grid-template-columns: repeat(9, minmax(70px, 1fr)); gap: 6px; overflow-x: auto; scrollbar-width: thin; padding-bottom: 4px; }
-  .fwait { grid-column: 1 / -1; margin: 0; color: var(--sub); background: #fff; border: 1px dashed var(--line); border-radius: 12px; padding: 14px; }
+  .fdays :global(.fwait) { grid-column: 1 / -1; margin: 0; color: var(--sub); background: #fff; border: 1px dashed var(--line); border-radius: 12px; padding: 14px; }
   .fdays :global(.fd) { display: flex; flex-direction: column; align-items: center; gap: 2px; background: #fff; border: 1px solid var(--line); border-radius: 12px; padding: 10px 4px; text-align: center; }
   .fdays :global(.fdt) { font-size: 12.5px; font-weight: 700; }
   .fdays :global(.we .fdt) { color: var(--sea); }

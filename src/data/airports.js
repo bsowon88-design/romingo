@@ -3,7 +3,7 @@ export const AIRPORTS = {
   NRT: ['tokyo', '도쿄', 'jp'], HND: ['tokyo', '도쿄', 'jp'],
   KIX: ['osaka', '오사카', 'jp'], ITM: ['osaka', '오사카', 'jp'],
   FUK: ['fukuoka', '후쿠오카', 'jp'], CTS: ['sapporo', '삿포로', 'jp'], OKA: ['okinawa', '오키나와', 'jp'],
-  NGO: [null, '나고야', 'jp'], KMJ: [null, '구마모토', 'jp'], KOJ: [null, '가고시마', 'jp'], OKJ: [null, '오카야마', 'jp'],
+  NGO: ['nagoya', '나고야', 'jp'], KMJ: [null, '구마모토', 'jp'], KOJ: [null, '가고시마', 'jp'], OKJ: [null, '오카야마', 'jp'],
   TAK: [null, '다카마쓰', 'jp'], MYJ: [null, '마쓰야마', 'jp'], HIJ: [null, '히로시마', 'jp'], SDJ: [null, '센다이', 'jp'],
   KMQ: [null, '고마쓰', 'jp'], YGJ: [null, '요나고', 'jp'], AOJ: [null, '아오모리', 'jp'], KIJ: [null, '니가타', 'jp'],
   FSZ: [null, '시즈오카', 'jp'], OIT: [null, '오이타', 'jp'], KKJ: [null, '기타큐슈', 'jp'], NGS: [null, '나가사키', 'jp'],

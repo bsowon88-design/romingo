@@ -1,5 +1,6 @@
 ---
 import Updated from '../../../components/Updated.astro';
+import HolidayBox from '../../../components/HolidayBox.astro';
 import Base from '../../../layouts/Base.astro';
 import CountryShell from '../../../components/CountryShell.astro';
 import Flag from '../../../components/Flag.astro';
@@ -79,6 +80,8 @@ const desc = `${c.ko} 여행 전 한눈에: 안전 상태, 외교부 여행경�
         <a class="more" href={`/country/${c.slug}/weather/`}>도시별 월별 날씨 전체 →</a>
       </>
     )}
+
+    <HolidayBox c={c} />
 
     {guides.length > 0 && (
       <>

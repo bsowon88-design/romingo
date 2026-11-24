@@ -1,0 +1,47 @@
+---
+// 현지 공휴일·연휴 — 붐비는 시기 안내
+import { HOLIDAYS, BREAKS, HOLIDAY_NOTE, md } from '../data/holidays.js';
+const { c, months = 6 } = Astro.props;
+const DAY = 864e5;
+const now = new Date(Date.now() + 9 * 36e5).toISOString().slice(0, 10);
+const until = new Date(Date.now() + months * 31 * DAY).toISOString().slice(0, 10);
+const brk = (BREAKS[c.slug] || []).filter((b) => b.to >= now && b.from <= until).slice(0, 5);
+const list = (HOLIDAYS[c.slug] || []).filter((h) => h.d >= now && h.d <= until);
+---
+{list.length > 0 && (
+  <section class="hol" id="holidays">
+    <h2>📅 {c.ko} 공휴일·연휴 <small>앞으로 {months}개월</small></h2>
+    {brk.length > 0 && (
+      <ul class="brk">
+        {brk.map((b) => (
+          <li>
+            <span class="bd">{md(b.from)} ~ {md(b.to)}</span>
+            <b>{b.days}일 연휴</b>
+            <span class="bn">{b.names.join(' · ')}</span>
+          </li>
+        ))}
+      </ul>
+    )}
+    {HOLIDAY_NOTE[c.slug] && <p class="hnote">📌 {HOLIDAY_NOTE[c.slug]}</p>}
+    {brk.length > 0 && <p class="hnote">⚠️ 연휴에는 현지 사람들도 여행을 많이 가서 관광지·교통·숙소가 붐비고 값이 오를 수 있어요.</p>}
+    <div class="hlist">
+      {list.map((h) => <span><b>{md(h.d)}</b> {h.n}</span>)}
+    </div>
+    <p class="hsrc">공휴일은 정부 발표로 바뀌거나 추가될 수 있어요. 가게·관공서가 쉬는 날일 수 있으니 미리 확인하세요.</p>
+  </section>
+)}
+
+<style>
+  .hol h2 small { font-size: 13px; color: var(--sub); font-weight: 600; }
+  .brk { list-style: none; margin: 0 0 8px; padding: 0; display: flex; flex-direction: column; gap: 6px; }
+  .brk li { display: grid; grid-template-columns: 190px 80px 1fr; gap: 10px; align-items: center; background: #FFF4EC; border: 1px solid #F6D3BD; border-radius: 12px; padding: 10px 14px; }
+  .bd { font-weight: 700; }
+  .brk b { color: var(--sea); }
+  .bn { font-size: 14px; color: var(--sub); }
+  .hnote { margin: 0 0 10px; font-size: 13px; color: #9a5a2a; }
+  .hlist { display: flex; flex-wrap: wrap; gap: 6px; }
+  .hlist span { background: #fff; border: 1px solid var(--line); border-radius: 999px; padding: 5px 11px; font-size: 13.5px; }
+  .hlist b { font-weight: 700; margin-right: 2px; }
+  .hsrc { margin: 8px 0 0; font-size: 12.5px; color: var(--sub); }
+  @media (max-width: 620px) { .brk li { grid-template-columns: 1fr auto; } .bn { grid-column: 1 / -1; } }
+</style>

@@ -4,6 +4,8 @@ import Base from '../layouts/Base.astro';
 import Updated from '../components/Updated.astro';
 import { TRIP_DATA, CITY_GROUPS } from '../data/tripdata.js';
 import { STATUS_KO, ALARM_KO } from '../data/load.js';
+import { HOLIDAYS, BREAKS } from '../data/holidays.js';
+const HOL = Object.fromEntries(Object.keys(HOLIDAYS).map((k) => [k, { h: HOLIDAYS[k].map((x) => [x.d, x.n]), b: BREAKS[k].map((x) => [x.from, x.to, x.days]) }]));
 const labels = {
   st: Object.fromEntries(Object.entries(STATUS_KO).map(([k, v]) => [k, v.label])),
   al: Object.fromEntries(Object.entries(ALARM_KO).map(([k, v]) => [k, [v.label, v.cls]])),
@@ -44,6 +46,7 @@ const quick = ['danang', 'osaka', 'tokyo', 'bangkok', 'cebu', 'taipei'];
 
   <script type="application/json" id="tdata" set:html={JSON.stringify(TRIP_DATA)}></script>
   <script type="application/json" id="tlabels" set:html={JSON.stringify(labels)}></script>
+  <script type="application/json" id="thol" set:html={JSON.stringify(HOL)}></script>
 </Base>
 
 <script>
@@ -52,6 +55,7 @@ const quick = ['danang', 'osaka', 'tokyo', 'bangkok', 'cebu', 'taipei'];
   type Trip = { id: string; city: string; from: string; to: string };
   const DATA = JSON.parse(document.getElementById('tdata')!.textContent || '{}');
   const LB = JSON.parse(document.getElementById('tlabels')!.textContent || '{}');
+  const HOL = JSON.parse(document.getElementById('thol')!.textContent || '{}');
   const KEY = 'romingo-trips';
 
   const load = (): Trip[] => { try { return JSON.parse(localStorage.getItem(KEY) || '[]'); } catch { return []; } };
@@ -180,11 +184,24 @@ const quick = ['danang', 'osaka', 'tokyo', 'bangkok', 'cebu', 'taipei'];
     else f.append(el('b', '', `${v[0]}편`), el('small', v[1] ? 'bad' : v[2] ? 'warn' : '', `결항 ${v[1]} · 지연 ${v[2]}`));
     tiles.append(f);
 
+    // 여행 기간 현지 공휴일·연휴
+    const H = HOL[c.cs] || { h: [], b: [] };
+    const hs = H.h.filter((x: any) => x[0] >= t.from && x[0] <= t.to);
+    const bs = H.b.filter((x: any) => x[1] >= t.from && x[0] <= t.to);
+    if (hs.length || bs.length) {
+      const hb = el('div', 'thol');
+      if (hs.length) hb.append(el('span', '', `📅 여행 기간 ${c.co} 공휴일: ${hs.map((x: any) => `${dayLabel(x[0]).md} ${x[1]}`).join(' · ')}`));
+      if (bs.length) hb.append(el('span', 'warn', `⚠️ 현지 연휴(${bs.map((x: any) => `${dayLabel(x[0]).md}~${dayLabel(x[1]).md}`).join(', ')})와 겹쳐요. 관광지·숙소가 붐빌 수 있어요.`));
+      box.append(hb);
+    }
+
     const links = el('div', 'tlinks');
     if (c.g) links.append(link(`/guide/${t.city}/`, '📖 여행가이드'));
     links.append(link(`/weather/${t.city}/`, '🌤️ 날씨'), link(`/country/${c.cs}/`, `🛡️ ${c.co} 안전 정보`), link(`/compare/?a=${t.city}`, '↔️ 비교'));
 
-    box.append(head, tiles, links);
+    box.insertBefore(head, box.firstChild);
+    box.insertBefore(tiles, head.nextSibling);
+    box.append(links);
     return box;
   }
 
@@ -231,6 +248,7 @@ const quick = ['danang', 'osaka', 'tokyo', 'bangkok', 'cebu', 'taipei'];
   .trips :global(.sc-bad) { color: #b3452a !important; font-weight: 700; }
   .trips :global(.bad) { color: #c0392b !important; font-weight: 700; }
   .trips :global(.warn) { color: #b5651d !important; font-weight: 700; }
+  .trips :global(.thol) { display: flex; flex-direction: column; gap: 4px; margin-top: 10px; font-size: 13.5px; background: #FFF8F3; border-radius: 10px; padding: 8px 12px; }
   .trips :global(.tlinks) { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 12px; }
   .trips :global(.tl-a) { text-decoration: none; font-size: 13.5px; font-weight: 600; background: #fff; border: 1px solid var(--line); border-radius: 999px; padding: 6px 12px; }
   .empty { margin-top: 16px; }

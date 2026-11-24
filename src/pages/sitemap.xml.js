@@ -2,6 +2,7 @@ import { SITE_URL } from '../site.js';
 import { COUNTRIES } from '../data/countries.js';
 import { bigQuakes } from '../data/load.js';
 import { citiesWithClimate, MONTHS } from '../data/weather.js';
+import { GUIDES } from '../data/guides.js';
 
 export function GET() {
   const now = new Date().toISOString();
@@ -12,6 +13,7 @@ export function GET() {
     ['/disasters/', now],
     ['/about/', null],
     ...COUNTRIES.map((c) => [`/country/${c.slug}/`, now]),
+    ...GUIDES.map((g) => [`/guide/${g.city}/`, new Date(g.updated).toISOString()]),
     ['/weather/', null],
     ...citiesWithClimate.flatMap((c) => [[`/weather/${c.slug}/`, null], ...MONTHS.map((m) => [`/weather/${c.slug}/${m}/`, null])]),
     ...bigQuakes.map((q) => [`/quake/${q.id}/`, new Date(q.time).toISOString()]),

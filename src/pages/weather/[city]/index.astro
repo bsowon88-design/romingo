@@ -2,6 +2,7 @@
 import Base from '../../../layouts/Base.astro';
 import { CITIES } from '../../../data/cities.js';
 import { bySlug } from '../../../data/countries.js';
+import { guideByCity } from '../../../data/guides.js';
 import { HAS_CLIMATE, climateOf, MONTHS, travelScore, scoreLabel, rainInfo, bestMonths, t1 } from '../../../data/weather.js';
 
 export function getStaticPaths() {
@@ -42,6 +43,7 @@ const others = CITIES.filter((x) => x.country === city.country && x.slug !== cit
   </div>
 
   <div class="links">
+    {guideByCity[city.slug] && <a class="btn coral" href={`/guide/${city.slug}/`}>📖 {city.ko} 여행 가이드</a>}
     <a class="btn" href={`/country/${co.slug}/`}>{co.flag} {co.ko} 안전·여행 정보</a>
   </div>
 
@@ -70,7 +72,7 @@ const others = CITIES.filter((x) => x.country === city.country && x.slug !== cit
   .sc.good { background: #dff3e8; color: #1d7a4c; }
   .sc.ok { background: #eef1f4; color: #55636e; }
   .sc.bad { background: #fde8e3; color: #b3452a; }
-  .links { margin-top: 16px; }
+  .links { margin-top: 16px; display: flex; flex-wrap: wrap; gap: 8px; }
   .chips { display: flex; flex-wrap: wrap; gap: 8px; }
   .chips a { text-decoration: none; background: #fff; border: 1px solid var(--line); border-radius: 999px; padding: 7px 13px; font-weight: 600; font-size: 14px; }
   @media (max-width: 620px) {

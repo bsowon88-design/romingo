@@ -1,0 +1,84 @@
+---
+import Base from '../../layouts/Base.astro';
+import { GUIDES } from '../../data/guides.js';
+import { cityBySlug } from '../../data/cities.js';
+import { bySlug } from '../../data/countries.js';
+import { HAS_CLIMATE, bestMonths } from '../../data/weather.js';
+
+export function getStaticPaths() {
+  return GUIDES.filter((g) => cityBySlug[g.city]).map((g) => ({ params: { city: g.city }, props: { g } }));
+}
+
+const { g } = Astro.props;
+const city = cityBySlug[g.city];
+const co = bySlug[city.country];
+const best = HAS_CLIMATE(city.slug) ? bestMonths(city.slug) : [];
+const nowM = +new Intl.DateTimeFormat('en-US', { timeZone: 'Asia/Seoul', month: 'numeric' }).format(new Date());
+const title = `${city.ko} 여행 가이드 - 숙소 위치·공항 이동·추천 일정·주의할 점`;
+---
+<Base title={title} desc={`${city.ko} 자유여행 준비: ${g.intro}`}>
+  <p class="crumb"><a href="/">홈</a> › <a href={`/country/${co.slug}/`}>{co.ko}</a> › {city.ko} 가이드</p>
+
+  <section class="ghero" style={`--c1:${co.color[0]};--c2:${co.color[1]}`}>
+    <p class="eyebrow">{co.flag} {co.ko}</p>
+    <h1>{city.ko} 여행 가이드</h1>
+    <p>{g.intro}</p>
+  </section>
+
+  <nav class="toc">
+    <a href="#areas">🏨 숙소 위치</a><a href="#airport">✈️ 공항 이동</a><a href="#move">🚇 시내 교통</a>
+    <a href="#plan">🗓️ 추천 일정</a><a href="#money">💵 돈·결제</a><a href="#caution">⚠️ 주의할 점</a>
+  </nav>
+
+  <div class="quick">
+    {best.length > 0 && <a class="q" href={`/weather/${city.slug}/`}><span>여행하기 좋은 달</span><b>{best.map((m) => `${m}월`).join(' · ')}</b></a>}
+    {HAS_CLIMATE(city.slug) && <a class="q" href={`/weather/${city.slug}/${nowM}/`}><span>날씨</span><b>{nowM}월 날씨 보기 →</b></a>}
+    <a class="q" href={`/country/${co.slug}/`}><span>안전·환율·긴급번호</span><b>{co.ko} 정보 보기 →</b></a>
+  </div>
+
+  <h2 id="areas">🏨 숙소 잡기 좋은 곳</h2>
+  <div class="areas">
+    {g.areas.map((a) => <div class="card"><b>{a.name}</b><p>{a.why}</p></div>)}
+  </div>
+
+  <h2 id="airport">✈️ 공항에서 시내 가기</h2>
+  <ul class="card list">{g.airport.map((x) => <li>{x}</li>)}</ul>
+
+  <h2 id="move">🚇 시내 교통</h2>
+  <ul class="card list">{g.transport.map((x) => <li>{x}</li>)}</ul>
+
+  <h2 id="plan">🗓️ 추천 일정</h2>
+  <ol class="plan">
+    {g.itinerary.map((d) => <li class="card"><b>{d.day}</b><span>{d.plan}</span></li>)}
+  </ol>
+
+  <h2 id="money">💵 돈·결제·인터넷</h2>
+  <ul class="card list">{[...g.money, ...g.sim].map((x) => <li>{x}</li>)}</ul>
+
+  <h2 id="caution">⚠️ 주의할 점</h2>
+  <ul class="card list warn">{g.caution.map((x) => <li>{x}</li>)}</ul>
+
+  <p class="muted" style="margin-top:22px">마지막 확인 {g.updated} · 교통·요금·운영 시간은 자주 바뀌어요. 출발 전에 공식 안내를 한 번 더 확인하세요.</p>
+</Base>
+
+<style>
+  .ghero { margin-top: 10px; padding: 26px 22px; border-radius: 20px; color: #fff; background: radial-gradient(circle at 95% 0%, rgba(255,255,255,.25) 0 90px, transparent 91px), linear-gradient(135deg, var(--c1), var(--c2)); }
+  .ghero .eyebrow { margin: 0; font-weight: 700; opacity: .9; }
+  .ghero h1 { margin: 2px 0 6px; font-size: 30px; text-shadow: 0 1px 2px rgba(0,0,0,.15); }
+  .ghero p { margin: 0; line-height: 1.6; }
+  .toc { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 14px; }
+  .toc a { text-decoration: none; background: #fff; border: 1px solid var(--line); border-radius: 999px; padding: 6px 12px; font-size: 13.5px; font-weight: 600; }
+  .quick { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 10px; margin-top: 14px; }
+  .q { display: flex; flex-direction: column; text-decoration: none; background: #f5fbff; border: 1px solid #cfe5f4; border-radius: 14px; padding: 12px 14px; }
+  .q span { font-size: 12.5px; color: var(--sub); font-weight: 600; }
+  .q b { color: var(--sea); }
+  .areas { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 10px; }
+  .areas p { margin: 4px 0 0; color: var(--sub); font-size: 14.5px; }
+  .list { margin: 0; padding-left: 34px; }
+  .list li { margin: 5px 0; }
+  .warn { background: #fffaf3; border-color: #f4dcbc; }
+  .plan { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 8px; }
+  .plan li { display: flex; gap: 14px; align-items: baseline; }
+  .plan b { color: var(--sea); min-width: 46px; }
+  h2 { scroll-margin-top: 70px; }
+</style>

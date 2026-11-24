@@ -1518,5 +1518,55 @@
   "userUrl": "https://unsplash.com/@lucabravo",
   "page": "https://unsplash.com/photos/panoramic-photography-of-brooklyn-bridge-_QdFx92MO2U",
   "pick": 0
+ },
+ "city:losangeles": {
+  "id": "UZVlSjrIJ3o",
+  "raw": "https://images.unsplash.com/flagged/photo-1575555201693-7cd442b8023f?ixid=M3wxMTQzNTA5fDB8MXxzZWFyY2h8MXx8TG9zJTIwQW5nZWxlcyUyMGNpdHl8ZW58MXwwfHx8MTc5NTU2MTEyOXww&ixlib=rb-4.1.0",
+  "color": "#260c0c",
+  "alt": "Palm trees silhouetted against the Los Angeles skyline during the golden hour",
+  "name": "Cedric Letsch",
+  "userUrl": "https://unsplash.com/@cedricletsch",
+  "page": "https://unsplash.com/photos/los-angeles-skyline-with-palm-trees-UZVlSjrIJ3o",
+  "pick": 0
+ },
+ "city:sanfrancisco": {
+  "id": "gZXx8lKAb7Y",
+  "raw": "https://images.unsplash.com/photo-1501594907352-04cda38ebc29?ixid=M3wxMTQzNTA5fDB8MXxzZWFyY2h8MXx8R29sZGVuJTIwR2F0ZSUyMEJyaWRnZXxlbnwxfDB8fHwxNzk1NTYxMTMwfDA&ixlib=rb-4.1.0",
+  "color": "#c0d9d9",
+  "alt": "Golden Gate Bridge during daytime",
+  "name": "Maarten van den Heuvel",
+  "userUrl": "https://unsplash.com/@mvdheuvel",
+  "page": "https://unsplash.com/photos/golden-gate-bridge-during-daytime-gZXx8lKAb7Y",
+  "pick": 0
+ },
+ "city:lasvegas": {
+  "id": "uxU_jyu9e7U",
+  "raw": "https://images.unsplash.com/photo-1581351721010-8cf859cb14a4?ixid=M3wxMTQzNTA5fDB8MXxzZWFyY2h8MXx8TGFzJTIwVmVnYXMlMjBzdHJpcHxlbnwxfDB8fHwxNzk1NTYxMTMwfDA&ixlib=rb-4.1.0",
+  "color": "#260c0c",
+  "alt": "city with lights turned on during night time",
+  "name": "Julian Paefgen",
+  "userUrl": "https://unsplash.com/@julianpaefgen",
+  "page": "https://unsplash.com/photos/city-with-lights-turned-on-during-night-time-uxU_jyu9e7U",
+  "pick": 0
+ },
+ "city:cancun": {
+  "id": "PW3tJkRkSy8",
+  "raw": "https://images.unsplash.com/photo-1510097467424-192d713fd8b2?ixid=M3wxMTQzNTA5fDB8MXxzZWFyY2h8Mnx8Q2FuY3VuJTIwTWV4aWNvfGVufDF8MHx8fDE3OTU1NjExMzF8MA&ixlib=rb-4.1.0",
+  "color": "#0c7373",
+  "alt": "aerial photo of white buildings",
+  "name": "Gerson Repreza",
+  "userUrl": "https://unsplash.com/@gersonrepreza",
+  "page": "https://unsplash.com/photos/aerial-photo-of-white-buildings-PW3tJkRkSy8",
+  "pick": 0
+ },
+ "city:sydney": {
+  "id": "JmuyB_LibRo",
+  "raw": "https://images.unsplash.com/photo-1624138784614-87fd1b6528f8?ixid=M3wxMTQzNTA5fDB8MXxzZWFyY2h8MXx8U3lkbmV5JTIwSGFyYm91cnxlbnwxfDB8fHwxNzk1NTYxMTMxfDA&ixlib=rb-4.1.0",
+  "color": "#d9d9d9",
+  "alt": "sydney opera house near body of water during daytime",
+  "name": "Caleb",
+  "userUrl": "https://unsplash.com/@calebrussell",
+  "page": "https://unsplash.com/photos/sydney-opera-house-near-body-of-water-during-daytime-JmuyB_LibRo",
+  "pick": 0
  }
 }

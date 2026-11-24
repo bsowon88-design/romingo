@@ -10,9 +10,9 @@ const list = allPhotos().map((p) => {
   return { ...p, place: name || slug };
 });
 ---
-<Base title="사진 출처" desc="로밍고에 쓰인 사진의 작가와 출처" noindex>
+<Base title="사진 출처" desc="트립베리에 쓰인 사진의 작가와 출처" noindex>
   <h1>사진 출처</h1>
-  <p class="lead">로밍고의 나라·도시 사진은 <a href="https://unsplash.com/?utm_source=romingo&utm_medium=referral" target="_blank" rel="noopener">Unsplash</a> 작가들의 사진이에요. 고맙습니다.</p>
+  <p class="lead">트립베리의 나라·도시 사진은 <a href="https://unsplash.com/?utm_source=romingo&utm_medium=referral" target="_blank" rel="noopener">Unsplash</a> 작가들의 사진이에요. 고맙습니다.</p>
   <ul class="card cr">
     {list.map((p) => (
       <li><b>{p.place}</b> — <a href={p.page} target="_blank" rel="noopener">사진</a> by <a href={p.userUrl} target="_blank" rel="noopener">{p.name}</a> on Unsplash</li>

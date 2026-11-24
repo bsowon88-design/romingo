@@ -28,7 +28,7 @@ export const SEARCH_INDEX = COUNTRIES.map((c) => {
   };
 });
 
-// 로밍고에 아직 없는 나라를 찾을 때 — 외교부 여행경보만이라도 보여 줌
+// 트립베리에 아직 없는 나라를 찾을 때 — 외교부 여행경보만이라도 보여 줌
 import alarmsAll from './archive/alarms.json';
 export const ALARM_INDEX = Object.values(alarmsAll || {}).map((a) => [
   a.name,

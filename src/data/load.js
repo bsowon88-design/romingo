@@ -16,7 +16,7 @@ try {
   fresh = (j.features || []).map(normQuake);
   QUAKE_OK = true;
 } catch (e) {
-  console.warn('[로밍고] USGS 불러오기 실패, 보관함만 씀:', e.message);
+  console.warn('[트립베리] USGS 불러오기 실패, 보관함만 씀:', e.message);
 }
 
 let freshD = [];
@@ -26,7 +26,7 @@ try {
   freshD = (j.features || []).map(normDisaster);
   GDACS_OK = true;
 } catch (e) {
-  console.warn('[로밍고] GDACS 불러오기 실패, 보관함만 씀:', e.message);
+  console.warn('[트립베리] GDACS 불러오기 실패, 보관함만 씀:', e.message);
 }
 
 export const BUILT_AT = Date.now();

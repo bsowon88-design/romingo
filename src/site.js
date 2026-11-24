@@ -1,5 +1,5 @@
 // 사이트 기본 정보 — 도메인을 사면 SITE_URL 만 바꾸면 돼요.
-export const SITE_NAME = '로밍고';
+export const SITE_NAME = '트립베리';
 export const SITE_TAGLINE = '해외 여행지 안전 · 날씨 · 가이드';
 export const SITE_URL = 'https://romingo.pages.dev';
 export const SITE_DESC =

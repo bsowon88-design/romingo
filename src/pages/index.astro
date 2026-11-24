@@ -5,8 +5,9 @@ import CountryCard from '../components/CountryCard.astro';
 import { countryCards, latestAdjusts, activeDisasters } from '../data/load.js';
 import { COUNTRIES, bySlug, flagOf } from '../data/countries.js';
 import { CITIES } from '../data/cities.js';
-import { HAS_CLIMATE, climateOf, travelScore, t1 } from '../data/weather.js';
 import { GUIDES } from '../data/guides.js';
+import { popularCities } from '../data/popular.js';
+import { cityBySlug } from '../data/cities.js';
 import PhotoCredit from '../components/PhotoCredit.astro';
 import { cityPhoto } from '../data/photos.js';
 import Icon from '../components/Icon.astro';
@@ -16,15 +17,9 @@ import HeroSlider from '../components/HeroSlider.astro';
 const POP = ['japan', 'vietnam', 'thailand', 'philippines', 'taiwan', 'china', 'guam-saipan', 'singapore'];
 const warn = countryCards.filter((c) => c.st.level !== 'calm');
 
-// 이번 달 여행하기 좋은 도시 (날씨 점수 높은 순, 나라당 1곳)
-const nowM = +new Intl.DateTimeFormat('en-US', { timeZone: 'Asia/Seoul', month: 'numeric' }).format(new Date());
-const scored = CITIES.filter((x) => HAS_CLIMATE(x.slug))
-  .map((x) => ({ x, d: climateOf(x.slug).m[nowM - 1] }))
-  .map((o) => ({ ...o, s: travelScore(o.d) }))
-  .sort((a, b) => b.s - a.s);
-const seenC = new Set();
-const goodNow = scored.filter((o) => (seenC.has(o.x.country) ? false : seenC.add(o.x.country))).slice(0, 8);
 
+const nowM = +new Intl.DateTimeFormat('en-US', { timeZone: 'Asia/Seoul', month: 'numeric' }).format(new Date());
+const popTop = popularCities(8).list;
 const isoSlug = {};
 for (const c of COUNTRIES) for (const i of c.iso2) if (!isoSlug[i]) isoSlug[i] = c.slug;
 const guides = GUIDES.map((g) => CITIES.find((x) => x.slug === g.city)).filter(Boolean);
@@ -57,23 +52,23 @@ const guides = GUIDES.map((g) => CITIES.find((x) => x.slug === g.city)).filter(B
   <p id="nores" class="card empty" hidden>찾는 나라가 아직 없어요. 곧 더 늘릴게요.</p>
   <p><a class="btn ghost" href="/country/">전체 나라 보기 ({COUNTRIES.length}곳)</a></p>
 
-  {goodNow.length > 0 && (
+  {popTop.length > 0 && (
     <>
-      <h2>🌤️ {nowM}월에 여행하기 좋은 곳 <small>날씨 기준</small></h2>
+      <h2>✈️ 이번 주 인기 도시 <small>인천공항 출발편 기준</small></h2>
       <div class="good">
-        {goodNow.map(({ x, d }) => {
-          const co = bySlug[x.country];
+        {popTop.map((r, i) => {
+          const c = r.city ? cityBySlug[r.city] : null;
+          const ph = c ? cityPhoto(c.slug) : null;
           return (
-            <a class="gn" href={`/weather/${x.slug}/${nowM}/`}>
-              {cityPhoto(x.slug) && <span class="gnimg hasbg"><img class="bgimg" src={cityPhoto(x.slug).src(360, 200)} alt={x.ko} loading="lazy" /><PhotoCredit p={cityPhoto(x.slug)} link={false} /></span>}
-              <span class="gnh"><Flag iso={flagOf(co)} size={20} /> <b>{x.ko}</b></span>
-              <span class="gnt"><span class="lo">{t1(d.lo)}</span> ~ <span class="hi">{t1(d.hi)}</span></span>
-              <span class="muted">{co.ko}</span>
+            <a class="gn" href={c ? `/weather/${c.slug}/${nowM}/` : '/popular/'}>
+              {ph && <span class="gnimg hasbg"><img class="bgimg" src={ph.src(360, 200)} alt={r.ko} loading="lazy" /><PhotoCredit p={ph} link={false} /></span>}
+              <span class="gnh"><span class="prk">{i + 1}</span>{r.iso && <Flag iso={r.iso} size={18} />} <b>{r.ko}</b></span>
+              <span class="muted">이번 주 {r.flights}편</span>
             </a>
           );
         })}
       </div>
-      <p><a class="btn ghost" href="/weather/">도시별 월별 날씨</a></p>
+      <p><a class="btn ghost" href="/popular/">인기 도시 전체 순위</a></p>
     </>
   )}
 
@@ -132,6 +127,7 @@ const guides = GUIDES.map((g) => CITIES.find((x) => x.slug === g.city)).filter(B
   .gnimg { display: block; height: 96px; margin: -12px -14px 8px; }
   .gn:hover { border-color: var(--sea); }
   .gnh { display: flex; align-items: center; gap: 6px; }
+  .prk { display: inline-grid; place-items: center; width: 20px; height: 20px; border-radius: 6px; background: var(--coral); color: #fff; font-size: 12px; font-weight: 800; margin-right: 2px; }
   .gnt { font-weight: 700; font-size: 15px; }
   .hi { color: #d9603b; } .lo { color: #2f78c4; }
   .chips { display: flex; flex-wrap: wrap; gap: 8px; }

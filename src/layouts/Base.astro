@@ -9,9 +9,9 @@ const path = Astro.url.pathname;
 // [주소, 이름, 아이콘, 폰 아래 메뉴에 넣을지]
 const nav = [
   ['/', '홈', 'house', true],
+  ['/popular/', '인기 도시', 'plane', true],
   ['/country/', '나라별', 'globe', true],
-  ['/guide/', '여행가이드', 'book-open', false],
-  ['/weather/', '날씨', 'cloud-sun', true],
+  ['/weather/', '날씨', 'cloud-sun', false],
   ['/safety/', '안전 정보', 'shield-check', true],
   ['/rates/', '환율', 'coins', true],
 ];
@@ -46,7 +46,10 @@ const isOn = (href) => (href === '/' ? path === '/' : path.startsWith(href) || (
           <a href={href} class={isOn(href) ? 'on' : ''}><Icon name={icon} size={18} />{label}</a>
         ))}
       </nav>
-      <button class="sbtn" id="sopen" aria-label="검색"><Icon name="search" size={20} /><span>검색</span></button>
+      <div class="tact">
+        {path !== '/' && <button class="ibtn" id="sopen" aria-label="검색"><Icon name="search" size={20} /></button>}
+        <button class="sbtn" id="share" aria-label="공유하기"><Icon name="share" size={18} /><span>공유하기</span></button>
+      </div>
     </div>
   </header>
 
@@ -89,6 +92,21 @@ const isOn = (href) => (href === '/' ? path === '/' : path.startsWith(href) || (
     const open = () => { if (!box) return; box.hidden = false; document.body.classList.add('noscroll'); setTimeout(() => q?.focus(), 30); };
     const close = () => { if (!box) return; box.hidden = true; document.body.classList.remove('noscroll'); };
     document.getElementById('sopen')?.addEventListener('click', open);
+
+    // 공유하기 — 폰은 공유 창(카톡 등), PC는 주소 복사
+    const toast = (msg: string) => {
+      const t = document.createElement('div');
+      t.className = 'toast'; t.textContent = msg;
+      document.body.append(t); setTimeout(() => t.remove(), 2200);
+    };
+    document.getElementById('share')?.addEventListener('click', async () => {
+      const data = { title: document.title, url: location.href };
+      try {
+        if (navigator.share && matchMedia('(pointer: coarse)').matches) { await navigator.share(data); return; }
+      } catch (e) { if ((e as Error)?.name === 'AbortError') return; }
+      try { await navigator.clipboard.writeText(location.href); toast('주소를 복사했어요. 카톡에 붙여 넣어 보내세요'); }
+      catch { prompt('이 주소를 복사하세요', location.href); }
+    });
     document.querySelectorAll('[data-open-search]').forEach((el) => el.addEventListener('click', (e) => { e.preventDefault(); open(); }));
     document.getElementById('sclose')?.addEventListener('click', close);
     box?.addEventListener('click', (e) => { if (e.target === box) close(); });
@@ -224,6 +242,10 @@ const isOn = (href) => (href === '/' ? path === '/' : path.startsWith(href) || (
   .top nav a.on::after { content: ''; position: absolute; left: 12px; right: 12px; bottom: -3px; height: 3px; border-radius: 3px; background: var(--sea); }
   .sbtn { display: inline-flex; align-items: center; gap: 6px; font: inherit; font-weight: 700; font-size: 15px; color: #4A3A32; background: #FFF0E6; border: 1px solid var(--line); border-radius: 999px; padding: 8px 14px; cursor: pointer; }
   .sbtn:hover { border-color: var(--sea); color: var(--sea); }
+  .tact { display: flex; align-items: center; gap: 6px; }
+  .ibtn { display: grid; place-items: center; width: 40px; height: 40px; border-radius: 50%; border: 1px solid var(--line); background: #fff; color: #4A3A32; cursor: pointer; }
+  .ibtn:hover { border-color: var(--sea); color: var(--sea); }
+  .toast { position: fixed; left: 50%; bottom: 90px; transform: translateX(-50%); z-index: 60; background: rgba(46,36,32,.92); color: #fff; font-size: 14px; font-weight: 600; padding: 10px 16px; border-radius: 999px; pointer-events: none; }
 
   .bnav { display: none; }
   .sbox-wrap { position: fixed; inset: 0; z-index: 50; background: rgba(60,35,20,.45); display: flex; justify-content: center; align-items: flex-start; padding: 70px 14px 14px; }

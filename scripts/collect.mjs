@@ -8,6 +8,7 @@ import { fetchAlarms, fetchAdjusts } from './mofa.mjs';
 import { fetchRates } from './ecos.mjs';
 import { fetchClimate } from './climate.mjs';
 import { fetchPhotos } from './photos.mjs';
+import { updatePopular } from './icn.mjs';
 import { CITIES, SEOUL } from '../src/data/cities.js';
 
 const Q_FILE = new URL('../src/data/archive/quakes.json', import.meta.url);
@@ -17,6 +18,7 @@ const J_FILE = new URL('../src/data/archive/adjusts.json', import.meta.url);
 const R_FILE = new URL('../src/data/archive/rates.json', import.meta.url);
 const C_FILE = new URL('../src/data/archive/climate.json', import.meta.url);
 const P_FILE = new URL('../src/data/archive/photos.json', import.meta.url);
+const F_FILE = new URL('../src/data/archive/popular.json', import.meta.url);
 
 async function readList(file) {
   try {
@@ -117,6 +119,18 @@ try {
   if (todo.length) changed = (await save(C_FILE, old, clim, '날씨')) || changed;
 } catch (e) {
   console.warn('날씨 수집 실패:', e.message);
+}
+
+// 인기 도시 — 인천공항 출발편 (하루 한 번)
+if (KEY) {
+  try {
+    const old = await readList(F_FILE);
+    const { out, changed: ch } = await updatePopular(KEY, old);
+    if (ch) changed = (await save(F_FILE, old, out, '인기 도시')) || changed;
+    else console.log('인기 도시: 오늘 이미 셈 / 받은 것 없음');
+  } catch (e) {
+    console.warn('인기 도시 수집 실패:', e.message);
+  }
 }
 
 // 대표 사진 — 키가 있을 때, 아직 없는 곳만 (한 번에 20곳)

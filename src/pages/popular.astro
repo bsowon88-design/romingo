@@ -1,0 +1,88 @@
+---
+import Base from '../layouts/Base.astro';
+import Flag from '../components/Flag.astro';
+import { popularCities, POP_READY, POP_CHECKED } from '../data/popular.js';
+import { cityBySlug } from '../data/cities.js';
+import { bySlug } from '../data/countries.js';
+import { cityPhoto } from '../data/photos.js';
+import { guideByCity } from '../data/guides.js';
+import { HAS_CLIMATE } from '../data/weather.js';
+
+const { list, range } = popularCities(30);
+const max = list[0]?.flights || 1;
+const nowM = +new Intl.DateTimeFormat('en-US', { timeZone: 'Asia/Seoul', month: 'numeric' }).format(new Date());
+const fmt = (d) => d.slice(5).replace('-', '.');
+---
+<Base title="인기 도시 - 이번 주 인천공항 출발 많은 해외 도시 순위" desc="이번 주 인천공항에서 출발하는 비행기가 가장 많은 해외 도시 순위. 요즘 사람들이 많이 가는 여행지를 실제 항공편 수로 확인하세요.">
+  <p class="crumb"><a href="/">홈</a> › 인기 도시</p>
+  <h1>인기 도시</h1>
+  <p class="lead">이번 주 <b>인천공항에서 출발하는 여객기</b>가 가장 많은 도시 순위예요. 요즘 사람들이 실제로 많이 가는 곳이에요.</p>
+
+  {POP_READY && list.length ? (
+    <>
+      <p class="muted when">{range && `${fmt(range.from)} ~ ${fmt(range.to)} 출발편 기준`} · 매일 업데이트 · 같은 비행기의 공동운항 편명은 한 번만 셌어요</p>
+      <ol class="plist">
+        {list.map((r, i) => {
+          const c = r.city ? cityBySlug[r.city] : null;
+          const co = c ? bySlug[c.country] : null;
+          const ph = c ? cityPhoto(c.slug) : null;
+          return (
+            <li class={`pi ${i < 3 ? 'top' : ''}`}>
+              <span class="rk">{i + 1}</span>
+              {ph ? <span class="pimg" style={`background:${ph.color}`}><img src={ph.src(200, 140)} alt={r.ko} loading="lazy" /></span> : <span class="pimg none"><Flag iso={r.iso} size={36} /></span>}
+              <div class="pb">
+                <div class="ph">
+                  {r.iso && <Flag iso={r.iso} size={18} />}
+                  <b>{r.ko}</b>
+                  {co && <span class="muted">{co.ko}</span>}
+                  {r.change != null && Math.abs(r.change) >= 5 && (
+                    <span class={`chg ${r.change > 0 ? 'up' : 'down'}`}>{r.change > 0 ? '▲' : '▼'} {Math.abs(r.change)}%</span>
+                  )}
+                </div>
+                <div class="bar"><span style={`width:${Math.max(4, (r.flights / max) * 100)}%`}></span><em>{r.flights}편</em></div>
+                {c && (
+                  <div class="pl">
+                    {HAS_CLIMATE(c.slug) && <a href={`/weather/${c.slug}/${nowM}/`}>{nowM}월 날씨</a>}
+                    {guideByCity[c.slug] && <a href={`/guide/${c.slug}/`}>여행가이드</a>}
+                    <a href={`/country/${c.country}/`}>{co?.ko} 정보</a>
+                  </div>
+                )}
+              </div>
+            </li>
+          );
+        })}
+      </ol>
+      <p class="muted" style="margin-top:16px">▲▼는 지난주 같은 기간보다 출발편이 늘었는지 줄었는지예요. 자료: 인천국제공항공사 운항 정보 (공공데이터포털). 김포·김해 등 다른 공항 출발은 아직 포함되지 않았어요.</p>
+    </>
+  ) : (
+    <p class="card empty">인천공항 출발편 자료를 모으는 중이에요. 하루 안에 순위가 채워져요.</p>
+  )}
+</Base>
+
+<style>
+  .when { margin: 10px 0 12px; }
+  .plist { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 8px; }
+  .pi { display: grid; grid-template-columns: 34px 92px 1fr; gap: 12px; align-items: center; background: #fff; border: 1px solid var(--line); border-radius: 14px; padding: 8px 14px 8px 8px; }
+  .pi.top { border-color: #F2CDB6; background: #FFFBF8; }
+  .rk { text-align: center; font-size: 20px; font-weight: 800; color: var(--sub); }
+  .pi.top .rk { color: var(--coral); font-size: 24px; }
+  .pimg { display: grid; place-items: center; height: 64px; border-radius: 10px; overflow: hidden; background: #FFF0E6; }
+  .pimg img { width: 100%; height: 100%; object-fit: cover; display: block; }
+  .pb { display: flex; flex-direction: column; gap: 5px; min-width: 0; }
+  .ph { display: flex; align-items: center; gap: 7px; flex-wrap: wrap; }
+  .ph b { font-size: 17px; }
+  .chg { font-size: 12px; font-weight: 800; padding: 1px 7px; border-radius: 999px; }
+  .chg.up { background: #fde8e3; color: #c0392b; }
+  .chg.down { background: #e4eefc; color: #2257b8; }
+  .bar { position: relative; height: 18px; background: #FFF3EB; border-radius: 6px; }
+  .bar span { display: block; height: 100%; border-radius: 6px; background: linear-gradient(90deg, #F6B48A, #E8794A); }
+  .bar em { position: absolute; right: 8px; top: 0; line-height: 18px; font-style: normal; font-size: 12px; font-weight: 800; color: var(--ink); }
+  .pl { display: flex; gap: 12px; flex-wrap: wrap; font-size: 13px; font-weight: 700; }
+  .pl a { color: var(--sea); text-decoration: none; }
+  @media (max-width: 620px) {
+    .pi { grid-template-columns: 26px 64px 1fr; gap: 9px; padding: 7px 10px 7px 6px; }
+    .pimg { height: 52px; }
+    .ph b { font-size: 15.5px; }
+    .pl { font-size: 12px; gap: 9px; }
+  }
+</style>

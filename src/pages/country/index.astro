@@ -1,11 +1,14 @@
 ---
 import Base from '../../layouts/Base.astro';
 import CountryCard from '../../components/CountryCard.astro';
-import { countryCards } from '../../data/load.js';
+import { countryCards, ALARM_KO } from '../../data/load.js';
 import { REGIONS, flagOf, bySlug } from '../../data/countries.js';
 import { GUIDES } from '../../data/guides.js';
 import { cityBySlug } from '../../data/cities.js';
 import Flag from '../../components/Flag.astro';
+const lvOf = (c) => (c.alarm && c.alarm.max) || 0;
+const counts = [0, 1, 2, 3, 4].map((n) => countryCards.filter((c) => lvOf(c) === n).length);
+const FILTERS = [['all', '전체', countryCards.length, ''], ...[0, 1, 2, 3, 4].filter((n) => counts[n]).map((n) => [String(n), n ? `${n}단계 ${ALARM_KO[n].label}` : '경보 없음', counts[n], n ? ALARM_KO[n].cls : 'm0'])];
 const guides = GUIDES.map((g) => cityBySlug[g.city]).filter(Boolean);
 ---
 <Base title="나라별 여행 정보 - 안전·시차·전압·긴급번호" desc="일본, 대만, 베트남, 태국, 필리핀 등 인기 여행지의 안전 상태와 시차, 통화, 전압, 긴급번호를 나라별로 확인하세요.">
@@ -18,19 +21,46 @@ const guides = GUIDES.map((g) => cityBySlug[g.city]).filter(Boolean);
       {guides.map((x) => <a href={`/guide/${x.slug}/`}><Flag iso={flagOf(bySlug[x.country])} size={16} /> {x.ko}</a>)}
     </div>
   )}
+  <div class="lvf" role="group" aria-label="외교부 여행경보 단계로 거르기">
+    <span class="gl">🛂 외교부 여행경보</span>
+    {FILTERS.map(([k, l, n, cls], i) => <button type="button" data-lv={k} class:list={[{ on: i === 0 }]}><i class={`dot ${cls}`}></i>{l} <small>{n}</small></button>)}
+  </div>
+  <p class="muted lvn">나라 안에서 가장 높은 단계 기준이에요. 일부 지역에만 내려진 경보도 있으니 나라 페이지에서 지역을 확인하세요.</p>
   {REGIONS.map(([key, label]) => (
-    <section>
+    <section class="rsec">
       <h2>{label}</h2>
-      <div class="grid cgrid">{countryCards.filter((c) => c.region === key).map((c) => <CountryCard c={c} />)}</div>
+      <div class="grid cgrid">{countryCards.filter((c) => c.region === key).map((c) => <div class="cw" data-lv={String(lvOf(c))}><CountryCard c={c} /></div>)}</div>
     </section>
   ))}
 </Base>
+
+<script>
+  const btns = document.querySelectorAll<HTMLButtonElement>('.lvf button');
+  btns.forEach((b) =>
+    b.addEventListener('click', () => {
+      const v = b.dataset.lv;
+      btns.forEach((x) => x.classList.toggle('on', x === b));
+      document.querySelectorAll<HTMLElement>('.cw').forEach((w) => (w.hidden = v !== 'all' && w.dataset.lv !== v));
+      document.querySelectorAll<HTMLElement>('.rsec').forEach((s) => (s.hidden = !s.querySelector('.cw:not([hidden])')));
+    }),
+  );
+</script>
 
 <style>
   .gbar { display: flex; flex-wrap: wrap; align-items: center; gap: 6px; margin-top: 12px; }
   .gl { font-weight: 800; font-size: 14px; margin-right: 4px; }
   .gbar a { display: inline-flex; align-items: center; gap: 5px; text-decoration: none; background: #fff; border: 1px solid var(--line); border-radius: 999px; padding: 6px 12px; font-weight: 600; font-size: 14px; }
   .gbar a:hover { border-color: var(--coral); color: var(--sea); }
+  .lvf { display: flex; flex-wrap: wrap; align-items: center; gap: 6px; margin-top: 14px; }
+  .lvf button { display: inline-flex; align-items: center; gap: 6px; font: inherit; font-size: 14px; font-weight: 600; background: #fff; border: 1px solid var(--line); border-radius: 999px; padding: 6px 12px; cursor: pointer; color: var(--ink); }
+  .lvf button small { color: var(--sub); font-weight: 600; }
+  .lvf button.on { background: var(--ink); border-color: var(--ink); color: #fff; }
+  .lvf button.on small { color: #e9dcd3; }
+  .dot { width: 10px; height: 10px; border-radius: 50%; display: inline-block; }
+  .dot:not([class*='m']) { display: none; }
+  .lvn { font-size: 12.5px; margin: 6px 0 0; }
+  .cw[hidden], .rsec[hidden] { display: none; }
+  .cw > :global(a) { height: 100%; }
   .cgrid { grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); }
   @media (max-width: 520px) { .cgrid { grid-template-columns: 1fr 1fr; gap: 10px; } }
 </style>

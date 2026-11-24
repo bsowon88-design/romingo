@@ -1,0 +1,248 @@
+---
+// 나의 여행 — 로그인 없이 이 브라우저에 저장. 여행지·날짜를 넣으면 D-day·안전·날씨·환율·운항을 한 화면에.
+import Base from '../layouts/Base.astro';
+import Updated from '../components/Updated.astro';
+import { TRIP_DATA, CITY_GROUPS } from '../data/tripdata.js';
+import { STATUS_KO, ALARM_KO } from '../data/load.js';
+const labels = {
+  st: Object.fromEntries(Object.entries(STATUS_KO).map(([k, v]) => [k, v.label])),
+  al: Object.fromEntries(Object.entries(ALARM_KO).map(([k, v]) => [k, [v.label, v.cls]])),
+};
+const quick = ['danang', 'osaka', 'tokyo', 'bangkok', 'cebu', 'taipei'];
+---
+<Base title="나의 여행 - D-day·안전·날씨·환율 한눈에" desc="여행지와 날짜를 넣어 두면 D-day, 도시 안전 현황, 여행 기간 날씨, 환율, 오늘 운항 현황을 한 화면에서 확인할 수 있어요." noindex>
+  <p class="crumb"><a href="/">홈</a> › 나의 여행</p>
+  <h1>🧳 나의 여행</h1>
+  <p class="lead">여행지와 날짜를 넣어 두면, 들어올 때마다 <b>D-day · 안전 · 날씨 · 환율 · 운항</b>을 한 번에 보여 줘요.<br /><small>로그인 없이 이 브라우저에만 저장돼요.</small></p>
+
+  <form class="tform card" id="tform">
+    <label class="f-city">
+      <span>여행지</span>
+      <select id="t-city" required>
+        <option value="">도시 고르기</option>
+        {CITY_GROUPS.map((g) => (
+          <optgroup label={g.ko}>{g.cities.map((c) => <option value={c.slug}>{c.ko}</option>)}</optgroup>
+        ))}
+      </select>
+    </label>
+    <label><span>가는 날</span><input type="date" id="t-from" required /></label>
+    <label><span>오는 날</span><input type="date" id="t-to" required /></label>
+    <button class="btn" type="submit">＋ 추가</button>
+  </form>
+
+  <div id="trips" class="trips"></div>
+
+  <div id="empty" class="empty card" hidden>
+    <p><b>아직 저장한 여행이 없어요.</b> 위에서 도시와 날짜를 넣어 보세요.</p>
+    <div class="qk">
+      {quick.map((s) => TRIP_DATA[s] && <button type="button" data-pick={s}>{TRIP_DATA[s].ko}</button>)}
+    </div>
+  </div>
+
+  <Updated />
+  <p class="muted small">안전 현황은 위 시각 기준, 운항 현황과 날씨 예보는 들어올 때 새로 불러와요. 예보: 노르웨이 기상청(MET Norway) · 환율: 한국은행</p>
+
+  <script type="application/json" id="tdata" set:html={JSON.stringify(TRIP_DATA)}></script>
+  <script type="application/json" id="tlabels" set:html={JSON.stringify(labels)}></script>
+</Base>
+
+<script>
+  import { loadLive, sym, dayLabel, el } from '../scripts/live';
+
+  type Trip = { id: string; city: string; from: string; to: string };
+  const DATA = JSON.parse(document.getElementById('tdata')!.textContent || '{}');
+  const LB = JSON.parse(document.getElementById('tlabels')!.textContent || '{}');
+  const KEY = 'romingo-trips';
+
+  const load = (): Trip[] => { try { return JSON.parse(localStorage.getItem(KEY) || '[]'); } catch { return []; } };
+  const save = (t: Trip[]) => { try { localStorage.setItem(KEY, JSON.stringify(t)); } catch {} };
+
+  const today = () => new Intl.DateTimeFormat('en-CA', { timeZone: 'Asia/Seoul' }).format(new Date());
+  const dnum = (s: string) => Date.UTC(+s.slice(0, 4), +s.slice(5, 7) - 1, +s.slice(8, 10)) / 864e5;
+  const addDays = (s: string, n: number) => new Date((dnum(s) + n) * 864e5).toISOString().slice(0, 10);
+
+  const $city = document.getElementById('t-city') as HTMLSelectElement;
+  const $from = document.getElementById('t-from') as HTMLInputElement;
+  const $to = document.getElementById('t-to') as HTMLInputElement;
+  $from.min = today();
+  $from.addEventListener('change', () => {
+    $to.min = $from.value;
+    if (!$to.value || $to.value < $from.value) $to.value = addDays($from.value, 3);
+  });
+
+  // 다른 페이지의 "나의 여행에 추가" (?add=도시)
+  const add = new URLSearchParams(location.search).get('add');
+  if (add && DATA[add]) {
+    $city.value = add;
+    $from.focus();
+  }
+  document.querySelectorAll<HTMLButtonElement>('[data-pick]').forEach((b) =>
+    b.addEventListener('click', () => { $city.value = b.dataset.pick || ''; $from.focus(); $from.showPicker?.(); }),
+  );
+
+  document.getElementById('tform')!.addEventListener('submit', (e) => {
+    e.preventDefault();
+    if (!$city.value || !$from.value || !$to.value) return;
+    const t = load();
+    t.push({ id: Date.now().toString(36), city: $city.value, from: $from.value, to: $to.value < $from.value ? $from.value : $to.value });
+    t.sort((a, b) => a.from.localeCompare(b.from));
+    save(t);
+    $from.value = $to.value = '';
+    $city.value = '';
+    if (add) history.replaceState(null, '', '/my/');
+    render();
+  });
+
+  function link(href: string, text: string) {
+    const a = el('a', 'tl-a', text);
+    a.href = href;
+    return a;
+  }
+
+  function dBadge(t: Trip) {
+    const n = dnum(t.from) - dnum(today());
+    const back = dnum(t.to) - dnum(today());
+    if (n > 0) return el('span', 'dday', `D-${n}`);
+    if (n === 0) return el('span', 'dday now', 'D-DAY');
+    if (back >= 0) return el('span', 'dday now', '여행 중');
+    return el('span', 'dday past', '다녀옴');
+  }
+
+  function card(t: Trip, fc: any, fl: any) {
+    const c = DATA[t.city];
+    const box = el('article', 'trip card');
+    if (!c) return box;
+    const nights = dnum(t.to) - dnum(t.from);
+    const f1 = dayLabel(t.from), f2 = dayLabel(t.to);
+
+    const head = el('div', 'thead');
+    const img = el('img', 'tflag');
+    img.src = `/flags/${c.f}.svg`; img.alt = ''; img.width = 28; img.height = 21;
+    const tt = el('div', 'ttl');
+    tt.append(el('b', '', `${c.ko} 여행`), el('span', 'tdate', `${f1.md}(${f1.wd}) ~ ${f2.md}(${f2.wd}) · ${nights ? `${nights}박 ${nights + 1}일` : '당일'}`));
+    const del = el('button', 'tdel', '삭제');
+    del.type = 'button';
+    del.addEventListener('click', () => { if (confirm(`${c.ko} 여행을 지울까요?`)) { save(load().filter((x) => x.id !== t.id)); render(); } });
+    head.append(img, tt, dBadge(t), del);
+
+    const tiles = el('div', 'ttiles');
+    const safeHref = c.g ? `/guide/${t.city}/#city-safety` : `/weather/${t.city}/#city-safety`;
+
+    // 안전
+    const s = el('a', 'tile');
+    s.href = safeHref;
+    s.append(el('span', 'tl', '안전'));
+    const sb = el('div', 'tb');
+    sb.append(el('span', `badge b-${c.lv}`, LB.st[c.lv]));
+    if (c.al) { const [lbl, cls] = LB.al[c.al[0]]; sb.append(el('span', `mchip ${cls}`, `${c.al[1] ? '일부 ' : ''}${c.al[0]}단계 ${lbl}`)); }
+    s.append(sb, el('small', '', `근처 지진 ${c.q}건 · 재난 경보 ${c.d}건 (최근 30일)`));
+    tiles.append(s);
+
+    // 날씨 — 예보가 닿는 날은 예보, 아니면 그 달 평균
+    const w = el('a', 'tile');
+    w.href = `/weather/${t.city}/`;
+    w.append(el('span', 'tl', '여행 기간 날씨'));
+    const days = (fc?.c?.[t.city] || []).filter((d: any) => d[0] >= t.from && d[0] <= t.to);
+    if (days.length) {
+      const strip = el('div', 'wstrip');
+      for (const [date, hi, lo, , sy] of days.slice(0, 6)) {
+        const dl = dayLabel(date);
+        const it = el('span', 'wd');
+        it.append(el('small', '', `${dl.md}`), el('span', 'wi', sym(sy)[0]), el('small', '', `${Math.round(hi)}°/${Math.round(lo)}°`));
+        strip.append(it);
+      }
+      w.append(strip, el('small', '', '실제 예보 (노르웨이 기상청)'));
+    } else if (c.m) {
+      const mon = +t.from.slice(5, 7);
+      const [hi, lo, , cls, lbl, rain] = c.m[mon - 1];
+      w.append(el('b', '', `${mon}월 평균 ${hi}° / ${lo}°`), el('small', `sc-${cls}`, `${rain} · ${lbl}`));
+      if (dnum(t.from) - dnum(today()) > 0) w.append(el('small', '', '출발 9일 전쯤부터 실제 예보로 바뀌어요'));
+    } else {
+      w.append(el('b', '', '날씨 보기 →'));
+    }
+    tiles.append(w);
+
+    // 환율
+    const r = el('a', 'tile');
+    r.href = '/rates/';
+    r.append(el('span', 'tl', '환율'));
+    if (c.rate) r.append(el('b', '', c.rate[0]), el('small', '', `${c.rate[1]} · ${c.rate[2]}`));
+    else r.append(el('b', '', '환율 보기 →'));
+    tiles.append(r);
+
+    // 오늘 운항
+    const f = el('div', 'tile');
+    f.append(el('span', 'tl', '오늘 인천 출발편'));
+    const v = fl?.c?.[`c:${t.city}`];
+    if (fl === undefined) f.append(el('b', '', '확인 중…'));
+    else if (fl === null) f.append(el('b', '', '확인 중'), el('small', '', '운항 정보를 불러오지 못했어요'));
+    else if (!v) f.append(el('b', '', '직항 없음'), el('small', '', `오늘 인천 → ${c.ko} 직항이 없어요`));
+    else f.append(el('b', '', `${v[0]}편`), el('small', v[1] ? 'bad' : v[2] ? 'warn' : '', `결항 ${v[1]} · 지연 ${v[2]}`));
+    tiles.append(f);
+
+    const links = el('div', 'tlinks');
+    if (c.g) links.append(link(`/guide/${t.city}/`, '📖 여행가이드'));
+    links.append(link(`/weather/${t.city}/`, '🌤️ 날씨'), link(`/country/${c.cs}/`, `🛡️ ${c.co} 안전 정보`), link(`/compare/?a=${t.city}`, '↔️ 비교'));
+
+    box.append(head, tiles, links);
+    return box;
+  }
+
+  let FC: any, FL: any;
+  function render() {
+    const list = load();
+    const wrap = document.getElementById('trips')!;
+    wrap.innerHTML = '';
+    document.getElementById('empty')!.hidden = list.length > 0;
+    for (const t of list) wrap.append(card(t, FC, FL));
+  }
+  render();
+  loadLive('forecast').then((j) => { FC = j; render(); }).catch(() => {});
+  loadLive('flights').then((j) => { FL = j; }).catch(() => { FL = null; }).finally(render);
+</script>
+
+<style>
+  .lead small { color: var(--sub); }
+  .tform { display: grid; grid-template-columns: 1.4fr 1fr 1fr auto; gap: 10px; align-items: end; margin-top: 16px; }
+  .tform label { display: flex; flex-direction: column; gap: 4px; font-size: 13px; font-weight: 700; color: var(--sub); }
+  .tform select, .tform input { font: inherit; font-size: 15px; padding: 9px 10px; border: 1px solid var(--line); border-radius: 10px; background: #fff; color: var(--ink); min-width: 0; }
+  .tform .btn { border: 0; cursor: pointer; height: 42px; justify-content: center; }
+  .trips { display: flex; flex-direction: column; gap: 14px; margin-top: 16px; }
+  .trips :global(.thead) { display: flex; align-items: center; gap: 10px; }
+  .trips :global(.tflag) { border-radius: 4px; box-shadow: 0 0 0 1px rgba(0,0,0,.08); }
+  .trips :global(.ttl) { display: flex; flex-direction: column; flex: 1; min-width: 0; }
+  .trips :global(.ttl b) { font-size: 18px; }
+  .trips :global(.tdate) { font-size: 13.5px; color: var(--sub); }
+  .trips :global(.dday) { font-weight: 800; color: #fff; background: var(--sea); border-radius: 999px; padding: 5px 12px; font-size: 14px; white-space: nowrap; }
+  .trips :global(.dday.now) { background: #1d9a5b; }
+  .trips :global(.dday.past) { background: #b9aba2; }
+  .trips :global(.tdel) { font: inherit; font-size: 12.5px; color: var(--sub); background: none; border: 0; cursor: pointer; padding: 4px; }
+  .trips :global(.ttiles) { display: grid; grid-template-columns: repeat(4, 1fr); gap: 8px; margin-top: 12px; }
+  .trips :global(.tile) { display: flex; flex-direction: column; gap: 4px; background: #FFF8F3; border: 1px solid #F6E3D6; border-radius: 12px; padding: 11px 12px; text-decoration: none; color: inherit; min-width: 0; }
+  .trips :global(a.tile:hover) { border-color: var(--coral); }
+  .trips :global(.tl) { font-size: 12px; color: var(--sub); font-weight: 600; }
+  .trips :global(.tile b) { font-size: 16px; }
+  .trips :global(.tile small) { font-size: 12px; color: var(--sub); }
+  .trips :global(.tb) { display: flex; flex-wrap: wrap; gap: 4px; align-items: center; }
+  .trips :global(.wstrip) { display: flex; gap: 4px; overflow-x: auto; }
+  .trips :global(.wd) { display: flex; flex-direction: column; align-items: center; min-width: 40px; }
+  .trips :global(.wi) { font-size: 20px; }
+  .trips :global(.sc-good) { color: #1d7a4c !important; font-weight: 700; }
+  .trips :global(.sc-bad) { color: #b3452a !important; font-weight: 700; }
+  .trips :global(.bad) { color: #c0392b !important; font-weight: 700; }
+  .trips :global(.warn) { color: #b5651d !important; font-weight: 700; }
+  .trips :global(.tlinks) { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 12px; }
+  .trips :global(.tl-a) { text-decoration: none; font-size: 13.5px; font-weight: 600; background: #fff; border: 1px solid var(--line); border-radius: 999px; padding: 6px 12px; }
+  .empty { margin-top: 16px; }
+  .empty p { margin: 0 0 10px; }
+  .qk { display: flex; flex-wrap: wrap; gap: 6px; }
+  .qk button { font: inherit; font-weight: 600; font-size: 14px; background: #fff; border: 1px solid var(--line); border-radius: 999px; padding: 7px 13px; cursor: pointer; }
+  .qk button:hover { border-color: var(--coral); color: var(--sea); }
+  .small { font-size: 12.5px; }
+  @media (max-width: 760px) {
+    .tform { grid-template-columns: 1fr 1fr; }
+    .tform .f-city { grid-column: 1 / -1; }
+    .tform .btn { grid-column: 1 / -1; }
+    .trips :global(.ttiles) { grid-template-columns: 1fr 1fr; }
+  }
+</style>

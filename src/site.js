@@ -7,3 +7,5 @@ export const SITE_DESC =
 
 // 외교부 해외안전여행 (공식)
 export const MOFA_URL = 'https://www.0404.go.kr/';
+// 자주 바뀌는 자료(오늘 운항 현황·날씨 예보)는 사이트를 다시 만들지 않고 화면에서 바로 불러옴
+export const LIVE_BASE = 'https://raw.githubusercontent.com/bsowon88-design/romingo/main/live/';

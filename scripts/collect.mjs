@@ -8,7 +8,9 @@ import { fetchAlarms, fetchAdjusts } from './mofa.mjs';
 import { fetchRates } from './ecos.mjs';
 import { fetchClimate } from './climate.mjs';
 import { fetchPhotos } from './photos.mjs';
-import { updatePopular } from './icn.mjs';
+import { updatePopular, fetchTodayFlights } from './icn.mjs';
+import { fetchForecasts } from './forecast.mjs';
+import { mkdir } from 'node:fs/promises';
 import { CITIES, SEOUL } from '../src/data/cities.js';
 
 const Q_FILE = new URL('../src/data/archive/quakes.json', import.meta.url);
@@ -19,6 +21,10 @@ const R_FILE = new URL('../src/data/archive/rates.json', import.meta.url);
 const C_FILE = new URL('../src/data/archive/climate.json', import.meta.url);
 const P_FILE = new URL('../src/data/archive/photos.json', import.meta.url);
 const F_FILE = new URL('../src/data/archive/popular.json', import.meta.url);
+// 자주 바뀌는 자료 — 사이트를 다시 만들지 않고 화면에서 바로 불러옴 (live 폴더)
+const LIVE_DIR = new URL('../live/', import.meta.url);
+const LF_FILE = new URL('../live/flights.json', import.meta.url);
+const LW_FILE = new URL('../live/forecast.json', import.meta.url);
 
 async function readList(file) {
   try {
@@ -131,6 +137,35 @@ if (KEY) {
   } catch (e) {
     console.warn('인기 도시 수집 실패:', e.message);
   }
+}
+
+// 오늘 운항 현황 — 매번
+await mkdir(LIVE_DIR, { recursive: true });
+if (KEY) {
+  try {
+    const f = await fetchTodayFlights(KEY);
+    if (f) {
+      await writeFile(LF_FILE, JSON.stringify(f) + '\n');
+      console.log(`운항 현황: 도시 ${Object.keys(f.c).length}곳`);
+    } else console.warn('운항 현황: 받은 것 없음');
+  } catch (e) {
+    console.warn('운항 현황 실패:', e.message);
+  }
+}
+
+// 날씨 예보 (노르웨이 기상청) — 3시간마다
+try {
+  let old = null;
+  try { old = JSON.parse(await readFile(LW_FILE, 'utf8')); } catch {}
+  if (!old || Date.now() - (old.at || 0) > 170 * 60000) {
+    const fc = await fetchForecasts(CITIES);
+    if (fc) {
+      await writeFile(LW_FILE, JSON.stringify(fc) + '\n');
+      console.log(`예보: 도시 ${Object.keys(fc.c).length}곳`);
+    }
+  } else console.log('예보: 3시간 안 됨, 건너뜀');
+} catch (e) {
+  console.warn('예보 실패:', e.message);
 }
 
 // 대표 사진 — 키가 있을 때, 아직 없는 곳만 (한 번에 20곳)

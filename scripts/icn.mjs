@@ -98,3 +98,40 @@ export async function updatePopular(key, old) {
   for (const d of Object.keys(days)) if (d < cut) delete days[d];
   return { out: { checked: today, days, meta }, changed: true };
 }
+
+// ── 오늘 운항 현황 (1시간마다) — 도시별 [편수, 결항, 지연] ──
+// 결항·지연은 비고(remark) 글자 또는 예정 시각보다 30분 넘게 늦어진 것으로 셈
+const hhmm = (s) => {
+  const t = String(s || '').replace(/\D/g, '');
+  if (t.length < 12) return null;
+  return Date.UTC(+t.slice(0, 4), +t.slice(4, 6) - 1, +t.slice(6, 8), +t.slice(8, 10), +t.slice(10, 12));
+};
+export async function fetchTodayFlights(key) {
+  const now = new Date();
+  const ymd = kst(now).replace(/-/g, '');
+  const rows = await fetchDay(key, ymd);
+  if (!rows.length) return null;
+  const c = {};
+  const seen = new Set();
+  for (const r of rows) {
+    const share = String(pick(r, /codeshare|codeShare|cdshr/i) || '');
+    if (/slave|^s$|share/i.test(share) && !/master|^m$/i.test(share)) continue;
+    const code = String(pick(r, /^airportCode$|arrAirportCode|destAirportCode|airport_?code/i) || '').toUpperCase();
+    if (!code) continue;
+    const fid = pick(r, /^fid$|masterFlightId|masterflightid|flightId/i) || JSON.stringify(r).slice(0, 80);
+    if (seen.has(fid)) continue;
+    seen.add(fid);
+    const k = cityKeyOf(code, String(pick(r, /^airport$|airportName|airportNm/i) || ''));
+    if (!k.key.startsWith('c:')) continue;
+    const remark = String(pick(r, /^remark$|remark|rmk/i) || '');
+    const sch = hhmm(pick(r, /^scheduleDateTime$|scheduleDatetime|schedule/i));
+    const est = hhmm(pick(r, /^estimatedDateTime$|estimatedDatetime|estimated|changed/i));
+    const cancel = /결항|cancel/i.test(remark);
+    const delay = !cancel && (/지연|delay/i.test(remark) || (sch && est && est - sch >= 30 * 60000));
+    const v = (c[k.key] ||= [0, 0, 0]);
+    v[0]++;
+    if (cancel) v[1]++;
+    if (delay) v[2]++;
+  }
+  return { at: now.getTime(), date: kst(now), c };
+}

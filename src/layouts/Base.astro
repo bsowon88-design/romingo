@@ -1,7 +1,9 @@
 ---
 import { SITE_NAME, SITE_TAGLINE, SITE_URL, SITE_DESC, MOFA_URL } from '../site.js';
 import Icon from '../components/Icon.astro';
-import { SEARCH_INDEX } from '../data/search.js';
+import { SEARCH_INDEX, ALARM_INDEX } from '../data/search.js';
+import { ALARM_KO } from '../data/load.js';
+import { MOFA_URL } from '../site.js';
 const { title, desc = SITE_DESC, noindex = false } = Astro.props;
 const full = title ? `${title} | ${SITE_NAME}` : `${SITE_NAME} - ${SITE_TAGLINE}`;
 const canonical = new URL(Astro.url.pathname, SITE_URL).href;
@@ -49,6 +51,7 @@ const isOn = (href) => (href === '/' ? path === '/' : path.startsWith(href) || (
       </nav>
       <div class="tact">
         {path !== '/' && <button class="ibtn" id="sopen" aria-label="검색"><Icon name="search" size={20} /></button>}
+        <a class:list={['sbtn', 'mytrip', { on: path.startsWith('/my/') }]} href="/my/" aria-label="나의 여행"><Icon name="luggage" size={18} /><span>나의 여행</span></a>
         <button class="sbtn" id="share" aria-label="공유하기"><Icon name="share" size={18} /><span>공유하기</span></button>
       </div>
     </div>
@@ -66,13 +69,14 @@ const isOn = (href) => (href === '/' ? path === '/' : path.startsWith(href) || (
     </div>
   </div>
   <script type="application/json" id="sidx" set:html={JSON.stringify(SEARCH_INDEX)}></script>
+  <script type="application/json" id="aidx" set:html={JSON.stringify({ a: ALARM_INDEX, l: Object.fromEntries(Object.entries(ALARM_KO).map(([k, v]) => [k, [v.label, v.cls]])), u: MOFA_URL })}></script>
 
   <main class="wrap">
     <slot />
   </main>
   <footer class="foot">
     <div class="wrap">
-      <p><b>자료 출처</b> 미국 지질조사국(USGS) · 국제 재난경보(GDACS) — 공식 데이터를 자동으로 정리해요. 나라 기본 정보는 여행 전에 한 번 더 확인하세요.</p>
+      <p><b>자료 출처</b> 미국 지질조사국(USGS) · 국제 재난경보(GDACS) · 외교부 · 한국은행 · 인천국제공항공사 · 노르웨이 기상청(MET Norway, CC BY 4.0) · NASA POWER — 공식 데이터를 자동으로 정리해요. 나라 기본 정보는 여행 전에 한 번 더 확인하세요.</p>
       <p>로밍고는 참고용 정보예요. 여행 전에는 꼭 <a href={MOFA_URL} target="_blank" rel="noopener">외교부 해외안전여행</a>과 현지 정부·항공사 공지를 확인하세요.</p>
       <p class="foot-links"><a href="/about/">로밍고 소개</a> · <a href="/privacy/">개인정보처리방침</a> · <a href="/credits/">사진 출처</a></p>
       <p class="copy">© {new Date().getFullYear()} {SITE_NAME}</p>
@@ -130,7 +134,30 @@ const isOn = (href) => (href === '/' ? path === '/' : path.startsWith(href) || (
         const cityHits = c.c.filter((x) => x.k.replace(/\s/g, '').includes(t) || x.s.includes(t) || x.e.replace(/\s/g, '').includes(t));
         if (cHit || cityHits.length) hits.push({ c, cityHits, cHit });
       }
-      if (!hits.length) { res.append(el('p', 'shint', '찾는 곳이 아직 없어요. 곧 더 늘릴게요.')); return; }
+      if (!hits.length) {
+        // 로밍고에 없는 나라 → 외교부 여행경보라도 보여 주고 외교부로 연결
+        let A: any = { a: [], l: {}, u: '' };
+        try { A = JSON.parse(document.getElementById('aidx')?.textContent || '{}'); } catch {}
+        const ah = (A.a || []).filter((x: any) => x[0].replace(/\s/g, '').includes(t) || (t.length >= 3 && x[1].replace(/\s/g, '').includes(t))).slice(0, 4);
+        const box = el('div', 'snone');
+        box.append(el('p', 'shint', ah.length ? '아직 로밍고에 정리되지 않은 나라예요. 외교부 여행경보는 이래요.' : '찾는 곳이 아직 로밍고에 없어요.'));
+        for (const x of ah) {
+          const row = el('a', 'salarm', '', A.u);
+          row.setAttribute('target', '_blank'); row.setAttribute('rel', 'noopener');
+          const img = document.createElement('img');
+          img.src = `/flags/${x[2]}.svg`; img.width = 24; img.height = 18; img.alt = ''; img.className = 'flag';
+          img.onerror = () => img.remove();
+          row.append(img, el('b', '', x[0]));
+          if (x[3]) { const [lbl, cls] = A.l[x[3]]; row.append(el('span', `mchip ${cls}`, `${x[4] ? '일부 지역 ' : ''}${x[3]}단계 ${lbl}`)); }
+          else row.append(el('span', 'mchip m0', '여행경보 없음'));
+          box.append(row);
+        }
+        const go = el('a', 'btn smofa', '외교부 해외안전여행에서 보기 ↗', A.u);
+        go.setAttribute('target', '_blank'); go.setAttribute('rel', 'noopener');
+        box.append(go);
+        res.append(box);
+        return;
+      }
       for (const { c, cityHits, cHit } of hits.slice(0, 6)) {
         const g = el('div', 'sgrp');
         const head = el('a', 'shead', '', `/country/${c.s}/`);
@@ -250,6 +277,16 @@ const isOn = (href) => (href === '/' ? path === '/' : path.startsWith(href) || (
   .top nav a.on::after { content: ''; position: absolute; left: 12px; right: 12px; bottom: -3px; height: 3px; border-radius: 3px; background: var(--sea); }
   .sbtn { display: inline-flex; align-items: center; gap: 6px; font: inherit; font-weight: 700; font-size: 15px; color: #4A3A32; background: #FFF0E6; border: 1px solid var(--line); border-radius: 999px; padding: 8px 14px; cursor: pointer; }
   .sbtn:hover { border-color: var(--sea); color: var(--sea); }
+  .snone { display: flex; flex-direction: column; gap: 8px; padding: 4px 2px; }
+  .snone .shint { margin: 0; }
+  .salarm { display: flex; align-items: center; gap: 8px; text-decoration: none; color: inherit; background: #fff; border: 1px solid var(--line); border-radius: 12px; padding: 10px 12px; }
+  .salarm:hover { border-color: var(--coral); }
+  .salarm .flag { border-radius: 3px; box-shadow: 0 0 0 1px rgba(0,0,0,.08); }
+  .m0 { background: #e8f5ee; color: #1d7a4c; }
+  .smofa { align-self: flex-start; }
+  a.sbtn { text-decoration: none; }
+  .mytrip { background: #fff; }
+  .mytrip.on { border-color: var(--sea); color: var(--sea); }
   .tact { display: flex; align-items: center; gap: 6px; }
   .ibtn { display: grid; place-items: center; width: 40px; height: 40px; border-radius: 50%; border: 1px solid var(--line); background: #fff; color: #4A3A32; cursor: pointer; }
   .ibtn:hover { border-color: var(--sea); color: var(--sea); }

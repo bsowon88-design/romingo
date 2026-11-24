@@ -1,5 +1,6 @@
 ---
 import Base from '../layouts/Base.astro';
+import Updated from '../components/Updated.astro';
 import Flag from '../components/Flag.astro';
 import DisasterCard from '../components/DisasterCard.astro';
 import LiveQuakes from '../components/LiveQuakes.astro';
@@ -18,9 +19,10 @@ const linkOf = (iso) => (isoSlug[iso] ? `/country/${isoSlug[iso]}/safety/` : nul
   <p class="crumb"><a href="/">홈</a> › 안전 정보</p>
   <h1>해외 안전 정보</h1>
   <p class="lead">외교부 여행경보와 지진·태풍 같은 재난 소식을 한곳에 모았어요.</p>
+  <Updated />
 
   <nav class="stabs">
-    <a href="#alarm">🛂 여행경보 단계</a><a href="#adjust">📢 경보 조정 소식</a><a href="#disaster">🚨 재난 경보</a><a href="#quake">🌐 실시간 지진</a>
+    <a href="#alarm">🛂 여행경보 단계</a><a href="#adjust">📢 경보 조정 소식</a><a href="#disaster">🚨 재난 경보</a><a href="#quake">🌐 실시간 지진</a><a href="/map/">🗺️ 안전 지도</a>
   </nav>
 
   <h2 id="alarm">🛂 외교부 여행경보 단계</h2>

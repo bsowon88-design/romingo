@@ -1,0 +1,62 @@
+---
+// 앞으로 약 9일 날씨 예보 (노르웨이 기상청) — 화면에서 바로 불러옴. 못 불러오면 월별 평균 안내만.
+import { climateOf, t1 } from '../data/weather.js';
+const { city } = Astro.props;
+const cl = climateOf(city.slug);
+const nowM = +new Intl.DateTimeFormat('en-US', { timeZone: 'Asia/Seoul', month: 'numeric' }).format(new Date());
+const avg = cl ? cl.m[nowM - 1] : null;
+---
+<section class="fcast" data-fc={city.slug} id="forecast">
+  <h2>🌤️ {city.ko} 날씨 예보 <small>앞으로 9일쯤</small></h2>
+  <div class="fdays"><p class="fwait">예보 불러오는 중…</p></div>
+  <p class="fnote">
+    그 뒤 날짜는 <a href={`/weather/${city.slug}/`}>월별 평균</a>을 보세요{avg && <> (이번 달 평균 {t1(avg.hi)} / {t1(avg.lo)})</>}.
+    <span class="fsrc">예보: 노르웨이 기상청(MET Norway)</span>
+  </p>
+</section>
+
+<script>
+  import { loadLive, sym, dayLabel, kstHM, el } from '../scripts/live';
+  document.querySelectorAll<HTMLElement>('[data-fc]').forEach((box) => {
+    const wrap = box.querySelector('.fdays')!;
+    loadLive('forecast')
+      .then((j) => {
+        const days = j.c?.[box.dataset.fc || ''];
+        if (!days?.length) throw new Error('none');
+        wrap.innerHTML = '';
+        for (const [date, hi, lo, rain, s] of days.slice(0, 9)) {
+          const [ic, ko] = sym(s);
+          const d = dayLabel(date);
+          const it = el('div', 'fd' + (d.we ? ' we' : ''));
+          it.append(el('span', 'fdt', `${d.md} ${d.wd}`), el('span', 'fic', ic), el('span', 'fko', ko));
+          const t = el('span', 'ft');
+          t.append(el('b', 'hi', `${Math.round(hi)}°`), el('span', 'lo', ` ${Math.round(lo)}°`));
+          it.append(t, el('span', 'fr', rain >= 0.5 ? `💧${rain >= 10 ? Math.round(rain) : rain}mm` : ' '));
+          wrap.append(it);
+        }
+        box.querySelector('.fsrc')!.textContent = `예보: 노르웨이 기상청(MET Norway) · ${kstHM(j.at)} 기준`;
+      })
+      .catch(() => {
+        wrap.innerHTML = '';
+        wrap.append(el('p', 'fwait', '⏳ 예보 확인 중이에요. 잠시 뒤 다시 열어 보세요.'));
+      });
+  });
+</script>
+
+<style>
+  .fcast h2 small { font-size: 13px; color: var(--sub); font-weight: 600; }
+  .fdays { display: grid; grid-template-columns: repeat(9, minmax(70px, 1fr)); gap: 6px; overflow-x: auto; scrollbar-width: thin; padding-bottom: 4px; }
+  .fwait { grid-column: 1 / -1; margin: 0; color: var(--sub); background: #fff; border: 1px dashed var(--line); border-radius: 12px; padding: 14px; }
+  .fdays :global(.fd) { display: flex; flex-direction: column; align-items: center; gap: 2px; background: #fff; border: 1px solid var(--line); border-radius: 12px; padding: 10px 4px; text-align: center; }
+  .fdays :global(.fdt) { font-size: 12.5px; font-weight: 700; }
+  .fdays :global(.we .fdt) { color: var(--sea); }
+  .fdays :global(.fic) { font-size: 24px; line-height: 1.2; }
+  .fdays :global(.fko) { font-size: 11.5px; color: var(--sub); }
+  .fdays :global(.ft) { font-size: 13.5px; }
+  .fdays :global(.hi) { color: #d9603b; }
+  .fdays :global(.lo) { color: #2f78c4; }
+  .fdays :global(.fr) { font-size: 11.5px; color: #2f78c4; min-height: 15px; }
+  .fnote { margin: 8px 0 0; font-size: 13px; color: var(--sub); }
+  .fsrc { display: block; font-size: 12px; margin-top: 2px; }
+  @media (max-width: 760px) { .fdays { grid-template-columns: repeat(9, 66px); } }
+</style>

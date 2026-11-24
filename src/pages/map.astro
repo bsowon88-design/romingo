@@ -1,0 +1,112 @@
+---
+import Base from '../layouts/Base.astro';
+import Updated from '../components/Updated.astro';
+import { MAP_ASIA, MAP_WORLD } from '../data/mapdata.js';
+import { TYPE_KO, TYPE_ICON, LEVEL_KO } from '../data/normalize.js';
+import { translatePlace, ago } from '../data/place.js';
+import { ALARM_KO } from '../data/load.js';
+
+const views = [
+  ['asia', '아시아·태평양', MAP_ASIA],
+  ['world', '전 세계', MAP_WORLD],
+];
+const LV_FILL = { 0: '#F3E7DD', 1: '#DCE8FA', 2: '#FBEAB0', 3: '#F7C9C5', 4: '#8E8686' };
+const r = (m) => Math.max(3, (m - 4) * 4.2);
+const qHref = (q) => (q.mag >= 5 ? `/quake/${q.id}/` : q.url);
+const list = [...MAP_WORLD.qs].sort((a, b) => b.time - a.time);
+---
+<Base title="여행 안전 지도 - 최근 지진·태풍·홍수 한눈에" desc="최근 30일 지진과 지금 내려진 태풍·홍수·화산 경보를 지도에서 확인하세요. 외교부 여행경보 단계도 색으로 표시해요.">
+  <p class="crumb"><a href="/">홈</a> › <a href="/safety/">안전 정보</a> › 안전 지도</p>
+  <h1>🗺️ 여행 안전 지도</h1>
+  <p class="lead">최근 30일 지진(규모 4.5 이상)과 지금 내려진 재난 경보를 지도에 찍었어요. 점을 누르면 자세히 볼 수 있어요.</p>
+
+  <div class="mtabs" role="tablist">
+    {views.map(([k, l], i) => <button type="button" role="tab" data-v={k} class={i === 0 ? 'on' : ''}>{l}</button>)}
+  </div>
+
+  {views.map(([k, , m], i) => (
+    <div class="mapbox" data-view={k} hidden={i !== 0}>
+      <svg viewBox={`0 0 ${m.W} ${m.H}`} role="img" aria-label={`안전 지도 ${k}`}>
+        <rect width={m.W} height={m.H} fill="#EAF3F8" />
+        {m.lands.map((l) => <path d={l.d} fill={LV_FILL[l.lv]} stroke="#fff" stroke-width="0.6" />)}
+        {m.cities.map((c) => (
+          <a href={c.g ? `/guide/${c.slug}/#city-safety` : `/weather/${c.slug}/#city-safety`}>
+            <circle cx={c.x} cy={c.y} r="3" fill="#2E2420" />
+            {c.g && <text x={c.x + 5} y={c.y + 4} class="clbl">{c.ko}</text>}
+            <title>{c.ko} 안전 현황</title>
+          </a>
+        ))}
+        {m.qs.map((q) => (
+          <a href={qHref(q)} target={q.mag >= 5 ? undefined : '_blank'}>
+            <circle cx={q.x} cy={q.y} r={r(q.mag)} class={q.recent ? 'q q7' : 'q'} />
+            <title>규모 {q.mag.toFixed(1)} · {translatePlace(q.place)} · {ago(q.time)}</title>
+          </a>
+        ))}
+        {m.ds.map((d) => (
+          <a href={d.report} target="_blank">
+            <circle cx={d.x} cy={d.y} r="13" class={`dz d-${d.level}`} />
+            <text x={d.x} y={d.y + 5} text-anchor="middle" class="dic">{TYPE_ICON[d.type]}</text>
+            <title>{TYPE_KO[d.type]} {d.name} · {LEVEL_KO[d.level] || d.level}</title>
+          </a>
+        ))}
+      </svg>
+    </div>
+  ))}
+
+  <div class="legend">
+    <span><i class="lq q7"></i>지진 (최근 7일)</span>
+    <span><i class="lq"></i>지진 (8~30일)</span>
+    <span>🌀🌊🌋 재난 경보</span>
+    <span><i class="lc"></i>로밍고 도시</span>
+  </div>
+  <div class="legend">
+    <span class="lt">외교부 여행경보</span>
+    {[1, 2, 3, 4].map((n) => <span><i class="lf" style={`background:${LV_FILL[n]}`}></i>{n}단계 {ALARM_KO[n].label}</span>)}
+  </div>
+  <p class="muted small">나라 색은 그 나라 안에서 가장 높은 단계예요. 일부 지역에만 내려진 경보일 수 있으니 나라 페이지에서 지역을 확인하세요.</p>
+  <Updated />
+
+  <h2>최근 지진 {list.length}건</h2>
+  <ul class="qlist mlist">
+    {list.slice(0, 30).map((q) => (
+      <li><a href={qHref(q)}><b>규모 {q.mag.toFixed(1)}</b> {translatePlace(q.place)} <small>· {ago(q.time)}</small></a></li>
+    ))}
+  </ul>
+  <p class="muted small">자료: 미국 지질조사국(USGS), 국제재난경보(GDACS), 외교부 · 지도: Natural Earth</p>
+</Base>
+
+<script>
+  document.querySelectorAll<HTMLButtonElement>('.mtabs button').forEach((b) =>
+    b.addEventListener('click', () => {
+      document.querySelectorAll('.mtabs button').forEach((x) => x.classList.toggle('on', x === b));
+      document.querySelectorAll<HTMLElement>('.mapbox').forEach((m) => (m.hidden = m.dataset.view !== b.dataset.v));
+    }),
+  );
+</script>
+
+<style>
+  .mtabs { display: flex; gap: 6px; margin: 14px 0 10px; }
+  .mtabs button { font: inherit; font-weight: 700; font-size: 14px; padding: 8px 14px; border-radius: 999px; border: 1px solid var(--line); background: #fff; color: var(--sub); cursor: pointer; }
+  .mtabs button.on { background: var(--ink); border-color: var(--ink); color: #fff; }
+  .mapbox { border-radius: 16px; overflow: hidden; border: 1px solid var(--line); background: #EAF3F8; }
+  .mapbox svg { display: block; width: 100%; height: auto; }
+  .q { fill: rgba(232, 121, 74, .35); stroke: #C85E30; stroke-width: 1; }
+  .q7 { fill: rgba(214, 48, 49, .55); stroke: #b3261e; }
+  .dz { fill: #fff; stroke-width: 3; }
+  .d-Red { stroke: #d63031; }
+  .d-Orange { stroke: #e67e22; }
+  .dic { font-size: 14px; }
+  .clbl { font-size: 11px; font-weight: 700; fill: #2E2420; paint-order: stroke; stroke: #fff; stroke-width: 3px; }
+  svg a:hover circle { stroke-width: 2.5; }
+  .legend { display: flex; flex-wrap: wrap; gap: 6px 14px; margin-top: 10px; font-size: 13px; align-items: center; }
+  .legend span { display: inline-flex; align-items: center; gap: 5px; }
+  .lt { font-weight: 700; }
+  .lq { width: 12px; height: 12px; border-radius: 50%; background: rgba(232, 121, 74, .35); border: 1px solid #C85E30; }
+  .lq.q7 { background: rgba(214, 48, 49, .55); border-color: #b3261e; }
+  .lc { width: 7px; height: 7px; border-radius: 50%; background: #2E2420; }
+  .lf { width: 14px; height: 10px; border-radius: 3px; border: 1px solid rgba(0,0,0,.08); }
+  .small { font-size: 12.5px; }
+  .mlist a { text-decoration: none; display: block; padding: 8px 12px; }
+  .mlist small { color: var(--sub); }
+  @media (max-width: 760px) { .clbl { font-size: 15px; } }
+</style>

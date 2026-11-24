@@ -1,0 +1,15 @@
+---
+// 갱신 시각 + 공식 자료를 못 받았을 때 "확인 중" 표시
+import { BUILT_AT, QUAKE_OK, GDACS_OK } from '../data/load.js';
+import { kstShort } from '../data/place.js';
+const miss = [!QUAKE_OK && '지진', !GDACS_OK && '재난 경보'].filter(Boolean);
+---
+<p class="upd">
+  <span>🔄 {kstShort(BUILT_AT)} 업데이트 (한국 시간)</span>
+  {miss.length > 0 && <span class="chk">⏳ {miss.join('·')} 자료 확인 중 · 지난 자료로 보여 줘요</span>}
+</p>
+
+<style>
+  .upd { display: flex; flex-wrap: wrap; gap: 4px 12px; margin: 10px 0 0; font-size: 12.5px; color: var(--sub); }
+  .chk { color: #a5621b; font-weight: 600; }
+</style>

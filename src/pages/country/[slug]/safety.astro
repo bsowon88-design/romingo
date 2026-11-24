@@ -7,6 +7,11 @@ import { COUNTRIES } from '../../../data/countries.js';
 import { countryStatus, STATUS_KO, BUILT_AT, countryAlarm, countryAdjusts, ALARM_KO, HAS_ALARMS } from '../../../data/load.js';
 import { translatePlace, kstDateTime, kstDate } from '../../../data/place.js';
 import { MOFA_URL } from '../../../site.js';
+import { CITIES } from '../../../data/cities.js';
+import { citySafety, QUAKE_KM } from '../../../data/near.js';
+import { guideByCity } from '../../../data/guides.js';
+import { TYPE_KO } from '../../../data/normalize.js';
+import Updated from '../../../components/Updated.astro';
 
 export function getStaticPaths() {
   return COUNTRIES.map((c) => ({ params: { slug: c.slug }, props: { c } }));
@@ -20,6 +25,8 @@ const adjusts = countryAdjusts(c, 8);
 const q90 = st.quakes.filter((q) => BUILT_AT - q.time <= 90 * 864e5).slice(0, 20);
 const older = st.quakes.filter((q) => BUILT_AT - q.time > 90 * 864e5 && q.mag >= 6).slice(0, 10);
 const ds = st.disasters.filter((d) => !st.active.includes(d)).slice(0, 12);
+const cityRows = CITIES.filter((x) => x.country === c.slug).map((x) => ({ x, s: citySafety(x) }));
+const cityHref = (x) => (guideByCity[x.slug] ? `/guide/${x.slug}/#city-safety` : `/weather/${x.slug}/#city-safety`);
 const regionText = (r) => (/일부/.test(r) ? '일부 지역' : /전/.test(r) ? '전 지역' : r || '');
 ---
 <Base title={`${c.ko} 안전 정보 - 외교부 여행경보·지진·재난`} desc={`${c.ko} 외교부 여행경보 단계와 지역, 최근 경보 조정 소식, 지진·태풍 등 재난 정보를 정리했어요.`}>
@@ -55,8 +62,26 @@ const regionText = (r) => (/일부/.test(r) ? '일부 지역' : /전/.test(r) ? 
     <div class={`card stat s-${st.level}`}>
       <span class={`badge b-${st.level}`}>{S.label}</span> <b>{S.note}</b>
       {st.maxQ && <p class="muted">30일 동안 가장 큰 지진: <a href={`/quake/${st.maxQ.id}/`}>규모 {st.maxQ.mag.toFixed(1)} · {translatePlace(st.maxQ.place)}</a> ({kstDate(st.maxQ.time)})</p>}
-      <p class="muted">마지막 업데이트 {kstDateTime(BUILT_AT)} (한국 시간)</p>
+      <Updated />
     </div>
+
+    {cityRows.length > 0 && (
+      <>
+        <h2>🏙️ 도시별 안전 <small>반경 {QUAKE_KM}km · 최근 30일</small></h2>
+        <div class="crows">
+          {cityRows.map(({ x, s }) => (
+            <a class="crow" href={cityHref(x)}>
+              <b>{x.ko}</b>
+              <span class={`badge b-${s.level}`}>{STATUS_KO[s.level].label}</span>
+              <span class="cdesc">
+                지진 {s.quakes.length}건{s.maxQ ? ` (최대 ${s.maxQ.mag.toFixed(1)}, ${s.maxQ.km}km)` : ''}
+                {s.disasters.length ? ` · ${TYPE_KO[s.disasters[0].type]} 경보 ${s.disasters[0].km}km` : ' · 재난 경보 없음'}
+              </span>
+            </a>
+          ))}
+        </div>
+      </>
+    )}
 
     {st.active.length > 0 && (
       <>
@@ -96,6 +121,11 @@ const regionText = (r) => (/일부/.test(r) ? '일부 지역' : /전/.test(r) ? 
   .none { margin: 0; font-weight: 600; }
   .stat p { margin: 6px 0 0; }
   .stat a { color: var(--sea); }
+  .crows { display: flex; flex-direction: column; gap: 6px; }
+  .crow { display: grid; grid-template-columns: 90px auto 1fr; gap: 10px; align-items: center; background: #fff; border: 1px solid var(--line); border-radius: 12px; padding: 10px 14px; text-decoration: none; color: inherit; }
+  .crow:hover { border-color: var(--coral); }
+  .cdesc { font-size: 13.5px; color: var(--sub); }
+  @media (max-width: 560px) { .crow { grid-template-columns: auto auto; } .cdesc { grid-column: 1 / -1; } }
   .s-alert { border-color: #f1b3b4; background: #fff5f5; }
   .s-watch { border-color: #f4cfa8; background: #fffaf3; }
 </style>

@@ -10,17 +10,21 @@ import { COUNTRIES, slugFromIso3 } from './countries.js';
 import { countryOf } from './place.js';
 
 let fresh = [];
+export let QUAKE_OK = false; // 이번 빌드에서 USGS 를 제대로 받았는지
 try {
   const j = await getJson(USGS_MONTH);
   fresh = (j.features || []).map(normQuake);
+  QUAKE_OK = true;
 } catch (e) {
   console.warn('[로밍고] USGS 불러오기 실패, 보관함만 씀:', e.message);
 }
 
 let freshD = [];
+export let GDACS_OK = false;
 try {
   const j = await getJson(gdacsUrl());
   freshD = (j.features || []).map(normDisaster);
+  GDACS_OK = true;
 } catch (e) {
   console.warn('[로밍고] GDACS 불러오기 실패, 보관함만 씀:', e.message);
 }

@@ -2,6 +2,8 @@
 import Flag from '../../../components/Flag.astro';
 import { flagOf } from '../../../data/countries.js';
 import Base from '../../../layouts/Base.astro';
+import CitySafety from '../../../components/CitySafety.astro';
+import Forecast from '../../../components/Forecast.astro';
 import { CITIES } from '../../../data/cities.js';
 import { bySlug } from '../../../data/countries.js';
 import { guideByCity } from '../../../data/guides.js';
@@ -27,6 +29,9 @@ const others = CITIES.filter((x) => x.country === city.country && x.slug !== cit
   <h1><Flag iso={flagOf(co)} /> {city.ko} 월별 날씨</h1>
   <p class="lead">여행하기 좋은 달: <b class="best">{best.map((m) => `${m}월`).join(' · ')}</b></p>
 
+  <Forecast city={city} />
+  <h2>📅 월별 평균 날씨</h2>
+
   <div class="months">
     {MONTHS.map((m) => {
       const d = cl.m[m - 1];
@@ -46,6 +51,8 @@ const others = CITIES.filter((x) => x.country === city.country && x.slug !== cit
 
   <div class="links">
     {guideByCity[city.slug] && <a class="btn coral" href={`/guide/${city.slug}/`}>📖 {city.ko} 여행가이드</a>}
+    <a class="btn ghost" href={`/my/?add=${city.slug}`}>🧳 나의 여행에 추가</a>
+    <a class="btn ghost" href={`/compare/?a=${city.slug}`}>↔️ 다른 도시와 비교</a>
     <a class="btn" href={`/country/${co.slug}/`}><Flag iso={flagOf(co)} /> {co.ko} 안전·여행 정보</a>
   </div>
 
@@ -55,6 +62,7 @@ const others = CITIES.filter((x) => x.country === city.country && x.slug !== cit
       <div class="chips">{others.map((x) => <a href={`/weather/${x.slug}/`}>{x.ko}</a>)}</div>
     </>
   )}
+  <CitySafety city={city} />
   <p class="muted" style="margin-top:20px">최근 10년({cl.years}) 평균이에요. 자료: NASA POWER. 실제 날씨는 해마다 다를 수 있어요.</p>
 </Base>
 

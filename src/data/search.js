@@ -27,3 +27,13 @@ export const SEARCH_INDEX = COUNTRIES.map((c) => {
     c: cities,
   };
 });
+
+// 로밍고에 아직 없는 나라를 찾을 때 — 외교부 여행경보만이라도 보여 줌
+import alarmsAll from './archive/alarms.json';
+export const ALARM_INDEX = Object.values(alarmsAll || {}).map((a) => [
+  a.name,
+  String(a.en || '').split(/[:(]/)[0].trim().toLowerCase(),
+  String(a.iso || '').toLowerCase(),
+  a.max || 0,
+  a.levels?.length ? a.levels.every((l) => /일부/.test(l.region)) : false,
+]);

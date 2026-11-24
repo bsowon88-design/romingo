@@ -1,0 +1,139 @@
+---
+// 도시 기준 안전 현황 — 반경 안 지진·재난 + 외교부 경보 + 오늘 인천 출발편
+import { citySafety, CITY_STATUS_NOTE, QUAKE_KM } from '../data/near.js';
+import { STATUS_KO, ALARM_KO } from '../data/load.js';
+import { bySlug } from '../data/countries.js';
+import { TYPE_KO, TYPE_ICON, LEVEL_KO } from '../data/normalize.js';
+import { ago, translatePlace } from '../data/place.js';
+import Updated from './Updated.astro';
+
+const { city } = Astro.props;
+const co = bySlug[city.country];
+const s = citySafety(city);
+const al = s.alarm && s.alarm.max ? s.alarm : null;
+const partial = al && al.levels.every((l) => /일부/.test(l.region));
+const qLink = (q) => (q.mag >= 5 ? `/quake/${q.id}/` : q.url);
+---
+<section class={`csafe s-${s.level}`} id="city-safety">
+  <div class="chead">
+    <h2>🛡️ {city.ko} 안전 현황</h2>
+    <span class={`badge b-${s.level}`}>{STATUS_KO[s.level].label}</span>
+  </div>
+  <p class="cnote">{CITY_STATUS_NOTE[s.level]}</p>
+
+  <div class="tiles">
+    <a class="tile" href={`/country/${co.slug}/safety/`}>
+      <span class="tl">외교부 여행경보</span>
+      {al ? (
+        <b><span class={`mchip ${ALARM_KO[al.max].cls}`}>{partial ? '일부 지역 ' : ''}{al.max}단계 {ALARM_KO[al.max].label}</span></b>
+      ) : (
+        <b>{co.ko} 경보 없음</b>
+      )}
+      <small>{partial ? `${city.ko}가 해당 지역인지 확인하세요 →` : `${co.ko} 전체 기준 →`}</small>
+    </a>
+
+    <div class="tile">
+      <span class="tl">최근 30일 지진 · 반경 {QUAKE_KM}km</span>
+      {s.quakes.length ? (
+        <>
+          <b>{s.quakes.length}건</b>
+          <small>가장 큰 규모 {s.maxQ.mag.toFixed(1)} · {s.maxQ.km}km 거리 · {ago(s.maxQ.time)}</small>
+        </>
+      ) : (
+        <>
+          <b>없음</b>
+          <small>규모 4.5 이상 기준</small>
+        </>
+      )}
+    </div>
+
+    <div class="tile">
+      <span class="tl">태풍·홍수·화산 경보</span>
+      {s.disasters.length ? (
+        <>
+          <b>{s.disasters.length}건</b>
+          <small>{TYPE_KO[s.disasters[0].type]} {LEVEL_KO[s.disasters[0].level] || ''} · {s.disasters[0].km}km 거리</small>
+        </>
+      ) : (
+        <>
+          <b>없음</b>
+          <small>지금 근처에 내려진 경보 없음</small>
+        </>
+      )}
+    </div>
+
+    <div class="tile" data-flight={`c:${city.slug}`} data-name={city.ko}>
+      <span class="tl">오늘 인천 출발편</span>
+      <b class="fl-main">확인 중…</b>
+      <small class="fl-sub">결항·지연 편수</small>
+    </div>
+  </div>
+
+  {(s.quakes.length > 0 || s.disasters.length > 0) && (
+    <ul class="clist">
+      {s.disasters.map((d) => (
+        <li><a href={d.report} target="_blank" rel="noopener">{TYPE_ICON[d.type]} {TYPE_KO[d.type]} {d.name} <small>· {LEVEL_KO[d.level] || d.level} · {d.km}km</small></a></li>
+      ))}
+      {s.quakes.slice(0, 5).map((q) => (
+        <li><a href={qLink(q)} target={q.mag >= 5 ? undefined : '_blank'} rel="noopener">🌐 규모 {q.mag.toFixed(1)} · {translatePlace(q.place)} <small>· {q.km}km · {ago(q.time)}</small></a></li>
+      ))}
+    </ul>
+  )}
+  <Updated />
+</section>
+
+<script>
+  import { loadLive } from '../scripts/live';
+  const boxes = document.querySelectorAll<HTMLElement>('[data-flight]');
+  if (boxes.length) {
+    loadLive('flights')
+      .then((j) => {
+        const hm = new Intl.DateTimeFormat('ko-KR', { timeZone: 'Asia/Seoul', hour: '2-digit', minute: '2-digit', hour12: false }).format(new Date(j.at));
+        boxes.forEach((b) => {
+          const v = j.c?.[b.dataset.flight || ''];
+          const main = b.querySelector('.fl-main')!;
+          const sub = b.querySelector('.fl-sub')!;
+          if (!v) {
+            main.textContent = '직항 없음';
+            sub.textContent = `오늘 인천 → ${b.dataset.name} 직항이 없어요`;
+            return;
+          }
+          const [n, cancel, delay] = v;
+          main.textContent = `${n}편`;
+          sub.innerHTML = '';
+          const add = (t: string, cls = '') => { const s = document.createElement('span'); s.className = cls; s.textContent = t; sub.append(s); };
+          add(`결항 ${cancel}`, cancel ? 'bad' : '');
+          add(' · ');
+          add(`지연 ${delay}`, delay ? 'warn' : '');
+          add(` · ${hm} 기준`, '');
+        });
+      })
+      .catch(() => {
+        boxes.forEach((b) => {
+          b.querySelector('.fl-main')!.textContent = '확인 중';
+          b.querySelector('.fl-sub')!.textContent = '운항 정보를 불러오지 못했어요';
+        });
+      });
+  }
+</script>
+
+<style>
+  .csafe { margin-top: 18px; background: #fff; border: 1px solid var(--line); border-radius: 18px; padding: 16px 18px; }
+  .csafe.s-watch { border-color: #f3c89c; }
+  .csafe.s-alert { border-color: #f1a49a; }
+  .chead { display: flex; align-items: center; gap: 10px; }
+  .chead h2 { margin: 0; font-size: 18px; }
+  .cnote { margin: 6px 0 12px; color: var(--sub); font-size: 14px; }
+  .tiles { display: grid; grid-template-columns: repeat(4, 1fr); gap: 8px; }
+  .tile { display: flex; flex-direction: column; gap: 3px; background: #FFF8F3; border: 1px solid #F6E3D6; border-radius: 12px; padding: 11px 12px; text-decoration: none; color: inherit; min-width: 0; }
+  a.tile:hover { border-color: var(--coral); }
+  .tl { font-size: 12px; color: var(--sub); font-weight: 600; }
+  .tile b { font-size: 17px; }
+  .tile small { font-size: 12px; color: var(--sub); line-height: 1.45; }
+  .tile :global(.bad) { color: #c0392b; font-weight: 700; }
+  .tile :global(.warn) { color: #b5651d; font-weight: 700; }
+  .clist { list-style: none; margin: 12px 0 0; padding: 0; display: flex; flex-direction: column; gap: 4px; font-size: 14px; }
+  .clist a { text-decoration: none; }
+  .clist small { color: var(--sub); }
+  @media (max-width: 760px) { .tiles { grid-template-columns: 1fr 1fr; } .csafe { padding: 14px; } }
+</style>

@@ -1118,5 +1118,95 @@
   "userUrl": "https://unsplash.com/@seoul_lover_lily",
   "page": "https://unsplash.com/photos/an-aerial-view-of-the-ocean-and-cliffs-pExG931svNU",
   "pick": 0
+ },
+ "spot:hanoi:0": {
+  "id": "7oAFzGyemco",
+  "raw": "https://images.unsplash.com/photo-1611195328596-d8dcf57f5cea?ixid=M3wxMTQzNTA5fDB8MXxzZWFyY2h8MXx8SG9hbiUyMEtpZW0lMjBMYWtlJTIwSGFub2l8ZW58MXwwfHx8MTc5NTUzNjcwNHww&ixlib=rb-4.1.0",
+  "color": "#f3f3f3",
+  "alt": "red bridge over river surrounded by trees",
+  "name": "Harry Tran",
+  "userUrl": "https://unsplash.com/@thanhharry",
+  "page": "https://unsplash.com/photos/red-bridge-over-river-surrounded-by-trees-7oAFzGyemco",
+  "pick": 0
+ },
+ "spot:hanoi:1": {
+  "id": "cc6st2qGZjE",
+  "raw": "https://images.unsplash.com/photo-1616424649579-4d280a3680e2?ixid=M3wxMTQzNTA5fDB8MXxzZWFyY2h8NHx8SGFub2klMjBPbGQlMjBRdWFydGVyJTIwc3RyZWV0fGVufDF8MHx8fDE3OTU1MzY3MDR8MA&ixlib=rb-4.1.0",
+  "color": "#40260c",
+  "alt": "red flags on brown concrete building during daytime",
+  "name": "Hieu Tran",
+  "userUrl": "https://unsplash.com/@hieu309",
+  "page": "https://unsplash.com/photos/red-flags-on-brown-concrete-building-during-daytime-cc6st2qGZjE",
+  "pick": 0
+ },
+ "spot:hanoi:2": {
+  "id": "yLaHki5JhUw",
+  "raw": "https://images.unsplash.com/photo-1712432144397-aa3da9dede31?ixid=M3wxMTQzNTA5fDB8MXxzZWFyY2h8MXx8VGVtcGxlJTIwb2YlMjBMaXRlcmF0dXJlJTIwSGFub2l8ZW58MXwwfHx8MTc5NTUzNjcwNHww&ixlib=rb-4.1.0",
+  "color": "#d9f3f3",
+  "alt": "a tall tower sitting next to a body of water",
+  "name": "BehindTheTmuna",
+  "userUrl": "https://unsplash.com/@behindthetmuna",
+  "page": "https://unsplash.com/photos/a-tall-tower-sitting-next-to-a-body-of-water-yLaHki5JhUw",
+  "pick": 0
+ },
+ "spot:hanoi:3": {
+  "id": "Tznz9YxkL30",
+  "raw": "https://images.unsplash.com/photo-1557242094-da42e777457d?ixid=M3wxMTQzNTA5fDB8MXxzZWFyY2h8Mnx8SGElMjBMb25nJTIwQmF5JTIwYm9hdHN8ZW58MXwwfHx8MTc5NTUzNjcwNXww&ixlib=rb-4.1.0",
+  "color": "#40738c",
+  "alt": "boats on water",
+  "name": "Jonas Brief",
+  "userUrl": "https://unsplash.com/@briefjonas",
+  "page": "https://unsplash.com/photos/boats-on-water-Tznz9YxkL30",
+  "pick": 0
+ },
+ "spot:hanoi:4": {
+  "id": "M3H_O8S3cT8",
+  "raw": "https://images.unsplash.com/photo-1587233606800-1302fdd0a433?ixid=M3wxMTQzNTA5fDB8MXxzZWFyY2h8Mnx8VHJhbmclMjBBbiUyME5pbmglMjBCaW5oJTIwYm9hdHxlbnwxfDB8fHwxNzk1NTM2NzA1fDA&ixlib=rb-4.1.0",
+  "color": "#26260c",
+  "alt": "green trees beside body of water during daytime",
+  "name": "Ben Peacock",
+  "userUrl": "https://unsplash.com/@benoliverpeacock",
+  "page": "https://unsplash.com/photos/green-trees-beside-body-of-water-during-daytime-M3H_O8S3cT8",
+  "pick": 0
+ },
+ "spot:hochiminh:0": {
+  "id": "qdpyOEGi8nI",
+  "raw": "https://images.unsplash.com/photo-1680783307371-749c26e0f5c3?ixid=M3wxMTQzNTA5fDB8MXxzZWFyY2h8Mnx8QmVuJTIwVGhhbmglMjBNYXJrZXQlMjBIbyUyMENoaSUyME1pbmh8ZW58MXwwfHx8MTc5NTUzNjcwNnww&ixlib=rb-4.1.0",
+  "color": "#8ca6c0",
+  "alt": "a large building with a clock on the front of it",
+  "name": "l ch",
+  "userUrl": "https://unsplash.com/@lcaohoanq",
+  "page": "https://unsplash.com/photos/a-large-building-with-a-clock-on-the-front-of-it-qdpyOEGi8nI",
+  "pick": 0
+ },
+ "spot:hochiminh:1": {
+  "id": "6c5_BlNRWDA",
+  "raw": "https://images.unsplash.com/photo-1561478557-9104e8b8cb7b?ixid=M3wxMTQzNTA5fDB8MXxzZWFyY2h8Mnx8U2FpZ29uJTIwQ2VudHJhbCUyMFBvc3QlMjBPZmZpY2V8ZW58MXwwfHx8MTc5NTUzNjcwNnww&ixlib=rb-4.1.0",
+  "color": "#d9d9d9",
+  "alt": "low-angle photo of Buu Dien building",
+  "name": "Quang Pham Duy",
+  "userUrl": "https://unsplash.com/@nicstudio",
+  "page": "https://unsplash.com/photos/low-angle-photo-of-buu-dien-building-6c5_BlNRWDA",
+  "pick": 0
+ },
+ "spot:hochiminh:2": {
+  "id": "kPRrAiOJDIE",
+  "raw": "https://images.unsplash.com/photo-1710084118214-e10f1fe1c5f2?ixid=M3wxMTQzNTA5fDB8MXxzZWFyY2h8MXx8Tmd1eWVuJTIwSHVlJTIwd2Fsa2luZyUyMHN0cmVldCUyMG5pZ2h0fGVufDF8MHx8fDE3OTU1MzY3MDd8MA&ixlib=rb-4.1.0",
+  "color": "#c0c0c0",
+  "alt": "a large building lit up at night with a clock tower",
+  "name": "khanh vu",
+  "userUrl": "https://unsplash.com/@baokhanh106200",
+  "page": "https://unsplash.com/photos/a-large-building-lit-up-at-night-with-a-clock-tower-kPRrAiOJDIE",
+  "pick": 0
+ },
+ "spot:hochiminh:3": {
+  "id": "CD4WHrWio6Q",
+  "raw": "https://images.unsplash.com/photo-1542577195-d562c6698ff3?ixid=M3wxMTQzNTA5fDB8MXxzZWFyY2h8MXx8Q3UlMjBDaGklMjB0dW5uZWxzfGVufDF8MHx8fDE3OTU1MzY3MDd8MA&ixlib=rb-4.1.0",
+  "color": "#8c8ca6",
+  "alt": "yellow-lighted arch tunnel road",
+  "name": "Daniel Jerez",
+  "userUrl": "https://unsplash.com/@danieljerez",
+  "page": "https://unsplash.com/photos/yellow-lighted-arch-tunnel-road-CD4WHrWio6Q",
+  "pick": 0
  }
 }

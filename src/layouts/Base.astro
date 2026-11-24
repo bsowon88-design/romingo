@@ -8,7 +8,6 @@ const canonical = new URL(Astro.url.pathname, SITE_URL).href;
 const path = Astro.url.pathname;
 // [주소, 이름, 아이콘, 폰 아래 메뉴에 넣을지]
 const nav = [
-  ['/', '홈', 'house', true],
   ['/popular/', '인기 도시', 'plane', true],
   ['/country/', '나라별', 'globe', true],
   ['/weather/', '날씨', 'cloud-sun', false],

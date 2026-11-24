@@ -1,7 +1,7 @@
 ---
 import Base from '../layouts/Base.astro';
 import DisasterCard from '../components/DisasterCard.astro';
-import { disasters, activeDisasters } from '../data/load.js';
+import { disasters, activeDisastersAll as activeDisasters } from '../data/load.js';
 const activeIds = new Set(activeDisasters.map((d) => d.id));
 const past = disasters.filter((d) => !activeIds.has(d.id)).slice(0, 60);
 ---

@@ -15,7 +15,7 @@ const partial = al && al.levels.every((l) => /일부/.test(l.region));
   </span>
   <span class="cbody">
     <b>{c.ko}</b>
-    {al && <span class={`mchip ${ALARM_KO[al.max].cls}`}>외교부 {al.max}단계 {ALARM_KO[al.max].label}{partial ? ' (일부)' : ''}</span>}
+    {al && <span class={`mchip ${ALARM_KO[al.max].cls}`}>외교부 {partial ? '일부 지역 ' : ''}{al.max}단계 {ALARM_KO[al.max].label}</span>}
     <span class="ccity">{c.cities.slice(0, 3).join(' · ')}</span>
     <span class="cmeta">
       <span>🕐 <span data-tz={c.tz}>&nbsp;</span> <small>{tzDiffText(diff).replace('한국보다 ', '')}</small></span>

@@ -44,13 +44,16 @@ const DAY = 864e5;
 const within = (t, days) => t && BUILT_AT - t <= days * DAY;
 
 // 지금 진행 중이거나 7일 안에 끝난 경보
-export const activeDisasters = disasters.filter((d) => within(d.to ?? d.from, 7));
+// 가뭄(DR)은 여행에 영향이 적어 첫 화면·나라 상태에서는 뺌 (재난 경보 페이지에는 남김)
+const TRAVEL = (d) => d.type !== 'DR';
+export const activeDisastersAll = disasters.filter((d) => within(d.to ?? d.from, 7));
+export const activeDisasters = activeDisastersAll.filter(TRAVEL);
 
 // 나라별 상태 — 자연재난 기준
 export function countryStatus(slug) {
   const qs = quakes.filter((q) => q.country === slug);
   const ds = disasters.filter((d) => d.countries.includes(slug));
-  const act = ds.filter((d) => within(d.to ?? d.from, 7));
+  const act = ds.filter((d) => TRAVEL(d) && within(d.to ?? d.from, 7));
   const q3 = qs.filter((q) => within(q.time, 3));
   const q7 = qs.filter((q) => within(q.time, 7));
   const q30 = qs.filter((q) => within(q.time, 30) && q.mag >= 5);

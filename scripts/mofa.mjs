@@ -58,6 +58,18 @@ async function fetchAll(url, key, maxPages = 10, per = 300) {
   return rows;
 }
 
+const clean = (t) =>
+  String(t ?? '')
+    .replace(/<[^>]+>/g, ' ')
+    .replace(/&nbsp;/g, ' ')
+    .replace(/&amp;/g, '&')
+    .replace(/&lt;/g, '<')
+    .replace(/&gt;/g, '>')
+    .replace(/&quot;/g, '"')
+    .replace(/&#39;/g, "'")
+    .replace(/\s+/g, ' ')
+    .trim();
+
 const LEVEL = (v) => {
   const n = parseInt(String(v ?? '').replace(/[^0-9]/g, ''), 10);
   return n >= 1 && n <= 4 ? n : 0;
@@ -73,7 +85,7 @@ export async function fetchAlarms(key) {
     const c = (by[iso] ||= { iso, name: r.country_nm, en: r.country_eng_nm, levels: [], max: 0, date: null });
     const lvl = LEVEL(r.alarm_lvl);
     const region = (r.region_ty || '').trim();
-    const note = (r.remark || r.region_nm || '').toString().trim().slice(0, 300);
+    const note = clean(r.remark || r.region_nm || '').slice(0, 300);
     if (lvl && !c.levels.some((x) => x.lvl === lvl && x.region === region && x.note === note)) {
       c.levels.push({ lvl, region, note });
     }
@@ -92,9 +104,9 @@ export async function fetchAdjusts(key) {
       id: `${r.country_iso_alp2}-${r.wrt_dt}-${(r.title || '').slice(0, 40)}`,
       iso: (r.country_iso_alp2 || '').toUpperCase(),
       country: r.country_nm,
-      title: (r.title || '').trim(),
+      title: clean(r.title),
       date: r.wrt_dt || '',
-      text: (r.txt_origin_cn || '').replace(/\s+/g, ' ').trim().slice(0, 400),
+      text: clean(r.txt_origin_cn).slice(0, 400),
     }))
     .filter((x) => x.title);
   const seen = new Set();

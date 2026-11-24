@@ -1,5 +1,17 @@
 [
  {
+  "id": "us6000udbn",
+  "mag": 5,
+  "place": "209 km SE of Kokopo, Papua New Guinea",
+  "time": 1795554701618,
+  "lat": -5.6,
+  "lon": 153.7,
+  "depth": 10,
+  "tsunami": 0,
+  "alert": null,
+  "url": "https://earthquake.usgs.gov/earthquakes/eventpage/us6000udbn"
+ },
+ {
   "id": "us6000ud73",
   "mag": 5,
   "place": "24 km WNW of Piti Village, Guam",

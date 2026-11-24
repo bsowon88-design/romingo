@@ -1468,5 +1468,55 @@
   "userUrl": "https://unsplash.com/@xlexes",
   "page": "https://unsplash.com/photos/city-skyline-under-blue-sky-during-daytime-vL2h7xYiIlk",
   "pick": 0
+ },
+ "city:bali": {
+  "id": "bnMPFPuSCI0",
+  "raw": "https://images.unsplash.com/photo-1604999333679-b86d54738315?ixid=M3wxMTQzNTA5fDB8MXxzZWFyY2h8MXx8QmFsaSUyMHRlbXBsZXxlbnwxfDB8fHwxNzk1NTU3NDkxfDA&ixlib=rb-4.1.0",
+  "color": "#d9f3f3",
+  "alt": "brown and green temple near body of water under blue and white cloudy sky during daytime",
+  "name": "Guillaume Marques",
+  "userUrl": "https://unsplash.com/@mrqs_g",
+  "page": "https://unsplash.com/photos/brown-and-green-temple-near-body-of-water-under-blue-and-white-cloudy-sky-during-daytime-bnMPFPuSCI0",
+  "pick": 0
+ },
+ "city:jakarta": {
+  "id": "KvMw3jKXNZE",
+  "raw": "https://images.unsplash.com/photo-1718729362445-51d2da1ee7a7?ixid=M3wxMTQzNTA5fDB8MXxzZWFyY2h8MXx8SmFrYXJ0YSUyMHNreWxpbmV8ZW58MXwwfHx8MTc5NTU1NzQ5MXww&ixlib=rb-4.1.0",
+  "color": "#0c2626",
+  "alt": "An aerial view of a city at night",
+  "name": "Afif Ramdhasuma",
+  "userUrl": "https://unsplash.com/@javaistan",
+  "page": "https://unsplash.com/photos/an-aerial-view-of-a-city-at-night-KvMw3jKXNZE",
+  "pick": 0
+ },
+ "city:kotakinabalu": {
+  "id": "RCDNI5TBPDo",
+  "raw": "https://images.unsplash.com/photo-1692617993977-eced61646e20?ixid=M3wxMTQzNTA5fDB8MXxzZWFyY2h8MXx8S290YSUyMEtpbmFiYWx1JTIwc3Vuc2V0fGVufDF8MHx8fDE3OTU1NTc0OTF8MA&ixlib=rb-4.1.0",
+  "color": "#59598c",
+  "alt": "a sunset view of a beach with palm trees",
+  "name": "Vincent Chan",
+  "userUrl": "https://unsplash.com/@okcdz",
+  "page": "https://unsplash.com/photos/a-sunset-view-of-a-beach-with-palm-trees-RCDNI5TBPDo",
+  "pick": 0
+ },
+ "city:honolulu": {
+  "id": "hiIaDHN5kMY",
+  "raw": "https://images.unsplash.com/photo-1547537352-ae90c682877e?ixid=M3wxMTQzNTA5fDB8MXxzZWFyY2h8Mnx8SG9ub2x1bHUlMjBEaWFtb25kJTIwSGVhZHxlbnwxfDB8fHwxNzk1NTU3NDkyfDA&ixlib=rb-4.1.0",
+  "color": "#a6c0c0",
+  "alt": "aerial photography of buildings during daytime",
+  "name": "Zetong Li",
+  "userUrl": "https://unsplash.com/@zetong",
+  "page": "https://unsplash.com/photos/aerial-photography-of-buildings-during-daytime-hiIaDHN5kMY",
+  "pick": 0
+ },
+ "city:newyork": {
+  "id": "_QdFx92MO2U",
+  "raw": "https://images.unsplash.com/photo-1496588152823-86ff7695e68f?ixid=M3wxMTQzNTA5fDB8MXxzZWFyY2h8MXx8TWFuaGF0dGFuJTIwc2t5bGluZXxlbnwxfDB8fHwxNzk1NTU3NDkyfDA&ixlib=rb-4.1.0",
+  "color": "#262626",
+  "alt": "panoramic photography of Brooklyn Bridge",
+  "name": "Luca Bravo",
+  "userUrl": "https://unsplash.com/@lucabravo",
+  "page": "https://unsplash.com/photos/panoramic-photography-of-brooklyn-bridge-_QdFx92MO2U",
+  "pick": 0
  }
 }

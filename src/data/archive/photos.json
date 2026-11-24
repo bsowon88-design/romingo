@@ -1028,5 +1028,95 @@
   "userUrl": "https://unsplash.com/@ultratunafish",
   "page": "https://unsplash.com/photos/sapporo-tv-tower-surrounded-by-trees-and-buildings-9mZRkvQ5jZA",
   "pick": 0
+ },
+ "spot:sapporo:1": {
+  "id": "ezEsdoNHoc0",
+  "raw": "https://images.unsplash.com/photo-1615522483192-9bd31a4ce8ef?ixid=M3wxMTQzNTA5fDB8MXxzZWFyY2h8Mnx8T3RhcnUlMjBjYW5hbHxlbnwxfDB8fHwxNzk1NTMyNTA3fDA&ixlib=rb-4.1.0",
+  "color": "#59a6d9",
+  "alt": "brown and white concrete building near body of water under blue sky during daytime",
+  "name": "Oh Beom KWON",
+  "userUrl": "https://unsplash.com/@5b_kwon",
+  "page": "https://unsplash.com/photos/brown-and-white-concrete-building-near-body-of-water-under-blue-sky-during-daytime-ezEsdoNHoc0",
+  "pick": 0
+ },
+ "spot:sapporo:2": {
+  "id": "QdUvMdmbrRg",
+  "raw": "https://images.unsplash.com/photo-1629725593792-727bbe2255b2?ixid=M3wxMTQzNTA5fDB8MXxzZWFyY2h8MXx8QmllaSUyMGhpbGxzJTIwSG9ra2FpZG98ZW58MXwwfHx8MTc5NTUzMjUwOHww&ixlib=rb-4.1.0",
+  "color": "#a6c0d9",
+  "alt": "yellow red and purple flower field during daytime",
+  "name": "Ken Shono",
+  "userUrl": "https://unsplash.com/@kenshono",
+  "page": "https://unsplash.com/photos/yellow-red-and-purple-flower-field-during-daytime-QdUvMdmbrRg",
+  "pick": 0
+ },
+ "spot:sapporo:3": {
+  "id": "JJumI5h3sr8",
+  "raw": "https://images.unsplash.com/photo-1574835154663-3d11951f9b67?ixid=M3wxMTQzNTA5fDB8MXxzZWFyY2h8MXx8U3VzdWtpbm8lMjBTYXBwb3JvJTIwbmlnaHR8ZW58MXwwfHx8MTc5NTUzMjUwOXww&ixlib=rb-4.1.0",
+  "color": "#260c0c",
+  "alt": "icy street road surface during nighttime",
+  "name": "KWON YOUN",
+  "userUrl": "https://unsplash.com/@youn98",
+  "page": "https://unsplash.com/photos/icy-street-road-surface-during-nighttime-JJumI5h3sr8",
+  "pick": 0
+ },
+ "spot:phuquoc:0": {
+  "id": "wkyjTXvIQIs",
+  "raw": "https://images.unsplash.com/photo-1758657281824-239a1bfb3c92?ixid=M3wxMTQzNTA5fDB8MXxzZWFyY2h8MXx8SG9uJTIwVGhvbSUyMGNhYmxlJTIwY2FyJTIwUGh1JTIwUXVvY3xlbnwxfDB8fHwxNzk1NTMyNTEwfDA&ixlib=rb-4.1.0",
+  "color": "#c0d9d9",
+  "alt": "Cable car over the sea with coastal city view",
+  "name": "Abdullah Ahmad",
+  "userUrl": "https://unsplash.com/@thefinalshot",
+  "page": "https://unsplash.com/photos/cable-car-over-the-sea-with-coastal-city-view-wkyjTXvIQIs",
+  "pick": 0
+ },
+ "spot:phuquoc:1": {
+  "id": "r6CIzamxaek",
+  "raw": "https://images.unsplash.com/photo-1732243395944-cb3ff9311091?ixid=M3wxMTQzNTA5fDB8MXxzZWFyY2h8MXx8U2FvJTIwYmVhY2glMjBQaHUlMjBRdW9jfGVufDF8MHx8fDE3OTU1MzI1MTF8MA&ixlib=rb-4.1.0",
+  "color": "#73c0d9",
+  "alt": "A beach with palm trees and a white sand beach",
+  "name": "Vivu Vietnam",
+  "userUrl": "https://unsplash.com/@bttsg",
+  "page": "https://unsplash.com/photos/a-beach-with-palm-trees-and-a-white-sand-beach-r6CIzamxaek",
+  "pick": 0
+ },
+ "spot:phuquoc:2": {
+  "id": "TlYBF6NW7Fg",
+  "raw": "https://images.unsplash.com/photo-1693294603830-f44c9511d643?ixid=M3wxMTQzNTA5fDB8MXxzZWFyY2h8MXx8U3Vuc2V0JTIwVG93biUyMFBodSUyMFF1b2N8ZW58MXwwfHx8MTc5NTUzMjUxMXww&ixlib=rb-4.1.0",
+  "color": "#f3d9a6",
+  "alt": "an aerial view of a city with a clock tower",
+  "name": "Vivu Vietnam",
+  "userUrl": "https://unsplash.com/@bttsg",
+  "page": "https://unsplash.com/photos/an-aerial-view-of-a-city-with-a-clock-tower-TlYBF6NW7Fg",
+  "pick": 0
+ },
+ "spot:phuquoc:3": {
+  "id": "zNsXLClT73o",
+  "raw": "https://images.unsplash.com/photo-1746362723195-c42946f3633b?ixid=M3wxMTQzNTA5fDB8MXxzZWFyY2h8Mnx8UGh1JTIwUXVvYyUyMG5pZ2h0JTIwbWFya2V0fGVufDF8MHx8fDE3OTU1MzI1MTN8MA&ixlib=rb-4.1.0",
+  "color": "#262626",
+  "alt": "Fresh seafood displayed on ice at a market",
+  "name": "Ondrej Bocek",
+  "userUrl": "https://unsplash.com/@ondrejbocek",
+  "page": "https://unsplash.com/photos/fresh-seafood-displayed-on-ice-at-a-market-zNsXLClT73o",
+  "pick": 0
+ },
+ "spot:guam:0": {
+  "id": "kxb7AxdHRUI",
+  "raw": "https://images.unsplash.com/photo-1751543593210-0875e6c939b4?ixid=M3wxMTQzNTA5fDB8MXxzZWFyY2h8Mnx8VHVtb24lMjBiZWFjaCUyMEd1YW18ZW58MXwwfHx8MTc5NTUzMjUxNHww&ixlib=rb-4.1.0",
+  "color": "#73a6c0",
+  "alt": "Beach with buildings and a beautiful blue sky",
+  "name": "yeojin yun",
+  "userUrl": "https://unsplash.com/@seoul_lover_lily",
+  "page": "https://unsplash.com/photos/beach-with-buildings-and-a-beautiful-blue-sky-kxb7AxdHRUI",
+  "pick": 0
+ },
+ "spot:guam:1": {
+  "id": "pExG931svNU",
+  "raw": "https://images.unsplash.com/photo-1706242139269-2b3bb13b9cb8?ixid=M3wxMTQzNTA5fDB8MXxzZWFyY2h8MXx8VHdvJTIwTG92ZXJzJTIwUG9pbnQlMjBHdWFtfGVufDF8MHx8fDE3OTU1MzI1MTR8MA&ixlib=rb-4.1.0",
+  "color": "#265973",
+  "alt": "an aerial view of the ocean and cliffs",
+  "name": "yeojin yun",
+  "userUrl": "https://unsplash.com/@seoul_lover_lily",
+  "page": "https://unsplash.com/photos/an-aerial-view-of-the-ocean-and-cliffs-pExG931svNU",
+  "pick": 0
  }
 }

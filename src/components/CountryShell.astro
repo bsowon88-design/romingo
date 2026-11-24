@@ -1,0 +1,83 @@
+---
+// 나라 페이지 공통 머리 — 국기·이름·현지 시각·탭
+import Flag from './Flag.astro';
+import { flagOf, tzDiff, tzDiffText } from '../data/countries.js';
+const { c, tab = '' } = Astro.props;
+const diff = tzDiff(c.tz);
+const tabs = [
+  ['', '개요'],
+  ['safety', '안전'],
+  ['weather', '날씨'],
+  ['guide', '도시 가이드'],
+  ['info', '환율·긴급번호'],
+];
+const label = tabs.find((t) => t[0] === tab)?.[1];
+---
+<div class="cty">
+  <p class="crumb"><a href="/">홈</a> › <a href="/country/">나라별</a> › {tab ? <a href={`/country/${c.slug}/`}>{c.ko}</a> : c.ko}{tab && ` › ${label}`}</p>
+
+  <section class="chero" style={`--c1:${c.color[0]};--c2:${c.color[1]}`}>
+    <span class="hflag"><Flag iso={flagOf(c)} size={64} alt={`${c.ko} 국기`} /></span>
+    <div>
+      <h1>{c.ko}{tab ? ` ${label}` : ' 여행 정보'}</h1>
+      <p class="hcities">{c.cities.join(' · ')}</p>
+    </div>
+    <div class="hclock">
+      <span class="hl">현지 시각 {c.tzLabel ? `(${c.tzLabel})` : ''}</span>
+      <b data-tz={c.tz} data-full="1">&nbsp;</b>
+      <span class="hl">{tzDiffText(diff)}</span>
+    </div>
+  </section>
+
+  <nav class="ctabs">
+    {tabs.map(([t, l]) => <a href={`/country/${c.slug}/${t ? t + '/' : ''}`} class={t === tab ? 'on' : ''}>{l}</a>)}
+  </nav>
+
+  <slot />
+</div>
+
+<style is:global>
+  .cty .chero {
+    display: grid; grid-template-columns: auto 1fr auto; gap: 16px; align-items: center;
+    margin-top: 10px; padding: 24px 22px; border-radius: 22px; color: #fff;
+    background: radial-gradient(circle at 95% 0%, rgba(255,255,255,.28) 0 90px, transparent 91px), linear-gradient(135deg, var(--c1), var(--c2));
+  }
+  .cty .hflag .flag { border-radius: 6px; box-shadow: 0 3px 10px rgba(0,0,0,.2), 0 0 0 2px rgba(255,255,255,.85); }
+  .cty .chero h1 { margin: 0; font-size: 28px; text-shadow: 0 1px 2px rgba(0,0,0,.15); }
+  .cty .hcities { margin: 2px 0 0; opacity: .92; font-weight: 500; }
+  .cty .hclock { display: flex; flex-direction: column; align-items: flex-end; background: rgba(255,255,255,.18); border-radius: 14px; padding: 10px 14px; }
+  .cty .hclock b { font-size: 20px; }
+  .cty .hl { font-size: 12px; opacity: .9; }
+  .cty .ctabs { position: sticky; top: 58px; z-index: 5; display: flex; gap: 4px; overflow-x: auto; margin: 12px -18px 0; padding: 8px 18px; background: rgba(244,247,250,.95); backdrop-filter: blur(6px); scrollbar-width: none; }
+  .cty .ctabs::-webkit-scrollbar { display: none; }
+  .cty .ctabs a { flex: none; text-decoration: none; font-weight: 700; font-size: 14.5px; padding: 9px 14px; border-radius: 999px; background: #fff; border: 1px solid var(--line); color: var(--sub); }
+  .cty .ctabs a.on { background: var(--ink); border-color: var(--ink); color: #fff; }
+
+  .cty .tiles { display: grid; grid-template-columns: repeat(auto-fill, minmax(190px, 1fr)); gap: 10px; }
+  .cty .tile { display: flex; flex-direction: column; gap: 2px; background: #fff; border: 1px solid var(--line); border-radius: 14px; padding: 14px; text-decoration: none; }
+  .cty .ti { font-size: 20px; }
+  .cty .tl { font-size: 12.5px; color: var(--sub); font-weight: 600; }
+  .cty .tile b { font-size: 16px; line-height: 1.4; }
+  .cty .tile small { font-size: 12.5px; color: var(--sub); }
+  .cty .tile small.need { color: var(--coral); font-weight: 700; }
+  .cty .tile small.ok { color: var(--green); font-weight: 700; }
+  .cty a.tile:hover { border-color: var(--sea); }
+  .cty .rate { border-color: #d6ead9; background: #f5fbf6; }
+  .cty .rv { color: var(--green); }
+  .cty .call { border-color: #cfe5f4; background: #f5fbff; }
+  .cty .num { color: var(--sea); font-size: 20px !important; letter-spacing: .02em; }
+  .cty .chips { display: flex; flex-wrap: wrap; gap: 8px; }
+  .cty .chips a { display: inline-flex; align-items: center; gap: 6px; text-decoration: none; background: #fff; border: 1px solid var(--line); border-radius: 999px; padding: 7px 13px; font-weight: 600; font-size: 14px; }
+  .cty .chips a:hover { border-color: var(--sea); color: var(--sea); }
+  .cty .list { margin: 0; padding-left: 34px; }
+  .cty .list li { margin: 5px 0; }
+  .cty .more { display: inline-block; margin-top: 10px; color: var(--sea); font-weight: 700; text-decoration: none; }
+
+  @media (max-width: 620px) {
+    .cty .chero { grid-template-columns: auto 1fr; padding: 20px 16px; }
+    .cty .hflag .flag { width: 48px; height: 36px; }
+    .cty .chero h1 { font-size: 23px; }
+    .cty .hclock { grid-column: 1 / -1; flex-direction: row; align-items: baseline; gap: 8px; flex-wrap: wrap; }
+    .cty .tiles { grid-template-columns: 1fr 1fr; }
+  }
+</style>

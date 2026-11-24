@@ -1,0 +1,7 @@
+---
+// 국기 그림. iso: 'jp' 같은 2자리 코드. 윈도우에서도 보이도록 이모지 대신 그림 사용.
+const { iso, size = 20, alt = '', class: cls = '' } = Astro.props;
+const code = String(iso || '').toLowerCase();
+const h = Math.round(size * 0.75);
+---
+{code && <img class={`flag ${cls}`} src={`/flags/${code}.svg`} width={size} height={h} alt={alt} loading="lazy" decoding="async" onerror="this.style.display='none'" />}

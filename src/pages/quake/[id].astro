@@ -1,4 +1,6 @@
 ---
+import Flag from '../../components/Flag.astro';
+import { flagOf } from '../../data/countries.js';
 import Base from '../../layouts/Base.astro';
 import QuakeRow from '../../components/QuakeRow.astro';
 import { bigQuakes, quakes } from '../../data/load.js';
@@ -50,7 +52,7 @@ const near = quakes
   <p class="muted">지도 © OpenStreetMap 기여자</p>
 
   <div class="links">
-    {c && <a class="btn" href={`/country/${c.slug}/`}>{c.flag} {c.ko} 안전 정보 보기</a>}
+    {c && <a class="btn" href={`/country/${c.slug}/`}><Flag iso={flagOf(c)} /> {c.ko} 안전 정보 보기</a>}
     <a class="btn ghost" href={q.url} target="_blank" rel="noopener">USGS 원문 ↗</a>
     <a class="btn ghost" href={MOFA_URL} target="_blank" rel="noopener">외교부 해외안전여행 ↗</a>
   </div>

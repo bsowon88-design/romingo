@@ -1,4 +1,6 @@
 ---
+import Flag from '../../components/Flag.astro';
+import { flagOf } from '../../data/countries.js';
 import Base from '../../layouts/Base.astro';
 import { COUNTRIES } from '../../data/countries.js';
 import { CITIES } from '../../data/cities.js';
@@ -16,7 +18,7 @@ const ready = CITIES.some((c) => HAS_CLIMATE(c.slug));
 
   {groups.map(({ c, cities }) => (
     <section>
-      <h2>{c.flag} {c.ko}</h2>
+      <h2><Flag iso={flagOf(c)} /> {c.ko}</h2>
       <div class="wgrid">
         {cities.map((x) => {
           const ok = HAS_CLIMATE(x.slug);

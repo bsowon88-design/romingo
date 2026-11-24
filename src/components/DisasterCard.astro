@@ -1,4 +1,6 @@
 ---
+import Flag from './Flag.astro';
+import { flagOf } from '../data/countries.js';
 import { TYPE_KO, TYPE_ICON, LEVEL_KO } from '../data/normalize.js';
 import { kstDate } from '../data/place.js';
 import { bySlug } from '../data/countries.js';
@@ -15,7 +17,7 @@ const cs = d.countries.map((s) => bySlug[s]).filter(Boolean);
   <p class="muted">{kstDate(d.from)}{d.to && d.to - d.from > 864e5 ? ` ~ ${kstDate(d.to)}` : ''}</p>
   {d.sev && <p class="sev">{d.sev}</p>}
   <p class="dlinks">
-    {cs.map((c) => <a href={`/country/${c.slug}/`}>{c.flag} {c.ko} 안전 정보</a>)}
+    {cs.map((c) => <a href={`/country/${c.slug}/`}><Flag iso={flagOf(c)} /> {c.ko} 안전 정보</a>)}
     <a href={d.report} target="_blank" rel="noopener">GDACS 원문 ↗</a>
   </p>
 </article>

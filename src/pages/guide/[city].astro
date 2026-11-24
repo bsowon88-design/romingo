@@ -1,4 +1,6 @@
 ---
+import Flag from '../../components/Flag.astro';
+import { flagOf } from '../../data/countries.js';
 import Base from '../../layouts/Base.astro';
 import { GUIDES } from '../../data/guides.js';
 import { cityBySlug } from '../../data/cities.js';
@@ -20,7 +22,7 @@ const title = `${city.ko} 여행 가이드 - 숙소 위치·공항 이동·추�
   <p class="crumb"><a href="/">홈</a> › <a href={`/country/${co.slug}/`}>{co.ko}</a> › {city.ko} 가이드</p>
 
   <section class="ghero" style={`--c1:${co.color[0]};--c2:${co.color[1]}`}>
-    <p class="eyebrow">{co.flag} {co.ko}</p>
+    <p class="eyebrow"><Flag iso={flagOf(co)} /> {co.ko}</p>
     <h1>{city.ko} 여행 가이드</h1>
     <p>{g.intro}</p>
   </section>

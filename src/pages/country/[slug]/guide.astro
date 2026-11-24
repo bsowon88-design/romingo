@@ -1,0 +1,41 @@
+---
+import Base from '../../../layouts/Base.astro';
+import CountryShell from '../../../components/CountryShell.astro';
+import { COUNTRIES } from '../../../data/countries.js';
+import { CITIES } from '../../../data/cities.js';
+import { GUIDES } from '../../../data/guides.js';
+
+export function getStaticPaths() {
+  return COUNTRIES.map((c) => ({ params: { slug: c.slug }, props: { c } }));
+}
+
+const { c } = Astro.props;
+const list = GUIDES.map((g) => ({ g, x: CITIES.find((x) => x.slug === g.city) })).filter((o) => o.x && o.x.country === c.slug);
+---
+<Base title={`${c.ko} 도시 가이드 - 숙소 위치·공항 이동·추천 일정`} desc={`${c.ko} 자유여행 도시 가이드: 숙소 잡기 좋은 곳, 공항에서 시내 가기, 추천 일정, 주의할 점.`} noindex={list.length === 0}>
+  <CountryShell c={c} tab="guide">
+    {list.length ? (
+      <div class="glist">
+        {list.map(({ g, x }) => (
+          <a class="card gc" href={`/guide/${x.slug}/`}>
+            <b>{x.ko} 여행 가이드</b>
+            <p>{g.intro}</p>
+            <span class="go">가이드 보기 →</span>
+          </a>
+        ))}
+      </div>
+    ) : (
+      <p class="card empty">{c.ko} 도시 가이드는 준비 중이에요. 곧 추가할게요.</p>
+    )}
+  </CountryShell>
+</Base>
+
+<style>
+  .glist { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 12px; margin-top: 14px; }
+  .gc { display: flex; flex-direction: column; gap: 4px; text-decoration: none; }
+  .gc:hover { border-color: var(--sea); }
+  .gc b { font-size: 17px; }
+  .gc p { margin: 0; color: var(--sub); font-size: 14.5px; }
+  .go { color: var(--sea); font-weight: 700; margin-top: 4px; }
+  .empty { margin-top: 14px; }
+</style>

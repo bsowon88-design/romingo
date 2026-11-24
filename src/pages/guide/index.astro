@@ -1,0 +1,35 @@
+---
+import Base from '../../layouts/Base.astro';
+import Flag from '../../components/Flag.astro';
+import { GUIDES } from '../../data/guides.js';
+import { cityBySlug } from '../../data/cities.js';
+import { bySlug, flagOf } from '../../data/countries.js';
+
+const list = GUIDES.map((g) => ({ g, x: cityBySlug[g.city] })).filter((o) => o.x).map((o) => ({ ...o, co: bySlug[o.x.country] }));
+---
+<Base title="해외 도시 여행 가이드 - 숙소 위치·공항 이동·추천 일정" desc="다낭, 오사카, 방콕 등 인기 해외 도시의 숙소 잡기 좋은 곳, 공항에서 시내 가는 법, 추천 일정, 주의할 점을 정리했어요.">
+  <p class="crumb"><a href="/">홈</a> › 도시 가이드</p>
+  <h1>도시 여행 가이드</h1>
+  <p class="lead">숙소 위치, 공항 이동, 추천 일정, 주의할 점을 도시별로 정리했어요. 계속 늘려 갈게요.</p>
+  <div class="glist">
+    {list.map(({ g, x, co }) => (
+      <a class="gc" href={`/guide/${x.slug}/`} style={`--c1:${co.color[0]};--c2:${co.color[1]}`}>
+        <span class="gtop"><Flag iso={flagOf(co)} size={32} /> <b>{x.ko}</b></span>
+        <span class="gb"><span class="gco">{co.ko}</span><span class="gi">{g.intro}</span><span class="go">가이드 보기 →</span></span>
+      </a>
+    ))}
+  </div>
+</Base>
+
+<style>
+  .glist { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 14px; margin-top: 18px; }
+  .gc { display: flex; flex-direction: column; text-decoration: none; background: #fff; border: 1px solid var(--line); border-radius: 16px; overflow: hidden; transition: transform .15s, box-shadow .15s; }
+  .gc:hover { transform: translateY(-2px); box-shadow: 0 8px 22px rgba(20,35,47,.08); }
+  .gtop { display: flex; align-items: center; gap: 10px; padding: 18px 16px; color: #fff; background: linear-gradient(135deg, var(--c1), var(--c2)); }
+  .gtop b { font-size: 22px; text-shadow: 0 1px 2px rgba(0,0,0,.15); }
+  .gtop :global(.flag) { border-radius: 4px; box-shadow: 0 0 0 2px rgba(255,255,255,.85); }
+  .gb { display: flex; flex-direction: column; gap: 4px; padding: 12px 16px 16px; }
+  .gco { font-size: 12.5px; color: var(--sub); font-weight: 700; }
+  .gi { font-size: 14.5px; color: var(--ink); display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden; }
+  .go { color: var(--sea); font-weight: 700; margin-top: 4px; }
+</style>

@@ -1,0 +1,97 @@
+---
+import Base from '../layouts/Base.astro';
+import Flag from '../components/Flag.astro';
+import { rateList } from '../data/load.js';
+import { flagOf } from '../data/countries.js';
+
+const date = rateList[0]?.line?.date || '';
+const data = rateList.map((r) => ({ cur: r.cur, name: r.name, ko: r.c.ko, value: r.value, unit: r.unit }));
+---
+<Base title="오늘 환율 - 엔·달러·동·바트 등 여행 환율 계산기" desc="일본 엔, 미국 달러, 베트남 동, 태국 바트 등 여행 가는 나라의 오늘 환율(한국은행 매매기준율)과 원화 환전 계산기.">
+  <p class="crumb"><a href="/">홈</a> › 환율</p>
+  <h1>오늘 여행 환율</h1>
+  <p class="lead">한국은행 매매기준율{date && ` · ${date} 기준`}이에요. 실제 환전·카드 환율과는 조금 달라요.</p>
+
+  {data.length ? (
+    <>
+      <section class="card calc">
+        <h2>🧮 환율 계산기</h2>
+        <div class="crow">
+          <label>원화<input id="won" type="number" inputmode="numeric" value="100000" min="0" step="1000" /></label>
+          <span class="arrow">→</span>
+          <label>나라
+            <select id="cur">
+              {data.map((r) => <option value={r.cur}>{r.ko} ({r.name})</option>)}
+            </select>
+          </label>
+        </div>
+        <p class="res" id="res">&nbsp;</p>
+        <div class="crow">
+          <label>현지 돈<input id="fx" type="number" inputmode="decimal" value="" min="0" /></label>
+          <span class="arrow">→</span>
+          <p class="res2" id="res2">원화로 얼마인지 보여 줘요</p>
+        </div>
+      </section>
+
+      <h2>💱 나라별 환율</h2>
+      <div class="rtab card">
+        {rateList.map((r) => (
+          <a class="rr" href={`/country/${r.c.slug}/info/`}>
+            <span class="nm"><Flag iso={flagOf(r.c)} size={24} /> {r.c.ko} <small>{r.name}</small></span>
+            <b>{r.line.line1}</b>
+            <span class="muted">{r.line.line2}</span>
+          </a>
+        ))}
+      </div>
+    </>
+  ) : (
+    <p class="card empty">환율 자료를 모으는 중이에요.</p>
+  )}
+
+  <script type="application/json" id="rates-data" set:html={JSON.stringify(data)}></script>
+</Base>
+
+<script>
+  const data = JSON.parse(document.getElementById('rates-data')?.textContent || '[]');
+  const by = Object.fromEntries(data.map((r) => [r.cur, r]));
+  const won = document.getElementById('won') as HTMLInputElement | null;
+  const cur = document.getElementById('cur') as HTMLSelectElement | null;
+  const fx = document.getElementById('fx') as HTMLInputElement | null;
+  const res = document.getElementById('res');
+  const res2 = document.getElementById('res2');
+  const fmt = (n: number) => (n >= 100 ? Math.round(n).toLocaleString('ko-KR') : n.toLocaleString('ko-KR', { maximumFractionDigits: 2 }));
+  function calc() {
+    const r = by[cur?.value || ''];
+    if (!r || !res || !res2) return;
+    const w = +(won?.value || 0);
+    res.textContent = `${fmt(w)}원 ≈ ${fmt((w / r.value) * r.unit)} ${r.name}`;
+    const f = +(fx?.value || 0);
+    res2.textContent = f ? `${fmt(f)} ${r.name} ≈ ${fmt((f / r.unit) * r.value)}원` : `${r.name} 금액을 넣으면 원화로 바꿔 줘요`;
+  }
+  [won, cur, fx].forEach((el) => el?.addEventListener('input', calc));
+  calc();
+</script>
+
+<style>
+  .calc { margin-top: 16px; }
+  .calc h2 { margin-top: 0; }
+  .crow { display: flex; align-items: flex-end; gap: 10px; flex-wrap: wrap; margin-top: 8px; }
+  .crow label { display: flex; flex-direction: column; gap: 4px; font-size: 13px; font-weight: 600; color: var(--sub); }
+  .crow input, .crow select { font: inherit; font-size: 17px; padding: 10px 12px; border: 1px solid var(--line); border-radius: 10px; min-width: 180px; color: var(--ink); background: #fff; }
+  .arrow { font-size: 20px; padding-bottom: 10px; color: var(--sub); }
+  .res { font-size: 22px; font-weight: 800; color: var(--sea); margin: 12px 0 4px; }
+  .res2 { font-size: 17px; font-weight: 700; color: var(--green); margin: 0 0 10px; }
+  .rtab { padding: 4px 0; }
+  .rr { display: grid; grid-template-columns: 1.3fr 1fr 1fr; gap: 10px; align-items: center; padding: 12px 16px; text-decoration: none; }
+  .rr + .rr { border-top: 1px solid var(--line); }
+  .rr:hover { background: #f5fbff; }
+  .nm { display: inline-flex; align-items: center; gap: 8px; font-weight: 700; }
+  .nm small { color: var(--sub); font-weight: 500; }
+  @media (max-width: 620px) {
+    .rr { grid-template-columns: 1fr 1fr; }
+    .rr .muted { display: none; }
+    .crow input, .crow select { min-width: 0; width: 100%; }
+    .crow label { flex: 1; }
+    .res2 { width: 100%; }
+  }
+</style>

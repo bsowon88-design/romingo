@@ -1,0 +1,74 @@
+---
+// 최근 지진 목록 — 만들 때 넣어 두고, 화면을 열면 미국 지질조사국에서 바로 다시 불러옴
+import QuakeRow from './QuakeRow.astro';
+import { quakes, bigQuakes, BUILT_AT } from '../data/load.js';
+const { n = 10 } = Astro.props;
+const recent = quakes.filter((q) => BUILT_AT - q.time <= 7 * 864e5).slice(0, n);
+const pageIds = bigQuakes.map((q) => q.id);
+---
+<p class="muted lq-at" id="live-at">최근 7일 · 규모 4.5 이상</p>
+<ul class="qlist" id="live-list" data-n={n}>
+  {recent.length ? recent.map((q) => <QuakeRow q={q} />) : <li class="empty">최근 7일 동안 규모 4.5 이상 지진이 없어요.</li>}
+</ul>
+<script type="application/json" id="page-ids" set:html={JSON.stringify(pageIds)}></script>
+
+<script>
+  import { USGS_WEEK, normQuake } from '../data/normalize.js';
+  import { translatePlace, kstShort, magLevel, ago } from '../data/place.js';
+
+  const list = document.getElementById('live-list');
+  const at = document.getElementById('live-at');
+  const n = +(list?.dataset.n || 10);
+  const ids = new Set(JSON.parse(document.getElementById('page-ids')?.textContent || '[]'));
+
+  function row(q) {
+    const li = document.createElement('li');
+    const hasPage = q.mag >= 5 && ids.has(q.id);
+    const a = document.createElement(q.mag >= 5 ? 'a' : 'div');
+    a.className = 'qrow';
+    if (hasPage) a.setAttribute('href', `/quake/${q.id}/`);
+    else if (q.mag >= 5) { a.setAttribute('href', q.url); a.setAttribute('target', '_blank'); a.setAttribute('rel', 'noopener'); }
+    const m = document.createElement('span');
+    m.className = `mag ${magLevel(q.mag)}`;
+    m.textContent = q.mag.toFixed(1);
+    const body = document.createElement('span');
+    const t = document.createElement('span');
+    t.className = 't';
+    t.textContent = translatePlace(q.place);
+    if (q.tsunami) {
+      const tag = document.createElement('span');
+      tag.className = 'tag';
+      tag.textContent = '쓰나미 안내';
+      t.append(tag);
+    }
+    const s = document.createElement('span');
+    s.className = 's';
+    s.textContent = `${kstShort(q.time)} (한국 시간) · ${ago(q.time)} · 깊이 ${q.depth}km`;
+    body.append(t, document.createElement('br'), s);
+    a.append(m, body);
+    li.append(a);
+    return li;
+  }
+
+  async function refresh() {
+    try {
+      const res = await fetch(USGS_WEEK, { cache: 'no-store' });
+      if (!res.ok) return;
+      const j = await res.json();
+      const qs = (j.features || []).map(normQuake).sort((a, b) => b.time - a.time).slice(0, n);
+      if (!qs.length || !list) return;
+      list.replaceChildren(...qs.map(row));
+      if (at) at.textContent = `실시간 · 최근 7일 · 규모 4.5 이상 · ${kstShort(Date.now())} 기준`;
+    } catch {
+      /* 실패하면 만들 때 넣어 둔 목록 그대로 */
+    }
+  }
+  if (list) {
+    refresh();
+    setInterval(refresh, 5 * 60 * 1000);
+  }
+</script>
+
+<style>
+  .lq-at { margin: -6px 0 8px; font-size: 13px; }
+</style>

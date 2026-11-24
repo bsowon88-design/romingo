@@ -110,8 +110,27 @@ export function countryRate(c) {
   const perWon = (10000 / r.value) * r.unit; // 1만 원으로 바꾸면
   const d = String(r.date || '');
   return {
-    line1: `${r.unit.toLocaleString('ko-KR')}${c.curName} = ${fmtNum(r.value)}원`,
+    line1: `${r.unit.toLocaleString('ko-KR')}${c.curName.includes(' ') ? ' ' : ''}${c.curName} = ${fmtNum(r.value)}원`,
     line2: `1만 원 ≈ ${fmtNum(perWon)}${c.curName}`,
     date: d.length === 8 ? `${d.slice(0, 4)}.${d.slice(4, 6)}.${d.slice(6)}` : d,
   };
 }
+
+// 외교부 경보가 있는 모든 나라 (안전 정보 메뉴용)
+export const alarmList = Object.values(alarmArchive || {})
+  .filter((a) => a.max > 0)
+  .sort((a, b) => b.max - a.max || a.name.localeCompare(b.name, 'ko'));
+
+// 환율 메뉴용 — 통화별로 한 줄
+export const rateList = (() => {
+  const seen = new Set();
+  const out = [];
+  for (const c of COUNTRIES) {
+    if (!c.cur || seen.has(c.cur)) continue;
+    const r = rateArchive?.[c.cur];
+    if (!r || !r.value) continue;
+    seen.add(c.cur);
+    out.push({ c, cur: c.cur, name: c.curName, value: r.value, unit: r.unit, date: r.date, line: countryRate(c) });
+  }
+  return out;
+})();

@@ -1,4 +1,6 @@
 ---
+import Flag from '../../../components/Flag.astro';
+import { flagOf } from '../../../data/countries.js';
 import Base from '../../../layouts/Base.astro';
 import { CITIES } from '../../../data/cities.js';
 import { bySlug } from '../../../data/countries.js';
@@ -22,7 +24,7 @@ const others = CITIES.filter((x) => x.country === city.country && x.slug !== cit
 ---
 <Base title={`${city.ko} 월별 날씨 - 여행하기 좋은 달, 기온·강수량`} desc={`${city.ko} 1월부터 12월까지 평균 기온과 강수량, 옷차림. 여행하기 좋은 달은 ${best.map((m) => `${m}월`).join(', ')}이에요.`}>
   <p class="crumb"><a href="/">홈</a> › <a href="/weather/">월별 날씨</a> › {city.ko}</p>
-  <h1>{co.flag} {city.ko} 월별 날씨</h1>
+  <h1><Flag iso={flagOf(co)} /> {city.ko} 월별 날씨</h1>
   <p class="lead">여행하기 좋은 달: <b class="best">{best.map((m) => `${m}월`).join(' · ')}</b></p>
 
   <div class="months">
@@ -44,7 +46,7 @@ const others = CITIES.filter((x) => x.country === city.country && x.slug !== cit
 
   <div class="links">
     {guideByCity[city.slug] && <a class="btn coral" href={`/guide/${city.slug}/`}>📖 {city.ko} 여행 가이드</a>}
-    <a class="btn" href={`/country/${co.slug}/`}>{co.flag} {co.ko} 안전·여행 정보</a>
+    <a class="btn" href={`/country/${co.slug}/`}><Flag iso={flagOf(co)} /> {co.ko} 안전·여행 정보</a>
   </div>
 
   {others.length > 0 && (

@@ -1,0 +1,86 @@
+---
+import Base from '../layouts/Base.astro';
+import Flag from '../components/Flag.astro';
+import DisasterCard from '../components/DisasterCard.astro';
+import LiveQuakes from '../components/LiveQuakes.astro';
+import { alarmList, ALARM_KO, latestAdjusts, activeDisasters, HAS_ALARMS } from '../data/load.js';
+import { COUNTRIES } from '../data/countries.js';
+import { MOFA_URL } from '../site.js';
+import adjustAll from '../data/archive/adjusts.json';
+
+const isoSlug = {};
+for (const c of COUNTRIES) for (const i of c.iso2) if (!isoSlug[i]) isoSlug[i] = c.slug;
+const byLevel = [4, 3, 2, 1].map((lv) => ({ lv, items: alarmList.filter((a) => a.max === lv) }));
+const adj = (adjustAll || []).slice(0, 15);
+const linkOf = (iso) => (isoSlug[iso] ? `/country/${isoSlug[iso]}/safety/` : null);
+---
+<Base title="해외 안전 정보 - 외교부 여행경보 단계·재난 경보·지진" desc="외교부 여행경보 단계별 나라 목록, 최근 여행경보 조정 소식, 국제 재난 경보와 실시간 지진 정보를 한곳에서 확인하세요.">
+  <p class="crumb"><a href="/">홈</a> › 안전 정보</p>
+  <h1>해외 안전 정보</h1>
+  <p class="lead">외교부 여행경보와 지진·태풍 같은 재난 소식을 한곳에 모았어요.</p>
+
+  <nav class="stabs">
+    <a href="#alarm">🛂 여행경보 단계</a><a href="#adjust">📢 경보 조정 소식</a><a href="#disaster">🚨 재난 경보</a><a href="#quake">🌐 실시간 지진</a>
+  </nav>
+
+  <h2 id="alarm">🛂 외교부 여행경보 단계</h2>
+  {HAS_ALARMS ? (
+    <div class="levels">
+      {byLevel.map(({ lv, items }) => items.length > 0 && (
+        <section class="card lvbox">
+          <div class="lvh"><span class={`mchip ${ALARM_KO[lv].cls}`}>{lv}단계 {ALARM_KO[lv].label}</span><small class="muted">{ALARM_KO[lv].act}</small></div>
+          <div class="ncl">
+            {items.map((a) => {
+              const href = linkOf(a.iso);
+              const partial = a.levels.filter((l) => l.lvl === lv).every((l) => /일부/.test(l.region));
+              const inner = <><Flag iso={a.iso.toLowerCase()} size={18} /> {a.name}{partial && <small>일부</small>}</>;
+              return href ? <a class="nc mine" href={href}>{inner}</a> : <span class="nc">{inner}</span>;
+            })}
+          </div>
+        </section>
+      ))}
+      <p class="muted">"일부"는 그 나라 안의 일부 지역에만 해당 단계가 내려졌다는 뜻이에요. 한 나라가 여러 단계에 함께 나올 수 있어요. 파란 테두리 나라는 누르면 로밍고 안전 페이지로 가요.</p>
+    </div>
+  ) : (
+    <p class="card empty">여행경보 자료를 모으는 중이에요.</p>
+  )}
+  <p><a class="btn" href={MOFA_URL} target="_blank" rel="noopener">외교부 해외안전여행 ↗</a></p>
+
+  {adj.length > 0 && (
+    <>
+      <h2 id="adjust">📢 최근 여행경보 조정 소식</h2>
+      <ul class="qlist">
+        {adj.map((a) => {
+          const href = linkOf(a.iso);
+          const body = <span><span class="t"><Flag iso={a.iso.toLowerCase()} size={16} /> {a.title}</span><br /><span class="s">{a.date} · 외교부</span></span>;
+          return <li>{href ? <a class="qrow" href={href}>{body}</a> : <div class="qrow">{body}</div>}</li>;
+        })}
+      </ul>
+    </>
+  )}
+
+  <h2 id="disaster">🚨 지금 재난 경보 <small>국제 재난경보(GDACS) 주의·위험 단계</small></h2>
+  {activeDisasters.length ? (
+    <div class="grid">{activeDisasters.slice(0, 6).map((d) => <DisasterCard d={d} />)}</div>
+  ) : (
+    <p class="card empty">지금 주의·위험 단계의 국제 재난 경보는 없어요.</p>
+  )}
+  <p><a class="btn ghost" href="/disasters/">재난 경보 전체·지난 기록</a></p>
+
+  <h2 id="quake">🌐 실시간 지진</h2>
+  <LiveQuakes n={12} />
+  <p><a class="btn ghost" href="/quakes/">큰 지진 기록 전체 보기</a></p>
+</Base>
+
+<style>
+  .stabs { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 14px; }
+  .stabs a { text-decoration: none; background: #fff; border: 1px solid var(--line); border-radius: 999px; padding: 7px 13px; font-size: 14px; font-weight: 600; }
+  h2 { scroll-margin-top: 70px; }
+  .levels { display: flex; flex-direction: column; gap: 10px; }
+  .lvh { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; margin-bottom: 10px; }
+  .lvh .mchip { font-size: 14px; padding: 4px 10px; }
+  .ncl { display: flex; flex-wrap: wrap; gap: 6px; }
+  .nc { display: inline-flex; align-items: center; gap: 5px; font-size: 14px; padding: 5px 10px; border-radius: 8px; background: #f4f7fa; text-decoration: none; }
+  .nc small { font-size: 11px; color: var(--sub); }
+  .nc.mine { background: #fff; border: 1.5px solid var(--sea); font-weight: 600; }
+</style>

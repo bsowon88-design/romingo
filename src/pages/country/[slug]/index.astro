@@ -1,0 +1,121 @@
+---
+import Base from '../../../layouts/Base.astro';
+import CountryShell from '../../../components/CountryShell.astro';
+import Flag from '../../../components/Flag.astro';
+import { COUNTRIES, flagOf, tzDiff, tzDiffText } from '../../../data/countries.js';
+import { countryStatus, STATUS_KO, countryAlarm, ALARM_KO, HAS_ALARMS, countryRate } from '../../../data/load.js';
+import { CITIES } from '../../../data/cities.js';
+import { HAS_CLIMATE, climateOf, travelScore, scoreLabel, t1 } from '../../../data/weather.js';
+import { GUIDES } from '../../../data/guides.js';
+import { kstDate } from '../../../data/place.js';
+
+export function getStaticPaths() {
+  return COUNTRIES.map((c) => ({ params: { slug: c.slug }, props: { c } }));
+}
+
+const { c } = Astro.props;
+const st = countryStatus(c.slug);
+const S = STATUS_KO[st.level];
+const alarm = countryAlarm(c);
+const rate = countryRate(c);
+const diff = tzDiff(c.tz);
+const nowM = +new Intl.DateTimeFormat('en-US', { timeZone: 'Asia/Seoul', month: 'numeric' }).format(new Date());
+const wc = CITIES.filter((x) => x.country === c.slug && HAS_CLIMATE(x.slug)).map((x) => {
+  const d = climateOf(x.slug).m[nowM - 1];
+  return { x, d, s: scoreLabel(travelScore(d)) };
+});
+const guides = GUIDES.map((g) => CITIES.find((x) => x.slug === g.city)).filter((x) => x && x.country === c.slug);
+const others = COUNTRIES.filter((x) => x.region === c.region && x.slug !== c.slug);
+const partial = alarm && alarm.levels.length && alarm.levels.every((l) => /일부/.test(l.region));
+
+const title = `${c.ko} 여행 정보 - 지금 가도 괜찮을까? 안전·날씨·환율`;
+const desc = `${c.ko} 여행 전 한눈에: 안전 상태, 외교부 여행경보, ${nowM}월 날씨, ${tzDiffText(diff)}, ${c.volt} ${c.plug}${rate ? `, 환율 ${rate.line1}` : ''}.`;
+---
+<Base title={title} desc={desc}>
+  <CountryShell c={c}>
+    <section class="sumgrid">
+      <a class={`card sbox s-${st.level}`} href={`/country/${c.slug}/safety/`}>
+        <span class="tl">자연재난</span>
+        <span class={`badge b-${st.level}`}>{S.label}</span>
+        <small>{S.note}</small>
+      </a>
+      <a class="card sbox" href={`/country/${c.slug}/safety/`}>
+        <span class="tl">외교부 여행경보</span>
+        {alarm && alarm.max ? (
+          <span class={`mchip ${ALARM_KO[alarm.max].cls}`}>{partial ? '일부 지역 ' : ''}최고 {alarm.max}단계 {ALARM_KO[alarm.max].label}</span>
+        ) : (
+          <b>{HAS_ALARMS ? '내려진 경보 없음' : '외교부 안내 확인'}</b>
+        )}
+        <small>지역별 단계 보기 →</small>
+      </a>
+    </section>
+
+    <h2>⚡ 한눈에</h2>
+    <div class="tiles">
+      <a class="tile" href={`/country/${c.slug}/info/`}><span class="tl">시차</span><b>{tzDiffText(diff)}</b></a>
+      <a class={`tile ${rate ? 'rate' : ''}`} href={`/country/${c.slug}/info/`}><span class="tl">환율</span><b class={rate ? 'rv' : ''}>{rate ? rate.line1 : c.currency}</b>{rate && <small>{rate.line2}</small>}</a>
+      <a class="tile" href={`/country/${c.slug}/info/`}><span class="tl">전압·플러그</span><b>{c.volt} · {c.plug}</b><small class={c.adapter ? 'need' : 'ok'}>{c.adapter ? '변환 어댑터 필요' : '한국 플러그 대부분 사용 가능'}</small></a>
+      {c.flight && <a class="tile" href={`/country/${c.slug}/info/`}><span class="tl">인천에서 직항</span><b>{c.flight}</b></a>}
+    </div>
+
+    {wc.length > 0 && (
+      <>
+        <h2>🌤️ 지금({nowM}월) 날씨</h2>
+        <div class="wrow">
+          {wc.map(({ x, d, s }) => (
+            <a class="card wbox" href={`/weather/${x.slug}/${nowM}/`}>
+              <b>{x.ko}</b>
+              <span class="tmp"><span class="lo">{t1(d.lo)}</span> ~ <span class="hi">{t1(d.hi)}</span></span>
+              <span class={`sc ${s.cls}`}>{s.label}</span>
+            </a>
+          ))}
+        </div>
+        <a class="more" href={`/country/${c.slug}/weather/`}>도시별 월별 날씨 전체 →</a>
+      </>
+    )}
+
+    {guides.length > 0 && (
+      <>
+        <h2>📖 도시 가이드</h2>
+        <div class="chips">{guides.map((x) => <a href={`/guide/${x.slug}/`}>{x.ko} 여행 가이드</a>)}</div>
+      </>
+    )}
+
+    <h2>✅ 출발 전 체크리스트</h2>
+    <ul class="card list">
+      <li>외교부 해외안전여행 앱에서 <b>동행서비스</b>를 신청하면 현지 안전 소식을 받을 수 있어요.</li>
+      <li>여행자보험에 자연재해로 인한 일정 취소·지연이 보장되는지 확인하세요.</li>
+      {c.adapter && <li>{c.plug} 콘센트용 <b>변환 어댑터</b>를 챙기세요.</li>}
+      <li>긴급 연락처(현지 경찰·영사콜센터)를 휴대폰에 저장해 두세요. <a href={`/country/${c.slug}/info/`}>번호 보기</a></li>
+    </ul>
+
+    {others.length > 0 && (
+      <>
+        <h2>🗺️ 비슷한 여행지</h2>
+        <div class="chips">{others.map((o) => <a href={`/country/${o.slug}/`}><Flag iso={flagOf(o)} size={18} /> {o.ko}</a>)}</div>
+      </>
+    )}
+    <p class="muted" style="margin-top:20px">{kstDate(Date.now())} 기준 · 기본 정보는 바뀔 수 있어요. 출발 전에 외교부 안내로 한 번 더 확인하세요.</p>
+  </CountryShell>
+</Base>
+
+<style>
+  .sumgrid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-top: 14px; }
+  .sbox { display: flex; flex-direction: column; gap: 6px; align-items: flex-start; text-decoration: none; }
+  .sbox:hover { border-color: var(--sea); }
+  .sbox .badge, .sbox .mchip { font-size: 14px; padding: 5px 11px; }
+  .sbox small { color: var(--sub); }
+  .s-alert { border-color: #f1b3b4; background: #fff5f5; }
+  .s-watch { border-color: #f4cfa8; background: #fffaf3; }
+  .wrow { display: grid; grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); gap: 10px; }
+  .wbox { display: flex; flex-direction: column; gap: 4px; text-decoration: none; }
+  .wbox:hover { border-color: var(--sea); }
+  .tmp { font-weight: 700; }
+  .hi { color: #d9603b; } .lo { color: #2f78c4; }
+  .sc { align-self: flex-start; font-size: 12px; font-weight: 700; padding: 2px 8px; border-radius: 999px; }
+  .sc.good { background: #dff3e8; color: #1d7a4c; }
+  .sc.ok { background: #eef1f4; color: #55636e; }
+  .sc.bad { background: #fde8e3; color: #b3452a; }
+  .list a { color: var(--sea); }
+  @media (max-width: 620px) { .sumgrid { grid-template-columns: 1fr; } }
+</style>

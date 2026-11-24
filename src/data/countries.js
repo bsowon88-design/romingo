@@ -156,6 +156,9 @@ export const EXTRA_KO = {
 
 export const bySlug = Object.fromEntries(COUNTRIES.map((c) => [c.slug, c]));
 
+// 국기 그림 코드 (소문자 2자리)
+export const flagOf = (c) => (c.fi || (c.iso2 && c.iso2[0]) || '').toLowerCase();
+
 const ISO_TO_SLUG = {};
 for (const c of COUNTRIES) for (const i of c.iso3) ISO_TO_SLUG[i] = c.slug;
 export function slugFromIso3(iso3) {

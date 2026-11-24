@@ -1,4 +1,6 @@
 ---
+import Flag from '../../../components/Flag.astro';
+import { flagOf } from '../../../data/countries.js';
 import Base from '../../../layouts/Base.astro';
 import { CITIES } from '../../../data/cities.js';
 import { bySlug } from '../../../data/countries.js';
@@ -34,7 +36,7 @@ const desc = `${city.ko} ${m}월 평균 최고 ${t1(d.hi)}, 최저 ${t1(d.lo)}, 
 
   <section class={`whero ${sl.cls}`}>
     <div>
-      <p class="eyebrow">{co.flag} {co.ko}</p>
+      <p class="eyebrow"><Flag iso={flagOf(co)} /> {co.ko}</p>
       <h1>{city.ko} {m}월 날씨</h1>
       <p class="sum">{cw.icon} 평균 {t1(d.lo)} ~ {t1(d.hi)} · {rn.label}</p>
     </div>
@@ -77,7 +79,7 @@ const desc = `${city.ko} ${m}월 평균 최고 ${t1(d.hi)}, 최저 ${t1(d.lo)}, 
   <h2>🧳 {co.ko} 여행 전에</h2>
   <div class="links">
     {guideByCity[city.slug] && <a class="btn coral" href={`/guide/${city.slug}/`}>📖 {city.ko} 여행 가이드</a>}
-    <a class="btn" href={`/country/${co.slug}/`}>{co.flag} {co.ko} 안전·환율·긴급번호 보기</a>
+    <a class="btn" href={`/country/${co.slug}/`}><Flag iso={flagOf(co)} /> {co.ko} 안전·환율·긴급번호 보기</a>
   </div>
 
   {sameCountry.length > 0 && (

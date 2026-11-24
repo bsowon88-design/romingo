@@ -7,6 +7,8 @@ import { COUNTRIES, bySlug, flagOf } from '../data/countries.js';
 import { CITIES } from '../data/cities.js';
 import { HAS_CLIMATE, climateOf, travelScore, t1 } from '../data/weather.js';
 import { GUIDES } from '../data/guides.js';
+import PhotoCredit from '../components/PhotoCredit.astro';
+import { cityPhoto } from '../data/photos.js';
 
 // 인기 여행지 (처음에 보이는 카드)
 const POP = ['japan', 'vietnam', 'thailand', 'philippines', 'taiwan', 'china', 'guam-saipan', 'singapore'];
@@ -56,6 +58,7 @@ const guides = GUIDES.map((g) => CITIES.find((x) => x.slug === g.city)).filter(B
           const co = bySlug[x.country];
           return (
             <a class="gn" href={`/weather/${x.slug}/${nowM}/`}>
+              {cityPhoto(x.slug) && <span class="gnimg hasbg"><img class="bgimg" src={cityPhoto(x.slug).src(360, 200)} alt={x.ko} loading="lazy" /><PhotoCredit p={cityPhoto(x.slug)} link={false} /></span>}
               <span class="gnh"><Flag iso={flagOf(co)} size={20} /> <b>{x.ko}</b></span>
               <span class="gnt"><span class="lo">{t1(d.lo)}</span> ~ <span class="hi">{t1(d.hi)}</span></span>
               <span class="muted">{co.ko}</span>
@@ -139,7 +142,8 @@ const guides = GUIDES.map((g) => CITIES.find((x) => x.slug === g.city)).filter(B
   .cwrap.hide { display: none; }
   .cwrap > :global(a) { height: 100%; }
   .good { display: grid; grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); gap: 10px; }
-  .gn { display: flex; flex-direction: column; gap: 2px; background: #fff; border: 1px solid var(--line); border-radius: 14px; padding: 12px 14px; text-decoration: none; }
+  .gn { display: flex; flex-direction: column; gap: 2px; background: #fff; border: 1px solid var(--line); border-radius: 14px; padding: 12px 14px; text-decoration: none; overflow: hidden; }
+  .gnimg { display: block; height: 96px; margin: -12px -14px 8px; }
   .gn:hover { border-color: var(--sea); }
   .gnh { display: flex; align-items: center; gap: 6px; }
   .gnt { font-weight: 700; font-size: 15px; }

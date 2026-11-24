@@ -1,0 +1,16 @@
+---
+// 사진 작가 표시 (Unsplash 규칙). link=false 면 글자만 (링크 안에 링크를 못 넣는 곳)
+const { p, link = true } = Astro.props;
+---
+{p && (
+  link ? (
+    <span class="pcredit">Photo by <a href={p.userUrl} target="_blank" rel="noopener">{p.name}</a> on <a href={p.unsplashUrl} target="_blank" rel="noopener">Unsplash</a></span>
+  ) : (
+    <span class="pcredit">Photo · {p.name} / Unsplash</span>
+  )
+)}
+
+<style>
+  .pcredit { position: absolute; right: 10px; bottom: 7px; z-index: 2; font-size: 10.5px; color: rgba(255,255,255,.85); text-shadow: 0 1px 2px rgba(0,0,0,.6); line-height: 1.2; }
+  .pcredit a { color: #fff; }
+</style>

@@ -7,6 +7,7 @@ import {
 import { fetchAlarms, fetchAdjusts } from './mofa.mjs';
 import { fetchRates } from './ecos.mjs';
 import { fetchClimate } from './climate.mjs';
+import { fetchPhotos } from './photos.mjs';
 import { CITIES, SEOUL } from '../src/data/cities.js';
 
 const Q_FILE = new URL('../src/data/archive/quakes.json', import.meta.url);
@@ -15,6 +16,7 @@ const A_FILE = new URL('../src/data/archive/alarms.json', import.meta.url);
 const J_FILE = new URL('../src/data/archive/adjusts.json', import.meta.url);
 const R_FILE = new URL('../src/data/archive/rates.json', import.meta.url);
 const C_FILE = new URL('../src/data/archive/climate.json', import.meta.url);
+const P_FILE = new URL('../src/data/archive/photos.json', import.meta.url);
 
 async function readList(file) {
   try {
@@ -115,6 +117,24 @@ try {
   if (todo.length) changed = (await save(C_FILE, old, clim, '날씨')) || changed;
 } catch (e) {
   console.warn('날씨 수집 실패:', e.message);
+}
+
+// 대표 사진 — 키가 있을 때, 아직 없는 곳만 (한 번에 20곳)
+const UKEY = process.env.UNSPLASH_KEY;
+if (!UKEY) {
+  console.log('사진: UNSPLASH_KEY 없음, 건너뜀');
+} else {
+  try {
+    const old = await readList(P_FILE);
+    const base = Array.isArray(old) ? {} : old;
+    const { out, done, left } = await fetchPhotos(UKEY, base);
+    if (done) {
+      console.log(`사진: ${done}곳 받음, 남은 곳 ${left}`);
+      changed = (await save(P_FILE, old, out, '사진')) || changed;
+    } else console.log('사진: 새로 받을 곳 없음');
+  } catch (e) {
+    console.warn('사진 수집 실패:', e.message);
+  }
 }
 
 console.log(changed ? '→ 바뀐 것 있음' : '→ 그대로');

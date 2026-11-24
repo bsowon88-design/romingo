@@ -2,8 +2,11 @@
 // 나라 페이지 공통 머리 — 국기·이름·현지 시각·탭
 import Flag from './Flag.astro';
 import { flagOf, tzDiff, tzDiffText } from '../data/countries.js';
+import PhotoCredit from './PhotoCredit.astro';
+import { countryPhoto } from '../data/photos.js';
 const { c, tab = '' } = Astro.props;
 const diff = tzDiff(c.tz);
+const ph = countryPhoto(c.slug);
 const tabs = [
   ['', '개요'],
   ['safety', '안전'],
@@ -16,7 +19,9 @@ const label = tabs.find((t) => t[0] === tab)?.[1];
 <div class="cty">
   <p class="crumb"><a href="/">홈</a> › <a href="/country/">나라별</a> › {tab ? <a href={`/country/${c.slug}/`}>{c.ko}</a> : c.ko}{tab && ` › ${label}`}</p>
 
-  <section class="chero" style={`--c1:${c.color[0]};--c2:${c.color[1]}`}>
+  <section class:list={['chero', 'hasbg', { photo: ph }]} style={`--c1:${c.color[0]};--c2:${c.color[1]}`}>
+    {ph && <img class="bgimg" src={ph.src(1200, 420)} srcset={ph.srcset(1200, 420)} alt={ph.alt || c.ko} style={`background:${ph.color}`} />}
+    {ph && <PhotoCredit p={ph} />}
     <span class="hflag"><Flag iso={flagOf(c)} size={64} alt={`${c.ko} 국기`} /></span>
     <div>
       <h1>{c.ko}{tab ? ` ${label}` : ' 여행 정보'}</h1>
@@ -42,6 +47,7 @@ const label = tabs.find((t) => t[0] === tab)?.[1];
     margin-top: 10px; padding: 24px 22px; border-radius: 22px; color: #fff;
     background: radial-gradient(circle at 95% 0%, rgba(255,255,255,.28) 0 90px, transparent 91px), linear-gradient(135deg, var(--c1), var(--c2));
   }
+  .cty .chero.photo { min-height: 220px; align-items: end; padding-bottom: 26px; }
   .cty .hflag .flag { border-radius: 6px; box-shadow: 0 3px 10px rgba(0,0,0,.2), 0 0 0 2px rgba(255,255,255,.85); }
   .cty .chero h1 { margin: 0; font-size: 28px; text-shadow: 0 1px 2px rgba(0,0,0,.15); }
   .cty .hcities { margin: 2px 0 0; opacity: .92; font-weight: 500; }
@@ -75,7 +81,8 @@ const label = tabs.find((t) => t[0] === tab)?.[1];
 
   @media (max-width: 620px) {
     .cty .chero { grid-template-columns: auto 1fr; padding: 20px 16px; }
-    .cty .hflag .flag { width: 48px; height: 36px; }
+    .cty .chero.photo { min-height: 220px; align-items: end; padding-bottom: 26px; }
+  .cty .hflag .flag { width: 48px; height: 36px; }
     .cty .chero h1 { font-size: 23px; }
     .cty .hclock { grid-column: 1 / -1; flex-direction: row; align-items: baseline; gap: 8px; flex-wrap: wrap; }
     .cty .tiles { grid-template-columns: 1fr 1fr; }

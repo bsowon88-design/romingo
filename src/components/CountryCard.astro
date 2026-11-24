@@ -2,15 +2,20 @@
 import { STATUS_KO, ALARM_KO } from '../data/load.js';
 import { tzDiff, tzDiffText, flagOf } from '../data/countries.js';
 import Flag from './Flag.astro';
+import PhotoCredit from './PhotoCredit.astro';
+import { countryPhoto } from '../data/photos.js';
 const { c } = Astro.props;
 const st = c.st;
 const diff = tzDiff(c.tz);
+const ph = countryPhoto(c.slug);
 const al = c.alarm && c.alarm.max ? c.alarm : null;
 const partial = al && al.levels.every((l) => /일부/.test(l.region));
 ---
 <a class="ccard" href={`/country/${c.slug}/`} data-name={`${c.ko} ${c.cities.join(' ')}`}
    style={`--c1:${c.color[0]};--c2:${c.color[1]}`}>
-  <span class="ctop">
+  <span class:list={['ctop', 'hasbg', { photo: ph }]}>
+    {ph && <img class="bgimg" src={ph.src(480, 270)} srcset={ph.srcset(480, 270)} alt={ph.alt || c.ko} loading="lazy" decoding="async" style={`background:${ph.color}`} />}
+    {ph && <PhotoCredit p={ph} link={false} />}
     <span class="cflag"><Flag iso={flagOf(c)} size={42} alt={`${c.ko} 국기`} /></span>
     <span class={`badge b-${st.level}`}>{STATUS_KO[st.level].label}</span>
   </span>
@@ -27,9 +32,10 @@ const partial = al && al.levels.every((l) => /일부/.test(l.region));
 <style>
   .ccard { display: flex; flex-direction: column; text-decoration: none; background: #fff; border: 1px solid var(--line); border-radius: 16px; overflow: hidden; transition: transform .15s, box-shadow .15s; }
   .ccard:hover { transform: translateY(-2px); box-shadow: 0 8px 22px rgba(20,35,47,.08); }
-  .ctop { display: flex; justify-content: space-between; align-items: flex-start; padding: 14px 14px 26px; background: linear-gradient(135deg, var(--c1), var(--c2)); }
+  .ctop { display: flex; justify-content: space-between; align-items: flex-start; padding: 14px 14px 26px; min-height: 76px; background: linear-gradient(135deg, var(--c1), var(--c2)); }
   .cflag { line-height: 0; }
   .cflag :global(.flag) { border-radius: 5px; box-shadow: 0 2px 6px rgba(0,0,0,.18), 0 0 0 2px rgba(255,255,255,.9); }
+  .ctop.photo { min-height: 118px; }
   .ctop .badge { box-shadow: 0 0 0 2px rgba(255,255,255,.9); }
   .cbody { display: flex; flex-direction: column; gap: 2px; padding: 10px 14px 13px; }
   .cbody b { font-size: 17px; letter-spacing: -0.01em; }

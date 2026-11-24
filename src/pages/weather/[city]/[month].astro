@@ -5,6 +5,8 @@ import Base from '../../../layouts/Base.astro';
 import { CITIES } from '../../../data/cities.js';
 import { bySlug } from '../../../data/countries.js';
 import { guideByCity } from '../../../data/guides.js';
+import PhotoCredit from '../../../components/PhotoCredit.astro';
+import { cityPhoto } from '../../../data/photos.js';
 import { HAS_CLIMATE, climateOf, seoulM, MONTHS, clothes, rainInfo, travelScore, scoreLabel, bestMonths, t1 } from '../../../data/weather.js';
 
 export function getStaticPaths() {
@@ -18,6 +20,7 @@ const co = bySlug[city.country];
 const cl = climateOf(city.slug);
 const d = cl.m[m - 1];
 const cw = clothes(d);
+const ph = cityPhoto(city.slug);
 const rn = rainInfo(d);
 const score = travelScore(d);
 const sl = scoreLabel(score);
@@ -34,7 +37,9 @@ const desc = `${city.ko} ${m}월 평균 최고 ${t1(d.hi)}, 최저 ${t1(d.lo)}, 
 <Base title={title} desc={desc}>
   <p class="crumb"><a href="/">홈</a> › <a href="/weather/">월별 날씨</a> › <a href={`/weather/${city.slug}/`}>{city.ko}</a> › {m}월</p>
 
-  <section class={`whero ${sl.cls}`}>
+  <section class:list={['whero', sl.cls, 'hasbg', { photo: ph }]}>
+    {ph && <img class="bgimg" src={ph.src(1200, 380)} srcset={ph.srcset(1200, 380)} alt={ph.alt || city.ko} style={`background:${ph.color}`} />}
+    {ph && <PhotoCredit p={ph} />}
     <div>
       <p class="eyebrow"><Flag iso={flagOf(co)} /> {co.ko}</p>
       <h1>{city.ko} {m}월 날씨</h1>
@@ -96,6 +101,8 @@ const desc = `${city.ko} ${m}월 평균 최고 ${t1(d.hi)}, 최저 ${t1(d.lo)}, 
   .whero { display: flex; justify-content: space-between; align-items: center; gap: 16px; margin-top: 10px; padding: 24px 22px; border-radius: 20px; color: #fff; background: linear-gradient(135deg, #0a84c6, #49d1b4); }
   .whero.ok { background: linear-gradient(135deg, #4b6b86, #7fa6b8); }
   .whero.bad { background: linear-gradient(135deg, #6a7a8a, #9aa7b3); }
+  .whero.photo { min-height: 200px; align-items: flex-end; padding-bottom: 28px; }
+  .whero.photo .score { background: rgba(0,0,0,.35); }
   .eyebrow { margin: 0; font-weight: 700; opacity: .9; }
   .whero h1 { margin: 2px 0 4px; font-size: 30px; }
   .sum { margin: 0; font-weight: 600; }

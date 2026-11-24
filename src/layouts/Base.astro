@@ -53,7 +53,7 @@ const isOn = (href) => (href === '/' ? path === '/' : path.startsWith(href) || (
     <div class="wrap">
       <p><b>자료 출처</b> 미국 지질조사국(USGS) · 국제 재난경보(GDACS) — 공식 데이터를 자동으로 정리해요. 나라 기본 정보는 여행 전에 한 번 더 확인하세요.</p>
       <p>로밍고는 참고용 정보예요. 여행 전에는 꼭 <a href={MOFA_URL} target="_blank" rel="noopener">외교부 해외안전여행</a>과 현지 정부·항공사 공지를 확인하세요.</p>
-      <p class="foot-links"><a href="/about/">로밍고 소개</a> · <a href="/privacy/">개인정보처리방침</a></p>
+      <p class="foot-links"><a href="/about/">로밍고 소개</a> · <a href="/privacy/">개인정보처리방침</a> · <a href="/credits/">사진 출처</a></p>
       <p class="copy">© {new Date().getFullYear()} {SITE_NAME}</p>
     </div>
   </footer>
@@ -125,6 +125,9 @@ const isOn = (href) => (href === '/' ? path === '/' : path.startsWith(href) || (
   .top nav a.on, .top nav a:hover { background: #e8f3fb; color: var(--sea); opacity: 1; font-weight: 600; }
   .burger { display: none; background: none; border: 0; width: 40px; height: 40px; padding: 9px; cursor: pointer; }
   .burger span { display: block; height: 2px; background: var(--ink); margin: 5px 0; border-radius: 2px; transition: .2s; }
+  .hasbg { position: relative; overflow: hidden; isolation: isolate; }
+  .hasbg > .bgimg { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; z-index: -2; }
+  .hasbg.photo::after { content: ''; position: absolute; inset: 0; z-index: -1; background: linear-gradient(180deg, rgba(0,0,0,.15) 0%, rgba(0,0,0,.55) 100%); }
   .flag { display: inline-block; vertical-align: -2px; border-radius: 2px; box-shadow: 0 0 0 1px rgba(0,0,0,.08); object-fit: cover; }
   @media (max-width: 760px) {
     .logo small { display: none; }

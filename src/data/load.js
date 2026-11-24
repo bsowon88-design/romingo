@@ -4,6 +4,7 @@ import quakeArchive from './archive/quakes.json';
 import disasterArchive from './archive/disasters.json';
 import alarmArchive from './archive/alarms.json';
 import adjustArchive from './archive/adjusts.json';
+import rateArchive from './archive/rates.json';
 import { USGS_MONTH, gdacsUrl, normQuake, normDisaster, mergeById, getJson } from './normalize.js';
 import { COUNTRIES, slugFromIso3 } from './countries.js';
 import { countryOf } from './place.js';
@@ -100,3 +101,17 @@ export function countryAdjusts(c, n = 5) {
 export const latestAdjusts = (adjustArchive || []).slice(0, 6);
 
 export const countryCards = COUNTRIES.map((c) => ({ ...c, st: countryStatus(c.slug), alarm: countryAlarm(c) }));
+
+// ── 한국은행 환율 ──
+const fmtNum = (n) => (n >= 100 ? Math.round(n).toLocaleString('ko-KR') : n >= 1 ? n.toFixed(2).replace(/\.?0+$/, '') : n.toFixed(4).replace(/0+$/, ''));
+export function countryRate(c) {
+  const r = c.cur && rateArchive?.[c.cur];
+  if (!r || !r.value) return null;
+  const perWon = (10000 / r.value) * r.unit; // 1만 원으로 바꾸면
+  const d = String(r.date || '');
+  return {
+    line1: `${r.unit.toLocaleString('ko-KR')}${c.curName} = ${fmtNum(r.value)}원`,
+    line2: `1만 원 ≈ ${fmtNum(perWon)}${c.curName}`,
+    date: d.length === 8 ? `${d.slice(0, 4)}.${d.slice(4, 6)}.${d.slice(6)}` : d,
+  };
+}

@@ -5,11 +5,13 @@ import {
   USGS_MONTH, gdacsUrl, normQuake, normDisaster, mergeById, getJson, ARCHIVE_MIN_MAG,
 } from '../src/data/normalize.js';
 import { fetchAlarms, fetchAdjusts } from './mofa.mjs';
+import { fetchRates } from './ecos.mjs';
 
 const Q_FILE = new URL('../src/data/archive/quakes.json', import.meta.url);
 const D_FILE = new URL('../src/data/archive/disasters.json', import.meta.url);
 const A_FILE = new URL('../src/data/archive/alarms.json', import.meta.url);
 const J_FILE = new URL('../src/data/archive/adjusts.json', import.meta.url);
+const R_FILE = new URL('../src/data/archive/rates.json', import.meta.url);
 
 async function readList(file) {
   try {
@@ -73,6 +75,22 @@ if (!KEY) {
     } else console.warn('여행경보 조정: 받은 것 없음');
   } catch (e) {
     console.warn('여행경보 조정 수집 실패:', e.message);
+  }
+}
+
+// 한국은행 환율 — 키가 있을 때만
+const EKEY = process.env.ECOS_KEY;
+if (!EKEY) {
+  console.log('환율: ECOS_KEY 없음, 건너뜀');
+} else {
+  try {
+    const rates = await fetchRates(EKEY);
+    if (Object.keys(rates).length) {
+      const old = await readList(R_FILE);
+      changed = (await save(R_FILE, old, rates, '환율')) || changed;
+    } else console.warn('환율: 받은 것 없음');
+  } catch (e) {
+    console.warn('환율 수집 실패:', e.message);
   }
 }
 

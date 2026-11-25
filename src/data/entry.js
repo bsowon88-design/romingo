@@ -40,7 +40,11 @@ export const ENTRY = {
   hongkong: {
     kind: 'free', stay: '90일 무비자',
     items: [],
-    notes: ['미리 신청할 것이 없어요.'],
+  },
+  macau: {
+    kind: 'free', stay: '90일 무비자',
+    items: [],
+    notes: ['홍콩 달러도 거의 같은 값으로 받아요. 거스름돈은 파타카로 줘요.', '홍콩·중국 본토와 입국 심사가 따로예요. 마카오에서 주하이(중국 본토)로 넘어가면 중국 입국 규칙을 따라요.'],
   },
   vietnam: {
     kind: 'free', stay: '45일 무비자',

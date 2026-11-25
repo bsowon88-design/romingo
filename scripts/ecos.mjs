@@ -21,6 +21,10 @@ export const CUR_KEYS = {
   TRY: ['튀르키예', '터키'],
   NPR: ['네팔'],
   HKD: ['홍콩'],
+  GBP: ['영국파운드', '영국 파운드', '파운드스털링'],
+  CHF: ['스위스프랑', '스위스 프랑'],
+  CZK: ['체코'],
+  AED: ['아랍에미리트', 'UAE', '디르함'],
 };
 
 const ymd = (d) => d.toISOString().slice(0, 10).replace(/-/g, '');

@@ -22,6 +22,7 @@ const ALIAS = {
   hangzhou: '항주 서호', guangzhou: '광주 광동', shenzhen: '심천', shenyang: '심양', dalian: '대련', nanjing: '남경', yantai: '연대', harbin: '하얼삔 빙등제',
   dalat: '다랏 달라트', krabi: '크라비 아오낭 라일레이', kohsamui: '사무이 꼬사무이', clark: '클라크 앙헬레스 팜팡가', palawan: '엘니도 코론 푸에르토프린세사',
   penang: '피낭 조지타운', langkawi: '랑까위', vientiane: '위앙짠 방비엥', luangprabang: '루앙 프라방', siemreap: '시엠립 시엠레아프 앙코르와트 앙코르',
+  paris: '빠리 에펠탑 루브르', london: '런던아이 빅벤', barcelona: '바르샤 가우디', madrid: '마드릿', prague: '쁘라하 체스키', zurich: '쮜리히 루체른', interlaken: '융프라우 그린델발트', dubai: '두바이몰 부르즈할리파 아부다비',
   taichung: '대중 타이충', ulaanbaatar: '울란바타르 울란바아타르 테를지 몽고', kagoshima: '사쿠라지마', matsuyama: '도고온천 시코쿠', takamatsu: '나오시마 시코쿠', shizuoka: '후지산', queenstown: '퀸즈타운', cappadocia: '괴레메 카파도키아', santorini: '이아 피라', venice: '베네치아', florence: '피렌체', rome: '로마',
 };
 

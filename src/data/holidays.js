@@ -47,7 +47,12 @@ const KO = {
   'Democracy and National Unity Day': '민주주의·국민 통합의 날', 'Victory Day': '승전 기념일', 'Republic Day': '공화국 선포일',
   'Epiphany': '주현절', 'Clean Monday': '사순절 첫날', 'Annunciation, Anniversary of 1821 Revolution': '독립기념일', 'Pentecost': '오순절', 'Whit Monday': '오순절 월요일',
   'Assumption': '성모 승천일', 'Ohi Day': '오히 데이', 'Liberation from Nazi-Fascism (1945)': '해방 기념일', 'National Day of Saint Francis of Assisi': '성 프란치스코 축일',
-  'Immaculate Conception': '성모 무염시태 축일', 'Army Day': '건군절', 'Youth Day': '청년절', 'International Women’s Day': '세계 여성의 날', 'Vietnam Culture Day': '베트남 문화의 날',
+  'Immaculate Conception': '성모 무염시태 축일', 'Bastille Day': '혁명 기념일 (바스티유의 날)', 'Armistice Day': '1차 대전 휴전 기념일',
+  'Early May bank holiday': '5월 초 뱅크 홀리데이', 'Spring bank holiday': '봄 뱅크 홀리데이', 'Summer bank holiday': '여름 뱅크 홀리데이',
+  'Fiesta Nacional de España': '스페인 국경일', 'Día de la Constitución Española': '스페인 헌법의 날', 'Saints Cyril and Methodius Day': '키릴·메토디우스 축일',
+  'Jan Hus Day': '얀 후스의 날', 'St. Wenceslas Day (Czech Statehood Day)': '체코 국가의 날', 'Independent Czechoslovak State Day': '체코슬로바키아 독립기념일',
+  'Struggle for Freedom and Democracy Day': '자유·민주주의 투쟁 기념일', 'Christmas Eve': '성탄절 전날', 'Bundesfeiertag': '스위스 건국기념일',
+  'Federal Day of Thanksgiving, Repentance and Prayer': '연방 감사·기도의 날', 'First day of Ramadan': '라마단 시작', 'Army Day': '건군절', 'Youth Day': '청년절', 'International Women’s Day': '세계 여성의 날', 'Vietnam Culture Day': '베트남 문화의 날',
 };
 const ko = (n) => {
   const sub = /\(substitute day\)/.test(n);

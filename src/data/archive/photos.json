@@ -1618,5 +1618,55 @@
   "userUrl": "https://unsplash.com/@ibuzn",
   "page": "https://unsplash.com/photos/suleymaniye-mosque-skyline-in-istanbul-2uemAqyp9rk",
   "pick": 0
+ },
+ "city:cappadocia": {
+  "id": "gS4LvZJRn3U",
+  "raw": "https://images.unsplash.com/photo-1641885789658-29ecd57e3087?ixid=M3wxMTQzNTA5fDB8MXxzZWFyY2h8MXx8Q2FwcGFkb2NpYSUyMGxhbmRzY2FwZXxlbnwxfDB8fHwxNzk1NTY5MTcyfDA&ixlib=rb-4.1.0",
+  "color": "#c0c0d9",
+  "alt": "a scenic view of a city with mountains in the background",
+  "name": "Ramzi Belaidi",
+  "userUrl": "https://unsplash.com/@ramzibelaidi",
+  "page": "https://unsplash.com/photos/a-scenic-view-of-a-city-with-mountains-in-the-background-gS4LvZJRn3U",
+  "pick": 0
+ },
+ "city:athens": {
+  "id": "yqBvJJ8jGBQ",
+  "raw": "https://images.unsplash.com/photo-1603565816030-6b389eeb23cb?ixid=M3wxMTQzNTA5fDB8MXxzZWFyY2h8MXx8QXRoZW5zJTIwQWNyb3BvbGlzfGVufDF8MHx8fDE3OTU1NjkxNzJ8MA&ixlib=rb-4.1.0",
+  "color": "#8c8c8c",
+  "alt": "acropolis of athens at golden hour",
+  "name": "Constantinos Kollias",
+  "userUrl": "https://unsplash.com/@ckollias",
+  "page": "https://unsplash.com/photos/acropolis-of-athens-at-golden-hour-yqBvJJ8jGBQ",
+  "pick": 0
+ },
+ "city:santorini": {
+  "id": "6N2mSJsKTtA",
+  "raw": "https://images.unsplash.com/photo-1580502304784-8985b7eb7260?ixid=M3wxMTQzNTA5fDB8MXxzZWFyY2h8MXx8U2FudG9yaW5pJTIwR3JlZWNlfGVufDF8MHx8fDE3OTU1NjkxNzN8MA&ixlib=rb-4.1.0",
+  "color": "#262626",
+  "alt": "White buildings on a cliffside in Oia, Greece, illuminated by warm evening light",
+  "name": "James Ting",
+  "userUrl": "https://unsplash.com/@jamesting",
+  "page": "https://unsplash.com/photos/white-buildings-on-oia-cliffside-6N2mSJsKTtA",
+  "pick": 0
+ },
+ "city:rome": {
+  "id": "0Bs3et8FYyg",
+  "raw": "https://images.unsplash.com/photo-1531572753322-ad063cecc140?ixid=M3wxMTQzNTA5fDB8MXxzZWFyY2h8Mnx8Um9tZSUyMEl0YWx5fGVufDF8MHx8fDE3OTU1NjkxNzN8MA&ixlib=rb-4.1.0",
+  "color": "#c0c0c0",
+  "alt": "An aerial view of Saint Peter's Square and the city of Rome, Italy",
+  "name": "Caleb Miller",
+  "userUrl": "https://unsplash.com/@milljestic",
+  "page": "https://unsplash.com/photos/saint-peters-square-in-rome-0Bs3et8FYyg",
+  "pick": 0
+ },
+ "city:florence": {
+  "id": "NN_vPCzkU3M",
+  "raw": "https://images.unsplash.com/photo-1687817997684-c9335cce7c5c?ixid=M3wxMTQzNTA5fDB8MXxzZWFyY2h8MXx8RmxvcmVuY2UlMjBEdW9tb3xlbnwxfDB8fHwxNzk1NTY5MTc0fDA&ixlib=rb-4.1.0",
+  "color": "#73a6d9",
+  "alt": "a view of a city with a cathedral and mountains in the background",
+  "name": "Joseph Quam",
+  "userUrl": "https://unsplash.com/@jquam",
+  "page": "https://unsplash.com/photos/a-view-of-a-city-with-a-cathedral-and-mountains-in-the-background-NN_vPCzkU3M",
+  "pick": 0
  }
 }

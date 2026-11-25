@@ -1,7 +1,7 @@
 {
  "meta": {
   "day": "2026-11-25",
-  "units": 1632
+  "units": 2448
  },
  "cities": {
   "tokyo": {
@@ -1233,6 +1233,622 @@
      "views": 239828,
      "at": "2026-10-11",
      "dur": 810
+    }
+   ]
+  },
+  "kobe": {
+   "at": "2026-11-25T16:16:32.587Z",
+   "list": [
+    {
+     "id": "UoHFq4SswhI",
+     "t": "한성뚱의 혼자 일본 고베여행 브이로그 1편 (재밌음)",
+     "ch": "융감하게 bravelyyoon",
+     "cid": "UCmRS_soz03y_qE0oYAuIdbw",
+     "views": 753089,
+     "at": "2026-11-03",
+     "dur": 879
+    },
+    {
+     "id": "ovW6kvyoRW0",
+     "t": "맨날 혼자 다니는 여자의 고베여행기🍞오사카는 가라! 빵의도시는 차원이 달라",
+     "ch": "고요비koyobi",
+     "cid": "UCASXEOh4LJxWdk2hZnsfNYw",
+     "views": 213311,
+     "at": "2026-11-15",
+     "dur": 2388
+    },
+    {
+     "id": "F-UJA6aQDqE",
+     "t": "나 혼자 2박3일 고베여행. 고베 맛집 이 영상으로 종결 가능🔥먹고 걷고 앙팡맨 박물관가는 코스",
+     "ch": "해시킴",
+     "cid": "UCrcn9XpaNhBCKcq20vc5d_A",
+     "views": 181385,
+     "at": "2026-05-28",
+     "dur": 2699
+    },
+    {
+     "id": "XBb92IfWwzU",
+     "t": "고베는 처음인데요? | 빵지순례의 성지, 갓성비로 고베규 먹기, 희귀템 잔뜩 발굴한 쇼핑의메카⭐️",
+     "ch": "윤윤데",
+     "cid": "UC-Y23IE7bdrP2YOv1WbbFTA",
+     "views": 106520,
+     "at": "2026-07-28",
+     "dur": 3641
+    },
+    {
+     "id": "O6Mdt_r1wRM",
+     "t": "일본워홀 2차 드갈뻔한 오사카 고베 맛집 여행",
+     "ch": "연늘",
+     "cid": "UCU1ECZb8wRxg6iVMBDfl3GA",
+     "views": 102292,
+     "at": "2026-11-22",
+     "dur": 1837
+    },
+    {
+     "id": "XuPABFy_nEc",
+     "t": "나혼자 고베 여행 🍮 유명한 곳은 당연하고 숨겨진 보석같은 곳까지 다 찾아냄! 2박3일 고베여행 완벽 코스. 걷고 먹고 마시고 쇼핑하고. 꿀잼보장. ( + 호빵맨 ㅅㄹㅎ~ )",
+     "ch": "헤르미 hermiona",
+     "cid": "UC47IpBsAbaZZbY9Ov_SCYIg",
+     "views": 96552,
+     "at": "2026-10-16",
+     "dur": 3631
+    },
+    {
+     "id": "zc1f5izsOqM",
+     "t": "고베 2박 3일 여행 ",
+     "ch": "이누누 leenunu ",
+     "cid": "UCIRk2bwMFQyURZWZCzEhIDQ",
+     "views": 50791,
+     "at": "2026-07-13",
+     "dur": 1483
+    },
+    {
+     "id": "RRZW0dMZZOk",
+     "t": "고베 여행 완벽 가이드 🇯🇵 2박 3일 코스 | 맛집·호텔·직항·아리마온천 총정리 | 고베공항 신규 취항! 지금 고베에 가야하는 이유✈️",
+     "ch": "매주 떠나는 호캉스",
+     "cid": "UCd5gm4FmCF8PshouGOm6OXA",
+     "views": 45714,
+     "at": "2026-07-26",
+     "dur": 523
+    }
+   ]
+  },
+  "miyakojima": {
+   "at": "2026-11-25T16:16:33.410Z",
+   "list": [
+    {
+     "id": "EEJcEUUeipU",
+     "t": "미야코지마 4박 5일 여행경비 코스 총정리 (4인 가족 400만원 종결)",
+     "ch": "시수패밀리",
+     "cid": "UCXZDc9GAzBVRaz1QUImNJhg",
+     "views": 954777,
+     "at": "2026-03-21",
+     "dur": 1156
+    },
+    {
+     "id": "qevQdIfgWBk",
+     "t": "캐리어 바뀌고 폰 깨지고...😱 해외여행만 가면 억까 당하는 가족...☠️ (지후네와 미야코지마 여행, 째뜽네 완전체로 첫 해외여행)",
+     "ch": "혜진쓰 Hyejin's",
+     "cid": "UCu4X3ZAoq6nToNJNNoQuICA",
+     "views": 925050,
+     "at": "2026-04-29",
+     "dur": 2178
+    },
+    {
+     "id": "K5QuD9tuN-M",
+     "t": "🇯🇵 일본 미야코지마 여행을 0부터 제대로 알려드림",
+     "ch": "트립콤파니",
+     "cid": "UC0EQX5Z2TlaKeIw4O3ieZAQ",
+     "views": 296351,
+     "at": "2026-07-07",
+     "dur": 2372
+    },
+    {
+     "id": "03quP1ZsaLg",
+     "t": "오키나와 본섬 VS 미야코지마 VS 이시가키지마 딱 정해드림(답정너)",
+     "ch": "나나제인, 똑똑한 여행",
+     "cid": "UCZGYoRCH03Fk-LBiE9-BPSA",
+     "views": 236665,
+     "at": "2026-04-12",
+     "dur": 971
+    },
+    {
+     "id": "IzFM7e8MjlE",
+     "t": "vlog. 안 유명할 때 다녀오세요 | 3시간 거리에 있는 휴양지 미야코지마🌴| 로즈우드 호텔 후기🤩 | 엄마가 푸는 육아썰 🐥",
+     "ch": "일단이나연 NAYEON",
+     "cid": "UCbFbzOHmp04AS2ZkFSpQ4Og",
+     "views": 222830,
+     "at": "2025-12-15",
+     "dur": 1508
+    },
+    {
+     "id": "IpfN3snN_K0",
+     "t": "울릉도 갈 바에 여기 감.. 한국에서 가장 가까운, 바가지 없는 천국 섬(미야코지마)",
+     "ch": "스테이",
+     "cid": "UCSK0814m2g31CNBdIjfEfcA",
+     "views": 114612,
+     "at": "2026-06-11",
+     "dur": 1582
+    },
+    {
+     "id": "NNUstM_Ona8",
+     "t": "26년 미야코지마 여행 완벽 풀코스  - 카레부부 시즌2🏖️🐢🍧🏖️🐳",
+     "ch": "옆집사는 카레부부 CURRY BUBU",
+     "cid": "UCEg1b2hPxzsenJVwvMKeuDw",
+     "views": 71977,
+     "at": "2026-07-15",
+     "dur": 1138
+    },
+    {
+     "id": "Q5VMftAk4u4",
+     "t": "일본의 몰디브 미야코지마 3박4일🏝️ 여행 코스 총정리!🗺️ 에메랄드 바다, 스노클링 포인트, 거북이랑 수영하기, 맛집•숙소 추천, 여행코디, 휴양지룩, 휴가룩, 브이로그 vl",
+     "ch": "알로하 aloha",
+     "cid": "UC_XkLhG1aXGeeCy91uXVEBQ",
+     "views": 39009,
+     "at": "2026-08-06",
+     "dur": 2153
+    }
+   ]
+  },
+  "ishigaki": {
+   "at": "2026-11-25T16:16:34.347Z",
+   "list": [
+    {
+     "id": "KS8yJKDOyHE",
+     "t": "J와 P가 안 싸우고 여행할 수 있을까? ft. 이시가키 섬",
+     "ch": "EPIK HIGH",
+     "cid": "UCTcEu0jaf3DrsTjnGwwvsvA",
+     "views": 1793001,
+     "at": "2026-05-28",
+     "dur": 4768
+    },
+    {
+     "id": "qzCBqrv9ojE",
+     "t": "지금이 가장 저렴하게 일본 이시가키 3박 4일로 여행하는 방법",
+     "ch": "파파트래블(PAPATRAVEL)",
+     "cid": "UCbrzXpTL8AQoiG7d-JSM3wg",
+     "views": 406790,
+     "at": "2025-12-09",
+     "dur": 1022
+    },
+    {
+     "id": "nyv49GLxyUQ",
+     "t": "항공권 10만원대?! 말도 안되는 갓심비 지상낙원 [이시가키 1]",
+     "ch": "하이글로시 Hi-Glossy",
+     "cid": "UC1faLFKSWmLPNuPj-hxXJFg",
+     "views": 381271,
+     "at": "2026-07-21",
+     "dur": 2104
+    },
+    {
+     "id": "udAZWpSwqyQ",
+     "t": "요즘 뜨는 일본 소도시, 이시가키의 밤",
+     "ch": "면상구제",
+     "cid": "UCHgPjCdx8y9boMapE73iqCg",
+     "views": 347786,
+     "at": "2025-12-27",
+     "dur": 1691
+    },
+    {
+     "id": "gCLsadTM6mE",
+     "t": "계획 따윈 없는 동갑내기 부부의 되는대로 여행 | 이시가키 섬 EP.1",
+     "ch": "진돌",
+     "cid": "UCtLTQj-aLL3ov7AYEE2SofA",
+     "views": 322879,
+     "at": "2026-09-14",
+     "dur": 2687
+    },
+    {
+     "id": "03quP1ZsaLg",
+     "t": "오키나와 본섬 VS 미야코지마 VS 이시가키지마 딱 정해드림(답정너)",
+     "ch": "나나제인, 똑똑한 여행",
+     "cid": "UCZGYoRCH03Fk-LBiE9-BPSA",
+     "views": 236665,
+     "at": "2026-04-12",
+     "dur": 971
+    },
+    {
+     "id": "3rivJ1OIaog",
+     "t": "다들 천국이라 하는 이시가키.. 우기에 가면 생기는 일",
+     "ch": "물만난고기",
+     "cid": "UCMdagd99-2f2_wAnZfYw6qg",
+     "views": 138563,
+     "at": "2026-01-04",
+     "dur": 1329
+    },
+    {
+     "id": "xj0qCcKJ8ig",
+     "t": "직항으로 다녀온 일본의 몰디브｜이시가키 공항부터 우부후루 이시가키 리조트 (THE UBUFURU ISHIGAKI, ウブフル 石垣)",
+     "ch": "세세네 체크인",
+     "cid": "UChCzPqaM8Ybzs6otTOvtgXA",
+     "views": 128555,
+     "at": "2026-10-30",
+     "dur": 663
+    }
+   ]
+  },
+  "hiroshima": {
+   "at": "2026-11-25T16:16:34.999Z",
+   "list": [
+    {
+     "id": "CQ7hU7j2W3g",
+     "t": "매달 일본가는 미친사람 등장. 혼자 히로시마 여행. 맛집 쇼핑 느좋 다있고 한국인만 없어.. 왜 이제야 왔나",
+     "ch": "해시킴",
+     "cid": "UCrcn9XpaNhBCKcq20vc5d_A",
+     "views": 187658,
+     "at": "2026-10-24",
+     "dur": 3307
+    },
+    {
+     "id": "7iIfY8ivGjc",
+     "t": "️✈️ 직항 있는데, 한국인 90%가 안가는 일본  | 히로시마 • 오노미치 • 미야지마 • 토모노우라 1편 | 구글맵 공유 ",
+     "ch": "치하루 Chiharu",
+     "cid": "UCqcJmtMmC-mrsu0fd23QKVQ",
+     "views": 168218,
+     "at": "2026-06-02",
+     "dur": 1844
+    },
+    {
+     "id": "0QJPvOScV6I",
+     "t": "혼자 떠난 히로시마 미야지마 여행⛩️타베로그 1위 맥주부터 웨이팅 없는 현지인 맛집까지 힐링여행 브이로그",
+     "ch": "윤티피",
+     "cid": "UCnSxZRyyhueEfQ-A6kZTk-w",
+     "views": 136573,
+     "at": "2026-03-28",
+     "dur": 1003
+    },
+    {
+     "id": "9yOupPp66m4",
+     "t": "히로시마관광 7분만 투자하고 가세요! (일본 여행)",
+     "ch": "이팔로",
+     "cid": "UCq2QAw61RtQ3xeT2jJgt-4g",
+     "views": 64820,
+     "at": "2026-03-15",
+     "dur": 445
+    },
+    {
+     "id": "z9OnPVhzof0",
+     "t": "히로시마 여행 맛집 추천🍣 실패 없는 TOP10!",
+     "ch": "choichoi 초이초이",
+     "cid": "UCm-WCdmp9gu64vEHjxxRhSA",
+     "views": 24282,
+     "at": "2026-06-26",
+     "dur": 585
+    },
+    {
+     "id": "-aPwJ8NkUr8",
+     "t": "히로시마 여행 3박4일 뿌시기👊🏻✈️(ft.여유 낭낭하게 즐기는 곳) 미야지마∙오코노미야끼∙두부맛집∙가성비 숙소 추천∙쇼핑&이자카야🍺∙가족여행🧑‍🧒‍🧒 yosmwoori",
+     "ch": "우린",
+     "cid": "UCjrTg7jI1dyzaFSyie8tIBw",
+     "views": 19950,
+     "at": "2026-05-06",
+     "dur": 1595
+    },
+    {
+     "id": "O7KwUfV48zA",
+     "t": "[풀버전] 히로시마 여행, 이 영상 하나로 끝내기",
+     "ch": "준필드 Junfield",
+     "cid": "UCuuFU-iAOeAPU1ZDUBQU4_A",
+     "views": 10724,
+     "at": "2026-03-12",
+     "dur": 4041
+    },
+    {
+     "id": "gOHX-JI-qsw",
+     "t": "#186 | 계획이 틀어지면 틀어진대로 즐거웠던 히로시마여행 | 히로시마2박3일 여행 브이로그 | 일본직장인브이로그 | 韓国人Vlog",
+     "ch": "KIMYANGHOO김양후",
+     "cid": "UCQuzxYB1P1K6snCcLi6Ry1g",
+     "views": 10365,
+     "at": "2026-11-04",
+     "dur": 1249
+    }
+   ]
+  },
+  "kumamoto": {
+   "at": "2026-11-25T16:16:35.863Z",
+   "list": [
+    {
+     "id": "_BP2eBe2WLM",
+     "t": "🇯🇵 구마모토 여행을 0부터 제대로 알려드림",
+     "ch": "트립콤파니",
+     "cid": "UC0EQX5Z2TlaKeIw4O3ieZAQ",
+     "views": 233833,
+     "at": "2026-04-24",
+     "dur": 1773
+    },
+    {
+     "id": "TYAmX8QYxV0",
+     "t": "50만원으로 떠나는 첫 혼자 해외여행, 일본 구마모토 1화",
+     "ch": "북에서온서현경",
+     "cid": "UC4gVC69cFrMRdTBzUO7jXfA",
+     "views": 185807,
+     "at": "2026-11-14",
+     "dur": 1632
+    },
+    {
+     "id": "uOymSjOlWeY",
+     "t": "전 세계 여행객이 몰려드는 일본 구마모토｜미식가를 사로잡는 음식의 향연 【카메노이 호텔 아소】 온천♨️+아소산뷰⛰️",
+     "ch": "미니멀유목민",
+     "cid": "UCslBuOyn9Df1M3HjBaG377g",
+     "views": 135164,
+     "at": "2026-06-20",
+     "dur": 1233
+    },
+    {
+     "id": "S6IvN3GD8A8",
+     "t": "50만원으로 떠나는 첫 혼자 해외여행, 일본 구마모토 2화",
+     "ch": "북에서온서현경",
+     "cid": "UC4gVC69cFrMRdTBzUO7jXfA",
+     "views": 58537,
+     "at": "2026-11-18",
+     "dur": 2223
+    },
+    {
+     "id": "Fr4gNRhQYg0",
+     "t": "몽글몽글 구마모토 여행",
+     "ch": "이누누 leenunu ",
+     "cid": "UCIRk2bwMFQyURZWZCzEhIDQ",
+     "views": 38500,
+     "at": "2026-11-10",
+     "dur": 672
+    },
+    {
+     "id": "nnBVqOVecfU",
+     "t": "구마모토 여행 브이로그🐻 이대로만 따라 오십셔˗ˋˏ♡ˎˊ˗ 낭만 가득한 일본 소도시 갬성. 맛집부터 쇼핑 추첨템까지! ",
+     "ch": "수동이 SUDONG2",
+     "cid": "UC1V4RTa2F9TMTNq_d6Aq1jg",
+     "views": 31834,
+     "at": "2026-03-15",
+     "dur": 1947
+    },
+    {
+     "id": "LyYPDnysc5E",
+     "t": "나혼자 구마모토 여행｜🐻3박 4일 동안 쿠마몬, 원피스, 한정 맛 탐험｜소도시의 사랑스러움과 대도시의 편의가 더해진 여행지 = 사랑한다😉｜혼자 일본 소도시 여행 하는사람er",
+     "ch": "하는사람 er",
+     "cid": "UCyoHymeNEGHnSfNH033mf-A",
+     "views": 26170,
+     "at": "2026-02-28",
+     "dur": 2029
+    },
+    {
+     "id": "aqOgxzJwEEg",
+     "t": "🇯🇵 구마모토 여행 준비 2시간으로 끝내기💕 | 일본 소도시 여행 추천!",
+     "ch": "러핀 ruffin",
+     "cid": "UC99FYe3kGIv7B_3_f_cYKCQ",
+     "views": 15354,
+     "at": "2026-04-19",
+     "dur": 9590
+    }
+   ]
+  },
+  "oita": {
+   "at": "2026-11-25T16:16:36.742Z",
+   "list": [
+    {
+     "id": "T7WhHEPJGf4",
+     "t": "유후인 온천맛집 + 후쿠오카 맛집♥️ 카레부부 3박4일 여행!!",
+     "ch": "옆집사는 카레부부 CURRY BUBU",
+     "cid": "UCEg1b2hPxzsenJVwvMKeuDw",
+     "views": 206299,
+     "at": "2026-10-08",
+     "dur": 953
+    },
+    {
+     "id": "19rqMYjNiOU",
+     "t": "렌트카 없이 후쿠오카 소도시 투어♨️(벳푸/유후인/다자이후) 下ㅣ장하다 장민호 EP.36",
+     "ch": "장하다 장민호",
+     "cid": "UCMwVpslitG_uJVsLwNkO3pw",
+     "views": 153302,
+     "at": "2026-11-10",
+     "dur": 1240
+    },
+    {
+     "id": "YXTqhAaHoHQ",
+     "t": "이거지~👍🏻 집순이 가족도 인정한 유후인 료칸 & 후쿠오카 먹방 여행 코스 갑니다",
+     "ch": "누가영Nugayoung",
+     "cid": "UCOByc6akvw27KbJ1p9jn3BQ",
+     "views": 123067,
+     "at": "2026-08-03",
+     "dur": 3091
+    },
+    {
+     "id": "ewR3-z5-RBo",
+     "t": "언니 돈으로 2박 3일 후쿠오카 알차게 즐기는 법 | 유후인 일일 버스 투어 추천 | 당일 온천 무소엔 | 맛집까지 완벽하게 모십니다 | 치이카와 토벌 후기",
+     "ch": "김베개",
+     "cid": "UC9eTmj7bmixW8r-Dwt9Lbkg",
+     "views": 55920,
+     "at": "2026-11-19",
+     "dur": 1608
+    },
+    {
+     "id": "asC1tqjloqw",
+     "t": "직접 숙박하고 추천하는 유후인 온천 료칸 6곳♨️ 가격, 객실, 식사 비교",
+     "ch": "하비루비 일본여행의 모든 것",
+     "cid": "UCYUS4xTy3772slnDgDGMYsw",
+     "views": 54095,
+     "at": "2026-10-03",
+     "dur": 605
+    },
+    {
+     "id": "nA26RDFXHsM",
+     "t": "후쿠오카에서 2시간 유후인 대신 가보니 좋았습니다 먹고 쉬고 마시는 1박2일 완벽 온천여행 코스 맛집 디저트 료칸까지 한번에 파악 가능한 유익한 동영상",
+     "ch": "3분여행",
+     "cid": "UCeSwwoKsA7l3DXlhly0U67g",
+     "views": 52396,
+     "at": "2026-05-30",
+     "dur": 1589
+    },
+    {
+     "id": "sJb5OrzuBRw",
+     "t": "관광객은 모르는 유후인, 일본 시골 게스트하우스에서의 일주일 [ep.2]",
+     "ch": "소준여행",
+     "cid": "UC_Hkhj0lSoApEe8Tpmmf_sg",
+     "views": 31443,
+     "at": "2026-06-06",
+     "dur": 1610
+    },
+    {
+     "id": "d7lu32Z_Kcc",
+     "t": "후쿠오카 여행 브이로그 ep.2 여행코스 추천! 유후인, 벳푸 사파리. 텐진 다이묘거리 쇼핑. 진격의거인 히타, 마메다마치, 맛집 추천까지 -!",
+     "ch": "뀨우",
+     "cid": "UCOHDZh9KGoFxmqq6tg-Cykg",
+     "views": 29376,
+     "at": "2026-06-29",
+     "dur": 1615
+    }
+   ]
+  },
+  "xian": {
+   "at": "2026-11-25T16:16:37.480Z",
+   "list": [
+    {
+     "id": "oL_HHgAadmo",
+     "t": "최근 진시황릉 주변에서 나온 미스터리한 관의 정체(16톤짜리 ㄷㄷ)ㅣ역사를 보다 시안 특집 EP.1",
+     "ch": "보다 BODA",
+     "cid": "UCoCvTlU0KpNYwnMIgs7MPrA",
+     "views": 1356186,
+     "at": "2026-07-22",
+     "dur": 7956
+    },
+    {
+     "id": "1q5YBYRaeys",
+     "t": "중국이 끝까지 공개를 거부한 초거대 피라미드의 비밀(직접 가봤습니다!)ㅣ역사를 보다 시안 특집 EP.2",
+     "ch": "보다 BODA",
+     "cid": "UCoCvTlU0KpNYwnMIgs7MPrA",
+     "views": 1099875,
+     "at": "2026-07-29",
+     "dur": 11157
+    },
+    {
+     "id": "pU1MVY0CsKk",
+     "t": "아직도 2천m 절벽서 수행하는 도사들? 중국 시안 패키지 여행의 놀라움",
+     "ch": "18살 차 기자부부 / 세상이 출입처",
+     "cid": "UCk-kYbg-L3ED9RNmpuKsADg",
+     "views": 556187,
+     "at": "2026-06-13",
+     "dur": 2279
+    },
+    {
+     "id": "QBsfyGPxnl0",
+     "t": "왕홍체험 현실판을 곁들인...거기에 중국 노동절에 중국여행을 떠나버린 중국 시안 2박3일 여행로그(시안왕홍체험/시안맛집/병마용/헤드스파)",
+     "ch": "좋은희Joeunhee",
+     "cid": "UCchl4cNkzAqwp_n3Qf-_Gag",
+     "views": 185544,
+     "at": "2026-05-16",
+     "dur": 2452
+    },
+    {
+     "id": "dgUBpOR5ob0",
+     "t": "중국 시안 5박 6일 여행 코스 추천, 역사 도시에서 만난 역대급 대자연",
+     "ch": "차이나는 여행",
+     "cid": "UC0U_XwvuAmyh_Ahk6BdLZeQ",
+     "views": 35895,
+     "at": "2026-10-03",
+     "dur": 880
+    },
+    {
+     "id": "5d_biXzYX_Q",
+     "t": "중국 서안 패키지 여행의 기쁨과 슬픔",
+     "ch": "알고보니김홍시 Hongsi",
+     "cid": "UCJxXrwoFYlxum7nY01seQpg",
+     "views": 32325,
+     "at": "2025-12-06",
+     "dur": 1095
+    },
+    {
+     "id": "RDlNWbuJNmw",
+     "t": "【2026 시안 패키지】4박5일 전코스 총정리 병마용·화산·화청지·대안탑 노팁·노쇼핑",
+     "ch": "jkfree",
+     "cid": "UCbLpP5Ts_3tFUGJeaggH16g",
+     "views": 31398,
+     "at": "2026-04-26",
+     "dur": 706
+    },
+    {
+     "id": "JJiOJ6IlATQ",
+     "t": "2주간의 중국 대장정 시안 첫 입성! 힘들어서 눈물 날 뻔한 새벽 공항 탈출기 & 시안 성벽",
+     "ch": "여행하는 할망 Travel Grandma",
+     "cid": "UCQ71DhbxJcU8yutuO8_zt0w",
+     "views": 27822,
+     "at": "2026-10-13",
+     "dur": 1748
+    }
+   ]
+  },
+  "chengdu": {
+   "at": "2026-11-25T16:16:38.302Z",
+   "list": [
+    {
+     "id": "F6eJyrJhnXk",
+     "t": "기행장군 양양이 님과 중국🇨🇳 청두 3박 4일 삼국지 여행기 완전판",
+     "ch": "침착맨",
+     "cid": "UCUj6rrhMTR9pipbAWBAMvUQ",
+     "views": 1214597,
+     "at": "2025-11-30",
+     "dur": 9318
+    },
+    {
+     "id": "emp9gMf0gVA",
+     "t": "광주 게이바 사장들의 첫 중국 여행✈️🇨🇳 청두의 매운맛을 보여줄게요🌶️",
+     "ch": "김똘똘 DDOLDDOL",
+     "cid": "UCTxEJoeukRCeE3j74tZjrAA",
+     "views": 260838,
+     "at": "2026-11-17",
+     "dur": 2813
+    },
+    {
+     "id": "Lez_2Rjk4K8",
+     "t": "이번 여름 남자라면 그냥 여기로 여행 가세요 - 사천 청두 [2]",
+     "ch": "서브로 SeoBro",
+     "cid": "UCM1hs5vKsc2egU10vzX8b4w",
+     "views": 121212,
+     "at": "2026-07-12",
+     "dur": 886
+    },
+    {
+     "id": "PeJsrCa1W6c",
+     "t": "비행기 옆자리 인연과 행복했던 3박 4일 여행 마지막 이야기.. - 사천 청두 [4]",
+     "ch": "서브로 SeoBro",
+     "cid": "UCM1hs5vKsc2egU10vzX8b4w",
+     "views": 105358,
+     "at": "2026-06-30",
+     "dur": 718
+    },
+    {
+     "id": "uv2LMDPeCMo",
+     "t": "짜고 맵고 얼얼하다, 고자극 도파민이 고플 때 오리지널 마라의 본고장 청두 미식여행 | 세계테마기행 | #세테깅",
+     "ch": "EBS 세계테마기행",
+     "cid": "UCbeZPOz8uaHstEIbkqBOnGg",
+     "views": 84881,
+     "at": "2026-10-18",
+     "dur": 9772
+    },
+    {
+     "id": "nXpQWQiw-gU",
+     "t": "중국, 가면 안 된다(?)는 편견을 깨버렸습니다 | 중국 청두",
+     "ch": "바다덕 BADADUCK",
+     "cid": "UCjSwy3UlFbkyiOeI0hE7ZJQ",
+     "views": 82242,
+     "at": "2026-04-10",
+     "dur": 2186
+    },
+    {
+     "id": "dAvbtA5YjYk",
+     "t": "청두 여행 vlog.1🇨🇳 | 청두근교 황룡 구채구 1박2일 자유여행코스 | 중국인들도 죽기 전에 꼭 간다는 중국의 비현실적인 대자연 | 지금껏 내가 본 물은 물도 아니였네..",
+     "ch": "깅듀로그",
+     "cid": "UCNuiWtqwv-NFHkAoTE1p5wQ",
+     "views": 50134,
+     "at": "2026-11-10",
+     "dur": 2018
+    },
+    {
+     "id": "3NuTzekBEgc",
+     "t": "여행으로 온 사람들은 절대 모르는 쓰촨 청두 서민들의 삶[청두 특별편]",
+     "ch": "안근투어 [AnGeun TOUR]",
+     "cid": "UCc4OjoRnYstTi9PXMIZOnCg",
+     "views": 25592,
+     "at": "2026-08-01",
+     "dur": 1358
     }
    ]
   }

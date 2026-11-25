@@ -6,7 +6,7 @@ import { STATUS_KO, ALARM_KO } from '../data/load.js';
 import { PAIRS } from '../data/pairs.js';
 const { a = '', b = '' } = Astro.props;
 const labels = {
-  st: Object.fromEntries(Object.entries(STATUS_KO).map(([k, v]) => [k, v.label])),
+  st: Object.fromEntries(Object.entries(STATUS_KO).map(([k, v]) => [k, v.tag])),
   al: Object.fromEntries(Object.entries(ALARM_KO).map(([k, v]) => [k, [v.label, v.cls]])),
 };
 const opts = CITY_GROUPS;

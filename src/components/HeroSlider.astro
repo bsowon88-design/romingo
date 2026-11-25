@@ -25,8 +25,8 @@ const slides = ORDER.map((s) => bySlug[s])
               <span class="hs-name"><Flag iso={flagOf(c)} size={30} /> <b>{c.ko}</b></span>
               {c.landmark && <span class="hs-lm">{c.landmark}</span>}
               <span class="hs-tags">
-                <span class={`badge b-${st.level}`}>{STATUS_KO[st.level].label}</span>
-                {al && al.max > 0 && <span class={`mchip ${ALARM_KO[al.max].cls}`}>외교부 {partial ? '일부 ' : ''}{al.max}단계</span>}
+                <span class={`badge b-${st.level}`}>{STATUS_KO[st.level].tag}</span>
+                {al && al.max > 0 ? <span class={`mchip ${ALARM_KO[al.max].cls}`}>여행경보 {partial ? '일부 지역 ' : ''}{al.max}단계</span> : <span class="mchip m0">여행경보 없음</span>}
               </span>
               <span class="hs-go">{c.ko} 여행 정보 보기 →</span>
             </span>

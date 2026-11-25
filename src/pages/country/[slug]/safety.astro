@@ -72,7 +72,7 @@ const regionText = (r) => (/일부/.test(r) ? '일부 지역' : /전/.test(r) ? 
           {cityRows.map(({ x, s }) => (
             <a class="crow" href={cityHref(x)}>
               <b>{x.ko}</b>
-              <span class={`badge b-${s.level}`}>{STATUS_KO[s.level].label}</span>
+              <span class={`badge b-${s.level}`}>{STATUS_KO[s.level].tag}</span>
               <span class="cdesc">
                 지진 {s.quakes.length}건{s.maxQ ? ` (최대 ${s.maxQ.mag.toFixed(1)}, ${s.maxQ.km}km)` : ''}
                 {s.disasters.length ? ` · ${TYPE_KO[s.disasters[0].type]} 경보 ${s.disasters[0].km}km` : ' · 재난 경보 없음'}

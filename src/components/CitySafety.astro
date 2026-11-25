@@ -17,7 +17,7 @@ const qLink = (q) => (q.mag >= 5 ? `/quake/${q.id}/` : q.url);
 <section class={`csafe s-${s.level}`} id="city-safety">
   <div class="chead">
     <h2>🛡️ {city.ko} 안전 현황</h2>
-    <span class={`badge b-${s.level}`}>{STATUS_KO[s.level].label}</span>
+    <span class={`badge b-${s.level}`}>{STATUS_KO[s.level].tag}</span>
   </div>
   <p class="cnote">{CITY_STATUS_NOTE[s.level]}</p>
 

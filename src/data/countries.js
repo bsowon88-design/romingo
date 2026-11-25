@@ -26,7 +26,7 @@ export const COUNTRIES = [
     tz: 'Asia/Shanghai', capital: '베이징', currency: '위안 (CNY)', lang: '중국어',
     volt: '220V', plug: 'A·C·I 타입', adapter: false, adapterNote: 'C 타입 콘센트가 있는 곳이 많아요',
     emergency: [['경찰', '110'], ['구급', '120'], ['화재', '119']],
-    flight: '약 2시간 (베이징·상하이)', cities: ['상하이', '베이징', '칭다오', '웨이하이', '장가계', '시안', '청두', '샤먼', '옌지'],
+    flight: '약 2시간 (베이징·상하이)', cities: ['상하이', '베이징', '칭다오', '웨이하이', '장가계', '시안', '청두', '충칭', '샤먼', '구이린', '쿤밍', '싼야', '톈진', '옌지'],
     color: ['#d93a2f', '#f3b23c'] },
   { slug: 'taiwan', landmark: '타이베이', photoQ: 'Taipei city skyline', cur: 'TWD', curName: '대만 달러', iso2: ['TW'], ko: '대만', flag: '🇹🇼', region: 'near', iso3: ['TWN'], keys: ['taiwan'],
     tz: 'Asia/Taipei', capital: '타이베이', currency: '대만 달러 (TWD)', lang: '중국어',

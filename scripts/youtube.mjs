@@ -23,7 +23,7 @@ const ALSO = {
   siemreap: ['시엠립', '시엠레아프', '앙코르'], hongkong: ['홍콩'], bali: ['발리'], newyork: ['뉴욕', 'NYC'],
   cappadocia: ['카파도키아'], interlaken: ['인터라켄', '융프라우'], zhangjiajie: ['장가계', '장자제'],
   luangprabang: ['루앙프라방'], ulaanbaatar: ['울란바토르', '몽골'], cebu: ['세부'], danang: ['다낭', '호이안'],
-  oita: ['오이타', '벳부', '유후인'], yanji: ['옌지', '백두산', '연변'], xian: ['서안'], chengdu: ['성도'], xiamen: ['하문'],
+  oita: ['오이타', '벳부', '유후인'], yanji: ['옌지', '백두산', '연변'], xian: ['서안'], chengdu: ['성도'], xiamen: ['하문'], guilin: ['계림', '양숴', '양삭'], sanya: ['삼아', '하이난'], kunming: ['곤명'], chongqing: ['중경'], tianjin: ['천진'],
 };
 
 const HANGUL = /[가-힣]/;

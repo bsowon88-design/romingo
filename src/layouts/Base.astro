@@ -238,6 +238,7 @@ const isOn = (href) => (href === '/' ? path === '/' : path.startsWith(href) || (
     // PC 에서는 제목 앞 이모티콘을 빼서 깔끔하게 (폰은 그대로)
     (function () {
       if (!matchMedia('(min-width: 1024px)').matches) return;
+      if (document.querySelector('[data-keep-emoji]')) return; // 여행가이드처럼 칸 구분이 필요한 곳은 그대로 둠
       var re = /^\s*(?:\p{Extended_Pictographic}|\p{Regional_Indicator}|[\u200d\ufe0f\u20e3])+\s*/u;
       document.querySelectorAll('main h1, main h2, main h3, .tools b').forEach(function (h) {
         var n = h.firstChild;

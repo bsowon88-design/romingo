@@ -32,6 +32,7 @@ const nowM = +new Intl.DateTimeFormat('en-US', { timeZone: 'Asia/Seoul', month: 
 const title = `${city.ko} 여행가이드 - 숙소 위치·공항 이동·추천 일정·주의할 점`;
 ---
 <Base title={title} desc={`${city.ko} 자유여행 준비: ${g.intro}`}>
+  <span data-keep-emoji hidden></span>
   <p class="crumb"><a href="/">홈</a> › <a href={`/country/${co.slug}/`}>{co.ko}</a> › {city.ko} 여행가이드</p>
 
   <section class:list={['ghero', 'hasbg', { photo: ph }]} style={`--c1:${co.color[0]};--c2:${co.color[1]}`}>

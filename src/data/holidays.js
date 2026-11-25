@@ -9,6 +9,8 @@ const CODE = { hawaii: ['US', 'HI'], guam: ['GU'], usa: ['US'] };
 const codeOf = (c) => CODE[c.slug] || (c.iso2?.[0] ? [c.iso2[0]] : null);
 
 const KO = {
+  'Canada Day': '캐나다 데이', 'National Holiday': '국경일', 'Eid al-Fitr': '라마단 종료 (이드 알피트르)', 'Eid al-Adha': '희생제 (이드 알아드하)',
+  'Nowruz': '나우루즈 (봄 새해)', 'Day of Memory and Honour': '추모의 날', 'Teachers and Mentors Day': '스승의 날',
   "New Year’s Day": '새해 첫날', "New Year’s Eve": '새해 전날', 'The first day of January': '새해 첫날', 'Day after New Year’s Day': '새해 연휴',
   'Coming of Age Day': '성인의 날', 'Foundation Day': '건국기념일', 'Emperor’s Birthday': '일왕 생일', 'Spring Equinox Day': '춘분의 날',
   'Showa Day': '쇼와의 날', 'Constitution Day': '헌법기념일', 'Greenery Day': '녹색의 날', 'Children’s Day': '어린이날',

@@ -10,7 +10,7 @@ export const MOFA_URL = 'https://www.0404.go.kr/';
 const SCHENGEN = {
   kind: 'free',
   stay: '90일 무비자',
-  stayNote: '180일 안에 솅겐 나라들(프랑스·이탈리아·스페인·그리스·체코·스위스 등)에 머문 날을 모두 더해 90일까지',
+  stayNote: '180일 안에 솅겐 나라들(프랑스·독일·이탈리아·스페인·그리스·체코·스위스 등)에 머문 날을 모두 더해 90일까지',
   items: [
     { t: 'EES 생체 정보 등록', need: 'must', d: '2026년 4월 10일부터 전면 시행. 처음 입국할 때 공항에서 지문과 얼굴 사진을 등록해요. 미리 신청할 것은 없고, 첫 입국 때 줄이 길 수 있어요.', url: 'https://travel-europe.europa.eu/ees_en' },
   ],
@@ -136,6 +136,7 @@ export const ENTRY = {
   spain: SCHENGEN,
   czechia: SCHENGEN,
   switzerland: SCHENGEN,
+  germany: SCHENGEN,
   nepal: {
     kind: 'visa', stay: '도착비자',
     stayNote: '15일 30달러 · 30일 50달러 · 90일 125달러',
@@ -168,6 +169,19 @@ export const ENTRY = {
       { t: '영국 ETA 전자여행허가', need: 'must', d: '2026년 4월 8일부터 20파운드. UK ETA 앱이나 gov.uk에서 신청, 2년 유효. 보통 3영업일 안에 나와요.', url: 'https://www.gov.uk/eta' },
     ],
     notes: ['영국은 솅겐이 아니라서 유럽 90일 계산에 들어가지 않아요.'],
+  },
+  canada: {
+    kind: 'auth', stay: '최대 6개월 (eTA)',
+    stayNote: '머무는 기간은 입국 심사관이 정해요. 보통 최대 6개월',
+    items: [
+      { t: '캐나다 eTA 전자여행허가', need: 'must', d: '비행기로 들어가거나 캐나다 공항을 경유할 때 필요해요. 7캐나다달러, 5년(또는 여권 만료일까지) 유효. 대부분 몇 분 안에 나와요. 공식 사이트에서만 신청하세요.', url: 'https://www.canada.ca/en/immigration-refugees-citizenship/services/visit-canada/eta/apply.html' },
+    ],
+    notes: ['육로·배로 미국에서 넘어갈 때는 eTA가 없어도 되지만, 비행기를 탈 일이 있다면 미리 받아 두세요.'],
+  },
+  uzbekistan: {
+    kind: 'free', stay: '30일 무비자',
+    items: [],
+    notes: ['3일 넘게 머물면 체류 등록을 해야 해요. 호텔에 묵으면 호텔이 대신 해 주니 체크인할 때 등록 확인증을 받아 두세요.', '30일을 넘기면 출국할 때 문제가 되니 일정을 꼭 30일 안으로 잡으세요.'],
   },
   uae: {
     kind: 'free', stay: '90일 무비자',

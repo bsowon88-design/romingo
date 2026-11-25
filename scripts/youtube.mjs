@@ -15,7 +15,7 @@ const QUERY = {
   honolulu: '하와이', losangeles: 'LA', newyork: '뉴욕', sanfrancisco: '샌프란시스코',
   kotakinabalu: '코타키나발루', hochiminh: '호치민', kualalumpur: '쿠알라룸푸르',
   guam: '괌', saipan: '사이판', okinawa: '오키나와', siemreap: '씨엠립',
-  oita: '유후인', yanji: '연길',
+  oita: '유후인', yanji: '연길', tashkent: '우즈베키스탄',
 };
 // 제목에 이 말 중 하나가 있어야 그 도시 영상으로 봄
 const ALSO = {
@@ -24,6 +24,7 @@ const ALSO = {
   cappadocia: ['카파도키아'], interlaken: ['인터라켄', '융프라우'], zhangjiajie: ['장가계', '장자제'],
   luangprabang: ['루앙프라방'], ulaanbaatar: ['울란바토르', '몽골'], cebu: ['세부'], danang: ['다낭', '호이안'],
   oita: ['오이타', '벳부', '유후인'], yanji: ['옌지', '백두산', '연변'], xian: ['서안'], chengdu: ['성도'], xiamen: ['하문'], guilin: ['계림', '양숴', '양삭'], sanya: ['삼아', '하이난'], kunming: ['곤명'], chongqing: ['중경'], tianjin: ['천진'],
+  miyakojima: ['미야코'], ishigaki: ['이시가키지마'], vancouver: ['벤쿠버'], frankfurt: ['프랑크프루트'], tashkent: ['우즈베키스탄', '우즈벡', '사마르칸트', '부하라'],
 };
 
 const HANGUL = /[가-힣]/;

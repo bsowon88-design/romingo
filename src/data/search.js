@@ -11,7 +11,7 @@ const guideSet = new Set(GUIDES.map((g) => g.city));
 const ALIAS = {
   tokyo: '동경 tokyo', osaka: '난바 도톤보리 우메다', kyoto: '경도', fukuoka: '하카타 텐진', sapporo: '홋카이도 북해도 오타루', okinawa: '나하 오키나와현',
   nagoya: '나고야성', shanghai: '상해', beijing: '북경 뻬이징', qingdao: '청도 칭따오', weihai: '위해', zhangjiajie: '장자제 장가계',
-  taipei: '타이페이 대북 지우펀 예류', kaohsiung: '까오슝 고웅', hongkong: '홍꽁 침사추이', macau: '마카오 코타이 타이파 베네치안 macao', kobe: '산노미야 아리마 히메지', hiroshima: '미야지마 이쓰쿠시마 원폭돔', kumamoto: '아소 구로카와', oita: '유후인 벳부 유후 벳뿌', xian: '서안 병마용', chengdu: '성도 판다 러산', xiamen: '하문 구랑위 고랑서 토루', guilin: '계림 양숴 양삭 리강', sanya: '삼아 하이난 해남도 야룽완', kunming: '곤명 석림 리장 다리', chongqing: '중경 훠궈 임시정부', tianjin: '천진', yanji: '연길 백두산 장백산 연변', phnompenh: '프놈펜 프놈 펜',
+  taipei: '타이페이 대북 지우펀 예류', kaohsiung: '까오슝 고웅', hongkong: '홍꽁 침사추이', macau: '마카오 코타이 타이파 베네치안 macao', kobe: '산노미야 아리마 히메지', hiroshima: '미야지마 이쓰쿠시마 원폭돔', kumamoto: '아소 구로카와', oita: '유후인 벳부 유후 벳뿌', xian: '서안 병마용', chengdu: '성도 판다 러산', xiamen: '하문 구랑위 고랑서 토루', guilin: '계림 양숴 양삭 리강', sanya: '삼아 하이난 해남도 야룽완', kunming: '곤명 석림 리장 다리', chongqing: '중경 훠궈 임시정부', tianjin: '천진', yanji: '연길 백두산 장백산 연변', phnompenh: '프놈펜 프놈 펜', miyakojima: '미야코 미야꼬지마 시모지시마 이라부', ishigaki: '이시가키지마 석원 야에야마 다케토미', seattle: '씨애틀 스페이스니들', vancouver: '벤쿠버 밴쿠버 휘슬러 캐나다', frankfurt: '프랑크프루트 하이델베르크 독일', tashkent: '타시켄트 우즈벡 우즈베키스탄 사마르칸트 부하라',
   danang: '다 낭 호이안 바나힐', nhatrang: '냐짱 나짱 냐트랑 깜란', phuquoc: '푸꿕 푸국', hanoi: '하롱베이 하롱', hochiminh: '호찌민 호치민시 사이공 hcmc',
   bangkok: '방꼭', phuket: '빠통 피피섬', chiangmai: '치앙라이', pattaya: '파타야',
   cebu: '막탄', boracay: '보라', bohol: '팡라오', manila: '마닐라',

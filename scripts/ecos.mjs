@@ -25,6 +25,8 @@ export const CUR_KEYS = {
   CHF: ['스위스프랑', '스위스 프랑'],
   CZK: ['체코'],
   AED: ['아랍에미리트', 'UAE', '디르함'],
+  CAD: ['캐나다'],
+  UZS: ['우즈베키스탄'],
 };
 
 const ymd = (d) => d.toISOString().slice(0, 10).replace(/-/g, '');

@@ -80,7 +80,7 @@ const guides = GUIDES.map((g) => CITIES.find((x) => x.slug === g.city)).filter(B
     <>
       <h2>✈️ 이번 주 인기 도시 <small>인천·김포·김해·제주 출발 기준</small></h2>
       <div class="good">
-        {popTop.map((r, i) => {
+        {popTop.slice(0, 7).map((r, i) => {
           const c = r.city ? cityBySlug[r.city] : null;
           const ph = c ? cityPhoto(c.slug) : null;
           return (
@@ -168,8 +168,8 @@ const guides = GUIDES.map((g) => CITIES.find((x) => x.slug === g.city)).filter(B
     .tf em { font-style: normal; margin-left: 6px; font-weight: 700; }
     .tf .up { color: #d6383a; } .tf .down { color: #2f78c4; }
     #countries.cgrid, main .cgrid { grid-template-columns: repeat(4, 1fr); gap: 14px; }
-    main .good { grid-template-columns: repeat(7, 1fr); gap: 12px; }
-    main .good > :nth-child(n+8) { display: none; }
+    main .good { gap: 12px; }
+    .good > a.gn { flex: 1 1 0; min-width: 0; }
     .gnimg { height: 130px; }
   }
   .intro { display: flex; align-items: flex-end; justify-content: space-between; gap: 20px; flex-wrap: wrap; margin-top: 6px; }
@@ -185,7 +185,9 @@ const guides = GUIDES.map((g) => CITIES.find((x) => x.slug === g.city)).filter(B
   .cgrid { grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); }
   .cwrap.hide { display: none; }
   .cwrap > :global(a) { height: 100%; }
-  .good { display: grid; grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); gap: 10px; }
+  .good { display: flex; gap: 10px; overflow-x: auto; scroll-snap-type: x mandatory; scrollbar-width: none; padding-bottom: 2px; }
+  .good::-webkit-scrollbar { display: none; }
+  .good > .gn { flex: 0 0 150px; scroll-snap-align: start; }
   .gn { display: flex; flex-direction: column; gap: 2px; background: #fff; border: 1px solid var(--line); border-radius: 14px; padding: 12px 14px; text-decoration: none; overflow: hidden; }
   .gnimg { display: block; height: 96px; margin: -12px -14px 8px; }
   .gn:hover { border-color: var(--sea); }
@@ -214,6 +216,7 @@ const guides = GUIDES.map((g) => CITIES.find((x) => x.slug === g.city)).filter(B
     .warnline { margin-top: 8px; font-size: 13px; }
     h2 { font-size: 17px; margin: 22px 0 10px; }
     .cgrid { grid-template-columns: 1fr 1fr; gap: 10px; }
-    .good { grid-template-columns: 1fr 1fr; }
+    .good { margin: 0 -18px; padding: 0 18px 2px; scroll-padding: 0 18px; }
+    .good > .gn { flex-basis: 42%; }
   }
 </style>

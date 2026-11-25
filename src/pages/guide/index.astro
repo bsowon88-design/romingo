@@ -3,19 +3,28 @@ import Base from '../../layouts/Base.astro';
 import Flag from '../../components/Flag.astro';
 import { GUIDES } from '../../data/guides.js';
 import { cityBySlug } from '../../data/cities.js';
-import { bySlug, flagOf } from '../../data/countries.js';
+import { bySlug, flagOf, REGIONS, COUNTRIES } from '../../data/countries.js';
 import PhotoCredit from '../../components/PhotoCredit.astro';
 import { cityPhoto } from '../../data/photos.js';
 
-const list = GUIDES.map((g) => ({ g, x: cityBySlug[g.city] })).filter((o) => o.x).map((o) => ({ ...o, co: bySlug[o.x.country] }));
+const rOrder = REGIONS.map((r) => r[0]);
+const cOrder = COUNTRIES.map((c) => c.slug);
+const list = GUIDES.map((g) => ({ g, x: cityBySlug[g.city] })).filter((o) => o.x).map((o) => ({ ...o, co: bySlug[o.x.country] }))
+  .map((o, i) => ({ ...o, i }))
+  .sort((a, b) => rOrder.indexOf(a.co.region) - rOrder.indexOf(b.co.region) || cOrder.indexOf(a.co.slug) - cOrder.indexOf(b.co.slug) || a.i - b.i);
+const regs = REGIONS.map(([k, l]) => [k, l, list.filter((o) => o.co.region === k).length]).filter((r) => r[2] > 0);
 ---
-<Base title="해외 도시 여행가이드 - 숙소 위치·공항 이동·추천 일정" desc="다낭, 오사카, 방콕 등 인기 해외 도시의 숙소 잡기 좋은 곳, 공항에서 시내 가는 법, 추천 일정, 주의할 점을 정리했어요.">
+<Base title="해외 도시 여행가이드 - 숙소 위치·공항 이동·추천 일정" desc="오사카, 다낭, 방콕, 파리, 하와이 등 87개 해외 도시의 숙소 잡기 좋은 곳, 공항에서 시내 가는 법, 추천 일정, 주의할 점을 정리했어요.">
   <p class="crumb"><a href="/">홈</a> › 여행가이드</p>
   <h1>도시 여행가이드</h1>
-  <p class="lead">숙소 위치, 공항 이동, 추천 일정, 주의할 점을 도시별로 정리했어요. 계속 늘려 갈게요.</p>
-  <div class="glist">
+  <p class="lead">{list.length}개 도시의 숙소 위치, 공항 이동, 추천 일정, 주의할 점을 정리했어요.</p>
+  <div class="gfil" id="gfil">
+    <button type="button" class="on" data-r="">전체 <small>{list.length}</small></button>
+    {regs.map(([k, l, n]) => <button type="button" data-r={k}>{l} <small>{n}</small></button>)}
+  </div>
+  <div class="glist" id="glist">
     {list.map(({ g, x, co }) => (
-      <a class="gc" href={`/guide/${x.slug}/`} style={`--c1:${co.color[0]};--c2:${co.color[1]}`}>
+      <a class="gc" data-r={co.region} href={`/guide/${x.slug}/`} style={`--c1:${co.color[0]};--c2:${co.color[1]}`}>
         <span class:list={['gtop', 'hasbg', { photo: cityPhoto(x.slug) }]}>
           {cityPhoto(x.slug) && <img class="bgimg" src={cityPhoto(x.slug).src(560, 300)} alt={x.ko} loading="lazy" />}
           {cityPhoto(x.slug) && <PhotoCredit p={cityPhoto(x.slug)} link={false} />}
@@ -27,7 +36,31 @@ const list = GUIDES.map((g) => ({ g, x: cityBySlug[g.city] })).filter((o) => o.x
   </div>
 </Base>
 
+<script>
+  const fil = document.getElementById('gfil');
+  const cards = document.querySelectorAll('#glist .gc');
+  function apply(r) {
+    fil.querySelectorAll('button').forEach((b) => b.classList.toggle('on', b.dataset.r === r));
+    cards.forEach((c) => { c.style.display = !r || c.dataset.r === r ? '' : 'none'; });
+  }
+  fil.addEventListener('click', (e) => {
+    const b = e.target.closest('button'); if (!b) return;
+    apply(b.dataset.r);
+    const u = new URL(location.href); if (b.dataset.r) u.searchParams.set('r', b.dataset.r); else u.searchParams.delete('r');
+    history.replaceState(null, '', u);
+  });
+  const r0 = new URLSearchParams(location.search).get('r'); if (r0) apply(r0);
+</script>
+
 <style>
+  .gfil { display: flex; gap: 8px; flex-wrap: wrap; margin-top: 16px; position: sticky; top: 64px; z-index: 4; padding: 8px 0; background: var(--bg); }
+  .gfil button { border: 1px solid var(--line); background: #fff; color: var(--ink); font-weight: 700; font-size: 14.5px; padding: 8px 14px; border-radius: 999px; cursor: pointer; }
+  .gfil button small { color: var(--sub); font-weight: 600; margin-left: 2px; }
+  .gfil button.on { background: var(--ink); border-color: var(--ink); color: #fff; }
+  .gfil button.on small { color: rgba(255,255,255,.75); }
+  @media (min-width: 1024px) { .gfil { top: 60px; } }
+  @media (max-width: 760px) { .gfil { top: 86px; } }
+  @media (max-width: 640px) { .gfil { flex-wrap: nowrap; overflow-x: auto; margin: 12px -18px 0; padding: 8px 18px; scrollbar-width: none; } .gfil button { flex: none; } }
   .glist { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 14px; margin-top: 18px; }
   .gc { display: flex; flex-direction: column; text-decoration: none; background: #fff; border: 1px solid var(--line); border-radius: 16px; overflow: hidden; transition: transform .15s, box-shadow .15s; }
   .gc:hover { transform: translateY(-2px); box-shadow: 0 8px 22px rgba(90,50,30,.08); }

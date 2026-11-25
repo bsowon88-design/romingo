@@ -1,7 +1,7 @@
 {
  "meta": {
   "day": "2026-11-25",
-  "units": 816
+  "units": 1632
  },
  "cities": {
   "tokyo": {
@@ -617,6 +617,622 @@
      "views": 20016,
      "at": "2026-11-02",
      "dur": 302
+    }
+   ]
+  },
+  "matsuyama": {
+   "at": "2026-11-25T15:17:01.814Z",
+   "list": [
+    {
+     "id": "b3g3CdTB688",
+     "t": "빠니랑 낭만가득 마쓰야마 만엔여행 【만엔의 행복 EP.0】",
+     "ch": "채널십오야",
+     "cid": "UCQ2O-iftmnlfrBuNsUUTofQ",
+     "views": 2012846,
+     "at": "2026-11-01",
+     "dur": 941
+    },
+    {
+     "id": "yZqpHDf1rRU",
+     "t": "나혼자 마쓰야마 여행🍡 ㄹㅇ 도라이처럼 계속 먹음; 수도꼭지귤주스, 우동, 도미밥, 야끼토리, 치킨난반, 편의점 털기, 가챠샵 | ep1",
+     "ch": "인영 forever young",
+     "cid": "UCJ3TlCanXZXbMsLY61DCFCw",
+     "views": 237255,
+     "at": "2025-11-30",
+     "dur": 2833
+    },
+    {
+     "id": "g80QnSvcf8c",
+     "t": "일본 역대급 소도시 마쓰야마 여행 🇯🇵 실패없는 코스 + 현지인 맛집 20곳 가이드 ",
+     "ch": "통키써니",
+     "cid": "UCMdeeBpcPsyuqgSo8LCvRUw",
+     "views": 182082,
+     "at": "2026-01-10",
+     "dur": 2200
+    },
+    {
+     "id": "F8k_Z372Fmc",
+     "t": "온종일 먹고 마시는 내향인 전용 여행지🇯🇵마쓰야마 2박 3일",
+     "ch": "비긴억예인 Beginayein",
+     "cid": "UCZN6afu_uqD5aKCDaU0g85A",
+     "views": 164477,
+     "at": "2026-11-02",
+     "dur": 3364
+    },
+    {
+     "id": "51V9wBlRrNA",
+     "t": "마쓰야마 맛집 Best 12, 여행지 및 일정 총정리",
+     "ch": "하이갱스 higaengs",
+     "cid": "UC86GzuZXRb7aZnhnnUA3IAg",
+     "views": 155866,
+     "at": "2026-10-29",
+     "dur": 2582
+    },
+    {
+     "id": "m2Zm-LopZBg",
+     "t": "마쓰야마 여행 vlog ep.1🇯🇵 | 한국인만 0원으로 여행할 수 있는 일본 소도시 | 마쓰야마 4박5일 코스 | 도고 온천 일일 가이드 | 근교 여행 우치코 오즈 시모나다",
+     "ch": "깅듀로그",
+     "cid": "UCNuiWtqwv-NFHkAoTE1p5wQ",
+     "views": 95682,
+     "at": "2026-05-13",
+     "dur": 2090
+    },
+    {
+     "id": "KQn4XsEE4Ss",
+     "t": "마쓰야마 인근 소도시 4곳 투어, 이마바리, 야와타하마, 오즈, 우치코 맛집 여행Best",
+     "ch": "하이갱스 higaengs",
+     "cid": "UC86GzuZXRb7aZnhnnUA3IAg",
+     "views": 67584,
+     "at": "2026-11-01",
+     "dur": 2217
+    },
+    {
+     "id": "JMuCJpUts0g",
+     "t": "마쓰야마 이게 진짜 일본 감성이다 마쓰야마여행 ...여긴 왜 아무도 안 가지?”",
+     "ch": "여행프로 만프로",
+     "cid": "UCD9bJRiF1MmhLZgHYed4Q7g",
+     "views": 56971,
+     "at": "2026-05-03",
+     "dur": 1156
+    }
+   ]
+  },
+  "takamatsu": {
+   "at": "2026-11-25T15:17:02.497Z",
+   "list": [
+    {
+     "id": "xkcQ4j-gua0",
+     "t": "처음보는 여자와 떠난 2박 3일 일본 여행 -다카마쓰",
+     "ch": "레리꼬 LET IT GO",
+     "cid": "UC_tnGAhy3uj0tshK5Miyi2g",
+     "views": 452955,
+     "at": "2026-10-31",
+     "dur": 2677
+    },
+    {
+     "id": "hI4H15En2MU",
+     "t": "🏡🌿 한국인을 좋아하는 다카마쓰 시골집 이야기 | 20만원으로 떠난 역대급 가성비 일본 소도시!!! (jpn snb)",
+     "ch": "치하루 Chiharu",
+     "cid": "UCqcJmtMmC-mrsu0fd23QKVQ",
+     "views": 103029,
+     "at": "2026-02-22",
+     "dur": 1343
+    },
+    {
+     "id": "w-INwE4kwTg",
+     "t": "(1) 나 혼자 다카마쓰 5박6일🇯🇵 나오시마 섬에서 화상 입은 건에 대하여🔥 리쓰린 공원. 교자 맛집. 에어비앤비 추천(근데 큰 단점 있음)",
+     "ch": "해오니Haeoni",
+     "cid": "UC2pQAxD2qrQnzg6riaeicGg",
+     "views": 80517,
+     "at": "2026-10-10",
+     "dur": 2776
+    },
+    {
+     "id": "QUF46GCnork",
+     "t": "🌲다카마쓰 여행｜일본 소도시 여행의 백미! 다카마쓰와 예술의 섬들",
+     "ch": "산보노트 sanbonote",
+     "cid": "UCofJN-99ieU-iJUnYpPuoGw",
+     "views": 71983,
+     "at": "2025-11-27",
+     "dur": 1214
+    },
+    {
+     "id": "UuXh11Cexts",
+     "t": "나혼자 일본 다카마쓰 여행｜🍜 최애 일본 소도시 또 왔다!｜삼시면끼, 우동으로 시작해 야돈으로 끝나는 다카마쓰의 하루 🍥｜경비, 구글맵링크 → 더보기란｜혼자 일본여행 하는사람e",
+     "ch": "하는사람 er",
+     "cid": "UCyoHymeNEGHnSfNH033mf-A",
+     "views": 64608,
+     "at": "2026-03-28",
+     "dur": 1285
+    },
+    {
+     "id": "z7Qrzld4sbU",
+     "t": "[sub] 가을의 끝자락 혼자 떠난 다카마쓰 여행 | 소도시 감성 낭낭한 힐링여행🍀 | 일본 시골집에서 살아보기 | 1일7끼 코스추천 | 다카마쓰 3박4일",
+     "ch": "두조람 DuJoram",
+     "cid": "UCixpxZzY1AKEsMmCzOqKJiw",
+     "views": 42835,
+     "at": "2025-12-11",
+     "dur": 2768
+    },
+    {
+     "id": "WKaOaTu5II4",
+     "t": "다카마쓰 맛집 Best 14, 우동 총정리 및 현지 맛집까지",
+     "ch": "하이갱스 higaengs",
+     "cid": "UC86GzuZXRb7aZnhnnUA3IAg",
+     "views": 42659,
+     "at": "2026-11-06",
+     "dur": 2507
+    },
+    {
+     "id": "nl9aNTz235g",
+     "t": "나혼자 다카마쓰🍜 여기가 일본 우동의 도시? | 한국인 무료 혜택, 우동 맛집, 말차에 빠지다🍵",
+     "ch": "팝홍 pop hong",
+     "cid": "UC99Q0Ib8YjpddcAzAJXWBKw",
+     "views": 39904,
+     "at": "2026-07-24",
+     "dur": 1018
+    }
+   ]
+  },
+  "shizuoka": {
+   "at": "2026-11-25T15:17:03.287Z",
+   "list": [
+    {
+     "id": "3Bn252G0Jp4",
+     "t": "[나혼자산다] 프라모델 성지부터 중고샵까지🎮 이시언 취향 100% 반영한 일본 시즈오카 여행ㅣ#이시언 MBC170505방송",
+     "ch": "엠뚜루마뚜루 : MBC 공식 종합 채널",
+     "cid": "UCiwQRG2sCcfjKkgxMEdJGPg",
+     "views": 269875,
+     "at": "2026-08-28",
+     "dur": 1426
+    },
+    {
+     "id": "d1aVq1EYA6c",
+     "t": "혼자 떠난 시즈오카 여행 EP.1 후지산 안 보이는 날 희망편｜시내 맛집, 쇼핑, 카페 추천",
+     "ch": "윤티피",
+     "cid": "UCnSxZRyyhueEfQ-A6kZTk-w",
+     "views": 208600,
+     "at": "2025-12-03",
+     "dur": 1021
+    },
+    {
+     "id": "_R6V7UCInkQ",
+     "t": "혼자 떠난 시즈오카 여행 EP.2 낭만 한도 초과 현지인 맛집부터 후지산 뷰포인트까지 뚜벅이 희망편",
+     "ch": "윤티피",
+     "cid": "UCnSxZRyyhueEfQ-A6kZTk-w",
+     "views": 116077,
+     "at": "2025-12-18",
+     "dur": 1336
+    },
+    {
+     "id": "xXzBeotrsoo",
+     "t": "뚜벅이 혼자 떠난 시즈오카 | 후지산 하나 보고 왔다가 인생 여행지 등극해버린거야",
+     "ch": "하윤모드HayoonMode",
+     "cid": "UCGFDyozNaHWYFYIkI-dB_Vw",
+     "views": 92269,
+     "at": "2026-01-06",
+     "dur": 2194
+    },
+    {
+     "id": "zBPl0ls-8SY",
+     "t": "날씨 요정 강림! 🌤️ | 차 없이 후지산 보기 가능? 🏔️ |  🇯🇵 시즈오카 3박 4일 가족 여행 | 일본 소도시 여행코스 추천 | 시라이토 폭포 | 참치덮밥, 와사비,",
+     "ch": "하은초이 Ha-eun Choi",
+     "cid": "UCmGBe3Xyz3GY_Mu-LX13yfQ",
+     "views": 38852,
+     "at": "2026-02-21",
+     "dur": 2349
+    },
+    {
+     "id": "hI-fKpGuZPU",
+     "t": "[VLOG] 미친 계획형 인간, 2박 3일 일본 소도시 시즈오카 여행 Shizuoka Japan🇯🇵 | 후지산 보는 꿀팁 | 한국인이 좋아할 코스 | 정보 총정리(맛집/관광/쇼",
+     "ch": "탸퍄 THAFHA",
+     "cid": "UC29Ybf5zxuHqu_uxO9E_Row",
+     "views": 32174,
+     "at": "2026-03-27",
+     "dur": 1486
+    },
+    {
+     "id": "hJRaiqjVdtw",
+     "t": "시즈오카 여행 브이로그)일본 소도시 여행ㅣ여행 내내 맑은 후지산 본 후기ㅣ렌트카 여행ㅣ시즈오카 3박 4일ㅣ 후지산 여행코스",
+     "ch": "노말부부(nomal bubu)",
+     "cid": "UCcaFDO6zsZuZiU3A2mHBk1w",
+     "views": 24336,
+     "at": "2026-01-28",
+     "dur": 1274
+    },
+    {
+     "id": "7LSS-Jx3hbA",
+     "t": "파워J 시즈오카 3박4일 뚜벅이 루트 공개✈️ 이거 보면 끝!",
+     "ch": "나이스민",
+     "cid": "UCsf-NA4ht8NhhE-ooVy6BCw",
+     "views": 23558,
+     "at": "2026-03-20",
+     "dur": 1907
+    }
+   ]
+  },
+  "shanghai": {
+   "at": "2026-11-25T15:17:04.188Z",
+   "list": [
+    {
+     "id": "TVM6Nswlfbg",
+     "t": "연차 안 쓰고 1박 2일 상하이 여행 가서 왕홍 체험하기 I 곽범 I 연차없이 어떡행 EP.6 [EN]",
+     "ch": "때때때 TTT",
+     "cid": "UCmva1CD0owDo2nul7CJT_Sw",
+     "views": 2518005,
+     "at": "2026-03-19",
+     "dur": 2976
+    },
+    {
+     "id": "Yk3D_6-FMOY",
+     "t": "연차 안 쓰고 상하이 맛집 다 털러 간 1박 2일 상하이 여행 2일차 I 곽범 I 연차없이 어떡행 EP.7 [EN]",
+     "ch": "때때때 TTT",
+     "cid": "UCmva1CD0owDo2nul7CJT_Sw",
+     "views": 1870379,
+     "at": "2026-03-26",
+     "dur": 2331
+    },
+    {
+     "id": "Ml_oeef8Nt4",
+     "t": "안정형 걸걸걸도 결국 폭발한 역대급 난이도 상하이 여행 브이로그",
+     "ch": "아가리어터",
+     "cid": "UCFkAwpvztBaAEzwyDimpDiA",
+     "views": 558844,
+     "at": "2026-06-29",
+     "dur": 1570
+    },
+    {
+     "id": "RxE05zsp3Hs",
+     "t": "몸만 가면 되는 상하이 여행 코스🇨🇳 2박 3일, 3박 4일, 4박 5일, 5박 6일 완벽 정리 | 쇼핑리스트, 숙소, 맛집 모음💟 일정표 & 고덕지도 배포 event✨",
+     "ch": "윤 제주삶 Yoon Jeju Life",
+     "cid": "UCLK5Y0VMkYgqQozX-ahDD1A",
+     "views": 304862,
+     "at": "2026-02-20",
+     "dur": 1696
+    },
+    {
+     "id": "OrNvBu26NQo",
+     "t": "최신 상하이 맛집·카페·3박4일 코스까지❗️ 영상 하나로 상하이 여행 총정리하기",
+     "ch": "또 떠나는 남자 ddoddunam",
+     "cid": "UCldwUablgk8KPcFPQlKnB-w",
+     "views": 299825,
+     "at": "2026-11-22",
+     "dur": 1884
+    },
+    {
+     "id": "p7ACgU221z4",
+     "t": "나혼자 상하이 여행🥟 입 대박 터짐ㅋㅋㅋㅋ 먹고싶은거 다먹기! 우캉루, 마라롱샤, 점도덕, 셩지엔, 홀리랜드, 주가각, 중국어플로 배달시키기!! | ep1",
+     "ch": "인영 forever young",
+     "cid": "UCJ3TlCanXZXbMsLY61DCFCw",
+     "views": 289318,
+     "at": "2026-03-22",
+     "dur": 2677
+    },
+    {
+     "id": "TdzEBJY7cw4",
+     "t": "매년 4억명이 몰리는 중국 최대 부자도시, 상하이 [중국 1]",
+     "ch": "하이글로시 Hi-Glossy",
+     "cid": "UC1faLFKSWmLPNuPj-hxXJFg",
+     "views": 223134,
+     "at": "2026-06-24",
+     "dur": 2471
+    },
+    {
+     "id": "9I-B1qOsXMs",
+     "t": "성격 좋은 여자의 나홀로 국경절 상하이 여행",
+     "ch": "유세이 yusei",
+     "cid": "UCUeQPZRP0IZRzRUc7c_1paQ",
+     "views": 206869,
+     "at": "2026-10-11",
+     "dur": 2331
+    }
+   ]
+  },
+  "beijing": {
+   "at": "2026-11-25T15:17:04.848Z",
+   "list": [
+    {
+     "id": "F1C_AYO-JlU",
+     "t": "남들 다 상하이 갈 때, 예상외로 도파민 터진 베이징 여행",
+     "ch": "타이위",
+     "cid": "UCOidHkcRVwALMe87CMhpZjQ",
+     "views": 138655,
+     "at": "2026-09-11",
+     "dur": 2217
+    },
+    {
+     "id": "1yEeh602lyg",
+     "t": "늦가을 3박 4일 베이징 가족여행 (유니버설 스튜디오부터 용화궁 사원까지)",
+     "ch": "봄태규",
+     "cid": "UCvIgrqonnhMfLsETWAvKLyA",
+     "views": 84980,
+     "at": "2026-10-29",
+     "dur": 1551
+    },
+    {
+     "id": "IkvB6CPhX2M",
+     "t": "베이징 여행 vlog.3🇨🇳 | 베이징이 이렇게 느좋 감성이였어..? | 2박3일 베이징 핵심코스 도장깨기 | 중국의 랜드마크격 만리장성 과 자금성까지",
+     "ch": "깅듀로그",
+     "cid": "UCNuiWtqwv-NFHkAoTE1p5wQ",
+     "views": 57548,
+     "at": "2026-07-22",
+     "dur": 2136
+    },
+    {
+     "id": "TiZ5OJO52Q8",
+     "t": "상하이 가봤다면 다음은 베이징 여행 이 영상만 보고 그대로 따라가세요! 항공편부터 맛집, 필수 준비사항, 꿀팁까지 북경여행 3박 4일 코스 완벽 총정리 ✅",
+     "ch": "똑똑한 여행 프로젝트, 똑프",
+     "cid": "UCTD4xCbpjFoy6NwIEYCCykA",
+     "views": 37969,
+     "at": "2026-05-15",
+     "dur": 698
+    },
+    {
+     "id": "9q5P4WakbYk",
+     "t": "🇨🇳떠먹여주는 베이징 여행 총정리! | 만리장성 드론배달 | 지도 링크 공유 |난뤄구샹, 사계민복 베이징덕, 스차하이, 만리장성, 헌지우이치엔, 현지 배달맛집 추천",
+     "ch": "밍바오 mingbao",
+     "cid": "UCagYeG9X_qdt04BvCWyCd-A",
+     "views": 26086,
+     "at": "2025-12-01",
+     "dur": 867
+    },
+    {
+     "id": "mNZbYqaECaQ",
+     "t": "베이징은 처음입니다만",
+     "ch": "Veiled 베일드",
+     "cid": "UCLKsaXXS1lTPiwId0GtbGaA",
+     "views": 17904,
+     "at": "2026-06-21",
+     "dur": 1196
+    },
+    {
+     "id": "Tf-zpvfgYx4",
+     "t": "진짜 중국을 보고 싶다면, 베이징 여행 | 중국 베이징1 ",
+     "ch": "조이래빗",
+     "cid": "UCy5vLb5I03AGYG1s5fWXFgA",
+     "views": 15037,
+     "at": "2025-12-28",
+     "dur": 711
+    },
+    {
+     "id": "5OtDijjeQpE",
+     "t": "중국 베이징 여행 \"솔직 리뷰\" 편견부터 깨졌다. 나는 왜 말문이 막혔을까? | 베이징 여행 필수코스 | 추천코스 | 여행코스추천 | 자유여행 필수영상 | 베이징 숙소 추천",
+     "ch": "생각보다 운운 - 생우니",
+     "cid": "UCgGrVhE_36zLEEFaVOPCt7A",
+     "views": 14510,
+     "at": "2025-12-07",
+     "dur": 3642
+    }
+   ]
+  },
+  "qingdao": {
+   "at": "2026-11-25T15:17:05.621Z",
+   "list": [
+    {
+     "id": "OlDFs0gG8b4",
+     "t": "칭다오 느좋 코스 싹 훑고 온 채영&나경✈️ ㅣ 은어항거리, 메이다얼, 따룬파 마트, 카이하이, 타이동 야시장",
+     "ch": "스프 : 스튜디오 프로미스나인",
+     "cid": "UCeUJ8B3krxw8zuDi19AlhaA",
+     "views": 1194836,
+     "at": "2026-11-19",
+     "dur": 1987
+    },
+    {
+     "id": "5PepxxW_AZY",
+     "t": "나혼자 칭다오🍖3박4일 중국 칭다오 여행 브이로그",
+     "ch": "sookoh 수코",
+     "cid": "UC3Cr1vv_kevdIL2C0zE6DmQ",
+     "views": 432314,
+     "at": "2026-01-06",
+     "dur": 3398
+    },
+    {
+     "id": "tPf4a2QA-gQ",
+     "t": "항공권 4만원에 떠나는 \"한국어\"로 여행이 가능하다는 칭다오는 어떻게 달라졌을까?",
+     "ch": "찬고리 Changori",
+     "cid": "UCPyAhZQuHbEVlyX6LfBun4A",
+     "views": 324181,
+     "at": "2026-04-25",
+     "dur": 2275
+    },
+    {
+     "id": "W1-GjVFkB48",
+     "t": "혼놀이 제일 좋은 어느 모태솔로의..칭다오여행🍺브이로그",
+     "ch": "고요비koyobi",
+     "cid": "UCASXEOh4LJxWdk2hZnsfNYw",
+     "views": 260377,
+     "at": "2026-10-05",
+     "dur": 2832
+    },
+    {
+     "id": "dYTAUjuHM6g",
+     "t": "칭다오여행 2회차🇨🇳 여행준비꿀팁부터 먹방 즐길거리까지 야무지게 모실게요(산동항공/칭다오4인숙소/현지인맛집/스냅사진스팟/중국메이크업)",
+     "ch": "좋은희Joeunhee",
+     "cid": "UCchl4cNkzAqwp_n3Qf-_Gag",
+     "views": 209021,
+     "at": "2026-07-02",
+     "dur": 2757
+    },
+    {
+     "id": "omhioEcudF4",
+     "t": "혼자 칭다오 여행하면 생기는일..🇨🇳 3박 4일 칭다오 여행 브이로그",
+     "ch": "세빈 SEBIN",
+     "cid": "UCpOtHjfr_hcAhPTky6OWcHA",
+     "views": 170370,
+     "at": "2025-12-29",
+     "dur": 2111
+    },
+    {
+     "id": "t6qlA90kWZ0",
+     "t": "요즘 난리 난 칭다오 3박 4일 완벽 코스! 뻔한 여행지 말고 여긴 꼭 가세요 (맛집, 루위, 불야성, 야시장, 마사지 총정리) w. 판다투어",
+     "ch": "여행작가 봄비",
+     "cid": "UCHLowkcv5CvjgT0MCd7SbJA",
+     "views": 96027,
+     "at": "2026-06-05",
+     "dur": 660
+    },
+    {
+     "id": "TKz6_ac1mJU",
+     "t": "[4K] 칭다오 패키지 여행 - 모아 보기 풀영상",
+     "ch": "GuzalTV 구잘TV",
+     "cid": "UCMKeK9fTHvlTLypdLRh3cUw",
+     "views": 93118,
+     "at": "2025-12-18",
+     "dur": 14199
+    }
+   ]
+  },
+  "weihai": {
+   "at": "2026-11-25T15:17:06.392Z",
+   "list": [
+    {
+     "id": "H-DjwsV9xBY",
+     "t": "[은퇴여행] 인천에서 단 1시간! 은퇴 후 떠나기 좋은 중국, 웨이하이  [산둥성 3]",
+     "ch": "수길따라(sugilway)",
+     "cid": "UCxQ6xsoXqeVqrDvm71rByQQ",
+     "views": 262349,
+     "at": "2026-06-26",
+     "dur": 1970
+    },
+    {
+     "id": "HpF3tO1irXo",
+     "t": "한국에서 제일 가까운데 한국사람의 97프로가 모르는 도시[웨이하이1]",
+     "ch": "강력의두둥탁(PowerfulKorea)",
+     "cid": "UCZTcnKHGJOM_xKp61WS8FtA",
+     "views": 218558,
+     "at": "2025-12-06",
+     "dur": 1555
+    },
+    {
+     "id": "QWVs2SWnC00",
+     "t": "🇨🇳 단돈 10만원대 나홀로 2박3일 중국 웨이하이 여행기 (유명해지기 전에 꼭 가보세요)",
+     "ch": "쏘이Soy The World",
+     "cid": "UCugz3-UlkX2P77PtK1Ju0RA",
+     "views": 153501,
+     "at": "2025-11-27",
+     "dur": 1875
+    },
+    {
+     "id": "SjIk45Fr6Nk",
+     "t": "가성비로 갔을 뿐인데 뭘 먹어도 맛있고 어딜 가도 힐링되서 얼굴이 중국사람처럼 변해버린 중년남성의 중국 소도시여행[웨이하이2]",
+     "ch": "강력의두둥탁(PowerfulKorea)",
+     "cid": "UCZTcnKHGJOM_xKp61WS8FtA",
+     "views": 36608,
+     "at": "2025-12-13",
+     "dur": 2069
+    },
+    {
+     "id": "4YyF3-XAf78",
+     "t": "인당 3만원에 조식, 온천, 숙박까지? 중국 온천 리조트 1박, 과연 괜찮을까 | 웨이하이 여행",
+     "ch": "윰쪽 여행 yumlog",
+     "cid": "UC7RLSYTHPZp85V-cTVPEP1A",
+     "views": 28411,
+     "at": "2026-11-18",
+     "dur": 1519
+    },
+    {
+     "id": "WGQNATahhL4",
+     "t": "\"웨이하이 여행 절대 실패 없는 필수 코스 BEST (행복문, 백조호수, 난파선)\"",
+     "ch": "취미부자",
+     "cid": "UC20X8xxXS0fQAVS8qluc7gQ",
+     "views": 27276,
+     "at": "2025-11-27",
+     "dur": 1106
+    },
+    {
+     "id": "DlmA4rI4b1s",
+     "t": "45분이면 도착 하는 가장 가까운 해외 여행지 🇨🇳웨이하이 몰아보기!! 붓잽이 브이로그",
+     "ch": "붓잽이",
+     "cid": "UCxoFYk70HBa78iPBZkk_S-A",
+     "views": 23272,
+     "at": "2026-09-19",
+     "dur": 3004
+    },
+    {
+     "id": "nD7zOZWMaYs",
+     "t": "웨이하이(위해)여행 - 이리저리 봐도 웨이하이가 제일입니다",
+     "ch": "루이치 (ruichee)",
+     "cid": "UCKAsdY4ee6bSPFcg2HnU6dw",
+     "views": 16981,
+     "at": "2026-07-05",
+     "dur": 2172
+    }
+   ]
+  },
+  "zhangjiajie": {
+   "at": "2026-11-25T15:17:07.169Z",
+   "list": [
+    {
+     "id": "SuWF13QYxD4",
+     "t": "39만원 vs 163만원 장가계 패키지｜돈을 더 내면 정말 달라질까?",
+     "ch": "어디가션 ODGS",
+     "cid": "UCf35qf6RpEBAjcGNH3V01TQ",
+     "views": 1797357,
+     "at": "2026-10-08",
+     "dur": 1744
+    },
+    {
+     "id": "-coj4RIQYxA",
+     "t": "장가계 패키지의 현실! 장가계 여행을 생각하신다면 이 영상은 꼭 보고 가세요.",
+     "ch": "일상이여행 Everyday travel",
+     "cid": "UCgSGT3WawT1QwUnMbjk8S2A",
+     "views": 676391,
+     "at": "2026-02-27",
+     "dur": 980
+    },
+    {
+     "id": "wox8t_8qCY0",
+     "t": "🇨🇳 39만원 초저가 장가계 패키지…싸다고 예약했다가 생기는 일",
+     "ch": "트래블 메이커 Travel Maker",
+     "cid": "UCoDqzkqxDRGqZHAGAR9ez9A",
+     "views": 602293,
+     "at": "2026-04-04",
+     "dur": 1221
+    },
+    {
+     "id": "4Pu6Sq7hyts",
+     "t": "살해 협박을 받았던 중국 장가계 패키지, 1년 만에 다시 가봤습니다",
+     "ch": "레리꼬 LET IT GO",
+     "cid": "UC_tnGAhy3uj0tshK5Miyi2g",
+     "views": 519229,
+     "at": "2026-09-27",
+     "dur": 1924
+    },
+    {
+     "id": "5TcySu18_lE",
+     "t": "장가계 여행, 이게 현실입니다｜천문산 유리잔도·귀곡잔도부터 대협곡 유리다리까지 [1부] #시니어여행 #해외여행 #국내여행 #효도여행",
+     "ch": "매주토요일떠나는여행",
+     "cid": "UCMcq5_jT0txUeMTL6oFD9Mw",
+     "views": 414305,
+     "at": "2026-11-03",
+     "dur": 2526
+    },
+    {
+     "id": "-Y_o3jc742w",
+     "t": "죽기 전에 꼭 가봐야 할 아시아 최고의 절경을 만나는 무릉도원 장가계 패키지 여행 / 중국여행, 무릉원, 천문산, Zhangjiajie",
+     "ch": "킴스트래블 Kim's Travel",
+     "cid": "UCJh7YJLH8MaJQZxzMYS-gqg",
+     "views": 355598,
+     "at": "2026-05-15",
+     "dur": 2487
+    },
+    {
+     "id": "VHR9i7mUqZM",
+     "t": "악명높은 장가계 패키지, 초저가 중국여행 진짜 현실은? 【장가계3】",
+     "ch": "요즈음 yozm",
+     "cid": "UC8oo_hOQtpd83BQSpT9xHRg",
+     "views": 261013,
+     "at": "2026-09-12",
+     "dur": 2616
+    },
+    {
+     "id": "B980ZFnI3cU",
+     "t": "장가계 패키지 '싼 맛'에 갔다가 호구 잡혔습니다.. 쇼핑 4회 & 옵션 솔직 후기 (총 130만 원 씀)\"",
+     "ch": "이셰프의 여행",
+     "cid": "UCLXxQoO8PKNGefL9WCL8AGA",
+     "views": 239828,
+     "at": "2026-10-11",
+     "dur": 810
     }
    ]
   }

@@ -1,7 +1,7 @@
 ---
 import Base from '../../layouts/Base.astro';
 import PageBanner from '../../components/PageBanner.astro';
-import { PARTNERS, CATS, AD_NOTE } from '../../data/partners.js';
+import { PARTNERS, CATS, AD_NOTE, PREP_GUIDES } from '../../data/partners.js';
 // 종류 순서대로 한 판에 (PC 4개씩 · 폰 2개씩)
 const catOf = Object.fromEntries(CATS.map((c) => [c.id, c]));
 const list = CATS.flatMap((c) => PARTNERS.filter((p) => p.cat === c.id));
@@ -32,6 +32,15 @@ const firstOf = new Set(CATS.map((c) => PARTNERS.find((p) => p.cat === c.id)?.id
     })}
   </div>
 
+  {PREP_GUIDES.length > 0 && (
+    <section class="pgl">
+      <h2>📖 준비 가이드</h2>
+      <div class="pgl-g">
+        {PREP_GUIDES.map((g) => <a href={`/prep/${g.slug}/`}><b>{g.title}</b><span>{g.desc}</span></a>)}
+      </div>
+    </section>
+  )}
+
   <details class="tips">
     <summary>고르기 전에 알아 두면 좋은 것</summary>
     <ul>{CATS.map((c) => <li><b>{c.ico} {c.name}</b> — {c.lead}</li>)}</ul>
@@ -58,6 +67,13 @@ const firstOf = new Set(CATS.map((c) => PARTNERS.find((p) => p.cat === c.id)?.id
   .pgo { margin-top: auto; display: block; text-align: center; text-decoration: none; font-size: 14px; font-weight: 800; color: #fff; background: var(--sea); border-radius: 10px; padding: 8px; }
   .pgo:hover { filter: brightness(1.06); }
   .pgo.off { background: #F3ECE7; color: var(--sub); font-weight: 600; }
+  .pgl h2 { margin: 28px 0 10px; }
+  .pgl-g { display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px; }
+  .pgl-g a { display: flex; flex-direction: column; gap: 4px; text-decoration: none; color: var(--ink); border: 1px solid var(--line); border-radius: 14px; padding: 13px 15px; background: #fff; }
+  .pgl-g a:hover { border-color: var(--coral); }
+  .pgl-g b { font-size: 16px; }
+  .pgl-g span { font-size: 13px; color: var(--sub); }
+  @media (max-width: 760px) { .pgl-g { grid-template-columns: 1fr; } }
   .tips { margin-top: 16px; border: 1px solid var(--line); border-radius: 12px; padding: 0 14px; background: #fff; }
   .tips summary { cursor: pointer; padding: 11px 0; font-weight: 700; font-size: 14px; }
   .tips ul { margin: 0 0 12px; padding-left: 18px; font-size: 13.5px; line-height: 1.7; color: #4a3b33; }

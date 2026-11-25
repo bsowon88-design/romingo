@@ -4,6 +4,7 @@ import { bigQuakes } from '../data/load.js';
 import { citiesWithClimate, MONTHS } from '../data/weather.js';
 import { GUIDES } from '../data/guides.js';
 import { PAIRS } from '../data/pairs.js';
+import { PREP_GUIDES } from '../data/partners.js';
 
 export function GET() {
   const now = new Date().toISOString();
@@ -18,6 +19,7 @@ export function GET() {
     ['/about/', null],
     ['/map/', now],
     ['/prep/', now],
+    ...PREP_GUIDES.map((g) => [`/prep/${g.slug}/`, new Date(g.date).toISOString()]),
     ['/compare/', null],
     ...PAIRS.map(([a, b]) => [`/compare/${a}-vs-${b}/`, null]),
     ['/popular/', now],

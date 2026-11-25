@@ -55,3 +55,8 @@ export const PARTNERS = [
 
 export const partnersOf = (cat, country) =>
   PARTNERS.filter((p) => p.cat === cat && p.url && (!p.only || !country || p.only.includes(country)));
+
+// 여행 준비 가이드 글 — /prep/{slug}/ (글은 src/pages/prep/{slug}.astro)
+export const PREP_GUIDES = [
+  { slug: 'japan-esim', cat: 'data', country: 'japan', title: '일본 eSIM 고르는 법: 도시락eSIM vs 유심사', short: '일본 eSIM 고르는 법', desc: '로컬망·로밍망 차이, 무제한과 매일 ○GB 중 고르는 법, 사기 전에 확인할 4가지', date: '2026-11-25' },
+];

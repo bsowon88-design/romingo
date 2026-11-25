@@ -1548,6 +1548,18 @@
   "url": "https://earthquake.usgs.gov/earthquakes/eventpage/us7000tu3j"
  },
  {
+  "id": "us7000ttyd",
+  "mag": 5,
+  "place": "101 km SW of Port-Vila, Vanuatu",
+  "time": 1793270000772,
+  "lat": -18.4,
+  "lon": 167.6,
+  "depth": 10,
+  "tsunami": 0,
+  "alert": null,
+  "url": "https://earthquake.usgs.gov/earthquakes/eventpage/us7000ttyd"
+ },
+ {
   "id": "us7000tty7",
   "mag": 5.2,
   "place": "214 km NNW of Bamboo Flat, India",

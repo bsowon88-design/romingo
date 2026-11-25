@@ -18,7 +18,9 @@ const ALIAS = {
   bali: '우붓 덴파사르 꾸따 스미냑', kotakinabalu: '코키 코타 키나발루', kualalumpur: '쿠알라 kl 쿠알라룸프르',
   guam: '투몬', saipan: '사이빤', honolulu: '하와이 와이키키 오아후',
   newyork: '뉴욕시 nyc 맨해튼', losangeles: '로스앤젤레스 엘에이 la', sanfrancisco: '샌프란 샌프', lasvegas: '베가스', cancun: '칸쿤',
-  goldcoast: '골코', queenstown: '퀸즈타운', cappadocia: '괴레메 카파도키아', santorini: '이아 피라', venice: '베네치아', florence: '피렌체', rome: '로마',
+  goldcoast: '골코',
+  hangzhou: '항주 서호', guangzhou: '광주 광동', shenzhen: '심천', shenyang: '심양', dalian: '대련', nanjing: '남경', yantai: '연대', harbin: '하얼삔 빙등제',
+  taichung: '대중 타이충', ulaanbaatar: '울란바타르 울란바아타르 테를지 몽고', kagoshima: '사쿠라지마', matsuyama: '도고온천 시코쿠', takamatsu: '나오시마 시코쿠', shizuoka: '후지산', queenstown: '퀸즈타운', cappadocia: '괴레메 카파도키아', santorini: '이아 피라', venice: '베네치아', florence: '피렌체', rome: '로마',
 };
 
 export const SEARCH_INDEX = COUNTRIES.map((c) => {

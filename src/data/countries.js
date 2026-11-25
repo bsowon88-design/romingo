@@ -19,7 +19,7 @@ export const COUNTRIES = [
     tz: 'Asia/Tokyo', capital: '도쿄', currency: '엔 (JPY)', lang: '일본어',
     volt: '100V', plug: 'A·B 타입', adapter: true,
     emergency: [['경찰', '110'], ['구급·화재', '119']],
-    flight: '약 2시간 (도쿄)', cities: ['도쿄', '오사카', '후쿠오카', '삿포로', '오키나와', '나고야'],
+    flight: '약 2시간 (도쿄)', cities: ['도쿄', '오사카', '후쿠오카', '삿포로', '오키나와', '나고야', '가고시마', '마쓰야마', '다카마쓰', '시즈오카'],
     color: ['#e94b5b', '#f6a5a1'] },
   { slug: 'china', landmark: '만리장성', photoQ: 'Great Wall China', cur: 'CNY', curName: '위안', iso2: ['CN'], ko: '중국', flag: '🇨🇳', region: 'near', iso3: ['CHN'],
     keys: ['china', 'xizang', 'tibet', 'sichuan', 'yunnan', 'xinjiang', 'qinghai', 'gansu'],
@@ -139,6 +139,12 @@ export const COUNTRIES = [
     emergency: [['경찰', '100'], ['구급', '102']],
     cities: ['카트만두', '포카라', '안나푸르나'],
     color: ['#c8233d', '#3a4fa8'] },
+  { slug: 'mongolia', landmark: '테를지 초원', photoQ: 'Mongolia steppe ger', cur: 'MNT', curName: '투그릭', iso2: ['MN'], ko: '몽골', flag: '🇲🇳', region: 'near', iso3: ['MNG'], keys: ['mongolia'],
+    tz: 'Asia/Ulaanbaatar', capital: '울란바토르', currency: '투그릭 (MNT)', lang: '몽골어',
+    volt: '230V', plug: 'C·E 타입', adapter: false,
+    emergency: [['경찰', '102'], ['구급', '103'], ['화재', '101']],
+    flight: '약 3시간 30분 (울란바토르)', cities: ['울란바토르', '테를지', '홉스골', '고비 사막'],
+    color: ['#c4272f', '#015197'] },
 ];
 
 // 외교부 영사콜센터 (해외에서 24시간)

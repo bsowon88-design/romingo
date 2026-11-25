@@ -1698,5 +1698,65 @@
   "userUrl": "https://unsplash.com/@ratulraha",
   "page": "https://unsplash.com/photos/a-bunch-of-boats-that-are-sitting-in-the-water-X08i7QDlXI8",
   "pick": 0
+ },
+ "country:mongolia": {
+  "id": "yhbanN00pb8",
+  "raw": "https://images.unsplash.com/photo-1575415868394-e3b78f3e9b3f?ixid=M3wxMTQzNTA5fDB8MXxzZWFyY2h8MXx8TW9uZ29saWElMjBzdGVwcGUlMjBnZXJ8ZW58MXwwfHx8MTc5NTYwODI0OXww&ixlib=rb-4.1.0",
+  "color": "#a6c0d9",
+  "alt": "white tents on field",
+  "name": "Vince Gx",
+  "userUrl": "https://unsplash.com/@vincegx",
+  "page": "https://unsplash.com/photos/white-tents-on-field-yhbanN00pb8",
+  "pick": 0
+ },
+ "country:laos": {
+  "id": "Wy9yEJcxAbw",
+  "raw": "https://images.unsplash.com/photo-1686120552846-7caf1a345876?ixid=M3wxMTQzNTA5fDB8MXxzZWFyY2h8MXx8THVhbmclMjBQcmFiYW5nJTIwTGFvc3xlbnwxfDB8fHwxNzk1NjA4MjUwfDA&ixlib=rb-4.1.0",
+  "color": "#0c73a6",
+  "alt": "a building with a lot of windows and stairs",
+  "name": "Mon Jester",
+  "userUrl": "https://unsplash.com/@monjester",
+  "page": "https://unsplash.com/photos/a-building-with-a-lot-of-windows-and-stairs-Wy9yEJcxAbw",
+  "pick": 0
+ },
+ "country:cambodia": {
+  "id": "EY3tC81nFt0",
+  "raw": "https://images.unsplash.com/photo-1566706546199-a93ba33ce9f7?ixid=M3wxMTQzNTA5fDB8MXxzZWFyY2h8Mnx8QW5na29yJTIwV2F0JTIwQ2FtYm9kaWF8ZW58MXwwfHx8MTc5NTYwODI1MHww&ixlib=rb-4.1.0",
+  "color": "#40260c",
+  "alt": "Angkor Wat, Cambodia",
+  "name": "Vicky T",
+  "userUrl": "https://unsplash.com/@vicky_t",
+  "page": "https://unsplash.com/photos/angkor-wat-cambodia-EY3tC81nFt0",
+  "pick": 0
+ },
+ "city:kagoshima": {
+  "id": "Cttv-HVt3FI",
+  "raw": "https://images.unsplash.com/photo-1704686508379-8ee92cad45f6?ixid=M3wxMTQzNTA5fDB8MXxzZWFyY2h8MXx8S2Fnb3NoaW1hJTIwU2FrdXJhamltYSUyMHZvbGNhbm98ZW58MXwwfHx8MTc5NTYwODI1MXww&ixlib=rb-4.1.0",
+  "color": "#c0d9d9",
+  "alt": "a view of a city with a mountain in the background",
+  "name": "Geoff Oliver",
+  "userUrl": "https://unsplash.com/@satsuma9",
+  "page": "https://unsplash.com/photos/a-view-of-a-city-with-a-mountain-in-the-background-Cttv-HVt3FI",
+  "pick": 0
+ },
+ "city:matsuyama": {
+  "id": "p9zHR1b1MM8",
+  "raw": "https://images.unsplash.com/photo-1768593396716-20cd77c2d15d?ixid=M3wxMTQzNTA5fDB8MXxzZWFyY2h8MXx8TWF0c3V5YW1hJTIwRG9nbyUyME9uc2VufGVufDF8MHx8fDE3OTU2MDgyNTJ8MA&ixlib=rb-4.1.0",
+  "color": "#262626",
+  "alt": "A picturesque canal lined with traditional buildings and a bridge",
+  "name": "Kate Kasiutich",
+  "userUrl": "https://unsplash.com/@katekasiutich",
+  "page": "https://unsplash.com/photos/a-picturesque-canal-lined-with-traditional-buildings-and-a-bridge-p9zHR1b1MM8",
+  "pick": 0
+ },
+ "city:takamatsu": {
+  "id": "UCaGli9BqF0",
+  "raw": "https://images.unsplash.com/photo-1696329938280-5eb678dd4202?ixid=M3wxMTQzNTA5fDB8MXxzZWFyY2h8MXx8VGFrYW1hdHN1JTIwUml0c3VyaW4lMjBHYXJkZW58ZW58MXwwfHx8MTc5NTYwODI1Mnww&ixlib=rb-4.1.0",
+  "color": "#26260c",
+  "alt": "a japanese garden with rocks and trees",
+  "name": "H C",
+  "userUrl": "https://unsplash.com/@xmerlino",
+  "page": "https://unsplash.com/photos/a-japanese-garden-with-rocks-and-trees-UCaGli9BqF0",
+  "pick": 0
  }
 }

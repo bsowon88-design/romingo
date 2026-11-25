@@ -13,42 +13,42 @@ export const CATS = [
 export const PARTNERS = [
   {
     id: 'dosirak', cat: 'data', name: '도시락eSIM', url: 'https://click.linkprice.com/click.php?m=dosirak1&a=A100710531&l=0000',
-    best: '빨리 사서 바로 쓰고 싶은 분',
+    best: '결제와 동시에 발급되는 eSIM, 도착하자마자 바로 연결',
     pros: ['365일 24시간, 사면 바로 eSIM 발급', '140여 개국 · 1~180일 상품', '도시락eSIM 고객은 해외 통화 100분 무료 (앱 안내)'],
   },
   {
     id: 'usimsa', cat: 'data', name: '유심사', url: 'https://click.linkprice.com/click.php?m=usimsa&a=A100710531&l=0000',
-    best: '쓰는 중에 충전·연장이 필요할 수 있는 분',
+    best: '여행 중에도 앱 하나로 충전·연장까지 자유로운 eSIM·유심',
     pros: ['365일 24시간 고객센터', '앱에서 데이터 사용량 조회·충전·연장', '유심사케어: 통신 장애로 생긴 비용 보장 (적용 상품만)'],
   },
   {
     id: 'klook', cat: 'tour', name: '클룩', url: 'https://click.linkprice.com/click.php?m=klook&a=A100710531&l=0000',
-    best: '입장권·교통 패스를 한 앱에 모으고 싶은 분',
+    best: '입장권부터 교통 패스까지, 여행 일정을 앱 하나에 담다',
     pros: ['입장권·투어·기차·버스·페리까지 한 곳에서', '바우처를 미리 받아 두면 인터넷 없이도 보여 줄 수 있음', '회원 등급별 할인 코드'],
   },
   {
     id: 'myrealtrip', cat: 'tour', name: '마이리얼트립', url: 'https://click.linkprice.com/click.php?m=myrealtrip&a=A100710531&l=0000',
-    best: '한국어로 편하게 예약하고 싶은 분',
+    best: '한국어 상담으로 더 세심하게 준비하는 현지 투어',
     pros: ['한국 회사 · 한국어 상담', '투어·액티비티 2만 9천여 개', '항공권·숙소·렌터카·여행자 보험도 함께'],
   },
   {
     id: 'agoda', cat: 'stay', name: '아고다', url: 'https://click.linkprice.com/click.php?m=agoda&a=A100710531&l=0000',
-    best: '아시아 숙소를 가격 위주로 고르는 분',
+    best: '아시아 곳곳의 숙소를 합리적인 가격으로 엄선',
     pros: ['전 세계 숙소 450만 곳 이상', '네이버페이 등 간편결제', '회원·앱 전용 특가'],
   },
   {
     id: 'hotelscombined', cat: 'stay', name: '호텔스컴바인', url: 'https://click.linkprice.com/click.php?m=hcombine2&a=A100710531&l=0000',
-    best: '여러 예약 사이트 가격을 한 번에 비교하고 싶은 분',
+    best: '주요 예약 사이트의 요금을 한눈에 비교하는 현명한 선택',
     pros: ['아고다·호텔스닷컴·트립닷컴·부킹닷컴 등 가격을 한 화면에', '찜한 호텔 값이 내려가면 알림', '항공편·렌터카도 같이 비교'],
   },
   {
     id: 'ttang', cat: 'flight', name: '땡처리닷컴', url: 'https://click.linkprice.com/click.php?m=072com&a=A100710531&l=0000',
-    best: '날짜가 자유롭고 싸게 가고 싶은 분',
+    best: '출발이 임박한 특가 항공권을 가장 먼저 만나는 곳',
     pros: ['땡처리 전문 여행사 (마감 임박 특가)', '항공권·호텔·패키지·입장권·여행자 보험까지', '회원가입 없이도 예약 가능'],
   },
   {
     id: 'toyota', cat: 'car', name: '도요타렌터카', url: 'https://click.linkprice.com/click.php?m=toyotarent&a=A100710531&l=0000', only: ['japan'],
-    best: '일본에서 처음 운전하는 분',
+    best: '한국어 지원으로 처음 떠나는 일본 드라이브도 여유롭게',
     pros: ['한국어 예약 사이트', '대여·반납 때 한국어 영상 통역 (영업시간)', '운전 중 문제는 한국어 채팅·전화 통역'],
   },
 ];

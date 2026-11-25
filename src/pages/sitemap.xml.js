@@ -5,6 +5,7 @@ import { citiesWithClimate, MONTHS } from '../data/weather.js';
 import { GUIDES } from '../data/guides.js';
 import { PAIRS } from '../data/pairs.js';
 import { PREP_GUIDES } from '../data/partners.js';
+import { ytCities } from '../data/youtube.js';
 
 export function GET() {
   const now = new Date().toISOString();
@@ -26,6 +27,8 @@ export function GET() {
     ['/airport/', now],
     ['/find/', null],
     ['/holidays/', now],
+    ['/videos/', now],
+    ...ytCities().map((k) => [`/videos/${k}/`, now]),
     ...['icn', 'gmp', 'pus', 'cju'].map((a) => [`/airport/${a}/`, now]),
     ...COUNTRIES.flatMap((c) => ['', 'safety/', 'weather/', 'info/'].map((t) => [`/country/${c.slug}/${t}`, now])),
     ...GUIDES.map((g) => [`/guide/${g.city}/`, new Date(g.updated).toISOString()]),

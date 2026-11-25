@@ -14,6 +14,7 @@ const nav = [
   ['/weather/', '날씨', 'cloud-sun', false],
   ['/safety/', '안전 정보', 'shield-check', true],
   ['/rates/', '환율', 'coins', true],
+  ['/videos/', '여행 영상', 'clapperboard', true],
   ['/prep/', '여행 준비', 'map', true],
 ];
 const isOn = (href) => (href === '/' ? path === '/' : path.startsWith(href) || (href === '/safety/' && (path.startsWith('/quakes') || path.startsWith('/disasters') || path.startsWith('/quake/'))));
@@ -338,7 +339,7 @@ const isOn = (href) => (href === '/' ? path === '/' : path.startsWith(href) || (
   .hasbg > .bgimg { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; z-index: -2; }
   .hasbg.photo::after { content: ''; position: absolute; inset: 0; z-index: -1; background: linear-gradient(180deg, rgba(0,0,0,.15) 0%, rgba(0,0,0,.55) 100%); }
   .flag { display: inline-block; vertical-align: -2px; border-radius: 2px; box-shadow: 0 0 0 1px rgba(0,0,0,.08); object-fit: cover; }
-  @media (max-width: 1240px) { .logo small { display: none; } }
+  @media (max-width: 1480px) { .logo small { display: none; } }
   @media (max-width: 1023px) {
     .top nav a .ico, .top nav a .hx { display: none; }
     .top nav a { font-size: 15px; padding: 10px 8px; }

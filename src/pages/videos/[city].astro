@@ -1,0 +1,47 @@
+---
+import Base from '../../layouts/Base.astro';
+import Flag from '../../components/Flag.astro';
+import YtCards from '../../components/YtCards.astro';
+import { CITIES, cityBySlug } from '../../data/cities.js';
+import { bySlug, flagOf } from '../../data/countries.js';
+import { guideByCity } from '../../data/guides.js';
+import { ytOf, ytCities } from '../../data/youtube.js';
+
+export function getStaticPaths() {
+  return ytCities().filter((k) => cityBySlug[k]).map((k) => ({ params: { city: k } }));
+}
+const city = cityBySlug[Astro.params.city];
+const co = bySlug[city.country];
+const list = ytOf(city.slug);
+const sibs = CITIES.filter((x) => x.country === city.country && x.slug !== city.slug && ytOf(x.slug).length);
+---
+<Base title={`${city.ko} 여행 브이로그 - 한국 유튜버 여행 영상 모음`} desc={`${city.ko} 여행 가기 전에 보면 좋은 한국 여행 유튜버 영상 ${list.length}개. ${list.slice(0, 3).map((v) => v.ch).join(', ')} 등의 최신 ${city.ko} 여행 영상을 모았어요.`}>
+  <p class="crumb"><a href="/">홈</a> › <a href="/videos/">여행 영상</a> › {city.ko}</p>
+  <h1><Flag iso={flagOf(co)} size={28} /> {city.ko} 여행 영상</h1>
+  <p class="lead">한국 여행 유튜버들이 다녀온 {city.ko} 영상이에요. 누르면 이 화면에서 바로 재생돼요.</p>
+
+  <YtCards list={list} />
+
+  <div class="more">
+    {guideByCity[city.slug] && <a class="mb" href={`/guide/${city.slug}/`}>📖 {city.ko} 여행가이드 보기 →</a>}
+    <a class="mb" href={`/country/${co.slug}/`}>🧭 {co.ko} 안전·환율·입국 정보 →</a>
+  </div>
+
+  {sibs.length > 0 && (
+    <>
+      <h2>{co.ko}의 다른 도시 영상</h2>
+      <div class="chips">{sibs.map((x) => <a href={`/videos/${x.slug}/`}>{x.ko}</a>)}</div>
+    </>
+  )}
+  <p class="muted note">유튜브에서 찾은 한국어 여행 영상 중 조회수가 높은 영상을 일주일마다 자동으로 골라요. 영상의 저작권은 만든 유튜버에게 있어요. <a href="/videos/">다른 도시 영상 보기</a></p>
+</Base>
+
+<style>
+  h1 { display: flex; align-items: center; gap: 10px; }
+  .lead { margin-bottom: 20px; }
+  .more { display: flex; gap: 10px; flex-wrap: wrap; margin-top: 24px; }
+  .mb { text-decoration: none; font-weight: 700; color: var(--sea); background: #FFF8F3; border: 1px solid #F6D9C7; border-radius: 12px; padding: 12px 16px; }
+  .chips { display: flex; gap: 8px; flex-wrap: wrap; }
+  .chips a { text-decoration: none; font-weight: 700; color: var(--ink); background: #fff; border: 1px solid var(--line); border-radius: 999px; padding: 8px 14px; }
+  .note { margin-top: 26px; font-size: 13px; }
+</style>

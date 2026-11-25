@@ -6,6 +6,8 @@ import PhotoSlider from '../../components/PhotoSlider.astro';
 import CitySafety from '../../components/CitySafety.astro';
 import Forecast from '../../components/Forecast.astro';
 import CityVideo from '../../components/CityVideo.astro';
+import YtCards from '../../components/YtCards.astro';
+import { ytOf } from '../../data/youtube.js';
 import PrepLinks from '../../components/PrepLinks.astro';
 import { VIDEOS } from '../../data/videos.js';
 import { flagOf } from '../../data/countries.js';
@@ -70,6 +72,13 @@ const title = `${city.ko} 여행가이드 - 숙소 위치·공항 이동·추천
 
   <PrepLinks cat="tour" country={city.country} title={`${city.ko} 입장권·투어`} />
   <CityVideo city={city} />
+  {ytOf(city.slug).length > 0 && (
+    <section class="ytsec" id="vlog">
+      <h2>📺 한국 유튜버 {city.ko} 여행 영상</h2>
+      <YtCards list={ytOf(city.slug).slice(0, 4)} />
+      {ytOf(city.slug).length > 4 && <a class="ytmore" href={`/videos/${city.slug}/`}>영상 {ytOf(city.slug).length}개 모두 보기 →</a>}
+    </section>
+  )}
   <Forecast city={city} />
   <CitySafety city={city} />
   <a class="addtrip" href={`/my/?add=${city.slug}`}>🧳 {city.ko} 여행을 나의 여행에 추가</a>
@@ -111,6 +120,7 @@ const title = `${city.ko} 여행가이드 - 숙소 위치·공항 이동·추천
   .addtrip { display: inline-block; margin-top: 12px; text-decoration: none; font-weight: 700; color: var(--sea); background: #FFF0E6; border: 1px solid #F6D9C7; border-radius: 999px; padding: 8px 14px; }
   .toc { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 14px; }
   .toc a { text-decoration: none; background: #fff; border: 1px solid var(--line); border-radius: 999px; padding: 6px 12px; font-size: 13.5px; font-weight: 600; }
+  .ytmore { display: inline-block; margin-top: 12px; color: var(--sea); font-weight: 700; text-decoration: none; }
   .quick { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 10px; margin-top: 14px; }
   .q { display: flex; flex-direction: column; text-decoration: none; background: #FFF8F3; border: 1px solid #F6D9C7; border-radius: 14px; padding: 12px 14px; }
   .q span { font-size: 12.5px; color: var(--sub); font-weight: 600; }

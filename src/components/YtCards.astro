@@ -1,0 +1,80 @@
+---
+// 한국 여행 유튜버 영상 카드 — 누르면 이 화면 위에서 재생(새 창 X)
+import { fmtViews, fmtDur } from '../data/youtube.js';
+const { list = [], cols = 4 } = Astro.props;
+---
+{list.length > 0 && (
+  <div class="yt" data-yt>
+    <div class="yt-g" style={`--cols:${cols}`}>
+      {list.map((v) => (
+        <button type="button" class="yc" data-id={v.id} data-t={v.t} data-ch={v.ch}>
+          <span class="yc-img">
+            <img src={`https://i.ytimg.com/vi/${v.id}/mqdefault.jpg`} alt="" loading="lazy" width="320" height="180" />
+            <span class="yc-d">{fmtDur(v.dur)}</span>
+            <span class="yc-p" aria-hidden="true">▶</span>
+          </span>
+          <span class="yc-txt">
+            <span class="yc-t">{v.t}</span>
+            <span class="yc-m"><b>{v.ch}</b> · 조회수 {fmtViews(v.views)} · {v.at.replace(/-/g, '.')}</span>
+          </span>
+        </button>
+      ))}
+    </div>
+    <dialog class="yt-d">
+      <div class="yt-in"><button type="button" class="yt-x" aria-label="닫기">✕</button><div class="yt-f"></div><p class="yt-s"></p></div>
+    </dialog>
+  </div>
+)}
+
+<script>
+  document.querySelectorAll<HTMLElement>('[data-yt]').forEach((root) => {
+    const dlg = root.querySelector<HTMLDialogElement>('.yt-d')!;
+    const box = dlg.querySelector<HTMLElement>('.yt-f')!;
+    const src = dlg.querySelector<HTMLElement>('.yt-s')!;
+    const close = () => { box.innerHTML = ''; dlg.close(); };
+    root.querySelectorAll<HTMLButtonElement>('.yc').forEach((b) => {
+      const img = b.querySelector('img')!;
+      // 지워진 영상은 유튜브가 120px 짜리 빈 그림을 줌 → 카드를 숨김
+      const check = () => { if (img.naturalWidth && img.naturalWidth <= 120) b.hidden = true; };
+      img.complete ? check() : img.addEventListener('load', check);
+      img.addEventListener('error', () => (b.hidden = true));
+      b.addEventListener('click', () => {
+        const f = document.createElement('iframe');
+        f.src = `https://www.youtube-nocookie.com/embed/${b.dataset.id}?autoplay=1&rel=0&playsinline=1`;
+        f.title = b.dataset.t || '여행 영상';
+        f.allow = 'autoplay; encrypted-media; picture-in-picture; fullscreen';
+        f.allowFullscreen = true;
+        box.replaceChildren(f);
+        src.textContent = `${b.dataset.ch} · YouTube`;
+        dlg.showModal();
+      });
+    });
+    dlg.querySelector('.yt-x')!.addEventListener('click', close);
+    dlg.addEventListener('click', (e) => { if (e.target === dlg) close(); });
+    dlg.addEventListener('cancel', () => { box.innerHTML = ''; });
+  });
+</script>
+
+<style>
+  .yt-g { display: grid; grid-template-columns: repeat(var(--cols), 1fr); gap: 16px 14px; }
+  .yc { display: flex; flex-direction: column; gap: 6px; padding: 0; border: 0; background: none; text-align: left; cursor: pointer; font: inherit; color: inherit; min-width: 0; }
+  .yc[hidden] { display: none; }
+  .yc-img { position: relative; display: block; aspect-ratio: 16 / 9; border-radius: 12px; overflow: hidden; background: #2E2420; }
+  .yc-img img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform .4s; }
+  .yc:hover .yc-img img { transform: scale(1.04); }
+  .yc-d { position: absolute; right: 6px; bottom: 6px; background: rgba(0,0,0,.78); color: #fff; font-size: 11.5px; font-weight: 700; padding: 1px 6px; border-radius: 5px; }
+  .yc-p { position: absolute; left: 50%; top: 50%; translate: -50% -50%; width: 44px; height: 44px; border-radius: 50%; display: grid; place-items: center; background: rgba(255,255,255,.92); color: var(--sea); font-size: 15px; padding-left: 3px; opacity: 0; transition: opacity .2s; }
+  .yc:hover .yc-p { opacity: 1; }
+  .yc-txt { display: flex; flex-direction: column; gap: 4px; min-width: 0; }
+  .yc-t { font-size: 14.5px; font-weight: 700; line-height: 1.4; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
+  .yc-m { font-size: 12.5px; color: var(--sub); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+  .yc-m b { color: var(--ink); font-weight: 700; }
+  .yt-d { width: min(960px, 94vw); padding: 0; border: 0; border-radius: 16px; background: #000; overflow: visible; }
+  .yt-d::backdrop { background: rgba(20, 14, 11, .78); }
+  .yt-in { position: relative; }
+  .yt-f :global(iframe) { display: block; width: 100%; aspect-ratio: 16 / 9; border: 0; border-radius: 16px; }
+  .yt-x { position: absolute; top: -44px; right: 0; width: 36px; height: 36px; border-radius: 50%; border: 0; background: rgba(255,255,255,.92); font-size: 16px; cursor: pointer; }
+  .yt-s { position: absolute; left: 0; bottom: -30px; margin: 0; font-size: 12.5px; color: #E8DAD1; }
+  @media (max-width: 900px) { .yt-g { grid-template-columns: repeat(2, 1fr); } }
+  @media (max-width: 520px) { .yt-g { grid-template-columns: 1fr; } .yc { flex-direction: row; gap: 10px; } .yc-img { flex: 0 0 44%; } .yc-t { font-size: 14px; } .yc-m { white-space: normal; } }
+</style>

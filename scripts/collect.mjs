@@ -8,6 +8,7 @@ import { fetchAlarms, fetchAdjusts } from './mofa.mjs';
 import { fetchRates } from './ecos.mjs';
 import { fetchClimate } from './climate.mjs';
 import { fetchPhotos } from './photos.mjs';
+import { fetchYoutube } from './youtube.mjs';
 import { updatePopular, fetchTodayFlights } from './icn.mjs';
 import { fetchForecasts } from './forecast.mjs';
 import { mkdir } from 'node:fs/promises';
@@ -20,6 +21,7 @@ const J_FILE = new URL('../src/data/archive/adjusts.json', import.meta.url);
 const R_FILE = new URL('../src/data/archive/rates.json', import.meta.url);
 const C_FILE = new URL('../src/data/archive/climate.json', import.meta.url);
 const P_FILE = new URL('../src/data/archive/photos.json', import.meta.url);
+const Y_FILE = new URL('../src/data/archive/youtube.json', import.meta.url);
 const F_FILE = new URL('../src/data/archive/popular.json', import.meta.url);
 // 자주 바뀌는 자료 — 사이트를 다시 만들지 않고 화면에서 바로 불러옴 (live 폴더)
 const LIVE_DIR = new URL('../live/', import.meta.url);
@@ -183,6 +185,24 @@ if (!UKEY) {
     } else console.log('사진: 새로 받을 곳 없음');
   } catch (e) {
     console.warn('사진 수집 실패:', e.message);
+  }
+}
+
+// 한국 여행 유튜버 영상 — 키가 있을 때, 일주일 지난 도시만 (한 번에 8곳)
+const YKEY = process.env.YOUTUBE_KEY;
+if (!YKEY) {
+  console.log('유튜브: YOUTUBE_KEY 없음, 건너뜀');
+} else {
+  try {
+    const old = await readList(Y_FILE);
+    const base = Array.isArray(old) ? {} : old;
+    const { out, done, left } = await fetchYoutube(YKEY, base);
+    if (done) {
+      console.log(`유튜브: ${done}곳 받음, 남은 곳 ${left}, 오늘 사용량 ${out.meta.units}`);
+      changed = (await save(Y_FILE, old, out, '유튜브')) || changed;
+    } else console.log('유튜브: 새로 받을 곳 없음');
+  } catch (e) {
+    console.warn('유튜브 수집 실패:', e.message);
   }
 }
 

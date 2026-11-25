@@ -1,49 +1,169 @@
 ---
 import Flag from '../../components/Flag.astro';
-import { flagOf } from '../../data/countries.js';
+import PhotoCredit from '../../components/PhotoCredit.astro';
+import { flagOf, COUNTRIES } from '../../data/countries.js';
 import Base from '../../layouts/Base.astro';
-import { COUNTRIES } from '../../data/countries.js';
 import { CITIES } from '../../data/cities.js';
-import { HAS_CLIMATE, bestMonths } from '../../data/weather.js';
+import { HAS_CLIMATE, climateOf, travelScore, rainInfo, MONTHS } from '../../data/weather.js';
+import { cityPhoto } from '../../data/photos.js';
 
 const nowM = +new Intl.DateTimeFormat('en-US', { timeZone: 'Asia/Seoul', month: 'numeric' }).format(new Date());
-const groups = COUNTRIES.map((c) => ({ c, cities: CITIES.filter((x) => x.country === c.slug) })).filter((g) => g.cities.length);
 const ready = CITIES.some((c) => HAS_CLIMATE(c.slug));
+
+// 12달 표 — 나라 순서대로 도시 줄
+const rows = [];
+for (const c of COUNTRIES) {
+  for (const x of CITIES.filter((y) => y.country === c.slug && HAS_CLIMATE(y.slug))) {
+    const m = climateOf(x.slug).m;
+    rows.push({ c, x, cells: m.map((d, i) => ({ m: i + 1, d, s: travelScore(d), rain: rainInfo(d).lv })) });
+  }
+}
+const countries = [...new Set(rows.map((r) => r.c.slug))].map((s) => COUNTRIES.find((c) => c.slug === s));
+
+// 이번 달 가기 좋은 곳 — 점수순, 한 나라에서 한 곳씩, 4곳
+const top = [];
+const seen = new Set();
+for (const r of [...rows].sort((a, b) => b.cells[nowM - 1].s - a.cells[nowM - 1].s || b.cells[nowM - 1].d.hi - a.cells[nowM - 1].d.hi)) {
+  if (seen.has(r.c.slug) || !cityPhoto(r.x.slug)) continue;
+  seen.add(r.c.slug);
+  top.push(r);
+  if (top.length === 4) break;
+}
+const lvCls = (s) => (s >= 75 ? 'g3' : s >= 60 ? 'g2' : s >= 45 ? 'g1' : 'g0');
+const tCls = (d) => { const t = (d.hi + d.lo) / 2; return t >= 28 ? 'hot' : t < 8 ? 'cold' : ''; };
 ---
-<Base title="해외 여행지 월별 날씨 - 기온·강수량·옷차림" desc="다낭, 오사카, 방콕, 세부 등 인기 해외 여행지의 월별 평균 기온, 강수량, 옷차림, 여행하기 좋은 달을 한눈에 확인하세요.">
+<Base title="해외 여행지 월별 날씨 - 12달 한눈에 · 이번 달 가기 좋은 곳" desc="다낭, 오사카, 방콕, 세부 등 인기 해외 여행지의 월별 평균 기온과 비, 여행하기 좋은 달을 12달 표로 한눈에 비교하세요.">
   <p class="crumb"><a href="/">홈</a> › 월별 날씨</p>
   <h1>해외 여행지 월별 날씨</h1>
-  <p class="lead">도시를 누르면 12달 날씨와 달마다 옷차림, 비 오는 정도, 여행하기 좋은 달을 볼 수 있어요.</p>
+  <p class="lead">이번 달 가기 좋은 곳과, 도시별 12달 날씨를 한 표로 비교해 보세요.</p>
   {!ready && <p class="note" style="margin-top:12px">날씨 자료를 모으는 중이에요. 곧 자동으로 채워져요.</p>}
 
-  {groups.map(({ c, cities }) => (
+  {top.length > 0 && (
     <section>
-      <h2><Flag iso={flagOf(c)} /> {c.ko}</h2>
-      <div class="wgrid">
-        {cities.map((x) => {
-          const ok = HAS_CLIMATE(x.slug);
-          const best = ok ? bestMonths(x.slug) : [];
-          return ok ? (
-            <a class="wc" href={`/weather/${x.slug}/`}>
-              <b>{x.ko}</b>
-              <span class="muted">추천 {best.map((m) => `${m}월`).join('·')}</span>
-              <span class="now">{nowM}월 날씨 보기 →</span>
+      <h2>☀️ {nowM}월에 가기 좋은 곳</h2>
+      <div class="best">
+        {top.map((r) => {
+          const ph = cityPhoto(r.x.slug);
+          const d = r.cells[nowM - 1].d;
+          return (
+            <a class="bc" href={`/weather/${r.x.slug}/${nowM}/`}>
+              <span class="bimg hasbg">{ph && <img class="bgimg" src={ph.src(480, 300)} alt={r.x.ko} loading="lazy" />}{ph && <PhotoCredit p={ph} link={false} />}</span>
+              <span class="bbody">
+                <span class="bname"><Flag iso={flagOf(r.c)} size={18} /> <b>{r.x.ko}</b></span>
+                <span class="bt"><b>{Math.round(d.hi)}°</b> / {Math.round(d.lo)}°</span>
+                <span class="br">비 오는 날 약 {Math.round(d.rdays)}일 · {rainInfo(d).label}</span>
+              </span>
             </a>
-          ) : (
-            <span class="wc off"><b>{x.ko}</b><span class="muted">준비 중</span></span>
           );
         })}
       </div>
     </section>
-  ))}
+  )}
+
+  {rows.length > 0 && (
+    <section id="table">
+      <h2>📅 12달 날씨 한눈에</h2>
+      <div class="filt" role="group" aria-label="나라 고르기">
+        <button type="button" class="on" data-c="">전체</button>
+        {countries.map((c) => <button type="button" data-c={c.slug}><Flag iso={flagOf(c)} size={16} /> {c.ko}</button>)}
+      </div>
+      <p class="legend">
+        <span><i class="sw g3"></i>여행하기 좋음</span><span><i class="sw g2"></i>무난</span><span><i class="sw g1"></i>조금 아쉬움</span><span><i class="sw g0"></i>비추천</span>
+        <span>숫자 = 낮 최고기온 · 💧 우기 · <b class="hotx">빨간 글씨</b> 무더위 · <b class="coldx">파란 글씨</b> 추위</span>
+      </p>
+      <div class="tw">
+        <table class="mt">
+          <thead>
+            <tr><th class="ch">도시</th>{MONTHS.map((m) => <th class={m === nowM ? 'now' : ''}>{m}월</th>)}</tr>
+          </thead>
+          <tbody>
+            {rows.map((r) => (
+              <tr data-c={r.c.slug}>
+                <th class="ch"><a href={`/weather/${r.x.slug}/`}><Flag iso={flagOf(r.c)} size={16} /> {r.x.ko}</a></th>
+                {r.cells.map((k) => (
+                  <td class:list={[lvCls(k.s), { now: k.m === nowM }]}>
+                    <a href={`/weather/${r.x.slug}/${k.m}/`} title={`${r.x.ko} ${k.m}월 · 최고 ${Math.round(k.d.hi)}° 최저 ${Math.round(k.d.lo)}° · 비 ${Math.round(k.d.rdays)}일`} class={tCls(k.d)}>
+                      {Math.round(k.d.hi)}°{k.rain >= 3 && <i class="rn">💧</i>}
+                    </a>
+                  </td>
+                ))}
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+      <p class="muted src">칸을 누르면 그 달 날씨·옷차림을 자세히 볼 수 있어요. 10년(2015~2024) 평균 · 자료: NASA POWER</p>
+    </section>
+  )}
 </Base>
 
+<script>
+  const wrap = document.getElementById('table');
+  if (wrap) {
+    const btns = wrap.querySelectorAll<HTMLButtonElement>('.filt button');
+    const trs = wrap.querySelectorAll<HTMLTableRowElement>('tbody tr');
+    // 폰: 이번 달 칸이 보이게 표를 옆으로 밀어 둠
+    const tw = wrap.querySelector<HTMLElement>('.tw');
+    const now = wrap.querySelector<HTMLElement>('thead th.now');
+    const ch = wrap.querySelector<HTMLElement>('thead th.ch');
+    if (tw && now && ch && tw.scrollWidth > tw.clientWidth) tw.scrollLeft = Math.max(0, now.offsetLeft - ch.offsetWidth - now.offsetWidth * 2);
+    btns.forEach((b) => b.addEventListener('click', () => {
+      btns.forEach((x) => x.classList.toggle('on', x === b));
+      const c = b.dataset.c;
+      trs.forEach((tr) => (tr.hidden = !!c && tr.dataset.c !== c));
+    }));
+  }
+</script>
+
 <style>
-  .wgrid { display: grid; grid-template-columns: repeat(auto-fill, minmax(170px, 1fr)); gap: 10px; }
-  .wc { display: flex; flex-direction: column; gap: 2px; background: #fff; border: 1px solid var(--line); border-radius: 14px; padding: 13px 14px; text-decoration: none; }
-  .wc:hover { border-color: var(--sea); }
-  .wc b { font-size: 16px; }
-  .wc .muted { font-size: 13px; }
-  .wc .now { font-size: 12.5px; color: var(--sea); font-weight: 600; margin-top: 4px; }
-  .wc.off { opacity: .55; }
+  .best { display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; }
+  .bc { display: flex; flex-direction: column; border: 1px solid var(--line); border-radius: 16px; overflow: hidden; text-decoration: none; color: var(--ink); background: #fff; transition: transform .2s, box-shadow .2s; }
+  .bc:hover { transform: translateY(-2px); box-shadow: 0 10px 24px -14px rgba(46,36,32,.35); }
+  .bimg { display: block; aspect-ratio: 16 / 10; background: #E9DDD4; }
+  .bbody { display: flex; flex-direction: column; gap: 3px; padding: 12px 14px 14px; }
+  .bname { display: flex; align-items: center; gap: 6px; font-size: 16px; }
+  .bt { font-size: 15px; color: var(--sub); }
+  .bt b { font-size: 24px; color: var(--sea); }
+  .br { font-size: 13px; color: var(--sub); }
+
+  .filt { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 10px; }
+  .filt button { display: inline-flex; align-items: center; gap: 5px; font: inherit; font-size: 14px; font-weight: 600; border: 1px solid var(--line); background: #fff; border-radius: 999px; padding: 6px 12px; cursor: pointer; color: var(--ink); }
+  .filt button.on { background: var(--ink); color: #fff; border-color: var(--ink); }
+  .legend { display: flex; flex-wrap: wrap; gap: 6px 14px; font-size: 12.5px; color: var(--sub); margin: 0 0 10px; }
+  .legend span { display: inline-flex; align-items: center; gap: 5px; }
+  .sw { display: inline-block; width: 14px; height: 14px; border-radius: 4px; }
+  .hotx { color: #C8402A; } .coldx { color: #2F6FB3; }
+
+  .tw { overflow-x: auto; border: 1px solid var(--line); border-radius: 14px; background: #fff; }
+  .mt { width: 100%; border-collapse: separate; border-spacing: 0; font-variant-numeric: tabular-nums; }
+  .mt th, .mt td { padding: 0; text-align: center; border-bottom: 1px solid #F6ECE5; }
+  .mt thead th { font-size: 12.5px; font-weight: 700; color: var(--sub); padding: 9px 4px; background: #FFFBF8; }
+  .mt thead th.now { color: #fff; background: var(--sea); }
+  .mt tbody tr:last-child > * { border-bottom: 0; }
+  .mt tr[hidden] { display: none; }
+  .ch { position: sticky; left: 0; z-index: 1; background: #fff; text-align: left !important; min-width: 118px; border-right: 1px solid #F6ECE5; }
+  thead .ch { background: #FFFBF8; padding-left: 12px !important; }
+  .ch a { display: flex; align-items: center; gap: 6px; padding: 9px 12px; font-size: 14.5px; font-weight: 700; color: var(--ink); text-decoration: none; white-space: nowrap; }
+  .ch a:hover { color: var(--sea); }
+  .mt td a { display: block; padding: 9px 2px; font-size: 13.5px; font-weight: 600; color: var(--ink); text-decoration: none; min-width: 46px; position: relative; }
+  .mt td a:hover { outline: 2px solid var(--sea); outline-offset: -2px; border-radius: 4px; }
+  .mt td a.hot { color: #C8402A; } .mt td a.cold { color: #2F6FB3; }
+  .rn { font-style: normal; font-size: 9px; position: absolute; top: 2px; right: 3px; }
+  .g3 { background: #F7B48F; } .g2 { background: #FBD9C2; } .g1 { background: #FDEEE3; } .g0 { background: #F4F1EF; }
+  .sw.g3 { background: #F7B48F; } .sw.g2 { background: #FBD9C2; } .sw.g1 { background: #FDEEE3; } .sw.g0 { background: #F4F1EF; border: 1px solid #E8E2DE; }
+  .mt td.now { box-shadow: inset 2px 0 0 var(--sea), inset -2px 0 0 var(--sea); }
+  .mt td.now a { font-weight: 800; }
+  .src { font-size: 12.5px; margin-top: 8px; }
+
+  @media (max-width: 900px) { .best { grid-template-columns: repeat(2, 1fr); } }
+  @media (max-width: 760px) {
+    .best { gap: 10px; }
+    .filt { flex-wrap: nowrap; overflow-x: auto; margin: 0 -18px 10px; padding: 0 18px 2px; scrollbar-width: none; }
+    .filt::-webkit-scrollbar { display: none; }
+    .filt button { flex: none; }
+    .bt b { font-size: 20px; }
+    .ch { min-width: 92px; }
+    .ch a { padding: 8px 8px; font-size: 13.5px; }
+    .mt td a { min-width: 40px; font-size: 13px; }
+  }
 </style>

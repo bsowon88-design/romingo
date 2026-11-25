@@ -6,6 +6,7 @@ import Base from '../../layouts/Base.astro';
 import { CITIES } from '../../data/cities.js';
 import { HAS_CLIMATE, climateOf, travelScore, rainInfo, MONTHS } from '../../data/weather.js';
 import { cityPhoto } from '../../data/photos.js';
+import PageBanner from '../../components/PageBanner.astro';
 
 const nowM = +new Intl.DateTimeFormat('en-US', { timeZone: 'Asia/Seoul', month: 'numeric' }).format(new Date());
 const ready = CITIES.some((c) => HAS_CLIMATE(c.slug));
@@ -33,9 +34,11 @@ const lvCls = (s) => (s >= 75 ? 'g3' : s >= 60 ? 'g2' : s >= 45 ? 'g1' : 'g0');
 const tCls = (d) => { const t = (d.hi + d.lo) / 2; return t >= 28 ? 'hot' : t < 8 ? 'cold' : ''; };
 ---
 <Base title="해외 여행지 월별 날씨 - 12달 한눈에 · 이번 달 가기 좋은 곳" desc="다낭, 오사카, 방콕, 세부 등 인기 해외 여행지의 월별 평균 기온과 비, 여행하기 좋은 달을 12달 표로 한눈에 비교하세요.">
-  <p class="crumb"><a href="/">홈</a> › 월별 날씨</p>
-  <h1>해외 여행지 월별 날씨</h1>
-  <p class="lead">이번 달 가기 좋은 곳과, 도시별 12달 날씨를 한 표로 비교해 보세요.</p>
+  <PageBanner name="weather">
+    <p class="crumb"><a href="/">홈</a> › 월별 날씨</p>
+    <h1>해외 여행지 월별 날씨</h1>
+    <p class="lead">이번 달 가기 좋은 곳과, 도시별 12달 날씨를 한 표로 비교해 보세요.</p>
+  </PageBanner>
   {!ready && <p class="note" style="margin-top:12px">날씨 자료를 모으는 중이에요. 곧 자동으로 채워져요.</p>}
 
   {top.length > 0 && (

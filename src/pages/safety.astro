@@ -1,5 +1,6 @@
 ---
 import Base from '../layouts/Base.astro';
+import PageBanner from '../components/PageBanner.astro';
 import Updated from '../components/Updated.astro';
 import Flag from '../components/Flag.astro';
 import DisasterCard from '../components/DisasterCard.astro';
@@ -16,9 +17,11 @@ const adj = (adjustAll || []).slice(0, 15);
 const linkOf = (iso) => (isoSlug[iso] ? `/country/${isoSlug[iso]}/safety/` : null);
 ---
 <Base title="해외 안전 정보 - 외교부 여행경보 단계·재난 경보·지진" desc="외교부 여행경보 단계별 나라 목록, 최근 여행경보 조정 소식, 국제 재난 경보와 실시간 지진 정보를 한곳에서 확인하세요.">
-  <p class="crumb"><a href="/">홈</a> › 안전 정보</p>
-  <h1>해외 안전 정보</h1>
-  <p class="lead">외교부 여행경보와 지진·태풍 같은 재난 소식을 한곳에 모았어요.</p>
+  <PageBanner name="safety">
+    <p class="crumb"><a href="/">홈</a> › 안전 정보</p>
+    <h1>해외 안전 정보</h1>
+    <p class="lead">외교부 여행경보와 지진·태풍 같은 재난 소식을 한곳에 모았어요.</p>
+  </PageBanner>
   <Updated />
 
   <nav class="stabs">

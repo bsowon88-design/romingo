@@ -1,12 +1,16 @@
 ---
 import Base from '../../layouts/Base.astro';
+import PageBanner from '../../components/PageBanner.astro';
 import { PARTNERS, CATS, AD_NOTE } from '../../data/partners.js';
 const groups = CATS.map((c) => ({ ...c, list: PARTNERS.filter((p) => p.cat === c.id) }));
 ---
 <Base title="해외여행 준비 - eSIM·투어·숙소·렌터카 업체 비교" desc="해외여행 전에 준비할 데이터(eSIM), 투어·입장권, 숙소, 렌터카를 업체별 장점으로 비교해요.">
   <section class="pv">
-    <h1>🧳 여행 준비</h1>
-    <p class="lead">데이터 · 투어 · 숙소 · 렌터카, 업체마다 잘하는 게 달라요. 나한테 맞는 곳을 골라 보세요.</p>
+    <PageBanner name="prep">
+      <p class="crumb"><a href="/">홈</a> › 여행 준비</p>
+      <h1>여행 준비</h1>
+      <p class="lead">데이터 · 항공권 · 투어 · 숙소 · 렌터카, 업체마다 잘하는 게 달라요. 나한테 맞는 곳을 골라 보세요.</p>
+    </PageBanner>
     <p class="adn"><em>광고</em> {AD_NOTE}</p>
     <nav class="pjump">{groups.map((g) => <a href={`#${g.id}`}>{g.ico} {g.name}</a>)}</nav>
   </section>
@@ -34,7 +38,6 @@ const groups = CATS.map((c) => ({ ...c, list: PARTNERS.filter((p) => p.cat === c
 </Base>
 
 <style>
-  .lead { color: var(--sub); margin: 6px 0 12px; }
   .adn { font-size: 13px; color: var(--sub); background: #FFF6EF; border: 1px solid var(--line); border-radius: 12px; padding: 10px 12px; margin: 0 0 14px; }
   .adn em { font-style: normal; font-weight: 800; color: var(--sea); margin-right: 4px; }
   .pjump { display: flex; flex-wrap: wrap; gap: 8px; }

@@ -1,5 +1,6 @@
 ---
 import Base from '../layouts/Base.astro';
+import PageBanner from '../components/PageBanner.astro';
 import Flag from '../components/Flag.astro';
 import { rateList } from '../data/load.js';
 import { flagOf } from '../data/countries.js';
@@ -8,9 +9,11 @@ const date = rateList[0]?.line?.date || '';
 const data = rateList.map((r) => ({ cur: r.cur, name: r.name, ko: r.c.ko, value: r.value, unit: r.unit }));
 ---
 <Base title="오늘 환율 - 엔·달러·동·바트 등 여행 환율 계산기" desc="일본 엔, 미국 달러, 베트남 동, 태국 바트 등 여행 가는 나라의 오늘 환율(한국은행 매매기준율)과 원화 환전 계산기.">
-  <p class="crumb"><a href="/">홈</a> › 환율</p>
-  <h1>오늘 여행 환율</h1>
-  <p class="lead">한국은행 매매기준율{date && ` · ${date} 기준`}이에요. 실제 환전·카드 환율과는 조금 달라요.</p>
+  <PageBanner name="rates">
+    <p class="crumb"><a href="/">홈</a> › 환율</p>
+    <h1>오늘 여행 환율</h1>
+    <p class="lead">한국은행 매매기준율{date && ` · ${date} 기준`}이에요. 실제 환전·카드 환율과는 조금 달라요.</p>
+  </PageBanner>
 
   {data.length ? (
     <>

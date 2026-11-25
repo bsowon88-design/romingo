@@ -8,6 +8,7 @@ import { cityPhoto } from '../data/photos.js';
 import { guideByCity } from '../data/guides.js';
 import { HAS_CLIMATE } from '../data/weather.js';
 import PrepLinks from '../components/PrepLinks.astro';
+import PageBanner from '../components/PageBanner.astro';
 
 const { list, range } = popularCities(30);
 const max = list[0]?.flights || 1;
@@ -15,9 +16,11 @@ const nowM = +new Intl.DateTimeFormat('en-US', { timeZone: 'Asia/Seoul', month: 
 const fmt = (d) => d.slice(5).replace('-', '.');
 ---
 <Base title="인기 도시 - 이번 주 한국에서 출발 많은 해외 도시 순위" desc="이번 주 인천·김포·김해·제주에서 출발하는 국제선이 가장 많은 해외 도시 순위. 요즘 사람들이 많이 가는 여행지를 실제 항공편 수로 확인하세요.">
-  <p class="crumb"><a href="/">홈</a> › 인기 도시</p>
-  <h1>인기 도시</h1>
-  <p class="lead">이번 주 <b>인천·김포·김해·제주에서 출발하는 국제선 여객기</b>가 가장 많은 도시 순위예요. 요즘 사람들이 실제로 많이 가는 곳이에요.</p>
+  <PageBanner name="popular">
+    <p class="crumb"><a href="/">홈</a> › 인기 도시</p>
+    <h1>인기 도시</h1>
+    <p class="lead">이번 주 <b>인천·김포·김해·제주에서 출발하는 국제선 여객기</b>가 가장 많은 도시 순위예요. 요즘 사람들이 실제로 많이 가는 곳이에요.</p>
+  </PageBanner>
 
   {POP_READY && list.length ? (
     <>

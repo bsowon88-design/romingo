@@ -6,15 +6,18 @@ import { REGIONS, flagOf, bySlug } from '../../data/countries.js';
 import { GUIDES } from '../../data/guides.js';
 import { cityBySlug } from '../../data/cities.js';
 import Flag from '../../components/Flag.astro';
+import PageBanner from '../../components/PageBanner.astro';
 const lvOf = (c) => (c.alarm && c.alarm.max) || 0;
 const counts = [0, 1, 2, 3, 4].map((n) => countryCards.filter((c) => lvOf(c) === n).length);
 const FILTERS = [['all', '전체', countryCards.length, ''], ...[0, 1, 2, 3, 4].filter((n) => counts[n]).map((n) => [String(n), n ? `${n}단계 ${ALARM_KO[n].label}` : '경보 없음', counts[n], n ? ALARM_KO[n].cls : 'm0'])];
 const guides = GUIDES.map((g) => cityBySlug[g.city]).filter(Boolean);
 ---
 <Base title="나라별 여행 정보 - 안전·시차·전압·긴급번호" desc="일본, 대만, 베트남, 태국, 필리핀 등 인기 여행지의 안전 상태와 시차, 통화, 전압, 긴급번호를 나라별로 확인하세요.">
-  <p class="crumb"><a href="/">홈</a> › 나라별</p>
-  <h1>나라별 여행 정보</h1>
-  <p class="lead">가려는 나라를 누르면 안전 상태, 날씨, 환율, 여행가이드를 한 번에 볼 수 있어요.</p>
+  <PageBanner name="country">
+    <p class="crumb"><a href="/">홈</a> › 나라별</p>
+    <h1>나라별 여행 정보</h1>
+    <p class="lead">가려는 나라를 누르면 안전 상태, 날씨, 환율, 여행가이드를 한 번에 볼 수 있어요.</p>
+  </PageBanner>
   {guides.length > 0 && (
     <div class="gbar">
       <span class="gl">📖 여행가이드</span>

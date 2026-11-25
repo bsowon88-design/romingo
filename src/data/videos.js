@@ -1,5 +1,5 @@
 // 도시별 공식 홍보영상 (유튜브 퍼가기) — 관광청·시청 공식 채널 영상만.
-// 퍼가기가 허용된 영상인지 확인함(2026-11-24). 영상이 지워지면 화면에서 자동으로 숨김.
+// 퍼가기가 허용된 영상인지 확인함(2026-11-24, 추가분 2026-11-25). 영상이 지워지면 화면에서 자동으로 숨김.
 export const VIDEOS = {
   tokyo: { id: '76BRkHZSogE', by: '도쿄도 (Tokyo Tokyo)' },
   osaka: { id: '78yBPiH55sg', by: '오사카관광국 (OSAKA INFO)' },
@@ -14,4 +14,18 @@ export const VIDEOS = {
   nagoya: { id: 'KBjUSiXEEcg', by: '나고야시 관광 (VISIT NAGOYA)' },
   kualalumpur: { id: 'oOQ1SbkU_c4', by: '말레이시아관광청 (Malaysia Truly Asia)', note: '말레이시아 전체 홍보영상' },
   danang: { id: 'K9tDoB0cKnk', by: '다낭관광청 협업 (Danang FantastiCity × OnlyC)' },
+  paris: { id: 'yV2HSv-dwEI', by: '프랑스관광청 (Explore France)', note: '파리시 제작 영상' },
+  london: { id: 'L0r0VTos_wU', by: '런던관광청 (Visit London)' },
+  rome: { id: '6xmoA41VFrk', by: '이탈리아관광청 (ENIT)', note: '이탈리아 전체 홍보영상' },
+  florence: { id: '6xmoA41VFrk', by: '이탈리아관광청 (ENIT)', note: '이탈리아 전체 홍보영상' },
+  venice: { id: '6xmoA41VFrk', by: '이탈리아관광청 (ENIT)', note: '이탈리아 전체 홍보영상' },
+  istanbul: { id: 'Ek2aNkAqcNc', by: '튀르키예관광청 (Go Türkiye)' },
+  prague: { id: 'mTYUKGIZWxA', by: '프라하관광청 (Prague City Tourism)' },
+  zurich: { id: 'WzPvJxUn4wI', by: '취리히관광청 (Visit Zurich)' },
+  dubai: { id: 'WfTJL_h0XfY', by: '두바이관광청 (Visit Dubai)' },
+  auckland: { id: 'E6bEzs0aaK0', by: '뉴질랜드관광청 (100% Pure New Zealand)', note: '뉴질랜드 전체 홍보영상' },
+  queenstown: { id: 'E6bEzs0aaK0', by: '뉴질랜드관광청 (100% Pure New Zealand)', note: '뉴질랜드 전체 홍보영상' },
+  bali: { id: 'bqCSlX8O9ec', by: '인도네시아관광부 (Wonderful Indonesia)' },
+  kyoto: { id: 'XkFe5uYCXkQ', by: '교토시관광협회 (Kyoto City Tourism Association)' },
+  okinawa: { id: 'IlP5hVmG1lo', by: '오키나와관광컨벤션뷰로 (VISIT OKINAWA JAPAN)' },
 };

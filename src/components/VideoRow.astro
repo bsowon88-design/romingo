@@ -5,7 +5,8 @@ import { cityBySlug } from '../data/cities.js';
 import { bySlug, flagOf } from '../data/countries.js';
 import Flag from './Flag.astro';
 const { order = [] } = Astro.props;
-const keys = [...new Set([...order.filter((k) => VIDEOS[k]), ...Object.keys(VIDEOS)])].slice(0, 8);
+const seen = new Set();
+const keys = [...new Set([...order.filter((k) => VIDEOS[k]), ...Object.keys(VIDEOS)])].filter((k) => !seen.has(VIDEOS[k].id) && seen.add(VIDEOS[k].id)).slice(0, 8);
 const list = keys.map((k) => ({ k, v: VIDEOS[k], c: cityBySlug[k] })).filter((x) => x.c);
 ---
 {list.length > 0 && (

@@ -45,7 +45,7 @@ export function citySafety(city) {
 export const CITY_STATUS_NOTE = {
   alert: '도시 가까이에 큰 재난 소식이 있어요. 공식 안내를 꼭 확인하세요.',
   watch: '도시 가까이에서 최근 지진이나 재난 경보가 있었어요.',
-  calm: '도시 가까이에 최근 큰 자연재난 소식이 없어요.',
+  calm: '도시 가까이에 최근 수집된 자연재난 경보와 큰 지진이 없어요.',
 };
 
 // 나의 여행·비교 화면에서 쓰는 도시별 요약

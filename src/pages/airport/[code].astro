@@ -1,0 +1,107 @@
+---
+// 공항별 해외 직항 여행지 — 앞으로 7일 출발 국제선 기준 (인천국제공항공사·한국공항공사)
+import Base from '../../layouts/Base.astro';
+import Flag from '../../components/Flag.astro';
+import { DEP_AIRPORTS, airportCities, AP_READY } from '../../data/popular.js';
+import { cityBySlug } from '../../data/cities.js';
+import { bySlug } from '../../data/countries.js';
+import { HAS_CLIMATE, bestMonths, climateOf, rainInfo } from '../../data/weather.js';
+import { distKm } from '../../data/near.js';
+import { guideByCity } from '../../data/guides.js';
+
+export function getStaticPaths() {
+  return DEP_AIRPORTS.map((a) => ({ params: { code: a.slug }, props: { a } }));
+}
+const { a } = Astro.props;
+const { list, range, total } = airportCities(a.code);
+const nowM = +new Intl.DateTimeFormat('en-US', { timeZone: 'Asia/Seoul', month: 'numeric' }).format(new Date());
+const fmt = (d) => d.slice(5).replace('-', '.');
+const ftext = (m) => { const r = Math.round(m / 10) * 10; const h = Math.floor(r / 60), mm = r % 60; return `약 ${h ? `${h}시간` : ''}${mm ? ` ${mm}분` : ''}`.trim(); };
+const rows = list.map((r) => {
+  const c = r.city ? cityBySlug[r.city] : null;
+  const fm = c ? Math.round((distKm(a, c) / 780) * 60 + 30) : null; // 이 공항에서 직선거리로 어림
+  const w = c && HAS_CLIMATE(c.slug) ? climateOf(c.slug).m[nowM - 1] : null;
+  return { ...r, c, co: c ? bySlug[c.country] : null, fm, w, best: c && HAS_CLIMATE(c.slug) ? bestMonths(c.slug) : [] };
+});
+const known = rows.filter((r) => r.c);
+const other = rows.filter((r) => !r.c);
+const short = known.filter((r) => r.fm && r.fm <= 180);
+const others = DEP_AIRPORTS.filter((x) => x.code !== a.code);
+---
+<Base title={`${a.ko} 출발 해외 직항 여행지 - 이번 주 노선·편수·비행시간`} desc={`${a.ko}(${a.area})에서 이번 주 직항으로 갈 수 있는 해외 도시 ${known.length || ''}곳. 도시별 출발 편수, 비행시간, ${nowM}월 날씨와 여행하기 좋은 달을 한눈에 확인하세요.`}>
+  <p class="crumb"><a href="/">홈</a> › <a href="/airport/">공항별 직항</a> › {a.ko}</p>
+  <h1>{a.ko} 출발 해외 직항 여행지</h1>
+  <p class="lead">{a.area}에서 출발하는 분이 이번 주 <b>{a.ko}에서 바로 갈 수 있는 해외 도시</b>예요. 출발 편수가 많은 순서로 보여 줘요.</p>
+
+  <nav class="aptabs">
+    {DEP_AIRPORTS.map((x) => <a href={`/airport/${x.slug}/`} class:list={{ on: x.code === a.code }}>{x.ko}</a>)}
+  </nav>
+
+  {AP_READY && rows.length ? (
+    <>
+      <p class="muted when">{range && `${fmt(range.from)} ~ ${fmt(range.to)} 출발 국제선 ${total}편 기준`} · 매일 업데이트 · 공동운항 편명은 한 번만 셌어요</p>
+      {short.length > 0 && (
+        <p class="short">⏱️ <b>3시간 안에 닿는 곳</b> {short.map((r, i) => <>{i ? ' · ' : ' '}<a href={`#d-${r.c.slug}`}>{r.c.ko}</a></>)}</p>
+      )}
+      <div class="dlist">
+        {known.map((r) => (
+          <article class="dc" id={`d-${r.c.slug}`}>
+            <div class="dh">
+              <Flag iso={r.iso} size={22} />
+              <b>{r.c.ko}</b><small>{r.co?.ko}</small>
+              <span class="fl">출발 {r.flights}편</span>
+            </div>
+            <ul class="dm">
+              <li><span>비행시간</span><b>{r.fm ? ftext(r.fm) : '-'}</b></li>
+              <li><span>{nowM}월 날씨</span><b>{r.w ? `${Math.round(r.w.hi)}° / ${Math.round(r.w.lo)}° · ${rainInfo(r.w).label}` : '-'}</b></li>
+              <li><span>좋은 달</span><b>{r.best.length ? r.best.map((m) => `${m}월`).join('·') : '-'}</b></li>
+            </ul>
+            <div class="dl">
+              {guideByCity[r.c.slug] && <a href={`/guide/${r.c.slug}/`}>📖 가이드</a>}
+              {HAS_CLIMATE(r.c.slug) && <a href={`/weather/${r.c.slug}/`}>🌤️ 날씨</a>}
+              <a href={`/country/${r.c.country}/`}>🛡️ 나라 정보</a>
+            </div>
+          </article>
+        ))}
+      </div>
+      {other.length > 0 && (
+        <p class="muted oth"><b>그 밖의 직항</b> {other.map((r) => `${r.ko} ${r.flights}편`).join(' · ')}</p>
+      )}
+      <p class="muted src">편수는 앞으로 7일 출발 예정 국제선 여객편이에요(인천국제공항공사·한국공항공사 운항 정보). 비행시간은 직선거리로 어림한 값이라 실제와 조금 다를 수 있어요. 날씨는 10년 평균(NASA POWER).</p>
+    </>
+  ) : (
+    <p class="card empty">공항별 노선 자료를 모으는 중이에요. 하루 안에 채워져요. 그동안은 <a href="/popular/">전체 인기 도시 순위</a>를 보세요.</p>
+  )}
+
+  <h2>다른 공항 보기</h2>
+  <div class="aplinks">{others.map((x) => <a href={`/airport/${x.slug}/`}><b>{x.ko}</b><span>{x.area} 출발 →</span></a>)}</div>
+</Base>
+
+<style>
+  .aptabs { display: flex; flex-wrap: wrap; gap: 6px; margin: 14px 0 8px; }
+  .aptabs a { text-decoration: none; font-weight: 700; font-size: 14px; color: var(--ink); border: 1px solid var(--line); background: #fff; border-radius: 999px; padding: 7px 14px; }
+  .aptabs a.on { background: var(--ink); border-color: var(--ink); color: #fff; }
+  .when { font-size: 13px; margin: 6px 0 10px; }
+  .short { font-size: 14px; background: #FFF6EF; border: 1px solid var(--line); border-radius: 12px; padding: 9px 12px; }
+  .short a { color: var(--sea); font-weight: 700; text-decoration: none; }
+  .dlist { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; margin-top: 12px; }
+  .dc { border: 1px solid var(--line); border-radius: 16px; background: #fff; padding: 13px 14px 12px; scroll-margin-top: 80px; }
+  .dh { display: flex; align-items: center; gap: 7px; }
+  .dh b { font-size: 17px; }
+  .dh small { font-size: 12.5px; color: var(--sub); }
+  .dh .fl { margin-left: auto; font-size: 13px; font-weight: 800; color: var(--sea); background: #FFF0E6; border-radius: 999px; padding: 3px 9px; white-space: nowrap; }
+  .dm { list-style: none; margin: 10px 0 8px; padding: 0; display: flex; flex-direction: column; gap: 4px; }
+  .dm li { display: flex; justify-content: space-between; gap: 8px; font-size: 13.5px; }
+  .dm span { color: var(--sub); }
+  .dl { display: flex; flex-wrap: wrap; gap: 6px; }
+  .dl a { text-decoration: none; font-size: 12.5px; font-weight: 600; border: 1px solid var(--line); border-radius: 999px; padding: 4px 10px; color: var(--ink); }
+  .dl a:hover { border-color: var(--coral); }
+  .oth { margin-top: 14px; font-size: 13px; }
+  .src { font-size: 12.5px; margin-top: 10px; }
+  .aplinks { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; }
+  .aplinks a { display: flex; flex-direction: column; gap: 2px; text-decoration: none; color: var(--ink); border: 1px solid var(--line); border-radius: 14px; padding: 12px 14px; background: #fff; }
+  .aplinks a span { font-size: 13px; color: var(--sub); }
+  .aplinks a:hover { border-color: var(--coral); }
+  @media (max-width: 1000px) { .dlist { grid-template-columns: repeat(2, 1fr); } }
+  @media (max-width: 760px) { .dlist, .aplinks { grid-template-columns: 1fr; } }
+</style>

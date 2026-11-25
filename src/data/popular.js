@@ -55,3 +55,40 @@ export function popularCities(limit = 30) {
     .slice(0, limit);
   return { list, range: { from, to }, total };
 }
+
+// ── 공항별 직항 여행지 — 출발 공항별로 앞으로 7일 국제선 편수 ──
+export const DEP_AIRPORTS = [
+  { code: 'ICN', slug: 'icn', ko: '인천공항', area: '서울·수도권', lat: 37.46, lon: 126.44 },
+  { code: 'GMP', slug: 'gmp', ko: '김포공항', area: '서울', lat: 37.56, lon: 126.8 },
+  { code: 'PUS', slug: 'pus', ko: '김해공항', area: '부산·경남', lat: 35.18, lon: 128.94 },
+  { code: 'CJU', slug: 'cju', ko: '제주공항', area: '제주', lat: 33.51, lon: 126.49 },
+];
+export const AP_READY = !!(pop && pop.apdays && Object.keys(pop.apdays).length);
+
+export function airportCities(code) {
+  if (!AP_READY) return { list: [], range: null, total: 0 };
+  const now = Date.now();
+  const from = kst(now), to = kst(now + 6 * 864e5);
+  const out = {};
+  let n = 0;
+  for (const [d, byAp] of Object.entries(pop.apdays)) {
+    if (d < from || d > to || !byAp[code]) continue;
+    n++;
+    for (const [k0, v] of Object.entries(byAp[code])) {
+      if (k0.startsWith('k:')) continue;
+      const c = norm(k0);
+      if (c && c.domestic) continue;
+      const k = c ? c.key : k0;
+      if (c) metaExtra[k] = { ko: c.ko, city: c.city, iso: c.iso };
+      out[k] = (out[k] || 0) + v;
+    }
+  }
+  if (!n) return { list: [], range: null, total: 0 };
+  const list = Object.entries(out)
+    .map(([key, flights]) => {
+      const m = metaExtra[key] || pop.meta?.[key] || {};
+      return { key, flights, ko: m.ko || key, city: m.city || null, iso: m.iso || '' };
+    })
+    .sort((a, b) => b.flights - a.flights);
+  return { list, range: { from, to }, total: list.reduce((a, b) => a + b.flights, 0) };
+}

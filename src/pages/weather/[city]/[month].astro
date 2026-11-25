@@ -65,7 +65,7 @@ const desc = `${city.ko} ${m}월 평균 최고 ${t1(d.hi)}, 최저 ${t1(d.lo)}, 
     <ul>{cw.items.map((x) => <li>{x}</li>)}</ul>
   </div>
 
-  <h2>💧 비 오는 정도</h2>
+  <h2>{rn.snow ? "❄️ 눈 오는 정도" : "💧 비 오는 정도"}</h2>
   <div class="card"><b>{rn.label}</b><p>{rn.text}</p></div>
 
   <h2>📅 {city.ko} 여행하기 좋은 달</h2>

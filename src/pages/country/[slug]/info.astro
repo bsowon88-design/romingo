@@ -35,7 +35,7 @@ const diff = tzDiff(c.tz);
 
     <h2>🧳 기본 정보</h2>
     <div class="tiles">
-      <div class="tile"><span class="ti">🕐</span><span class="tl">시차</span><b>{tzDiffText(diff)}</b>{c.tzLabel && <small>{c.tzLabel} · 서머타임 자동 반영</small>}</div>
+      <div class="tile"><span class="ti">🕐</span><span class="tl">시차</span><b>{tzDiffText(diff)}</b>{c.tzLabel && <small>{c.tzLabel} · 지역마다 시차가 달라요 · 서머타임 자동 반영</small>}{c.tzMore && <small class="tzm">{c.tzMore.map(([n, z]) => `${n} ${tzDiffText(tzDiff(z)).replace('한국보다 ', '')}`).join(' · ')}</small>}</div>
       <div class="tile"><span class="ti">🔌</span><span class="tl">전압·플러그</span><b>{c.volt} · {c.plug}</b>
         <small class={c.adapter ? 'need' : 'ok'}>{c.adapter ? '변환 어댑터 필요' : '한국 플러그 대부분 사용 가능'}</small>
         {c.adapterNote && <small>{c.adapterNote}</small>}

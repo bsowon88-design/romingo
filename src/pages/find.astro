@@ -1,0 +1,218 @@
+---
+// 조건으로 여행지 찾기 — 여행 달 · 출발 공항 · 비행시간 · 스타일을 고르면 맞는 도시를 날씨 점수 순으로
+import Base from '../layouts/Base.astro';
+import { CITIES } from '../data/cities.js';
+import { bySlug, flagOf } from '../data/countries.js';
+import { HAS_CLIMATE, climateOf, travelScore, rainInfo } from '../data/weather.js';
+import { countryAlarm, ALARM_KO } from '../data/load.js';
+import { cityLevels } from '../data/near.js';
+import { flightMin } from '../data/tripdata.js';
+import { guideByCity } from '../data/guides.js';
+import { DEP_AIRPORTS, airportCities, AP_READY } from '../data/popular.js';
+
+// 도시 스타일 (한 번 정해 두면 끝) — beach 휴양·해변 / city 도시·쇼핑 / food 맛집 / nature 자연·풍경 / culture 문화·역사 / snow 겨울·눈
+const STYLE = {
+  tokyo: 'city food culture', osaka: 'food city', kyoto: 'culture', fukuoka: 'food city', sapporo: 'snow food nature', okinawa: 'beach',
+  nagoya: 'city food', shanghai: 'city food', beijing: 'culture', qingdao: 'food', weihai: 'nature', zhangjiajie: 'nature',
+  taipei: 'food city', kaohsiung: 'food city', hongkong: 'city food',
+  danang: 'beach culture', nhatrang: 'beach', phuquoc: 'beach', hanoi: 'culture food nature', hochiminh: 'city food',
+  bangkok: 'city food culture', phuket: 'beach', chiangmai: 'culture nature', pattaya: 'beach',
+  cebu: 'beach', boracay: 'beach', bohol: 'beach nature', manila: 'city',
+  bali: 'beach nature culture', jakarta: 'city', kotakinabalu: 'beach nature', kualalumpur: 'city food', singapore: 'city food',
+  guam: 'beach', saipan: 'beach', honolulu: 'beach',
+  newyork: 'city culture', losangeles: 'city', sanfrancisco: 'city', lasvegas: 'city', cancun: 'beach',
+  sydney: 'city beach', melbourne: 'city food', goldcoast: 'beach', auckland: 'city nature', queenstown: 'nature',
+  istanbul: 'culture food', cappadocia: 'nature culture', athens: 'culture', santorini: 'beach',
+  rome: 'culture food', florence: 'culture', venice: 'culture', kathmandu: 'culture nature', pokhara: 'nature',
+};
+const STYLES = [['beach', '🏖️ 휴양·해변'], ['city', '🏙️ 도시·쇼핑'], ['food', '🍜 맛집'], ['nature', '⛰️ 자연·풍경'], ['culture', '🏯 문화·역사'], ['snow', '❄️ 겨울·눈']];
+
+// 이번 주 공항별 직항 도시
+const AP = {};
+for (const a of DEP_AIRPORTS) for (const r of airportCities(a.code).list) if (r.city) (AP[r.city] ||= []).push(a.code);
+
+const DATA = CITIES.filter((x) => x.slug !== 'seoul' && HAS_CLIMATE(x.slug)).map((x) => {
+  const c = bySlug[x.country];
+  const al = countryAlarm(c);
+  const m = climateOf(x.slug).m.map((d) => { const r = rainInfo(d); return [Math.round(d.hi), Math.round(d.lo), travelScore(d), r.label, r.snow ? 1 : 0]; });
+  return {
+    s: x.slug, k: x.ko, co: c.ko, f: flagOf(c), fm: flightMin(x), st: STYLE[x.slug] || '', g: guideByCity[x.slug] ? 1 : 0,
+    al: al?.max || 0, ap: al?.levels?.length ? (al.levels.every((l) => /일부/.test(l.region)) ? 1 : 0) : 0,
+    lv: cityLevels[x.slug] || 'calm', d: AP[x.slug] || [], m,
+  };
+});
+const nowM = +new Intl.DateTimeFormat('en-US', { timeZone: 'Asia/Seoul', month: 'numeric' }).format(new Date());
+const nextM = (nowM % 12) + 1;
+const AL = Object.fromEntries(Object.entries(ALARM_KO).map(([k, v]) => [k, [v.label, v.cls]]));
+---
+<Base title="조건으로 해외 여행지 찾기 - 여행 달·출발 공항·비행시간·스타일" desc="언제 가는지, 어느 공항에서 출발하는지, 비행시간과 여행 스타일을 고르면 날씨·안전까지 따져 맞는 해외 여행지를 골라 드려요.">
+  <p class="crumb"><a href="/">홈</a> › 조건으로 찾기</p>
+  <h1>조건으로 여행지 찾기</h1>
+  <p class="lead">언제, 어디서 출발해서, 어떤 여행을 하고 싶은지 고르면 <b>날씨 · 비행시간 · 안전</b>을 따져 맞는 곳을 골라 드려요.</p>
+
+  <form class="fq card" id="fq" onsubmit="return false">
+    <div class="fr">
+      <span class="fl">여행 달</span>
+      <div class="chips one" data-k="m">
+        {Array.from({ length: 12 }, (_, i) => i + 1).map((m) => <button type="button" data-v={m} class:list={{ on: m === nextM }}>{m}월</button>)}
+      </div>
+    </div>
+    <div class="fr">
+      <span class="fl">출발 공항</span>
+      <div class="chips one" data-k="ap">
+        <button type="button" data-v="" class="on">상관없음</button>
+        {DEP_AIRPORTS.map((a) => <button type="button" data-v={a.code} disabled={!AP_READY}>{a.ko.replace('공항', '')}</button>)}
+      </div>
+    </div>
+    <div class="fr">
+      <span class="fl">비행시간</span>
+      <div class="chips one" data-k="fm">
+        <button type="button" data-v="210">3시간 안팎</button>
+        <button type="button" data-v="330">5시간 안팎</button>
+        <button type="button" data-v="" class="on">상관없음</button>
+      </div>
+    </div>
+    <div class="fr">
+      <span class="fl">스타일 <small>여러 개</small></span>
+      <div class="chips multi" data-k="st">
+        {STYLES.map(([v, l]) => <button type="button" data-v={v}>{l}</button>)}
+      </div>
+    </div>
+  </form>
+
+  <p class="rh" id="rh"></p>
+  <div class="res" id="res"></div>
+  <button type="button" class="btn ghost more" id="more" style="display:none">더 보기</button>
+  <p class="muted src">날씨는 10년 평균(NASA POWER), 비행시간은 서울에서 직선거리로 어림한 값, 출발 공항은 이번 주 운항 예정 기준이에요. 외교부 여행경보는 출발 전에 꼭 다시 확인하세요.</p>
+
+  <script type="application/json" id="fdata" set:html={JSON.stringify({ d: DATA, al: AL })}></script>
+</Base>
+
+<script>
+  const { d: DATA, al: AL } = JSON.parse(document.getElementById('fdata')!.textContent || '{}');
+  const q: Record<string, string | string[]> = { m: '', ap: '', fm: '', st: [] };
+  const form = document.getElementById('fq')!;
+  const res = document.getElementById('res')!;
+  const rh = document.getElementById('rh')!;
+  const more = document.getElementById('more') as HTMLButtonElement;
+  let limit = 12;
+
+  // 주소 (?m=12&ap=PUS&fm=210&st=beach,food) 로 열면 그 조건으로
+  const P = new URLSearchParams(location.search);
+  form.querySelectorAll<HTMLElement>('.chips').forEach((g) => {
+    const k = g.dataset.k!;
+    const want = P.get(k);
+    if (want != null) {
+      g.querySelectorAll<HTMLButtonElement>('button').forEach((b) => {
+        const on = g.classList.contains('multi') ? want.split(',').includes(b.dataset.v!) : b.dataset.v === want;
+        b.classList.toggle('on', on && !b.disabled);
+      });
+    }
+  });
+  const read = () => {
+    form.querySelectorAll<HTMLElement>('.chips').forEach((g) => {
+      const k = g.dataset.k!;
+      const on = [...g.querySelectorAll<HTMLButtonElement>('button.on')].map((b) => b.dataset.v || '');
+      q[k] = g.classList.contains('multi') ? on : on[0] || '';
+    });
+  };
+  form.querySelectorAll<HTMLElement>('.chips').forEach((g) => g.addEventListener('click', (e) => {
+    const b = (e.target as HTMLElement).closest('button');
+    if (!b || b.disabled) return;
+    if (g.classList.contains('multi')) b.classList.toggle('on');
+    else g.querySelectorAll('button').forEach((x) => x.classList.toggle('on', x === b));
+    limit = 12;
+    run();
+  }));
+
+  const el = (t: string, c = '', x = '') => { const e = document.createElement(t); if (c) e.className = c; if (x) e.textContent = x; return e; };
+  const ft = (m: number) => { const r = Math.round(m / 10) * 10; const h = Math.floor(r / 60), mm = r % 60; return `약 ${h ? `${h}시간` : ''}${mm ? ` ${mm}분` : ''}`.trim(); };
+
+  function run() {
+    read();
+    const m = +q.m || new Date().getMonth() + 1;
+    const st = q.st as string[];
+    const snow = st.includes('snow');
+    const list = DATA.filter((c: any) => {
+      if (q.ap && !c.d.includes(q.ap)) return false;
+      if (q.fm && c.fm > +q.fm) return false;
+      if (st.length && !st.some((s) => c.st.split(' ').includes(s))) return false;
+      if (c.al >= 3 && !c.ap) return false; // 나라 전체 3단계 이상은 빼기
+      if (c.lv === 'alert') return false;
+      return true;
+    }).map((c: any) => {
+      const w = c.m[m - 1];
+      let s = w[2];
+      if (snow && c.st.includes('snow')) s = w[4] ? 95 : w[1] <= 2 ? 70 : 30; // 눈 여행은 눈 오는 달이 좋음
+      s -= c.ap ? (c.al >= 3 ? 10 : 0) : c.al === 2 ? 10 : 0; // 일부 지역 경보는 조금만 감점
+      if (c.lv === 'watch') s -= 10;
+      return { c, w, s };
+    }).sort((a: any, b: any) => b.s - a.s);
+
+    const ap = q.ap ? ` · ${q.ap === 'PUS' ? '김해' : q.ap === 'GMP' ? '김포' : q.ap === 'CJU' ? '제주' : '인천'} 출발` : '';
+    rh.textContent = list.length ? `${m}월${ap} · 맞는 곳 ${list.length}곳 (날씨 좋은 순)` : '';
+    history.replaceState(null, '', `/find/?m=${m}${q.ap ? `&ap=${q.ap}` : ''}${q.fm ? `&fm=${q.fm}` : ''}${st.length ? `&st=${st.join(',')}` : ''}`);
+    res.replaceChildren();
+    if (!list.length) { res.append(el('p', 'card none', '조건에 맞는 곳이 없어요. 비행시간이나 스타일을 조금 넓혀 보세요.')); more.style.display = 'none'; return; }
+    for (const { c, w, s } of list.slice(0, limit)) {
+      const a = el('a', 'rc') as HTMLAnchorElement;
+      a.href = c.g ? `/guide/${c.s}/` : `/weather/${c.s}/${m}/`;
+      const h = el('div', 'rt');
+      const img = el('img') as HTMLImageElement;
+      img.src = `/flags/${c.f}.svg`; img.width = 22; img.height = 16; img.alt = '';
+      h.append(img, el('b', '', c.k), el('small', '', c.co));
+      const sc = s >= 75 ? ['good', '여행하기 좋아요'] : s >= 50 ? ['ok', '무난해요'] : ['bad', '조금 아쉬워요'];
+      h.append(el('span', `sc ${sc[0]}`, sc[1]));
+      const ul = el('ul', 'ri');
+      const li = (k: string, v: string) => { const x = el('li'); x.append(el('span', '', k), el('b', '', v)); ul.append(x); };
+      li(`${m}월 날씨`, `${w[0]}° / ${w[1]}° · ${w[3]}`);
+      li('비행시간', ft(c.fm));
+      const tg = el('div', 'rtags');
+      if (c.al) { const [lbl, cls] = AL[c.al]; tg.append(el('span', `mchip ${cls}`, `외교부 ${c.ap ? '일부 ' : ''}${c.al}단계 ${lbl}`)); }
+      if (c.d.length) tg.append(el('span', 'tg', `직항 ${c.d.map((x: string) => ({ ICN: '인천', GMP: '김포', PUS: '김해', CJU: '제주' } as any)[x]).join('·')}`));
+      a.append(h, ul, tg);
+      res.append(a);
+    }
+    more.style.display = list.length > limit ? '' : 'none';
+  }
+  more.addEventListener('click', () => { limit += 12; run(); });
+  run();
+</script>
+
+<style>
+  .fq { display: flex; flex-direction: column; gap: 12px; margin-top: 16px; }
+  .fr { display: flex; align-items: flex-start; gap: 12px; }
+  .fl { flex: 0 0 84px; font-size: 13.5px; font-weight: 800; color: var(--sub); padding-top: 7px; }
+  .fl small { display: block; font-weight: 500; font-size: 11.5px; }
+  .chips { display: flex; flex-wrap: wrap; gap: 6px; }
+  .chips button { font: inherit; font-size: 14px; font-weight: 600; border: 1px solid var(--line); background: #fff; color: var(--ink); border-radius: 999px; padding: 6px 12px; cursor: pointer; }
+  .chips button.on { background: var(--sea); border-color: var(--sea); color: #fff; }
+  .chips button:disabled { opacity: .4; cursor: default; }
+  .rh { font-weight: 800; margin: 18px 0 10px; }
+  .res { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; }
+  .res :global(.rc) { display: flex; flex-direction: column; gap: 8px; border: 1px solid var(--line); border-radius: 16px; background: #fff; padding: 13px 14px; text-decoration: none; color: var(--ink); }
+  .res :global(.rc:hover) { border-color: var(--coral); }
+  .res :global(.rt) { display: flex; align-items: center; gap: 7px; }
+  .res :global(.rt img) { border-radius: 3px; box-shadow: 0 0 0 1px rgba(0,0,0,.08); }
+  .res :global(.rt b) { font-size: 17px; }
+  .res :global(.rt small) { font-size: 12.5px; color: var(--sub); }
+  .res :global(.sc) { margin-left: auto; font-size: 12px; font-weight: 800; border-radius: 999px; padding: 3px 8px; white-space: nowrap; }
+  .res :global(.sc.good) { background: #E6F5EC; color: #1d7a4c; }
+  .res :global(.sc.ok) { background: #FFF3E6; color: #A8621E; }
+  .res :global(.sc.bad) { background: #F4F1EF; color: #8A7B72; }
+  .res :global(.ri) { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 3px; }
+  .res :global(.ri li) { display: flex; justify-content: space-between; font-size: 13.5px; }
+  .res :global(.ri span) { color: var(--sub); }
+  .res :global(.rtags) { display: flex; flex-wrap: wrap; gap: 5px; }
+  .res :global(.tg) { font-size: 12px; font-weight: 600; background: #EEF4FF; color: #2F5FA8; border-radius: 7px; padding: 3px 7px; }
+  .res :global(.none) { grid-column: 1 / -1; }
+  .more { margin-top: 12px; }
+  .src { font-size: 12.5px; margin-top: 12px; }
+  @media (max-width: 1000px) { .res { grid-template-columns: repeat(2, 1fr); } }
+  @media (max-width: 760px) {
+    .fr { flex-direction: column; gap: 6px; }
+    .fl { flex: none; padding-top: 0; }
+    .res { grid-template-columns: 1fr; }
+    .chips button { font-size: 13.5px; padding: 6px 11px; }
+  }
+</style>

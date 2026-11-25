@@ -1,0 +1,37 @@
+---
+// 짝 비교 페이지 (예: /compare/danang-vs-nhatrang/) — 검색에 걸리도록 요약 글을 미리 만들어 둠
+import Base from '../../layouts/Base.astro';
+import CompareTool from '../../components/CompareTool.astro';
+import { PAIRS } from '../../data/pairs.js';
+import { TRIP_DATA } from '../../data/tripdata.js';
+
+export function getStaticPaths() {
+  return PAIRS.map(([a, b]) => ({ params: { pair: `${a}-vs-${b}` }, props: { a, b } }));
+}
+const { a, b } = Astro.props;
+const A = TRIP_DATA[a], B = TRIP_DATA[b];
+const nowM = +new Intl.DateTimeFormat('en-US', { timeZone: 'Asia/Seoul', month: 'numeric' }).format(new Date());
+const ft = (raw) => { const m = Math.round(raw / 10) * 10; const h = Math.floor(m / 60), mm = m % 60; return `약 ${h ? `${h}시간` : ''}${h && mm ? ' ' : ''}${mm ? `${mm}분` : ''}`; };
+const bestOf = (c) => (c.m ? c.m.map((d, i) => ({ i: i + 1, s: ({ good: 3, ok: 2, bad: 1 })[d[3]] * 1000 - Math.abs((d[0] + d[1]) / 2 - 23) * 10 - d[2] / 10 })).sort((x, y) => y.s - x.s).slice(0, 3).map((x) => x.i).sort((x, y) => x - y) : []);
+const w = (c) => (c.m ? c.m[nowM - 1] : null);
+const line = (c) => { const d = w(c); return d ? `${c.ko} ${nowM}월 낮 ${d[0]}° · 밤 ${d[1]}°, ${d[5]}` : ''; };
+const josa = (w, a, b) => { const ch = w.charCodeAt(w.length - 1) - 0xac00; return ch >= 0 && ch <= 11171 && ch % 28 ? a : b; };
+const same = A.co === B.co;
+const title = `${A.ko} vs ${B.ko} 비교 - 날씨·비행시간·${same ? '여행하기 좋은 달' : '시차·환율'}·안전`;
+const desc = `${A.ko}${josa(A.ko, '과', '와')} ${B.ko} 어디가 좋을까? ${line(A)} / ${line(B)}. 비행시간 ${A.ko} ${ft(A.fm)} · ${B.ko} ${ft(B.fm)}. 여행하기 좋은 달과 안전 정보까지 한 표로 비교하세요.`;
+---
+<Base title={title} desc={desc}>
+  <p class="crumb"><a href="/">홈</a> › <a href="/compare/">여행지 비교</a> › {A.ko} vs {B.ko}</p>
+  <h1>{A.ko} vs {B.ko}, 어디가 좋을까?</h1>
+  <ul class="sum card">
+    {[A, B].map((c) => <li><b>{c.ko}</b> — {nowM}월 낮 {w(c)?.[0]}° · 밤 {w(c)?.[1]}°, {w(c)?.[5]} · 비행 {ft(c.fm)} · 좋은 달 {bestOf(c).map((m) => `${m}월`).join('·')}</li>)}
+    <li class="muted">{same ? `둘 다 ${A.co}라 시차·환율·전압은 같아요.` : `${A.co}${josa(A.co, '과', '와')} ${B.co}는 시차·환율·전압이 달라요. 아래 표에서 확인하세요.`} 비행시간은 서울 기준 어림값이에요.</li>
+  </ul>
+  <CompareTool a={a} b={b} />
+</Base>
+
+<style>
+  .sum { margin-top: 12px; font-size: 15px; line-height: 1.7; list-style: none; padding: 14px 16px; }
+  .sum li { margin: 0 0 4px; }
+  .sum li.muted { font-size: 13px; margin: 6px 0 0; }
+</style>

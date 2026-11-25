@@ -76,7 +76,7 @@ const desc = `${c.ko} 여행 전 한눈에: 안전 상태, 외교부 여행경�
 
     <h2>⚡ 한눈에</h2>
     <div class="tiles">
-      <a class="tile" href={`/country/${c.slug}/info/`}><span class="tl">시차</span><b>{tzDiffText(diff)}</b></a>
+      <a class="tile" href={`/country/${c.slug}/info/`}><span class="tl">시차{c.tzLabel && ` (${c.tzLabel})`}</span><b>{tzDiffText(diff)}</b></a>
       <a class={`tile ${rate ? 'rate' : ''}`} href={`/country/${c.slug}/info/`}><span class="tl">환율</span><b class={rate ? 'rv' : ''}>{rate ? rate.line1 : c.currency}</b>{rate && <small>{rate.line2}</small>}</a>
       <a class="tile" href={`/country/${c.slug}/info/`}><span class="tl">전압·플러그</span><b>{c.volt} · {c.plug}</b><small class={c.adapter ? 'need' : 'ok'}>{c.adapter ? '변환 어댑터 필요' : '한국 플러그 대부분 사용 가능'}</small></a>
       {c.flight && <a class="tile" href={`/country/${c.slug}/info/`}><span class="tl">인천에서 직항</span><b>{c.flight}</b></a>}

@@ -16,7 +16,7 @@ const rows = [];
 for (const c of COUNTRIES) {
   for (const x of CITIES.filter((y) => y.country === c.slug && HAS_CLIMATE(y.slug))) {
     const m = climateOf(x.slug).m;
-    rows.push({ c, x, cells: m.map((d, i) => ({ m: i + 1, d, s: travelScore(d), rain: rainInfo(d).lv })) });
+    rows.push({ c, x, cells: m.map((d, i) => { const ri = rainInfo(d); return { m: i + 1, d, s: travelScore(d), rain: ri.lv, snow: !!ri.snow }; }) });
   }
 }
 const countries = [...new Set(rows.map((r) => r.c.slug))].map((s) => COUNTRIES.find((c) => c.slug === s));
@@ -72,7 +72,7 @@ const tCls = (d) => { const t = (d.hi + d.lo) / 2; return t >= 28 ? 'hot' : t < 
       </div>
       <p class="legend">
         <span><i class="sw g3"></i>여행하기 좋음</span><span><i class="sw g2"></i>무난</span><span><i class="sw g1"></i>조금 아쉬움</span><span><i class="sw g0"></i>비추천</span>
-        <span>숫자 = 낮 최고기온 · 💧 우기 · <b class="hotx">빨간 글씨</b> 무더위 · <b class="coldx">파란 글씨</b> 추위</span>
+        <span>숫자 = 낮 최고기온 · 💧 우기 · ❄️ 눈 많음 · <b class="hotx">빨간 글씨</b> 무더위 · <b class="coldx">파란 글씨</b> 추위</span>
       </p>
       <div class="tw">
         <table class="mt">
@@ -86,7 +86,7 @@ const tCls = (d) => { const t = (d.hi + d.lo) / 2; return t >= 28 ? 'hot' : t < 
                 {r.cells.map((k) => (
                   <td class:list={[lvCls(k.s), { now: k.m === nowM }]}>
                     <a href={`/weather/${r.x.slug}/${k.m}/`} title={`${r.x.ko} ${k.m}월 · 최고 ${Math.round(k.d.hi)}° 최저 ${Math.round(k.d.lo)}° · 비 ${Math.round(k.d.rdays)}일`} class={tCls(k.d)}>
-                      {Math.round(k.d.hi)}°{k.rain >= 3 && <i class="rn">💧</i>}
+                      {Math.round(k.d.hi)}°{k.snow && k.rain >= 2 ? <i class="rn">❄️</i> : k.rain >= 3 && <i class="rn">💧</i>}
                     </a>
                   </td>
                 ))}

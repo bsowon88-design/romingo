@@ -123,22 +123,35 @@ const opts = CITY_GROUPS;
     t.append(row('여행하기 좋은 달', cs.map((c) => (c.m ? best(c.m).map((x) => `${x}월`).join(' · ') : '-'))));
     const fWin = A.fm === B.fm ? -1 : A.fm < B.fm ? 0 : 1;
     t.append(row('비행시간', cs.map((c) => ftext(c.fm)), Math.abs(A.fm - B.fm) >= 20 ? fWin : -1));
-    t.append(row('시차', cs.map((c) => diffText(offH(c.tz)))));
     const lvN = (c: any) => ({ calm: 0, watch: 1, alert: 2 } as any)[c.lv];
     t.append(row('자연재난', cs.map((c) => frag(el('span', `badge b-${c.lv}`, LB.st[c.lv]), el('small', '', `근처 지진 ${c.q}건 · 재난 경보 ${c.d}건`))), lvN(A) === lvN(B) ? -1 : lvN(A) < lvN(B) ? 0 : 1));
-    t.append(row('외교부 여행경보', cs.map((c) => {
-      if (!c.al) return '경보 없음';
-      const [lbl, cls] = LB.al[c.al[0]];
-      return el('span', `mchip ${cls}`, `${c.al[1] ? '일부 지역 ' : ''}${c.al[0]}단계 ${lbl}`);
-    })));
-    t.append(row('환율', cs.map((c) => (c.rate ? frag(el('b', '', c.rate[0]), el('small', '', c.rate[1])) : '-'))));
-    t.append(row('전압·플러그', cs.map((c) => `${c.volt} · ${c.plug}`)));
+    // 같은 나라 두 도시면 시차·경보·환율·전압이 같으니 아래로 내림
+    const same = A.co === B.co;
+    const common = () => {
+      t.append(row('시차', cs.map((c) => diffText(offH(c.tz)))));
+      t.append(row('외교부 여행경보', cs.map((c) => {
+        if (!c.al) return '경보 없음';
+        const [lbl, cls] = LB.al[c.al[0]];
+        return el('span', `mchip ${cls}`, `${c.al[1] ? '일부 지역 ' : ''}${c.al[0]}단계 ${lbl}`);
+      })));
+      t.append(row('환율', cs.map((c) => (c.rate ? frag(el('b', '', c.rate[0]), el('small', '', c.rate[1])) : '-'))));
+      t.append(row('전압·플러그', cs.map((c) => `${c.volt} · ${c.plug}`)));
+    };
+    if (!same) common();
     t.append(row('오늘 한국 출발편', slugs.map((s) => {
       if (FL === undefined) return '확인 중…';
       if (FL === null) return '확인 중';
       const v = FL.c?.[`c:${s}`];
       return v ? frag(el('b', '', `${v[0]}편`), el('small', v[1] ? 'bad' : v[2] ? 'warn' : '', `결항 ${v[1]} · 지연 ${v[2]}`)) : '직항 없음';
     })));
+    if (same) {
+      const sep = el('tr', 'same');
+      const td = el('td', '', `같은 나라(${A.co})라 아래 정보는 두 도시가 같아요`);
+      (td as HTMLTableCellElement).colSpan = 3;
+      sep.append(td);
+      t.append(sep);
+      common();
+    }
     t.append(row('더 보기', slugs.map((s, i) => {
       const f = el('div', 'lk');
       const add = (h: string, x: string) => { const a = el('a', '', x); a.href = h; f.append(a); };
@@ -172,6 +185,7 @@ const opts = CITY_GROUPS;
   .cmp :global(tr:last-child th), .cmp :global(tr:last-child td) { border-bottom: 0; }
   .cmp :global(tr > th:first-child) { width: 130px; color: var(--sub); font-size: 13px; background: #FFFAF6; }
   .cmp :global(.ch) { background: #FFF3EA; }
+  .cmp :global(tr.same td) { background: #FFFAF6; color: var(--sub); font-size: 12.5px; font-weight: 600; padding: 8px 14px; }
   .cmp :global(.ch img) { vertical-align: -3px; margin-right: 6px; border-radius: 3px; }
   .cmp :global(.ch b) { font-size: 18px; }
   .cmp :global(.ch small) { display: block; color: var(--sub); font-weight: 600; font-size: 12.5px; margin-top: 2px; }

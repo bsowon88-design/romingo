@@ -1,0 +1,72 @@
+---
+// 연차 꿀팁 — 한국 공휴일에 연차 며칠 붙이면 며칠 쉬는지 + 그때 가기 좋은 곳
+import Base from '../layouts/Base.astro';
+import Flag from '../components/Flag.astro';
+import { LEAVE_PLANS, KR_HOLIDAYS, md } from '../data/leave.js';
+import { cityBySlug } from '../data/cities.js';
+import { bySlug, flagOf } from '../data/countries.js';
+import { guideByCity } from '../data/guides.js';
+const y0 = KR_HOLIDAYS[0]?.d.slice(0, 4) || '';
+const y1 = KR_HOLIDAYS[KR_HOLIDAYS.length - 1]?.d.slice(0, 4) || '';
+const years = y0 === y1 ? y0 : `${y0}~${y1}`;
+---
+<Base title={`${years} 연차 꿀팁 - 공휴일에 연차 붙여 해외여행 가기 좋은 날`} desc={`${years} 한국 공휴일에 연차를 며칠 붙이면 며칠 쉴 수 있는지 자동으로 계산했어요. 그 기간 날씨 좋은 해외 여행지와 현지 연휴 겹침까지 함께 보여 드려요.`}>
+  <p class="crumb"><a href="/">홈</a> › 연차 꿀팁</p>
+  <h1>연차 꿀팁 해외여행 달력</h1>
+  <p class="lead">한국 공휴일에 <b>연차를 며칠 붙이면 며칠 쉬는지</b> 자동으로 계산했어요. 그 기간에 날씨 좋은 여행지도 같이 골라 드려요.</p>
+
+  <div class="lv">
+    {LEAVE_PLANS.map((p) => (
+      <section class="lp card">
+        <h2>{p.names.join(' · ')} <small>{p.days.map((d) => md(d)).join(', ')}</small></h2>
+        <div class="opts">
+          {p.opts.map((o) => (
+            <div class="op">
+              <div class="oh">
+                <span class={`lvb ${o.leave ? '' : 'z'}`}>{o.leave ? `연차 ${o.leave}일` : '연차 없이'}</span>
+                <b>{o.len}일 쉬기</b>
+                <span class="od">{md(o.from)} ~ {md(o.to)}</span>
+              </div>
+              {o.leave > 0 && <p class="ol">연차 쓸 날: {o.leaveDays.map((d) => md(d)).join(', ')}</p>}
+              <div class="picks">
+                <span class="pl">{o.len <= 4 ? '3시간 안팎' : o.len <= 6 ? '5시간 안팎' : '이 기간'} 가기 좋은 곳</span>
+                {o.picks.map((r) => {
+                  const c = cityBySlug[r.slug];
+                  return (
+                    <a href={guideByCity[r.slug] ? `/guide/${r.slug}/` : `/weather/${r.slug}/${+o.from.slice(5, 7)}/`}>
+                      <Flag iso={flagOf(bySlug[c.country])} size={16} /> {r.ko}{r.busy && <em title="현지 연휴와 겹쳐 붐빌 수 있어요">현지 연휴</em>}
+                    </a>
+                  );
+                })}
+              </div>
+            </div>
+          ))}
+        </div>
+      </section>
+    ))}
+  </div>
+
+  <p class="muted src">공휴일은 date-holidays 자료로 계산했어요. 임시공휴일·대체공휴일은 정부 발표로 바뀔 수 있으니 회사 일정과 함께 꼭 확인하세요. 추천 여행지는 그달 10년 평균 날씨(NASA POWER)와 서울 기준 비행시간으로 골랐고, "현지 연휴"는 그 나라 연휴와 겹쳐 붐빌 수 있다는 뜻이에요.</p>
+</Base>
+
+<style>
+  .lv { display: grid; grid-template-columns: repeat(2, 1fr); gap: 14px; margin-top: 16px; }
+  .lp h2 { margin: 0 0 10px; font-size: 19px; }
+  .lp h2 small { font-size: 13px; color: var(--sub); font-weight: 600; }
+  .opts { display: flex; flex-direction: column; gap: 10px; }
+  .op { border-top: 1px dashed var(--line); padding-top: 10px; }
+  .op:first-child { border-top: 0; padding-top: 0; }
+  .oh { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; }
+  .lvb { font-size: 12.5px; font-weight: 800; color: #fff; background: var(--sea); border-radius: 999px; padding: 3px 10px; }
+  .lvb.z { background: #1d9a5b; }
+  .oh b { font-size: 17px; }
+  .od { font-size: 13.5px; color: var(--sub); }
+  .ol { margin: 4px 0 0; font-size: 13px; color: var(--sea); font-weight: 600; }
+  .picks { display: flex; flex-wrap: wrap; align-items: center; gap: 6px; margin-top: 8px; }
+  .pl { font-size: 12.5px; color: var(--sub); font-weight: 700; margin-right: 2px; }
+  .picks a { display: inline-flex; align-items: center; gap: 5px; text-decoration: none; font-size: 13.5px; font-weight: 700; color: var(--ink); border: 1px solid var(--line); border-radius: 999px; padding: 4px 10px; background: #fff; }
+  .picks a:hover { border-color: var(--coral); }
+  .picks em { font-style: normal; font-size: 11px; font-weight: 700; color: #b5651d; background: #FFF3E6; border-radius: 6px; padding: 1px 5px; }
+  .src { font-size: 12.5px; margin-top: 14px; }
+  @media (max-width: 900px) { .lv { grid-template-columns: 1fr; } }
+</style>

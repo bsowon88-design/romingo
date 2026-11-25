@@ -1,0 +1,40 @@
+---
+import Base from '../../layouts/Base.astro';
+import { DEP_AIRPORTS, airportCities, AP_READY } from '../../data/popular.js';
+import { cityBySlug } from '../../data/cities.js';
+const cards = DEP_AIRPORTS.map((a) => {
+  const { list, total } = airportCities(a.code);
+  const known = list.filter((r) => r.city && cityBySlug[r.city]);
+  return { a, n: known.length, total, top: known.slice(0, 5).map((r) => cityBySlug[r.city].ko) };
+});
+---
+<Base title="공항별 해외 직항 여행지 - 인천·김포·김해·제주 출발" desc="인천공항, 김포공항, 김해공항(부산), 제주공항에서 이번 주 직항으로 갈 수 있는 해외 도시와 편수, 비행시간, 날씨를 공항별로 확인하세요.">
+  <p class="crumb"><a href="/">홈</a> › 공항별 직항</p>
+  <h1>공항별 해외 직항 여행지</h1>
+  <p class="lead">가까운 공항을 고르면, 이번 주 그 공항에서 <b>바로 갈 수 있는 해외 도시</b>를 보여 줘요.</p>
+  <div class="apg">
+    {cards.map(({ a, n, total, top }) => (
+      <a class="apc" href={`/airport/${a.slug}/`}>
+        <span class="ac">{a.code}</span>
+        <b>{a.ko}</b>
+        <span class="ar">{a.area} 출발</span>
+        {AP_READY && n ? <span class="an">이번 주 직항 도시 <b>{n}곳</b> · {total}편</span> : <span class="an">노선 자료 모으는 중</span>}
+        {top.length > 0 && <span class="at">{top.join(' · ')}</span>}
+      </a>
+    ))}
+  </div>
+  <p class="muted" style="margin-top:14px;font-size:12.5px">자료: 인천국제공항공사·한국공항공사 운항 정보 (공공데이터포털). 청주·대구·무안 등 다른 공항은 아직 포함되지 않았어요.</p>
+</Base>
+
+<style>
+  .apg { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; margin-top: 16px; }
+  .apc { display: flex; flex-direction: column; gap: 4px; text-decoration: none; color: var(--ink); border: 1px solid var(--line); border-radius: 18px; background: #fff; padding: 16px; transition: transform .2s, box-shadow .2s; }
+  .apc:hover { transform: translateY(-2px); box-shadow: 0 10px 24px -14px rgba(46,36,32,.35); }
+  .ac { font-size: 12px; font-weight: 800; letter-spacing: .12em; color: var(--sea); }
+  .apc > b { font-size: 20px; }
+  .ar { font-size: 13px; color: var(--sub); }
+  .an { margin-top: 8px; font-size: 13.5px; }
+  .an b { color: var(--sea); }
+  .at { font-size: 12.5px; color: var(--sub); }
+  @media (max-width: 900px) { .apg { grid-template-columns: repeat(2, 1fr); } }
+</style>

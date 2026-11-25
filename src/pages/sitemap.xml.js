@@ -3,6 +3,7 @@ import { COUNTRIES } from '../data/countries.js';
 import { bigQuakes } from '../data/load.js';
 import { citiesWithClimate, MONTHS } from '../data/weather.js';
 import { GUIDES } from '../data/guides.js';
+import { PAIRS } from '../data/pairs.js';
 
 export function GET() {
   const now = new Date().toISOString();
@@ -18,7 +19,12 @@ export function GET() {
     ['/map/', now],
     ['/prep/', now],
     ['/compare/', null],
+    ...PAIRS.map(([a, b]) => [`/compare/${a}-vs-${b}/`, null]),
     ['/popular/', now],
+    ['/airport/', now],
+    ['/find/', null],
+    ['/holidays/', now],
+    ...['icn', 'gmp', 'pus', 'cju'].map((a) => [`/airport/${a}/`, now]),
     ...COUNTRIES.flatMap((c) => ['', 'safety/', 'weather/', 'info/'].map((t) => [`/country/${c.slug}/${t}`, now])),
     ...GUIDES.map((g) => [`/guide/${g.city}/`, new Date(g.updated).toISOString()]),
     ['/weather/', null],

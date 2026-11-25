@@ -72,6 +72,7 @@ function normKac(r, ap, ymd) {
   return {
     airportCode: String(code || '').toUpperCase(),
     airport: name,
+    _ap: ap,
     fid: pick(r, /^f_?id$/i) || `${ap}-${master || fl}-${ymd}`,
     codeshare: slave ? 'Slave' : 'Master',
     remark: pick(r, /status|remark|rmk/i) || '',
@@ -109,7 +110,7 @@ export async function fetchKacDay(key, ymd) {
 }
 
 // 하루치: { 도시열쇠: 편수 } — 코드셰어(같은 비행기의 다른 편명)는 빼고 셈
-function countDay(rows, meta) {
+function countDay(rows, meta, byAp) {
   const out = {};
   const seen = new Set();
   for (const r of rows) {
@@ -124,6 +125,8 @@ function countDay(rows, meta) {
     const c = cityKeyOf(code, nameEn);
     meta[c.key] = { ko: c.ko, city: c.city, iso: c.iso };
     out[c.key] = (out[c.key] || 0) + 1;
+    // 출발 공항별로도 셈 (공항별 직항 여행지 페이지용)
+    if (byAp) { const a = (byAp[r._ap || 'ICN'] ||= {}); a[c.key] = (a[c.key] || 0) + 1; }
   }
   return out;
 }
@@ -134,18 +137,19 @@ const kst = (d) => new Date(d.getTime() + 9 * 36e5).toISOString().slice(0, 10);
 export async function updatePopular(key, old) {
   const today = kst(new Date());
   const base = old && !Array.isArray(old) ? old : {};
-  if (base.checked === today && base.v === 3) return { out: base, changed: false };
+  if (base.checked === today && base.v === 4) return { out: base, changed: false };
   const days = { ...(base.days || {}) };
+  const apdays = { ...(base.apdays || {}) }; // { 날짜: { ICN: {도시열쇠: 편수}, GMP: …, PUS: …, CJU: … } }
   const meta = { ...(base.meta || {}) };
   let got = 0;
   for (let k = -3; k <= 6; k++) {
     const d = new Date(Date.now() + k * 864e5);
     const ymd = kst(d).replace(/-/g, '');
     try {
-      const rows = await fetchDay(key, ymd);
+      const rows = (await fetchDay(key, ymd)).map((r) => ({ ...r, _ap: 'ICN' }));
       // 김포·김해·제주 국제선도 같이 셈 (실패해도 인천은 그대로)
       try { rows.push(...(await fetchKacDay(key, ymd))); } catch (e) { if (k === -3) console.warn('  공항공사 실패:', e.message); }
-      if (rows.length) { days[kst(d)] = countDay(rows, meta); got++; }
+      if (rows.length) { const byAp = {}; days[kst(d)] = countDay(rows, meta, byAp); apdays[kst(d)] = byAp; got++; }
     } catch (e) {
       console.warn(`  ${ymd} 실패:`, e.message);
       if (k === -3) break; // 첫날부터 안 되면 (승인 전 등) 그만
@@ -155,7 +159,9 @@ export async function updatePopular(key, old) {
   // 60일 넘은 기록은 지움
   const cut = kst(new Date(Date.now() - 60 * 864e5));
   for (const d of Object.keys(days)) if (d < cut) delete days[d];
-  return { out: { v: 3, checked: today, days, meta }, changed: true };
+  const cut2 = kst(new Date(Date.now() - 14 * 864e5)); // 공항별은 2주치만
+  for (const d of Object.keys(apdays)) if (d < cut2) delete apdays[d];
+  return { out: { v: 4, checked: today, days, apdays, meta }, changed: true };
 }
 
 // ── 오늘 운항 현황 (1시간마다) — 도시별 [편수, 결항, 지연] ──

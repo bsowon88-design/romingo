@@ -15,6 +15,7 @@ import Icon from '../components/Icon.astro';
 import HeroSlider from '../components/HeroSlider.astro';
 import VideoRow from '../components/VideoRow.astro';
 import RateBoard from '../components/RateBoard.astro';
+import BestNow from '../components/BestNow.astro';
 
 // 인기 여행지 (처음에 보이는 카드)
 const POP = ['japan', 'vietnam', 'thailand', 'philippines', 'taiwan', 'china', 'guam-saipan', 'singapore'];
@@ -57,7 +58,7 @@ const guides = GUIDES.map((g) => CITIES.find((x) => x.slug === g.city)).filter(B
               return (
                 <li><a href={c ? `/weather/${c.slug}/${nowM}/` : '/popular/'}>
                   <span class="tn">{i + 1}</span>{r.iso && <Flag iso={r.iso} size={18} />}<b>{r.ko}</b>
-                  <span class="tf">{r.flights}편{r.change ? <em class={r.change > 0 ? "up" : "down"}>{r.change > 0 ? "▲" : "▼"}{Math.abs(r.change)}%</em> : null}</span>
+                  <span class="tf">출발 {r.flights}편{r.change ? <em class={r.change > 0 ? "up" : "down"}>{r.change > 0 ? "▲" : "▼"}{Math.abs(r.change)}%</em> : null}</span>
                 </a></li>
               );
             })}
@@ -70,6 +71,8 @@ const guides = GUIDES.map((g) => CITIES.find((x) => x.slug === g.city)).filter(B
     </div>
   </section>
 
+  <BestNow />
+
   <h2 id="pop-title">🧳 인기 여행지</h2>
   <div class="grid cgrid" id="countries">
     {countryCards.map((c) => <div class:list={['cwrap', { hide: !POP.includes(c.slug) }]} data-pop={POP.includes(c.slug) ? '1' : ''}><CountryCard c={c} /></div>)}
@@ -78,7 +81,7 @@ const guides = GUIDES.map((g) => CITIES.find((x) => x.slug === g.city)).filter(B
 
   {popTop.length > 0 && (
     <>
-      <h2>✈️ 이번 주 인기 도시 <small>인천·김포·김해·제주 출발 기준</small></h2>
+      <h2>✈️ 이번 주 인기 도시 <small>인천·김포·김해·제주 출발 운항편 기준</small></h2>
       <div class="good">
         {popTop.slice(0, 7).map((r, i) => {
           const c = r.city ? cityBySlug[r.city] : null;
@@ -87,12 +90,12 @@ const guides = GUIDES.map((g) => CITIES.find((x) => x.slug === g.city)).filter(B
             <a class="gn" href={c ? `/weather/${c.slug}/${nowM}/` : '/popular/'}>
               {ph && <span class="gnimg hasbg"><img class="bgimg" src={ph.src(360, 200)} alt={r.ko} loading="lazy" /><PhotoCredit p={ph} link={false} /></span>}
               <span class="gnh"><span class="prk">{i + 1}</span>{r.iso && <Flag iso={r.iso} size={18} />} <b>{r.ko}</b></span>
-              <span class="muted">이번 주 {r.flights}편</span>
+              <span class="muted">이번 주 출발 {r.flights}편</span>
             </a>
           );
         })}
       </div>
-      <p><a class="btn ghost" href="/popular/">인기 도시 전체 순위</a></p>
+      <p><a class="btn ghost" href="/popular/">인기 도시 전체 순위</a> <a class="btn ghost" href="/airport/">공항별 직항 여행지</a></p>
     </>
   )}
 
@@ -101,6 +104,8 @@ const guides = GUIDES.map((g) => CITIES.find((x) => x.slug === g.city)).filter(B
   <RateBoard />
 
   <div class="tools">
+    <a href="/find/"><b>🔎 조건으로 찾기</b><span>여행 달·출발 공항·비행시간·스타일로 골라요</span></a>
+    <a href="/holidays/"><b>📅 연차 꿀팁</b><span>공휴일에 연차 붙여 오래 쉬는 날 + 갈 곳</span></a>
     <a href="/my/"><b>🧳 나의 여행</b><span>여행지·날짜 넣고 D-day·안전·날씨 한눈에</span></a>
     <a href="/compare/"><b>↔️ 여행지 비교</b><span>다낭 vs 나트랑처럼 두 도시 나란히</span></a>
     <a href="/map/"><b>🗺️ 안전 지도</b><span>최근 지진·태풍을 지도에서</span></a>
@@ -199,7 +204,7 @@ const guides = GUIDES.map((g) => CITIES.find((x) => x.slug === g.city)).filter(B
   .chips a { display: inline-flex; align-items: center; gap: 6px; text-decoration: none; background: #fff; border: 1px solid var(--line); border-radius: 999px; padding: 8px 14px; font-weight: 600; font-size: 14.5px; }
   .chips a.all { color: var(--sea); }
   .two { display: grid; grid-template-columns: 1fr 1fr; gap: 0 22px; }
-  .tools { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; margin-top: 34px; }
+  .tools { display: grid; grid-template-columns: repeat(5, 1fr); gap: 10px; margin-top: 34px; }
   .tools a { display: flex; flex-direction: column; gap: 3px; text-decoration: none; color: inherit; background: #fff; border: 1px solid var(--line); border-radius: 14px; padding: 14px 16px; }
   .tools a:hover { border-color: var(--coral); }
   .tools b { font-size: 16px; }

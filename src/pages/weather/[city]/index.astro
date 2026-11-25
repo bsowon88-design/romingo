@@ -42,7 +42,7 @@ const others = CITIES.filter((x) => x.country === city.country && x.slug !== cit
           <span class="mm">{m}월</span>
           <span class="bar"><span class="fill" style={`left:${pct(d.lo)}%;width:${Math.max(4, pct(d.hi) - pct(d.lo))}%`}></span>
             <span class="lo" style={`left:${pct(d.lo)}%`}>{t1(d.lo)}</span><span class="hi" style={`left:${pct(d.hi)}%`}>{t1(d.hi)}</span></span>
-          <span class="rain">💧 {d.rain}mm <small>{r.label}</small></span>
+          <span class="rain">{r.snow ? "❄️" : "💧"} {d.rain}mm <small>{r.label}</small></span>
           <span class={`sc ${s.cls}`}>{s.label}</span>
         </a>
       );

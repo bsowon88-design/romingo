@@ -19,6 +19,11 @@ export function clothes(d) {
 }
 
 export function rainInfo(d) {
+  // 평균기온이 0℃ 안팎이면 비보다 눈 — 이름만 눈으로 (양 기준은 같음)
+  if ((d.hi + d.lo) / 2 <= 1 && (d.rain >= 50 || d.rdays >= 9)) {
+    if (d.rain >= 120 || d.rdays >= 16) return { lv: d.rain >= 250 || d.rdays >= 22 ? 3 : 2, snow: true, label: '눈 많음', text: '눈이 자주 와요. 미끄럼 방지 신발과 방수 외투를 챙기고, 교통 지연에 대비하세요.' };
+    return { lv: 1, snow: true, label: '가끔 눈', text: '가끔 눈이 와요. 미끄럽지 않은 신발을 챙기세요.' };
+  }
   if (d.rain >= 250 || d.rdays >= 22) return { lv: 3, label: '우기', text: '비가 아주 많이 와요. 우산·우비를 꼭 챙기고, 실내 일정을 섞어 두세요.' };
   if (d.rain >= 120 || d.rdays >= 16) return { lv: 2, label: '비 자주', text: '비 오는 날이 꽤 있어요. 접이식 우산을 챙기세요.' };
   if (d.rain >= 50 || d.rdays >= 9) return { lv: 1, label: '가끔 비', text: '가끔 비가 와요. 작은 우산 하나면 충분해요.' };

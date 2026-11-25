@@ -1,0 +1,11 @@
+---
+// 도시 2곳 비교 — 날씨·비행시간·시차·안전·환율·오늘 운항을 한 표로
+import Base from '../../layouts/Base.astro';
+import CompareTool from '../../components/CompareTool.astro';
+---
+<Base title="여행지 비교 - 두 도시 날씨·비행시간·시차·안전·환율" desc="다낭 vs 나트랑, 도쿄 vs 오사카처럼 고민되는 두 여행지를 날씨, 비행시간, 시차, 안전, 환율로 한 번에 비교하세요.">
+  <p class="crumb"><a href="/">홈</a> › 여행지 비교</p>
+  <h1>↔️ 여행지 비교</h1>
+  <p class="lead">고민되는 두 도시를 골라 보세요. 날씨·비행시간·시차·안전·환율을 나란히 보여 줘요.</p>
+  <CompareTool />
+</Base>

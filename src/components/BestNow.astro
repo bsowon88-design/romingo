@@ -1,0 +1,150 @@
+---
+// 메인 "지금 떠나기 좋은 곳" — 날씨(10년 평균) + 외교부 경보 + 자연재난 + 환율 흐름을 합쳐 자동으로 고름
+// 이번 달 · 다음 달 · 다다음 달 3개를 미리 만들어 두고 버튼으로 바꿔 봄
+import Flag from './Flag.astro';
+import PhotoCredit from './PhotoCredit.astro';
+import { CITIES } from '../data/cities.js';
+import { bySlug, flagOf } from '../data/countries.js';
+import { HAS_CLIMATE, climateOf, travelScore, rainInfo } from '../data/weather.js';
+import { countryAlarm, ALARM_KO } from '../data/load.js';
+import { cityLevels } from '../data/near.js';
+import { cityPhoto } from '../data/photos.js';
+import { guideByCity } from '../data/guides.js';
+import rates from '../data/archive/rates.json';
+import { flightMin } from '../data/tripdata.js';
+import { popularCities } from '../data/popular.js';
+
+const popSet = new Set(popularCities(20).list.map((r) => r.city).filter(Boolean));
+
+const nowM = +new Intl.DateTimeFormat('en-US', { timeZone: 'Asia/Seoul', month: 'numeric' }).format(new Date());
+const months = [0, 1, 2].map((k) => ((nowM - 1 + k) % 12) + 1);
+
+// 환율 흐름 — 약 한 달 전보다 원화로 얼마나 싸졌는지 (%)
+const rateMove = (cur) => {
+  const r = rates?.[cur];
+  if (!r || !Array.isArray(r.hist) || r.hist.length < 8) return 0;
+  const old = r.hist[0];
+  return old ? ((r.value - old) / old) * 100 : 0;
+};
+const CUR_KO = { JPY: '엔화', USD: '달러', CNY: '위안화', TWD: '대만 달러', VND: '동화', THB: '바트화', PHP: '페소화', IDR: '루피아', MYR: '링깃', SGD: '싱가포르 달러', EUR: '유로화', AUD: '호주 달러', NZD: '뉴질랜드 달러', TRY: '리라', MXN: '페소화', HKD: '홍콩 달러' };
+
+function pick(m) {
+  const out = [];
+  for (const x of CITIES) {
+    if (x.slug === 'seoul' || !HAS_CLIMATE(x.slug) || !cityPhoto(x.slug)) continue;
+    const c = bySlug[x.country];
+    if (!c) continue;
+    const lv = cityLevels[x.slug] || 'calm';
+    if (lv === 'alert') continue; // 큰 재난 소식이 있는 곳은 빼기
+    const al = countryAlarm(c);
+    const max = al?.max || 0;
+    const partial = al?.levels?.length ? al.levels.every((l) => /일부/.test(l.region)) : false;
+    if (max >= 3 && !partial) continue; // 나라 전체 3단계 이상은 빼기
+    const d = climateOf(x.slug).m[m - 1];
+    let s = travelScore(d);
+    s -= partial ? (max >= 3 ? 10 : 0) : max === 2 ? 10 : 0; // 일부 지역 경보는 조금만 감점 (나라 전체 3단계 이상은 위에서 뺌)
+    if (lv === 'watch') s -= 10;
+    const mv = rateMove(c.cur);
+    if (mv < -1) s += Math.min(8, -mv * 2); // 환율이 내려갔으면 조금 가점
+    const fm = flightMin(x);
+    s -= fm > 600 ? 14 : fm > 360 ? 7 : 0; // 멀수록 조금 감점 (가볍게 떠나기 좋은 곳 위주)
+    if (popSet.has(x.slug)) s += 5; // 요즘 운항편 많은 곳
+    out.push({ x, c, d, s, max, partial, mv, rain: rainInfo(d) });
+  }
+  out.sort((a, b) => b.s - a.s);
+  const seen = new Set();
+  const top = [];
+  for (const r of out) {
+    if (seen.has(r.c.slug)) continue; // 한 나라에서 한 곳
+    seen.add(r.c.slug);
+    top.push(r);
+    if (top.length === 4) break;
+  }
+  return top;
+}
+const groups = months.map((m) => ({ m, list: pick(m) })).filter((g) => g.list.length);
+const label = (k) => (k === 0 ? '이번 달' : k === 1 ? '다음 달' : '다다음 달');
+---
+{groups.length > 0 && (
+  <section class="bn" id="bestnow">
+    <div class="bn-h">
+      <h2>🧭 지금 떠나기 좋은 곳 <small>날씨 · 안전 · 환율을 합쳐 매일 자동으로 골라요</small></h2>
+      <div class="bn-tabs" role="tablist">
+        {groups.map((g, k) => <button type="button" role="tab" class:list={{ on: k === 0 }} data-k={k}>{g.m}월 <span>{label(k)}</span></button>)}
+      </div>
+    </div>
+    {groups.map((g, k) => (
+      <div class="bn-g" data-k={k} hidden={k !== 0}>
+        {g.list.map((r) => {
+          const ph = cityPhoto(r.x.slug);
+          const href = guideByCity[r.x.slug] ? `/guide/${r.x.slug}/` : `/weather/${r.x.slug}/${g.m}/`;
+          return (
+            <a class="bc" href={href}>
+              <span class="bimg hasbg">
+                <img class="bgimg" src={ph.src(520, 320)} alt={r.x.ko} loading="lazy" />
+                <PhotoCredit p={ph} link={false} />
+              </span>
+              <span class="bb">
+                <span class="bn-name"><Flag iso={flagOf(r.c)} size={18} /> <b>{r.x.ko}</b><small>{r.c.ko}</small></span>
+                <span class="tags">
+                  <span class="tg w">{r.rain.snow ? '❄️' : r.rain.lv >= 2 ? '🌦️' : '☀️'} {Math.round(r.d.hi)}° / {Math.round(r.d.lo)}° · {r.rain.label}</span>
+                  {r.max ? <span class={`tg mchip ${ALARM_KO[r.max].cls}`}>외교부 {r.partial ? '일부 ' : ''}{r.max}단계</span> : <span class="tg ok">🛡️ 여행경보 없음</span>}
+                  {r.mv < -1 && <span class="tg fx">💱 {CUR_KO[r.c.cur] || r.c.cur} 한 달 새 {Math.abs(r.mv).toFixed(1)}% ↓</span>}
+                </span>
+              </span>
+            </a>
+          );
+        })}
+      </div>
+    ))}
+    <p class="bn-f">날씨는 10년 평균(NASA POWER), 경보는 외교부, 환율은 한국은행 자료예요. 여행 전엔 <a href="/safety/">안전 정보</a>를 꼭 다시 확인하세요. <a href="/weather/">12달 날씨 표 →</a></p>
+  </section>
+)}
+
+<script>
+  const root = document.getElementById('bestnow');
+  if (root) {
+    const tabs = root.querySelectorAll<HTMLButtonElement>('.bn-tabs button');
+    const gs = root.querySelectorAll<HTMLElement>('.bn-g');
+    tabs.forEach((t) => t.addEventListener('click', () => {
+      tabs.forEach((x) => x.classList.toggle('on', x === t));
+      gs.forEach((g) => (g.hidden = g.dataset.k !== t.dataset.k));
+    }));
+  }
+</script>
+
+<style>
+  .bn { margin-top: 8px; }
+  .bn-h { display: flex; align-items: flex-end; justify-content: space-between; gap: 12px; flex-wrap: wrap; }
+  .bn-h h2 { margin-bottom: 12px; }
+  .bn-tabs { display: flex; gap: 6px; margin-bottom: 12px; }
+  .bn-tabs button { font: inherit; font-size: 14px; font-weight: 700; border: 1px solid var(--line); background: #fff; color: var(--ink); border-radius: 999px; padding: 7px 14px; cursor: pointer; }
+  .bn-tabs button span { font-weight: 500; font-size: 12px; color: var(--sub); margin-left: 2px; }
+  .bn-tabs button.on { background: var(--ink); border-color: var(--ink); color: #fff; }
+  .bn-tabs button.on span { color: #E8D9CF; }
+  .bn-g { display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; }
+  .bn-g[hidden] { display: none; }
+  .bc { display: flex; flex-direction: column; border: 1px solid var(--line); border-radius: 16px; overflow: hidden; background: #fff; text-decoration: none; color: var(--ink); transition: transform .2s, box-shadow .2s; }
+  .bc:hover { transform: translateY(-2px); box-shadow: 0 10px 24px -14px rgba(46,36,32,.35); }
+  .bimg { display: block; aspect-ratio: 16 / 10; background: #E9DDD4; }
+  .bb { display: flex; flex-direction: column; gap: 8px; padding: 12px 14px 14px; }
+  .bn-name { display: flex; align-items: center; gap: 6px; font-size: 17px; }
+  .bn-name small { font-size: 12.5px; color: var(--sub); margin-left: 2px; }
+  .tags { display: flex; flex-wrap: wrap; gap: 5px; }
+  .tg { font-size: 12px; font-weight: 600; border-radius: 7px; padding: 3px 7px; line-height: 1.35; }
+  .tg.w { background: #FFF3EA; color: #8A4A26; }
+  .tg.ok { background: #EAF6EE; color: #2D6B45; }
+  .tg.fx { background: #EEF4FF; color: #2F5FA8; }
+  .bn-f { margin: 10px 0 0; font-size: 12.5px; color: var(--sub); }
+  .bn-f a { color: var(--sea); font-weight: 700; text-decoration: none; }
+  @media (max-width: 900px) { .bn-g { grid-template-columns: repeat(2, 1fr); } }
+  @media (max-width: 760px) {
+    .bn-g { gap: 10px; }
+    .bb { padding: 10px 10px 12px; }
+    .bn-name { font-size: 15.5px; }
+    .bn-name small { display: none; }
+    .bn-h h2 small { display: block; margin: 4px 0 0; }
+    .tg { font-size: 11px; }
+    .bn-tabs button { padding: 6px 11px; font-size: 13px; }
+  }
+</style>

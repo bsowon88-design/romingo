@@ -2368,5 +2368,35 @@
   "userUrl": "https://unsplash.com/@thessd",
   "page": "https://unsplash.com/photos/empty-pathway-between-bamboo-trees-1u0B0akEQx0",
   "pick": 0
+ },
+ "spot:kyoto:3": {
+  "id": "3JtSG-ohuJY",
+  "raw": "https://images.unsplash.com/photo-1696856357553-6cf6d98e2837?ixid=M3wxMTQzNTA5fDB8MXxzZWFyY2h8MXx8S2lua2FrdWppJTIwZ29sZGVuJTIwcGF2aWxpb258ZW58MXwwfHx8MTc5NTYzNjY5M3ww&ixlib=rb-4.1.0",
+  "color": "#26260c",
+  "alt": "a building sitting on top of a lake surrounded by trees",
+  "name": "Fynn Geerdsen",
+  "userUrl": "https://unsplash.com/@fynngeerdsen",
+  "page": "https://unsplash.com/photos/a-building-sitting-on-top-of-a-lake-surrounded-by-trees-3JtSG-ohuJY",
+  "pick": 0
+ },
+ "spot:kyoto:4": {
+  "id": "-gOvsQfHA88",
+  "raw": "https://images.unsplash.com/photo-1594795716460-c816b5193a34?ixid=M3wxMTQzNTA5fDB8MXxzZWFyY2h8M3x8R2lvbiUyMEhhbmFtaWtvamklMjBzdHJlZXQlMjBLeW90b3xlbnwxfDB8fHwxNzk1NjM2Njk0fDA&ixlib=rb-4.1.0",
+  "color": "#c0d9d9",
+  "alt": "brown wooden house under white sky during daytime",
+  "name": "Jay",
+  "userUrl": "https://unsplash.com/@jmanalog",
+  "page": "https://unsplash.com/photos/brown-wooden-house-under-white-sky-during-daytime--gOvsQfHA88",
+  "pick": 0
+ },
+ "spot:bali:0": {
+  "id": "VO922U_ej40",
+  "raw": "https://images.unsplash.com/photo-1566811851038-0580f1fb9082?ixid=M3wxMTQzNTA5fDB8MXxzZWFyY2h8MXx8VWx1d2F0dSUyMHRlbXBsZSUyMGNsaWZmJTIwc3Vuc2V0fGVufDF8MHx8fDE3OTU2MzY2OTV8MA&ixlib=rb-4.1.0",
+  "color": "#262626",
+  "alt": "landscape photo of a beach at sunset",
+  "name": "bckfwd",
+  "userUrl": "https://unsplash.com/@bckfwd",
+  "page": "https://unsplash.com/photos/landscape-photo-of-a-beach-at-sunset-VO922U_ej40",
+  "pick": 0
  }
 }

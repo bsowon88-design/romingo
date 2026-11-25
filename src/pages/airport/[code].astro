@@ -1,6 +1,7 @@
 ---
 // 공항별 해외 직항 여행지 — 앞으로 7일 출발 국제선 기준 (인천국제공항공사·한국공항공사)
 import Base from '../../layouts/Base.astro';
+import PageBanner from '../../components/PageBanner.astro';
 import Flag from '../../components/Flag.astro';
 import { DEP_AIRPORTS, airportCities, AP_READY } from '../../data/popular.js';
 import { cityBySlug } from '../../data/cities.js';
@@ -29,9 +30,11 @@ const short = known.filter((r) => r.fm && r.fm <= 180);
 const others = DEP_AIRPORTS.filter((x) => x.code !== a.code);
 ---
 <Base title={`${a.ko} 출발 해외 직항 여행지 - 이번 주 노선·편수·비행시간`} desc={`${a.ko}(${a.area})에서 이번 주 직항으로 갈 수 있는 해외 도시 ${known.length || ''}곳. 도시별 출발 편수, 비행시간, ${nowM}월 날씨와 여행하기 좋은 달을 한눈에 확인하세요.`}>
-  <p class="crumb"><a href="/">홈</a> › <a href="/airport/">공항별 직항</a> › {a.ko}</p>
-  <h1>{a.ko} 출발 해외 직항 여행지</h1>
-  <p class="lead">{a.area}에서 출발하는 분이 이번 주 <b>{a.ko}에서 바로 갈 수 있는 해외 도시</b>예요. 출발 편수가 많은 순서로 보여 줘요.</p>
+  <PageBanner name="airport">
+    <p class="crumb"><a href="/">홈</a> › <a href="/airport/">공항별 직항</a> › {a.ko}</p>
+    <h1>{a.ko} 출발 해외 직항 여행지</h1>
+    <p class="lead">{a.area}에서 출발하는 분이 이번 주 <b>{a.ko}에서 바로 갈 수 있는 해외 도시</b>예요. 출발 편수가 많은 순서로 보여 줘요.</p>
+  </PageBanner>
 
   <nav class="aptabs">
     {DEP_AIRPORTS.map((x) => <a href={`/airport/${x.slug}/`} class:list={{ on: x.code === a.code }}>{x.ko}</a>)}

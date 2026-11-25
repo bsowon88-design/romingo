@@ -1,6 +1,7 @@
 ---
 // 조건으로 여행지 찾기 — 여행 달 · 출발 공항 · 비행시간 · 스타일을 고르면 맞는 도시를 날씨 점수 순으로
 import Base from '../layouts/Base.astro';
+import PageBanner from '../components/PageBanner.astro';
 import { CITIES } from '../data/cities.js';
 import { bySlug, flagOf } from '../data/countries.js';
 import { HAS_CLIMATE, climateOf, travelScore, rainInfo } from '../data/weather.js';
@@ -52,9 +53,11 @@ const nextM = (nowM % 12) + 1;
 const AL = Object.fromEntries(Object.entries(ALARM_KO).map(([k, v]) => [k, [v.label, v.cls]]));
 ---
 <Base title="조건으로 해외 여행지 찾기 - 여행 달·출발 공항·비행시간·스타일" desc="언제 가는지, 어느 공항에서 출발하는지, 비행시간과 여행 스타일을 고르면 날씨·안전까지 따져 맞는 해외 여행지를 골라 드려요.">
-  <p class="crumb"><a href="/">홈</a> › 조건으로 찾기</p>
-  <h1>조건으로 여행지 찾기</h1>
-  <p class="lead">언제, 어디서 출발해서, 어떤 여행을 하고 싶은지 고르면 <b>날씨 · 비행시간 · 안전</b>을 따져 맞는 곳을 골라 드려요.</p>
+  <PageBanner name="find">
+    <p class="crumb"><a href="/">홈</a> › 조건으로 찾기</p>
+    <h1>조건으로 여행지 찾기</h1>
+    <p class="lead">언제, 어디서 출발해서, 어떤 여행을 하고 싶은지 고르면 <b>날씨 · 비행시간 · 안전</b>을 따져 맞는 곳을 골라 드려요.</p>
+  </PageBanner>
 
   <form class="fq card" id="fq" onsubmit="return false">
     <div class="fr">

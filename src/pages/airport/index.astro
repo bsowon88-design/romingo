@@ -1,5 +1,6 @@
 ---
 import Base from '../../layouts/Base.astro';
+import PageBanner from '../../components/PageBanner.astro';
 import { DEP_AIRPORTS, airportCities, AP_READY } from '../../data/popular.js';
 import { cityBySlug } from '../../data/cities.js';
 const cards = DEP_AIRPORTS.map((a) => {
@@ -9,9 +10,11 @@ const cards = DEP_AIRPORTS.map((a) => {
 });
 ---
 <Base title="공항별 해외 직항 여행지 - 인천·김포·김해·제주 출발" desc="인천공항, 김포공항, 김해공항(부산), 제주공항에서 이번 주 직항으로 갈 수 있는 해외 도시와 편수, 비행시간, 날씨를 공항별로 확인하세요.">
-  <p class="crumb"><a href="/">홈</a> › 공항별 직항</p>
-  <h1>공항별 해외 직항 여행지</h1>
-  <p class="lead">가까운 공항을 고르면, 이번 주 그 공항에서 <b>바로 갈 수 있는 해외 도시</b>를 보여 줘요.</p>
+  <PageBanner name="airport">
+    <p class="crumb"><a href="/">홈</a> › 공항별 직항</p>
+    <h1>공항별 해외 직항 여행지</h1>
+    <p class="lead">가까운 공항을 고르면, 이번 주 그 공항에서 <b>바로 갈 수 있는 해외 도시</b>를 보여 줘요.</p>
+  </PageBanner>
   <div class="apg">
     {cards.map(({ a, n, total, top }) => (
       <a class="apc" href={`/airport/${a.slug}/`}>

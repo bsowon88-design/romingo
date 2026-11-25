@@ -7,6 +7,7 @@ import { bySlug } from '../data/countries.js';
 import { cityPhoto } from '../data/photos.js';
 import { guideByCity } from '../data/guides.js';
 import { HAS_CLIMATE } from '../data/weather.js';
+import PrepLinks from '../components/PrepLinks.astro';
 
 const { list, range } = popularCities(30);
 const max = list[0]?.flights || 1;
@@ -58,6 +59,7 @@ const fmt = (d) => d.slice(5).replace('-', '.');
   ) : (
     <p class="card empty">출발편 자료를 모으는 중이에요. 하루 안에 순위가 채워져요.</p>
   )}
+  <PrepLinks cat="flight" title="항공권 찾기" />
 </Base>
 
 <style>

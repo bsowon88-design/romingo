@@ -14,6 +14,7 @@ const nav = [
   ['/weather/', '날씨', 'cloud-sun', false],
   ['/safety/', '안전 정보', 'shield-check', true],
   ['/rates/', '환율', 'coins', true],
+  ['/prep/', '여행 준비', 'map', true],
 ];
 const isOn = (href) => (href === '/' ? path === '/' : path.startsWith(href) || (href === '/safety/' && (path.startsWith('/quakes') || path.startsWith('/disasters') || path.startsWith('/quake/'))));
 ---
@@ -84,7 +85,7 @@ const isOn = (href) => (href === '/' ? path === '/' : path.startsWith(href) || (
     <div class="wrap">
       <p><b>자료 출처</b> 미국 지질조사국(USGS) · 국제 재난경보(GDACS) · 외교부 · 한국은행 · 인천국제공항공사 · 한국공항공사 · 노르웨이 기상청(MET Norway, CC BY 4.0) · NASA POWER — 공식 데이터를 자동으로 정리해요. 나라 기본 정보는 여행 전에 한 번 더 확인하세요.</p>
       <p>트립베리는 참고용 정보예요. 여행 전에는 꼭 <a href={MOFA_URL} target="_blank" rel="noopener">외교부 해외안전여행</a>과 현지 정부·항공사 공지를 확인하세요.</p>
-      <p class="foot-links"><a href="/about/">트립베리 소개</a> · <a href="/privacy/">개인정보처리방침</a> · <a href="/credits/">사진 출처</a></p>
+      <p class="foot-links"><a href="/about/">트립베리 소개</a> · <a href="/privacy/">개인정보처리방침</a> · <a href="/credits/">사진 출처</a> · <a href="/prep/">여행 준비 (제휴 안내)</a></p>
       <p class="copy">© {new Date().getFullYear()} {SITE_NAME}</p>
     </div>
   </footer>

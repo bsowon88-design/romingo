@@ -3,6 +3,7 @@ import Base from '../../../layouts/Base.astro';
 import CountryShell from '../../../components/CountryShell.astro';
 import { COUNTRIES, tzDiff, tzDiffText, CONSULAR_CALL } from '../../../data/countries.js';
 import { countryRate } from '../../../data/load.js';
+import PrepLinks from '../../../components/PrepLinks.astro';
 
 export function getStaticPaths() {
   return COUNTRIES.map((c) => ({ params: { slug: c.slug }, props: { c } }));
@@ -22,6 +23,7 @@ const diff = tzDiff(c.tz);
       </div>
       <a class="tile" href="/rates/"><span class="tl">다른 나라 환율·계산기</span><b>환율 메뉴로 →</b></a>
     </div>
+    <PrepLinks cat="data" country={c.slug} title={`${c.ko} 데이터 준비 (eSIM·유심)`} />
 
     <h2>📞 긴급 연락처</h2>
     <div class="tiles">

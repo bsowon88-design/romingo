@@ -1,0 +1,32 @@
+---
+// 페이지 곳곳의 작은 "여행 준비" 링크 — 링크가 있는 업체만, 광고 표시 포함
+import { partnersOf, CATS } from '../data/partners.js';
+const { cat, country = '', title = '' } = Astro.props;
+const list = partnersOf(cat, country);
+const c = CATS.find((x) => x.id === cat);
+---
+{list.length > 0 && (
+  <aside class="prep">
+    <p class="prep-h"><span>{c.ico} {title || c.name}</span><em>광고</em></p>
+    <div class="prep-l">
+      {list.map((p) => (
+        <a href={p.url} target="_blank" rel="sponsored nofollow noopener"><b>{p.name}</b><span>{p.best}</span><i>↗</i></a>
+      ))}
+    </div>
+    <p class="prep-f"><a href={`/prep/#${cat}`}>업체별 장점 비교 →</a></p>
+  </aside>
+)}
+
+<style>
+  .prep { margin: 16px 0 6px; padding: 12px 14px 10px; border: 1px solid var(--line); border-radius: 14px; background: #FFFBF8; }
+  .prep-h { display: flex; justify-content: space-between; align-items: center; margin: 0 0 8px; font-weight: 800; font-size: 14.5px; }
+  .prep-h em { font-style: normal; font-size: 11px; font-weight: 700; color: var(--sub); border: 1px solid var(--line); border-radius: 6px; padding: 1px 6px; background: #fff; }
+  .prep-l { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 8px; }
+  .prep-l a { display: flex; align-items: center; gap: 8px; padding: 10px 12px; border-radius: 10px; background: #fff; border: 1px solid #F3E4DA; text-decoration: none; color: var(--ink); }
+  .prep-l a:hover { border-color: var(--coral); }
+  .prep-l b { font-size: 15px; white-space: nowrap; }
+  .prep-l span { font-size: 12.5px; color: var(--sub); overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+  .prep-l i { margin-left: auto; font-style: normal; color: var(--sea); }
+  .prep-f { margin: 8px 0 0; font-size: 12.5px; text-align: right; }
+  .prep-f a { color: var(--sea); text-decoration: none; font-weight: 700; }
+</style>

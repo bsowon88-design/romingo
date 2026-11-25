@@ -16,6 +16,7 @@ export function GET() {
     ['/disasters/', now],
     ['/about/', null],
     ['/map/', now],
+    ['/prep/', now],
     ['/compare/', null],
     ['/popular/', now],
     ...COUNTRIES.flatMap((c) => ['', 'safety/', 'weather/', 'info/'].map((t) => [`/country/${c.slug}/${t}`, now])),

@@ -1668,5 +1668,35 @@
   "userUrl": "https://unsplash.com/@jquam",
   "page": "https://unsplash.com/photos/a-view-of-a-city-with-a-cathedral-and-mountains-in-the-background-NN_vPCzkU3M",
   "pick": 0
+ },
+ "city:venice": {
+  "id": "5mcnzeSHFvE",
+  "raw": "https://images.unsplash.com/photo-1558271736-cd043ef2e855?ixid=M3wxMTQzNTA5fDB8MXxzZWFyY2h8MXx8VmVuaWNlJTIwY2FuYWx8ZW58MXwwfHx8MTc5NTU3NTQ4MXww&ixlib=rb-4.1.0",
+  "color": "#73c0f3",
+  "alt": "landscape photo of a Venice canal",
+  "name": "Kit Suman",
+  "userUrl": "https://unsplash.com/@cobblepot",
+  "page": "https://unsplash.com/photos/landscape-photo-of-a-venice-canal-5mcnzeSHFvE",
+  "pick": 0
+ },
+ "city:kathmandu": {
+  "id": "8__IZFB9AD8",
+  "raw": "https://images.unsplash.com/photo-1580424917967-a8867a6e676e?ixid=M3wxMTQzNTA5fDB8MXxzZWFyY2h8MXx8S2F0aG1hbmR1JTIwTmVwYWx8ZW58MXwwfHx8MTc5NTU3NTQ4Mnww&ixlib=rb-4.1.0",
+  "color": "#597373",
+  "alt": "green trees and mountains under blue sky during daytime",
+  "name": "Avel Chuklanov",
+  "userUrl": "https://unsplash.com/@chuklanov",
+  "page": "https://unsplash.com/photos/green-trees-and-mountains-under-blue-sky-during-daytime-8__IZFB9AD8",
+  "pick": 0
+ },
+ "city:pokhara": {
+  "id": "X08i7QDlXI8",
+  "raw": "https://images.unsplash.com/photo-1735533441842-33c5e47b22ae?ixid=M3wxMTQzNTA5fDB8MXxzZWFyY2h8MXx8UG9raGFyYSUyMGxha2V8ZW58MXwwfHx8MTc5NTU3NTQ4Mnww&ixlib=rb-4.1.0",
+  "color": "#8cc0f3",
+  "alt": "A bunch of boats that are sitting in the water",
+  "name": "Ratul Raha",
+  "userUrl": "https://unsplash.com/@ratulraha",
+  "page": "https://unsplash.com/photos/a-bunch-of-boats-that-are-sitting-in-the-water-X08i7QDlXI8",
+  "pick": 0
  }
 }

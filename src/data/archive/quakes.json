@@ -1,5 +1,17 @@
 [
  {
+  "id": "us6000udd1",
+  "mag": 5.9,
+  "place": "Balleny Islands region",
+  "time": 1795570725672,
+  "lat": -63.1,
+  "lon": 170.9,
+  "depth": 10,
+  "tsunami": 0,
+  "alert": "green",
+  "url": "https://earthquake.usgs.gov/earthquakes/eventpage/us6000udd1"
+ },
+ {
   "id": "us6000udbn",
   "mag": 5,
   "place": "209 km SE of Kokopo, Papua New Guinea",
@@ -1202,8 +1214,8 @@
  {
   "id": "us7000tvtj",
   "mag": 5.2,
-  "place": "98 km ESE of Kyzyl-Eshme, Kyrgyzstan",
-  "time": 1793741648472,
+  "place": "99 km ESE of Kyzyl-Eshme, Kyrgyzstan",
+  "time": 1793741648404,
   "lat": 39.3,
   "lon": 73.4,
   "depth": 10,
@@ -1311,10 +1323,10 @@
   "id": "us7000tusv",
   "mag": 5.1,
   "place": "Banda Sea",
-  "time": 1793580789737,
+  "time": 1793580789678,
   "lat": -6.9,
   "lon": 130,
-  "depth": 87,
+  "depth": 86,
   "tsunami": 0,
   "alert": null,
   "url": "https://earthquake.usgs.gov/earthquakes/eventpage/us7000tusv"
@@ -1790,11 +1802,11 @@
  {
   "id": "us7000ttkk",
   "mag": 5.1,
-  "place": "8 km WNW of Sugal, Philippines",
-  "time": 1793144631477,
+  "place": "8 km NW of Nuing, Philippines",
+  "time": 1793144633465,
   "lat": 5.7,
   "lon": 125.4,
-  "depth": 57,
+  "depth": 77,
   "tsunami": 0,
   "alert": null,
   "url": "https://earthquake.usgs.gov/earthquakes/eventpage/us7000ttkk"

@@ -9,6 +9,7 @@ import { fetchRates } from './ecos.mjs';
 import { fetchClimate } from './climate.mjs';
 import { fetchPhotos } from './photos.mjs';
 import { fetchYoutube } from './youtube.mjs';
+import { fetchFestivals, fetchPlaces, kstDate } from './tour.mjs';
 import { updatePopular, fetchTodayFlights } from './icn.mjs';
 import { fetchForecasts } from './forecast.mjs';
 import { mkdir } from 'node:fs/promises';
@@ -27,6 +28,10 @@ const F_FILE = new URL('../src/data/archive/popular.json', import.meta.url);
 const LIVE_DIR = new URL('../live/', import.meta.url);
 const LF_FILE = new URL('../live/flights.json', import.meta.url);
 const LW_FILE = new URL('../live/forecast.json', import.meta.url);
+// 국내여행 (한국관광공사) — 자료는 archive, 마지막 수집 시각은 live (시각만 바뀌면 사이트를 다시 만들지 않게)
+const KF_FILE = new URL('../src/data/archive/kr-festivals.json', import.meta.url);
+const KP_FILE = new URL('../src/data/archive/kr-places.json', import.meta.url);
+const KT_FILE = new URL('../live/tour.json', import.meta.url);
 
 async function readList(file) {
   try {
@@ -204,6 +209,34 @@ if (!YKEY) {
   } catch (e) {
     console.warn('유튜브 수집 실패:', e.message);
   }
+}
+
+// 국내여행 — 한국관광공사 축제(6시간마다) · 관광지·문화시설(하루 한 번)
+if (KEY) {
+  let clock = {};
+  try { clock = JSON.parse(await readFile(KT_FILE, 'utf8')); } catch {}
+  const tour = [
+    ['축제', KF_FILE, fetchFestivals, 'fest', () => Date.now()],
+    ['관광지', KP_FILE, fetchPlaces, 'place', () => kstDate()],
+  ];
+  for (const [label, file, fn, ck, stamp] of tour) {
+    try {
+      const old = await readList(file);
+      const base = Array.isArray(old) ? {} : old;
+      const r = await fn(KEY, base, clock);
+      if (!r) { console.log(`${label}: 아직 받을 때 아님`); continue; }
+      clock[ck] = stamp();
+      if (JSON.stringify(r.list) !== JSON.stringify(base.list || [])) {
+        await writeFile(file, JSON.stringify(r) + '\n');
+        console.log(`${label}: ${(base.list || []).length} → ${r.list.length}개 저장`);
+        changed = true;
+      } else console.log(`${label}: 바뀐 것 없음`);
+    } catch (e) {
+      console.warn(`${label} 수집 실패:`, e.message);
+    }
+  }
+  await mkdir(LIVE_DIR, { recursive: true });
+  await writeFile(KT_FILE, JSON.stringify(clock) + '\n');
 }
 
 console.log(changed ? '→ 바뀐 것 있음' : '→ 그대로');

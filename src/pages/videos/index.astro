@@ -64,10 +64,10 @@ const top = cities.map((o) => o.list[0]).filter((v) => v && !seen.has(v.id) && s
 </script>
 
 <style>
-  .vhero { border-radius: 22px; padding: 30px 32px; margin: 6px 0 10px; background: linear-gradient(120deg, #2E2420 0%, #5A3A2E 55%, #C9603A 100%); color: #fff; }
+  .vhero { border-radius: 22px; padding: 34px 32px; min-height: 210px; display: flex; flex-direction: column; justify-content: center; margin: 6px 0 10px; background: #332018 url('/banners/videos-hero.webp') right center / cover no-repeat; color: #fff; }
   .vhero .crumb, .vhero .crumb a { color: rgba(255,255,255,.8); }
   .vhero h1 { margin: 4px 0 8px; font-size: 32px; color: #fff; }
-  .vhero .lead { margin: 0; color: rgba(255,255,255,.9); max-width: 620px; }
+  .vhero .lead { margin: 0; color: rgba(255,255,255,.9); max-width: 560px; text-shadow: 0 1px 6px rgba(0,0,0,.35); }
   .empty { padding: 24px; border: 1px dashed var(--line); border-radius: 14px; background: #fff; font-weight: 600; }
   h2 { margin-top: 30px; }
   .gfil { display: flex; gap: 8px; flex-wrap: wrap; margin: 4px 0 14px; }
@@ -85,7 +85,7 @@ const top = cities.map((o) => o.list[0]).filter((v) => v && !seen.has(v.id) && s
   .vc-t small { color: var(--sub); font-size: 12.5px; }
   .note { margin-top: 26px; font-size: 13px; }
   @media (max-width: 640px) {
-    .vhero { padding: 22px 18px; } .vhero h1 { font-size: 25px; }
+    .vhero { padding: 22px 18px; min-height: 190px; justify-content: flex-end; background: linear-gradient(180deg, rgba(40,26,20,.15) 0%, rgba(40,26,20,.55) 45%, rgba(40,26,20,.92) 100%), #332018 url('/banners/videos-hero-m.webp') center / cover no-repeat; } .vhero h1 { font-size: 25px; }
     .gfil { flex-wrap: nowrap; overflow-x: auto; margin: 4px -18px 14px; padding: 0 18px; scrollbar-width: none; } .gfil button { flex: none; }
     .vcity { grid-template-columns: 1fr 1fr; gap: 10px; }
   }

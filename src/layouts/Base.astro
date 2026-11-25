@@ -53,7 +53,7 @@ const isOn = (href) => (href === '/' ? path === '/' : path.startsWith(href) || (
       <a href="/" class="logo"><img class="logo-img" src="/favicon-48.png" srcset="/favicon-48.png 1x, /apple-touch-icon.png 2x" width="30" height="30" alt="트립베리 홈" /><span class="logo-txt">트립베리</span><small>{SITE_TAGLINE}</small></a>
       <nav id="mainnav">
         {nav.map(([href, label, icon]) => (
-          <a href={href} class={isOn(href) ? 'on' : ''}><Icon name={icon} size={18} />{label}</a>
+          <a href={href} class:list={{ on: isOn(href), hot: href === '/prep/' }}><Icon name={icon} size={18} />{href === '/prep/' && <span class="hx">✈️ </span>}{label}</a>
         ))}
       </nav>
       <div class="tact">
@@ -337,9 +337,13 @@ const isOn = (href) => (href === '/' ? path === '/' : path.startsWith(href) || (
   .hasbg > .bgimg { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; z-index: -2; }
   .hasbg.photo::after { content: ''; position: absolute; inset: 0; z-index: -1; background: linear-gradient(180deg, rgba(0,0,0,.15) 0%, rgba(0,0,0,.55) 100%); }
   .flag { display: inline-block; vertical-align: -2px; border-radius: 2px; box-shadow: 0 0 0 1px rgba(0,0,0,.08); object-fit: cover; }
-  @media (max-width: 900px) {
-    .logo small { display: none; }
+  @media (max-width: 1240px) { .logo small { display: none; } }
+  @media (max-width: 1023px) {
+    .top nav a .ico, .top nav a .hx { display: none; }
     .top nav a { font-size: 15px; padding: 10px 8px; }
+    .top nav a.hot { padding: 6px 12px; border: 1.5px solid var(--coral); border-radius: 999px; background: #FFF4EC; color: var(--sea); font-weight: 800; }
+    .top nav a.hot.on::after { display: none; }
+    .sbtn span { display: none; }
   }
   @media (max-width: 760px) {
     .top-in { grid-template-columns: 1fr auto; grid-template-areas: 'logo act' 'nav nav'; gap: 0; height: auto; padding-top: 6px; }
@@ -355,6 +359,7 @@ const isOn = (href) => (href === '/' ? path === '/' : path.startsWith(href) || (
     .top nav a .ico { display: none; }
     .top nav a.on { color: var(--ink); font-weight: 800; }
     .top nav a.on::after { left: 6px; right: 6px; bottom: 2px; height: 2.5px; background: var(--coral); }
+    .top nav a.hot { color: var(--sea); font-weight: 800; }
     .top nav a:hover { background: transparent; }
     .tact { gap: 4px; }
     .ibtn, .sbtn { width: 34px; height: 34px; padding: 0; display: grid; place-items: center; border-radius: 50%; }
@@ -374,12 +379,17 @@ const isOn = (href) => (href === '/' ? path === '/' : path.startsWith(href) || (
     .top { background: rgba(255,255,255,.96); }
     .top-in { height: 60px; gap: 28px; }
     .logo { font-size: 19px; }
-    .top nav { justify-content: flex-start; gap: 2px; }
-    .top nav a { font-size: 15px; font-weight: 600; color: #5C4A40; padding: 8px 12px; border-radius: 0; }
+    .top nav { justify-content: flex-start; align-items: center; gap: 18px; }
+    .top nav a { font-size: 16px; font-weight: 600; color: #5C4A40; padding: 8px 10px; border-radius: 0; }
     .top nav a:hover { background: none; color: var(--ink); }
     .top nav a .ico { display: none; }
     .top nav a.on { color: var(--ink); font-weight: 800; }
-    .top nav a.on::after { bottom: -11px; height: 2px; left: 12px; right: 12px; background: var(--ink); }
+    .top nav a.on::after { bottom: -11px; height: 2px; left: 10px; right: 10px; background: var(--ink); }
+    /* 여행 준비 — 수익 메뉴라 버튼 모양으로 */
+    .top nav a.hot { margin-left: 6px; padding: 7px 16px; border: 1.5px solid var(--coral); border-radius: 999px; background: #FFF4EC; color: var(--sea); font-weight: 800; }
+    .top nav a.hot:hover { background: var(--coral); color: #fff; }
+    .top nav a.hot.on { background: var(--sea); border-color: var(--sea); color: #fff; }
+    .top nav a.hot.on::after { display: none; }
     .sbtn { font-size: 14px; font-weight: 600; padding: 6px 12px; background: #fff; }
     .ibtn { width: 36px; height: 36px; }
     h1 { font-size: 30px; letter-spacing: -0.03em; }

@@ -2,37 +2,40 @@
 import Base from '../../layouts/Base.astro';
 import PageBanner from '../../components/PageBanner.astro';
 import { PARTNERS, CATS, AD_NOTE } from '../../data/partners.js';
-const groups = CATS.map((c) => ({ ...c, list: PARTNERS.filter((p) => p.cat === c.id) }));
+// 종류 순서대로 한 판에 (PC 4개씩 · 폰 2개씩)
+const catOf = Object.fromEntries(CATS.map((c) => [c.id, c]));
+const list = CATS.flatMap((c) => PARTNERS.filter((p) => p.cat === c.id));
+const firstOf = new Set(CATS.map((c) => PARTNERS.find((p) => p.cat === c.id)?.id));
 ---
-<Base title="해외여행 준비 - eSIM·투어·숙소·렌터카 업체 비교" desc="해외여행 전에 준비할 데이터(eSIM), 투어·입장권, 숙소, 렌터카를 업체별 장점으로 비교해요.">
-  <section class="pv">
-    <PageBanner name="prep">
-      <p class="crumb"><a href="/">홈</a> › 여행 준비</p>
-      <h1>여행 준비</h1>
-      <p class="lead">데이터 · 항공권 · 투어 · 숙소 · 렌터카, 업체마다 잘하는 게 달라요. 나한테 맞는 곳을 골라 보세요.</p>
-    </PageBanner>
-    <p class="adn"><em>광고</em> {AD_NOTE}</p>
-    <nav class="pjump">{groups.map((g) => <a href={`#${g.id}`}>{g.ico} {g.name}</a>)}</nav>
-  </section>
+<Base title="해외여행 준비 - eSIM·항공권·투어·숙소·렌터카 업체 비교" desc="해외여행 전에 준비할 데이터(eSIM), 항공권, 투어·입장권, 숙소, 렌터카를 업체별 장점으로 한눈에 비교해요.">
+  <PageBanner name="prep">
+    <p class="crumb"><a href="/">홈</a> › 여행 준비</p>
+    <h1>여행 준비</h1>
+    <p class="lead">데이터 · 항공권 · 투어 · 숙소 · 렌터카, 업체마다 잘하는 게 달라요. 나한테 맞는 곳을 골라 보세요.</p>
+  </PageBanner>
+  <p class="adn"><em>광고</em> {AD_NOTE}</p>
 
-  {groups.map((g) => (
-    <section class="pg" id={g.id}>
-      <div class="pg-h"><h2>{g.ico} {g.name}</h2>
-      <p class="muted">{g.lead}</p></div>
-      <div class="pcards">
-        {g.list.map((p) => (
-          <article class="pc">
-            <h3>{p.name}{p.only && <small>일본</small>}</h3>
-            <p class="pbest">👍 {p.best}</p>
-            <ul>{p.pros.map((x) => <li>{x}</li>)}</ul>
-            {p.url
-              ? <a class="pgo" href={p.url} target="_blank" rel="sponsored nofollow noopener">{p.name} 보러 가기 ↗</a>
-              : <span class="pgo off">링크 준비 중</span>}
-          </article>
-        ))}
-      </div>
-    </section>
-  ))}
+  <div class="pcards">
+    {list.map((p) => {
+      const c = catOf[p.cat];
+      return (
+        <article class="pc" id={firstOf.has(p.id) ? p.cat : undefined}>
+          <span class={`tag t-${p.cat}`}>{c.ico} {c.name.replace(/ \(.*\)$/, '')}{p.only && ' · 일본만'}</span>
+          <h3>{p.name}</h3>
+          <p class="pbest">👍 {p.best}</p>
+          <ul>{p.pros.slice(0, 2).map((x) => <li>{x}</li>)}</ul>
+          {p.url
+            ? <a class="pgo" href={p.url} target="_blank" rel="sponsored nofollow noopener">보러 가기 ↗</a>
+            : <span class="pgo off">링크 준비 중</span>}
+        </article>
+      );
+    })}
+  </div>
+
+  <details class="tips">
+    <summary>고르기 전에 알아 두면 좋은 것</summary>
+    <ul>{CATS.map((c) => <li><b>{c.ico} {c.name}</b> — {c.lead}</li>)}</ul>
+  </details>
 
   <p class="pnote">장점은 각 업체의 공식 앱 소개와 공식 사이트 안내를 바탕으로 적었어요 (2026년 11월 확인). 가격·조건은 바뀔 수 있으니 결제 전에 업체 화면에서 꼭 확인하세요.</p>
 </Base>
@@ -40,24 +43,32 @@ const groups = CATS.map((c) => ({ ...c, list: PARTNERS.filter((p) => p.cat === c
 <style>
   .adn { font-size: 13px; color: var(--sub); background: #FFF6EF; border: 1px solid var(--line); border-radius: 12px; padding: 10px 12px; margin: 0 0 14px; }
   .adn em { font-style: normal; font-weight: 800; color: var(--sea); margin-right: 4px; }
-  .pjump { display: flex; flex-wrap: wrap; gap: 8px; }
-  .pjump a { text-decoration: none; color: var(--ink); font-weight: 700; font-size: 14px; border: 1px solid var(--line); border-radius: 999px; padding: 7px 13px; background: #fff; }
-  .pjump a:hover { border-color: var(--coral); }
-  .pg { scroll-margin-top: 80px; }
-  .pcards { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 14px; margin-top: 12px; }
-  .pc { display: flex; flex-direction: column; border: 1px solid var(--line); border-radius: 16px; padding: 16px 16px 14px; background: #fff; }
-  .pc h3 { margin: 0; font-size: 19px; display: flex; align-items: center; gap: 8px; }
-  .pc h3 small { font-size: 11.5px; font-weight: 700; color: var(--sub); border: 1px solid var(--line); border-radius: 6px; padding: 1px 6px; }
-  .pbest { margin: 6px 0 8px; font-size: 14px; font-weight: 700; color: var(--sea); }
-  .pc ul { margin: 0 0 14px; padding-left: 18px; font-size: 14px; line-height: 1.7; color: #4a3b33; }
-  .pgo { margin-top: auto; display: block; text-align: center; text-decoration: none; font-weight: 800; color: #fff; background: var(--sea); border-radius: 12px; padding: 11px; }
+  .pcards { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; }
+  .pc { display: flex; flex-direction: column; border: 1px solid var(--line); border-radius: 16px; padding: 13px 14px 12px; background: #fff; scroll-margin-top: 80px; }
+  .pc:target { border-color: var(--coral); box-shadow: 0 0 0 3px #FFE3D2; }
+  .tag { align-self: flex-start; font-size: 11.5px; font-weight: 800; border-radius: 7px; padding: 3px 8px; background: #F4F1EF; color: #6B5B52; }
+  .t-data { background: #EEF4FF; color: #2F5FA8; }
+  .t-flight { background: #EAF6EE; color: #2D6B45; }
+  .t-tour { background: #FFF1E6; color: #A8521E; }
+  .t-stay { background: #F5EEFB; color: #6A3E91; }
+  .t-car { background: #FFF6D9; color: #8A6A0E; }
+  .pc h3 { margin: 7px 0 0; font-size: 18px; }
+  .pbest { margin: 4px 0 6px; font-size: 13px; font-weight: 700; color: var(--sea); }
+  .pc ul { margin: 0 0 10px; padding-left: 16px; font-size: 13px; line-height: 1.6; color: #4a3b33; }
+  .pgo { margin-top: auto; display: block; text-align: center; text-decoration: none; font-size: 14px; font-weight: 800; color: #fff; background: var(--sea); border-radius: 10px; padding: 8px; }
   .pgo:hover { filter: brightness(1.06); }
   .pgo.off { background: #F3ECE7; color: var(--sub); font-weight: 600; }
-  @media (min-width: 1024px) {
-    .pg { display: grid; grid-template-columns: 300px 1fr; gap: 32px; padding: 30px 0; border-top: 1px solid var(--line); }
-    .pg:first-of-type { margin-top: 26px; }
-    .pg-h h2 { margin-top: 0; }
-    .pcards { grid-template-columns: repeat(2, 1fr); margin-top: 0; }
+  .tips { margin-top: 16px; border: 1px solid var(--line); border-radius: 12px; padding: 0 14px; background: #fff; }
+  .tips summary { cursor: pointer; padding: 11px 0; font-weight: 700; font-size: 14px; }
+  .tips ul { margin: 0 0 12px; padding-left: 18px; font-size: 13.5px; line-height: 1.7; color: #4a3b33; }
+  .pnote { margin-top: 18px; font-size: 12.5px; color: var(--sub); }
+  @media (max-width: 1000px) { .pcards { grid-template-columns: repeat(3, 1fr); } }
+  @media (max-width: 760px) {
+    .pcards { grid-template-columns: 1fr 1fr; gap: 8px; }
+    .pc { padding: 10px 10px 10px; }
+    .pc h3 { font-size: 15.5px; }
+    .pbest { font-size: 12px; }
+    .pc ul { font-size: 12px; padding-left: 14px; }
+    .tag { font-size: 10.5px; padding: 2px 6px; }
   }
-  .pnote { margin-top: 30px; font-size: 12.5px; color: var(--sub); }
 </style>

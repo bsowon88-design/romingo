@@ -14,6 +14,11 @@ const { list, range } = popularCities(30);
 const max = list[0]?.flights || 1;
 const nowM = +new Intl.DateTimeFormat('en-US', { timeZone: 'Asia/Seoul', month: 'numeric' }).format(new Date());
 const fmt = (d) => d.slice(5).replace('-', '.');
+const hrefOf = (c) => (c ? (guideByCity[c.slug] ? `/guide/${c.slug}/` : HAS_CLIMATE(c.slug) ? `/weather/${c.slug}/${nowM}/` : `/country/${c.country}/`) : null);
+// 지역 버튼 — 국기 코드로 묶음
+const SEA = ['vn', 'th', 'ph', 'id', 'my', 'sg', 'kh', 'la', 'mm', 'bn'];
+const rgOf = (iso) => (iso === 'jp' ? 'jp' : ['cn', 'hk', 'mo'].includes(iso) ? 'cn' : iso === 'tw' ? 'tw' : SEA.includes(iso) ? 'sea' : 'etc');
+const RG = [['', '전체'], ['jp', '🇯🇵 일본'], ['cn', '🇨🇳 중국·홍콩'], ['tw', '🇹🇼 대만'], ['sea', '🌴 동남아'], ['etc', '🌏 그 외']];
 ---
 <Base title="인기 도시 - 이번 주 한국에서 출발 많은 해외 도시 순위" desc="이번 주 인천·김포·김해·제주에서 출발하는 국제선이 가장 많은 해외 도시 순위. 요즘 사람들이 많이 가는 여행지를 실제 항공편 수로 확인하세요.">
   <PageBanner name="popular">
@@ -26,24 +31,28 @@ const fmt = (d) => d.slice(5).replace('-', '.');
   {POP_READY && list.length ? (
     <>
       <p class="muted when">{range && `${fmt(range.from)} ~ ${fmt(range.to)} 출발편 기준`} · 매일 업데이트 · 같은 비행기의 공동운항 편명은 한 번만 셌어요</p>
-      <ol class="plist">
-        {list.map((r, i) => {
+      <div class="rgf" role="group" aria-label="지역 고르기">
+        {RG.filter(([k]) => k === '' || list.some((r) => rgOf(r.iso) === k)).map(([k, l]) => <button type="button" data-rg={k} class:list={{ on: k === '' }}>{l}</button>)}
+      </div>
+
+      <div class="pod" id="pod">
+        {list.slice(0, 3).map((r, i) => {
           const c = r.city ? cityBySlug[r.city] : null;
           const co = c ? bySlug[c.country] : null;
           const ph = c ? cityPhoto(c.slug) : null;
-          const href = c ? (guideByCity[c.slug] ? `/guide/${c.slug}/` : HAS_CLIMATE(c.slug) ? `/weather/${c.slug}/${nowM}/` : `/country/${c.country}/`) : null;
+          const href = hrefOf(c);
           return (
-            <li class={`pi ${i < 3 ? 'top' : ''}`}>
-              <span class="rk">{i + 1}</span>
-              {ph ? <span class="pimg" style={`background:${ph.color}`}><img src={ph.src(200, 140)} alt={r.ko} loading="lazy" /></span> : <span class="pimg none"><Flag iso={r.iso} size={36} /></span>}
-              <div class="pb">
+            <article class={`pc r${i + 1}`}>
+              <span class="pcimg" style={ph ? `background:${ph.color}` : ''}>
+                {ph ? <img src={ph.src(560, 340)} alt={r.ko} loading="lazy" /> : <Flag iso={r.iso} size={48} />}
+                <span class="pcrk">{i + 1}위</span>
+              </span>
+              <div class="pcb">
                 <div class="ph">
-                  {r.iso && <Flag iso={r.iso} size={18} />}
+                  {r.iso && <Flag iso={r.iso} size={20} />}
                   {href ? <a class="pmain" href={href}><b>{r.ko}</b></a> : <b>{r.ko}</b>}
                   {co && <span class="muted">{co.ko}</span>}
-                  {r.change != null && Math.abs(r.change) >= 5 && (
-                    <span class={`chg ${r.change > 0 ? 'up' : 'down'}`}>{r.change > 0 ? '▲' : '▼'} {Math.abs(r.change)}%</span>
-                  )}
+                  {r.change != null && Math.abs(r.change) >= 5 && <span class={`chg ${r.change > 0 ? 'up' : 'down'}`}>{r.change > 0 ? '▲' : '▼'} {Math.abs(r.change)}%</span>}
                 </div>
                 <div class="bar"><span style={`width:${Math.max(4, (r.flights / max) * 100)}%`}></span><em>출발 {r.flights}편</em></div>
                 {c && (
@@ -54,6 +63,23 @@ const fmt = (d) => d.slice(5).replace('-', '.');
                   </div>
                 )}
               </div>
+            </article>
+          );
+        })}
+      </div>
+
+      <ol class="tl" id="tl">
+        {list.map((r, i) => {
+          const c = r.city ? cityBySlug[r.city] : null;
+          const href = hrefOf(c);
+          return (
+            <li class:list={['tr', { p3: i < 3 }]} data-rg={rgOf(r.iso)}>
+              <span class="trk">{i + 1}</span>
+              {r.iso ? <Flag iso={r.iso} size={18} /> : <span class="nf"></span>}
+              {href ? <a class="tn" href={href}>{r.ko}</a> : <span class="tn">{r.ko}</span>}
+              <span class="tbar"><span style={`width:${Math.max(4, (r.flights / max) * 100)}%`}></span></span>
+              <span class="tf">{r.flights}편</span>
+              {r.change != null && Math.abs(r.change) >= 5 ? <span class={`tc ${r.change > 0 ? 'up' : 'down'}`}>{r.change > 0 ? '▲' : '▼'}{Math.abs(r.change)}%</span> : <span class="tc"></span>}
             </li>
           );
         })}
@@ -66,8 +92,58 @@ const fmt = (d) => d.slice(5).replace('-', '.');
   <PrepLinks cat="flight" title="항공권 찾기" />
 </Base>
 
+<script>
+  const btns = document.querySelectorAll<HTMLButtonElement>('.rgf button');
+  const pod = document.getElementById('pod');
+  const rows = document.querySelectorAll<HTMLElement>('#tl .tr');
+  btns.forEach((b) => b.addEventListener('click', () => {
+    btns.forEach((x) => x.classList.toggle('on', x === b));
+    const k = b.dataset.rg || '';
+    if (pod) pod.hidden = !!k; // 지역을 고르면 큰 카드는 숨기고 표에 1~3위도 같이
+    document.getElementById('tl')?.classList.toggle('all', !!k);
+    rows.forEach((r) => (r.hidden = !!k && r.dataset.rg !== k));
+  }));
+</script>
+
 <style>
   .when { margin: 10px 0 12px; }
+  .rgf { display: flex; flex-wrap: wrap; gap: 6px; margin: 0 0 14px; }
+  .rgf button { font: inherit; font-size: 14px; font-weight: 700; border: 1px solid var(--line); background: #fff; color: var(--ink); border-radius: 999px; padding: 6px 13px; cursor: pointer; }
+  .rgf button.on { background: var(--ink); border-color: var(--ink); color: #fff; }
+  .pod { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; margin-bottom: 14px; }
+  .pod[hidden] { display: none; }
+  .pc { position: relative; display: flex; flex-direction: column; background: #fff; border: 1px solid #F2CDB6; border-radius: 16px; overflow: hidden; }
+  .pc:has(.pmain):hover { border-color: var(--coral); }
+  .pcimg { position: relative; display: grid; place-items: center; aspect-ratio: 2 / 1; background: #FFF0E6; }
+  .pcimg img { width: 100%; height: 100%; object-fit: cover; display: block; }
+  .pcrk { position: absolute; left: 10px; top: 10px; font-size: 14px; font-weight: 900; color: #fff; background: var(--sea); border-radius: 999px; padding: 4px 11px; box-shadow: 0 2px 8px rgba(0,0,0,.2); }
+  .pc.r1 .pcrk { background: #D9822B; }
+  .pcb { display: flex; flex-direction: column; gap: 7px; padding: 11px 13px 13px; }
+  .pc .pmain::after { content: ''; position: absolute; inset: 0; }
+  .tl { list-style: none; margin: 0; padding: 0; columns: 3; column-gap: 14px; }
+  .tl .tr { break-inside: avoid; display: grid; grid-template-columns: 26px 20px minmax(0, 1fr) 70px 44px 46px; align-items: center; gap: 6px; padding: 7px 8px; border-bottom: 1px solid #F6ECE5; font-size: 14px; }
+  .tl .tr.p3 { display: none; }
+  .tl.all .tr.p3 { display: grid; }
+  .tl .tr[hidden] { display: none !important; }
+  .trk { font-weight: 800; color: var(--sub); text-align: center; }
+  .tn { font-weight: 700; color: var(--ink); text-decoration: none; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+  a.tn:hover { color: var(--sea); }
+  .nf { width: 18px; }
+  .tbar { height: 8px; background: #FFF3EB; border-radius: 4px; overflow: hidden; }
+  .tbar span { display: block; height: 100%; background: linear-gradient(90deg, #F6B48A, #E8794A); }
+  .tf { font-size: 12.5px; font-weight: 700; text-align: right; font-variant-numeric: tabular-nums; }
+  .tc { font-size: 11.5px; font-weight: 800; text-align: right; }
+  .tc.up { color: #c0392b; } .tc.down { color: #2257b8; }
+  @media (max-width: 1000px) { .tl { columns: 2; } }
+  @media (max-width: 760px) {
+    .pod { grid-template-columns: 1fr 1fr; }
+    .pod .pc.r3 { display: none; }
+    .pod .pl { display: none; }
+    .tl { columns: 1; }
+    .tl .tr.p3 { display: grid; }
+    .tl .tr:nth-child(-n+2) { display: none; }
+    .tl.all .tr:nth-child(-n+2) { display: grid; }
+  }
   .plist { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 8px; }
   .pi { display: grid; grid-template-columns: 34px 92px 1fr; gap: 12px; align-items: center; background: #fff; border: 1px solid var(--line); border-radius: 14px; padding: 8px 14px 8px 8px; }
   .pi { position: relative; }

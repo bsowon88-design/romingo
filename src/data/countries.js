@@ -145,6 +145,18 @@ export const COUNTRIES = [
     emergency: [['경찰', '102'], ['구급', '103'], ['화재', '101']],
     flight: '약 3시간 30분 (울란바토르)', cities: ['울란바토르', '테를지', '홉스골', '고비 사막'],
     color: ['#c4272f', '#015197'] },
+  { slug: 'laos', landmark: '루앙프라방', photoQ: 'Luang Prabang Laos', cur: 'LAK', curName: '킵', iso2: ['LA'], ko: '라오스', flag: '🇱🇦', region: 'sea', iso3: ['LAO'], keys: ['laos'],
+    tz: 'Asia/Vientiane', capital: '비엔티안', currency: '킵 (LAK)', lang: '라오어',
+    volt: '230V', plug: 'A·B·C·E·F 타입', adapter: false,
+    emergency: [['경찰', '191'], ['구급', '195'], ['화재', '190']],
+    flight: '약 5시간 30분 (비엔티안)', cities: ['비엔티안', '루앙프라방', '방비엥'],
+    color: ['#ce1126', '#002868'] },
+  { slug: 'cambodia', landmark: '앙코르와트', photoQ: 'Angkor Wat Cambodia', cur: 'KHR', curName: '리엘', iso2: ['KH'], ko: '캄보디아', flag: '🇰🇭', region: 'sea', iso3: ['KHM'], keys: ['cambodia'],
+    tz: 'Asia/Phnom_Penh', capital: '프놈펜', currency: '리엘 (KHR) · 미국 달러도 널리 씀', lang: '크메르어',
+    volt: '230V', plug: 'A·C·G 타입', adapter: false,
+    emergency: [['경찰', '117'], ['구급', '119'], ['화재', '118']],
+    flight: '약 5시간 30분 (씨엠립)', cities: ['씨엠립', '프놈펜', '앙코르와트'],
+    color: ['#032ea1', '#e00025'] },
 ];
 
 // 외교부 영사콜센터 (해외에서 24시간)

@@ -1,5 +1,17 @@
 [
  {
+  "id": "us6000udf2",
+  "mag": 5,
+  "place": "67 km NNE of Luwuk, Indonesia",
+  "time": 1795608492731,
+  "lat": -0.4,
+  "lon": 123,
+  "depth": 106,
+  "tsunami": 0,
+  "alert": null,
+  "url": "https://earthquake.usgs.gov/earthquakes/eventpage/us6000udf2"
+ },
+ {
   "id": "us6000udef",
   "mag": 5.3,
   "place": "83 km ESE of Hengchun, Taiwan",

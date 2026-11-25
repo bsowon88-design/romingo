@@ -1758,5 +1758,75 @@
   "userUrl": "https://unsplash.com/@xmerlino",
   "page": "https://unsplash.com/photos/a-japanese-garden-with-rocks-and-trees-UCaGli9BqF0",
   "pick": 0
+ },
+ "country:france": {
+  "id": "nnzkZNYWHaU",
+  "raw": "https://images.unsplash.com/photo-1502602898657-3e91760cbb34?ixid=M3wxMTQzNTA5fDB8MXxzZWFyY2h8MXx8UGFyaXMlMjBFaWZmZWwlMjBUb3dlcnxlbnwxfDB8fHwxNzk1NjEyOTYxfDA&ixlib=rb-4.1.0",
+  "color": "#d9c0c0",
+  "alt": "Eiffel Tower, Paris France",
+  "name": "Chris Karidis",
+  "userUrl": "https://unsplash.com/@chriskaridis",
+  "page": "https://unsplash.com/photos/eiffel-tower-paris-france-nnzkZNYWHaU",
+  "pick": 0
+ },
+ "country:uk": {
+  "id": "Oja2ty_9ZLM",
+  "raw": "https://images.unsplash.com/photo-1513635269975-59663e0ac1ad?ixid=M3wxMTQzNTA5fDB8MXxzZWFyY2h8MXx8TG9uZG9uJTIwVG93ZXIlMjBCcmlkZ2V8ZW58MXwwfHx8MTc5NTYxMjk2Mnww&ixlib=rb-4.1.0",
+  "color": "#d9d9d9",
+  "alt": "aerial photography of London skyline during daytime",
+  "name": "Benjamin Davies",
+  "userUrl": "https://unsplash.com/@bendavisual",
+  "page": "https://unsplash.com/photos/aerial-photography-of-london-skyline-during-daytime-Oja2ty_9ZLM",
+  "pick": 0
+ },
+ "country:spain": {
+  "id": "hVhfqhDYciU",
+  "raw": "https://images.unsplash.com/photo-1583422409516-2895a77efded?ixid=M3wxMTQzNTA5fDB8MXxzZWFyY2h8MXx8QmFyY2Vsb25hJTIwU2FncmFkYSUyMEZhbWlsaWF8ZW58MXwwfHx8MTc5NTYxMjk2Mnww&ixlib=rb-4.1.0",
+  "color": "#735959",
+  "alt": "aerial view of city buildings during daytime",
+  "name": "Logan Armstrong",
+  "userUrl": "https://unsplash.com/@loganstrongarms",
+  "page": "https://unsplash.com/photos/aerial-view-of-city-buildings-during-daytime-hVhfqhDYciU",
+  "pick": 0
+ },
+ "country:czechia": {
+  "id": "OyoaCpMCR0U",
+  "raw": "https://images.unsplash.com/photo-1564511287568-54483b52a35e?ixid=M3wxMTQzNTA5fDB8MXxzZWFyY2h8MXx8UHJhZ3VlJTIwQ2hhcmxlcyUyMEJyaWRnZXxlbnwxfDB8fHwxNzk1NjEyOTYyfDA&ixlib=rb-4.1.0",
+  "color": "#a6a6a6",
+  "alt": "gray concrete bridge near buildings",
+  "name": "Martin Krchnacek",
+  "userUrl": "https://unsplash.com/@martinkrchnacek",
+  "page": "https://unsplash.com/photos/gray-concrete-bridge-near-buildings-OyoaCpMCR0U",
+  "pick": 0
+ },
+ "country:switzerland": {
+  "id": "SuATc8TPrMQ",
+  "raw": "https://images.unsplash.com/photo-1618493075021-1bbe5deebedf?ixid=M3wxMTQzNTA5fDB8MXxzZWFyY2h8MXx8U3dpc3MlMjBBbHBzJTIwSnVuZ2ZyYXV8ZW58MXwwfHx8MTc5NTYxMjk2M3ww&ixlib=rb-4.1.0",
+  "color": "#4073a6",
+  "alt": "red flag on top of snow covered mountain",
+  "name": "Ronnie Schmutz",
+  "userUrl": "https://unsplash.com/@ronnie_schmutz",
+  "page": "https://unsplash.com/photos/red-flag-on-top-of-snow-covered-mountain-SuATc8TPrMQ",
+  "pick": 0
+ },
+ "country:uae": {
+  "id": "aKj9uDanF18",
+  "raw": "https://images.unsplash.com/photo-1651467606797-e1c660cf3fda?ixid=M3wxMTQzNTA5fDB8MXxzZWFyY2h8MXx8RHViYWklMjBCdXJqJTIwS2hhbGlmYSUyMHNreWxpbmV8ZW58MXwwfHx8MTc5NTYxMjk2NHww&ixlib=rb-4.1.0",
+  "color": "#a6a6a6",
+  "alt": "The Burj Khalifa rising above the skyline of Downtown Dubai under dark storm clouds",
+  "name": "Ahmed Aldaie",
+  "userUrl": "https://unsplash.com/@ahmedaldaie",
+  "page": "https://unsplash.com/photos/burj-khalifa-skyline-in-dubai-aKj9uDanF18",
+  "pick": 0
+ },
+ "city:paris": {
+  "id": "nnzkZNYWHaU",
+  "raw": "https://images.unsplash.com/photo-1502602898657-3e91760cbb34?ixid=M3wxMTQzNTA5fDB8MXxzZWFyY2h8MXx8UGFyaXMlMjBFaWZmZWwlMjBUb3dlcnxlbnwxfDB8fHwxNzk1NjEyOTYxfDA&ixlib=rb-4.1.0",
+  "color": "#d9c0c0",
+  "alt": "Eiffel Tower, Paris France",
+  "name": "Chris Karidis",
+  "userUrl": "https://unsplash.com/@chriskaridis",
+  "page": "https://unsplash.com/photos/eiffel-tower-paris-france-nnzkZNYWHaU",
+  "pick": 0
  }
 }

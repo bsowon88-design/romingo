@@ -2458,5 +2458,35 @@
   "userUrl": "https://unsplash.com/@mulberrydigital",
   "page": "https://unsplash.com/photos/boats-on-turquoise-maya-bay-water-TejFa7VW5e4",
   "pick": 0
+ },
+ "spot:phuket:2": {
+  "id": "9mhfEEjKIm8",
+  "raw": "https://images.unsplash.com/photo-1682517164517-90f56a89743b?ixid=M3wxMTQzNTA5fDB8MXxzZWFyY2h8MXx8UGhhbmclMjBOZ2ElMjBiYXklMjBKYW1lcyUyMEJvbmQlMjBpc2xhbmR8ZW58MXwwfHx8MTc5NTY0NzM4OXww&ixlib=rb-4.1.0",
+  "color": "#a6c0f3",
+  "alt": "A body of water surrounded by trees and rocks",
+  "name": "Martti Salmi",
+  "userUrl": "https://unsplash.com/@marttisalmi",
+  "page": "https://unsplash.com/photos/a-body-of-water-surrounded-by-trees-and-rocks-9mhfEEjKIm8",
+  "pick": 0
+ },
+ "spot:phuket:3": {
+  "id": "4fHhzdafw_k",
+  "raw": "https://images.unsplash.com/photo-1684083338842-ee04a0ff8335?ixid=M3wxMTQzNTA5fDB8MXxzZWFyY2h8MXx8UGh1a2V0JTIwb2xkJTIwdG93biUyMGNvbG9yZnVsfGVufDF8MHx8fDE3OTU2NDczODl8MA&ixlib=rb-4.1.0",
+  "color": "#f3f3f3",
+  "alt": "a row of multicolored buildings on a city street",
+  "name": "Sadiq Ahmad",
+  "userUrl": "https://unsplash.com/@dearsadiq",
+  "page": "https://unsplash.com/photos/a-row-of-multicolored-buildings-on-a-city-street-4fHhzdafw_k",
+  "pick": 0
+ },
+ "spot:phuket:4": {
+  "id": "xFOKUJgpQoU",
+  "raw": "https://images.unsplash.com/photo-1586820672103-2272d8490ade?ixid=M3wxMTQzNTA5fDB8MXxzZWFyY2h8MXx8QmlnJTIwQnVkZGhhJTIwUGh1a2V0fGVufDF8MHx8fDE3OTU2NDczOTB8MA&ixlib=rb-4.1.0",
+  "color": "#f3f3f3",
+  "alt": "gray concrete statue near green trees during daytime",
+  "name": "Miltiadis Fragkidis",
+  "userUrl": "https://unsplash.com/@_miltiadis_",
+  "page": "https://unsplash.com/photos/gray-concrete-statue-near-green-trees-during-daytime-xFOKUJgpQoU",
+  "pick": 0
  }
 }

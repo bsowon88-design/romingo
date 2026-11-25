@@ -1,7 +1,7 @@
 {
  "meta": {
   "day": "2026-11-25",
-  "units": 6528
+  "units": 7344
  },
  "cities": {
   "tokyo": {
@@ -4838,6 +4838,622 @@
      "views": 20795,
      "at": "2026-04-12",
      "dur": 1315
+    }
+   ]
+  },
+  "kotakinabalu": {
+   "at": "2026-11-25T22:56:31.157Z",
+   "list": [
+    {
+     "id": "76vFR6LRRGw",
+     "t": "10분에 한 번씩 싸우는 아들 둘 데리고 코타키나발루에서 살아남기 | EP.47",
+     "ch": "김강우 KIMKANGWOO",
+     "cid": "UCa2oXLnaegXJC33vLiX545g",
+     "views": 474929,
+     "at": "2026-02-25",
+     "dur": 1254
+    },
+    {
+     "id": "Khh4VbiIOu0",
+     "t": "프라이빗 섬투어가 단돈 1만원?! 가성비 최고의 휴양지 [코타키나발루 2]",
+     "ch": "하이글로시 Hi-Glossy",
+     "cid": "UC1faLFKSWmLPNuPj-hxXJFg",
+     "views": 230285,
+     "at": "2026-08-21",
+     "dur": 1912
+    },
+    {
+     "id": "ufcezxX0dXY",
+     "t": "매년 300만 명이 몰리는, 가성비 넘치는 해산물의 천국 [코타키나발루 1]",
+     "ch": "하이글로시 Hi-Glossy",
+     "cid": "UC1faLFKSWmLPNuPj-hxXJFg",
+     "views": 193445,
+     "at": "2026-08-13",
+     "dur": 2061
+    },
+    {
+     "id": "Z3FPfxVfrYA",
+     "t": "🇲🇾 한때 1등 휴양지, 코타키나발루 갈까 말까?｜장단점 현실리뷰",
+     "ch": "트래블 메이커 Travel Maker",
+     "cid": "UCoDqzkqxDRGqZHAGAR9ez9A",
+     "views": 138816,
+     "at": "2025-12-27",
+     "dur": 1238
+    },
+    {
+     "id": "HnQoq5fPU90",
+     "t": "파워J 초등학교 선생님의 코타키나발루 완벽 가이드 | 스쿠버다이빙 · 섬투어 · 반딧불 투어 · 현지맛집 · 망고마켓 · 4일 완벽 코스",
+     "ch": "치하루 Chiharu",
+     "cid": "UCqcJmtMmC-mrsu0fd23QKVQ",
+     "views": 113184,
+     "at": "2026-09-06",
+     "dur": 1591
+    },
+    {
+     "id": "JT-Cj0LqsF0",
+     "t": "코타키나발루에서 3박 5일 먹고놀기 🏖️👙🐒",
+     "ch": "현현",
+     "cid": "UCAbLNUPDKsjTjdeQjSiskiw",
+     "views": 49474,
+     "at": "2026-07-03",
+     "dur": 1678
+    },
+    {
+     "id": "dwEKYG86UsY",
+     "t": "세계 3대 선셋의 도시 코타키나발루에서 3박5일동안 할 수 있는것들을 모두 알려드립니다",
+     "ch": "김희원 KIM HEEWON",
+     "cid": "UC48YFRNhZVnOca91BsckNuA",
+     "views": 42170,
+     "at": "2026-05-25",
+     "dur": 2043
+    },
+    {
+     "id": "VvBAehL7rpo",
+     "t": "🇲🇾 이젠 노잼도시? 코타키나발루 패키지여행, 여행사 10년차가 직접 다녀온 리얼 후기",
+     "ch": "트래블 메이커 Travel Maker",
+     "cid": "UCoDqzkqxDRGqZHAGAR9ez9A",
+     "views": 39608,
+     "at": "2025-12-20",
+     "dur": 1706
+    }
+   ]
+  },
+  "kualalumpur": {
+   "at": "2026-11-25T22:56:31.704Z",
+   "list": [
+    {
+     "id": "Q5T3MgvTVJk",
+     "t": "🇲🇾왜 여행말고 한달살기로 오는지 알겠네요.. 나홀로 말레이시아 쿠알라룸푸르 여행",
+     "ch": "윰쪽 여행 yumlog",
+     "cid": "UC7RLSYTHPZp85V-cTVPEP1A",
+     "views": 81013,
+     "at": "2026-05-17",
+     "dur": 2064
+    },
+    {
+     "id": "lpJ7gFEuITw",
+     "t": "쿠알라룸푸르 한 달 살기, 28일 살아보니 알게 된 것들",
+     "ch": "트래블중",
+     "cid": "UCV276GSt2KxToMFW9joCDxw",
+     "views": 67694,
+     "at": "2026-11-09",
+     "dur": 566
+    },
+    {
+     "id": "ByvYm6vy4RI",
+     "t": "말레이시아 여행 vlog.1🇲🇾 | 노잼도시라는 쿠알라룸푸르를 JJJ가 여행한다면 | 다민족이 사는 색다른 동남아 여행지 | 관광지부터 맛집 포토스팟까지 | 트윈타워 | 바투동",
+     "ch": "깅듀로그",
+     "cid": "UCNuiWtqwv-NFHkAoTE1p5wQ",
+     "views": 25647,
+     "at": "2026-08-04",
+     "dur": 2157
+    },
+    {
+     "id": "Ypp7TQSJIF4",
+     "t": "쿠알라룸푸르 여행 [ 걸어서 세계속으로 938회 ] KBS 260530 방송",
+     "ch": "KBS 트래블-걸어서 세계속으로",
+     "cid": "UCFw4M1BJYYdN1YtS8SzlDzg",
+     "views": 19695,
+     "at": "2026-08-16",
+     "dur": 851
+    },
+    {
+     "id": "gLssBl1CoHc",
+     "t": "요즘 폼 미쳤다는 쿠알라룸푸르 여행! 워터 뮤직 축제 현장부터 리버 크루즈까지, 2026 신상 핫플과 가볼만한 곳 총정리 & 한달살기 추천 호텔",
+     "ch": " 히치하이커TV",
+     "cid": "UCM1CBhlVYCrT8ltujd4MuFw",
+     "views": 15664,
+     "at": "2026-05-13",
+     "dur": 1014
+    },
+    {
+     "id": "_VI7SEMvG-8",
+     "t": "말레이시아 쿠알라룸푸르 여행 [걸어서세계속으로 트홀] KBS 260826 방송",
+     "ch": "KBS 트래블-걸어서 세계속으로",
+     "cid": "UCFw4M1BJYYdN1YtS8SzlDzg",
+     "views": 13124,
+     "at": "2026-09-02",
+     "dur": 832
+    },
+    {
+     "id": "OqWzR3jaaTs",
+     "t": "말레이시아 초가성비 여행! 쿠알라룸푸르&페낭 6박7일 몰아보기",
+     "ch": "황녕하세유 HU_on_trip",
+     "cid": "UC9QDmc3N51prMenaPcwSryA",
+     "views": 10136,
+     "at": "2026-01-12",
+     "dur": 6600
+    },
+    {
+     "id": "bvavwJfqAIA",
+     "t": "한달살기 성지, 쿠알라룸푸르 물가 체험기 - 말레이시아(2)",
+     "ch": "앤쵸리",
+     "cid": "UCRSPy4ZoNy6Ulk77gqZN1fA",
+     "views": 5764,
+     "at": "2026-01-19",
+     "dur": 1031
+    }
+   ]
+  },
+  "penang": {
+   "at": "2026-11-25T22:56:32.441Z",
+   "list": [
+    {
+     "id": "dIfhAgtQR60",
+     "t": "먹거리 끝판왕이라는 도시 [페낭]",
+     "ch": "로빈세끼",
+     "cid": "UC8diFXtriES99xCEibrSEpw",
+     "views": 94468,
+     "at": "2026-02-08",
+     "dur": 2491
+    },
+    {
+     "id": "U40EjsAJw2Y",
+     "t": "말레이시아 여행 vlog.2🇲🇾 | 동남아의 숨은 보석같은 도시 페낭 2박3일 코스 | 걷기만해도 예술인 조지타운 | 미식의 도시 페낭의 맛집들 | 페낭힐",
+     "ch": "깅듀로그",
+     "cid": "UCNuiWtqwv-NFHkAoTE1p5wQ",
+     "views": 12261,
+     "at": "2026-08-15",
+     "dur": 2783
+    },
+    {
+     "id": "OqWzR3jaaTs",
+     "t": "말레이시아 초가성비 여행! 쿠알라룸푸르&페낭 6박7일 몰아보기",
+     "ch": "황녕하세유 HU_on_trip",
+     "cid": "UC9QDmc3N51prMenaPcwSryA",
+     "views": 10137,
+     "at": "2026-01-12",
+     "dur": 6600
+    },
+    {
+     "id": "jhVn6O2zZ0o",
+     "t": "말레이시아 쿠알라룸푸르에서 배 타고 가는 페낭 여행 1",
+     "ch": "황녕하세유 HU_on_trip",
+     "cid": "UC9QDmc3N51prMenaPcwSryA",
+     "views": 8299,
+     "at": "2025-12-05",
+     "dur": 1913
+    },
+    {
+     "id": "XHlIWccdZY0",
+     "t": "골목마다 맛있는 섬, 말레이시아 페낭 여행 [걸어서세계속으로] KBS 130713 방송",
+     "ch": "KBS 트래블-걸어서 세계속으로",
+     "cid": "UCFw4M1BJYYdN1YtS8SzlDzg",
+     "views": 6704,
+     "at": "2026-07-09",
+     "dur": 2865
+    },
+    {
+     "id": "ffGx1ZVWp1s",
+     "t": "세상에서 가장 긴 무동력 롤러코스터가 있는 말레이시아 페낭 놀이공원",
+     "ch": "베개미(Begaemi) in \bMalaysia",
+     "cid": "UCD-xq8i-_B4abIhVZVkKS5w",
+     "views": 5675,
+     "at": "2025-12-13",
+     "dur": 2553
+    },
+    {
+     "id": "_L1R24nlG9M",
+     "t": "🇲🇾말레이시아 페낭? 맛집+숙소 정보가 없어도 괜찮은 이유 - 말레이시아 페낭 [배짱이71]",
+     "ch": "배짱이 BaeJjang",
+     "cid": "UCeGTrAmu9YehQiF9kqmygJw",
+     "views": 4690,
+     "at": "2026-03-12",
+     "dur": 3236
+    },
+    {
+     "id": "t11fAguy9Vo",
+     "t": "페낭 여행 몰아보기 🇲🇾 맛집, 호텔, 까페 제대로 털고 왔습니다",
+     "ch": "해나킴 Hannah Kim",
+     "cid": "UCq5bzBkMEWzODZx8rVNy0Eg",
+     "views": 2884,
+     "at": "2026-03-15",
+     "dur": 2940
+    }
+   ]
+  },
+  "langkawi": {
+   "at": "2026-11-25T22:56:33.196Z",
+   "list": [
+    {
+     "id": "a_kVSNsGHPM",
+     "t": "한국인은 잘 모르는데 \"막 써도 걱정없는\" 물가가 엄청나게 싸다는 휴양지, 랑카위 탐방기",
+     "ch": "찬고리 Changori",
+     "cid": "UCPyAhZQuHbEVlyX6LfBun4A",
+     "views": 152215,
+     "at": "2026-08-23",
+     "dur": 1245
+    },
+    {
+     "id": "rG5KPdxidGQ",
+     "t": "[2026]🇲🇾 말레이시아 랑카위 여행 몰아보기 | 월요 야시장, 웨스틴 랑카위 리조트",
+     "ch": "헬로 제임스 / Hello James",
+     "cid": "UC8PVtfbPusFdCTCTKPVVIJA",
+     "views": 11741,
+     "at": "2026-11-19",
+     "dur": 2627
+    },
+    {
+     "id": "00AiQ-wegVI",
+     "t": "[Vlog] 🇲🇾 이래도 안가? 말레이시아 대유잼 섬 랑카위 3박 4일 | 맹그로브 숲 투어, 케이블카, 체낭 해변, 숙소 추천, 불쇼",
+     "ch": "공원민하 PARK-MINHA",
+     "cid": "UCoAp9FxZqVzzeLm0559P7Cw",
+     "views": 5353,
+     "at": "2026-02-20",
+     "dur": 1270
+    },
+    {
+     "id": "m9gRVqPToWM",
+     "t": "🇲🇾 말레이시아 랑카위 / 초보여행자라면 꼭 필수시청 - 쿠알라룸푸르에서 랑카위 가는방법은 보너스  (중년부부 동남아 말레이시아 여행 Vlog #3)",
+     "ch": "중년부부여행 #꽉잡아Tv",
+     "cid": "UCUdIJlHJMDwngZEBY3gYF4Q",
+     "views": 2818,
+     "at": "2025-12-02",
+     "dur": 733
+    },
+    {
+     "id": "l9z4562c0m4",
+     "t": "🇹🇭 태국여행 / 말레이시아 랑카위를 거쳐 태국의 몰디브라 불리는 태국의 최남단 유인도로 들어왔습니다 (태국 자유여행 Vlog #1)",
+     "ch": "중년부부여행 #꽉잡아Tv",
+     "cid": "UCUdIJlHJMDwngZEBY3gYF4Q",
+     "views": 2189,
+     "at": "2025-12-14",
+     "dur": 942
+    },
+    {
+     "id": "-43W2i9TsIU",
+     "t": "[SUB]🇲🇾 일주일에 딱 하루! 랑카위 월요 야시장 먹방, 웨스틴 랑카위 리조트 | 말레이시아",
+     "ch": "헬로 제임스 / Hello James",
+     "cid": "UC8PVtfbPusFdCTCTKPVVIJA",
+     "views": 1968,
+     "at": "2026-10-28",
+     "dur": 989
+    },
+    {
+     "id": "6ScRplzlTE4",
+     "t": "[🇲🇾말레이시아1] 랑카위 오면 무조건 여기부터 갑니다! 맹그로브 투어",
+     "ch": "키큰형(TallBro’s Traveling)  ",
+     "cid": "UCZUfd7uhMcC-EViShYY3ZPw",
+     "views": 1868,
+     "at": "2026-06-13",
+     "dur": 1064
+    },
+    {
+     "id": "ezZ03CwfBCk",
+     "t": "랑카위에서 꼬리뻬 당일치기 가능할까? 직접 다녀왔습니다 | #11 🇲🇾🇹🇭",
+     "ch": "하나둘 하릅두릅",
+     "cid": "UCG9JA5_jr1xBpKSbnEy31Cg",
+     "views": 1014,
+     "at": "2026-06-29",
+     "dur": 929
+    }
+   ]
+  },
+  "singapore": {
+   "at": "2026-11-25T22:56:33.868Z",
+   "list": [
+    {
+     "id": "jfjXf60Yn2k",
+     "t": "'싱가포르' 도보여행, 얼마나 걸릴까?",
+     "ch": "샤크창 Sharkchang",
+     "cid": "UCX-FsVe9BoVfaZ5902Opfdg",
+     "views": 451112,
+     "at": "2026-10-29",
+     "dur": 1943
+    },
+    {
+     "id": "MGBKgcz5K6U",
+     "t": "🇸🇬 아시아에서 제일 잘 사는 나라 싱가포르, 국가적 목표가 “모든 국민의 자가소유”",
+     "ch": "대노 DENO TRIP",
+     "cid": "UCKRATzeBzRTT6Y1VTHo_Fsw",
+     "views": 425920,
+     "at": "2026-05-10",
+     "dur": 2846
+    },
+    {
+     "id": "ACuLJ6_8MHo",
+     "t": "싱가포르 갈 때 이거 모르고 가면 안 돼요😱 | 싱가포르 여행 정보 총정리",
+     "ch": "또 떠나는 남자 ddoddunam",
+     "cid": "UCldwUablgk8KPcFPQlKnB-w",
+     "views": 402085,
+     "at": "2026-05-01",
+     "dur": 1371
+    },
+    {
+     "id": "w9JyrFl11tU",
+     "t": "싱가포르 호텔은 이 영상 하나만 보시면 됩니다 | 내돈내산 솔직 추천",
+     "ch": "또 떠나는 남자 ddoddunam",
+     "cid": "UCldwUablgk8KPcFPQlKnB-w",
+     "views": 188317,
+     "at": "2026-04-19",
+     "dur": 1563
+    },
+    {
+     "id": "lOfiwORq6kA",
+     "t": "\"싱가폴에서 이보다 많이 먹은 영상이 있을까요?!\" 극한의 싱가포르 푸드트립",
+     "ch": "류다다",
+     "cid": "UCywcW6SilD1eILdy7aZmlnQ",
+     "views": 110028,
+     "at": "2026-10-17",
+     "dur": 2458
+    },
+    {
+     "id": "-ciQaZZE3pI",
+     "t": "싱가포르 핫플 브이로그 🇸🇬 : 풀러턴 호텔 래플스 등",
+     "ch": "무리아MuRia",
+     "cid": "UCyQLxSgbcCBEYmXdUaSMUeA",
+     "views": 107653,
+     "at": "2026-05-03",
+     "dur": 4354
+    },
+    {
+     "id": "mdR91Gk2OT0",
+     "t": "🇸🇬싱가포르가 노잼 도시라고요? 3박 5일 내내 입 터지고 온 반전 여행vlog (맛집+꿀팁)",
+     "ch": "현명로그",
+     "cid": "UC63LgMkurkQJ2zywIEqj3Iw",
+     "views": 100371,
+     "at": "2026-06-15",
+     "dur": 1826
+    },
+    {
+     "id": "0ZuTDv6-m_M",
+     "t": "싱가포르 여행코스 쪽집게 일타강사 모셨습니다 👩‍🏫 맛집/쇼핑/숙소/교통까지 완벽 총정리!",
+     "ch": "여니버스 Yeoniverse",
+     "cid": "UC98aniwMMryBGhwOsvmsqQQ",
+     "views": 81986,
+     "at": "2026-06-09",
+     "dur": 2697
+    }
+   ]
+  },
+  "vientiane": {
+   "at": "2026-11-25T22:56:34.559Z",
+   "list": [
+    {
+     "id": "2xV997_Sox4",
+     "t": "🇱🇦 “관광객 증발” 한국인은 사라지고 중국인의 도시가 되어버린 라오스 수도 비엔티안",
+     "ch": "대노 DENO TRIP",
+     "cid": "UCKRATzeBzRTT6Y1VTHo_Fsw",
+     "views": 119018,
+     "at": "2026-06-14",
+     "dur": 2512
+    },
+    {
+     "id": "vBSsOVz2ZlM",
+     "t": "🇱🇦 [라오스] 한국 중년 남성이 사랑한 도시, 비엔티안 여행 완벽 가이드 [4K]",
+     "ch": "한량트레블",
+     "cid": "UCmWnBZVjWdAqhtCmApYeo7w",
+     "views": 36003,
+     "at": "2026-10-30",
+     "dur": 628
+    },
+    {
+     "id": "lFMI-hZ3oBw",
+     "t": "라오스 자유여행 1일차  비엔티안 여행자거리 마스터하기 / 환전 / 유심 / 메콩강야시장 / 그리고 맛집정보 / 시골이의 겨울나기 ep 1.",
+     "ch": "시골에 사는 남자",
+     "cid": "UCAN4vfbAc2Tlu766TwU80rw",
+     "views": 21646,
+     "at": "2025-12-18",
+     "dur": 761
+    },
+    {
+     "id": "HMqjGpgcfGU",
+     "t": "독거노인 라오스 배낭 여행 / 비엔티안 여행자 거리",
+     "ch": "독거노인TV",
+     "cid": "UCKqhzrNF77FEpucmlyjNHzA",
+     "views": 18531,
+     "at": "2026-04-20",
+     "dur": 1299
+    },
+    {
+     "id": "qfQUfn-pupg",
+     "t": "라오스리얼가이드 6부 유흥편 PART3 비엔티안 술집 판도가 변했다. 다시 돌아온 로컬 문화!!",
+     "ch": "겨미월드",
+     "cid": "UCa8TtKe2D_DEMxtjlj37PsQ",
+     "views": 17949,
+     "at": "2026-10-18",
+     "dur": 1456
+    },
+    {
+     "id": "4UMK1kAEwNw",
+     "t": "비엔티안 가이드  3부 라오스가 생각보다 불편한 이유",
+     "ch": "겨미월드",
+     "cid": "UCa8TtKe2D_DEMxtjlj37PsQ",
+     "views": 17676,
+     "at": "2026-09-05",
+     "dur": 1812
+    },
+    {
+     "id": "mCXf8r41uug",
+     "t": "가장 비싼 라오스 비엔티안 총라오 39만낍 - face to face ",
+     "ch": "라오스 준고고 자유여행채널",
+     "cid": "UC7pI2wewkvdclXgADg9SfwA",
+     "views": 11326,
+     "at": "2026-03-07",
+     "dur": 968
+    },
+    {
+     "id": "eNDpciUcav0",
+     "t": "중년남성 여행성지!!! 라오스 비엔티안 로컬 야시장부터 먹방까지 엑기스 몰아보기",
+     "ch": "에브리고 ebrygo",
+     "cid": "UC73dHGQJ819DevA_l2dmCvA",
+     "views": 9332,
+     "at": "2026-10-16",
+     "dur": 9209
+    }
+   ]
+  },
+  "luangprabang": {
+   "at": "2026-11-25T22:56:35.203Z",
+   "list": [
+    {
+     "id": "EDrVGm-k4gE",
+     "t": "루앙프라방 여행이 엉망진창이 돼버린 건 순전히 그녀 때문이였습니다",
+     "ch": "강력의두둥탁(PowerfulKorea)",
+     "cid": "UCZTcnKHGJOM_xKp61WS8FtA",
+     "views": 22333,
+     "at": "2026-08-08",
+     "dur": 2123
+    },
+    {
+     "id": "6a9l0bn8hWk",
+     "t": "시간이 멈춘 도시 루앙프라방에서 마주한 충격적인 아침 풍경! [50대부부 여행 브이로그)",
+     "ch": "로망이룸RomanErum",
+     "cid": "UCXL2TYa5LmHYQRs58EvA-sA",
+     "views": 14659,
+     "at": "2026-01-09",
+     "dur": 2541
+    },
+    {
+     "id": "bSy4LJmLAso",
+     "t": "'그 사건' 이후 라오스에 가보니... 루앙프라방 현실 [라오스.02]",
+     "ch": "위빌고 webillgo",
+     "cid": "UC37m6iuoIXLf7K1M1D0sBhg",
+     "views": 14602,
+     "at": "2026-10-06",
+     "dur": 1846
+    },
+    {
+     "id": "y2EK9b7i34c",
+     "t": "155cm 키작은 남자 혼자서 라오스 루앙프라방 여행을 해보겠습니다(1)",
+     "ch": "키작은 여행가 태기",
+     "cid": "UCSAzFZugQfTC2XptH6ipZ4g",
+     "views": 14537,
+     "at": "2026-10-15",
+     "dur": 2022
+    },
+    {
+     "id": "i7MyLZruiz4",
+     "t": "🇱🇦라오스 여행 베스트23 싹다 알려드림 (루앙프라방,방비엥,비엔티안)",
+     "ch": "맛쫑tour",
+     "cid": "UCGANJALK9GV5ysLWXe6-rSA",
+     "views": 12948,
+     "at": "2025-12-09",
+     "dur": 638
+    },
+    {
+     "id": "qnT5OQLwpHY",
+     "t": "동남아 여행 가면 꼭 가야 하는 '이 곳' 루앙프라방 필수 관광지, 힐링 명소 [라오스4]",
+     "ch": "휴가간다[heewooisgoing]",
+     "cid": "UCsocxiXPM0R1NOhXH8s9O6Q",
+     "views": 10388,
+     "at": "2026-08-21",
+     "dur": 1547
+    },
+    {
+     "id": "3Cnn_brVCU8",
+     "t": "🇱🇦 [라오스] 루앙프라방 물가 비싼데?  환전부터 맛집, 야시장, 숙소, 물가 수준 까지 완전 정복",
+     "ch": "한량트레블",
+     "cid": "UCmWnBZVjWdAqhtCmApYeo7w",
+     "views": 9864,
+     "at": "2026-01-21",
+     "dur": 1117
+    },
+    {
+     "id": "zqoIe7ja-LE",
+     "t": "독거노인 라오스 여행기/세계 문화 유산 루앙프라방 여행",
+     "ch": "독거노인TV",
+     "cid": "UCKqhzrNF77FEpucmlyjNHzA",
+     "views": 9445,
+     "at": "2026-04-28",
+     "dur": 999
+    }
+   ]
+  },
+  "siemreap": {
+   "at": "2026-11-25T22:56:35.777Z",
+   "list": [
+    {
+     "id": "-gamEEZ9YY0",
+     "t": "한국 관광객 94% 사라졌다...텅 비어버린 앙코르왓 [캄보디아4편 시엠립]",
+     "ch": "수길따라(sugilway)",
+     "cid": "UCxQ6xsoXqeVqrDvm71rByQQ",
+     "views": 599834,
+     "at": "2026-09-18",
+     "dur": 2669
+    },
+    {
+     "id": "9GpOXTlg8wM",
+     "t": "고단한 삶 속에서도 미소를 잃지 않는 사람들 [캄보디아 시엠립2편 ]",
+     "ch": "수길따라(sugilway)",
+     "cid": "UCxQ6xsoXqeVqrDvm71rByQQ",
+     "views": 241656,
+     "at": "2026-09-25",
+     "dur": 2622
+    },
+    {
+     "id": "q5pd88J_Ku8",
+     "t": "2026년 캄보디아 시엠립 실시간... 사람들이 싹 사라지고 도시가 변해버렸네요 🇰🇭",
+     "ch": "한캄커플 CAMKOR COUPLE",
+     "cid": "UCcgoVsMeLGtJfBM7RlFIKSg",
+     "views": 30650,
+     "at": "2026-01-05",
+     "dur": 796
+    },
+    {
+     "id": "4eKUwLgrCoo",
+     "t": "캄보디아 씨엠립 현지 분위기는 어떨까?",
+     "ch": "여행하는낙타",
+     "cid": "UCYeP-D8963x-bmcL_0D2LjA",
+     "views": 17728,
+     "at": "2026-10-06",
+     "dur": 922
+    },
+    {
+     "id": "T2LUeQbuvL8",
+     "t": "vlog | 캄보디아 여행 | 시엠립 여행 | 여행 브이로그 | 앙코르와트 | cambodia🇰🇭 |  아무도 안 가는 캄보디아로 떠나는 가족여행✈️ ep.2",
+     "ch": "밤꾸네 bamggu",
+     "cid": "UC_nqBV-zQvy5SlkEqEAnFzQ",
+     "views": 13002,
+     "at": "2026-11-05",
+     "dur": 1545
+    },
+    {
+     "id": "CF9alMUOp6Y",
+     "t": "[ 캄보디아 ] 시엠립 외국인 관광객,  이제는 반타작하면 잘하는 겁니다.그 이유를 현지 숙박업을 운영하는 사장님께 직접 들어 봅니다. #태국전쟁, #이란전쟁, #시엠립",
+     "ch": "알캄생TV [altofamily]",
+     "cid": "UCfGkc2LK0X-Bhsuwg6nOEFQ",
+     "views": 6147,
+     "at": "2026-08-04",
+     "dur": 1109
+    },
+    {
+     "id": "Ckq9VNOSJQ8",
+     "t": "캄보디아 시엠립의 작은 마을에서 맛본 뜻밖의 꿀돼지 구이 | EP26",
+     "ch": "널빛 neolbit",
+     "cid": "UC0NSliU3FD_faSodQtoKePw",
+     "views": 4476,
+     "at": "2026-10-24",
+     "dur": 1072
+    },
+    {
+     "id": "ZD2op4TTrCA",
+     "t": "캄보디아 시골살이 중 떠난 시엠립, 소소한 일상과 뜻밖의 힐링 | EP28",
+     "ch": "널빛 neolbit",
+     "cid": "UC0NSliU3FD_faSodQtoKePw",
+     "views": 2994,
+     "at": "2026-11-08",
+     "dur": 1155
     }
    ]
   }

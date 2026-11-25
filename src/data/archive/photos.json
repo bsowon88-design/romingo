@@ -2398,5 +2398,35 @@
   "userUrl": "https://unsplash.com/@bckfwd",
   "page": "https://unsplash.com/photos/landscape-photo-of-a-beach-at-sunset-VO922U_ej40",
   "pick": 0
+ },
+ "spot:bali:1": {
+  "id": "-2WlTWZLnRc",
+  "raw": "https://images.unsplash.com/photo-1555400038-63f5ba517a47?ixid=M3wxMTQzNTA5fDB8MXxzZWFyY2h8MXx8VGVnYWxsYWxhbmclMjByaWNlJTIwdGVycmFjZSUyMEJhbGl8ZW58MXwwfHx8MTc5NTY0MDI1OHww&ixlib=rb-4.1.0",
+  "color": "#0c260c",
+  "alt": "Lush green rice terraces with palm trees in Tegelalang, Bali",
+  "name": "Niklas Weiss",
+  "userUrl": "https://unsplash.com/@treesoftheplanet",
+  "page": "https://unsplash.com/photos/rice-terraces-in-tegelalang-bali--2WlTWZLnRc",
+  "pick": 0
+ },
+ "spot:bali:2": {
+  "id": "-2WlTWZLnRc",
+  "raw": "https://images.unsplash.com/photo-1555400038-63f5ba517a47?ixid=M3wxMTQzNTA5fDB8MXxzZWFyY2h8MXx8VGFuYWglMjBMb3QlMjB0ZW1wbGUlMjBCYWxpfGVufDF8MHx8fDE3OTU2NDAyNTl8MA&ixlib=rb-4.1.0",
+  "color": "#0c260c",
+  "alt": "Lush green rice terraces with palm trees in Tegelalang, Bali",
+  "name": "Niklas Weiss",
+  "userUrl": "https://unsplash.com/@treesoftheplanet",
+  "page": "https://unsplash.com/photos/rice-terraces-in-tegelalang-bali--2WlTWZLnRc",
+  "pick": 0
+ },
+ "spot:bali:3": {
+  "id": "pMX5x2KRqn4",
+  "raw": "https://images.unsplash.com/photo-1565970141923-345a5f05a6e6?ixid=M3wxMTQzNTA5fDB8MXxzZWFyY2h8MXx8VWJ1ZCUyME1vbmtleSUyMEZvcmVzdHxlbnwxfDB8fHwxNzk1NjQwMjU5fDA&ixlib=rb-4.1.0",
+  "color": "#262626",
+  "alt": "gray concrete ruin temple",
+  "name": "Nick Fewings",
+  "userUrl": "https://unsplash.com/@jannerboy62",
+  "page": "https://unsplash.com/photos/gray-concrete-ruin-temple-pMX5x2KRqn4",
+  "pick": 0
  }
 }

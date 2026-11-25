@@ -1,7 +1,7 @@
 {
  "meta": {
   "day": "2026-11-25",
-  "units": 4896
+  "units": 5712
  },
  "cities": {
   "tokyo": {
@@ -3679,6 +3679,549 @@
      "views": 24072,
      "at": "2026-01-11",
      "dur": 1521
+    }
+   ]
+  },
+  "hochiminh": {
+   "at": "2026-11-25T20:57:40.315Z",
+   "list": [
+    {
+     "id": "41gZR7js5RY",
+     "t": "동양의 파리, 호찌민으로 떠나요 🇻🇳ㅣ이국적인 카페, 시골 풍경, 나룻배 투어까지ㅣTravel VLOG",
+     "ch": "하미마미 Hamimommy",
+     "cid": "UCy0229ISL-677SAuK_1In_A",
+     "views": 351106,
+     "at": "2026-11-21",
+     "dur": 3116
+    },
+    {
+     "id": "IxgYNc9snuY",
+     "t": "6시 땡치면 돌변하는 시장(?) 이런 곳 처음이야!! [호치민 2]",
+     "ch": "흥삶이네 Heungsam's Life",
+     "cid": "UCOVgnOcjlut-LusGwqXD2HA",
+     "views": 210766,
+     "at": "2026-08-25",
+     "dur": 1635
+    },
+    {
+     "id": "lCAmpnU2dv0",
+     "t": "현지인처럼 즐기는 베트남의 아침... 30대 후반 남자의 잔잔한 호치민 한달살기",
+     "ch": "주말남",
+     "cid": "UCFDOT4k-744_cSIpxt5xkZw",
+     "views": 182054,
+     "at": "2026-07-27",
+     "dur": 2028
+    },
+    {
+     "id": "f5a0XhlHDI8",
+     "t": "왜 자꾸 베트남으로 향하게 되는 건지...호치민 변두리 생활 시작",
+     "ch": "주말남",
+     "cid": "UCFDOT4k-744_cSIpxt5xkZw",
+     "views": 142223,
+     "at": "2026-06-26",
+     "dur": 2505
+    },
+    {
+     "id": "7_ZasQEw9rk",
+     "t": "다낭에서 호치민까지 이어진 꿈같은 여행 [베트남-7]",
+     "ch": "ino 이노",
+     "cid": "UCt38QQMf2n1HP1LcCl0VXOA",
+     "views": 123223,
+     "at": "2026-08-08",
+     "dur": 1755
+    },
+    {
+     "id": "MFFdVJ-QDNY",
+     "t": "베트남 가성비가 독보적인 이유.. 그냥 흔한 도시인줄 알았던 호치민의 대반전 일상",
+     "ch": "시칠리안 SICILIAN",
+     "cid": "UCchu6XLsbV9PISj5b7XArQA",
+     "views": 120819,
+     "at": "2025-12-28",
+     "dur": 1806
+    },
+    {
+     "id": "jsyMbyaA1DA",
+     "t": "호치민 여행, 알고 오면 완전히 달라지는 4가지 (12년차의 하루)",
+     "ch": "황세유기",
+     "cid": "UCCKtdwWI6g7RqCAPtZ5Jhxw",
+     "views": 102031,
+     "at": "2026-10-02",
+     "dur": 826
+    },
+    {
+     "id": "7Jtxk69deQo",
+     "t": "물가, 맛집, 숙소 모든게 만족스럽다!! 베트남의 진짜 매력을 느낄 수 있는 호치민",
+     "ch": "시칠리안 SICILIAN",
+     "cid": "UCchu6XLsbV9PISj5b7XArQA",
+     "views": 100273,
+     "at": "2026-01-04",
+     "dur": 1571
+    }
+   ]
+  },
+  "dalat": {
+   "at": "2026-11-25T20:57:40.924Z",
+   "list": [
+    {
+     "id": "0bZ6nVJzp7k",
+     "t": "우기에 베트남 달랏으로 여행가면 생기는 일",
+     "ch": "주말남",
+     "cid": "UCFDOT4k-744_cSIpxt5xkZw",
+     "views": 240867,
+     "at": "2026-09-08",
+     "dur": 1202
+    },
+    {
+     "id": "sH0o5CaYi5U",
+     "t": "고환율 시대, 어디서도 찾을 수 없는 가성비 여행지 ‘달랏’ 여행기. [베트남 3]",
+     "ch": "예또세상 Yeddo World",
+     "cid": "UCfCU2Gzl7KFx33fhk9imTDw",
+     "views": 158566,
+     "at": "2026-01-04",
+     "dur": 1767
+    },
+    {
+     "id": "CeQd6RPyITo",
+     "t": "달랏을 베트남인들이 '슬픈도시'로 부르는 이유.플렉스하는 브이로그  V210 1인가구 브이로그 세계여행 베트남",
+     "ch": "히피이모 hippie",
+     "cid": "UC3x4kJfS_TtyS1m9JbeKgvA",
+     "views": 150478,
+     "at": "2026-09-06",
+     "dur": 3234
+    },
+    {
+     "id": "plQRFdbLakY",
+     "t": "나트랑·달랏 패키지 여행의 장단점 총정리🇻🇳",
+     "ch": "쥬르 Jurr",
+     "cid": "UCAEfqkXGp4LRBbxaTrFWF7w",
+     "views": 94483,
+     "at": "2026-05-28",
+     "dur": 2230
+    },
+    {
+     "id": "_sQTGjVQr8w",
+     "t": "베트남 달랏 여행, 이것 모르고 가면 진짜 위험합니다!!",
+     "ch": "흥바나희바나",
+     "cid": "UC8LdEeiWwNNUDkW1AInBZjg",
+     "views": 45732,
+     "at": "2026-02-18",
+     "dur": 349
+    },
+    {
+     "id": "J40UmbOW6SU",
+     "t": "🇻🇳 요즘 베트남은 무조건 '달랏'? 단돈 45만원 패키지로 가면 생기는 일",
+     "ch": "트래블 메이커 Travel Maker",
+     "cid": "UCoDqzkqxDRGqZHAGAR9ez9A",
+     "views": 42251,
+     "at": "2026-08-08",
+     "dur": 1234
+    },
+    {
+     "id": "4gezpNxIK8M",
+     "t": "에어컨이 필요 없는 동남아 여행, 달랏 72시간 - 베트남 [3]",
+     "ch": "하루살렘",
+     "cid": "UCRLkQj_6rLr6zUXgaSsZCJg",
+     "views": 40274,
+     "at": "2026-07-02",
+     "dur": 2488
+    },
+    {
+     "id": "l5b7KtFhP5E",
+     "t": "나트랑 달랏 여행, 연차 없이 시간 없어도 갈 수 있다?",
+     "ch": "변진씨투어 byunzinctour",
+     "cid": "UCqVMERl5ZCCb6rkl-tZ10Dg",
+     "views": 34811,
+     "at": "2026-10-20",
+     "dur": 1673
+    }
+   ]
+  },
+  "bangkok": {
+   "at": "2026-11-25T20:57:41.556Z",
+   "list": [
+    {
+     "id": "QXqDqdpBAQg",
+     "t": "연차없이 태국 방콕 1박 3일 드디어 동남아 여행 왔다 I 곽범 I 연차없이 어떡행2 EP.7",
+     "ch": "때때때 TTT",
+     "cid": "UCmva1CD0owDo2nul7CJT_Sw",
+     "views": 3095654,
+     "at": "2026-10-15",
+     "dur": 2973
+    },
+    {
+     "id": "IMu_HyYoDBQ",
+     "t": "연차없이 코끼리 똥 맞는 태국 방콕 여행 2일차 I 곽범 I 연차없이 어떡행2 EP.8",
+     "ch": "때때때 TTT",
+     "cid": "UCmva1CD0owDo2nul7CJT_Sw",
+     "views": 1652886,
+     "at": "2026-10-22",
+     "dur": 2537
+    },
+    {
+     "id": "21oI5M6SCl4",
+     "t": "나혼자 방콕여행🍉 무조건 한끼에 3메뉴 이상 먹는다ㅋㅋㅋ신상 쇼핑몰, 핫플 송왓로드 뿌시기, 왓아룬뷰 바, 면세 추천템!! | ep1",
+     "ch": "인영 forever young",
+     "cid": "UCJ3TlCanXZXbMsLY61DCFCw",
+     "views": 213307,
+     "at": "2026-07-16",
+     "dur": 2826
+    },
+    {
+     "id": "Ok3zwKq8KKg",
+     "t": "돌아온 가성비 태국, 돈 펑펑 써도 돈이 남아도는 방콕 여행",
+     "ch": "방콕킴 BKK Kim",
+     "cid": "UCBlWESZwZERzQP4ArE7p13w",
+     "views": 183142,
+     "at": "2026-08-29",
+     "dur": 2305
+    },
+    {
+     "id": "8LJ1E6_7h-Y",
+     "t": "나혼자 방콕 여행🥭🍉뻔한 맛집은 가라‼️방콕 숨은 맛집 찾기‼️ 현지인핫플,배달맛집,쇼핑리스트,송왓로드,호텔추천",
+     "ch": "고요비koyobi",
+     "cid": "UCASXEOh4LJxWdk2hZnsfNYw",
+     "views": 169325,
+     "at": "2026-08-29",
+     "dur": 1763
+    },
+    {
+     "id": "HLVjvffG90c",
+     "t": "나혼자 방콕 여행🇹🇭빵순이가 방콕가면 생기는 일🐘 현지인 핫플, 팟타이 맛집, 방콕호텔 추천",
+     "ch": "고요비koyobi",
+     "cid": "UCASXEOh4LJxWdk2hZnsfNYw",
+     "views": 152926,
+     "at": "2026-08-17",
+     "dur": 1462
+    },
+    {
+     "id": "N0WtdLe-c3Q",
+     "t": "나혼자 방콕여행 🍉 유명한 곳부터 안유명한 곳까지 싹 돌고옴! 방콕. 여전히. 사랑스러운데요? | 미슐랭 맛집부터 핫한 쇼핑스팟까지~~ | ep.1",
+     "ch": "헤르미 hermiona",
+     "cid": "UC47IpBsAbaZZbY9Ov_SCYIg",
+     "views": 104736,
+     "at": "2026-09-22",
+     "dur": 2305
+    },
+    {
+     "id": "YNBFCHXelEw",
+     "t": "[ENG/JPN] 방콕만 5번째 여행자의🇹🇭나홀로 4박5일 방콕 여행(방콕 재방문 맛집/방콕 쇼핑/방콕 마사지 추천/방콕 카페/방콕 그랩 추천) | 혼자 방콕 여행 | 재유JE",
+     "ch": "재유JEYU",
+     "cid": "UC8P33HyFhfqThDUGk0disqw",
+     "views": 89673,
+     "at": "2026-07-03",
+     "dur": 3935
+    }
+   ]
+  },
+  "phuket": {
+   "at": "2026-11-25T20:57:42.220Z",
+   "list": []
+  },
+  "chiangmai": {
+   "at": "2026-11-25T20:57:42.845Z",
+   "list": [
+    {
+     "id": "tlaQ1Kdfru4",
+     "t": "한국인이 떠나버린 '한달살기 천국' 치앙마이 근황-[태국2]",
+     "ch": "시도 sido",
+     "cid": "UChFf1JrHBdsy3LS3m9cX89Q",
+     "views": 338694,
+     "at": "2026-06-07",
+     "dur": 1468
+    },
+    {
+     "id": "LGd2dEIx-5s",
+     "t": "혼자 떠난 치앙마이 여행 vlog 뻔하지 않은 스팟들로만 가득 채운 3박 5일 🥥",
+     "ch": "윤티피",
+     "cid": "UCnSxZRyyhueEfQ-A6kZTk-w",
+     "views": 221387,
+     "at": "2026-10-04",
+     "dur": 2390
+    },
+    {
+     "id": "pMqUBjtS5rE",
+     "t": "우재 지원의 치앙마이 여행 기록",
+     "ch": "신우지 SHINWOOJI",
+     "cid": "UCKZyGQXv9xNyW94zmS7UgJA",
+     "views": 203960,
+     "at": "2026-01-20",
+     "dur": 1859
+    },
+    {
+     "id": "xCEa5lWTqlg",
+     "t": "나혼자 치앙마이💃혼자 여행의 성지! 너.무.쉽.다! (도착하면 이대로) 로컬맛집,배달,마사지,라탄,와로롯시장,편의점 쇼핑리스트",
+     "ch": "sookoh 수코",
+     "cid": "UC3Cr1vv_kevdIL2C0zE6DmQ",
+     "views": 196090,
+     "at": "2026-11-24",
+     "dur": 2614
+    },
+    {
+     "id": "_FM7NVrWPPI",
+     "t": "돌고 돌아 결국엔 다시 치앙마이를 찾는 이유",
+     "ch": "유랑쓰 YOURANGSS",
+     "cid": "UCnVEtY_GfM7meN1-pyl7E7A",
+     "views": 118175,
+     "at": "2026-06-04",
+     "dur": 2663
+    },
+    {
+     "id": "d_TgjYQZIlI",
+     "t": "치앙마이 가고싶어지는 영상..🥵💦 여자혼자 치앙마이 여행vlog🇹🇭 (무계획, 각종맛집, 갓성비 네일샵, 재즈바, etc,,,)",
+     "ch": "김무비 MOVIEKIM",
+     "cid": "UCdpeN8LUQJlDDbRZQTWJBmA",
+     "views": 98083,
+     "at": "2026-05-31",
+     "dur": 3527
+    },
+    {
+     "id": "qvBY_d_AI6c",
+     "t": "한국인 입맛에 너무 잘 맞는데 가성비까지 챙긴 태국 음식, 치앙마이부터 방콕, 소도시까지 태국 미식 기행| 세계테마기행 | #세테깅",
+     "ch": "EBS 세계테마기행",
+     "cid": "UCbeZPOz8uaHstEIbkqBOnGg",
+     "views": 94001,
+     "at": "2026-11-12",
+     "dur": 9304
+    },
+    {
+     "id": "T7d7s2mar3g",
+     "t": "한국인들이 치앙마이로 몰리는 이유가 있었습니다",
+     "ch": "공공훈 GOH",
+     "cid": "UCkAPJ1RjVr2xnAgB4fP2PkA",
+     "views": 84904,
+     "at": "2026-11-09",
+     "dur": 2178
+    }
+   ]
+  },
+  "pattaya": {
+   "at": "2026-11-25T20:57:43.405Z",
+   "list": [
+    {
+     "id": "Y0MLfNsLUsY",
+     "t": "한국인 관광객이 사라져버린 태국 파타야의 충격적인 현재 근황",
+     "ch": "세계는요지경 YOZIGYEONG",
+     "cid": "UC3xY1G6vk1UHUneP-IIhhcg",
+     "views": 1340803,
+     "at": "2026-08-07",
+     "dur": 2105
+    },
+    {
+     "id": "En3Acof8O7o",
+     "t": "이러니까 한국인들이 안 가지.. 완전히 달라진 태국 파타야 근황",
+     "ch": "나강 NAkANG",
+     "cid": "UCisYbbOKLN32oQ-lLJcBabA",
+     "views": 992929,
+     "at": "2026-11-07",
+     "dur": 2626
+    },
+    {
+     "id": "ItWQY5G95Lc",
+     "t": "한국인이 사라진 태국 파타야, 7년 만에 다시 가봤습니다",
+     "ch": "김한량",
+     "cid": "UCYvxOMl6ixO2ohvFFHha4Jg",
+     "views": 678674,
+     "at": "2026-09-14",
+     "dur": 1783
+    },
+    {
+     "id": "_ApR60Iitos",
+     "t": "파타야 당일치기. 편도 7시간? 이게 가능해?｜이상준의 머나먼 맛집 EP.5",
+     "ch": "스튜디오더블",
+     "cid": "UCtIKAxnzgtCJ2J9On7Ed8yw",
+     "views": 137237,
+     "at": "2026-09-25",
+     "dur": 2748
+    },
+    {
+     "id": "UWlM0L2iY7U",
+     "t": "한국인 관광객 0명, 태국 파타야의 충격적인 현재 근황",
+     "ch": "방콕킴 BKK Kim",
+     "cid": "UCBlWESZwZERzQP4ArE7p13w",
+     "views": 131703,
+     "at": "2026-11-21",
+     "dur": 1748
+    },
+    {
+     "id": "9nTFFw3n81Y",
+     "t": "한때 한국인 휴양지 1위 확 달라진 파타야 섬마을의 현재 근황",
+     "ch": "아조씨 Ajossi",
+     "cid": "UCxmTcYxiv050XyORRO7abdA",
+     "views": 116612,
+     "at": "2026-09-19",
+     "dur": 1465
+    },
+    {
+     "id": "mkxVpyJDoX4",
+     "t": "\"은퇴 이민 1순위\" 파타야는 왜 세계 최대 유흥가가 되었을까? 【태국 5년 살기 EP.15】",
+     "ch": "방스 BangkokStory",
+     "cid": "UCnwX2U7XA13VRuIk2IQx6XA",
+     "views": 101280,
+     "at": "2026-11-19",
+     "dur": 1076
+    },
+    {
+     "id": "WzEdo_QMXAo",
+     "t": "태국파타야 한달비용! 혼자 골프치고 한달 살면 비용이 얼마나 될까요?",
+     "ch": "greytrip 그레이트립",
+     "cid": "UC2FX4Goy49gj6Abkalym-Jg",
+     "views": 92950,
+     "at": "2026-10-23",
+     "dur": 842
+    }
+   ]
+  },
+  "krabi": {
+   "at": "2026-11-25T20:57:44.077Z",
+   "list": [
+    {
+     "id": "aAxMirfA6ls",
+     "t": "지옥의 끄라비 선녀탕♨️ 나 오랜만에 관광했어✌🏻 칭찬해줘☺️ [끄라비&팡아 여행🇹🇭]",
+     "ch": "김똘똘 DDOLDDOL",
+     "cid": "UCTxEJoeukRCeE3j74tZjrAA",
+     "views": 166257,
+     "at": "2026-03-23",
+     "dur": 2324
+    },
+    {
+     "id": "IBRvl676Uxc",
+     "t": "이유를 알수 없는 두드러기의 반복ㅠ 태국 끄라비 여행 마지막날 응급실 까지 상상한 N의 알러지 브이로그(?)",
+     "ch": "토깽이네",
+     "cid": "UCniBqAPwwWIQLbYo4uK2RWg",
+     "views": 92266,
+     "at": "2026-11-22",
+     "dur": 855
+    },
+    {
+     "id": "nsh8JvPh8MQ",
+     "t": "국경을 넘은 후에 핸드폰이 없는걸 알았다... 해외여행 4박 5일동안 괜찮을까? 태국 끄라비 여행 1일차 브이로그",
+     "ch": "토깽이네",
+     "cid": "UCniBqAPwwWIQLbYo4uK2RWg",
+     "views": 89556,
+     "at": "2026-11-11",
+     "dur": 961
+    },
+    {
+     "id": "3dZ_Idq3kK4",
+     "t": "끄라비 라일레이 이거 때문에 인기가 없구나ㅣ일물과 일출을 한 꺼번에 라일레이 비치ㅣ신비로운 프라낭 비치 ㅣ태국푸켓EP09",
+     "ch": "구토크",
+     "cid": "UC7RiVOzvAxRGDD9rQNYWjWw",
+     "views": 58074,
+     "at": "2026-08-29",
+     "dur": 1353
+    },
+    {
+     "id": "lw0x3r-Pgb8",
+     "t": "🇹🇭 강력 추천하는 끄라비 최고급 리조트! [ENG SUB/ซับไทย]",
+     "ch": "All about Allie 앨리밸리",
+     "cid": "UC53OiLu2JfM_KjLZhffamjw",
+     "views": 52132,
+     "at": "2026-09-20",
+     "dur": 1114
+    },
+    {
+     "id": "IIZPBlv66nI",
+     "t": "끄라비 프라이빗 스피드보트 타고 호핑 투어 ㅣ 홍섬 팍비아섬 라오라딩섬 ㅣ 퇴사하고 세계여행 태국푸켓EP10",
+     "ch": "구토크",
+     "cid": "UC7RiVOzvAxRGDD9rQNYWjWw",
+     "views": 46895,
+     "at": "2026-09-05",
+     "dur": 1205
+    },
+    {
+     "id": "MULvhMMQ5d0",
+     "t": "태국 끄라비 여행 브이로그 (with 태리,혜미,새은)",
+     "ch": "수수연수",
+     "cid": "UCa3rtpRevP5UyAFX358w0iA",
+     "views": 19597,
+     "at": "2026-05-14",
+     "dur": 1034
+    },
+    {
+     "id": "fErda7gE9vM",
+     "t": "🇹🇭 태국 끄라비 고민하시나요?  방콕 → 끄라비🏝️. 프라낭 & 라일레이비치.  라야바디 리조트.  아오낭 아바니 리조트",
+     "ch": "온리유 파파",
+     "cid": "UC5nBt1ogm8241Lg6SBpGr5A",
+     "views": 19415,
+     "at": "2026-04-12",
+     "dur": 2072
+    }
+   ]
+  },
+  "kohsamui": {
+   "at": "2026-11-25T20:57:44.578Z",
+   "list": [
+    {
+     "id": "Ta34iuAgBLE",
+     "t": "코사무이 가족여행, 하이엔드 풀빌라가 이정도구나 | 콘래드 코사무이",
+     "ch": "호텔엔투어",
+     "cid": "UCJWVy7OibcGP2dsni2t8_qw",
+     "views": 182860,
+     "at": "2026-09-30",
+     "dur": 1003
+    },
+    {
+     "id": "e_VFBXofKF4",
+     "t": "코사무이 신혼여행은 반얀트리 풀빌라가 1티어구나..!?",
+     "ch": "허니문리조트",
+     "cid": "UCcECqjOZsxf1teQXCBeUycw",
+     "views": 177242,
+     "at": "2026-09-23",
+     "dur": 1363
+    },
+    {
+     "id": "m7k4esDV3Ys",
+     "t": "코사무이 신혼여행, 콘래드 코사무이 풀빌라 ㅇㅋ?",
+     "ch": "허니문리조트",
+     "cid": "UCcECqjOZsxf1teQXCBeUycw",
+     "views": 135045,
+     "at": "2026-10-06",
+     "dur": 873
+    },
+    {
+     "id": "qWb5g678ESY",
+     "t": "(SUB) 태국 와서 돼지한테 물리고 병원 실려간 썰 | 코사무이 VLOG 🇹🇭",
+     "ch": "안녕윤녕",
+     "cid": "UC61wdvg7jjjL8WvhUJe2pSQ",
+     "views": 68040,
+     "at": "2026-04-22",
+     "dur": 2089
+    },
+    {
+     "id": "5Jnl8KWsufw",
+     "t": "내 생엔 없을거 같던 신혼여행 통장 다 털리고 왔습니다 미지의 섬 코사무이",
+     "ch": "짠한브로 cheers Bro",
+     "cid": "UCIqTkIeBL99RMLGfQ1dallQ",
+     "views": 13290,
+     "at": "2026-10-04",
+     "dur": 1876
+    },
+    {
+     "id": "ys5e36IE4i8",
+     "t": "회사 퇴사 할까 하다가 태국 코사무이 섬 갔다 왔습니다, 그런데...",
+     "ch": "콘시CONSI🐥",
+     "cid": "UC1ZBfVdP0_NpLmVrgfTpI2g",
+     "views": 11045,
+     "at": "2026-09-09",
+     "dur": 1496
+    },
+    {
+     "id": "CKYcgXn72vs",
+     "t": "신혼여행 핫플 태국 코사무이 3박 4일 여행 코스 5성급 Tolani Reosrt 풀빌라부터 미슐랭 맛집까지 총정리",
+     "ch": "오늘 또 체크인 I Check in Today",
+     "cid": "UClQVK4oDerUao3AsPaNp4nw",
+     "views": 8139,
+     "at": "2026-03-19",
+     "dur": 703
+    },
+    {
+     "id": "oXncZ_1tfzY",
+     "t": "태국 여행 몰아보기1💕50대 은퇴 후 혼자 떠나는 여행지 코사무이 꼬따오 춤폰 후아힌수랏타니",
+     "ch": "욜로리아JmYolo",
+     "cid": "UCA5Vbw_GFgjmnd2b_ZUcrUg",
+     "views": 6373,
+     "at": "2026-06-11",
+     "dur": 7955
     }
    ]
   }

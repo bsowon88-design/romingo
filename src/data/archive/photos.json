@@ -2488,5 +2488,35 @@
   "userUrl": "https://unsplash.com/@_miltiadis_",
   "page": "https://unsplash.com/photos/gray-concrete-statue-near-green-trees-during-daytime-xFOKUJgpQoU",
   "pick": 0
+ },
+ "spot:chiangmai:0": {
+  "id": "2CjOnwJCMJM",
+  "raw": "https://images.unsplash.com/photo-1512553353614-82a7370096dc?ixid=M3wxMTQzNTA5fDB8MXxzZWFyY2h8MXx8RG9pJTIwU3V0aGVwJTIwdGVtcGxlJTIwQ2hpYW5nJTIwTWFpfGVufDF8MHx8fDE3OTU2NTA3MDJ8MA&ixlib=rb-4.1.0",
+  "color": "#402626",
+  "alt": "bird's-eye view of white temple surround by trees",
+  "name": "Bharath Mohan",
+  "userUrl": "https://unsplash.com/@illusn",
+  "page": "https://unsplash.com/photos/birds-eye-view-of-white-temple-surround-by-trees-2CjOnwJCMJM",
+  "pick": 0
+ },
+ "spot:chiangmai:1": {
+  "id": "QMGGhIkljKo",
+  "raw": "https://images.unsplash.com/photo-1568649479452-4fa420ed8256?ixid=M3wxMTQzNTA5fDB8MXxzZWFyY2h8MXx8V2F0JTIwQ2hlZGklMjBMdWFuZyUyMENoaWFuZyUyME1haXxlbnwxfDB8fHwxNzk1NjUwNzAyfDA&ixlib=rb-4.1.0",
+  "color": "#d9d9d9",
+  "alt": "a large building with a statue on top of it",
+  "name": "YingChu Chen",
+  "userUrl": "https://unsplash.com/@ycchen",
+  "page": "https://unsplash.com/photos/a-large-building-with-a-statue-on-top-of-it-QMGGhIkljKo",
+  "pick": 0
+ },
+ "spot:chiangmai:2": {
+  "id": "YA6E8sP_cc0",
+  "raw": "https://images.unsplash.com/photo-1765338596389-fa2b29933f0f?ixid=M3wxMTQzNTA5fDB8MXxzZWFyY2h8MXx8TmltbWFuJTIwQ2hpYW5nJTIwTWFpJTIwY2FmZSUyMHN0cmVldHxlbnwxfDB8fHwxNzk1NjUwNzAzfDA&ixlib=rb-4.1.0",
+  "color": "#262626",
+  "alt": "Man sits outside millilit cafe with striped awning",
+  "name": "Jared Chen",
+  "userUrl": "https://unsplash.com/@destroymayor",
+  "page": "https://unsplash.com/photos/man-sits-outside-millilit-cafe-with-striped-awning-YA6E8sP_cc0",
+  "pick": 0
  }
 }

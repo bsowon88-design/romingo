@@ -1,7 +1,7 @@
 {
  "meta": {
   "day": "2026-11-25",
-  "units": 7344
+  "units": 7956
  },
  "cities": {
   "tokyo": {
@@ -5454,6 +5454,468 @@
      "views": 2994,
      "at": "2026-11-08",
      "dur": 1155
+    }
+   ]
+  },
+  "phnompenh": {
+   "at": "2026-11-25T23:51:44.170Z",
+   "list": [
+    {
+     "id": "IpEfAVUx0kc",
+     "t": "관광객이 사라졌다는 캄보디아! 직접 가봤습니다.[1편 프놈펜]",
+     "ch": "수길따라(sugilway)",
+     "cid": "UCxQ6xsoXqeVqrDvm71rByQQ",
+     "views": 592181,
+     "at": "2026-08-28",
+     "dur": 2245
+    },
+    {
+     "id": "uqrYJp63Aqc",
+     "t": "🇰🇭수도 한복판이 거대한 암흑가, 낮과 밤이 다른 캄보디아 프놈펜의 현실! 캄보디아 대부업 큰손 한국의 은행들",
+     "ch": "대노 DENO TRIP",
+     "cid": "UCKRATzeBzRTT6Y1VTHo_Fsw",
+     "views": 510530,
+     "at": "2026-05-26",
+     "dur": 2835
+    },
+    {
+     "id": "9eT0ky00MzM",
+     "t": "[ 캄보디아 여행 part2 ] 프놈펜 끝까지 가봤습니다… 마지막은 마음이 무거웠습니다",
+     "ch": "집나간 오부장",
+     "cid": "UC0Ql0RcJsUWDwCbrF_oKMug",
+     "views": 29274,
+     "at": "2026-06-17",
+     "dur": 1439
+    },
+    {
+     "id": "OyDwmVO7EpI",
+     "t": "프놈펜에서 두시간거리 ! 당일치기 여행추천 (캄폿)",
+     "ch": "홍그라운드( hong ground)",
+     "cid": "UCr8u89FV3CE0R7Kxas0bSeQ",
+     "views": 22416,
+     "at": "2026-06-16",
+     "dur": 1140
+    },
+    {
+     "id": "n9OGL4xyuZw",
+     "t": "캄보디아 최고의 휴양지 코롱섬 ! 프놈펜에서 3시간거리 여행지 추천 !",
+     "ch": "홍그라운드( hong ground)",
+     "cid": "UCr8u89FV3CE0R7Kxas0bSeQ",
+     "views": 11850,
+     "at": "2026-10-18",
+     "dur": 715
+    },
+    {
+     "id": "bavIluuGCYU",
+     "t": "캄보디아 여행 10가지 꿀팁들! \"이것\"을 알고 와야 위험하지 않습니다 | 프놈펜 | 자유여행 | 여행 | 동남아시아",
+     "ch": "키다리보부상",
+     "cid": "UCe6opZc27TZtX3-etiCX6MQ",
+     "views": 6261,
+     "at": "2026-10-16",
+     "dur": 409
+    },
+    {
+     "id": "NdJypADvghU",
+     "t": "캄보디아 프놈펜 호텔, 이곳을 추천 합니다 (솔직리뷰, 가성비 호텔, 프로모션) 페닌슐라호텔 Peninsula Hotel",
+     "ch": "까로나C",
+     "cid": "UCMLLGus_MmDmtIuUvGJ-PJg",
+     "views": 4731,
+     "at": "2026-06-27",
+     "dur": 698
+    },
+    {
+     "id": "5EumBqlM9s0",
+     "t": "캄보디아 이슈 이후 1년 요즘 프놈펜과 시엠립의 여행 근황과 저희 BTS 여행사 소개합니다.",
+     "ch": "다라튜브DaraTube",
+     "cid": "UC6gqCMgRhVlfErO9v0ISOYg",
+     "views": 4645,
+     "at": "2026-11-25",
+     "dur": 1448
+    }
+   ]
+  },
+  "guam": {
+   "at": "2026-11-25T23:51:44.805Z",
+   "list": [
+    {
+     "id": "L0tlvs_GDEs",
+     "t": "괌 탐방기",
+     "ch": "인생84",
+     "cid": "UC1Rz7a_DWtsE9cQwSyElE0Q",
+     "views": 5384659,
+     "at": "2026-10-28",
+     "dur": 2394
+    },
+    {
+     "id": "zEX5MuuKFFY",
+     "t": "[괌여행]🇬🇺 10만원이면.. 간다! 괌 당일치기 🚨입국심사 독방 끌려가🚨",
+     "ch": "잠티 JamTi",
+     "cid": "UCtHXHVgClCLHDQ0_4mJniPw",
+     "views": 709971,
+     "at": "2026-02-15",
+     "dur": 1225
+    },
+    {
+     "id": "rDfD-Jcy3-M",
+     "t": "다들 망했대서 가봤더니.. 한국인이 사랑'했던' 여행지, 괌 근황",
+     "ch": "스테이",
+     "cid": "UCSK0814m2g31CNBdIjfEfcA",
+     "views": 424967,
+     "at": "2026-07-01",
+     "dur": 1631
+    },
+    {
+     "id": "3YeYtxB6CoQ",
+     "t": "괌이 요즘 썰렁하고 항공권이 싸다길래... 괌으로 워크숍 다녀왔습니다!",
+     "ch": "또 떠나는 남자 ddoddunam",
+     "cid": "UCldwUablgk8KPcFPQlKnB-w",
+     "views": 225804,
+     "at": "2026-01-03",
+     "dur": 1522
+    },
+    {
+     "id": "IBiPLpsLzI4",
+     "t": "괌 여행 현실판",
+     "ch": "gogossi 고고씨",
+     "cid": "UCoySL4f6Am9ybpBY2tiTnPQ",
+     "views": 91309,
+     "at": "2026-01-31",
+     "dur": 1213
+    },
+    {
+     "id": "XPqOn-5E3II",
+     "t": "역대급 환율로 다녀온 괌 여행💸총경비 4박5일 코스(일정+맛집+경비 파일 공유)가족여행 태교여행",
+     "ch": "프리나미",
+     "cid": "UCxeNfP1Xm6SfWYnrS080L1Q",
+     "views": 82125,
+     "at": "2026-10-05",
+     "dur": 1015
+    },
+    {
+     "id": "ws2XfR9b3lA",
+     "t": "🇬🇺🇺🇸 3박 5일 괌 여행 몰아보기✨ 이 코스 그대로 가주시겠어요? 🙏🏻 (16만원대 항공권, 크라운플라자, 돌핀크루즈, 괌스투시, 여행꿀팁🍯, 경비공유💳, 타임라",
+     "ch": "오늘의 미지 Today's miji",
+     "cid": "UCW7OP2tdWDzgFRaDSbe0R_A",
+     "views": 74971,
+     "at": "2026-04-24",
+     "dur": 2616
+    },
+    {
+     "id": "whvKFwlvrB8",
+     "t": "요즘 괌이 망했다고? 만족 300%하며 다녀온 괌 가족여행 브이로그 🌊🌴",
+     "ch": "말 많은 존수씨",
+     "cid": "UC9hTR53I5vOXV3Ct3CSTHPQ",
+     "views": 60589,
+     "at": "2026-09-15",
+     "dur": 1059
+    }
+   ]
+  },
+  "saipan": {
+   "at": "2026-11-25T23:51:45.510Z",
+   "list": [
+    {
+     "id": "h6om6HYmFQo",
+     "t": "이러니까 아무도 안 가지ㄷㄷ 한국 없으면 망한다던 사이판, 직접 가봤더니…",
+     "ch": "꾸준 kkujun",
+     "cid": "UCxgeEPgtd5Aw7HgoEUXCauA",
+     "views": 5860667,
+     "at": "2026-10-30",
+     "dur": 3675
+    },
+    {
+     "id": "l4x_pxstFRQ",
+     "t": "금요일 퇴근하자마자 2박 4일 사이판 여행 시작 I 곽범 I 연차없이 어떡행 EP.8 [EN]",
+     "ch": "때때때 TTT",
+     "cid": "UCmva1CD0owDo2nul7CJT_Sw",
+     "views": 2832753,
+     "at": "2026-04-02",
+     "dur": 2101
+    },
+    {
+     "id": "vxmrYElECfY",
+     "t": "연차 안 쓰고 금토일월 2박 4일 사이판 여행 2일차 I 곽범 I 연차없이 어떡행 EP.9 [EN]",
+     "ch": "때때때 TTT",
+     "cid": "UCmva1CD0owDo2nul7CJT_Sw",
+     "views": 1486300,
+     "at": "2026-04-09",
+     "dur": 2333
+    },
+    {
+     "id": "Zr8zXTwNrvg",
+     "t": "[사이판여행]🇲🇵 괌 보다 심각하다는 사이판! 한국인이 먹여 살린다는데..",
+     "ch": "잠티 JamTi",
+     "cid": "UCtHXHVgClCLHDQ0_4mJniPw",
+     "views": 510450,
+     "at": "2026-04-04",
+     "dur": 1610
+    },
+    {
+     "id": "lMo7LcOSR-c",
+     "t": "추가비용 0원? 동남아보다 가성비 좋을까｜미국 사이판 PIC 골드패스 4박5일 솔직후기",
+     "ch": "뚜벅뚜벅 서부남",
+     "cid": "UCa3ktyzwbkR9Ej-Ux6eTfLA",
+     "views": 284317,
+     "at": "2026-11-01",
+     "dur": 481
+    },
+    {
+     "id": "ZaJelHwj6Bc",
+     "t": "동남아 갈 돈으로 사이판 왔더니…｜4인 가족 7박 8일 총비용 645만 원 현실 후기",
+     "ch": "시수패밀리",
+     "cid": "UCXZDc9GAzBVRaz1QUImNJhg",
+     "views": 245502,
+     "at": "2026-01-18",
+     "dur": 1308
+    },
+    {
+     "id": "QnKY-dREm_s",
+     "t": "사이판 3박4일 추가비용 18달러, 올인클루시브의 진실",
+     "ch": "예스준 - 세계일주 하는 직장인",
+     "cid": "UCV4T2UP0DnmP4ZxWY5SnpdA",
+     "views": 233292,
+     "at": "2026-03-22",
+     "dur": 925
+    },
+    {
+     "id": "1kAIMd6ug6k",
+     "t": "한때 신혼여행지 1위였던 사이판, 지금은 어떤 상황일까? (충격 반전)",
+     "ch": "노홍철",
+     "cid": "UC1Vx63SINUqLuEKdH2uKqtw",
+     "views": 182130,
+     "at": "2026-04-17",
+     "dur": 1765
+    }
+   ]
+  },
+  "honolulu": {
+   "at": "2026-11-25T23:51:46.234Z",
+   "list": [
+    {
+     "id": "CiBrTI_AJ_0",
+     "t": "알로하와이🌺 30년 만에 돌아온 추억의 섬 (feat. 예상 밖 병원행)",
+     "ch": "이미숙_숙스러운 미숙씨",
+     "cid": "UCystdrNVOsgcICROHFaipiA",
+     "views": 394389,
+     "at": "2026-11-13",
+     "dur": 2285
+    },
+    {
+     "id": "S24Ayzi9kNM",
+     "t": "하와이 여행🏝️ 준비 무엇이든 물어보세요! | 하와이 여행상담소 | 1편",
+     "ch": "호텔엔투어",
+     "cid": "UCJWVy7OibcGP2dsni2t8_qw",
+     "views": 265234,
+     "at": "2026-08-05",
+     "dur": 952
+    },
+    {
+     "id": "f5DoFG6bneg",
+     "t": "하와이 가족여행 준비 중? 초보여행객을 위한 하와이 기초가이드 ⭕ | ❌",
+     "ch": "호텔엔투어",
+     "cid": "UCJWVy7OibcGP2dsni2t8_qw",
+     "views": 222074,
+     "at": "2026-06-24",
+     "dur": 650
+    },
+    {
+     "id": "5pVjSAV3fAs",
+     "t": "하와이의 경이로움 | 실제로 존재한다는 것이 믿기지 않는 가장 놀라운 여행지 | 4K 여행 다큐멘터리",
+     "ch": "Planet 신비",
+     "cid": "UCZ7oF07UaayGsAiPOqMdNIA",
+     "views": 164763,
+     "at": "2026-07-23",
+     "dur": 2449
+    },
+    {
+     "id": "9DcqKCZMA_w",
+     "t": "하와이 신혼여행 기초 가이드ㅣQ&A",
+     "ch": "허니문리조트",
+     "cid": "UCcECqjOZsxf1teQXCBeUycw",
+     "views": 163405,
+     "at": "2026-06-08",
+     "dur": 793
+    },
+    {
+     "id": "YjdzSDQZbcc",
+     "t": "한국인들이 여행하기 쉬운 최고의 여행지  【하와이 1】",
+     "ch": "어또니 Ottoni",
+     "cid": "UCR_uEayWNkzxak_Dx0K-F3w",
+     "views": 101308,
+     "at": "2026-02-28",
+     "dur": 862
+    },
+    {
+     "id": "GwipuCRIVgQ",
+     "t": "물난리 난 하와이, 섬 80%가 마비되면 생기는 일  【하와이 2】",
+     "ch": "어또니 Ottoni",
+     "cid": "UCR_uEayWNkzxak_Dx0K-F3w",
+     "views": 97940,
+     "at": "2026-03-06",
+     "dur": 1315
+    },
+    {
+     "id": "hYuX6EFBWVk",
+     "t": "하와이 신혼여행 EP.1  코스트코/웨일러스빌리지/메리맨스카팔루아/카아나팔리비치/칼라마빌리지/할레아칼라일출",
+     "ch": "안녕하세미",
+     "cid": "UCDFHdj0KvSoJ8id97zn3DOQ",
+     "views": 78676,
+     "at": "2026-11-22",
+     "dur": 3020
+    }
+   ]
+  },
+  "newyork": {
+   "at": "2026-11-25T23:51:47.011Z",
+   "list": [
+    {
+     "id": "WZGbtJYHtWI",
+     "t": "미국 시댁에서 1박2일하고 신나는 뉴욕 여행(브루클린 빈티지 쇼핑, 아토믹스, 우드버리 아울렛에서 하나도 못 건진 얘기...)",
+     "ch": "이해리해리",
+     "cid": "UCZdttNEAL5szMBSpbTYyPCA",
+     "views": 550189,
+     "at": "2026-11-18",
+     "dur": 2514
+    },
+    {
+     "id": "X8gDOtYdzYI",
+     "t": "인생 첫 퍼스트 클래스 타고 세계 1위 도시, 뉴욕 여행 시작합니다",
+     "ch": "시칠리안 SICILIAN",
+     "cid": "UCchu6XLsbV9PISj5b7XArQA",
+     "views": 320279,
+     "at": "2026-11-08",
+     "dur": 2581
+    },
+    {
+     "id": "kQvzvbDlM3Y",
+     "t": "🇺🇸 뉴욕 여행은 진짜 끝내주지만 또 은근 아쉬운 18가지 이유",
+     "ch": "트립콤파니",
+     "cid": "UC0EQX5Z2TlaKeIw4O3ieZAQ",
+     "views": 214060,
+     "at": "2026-07-17",
+     "dur": 1672
+    },
+    {
+     "id": "HrfswYec0-M",
+     "t": "뉴욕 여행🗽인생 여행지 갱신••너무 좋아,맛있어,예뻐🇺🇸브루클린 맨하탄 핫한 맛집들",
+     "ch": "끼리 KKIRI",
+     "cid": "UC43EFvC4FNZD9ZAcWq3k2eA",
+     "views": 191502,
+     "at": "2026-10-31",
+     "dur": 3957
+    },
+    {
+     "id": "kA8JXfQoNAk",
+     "t": "뉴욕 여행 1편🗽🇺🇸 뉴저지 숙박 현실.. 그래도 너무 좋다..... ",
+     "ch": "HYUNJIN현진",
+     "cid": "UCA1MVioFnBn_bqS2ilm_xxQ",
+     "views": 168951,
+     "at": "2026-01-08",
+     "dur": 1951
+    },
+    {
+     "id": "N5Y6K7TiBw4",
+     "t": "🇺🇸🗽 나 혼자 뉴욕 여행 ep.1 하루에 6만 걸음이 가능한 마성의 도시,, ㅣ 뉴욕 여행 코스, 뮤지컬, 로컬 맛집 카페 모아모아",
+     "ch": "들숨날숨신숨",
+     "cid": "UC42_ZBWYTaFj-SqDSUPy0NQ",
+     "views": 134280,
+     "at": "2026-10-05",
+     "dur": 1670
+    },
+    {
+     "id": "crdDN4unPZY",
+     "t": "이러니 뉴욕을 사랑할 수 밖에...",
+     "ch": "수사샤suesasha",
+     "cid": "UCK4e43j54PTfTkZAt8-et3A",
+     "views": 92519,
+     "at": "2026-11-19",
+     "dur": 1340
+    },
+    {
+     "id": "G3KJwL-vCJE",
+     "t": "뉴욕 여행 브이로그 ep.1🗽| 영화 같았던 10월의 뉴욕🎃",
+     "ch": "맹로그maenglog",
+     "cid": "UCaUMTYrnVeYDyg7ZI26mOnw",
+     "views": 92428,
+     "at": "2026-10-31",
+     "dur": 1294
+    }
+   ]
+  },
+  "losangeles": {
+   "at": "2026-11-25T23:51:47.736Z",
+   "list": [
+    {
+     "id": "J73juezEbC4",
+     "t": "\"처음 느끼는 LA의 위기\" 라틴계 이민자들이 사라진, 미국 LA의 완전히 달라진 일상[1]🇺🇸",
+     "ch": "희철리즘Heechulism",
+     "cid": "UCwjMQYL9vgbqGzxYW6dVhTw",
+     "views": 444085,
+     "at": "2026-01-04",
+     "dur": 1941
+    },
+    {
+     "id": "CQ819dGJvnA",
+     "t": "전 LA주민의 참새 방아간 대오픈 ",
+     "ch": "원지의하루",
+     "cid": "UC9gxOp_-R78phMHmv2bW_sg",
+     "views": 425180,
+     "at": "2026-03-18",
+     "dur": 2151
+    },
+    {
+     "id": "ik1PlL5Ue7E",
+     "t": "왕년에 한국인들이 넘쳐났던 도시, 미국 LA는 어떻게 달라졌을까?",
+     "ch": "찬고리 Changori",
+     "cid": "UCPyAhZQuHbEVlyX6LfBun4A",
+     "views": 304606,
+     "at": "2026-11-03",
+     "dur": 1709
+    },
+    {
+     "id": "bStbZd3xryg",
+     "t": "일주일 LA여행➊🇺🇸 뜨거운 광선 쏟아져 아 따끔해 (에어비앤비추천/미국렌트카/웨이모/인앤아웃/치폴레)",
+     "ch": "좋은희Joeunhee",
+     "cid": "UCchl4cNkzAqwp_n3Qf-_Gag",
+     "views": 275669,
+     "at": "2026-11-02",
+     "dur": 3618
+    },
+    {
+     "id": "WTQ0SMvEvqE",
+     "t": "살인 물가 + 치안 최악 엘레이에서 살아남기. (LA 여행 전 필수 영상)",
+     "ch": "예또세상 Yeddo World",
+     "cid": "UCfCU2Gzl7KFx33fhk9imTDw",
+     "views": 219446,
+     "at": "2026-04-06",
+     "dur": 1698
+    },
+    {
+     "id": "P5nFRS_ZSzY",
+     "t": "일주일 LA여행➋🇺🇸엘에이 할게 왜 이렇게 많아(식스플래그/렌트근교여행/오하이/더게티/UCLA/LA맛집)",
+     "ch": "좋은희Joeunhee",
+     "cid": "UCchl4cNkzAqwp_n3Qf-_Gag",
+     "views": 219368,
+     "at": "2026-11-05",
+     "dur": 3647
+    },
+    {
+     "id": "a2DJQhScWF8",
+     "t": "맵싹한 시차적응도 못 막는 나의 식욕🙄 LA 완전 정복🇺🇸❤️‍🔥 왕초보 미국운전 도전 • 미국 마트 털기 • 크럼블 쿠키 • 인앤아웃 • 헤일리비버 스무디 • 메타안경",
+     "ch": "콩빈Cong Been",
+     "cid": "UCTmK4iKaaLWfh2gXrt1fH9g",
+     "views": 170627,
+     "at": "2026-11-14",
+     "dur": 2910
+    },
+    {
+     "id": "TlFUN5vz33U",
+     "t": "먹스케쥴 꽉 들어찬 두 여자의 LA여행🇺🇸✨ 빈티지 샵 • 아메바 뮤직💿 • 라구나 비치🌊• 타코맛 불닭 • 웨이모🚕 • LACMA • 식스플래그 • 태국음식 맛집",
+     "ch": "콩빈Cong Been",
+     "cid": "UCTmK4iKaaLWfh2gXrt1fH9g",
+     "views": 148937,
+     "at": "2026-11-16",
+     "dur": 2813
     }
    ]
   }

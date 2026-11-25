@@ -12,7 +12,7 @@ const tabs = [
   ['guide', '여행가이드'],
   ['safety', '안전'],
   ['weather', '날씨'],
-  ['info', '환율·긴급'],
+  ['info', '입국·환율'],
 ];
 const label = tabs.find((t) => t[0] === tab)?.[1];
 ---
@@ -101,5 +101,6 @@ const label = tabs.find((t) => t[0] === tab)?.[1];
     .cty .chero h1 { font-size: 23px; }
     .cty .hclock { grid-column: 1 / -1; flex-direction: row; align-items: baseline; gap: 8px; flex-wrap: wrap; }
     .cty .tiles { grid-template-columns: 1fr 1fr; }
+    .cty .tiles > .tile:last-child:nth-child(odd) { grid-column: 1 / -1; }
   }
 </style>

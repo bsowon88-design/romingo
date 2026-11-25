@@ -13,6 +13,7 @@ import Base from '../../layouts/Base.astro';
 import { GUIDES } from '../../data/guides.js';
 import { cityBySlug } from '../../data/cities.js';
 import { bySlug } from '../../data/countries.js';
+import { entryOf } from '../../data/entry.js';
 import { HAS_CLIMATE, bestMonths } from '../../data/weather.js';
 
 export function getStaticPaths() {
@@ -22,6 +23,7 @@ export function getStaticPaths() {
 const { g } = Astro.props;
 const city = cityBySlug[g.city];
 const co = bySlug[city.country];
+const en = entryOf(city.country);
 const ph = cityPhoto(city.slug) || countryPhoto(co.slug);
 const spots = (g.spots || []).map((sp, i) => ({ ...sp, ph: photoOf(`spot:${g.city}:${i}`) }));
 const spotItems = spots.map((sp) => ({ ph: sp.ph, title: sp.name, sub: sp.desc }));
@@ -49,6 +51,7 @@ const title = `${city.ko} 여행가이드 - 숙소 위치·공항 이동·추천
   <div class="quick">
     {best.length > 0 && <a class="q" href={`/weather/${city.slug}/`}><span>여행하기 좋은 달</span><b>{best.map((m) => `${m}월`).join(' · ')}</b></a>}
     {HAS_CLIMATE(city.slug) && <a class="q" href={`/weather/${city.slug}/${nowM}/`}><span>날씨</span><b>{nowM}월 날씨 보기 →</b></a>}
+    {en && <a class="q" href={`/country/${co.slug}/info/`}><span>입국{en.musts.length ? ` · 출발 전 ${en.musts.map((m) => m.t.replace(/ \(.*\)$/, '')).join('·')}` : ''}</span><b>{en.stay} →</b></a>}
     <a class="q" href={`/country/${co.slug}/`}><span>안전·환율·긴급번호</span><b>{co.ko} 정보 보기 →</b></a>
   </div>
 

@@ -12,6 +12,7 @@ import { CITIES } from '../../../data/cities.js';
 import { HAS_CLIMATE, climateOf, travelScore, scoreLabel, t1 } from '../../../data/weather.js';
 import { GUIDES } from '../../../data/guides.js';
 import { kstDate } from '../../../data/place.js';
+import { entryOf, KIND_KO } from '../../../data/entry.js';
 
 export function getStaticPaths() {
   return COUNTRIES.map((c) => ({ params: { slug: c.slug }, props: { c } }));
@@ -23,6 +24,7 @@ const S = STATUS_KO[st.level];
 const alarm = countryAlarm(c);
 const rate = countryRate(c);
 const diff = tzDiff(c.tz);
+const en = entryOf(c.slug);
 const nowM = +new Intl.DateTimeFormat('en-US', { timeZone: 'Asia/Seoul', month: 'numeric' }).format(new Date());
 const wc = CITIES.filter((x) => x.country === c.slug && HAS_CLIMATE(x.slug)).map((x) => {
   const d = climateOf(x.slug).m[nowM - 1];
@@ -76,6 +78,7 @@ const desc = `${c.ko} 여행 전 한눈에: 안전 상태, 외교부 여행경�
 
     <h2>⚡ 한눈에</h2>
     <div class="tiles">
+      {en && <a class="tile" href={`/country/${c.slug}/info/`}><span class="tl">입국</span><b>{en.stay}</b><small class={en.kind === 'free' && !en.musts.length ? 'ok' : 'need'}>{en.musts.length ? `출발 전 ${en.musts.length}가지 준비 →` : en.kind === 'free' ? '미리 신청할 것 없음' : '입국 안내 보기 →'}</small></a>}
       <a class="tile" href={`/country/${c.slug}/info/`}><span class="tl">시차{c.tzLabel && ` (${c.tzLabel})`}</span><b>{tzDiffText(diff)}</b></a>
       <a class={`tile ${rate ? 'rate' : ''}`} href={`/country/${c.slug}/info/`}><span class="tl">환율</span><b class={rate ? 'rv' : ''}>{rate ? rate.line1 : c.currency}</b>{rate && <small>{rate.line2}</small>}</a>
       <a class="tile" href={`/country/${c.slug}/info/`}><span class="tl">전압·플러그</span><b>{c.volt} · {c.plug}</b><small class={c.adapter ? 'need' : 'ok'}>{c.adapter ? '변환 어댑터 필요' : '한국 플러그 대부분 사용 가능'}</small></a>
@@ -119,6 +122,8 @@ const desc = `${c.ko} 여행 전 한눈에: 안전 상태, 외교부 여행경�
 
     <h2>✅ 출발 전 체크리스트</h2>
     <ul class="card list">
+      {en && en.musts.length > 0 && <li>출발 전 꼭 할 일: <b>{en.musts.map((m) => m.t.replace(/ \(.*\)$/, '')).join(', ')}</b> <a href={`/country/${c.slug}/info/`}>방법 보기</a></li>}
+      {en && en.until && <li>{en.until.replace(/-/g, '.')}까지 한시 무비자예요. 그 뒤 여행이면 연장 여부를 확인하세요.</li>}
       <li>외교부 해외안전여행 앱에서 <b>동행서비스</b>를 신청하면 현지 안전 소식을 받을 수 있어요.</li>
       <li>여행자보험에 자연재해로 인한 일정 취소·지연이 보장되는지 확인하세요.</li>
       {c.adapter && <li>{c.plug} 콘센트용 <b>변환 어댑터</b>를 챙기세요.</li>}

@@ -4,6 +4,7 @@ import CountryShell from '../../../components/CountryShell.astro';
 import { COUNTRIES, tzDiff, tzDiffText, CONSULAR_CALL } from '../../../data/countries.js';
 import { countryRate } from '../../../data/load.js';
 import PrepLinks from '../../../components/PrepLinks.astro';
+import { entryOf, KIND_KO, ENTRY_CHECKED, MOFA_URL } from '../../../data/entry.js';
 
 export function getStaticPaths() {
   return COUNTRIES.map((c) => ({ params: { slug: c.slug }, props: { c } }));
@@ -12,9 +13,47 @@ export function getStaticPaths() {
 const { c } = Astro.props;
 const rate = countryRate(c);
 const diff = tzDiff(c.tz);
+const en = entryOf(c.slug);
+const K = en && KIND_KO[en.kind];
+const ck = ENTRY_CHECKED.split('-').map(Number);
 ---
-<Base title={`${c.ko} 환율·시차·전압·긴급번호`} desc={`${c.ko} 오늘 환율${rate ? `(${rate.line1})` : ''}, ${tzDiffText(diff)}, ${c.volt} ${c.plug}, 긴급 신고 ${c.emergency.map((e) => e[1]).join('·')}, 영사콜센터.`}>
+<Base title={`${c.ko} 비자·입국 준비·환율·시차·전압`} desc={`${c.ko} ${en ? en.stay + (en.musts.length ? ', 출발 전 ' + en.musts.map((m) => m.t.replace(/ \(.*\)$/, '')).join('·') : '') + '. ' : ''}오늘 환율${rate ? `(${rate.line1})` : ''}, ${tzDiffText(diff)}, ${c.volt} ${c.plug}, 긴급 신고 ${c.emergency.map((e) => e[1]).join('·')}, 영사콜센터.`}>
   <CountryShell c={c} tab="info">
+    {en && (
+      <>
+        <h2>🛂 입국·비자</h2>
+        <div class="ent">
+          <div class={`estay ${K.cls}`}>
+            <span class="ek">{K.label}</span>
+            <b>{en.stay}</b>
+            {en.stayNote && <small>{en.stayNote}</small>}
+          </div>
+          {en.until && (
+            <p class={`ewarn ${en.expired ? 'gone' : ''}`}>
+              {en.expired
+                ? `⚠️ 한시 무비자 기한(${en.until.replace(/-/g, '.')})이 지났어요. 연장됐는지 대사관 공지를 꼭 확인하세요.`
+                : `⏰ ${en.until.replace(/-/g, '.')}까지 한시 무비자예요. 그 뒤에 출발하면 연장 여부를 꼭 확인하세요.`}
+            </p>
+          )}
+          {en.items.length > 0 ? (
+            <ul class="eitems">
+              {en.items.map((i) => (
+                <li class={i.need}>
+                  <div class="eh"><span class="eb">{i.need === 'must' ? '필수' : '선택'}</span><b>{i.t}</b></div>
+                  <p>{i.d}</p>
+                  {i.url && <a href={i.url} target="_blank" rel="noopener">공식 사이트 ↗</a>}
+                </li>
+              ))}
+            </ul>
+          ) : (
+            <p class="enone">✅ 출발 전에 따로 신청할 서류가 없어요.</p>
+          )}
+          {en.notes && en.notes.map((n) => <p class="enote">💡 {n}</p>)}
+          <p class="esrc">한국 일반 여권 · 관광 목적 기준 · {ck[0]}년 {ck[1]}월 {ck[2]}일 확인. 규칙은 갑자기 바뀔 수 있어요. 출발 전 <a href={MOFA_URL} target="_blank" rel="noopener">외교부 해외안전여행</a>에서 한 번 더 확인하세요. 대부분 나라가 여권이 6개월 이상 남아 있기를 요구해요.</p>
+        </div>
+      </>
+    )}
+
     <h2>💱 통화·환율</h2>
     <div class="tiles">
       <div class={`tile ${rate ? 'rate' : ''}`}>
@@ -50,4 +89,29 @@ const diff = tzDiff(c.tz);
 
 <style>
   .big { font-size: 22px !important; }
+
+  .ent { display: flex; flex-direction: column; gap: 10px; }
+  .estay { display: flex; flex-direction: column; gap: 3px; border-radius: 16px; padding: 16px 18px; border: 1px solid var(--line); background: #fff; }
+  .estay b { font-size: 22px; font-weight: 800; }
+  .estay small { font-size: 13px; color: var(--sub); }
+  .estay .ek { align-self: flex-start; font-size: 12px; font-weight: 800; padding: 3px 10px; border-radius: 999px; color: #fff; }
+  .estay.ok { background: #F0FAF4; border-color: #CDEBD8; } .estay.ok .ek { background: #2E9E5B; }
+  .estay.auth { background: #F1F5FF; border-color: #D3DEFA; } .estay.auth .ek { background: #3F6FD8; }
+  .estay.need { background: #FFF4EC; border-color: #F6D6C2; } .estay.need .ek { background: #E8743B; }
+  .ewarn { margin: 0; padding: 12px 14px; border-radius: 12px; background: #FFF8E1; border: 1px solid #F3DE9B; font-size: 14px; font-weight: 600; }
+  .ewarn.gone { background: #FDECEC; border-color: #F4B9B9; color: #B3261E; }
+  .eitems { list-style: none; margin: 0; padding: 0; display: grid; gap: 10px; }
+  .eitems li { background: #fff; border: 1px solid var(--line); border-radius: 14px; padding: 14px 16px; }
+  .eitems li.must { border-left: 4px solid #E8743B; }
+  .eitems li.opt { border-left: 4px solid #B9C3D0; }
+  .eitems .eh { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; }
+  .eitems .eh b { font-size: 16px; }
+  .eitems .eb { font-size: 11.5px; font-weight: 800; padding: 2px 8px; border-radius: 6px; background: #EEF1F5; color: var(--sub); }
+  .eitems .must .eb { background: #FFE6D6; color: #C2561F; }
+  .eitems p { margin: 6px 0 8px; font-size: 14px; line-height: 1.6; color: var(--ink); }
+  .eitems a { font-size: 13.5px; font-weight: 700; }
+  .enone { margin: 0; padding: 12px 14px; border-radius: 12px; background: #fff; border: 1px solid var(--line); font-size: 14.5px; font-weight: 600; }
+  .enote { margin: 0; font-size: 14px; line-height: 1.6; padding: 0 2px; }
+  .esrc { margin: 2px 0 0; font-size: 12.5px; color: var(--sub); line-height: 1.6; }
+  @media (min-width: 1024px) { .eitems { grid-template-columns: repeat(2, 1fr); } }
 </style>

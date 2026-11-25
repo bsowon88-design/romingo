@@ -2428,5 +2428,35 @@
   "userUrl": "https://unsplash.com/@jannerboy62",
   "page": "https://unsplash.com/photos/gray-concrete-ruin-temple-pMX5x2KRqn4",
   "pick": 0
+ },
+ "spot:bali:4": {
+  "id": "tsnJEq4744s",
+  "raw": "https://images.unsplash.com/photo-1566987827971-f2c40e748a54?ixid=M3wxMTQzNTA5fDB8MXxzZWFyY2h8MXx8S2VsaW5na2luZyUyMGJlYWNoJTIwTnVzYSUyMFBlbmlkYXxlbnwxfDB8fHwxNzk1NjQzOTQ0fDA&ixlib=rb-4.1.0",
+  "color": "#0c8cd9",
+  "alt": "rock cliff",
+  "name": "Dominic Krainer",
+  "userUrl": "https://unsplash.com/@domikay",
+  "page": "https://unsplash.com/photos/rock-cliff-tsnJEq4744s",
+  "pick": 0
+ },
+ "spot:phuket:0": {
+  "id": "iHvrj9D1TpM",
+  "raw": "https://images.unsplash.com/photo-1589554785258-f9bcdacb357d?ixid=M3wxMTQzNTA5fDB8MXxzZWFyY2h8Mnx8UGF0b25nJTIwYmVhY2glMjBQaHVrZXR8ZW58MXwwfHx8MTc5NTY0Mzk0NXww&ixlib=rb-4.1.0",
+  "color": "#0c268c",
+  "alt": "city with high rise buildings near body of water during night time",
+  "name": "Mike Swigunski",
+  "userUrl": "https://unsplash.com/@mike_swigunski",
+  "page": "https://unsplash.com/photos/city-with-high-rise-buildings-near-body-of-water-during-night-time-iHvrj9D1TpM",
+  "pick": 0
+ },
+ "spot:phuket:1": {
+  "id": "TejFa7VW5e4",
+  "raw": "https://images.unsplash.com/photo-1534008897995-27a23e859048?ixid=M3wxMTQzNTA5fDB8MXxzZWFyY2h8MXx8UGhpJTIwUGhpJTIwaXNsYW5kJTIwTWF5YSUyMGJheXxlbnwxfDB8fHwxNzk1NjQzOTQ1fDA&ixlib=rb-4.1.0",
+  "color": "#264040",
+  "alt": "Boats on the turquoise water of Maya Bay between limestone cliffs in Thailand",
+  "name": "Mulberry Digital",
+  "userUrl": "https://unsplash.com/@mulberrydigital",
+  "page": "https://unsplash.com/photos/boats-on-turquoise-maya-bay-water-TejFa7VW5e4",
+  "pick": 0
  }
 }

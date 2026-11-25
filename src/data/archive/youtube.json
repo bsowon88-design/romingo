@@ -1,7 +1,7 @@
 {
  "meta": {
   "day": "2026-11-25",
-  "units": 5712
+  "units": 6528
  },
  "cities": {
   "tokyo": {
@@ -4222,6 +4222,622 @@
      "views": 6373,
      "at": "2026-06-11",
      "dur": 7955
+    }
+   ]
+  },
+  "cebu": {
+   "at": "2026-11-25T21:59:06.754Z",
+   "list": [
+    {
+     "id": "ZlZ19elPp8s",
+     "t": "빡친 친언니는 비행기 취소하고 나 혼자 세부 여행 한 썰 푼다",
+     "ch": "하루의하루[HARU]",
+     "cid": "UCpQxvEhfR60LR4s7PV48qIw",
+     "views": 760988,
+     "at": "2026-02-18",
+     "dur": 997
+    },
+    {
+     "id": "S6hrX6ooOe8",
+     "t": "그들은 이미 알고 있다? 세부가 왜 손절당하는지..",
+     "ch": "로빈세끼",
+     "cid": "UC8diFXtriES99xCEibrSEpw",
+     "views": 437551,
+     "at": "2026-11-22",
+     "dur": 4242
+    },
+    {
+     "id": "li92oatWoTk",
+     "t": "🇵🇭필리핀 세부에서 가장 위험한 지역, 슬럼가에서 살아가는 사람들 ",
+     "ch": "대노 DENO TRIP",
+     "cid": "UCKRATzeBzRTT6Y1VTHo_Fsw",
+     "views": 197625,
+     "at": "2026-04-08",
+     "dur": 2979
+    },
+    {
+     "id": "cgLM5glyujY",
+     "t": "혼자 물놀이하러 필리핀 가는 여자👙 나 홀로 4박5일 세부 여행 ep.2🇵🇭 막탄 아일랜드 호캉스, 과자 추천, 졸리비, 미니 ootd까지••🤿🫧",
+     "ch": "유정 YUJEONG",
+     "cid": "UCBoQ8_HIOVbOA_FuYtTapqA",
+     "views": 179631,
+     "at": "2026-02-21",
+     "dur": 1341
+    },
+    {
+     "id": "rb327jjpvno",
+     "t": "[세부여행 브이로그] 3박5일 자유여행인데 아닌 것 같은 느낌 😮 (오슬롭 고래상어, 투말록 폭포, 캐녀닝, 호핑투어 , 세부 맛집) Korean Cebu Travel Vlog",
+     "ch": "예서데이즈 YeSeo",
+     "cid": "UC4pW-y74Djlsl2VT9L-Z1FA",
+     "views": 85646,
+     "at": "2025-12-16",
+     "dur": 770
+    },
+    {
+     "id": "TIJdZcD0iSI",
+     "t": "🇵🇭‘세부여행’ 검색 끝! 여행사 10년차가 ‘말아주는’ 완벽 가이드🐋",
+     "ch": "트래블 메이커 Travel Maker",
+     "cid": "UCoDqzkqxDRGqZHAGAR9ez9A",
+     "views": 64614,
+     "at": "2026-02-18",
+     "dur": 1172
+    },
+    {
+     "id": "j6L4rt8uKJo",
+     "t": "🇵🇭 동남아 바다 원탑 '세부 vs 보홀' 끝.장.비.교｜2026 최신판",
+     "ch": "트래블 메이커 Travel Maker",
+     "cid": "UCoDqzkqxDRGqZHAGAR9ez9A",
+     "views": 61755,
+     "at": "2026-07-25",
+     "dur": 896
+    },
+    {
+     "id": "qKgowuKovLo",
+     "t": "한 때 한국인밖에 안 보였던 세부의 충격적인 근황",
+     "ch": "동찬베리 berry travel",
+     "cid": "UC-lJXYRTCWwwFKESRZ6EbgQ",
+     "views": 61648,
+     "at": "2026-11-01",
+     "dur": 1418
+    }
+   ]
+  },
+  "boracay": {
+   "at": "2026-11-25T21:59:07.519Z",
+   "list": [
+    {
+     "id": "hcmtMSNqzw0",
+     "t": "한국인도 외국인도 모두 떠나버린 보라카이",
+     "ch": "로빈세끼",
+     "cid": "UC8diFXtriES99xCEibrSEpw",
+     "views": 2199454,
+     "at": "2026-10-25",
+     "dur": 3133
+    },
+    {
+     "id": "DX19xtCZljQ",
+     "t": "보라카이 갈 바엔 보홀 간다고? 현실은 이렇습니다",
+     "ch": "로빈세끼",
+     "cid": "UC8diFXtriES99xCEibrSEpw",
+     "views": 722818,
+     "at": "2026-11-15",
+     "dur": 3058
+    },
+    {
+     "id": "AeIGF25rp1s",
+     "t": "한국인 99% 사라진 보라카이 직접 가봤습니다!",
+     "ch": "진짜하늬 Real Hanie",
+     "cid": "UCtkO3Stab5a1ujE1dObRKrQ",
+     "views": 530065,
+     "at": "2026-05-26",
+     "dur": 1775
+    },
+    {
+     "id": "ZqSn0yOaP48",
+     "t": "한때는 신혼여행 성지, 현재는 한국인이 싹 사라진 보라카이 근황",
+     "ch": "착한꿀벌",
+     "cid": "UCq1YSUcTAs8Ih4KD42ckKYw",
+     "views": 173654,
+     "at": "2026-10-18",
+     "dur": 1514
+    },
+    {
+     "id": "crd-Kq9yyew",
+     "t": "📽️통합본📽️보라카이에 한국인 관광객이 없다는 소문이 있어서 와봤습니다 🤔 숨은 맛집 찾기",
+     "ch": "조와부부 필리핀 JOWATV",
+     "cid": "UCkV-bcB8uGY7u2Gl4yiMKsQ",
+     "views": 152091,
+     "at": "2026-07-10",
+     "dur": 4285
+    },
+    {
+     "id": "9T9sO3trbtk",
+     "t": "관광객이 없어졌다는 소문을 듣고 육로로 10시간 만에 달려간 보라카이 근황 🤔 진짜로 조용하네? [보라카이_01]",
+     "ch": "조와부부 필리핀 JOWATV",
+     "cid": "UCkV-bcB8uGY7u2Gl4yiMKsQ",
+     "views": 105256,
+     "at": "2026-11-11",
+     "dur": 1477
+    },
+    {
+     "id": "2s1eO_ZyLZU",
+     "t": "한국인들이 모르는 보라카이 스팟들 | 4박 5일 보라카이 여행 브이로그 | Boracay 🪸",
+     "ch": "문루틴",
+     "cid": "UCRLoKTeEcw7h-qN1BtxsN2w",
+     "views": 36005,
+     "at": "2026-02-14",
+     "dur": 1552
+    },
+    {
+     "id": "QZK_uhUqkN0",
+     "t": "🇵🇭보라카이 여행 이 코스대로만 가세요! 작정하고 휴양하러 간 보라카이 여행 호핑투어, 스파, 맛집, 카페 실패 없이 다 성공하고 온 3박 4일 일정,꿀팁 싹 다 풀어드립니다 ",
+     "ch": "채리어 Chaerrier",
+     "cid": "UCEV19DraktObzKj5gx26EQA",
+     "views": 32714,
+     "at": "2026-09-11",
+     "dur": 756
+    }
+   ]
+  },
+  "bohol": {
+   "at": "2026-11-25T21:59:08.285Z",
+   "list": [
+    {
+     "id": "DX19xtCZljQ",
+     "t": "보라카이 갈 바엔 보홀 간다고? 현실은 이렇습니다",
+     "ch": "로빈세끼",
+     "cid": "UC8diFXtriES99xCEibrSEpw",
+     "views": 722818,
+     "at": "2026-11-15",
+     "dur": 3058
+    },
+    {
+     "id": "ZkaYMSppAt8",
+     "t": "🇵🇭 동남아 바다 원탑? '보홀' 가이드｜여행 전 꼭 알아야 할 모든 것 (2026 최신판)",
+     "ch": "트래블 메이커 Travel Maker",
+     "cid": "UCoDqzkqxDRGqZHAGAR9ez9A",
+     "views": 129146,
+     "at": "2026-06-27",
+     "dur": 1169
+    },
+    {
+     "id": "YBhVZmYrn3s",
+     "t": "극i 성향 뚜지에게 말 안하고 파티 호핑투어 데려가기ㅋㅋ 배 위에서 광란의 댄스신고식부터 거품파티까지ㅋㅋ 혼란스러운 극내향인ㅋㅋ 가족일상 보홀여행 브이로그 | 뚜아뚜지TV",
+     "ch": "뚜아뚜지TV",
+     "cid": "UCbbC0FaznmgJDuehIuQvYMA",
+     "views": 94552,
+     "at": "2026-11-14",
+     "dur": 1097
+    },
+    {
+     "id": "neCjCTZXIFU",
+     "t": "🇵🇭 한국인을 좋아하는 필리핀 여행을 추천하는 이유 [보홀 몰아보기]",
+     "ch": "대노 DENO TRIP",
+     "cid": "UCKRATzeBzRTT6Y1VTHo_Fsw",
+     "views": 87500,
+     "at": "2026-07-04",
+     "dur": 6774
+    },
+    {
+     "id": "cD0OISXD7mc",
+     "t": "보홀3박5일 자유여행1편 | 땡처리보다 저렴한 항공권구입 부터 전체 일정표 공개 | 50대부부 자유여행 브이로그 #보홀여행 #bohol",
+     "ch": "로망이룸RomanErum",
+     "cid": "UCXL2TYa5LmHYQRs58EvA-sA",
+     "views": 55244,
+     "at": "2026-02-27",
+     "dur": 2684
+    },
+    {
+     "id": "NMHO6269484",
+     "t": "보홀여행 Vlog | 보홀만 두번째✌️ 진짜 알짜배기만 가져옴 | 맛집 솔직 리뷰, 가성비 숙소, 인생 스노클링 포인트, 발리카삭 투어 현지 vs 한인업체, 나팔링 셀프투어",
+     "ch": "걍감자",
+     "cid": "UCkLADAKEpRe8dxsoSoM9T7g",
+     "views": 53381,
+     "at": "2026-01-03",
+     "dur": 2293
+    },
+    {
+     "id": "nCByM9WQLms",
+     "t": "17살 연상연하부부가 알콩달콩 보홀여행 즐기는법 ~리조트+맛집 거짓말못하는 필미부부의 솔직리뷰",
+     "ch": "Feelme 필미커플",
+     "cid": "UCpAn6mfZjlv92Wg0c93e2Ew",
+     "views": 51852,
+     "at": "2026-09-02",
+     "dur": 991
+    },
+    {
+     "id": "vFhAUbYH_0s",
+     "t": "한채아, 모두가 말린 보홀 여행… 결국 다녀왔습니다",
+     "ch": "채아뜰. 한채아",
+     "cid": "UCUnNHwrx0aBC8Dvl5askLTg",
+     "views": 48918,
+     "at": "2026-04-20",
+     "dur": 1428
+    }
+   ]
+  },
+  "manila": {
+   "at": "2026-11-25T21:59:09.138Z",
+   "list": [
+    {
+     "id": "r5n5D2ij1AA",
+     "t": "마닐라 고속도로 아래, 지하 배수로 터널에 살아가는 사람들 [필리핀 2]",
+     "ch": "누바기 NooBagi",
+     "cid": "UCm2fUTtRtqvJddMwzCA0FtQ",
+     "views": 1486896,
+     "at": "2026-05-08",
+     "dur": 1798
+    },
+    {
+     "id": "ZDcU1XVmdY8",
+     "t": "부촌 바로 옆에 이런 곳이? 마닐라의 충격적인 현실",
+     "ch": "로빈세끼",
+     "cid": "UC8diFXtriES99xCEibrSEpw",
+     "views": 422110,
+     "at": "2026-11-08",
+     "dur": 2830
+    },
+    {
+     "id": "dulpf5-9W2U",
+     "t": "🇵🇭 “밤길 조심해“ 현실판 범죄 도시로 불리는 필리핀의 수도 마닐라, 인도 느낌에 브라질 한스푼(?)",
+     "ch": "대노 DENO TRIP",
+     "cid": "UCKRATzeBzRTT6Y1VTHo_Fsw",
+     "views": 362956,
+     "at": "2026-04-15",
+     "dur": 2666
+    },
+    {
+     "id": "B07CKER-IaM",
+     "t": "말로만 듣던 악명 높은 도시 마닐라와 사랑에 빠지다...? [필리핀 1]",
+     "ch": "누바기 NooBagi",
+     "cid": "UCm2fUTtRtqvJddMwzCA0FtQ",
+     "views": 112700,
+     "at": "2026-04-30",
+     "dur": 1199
+    },
+    {
+     "id": "LSvwHUysbVY",
+     "t": "시댁=여행인 며느리🙋‍♀️ | 마닐라여행🇵🇭 | 국제부부 시댁방문✈️",
+     "ch": "one day 원영",
+     "cid": "UCWnhwEjD1b-F0gFGax4tFkA",
+     "views": 79130,
+     "at": "2026-07-13",
+     "dur": 910
+    },
+    {
+     "id": "LYzyUByw2J4",
+     "t": "아재 혼자 \"필리핀 마닐라\" 초호화 럭셔리 카지노 호텔 투어를 하면 생기는 일 [ Okada Manila Hotel Philippines 🇵🇭 ]",
+     "ch": "걍으노",
+     "cid": "UCueFOAxKFyZLBFFfYfA7Xww",
+     "views": 51047,
+     "at": "2026-08-16",
+     "dur": 1390
+    },
+    {
+     "id": "5E-WycF8ulI",
+     "t": "필리핀 마닐라 말라떼 JTV들 근황",
+     "ch": "비스티마닐라",
+     "cid": "UCM2gGoS9OLuAyUWnuhcIdvA",
+     "views": 44769,
+     "at": "2026-06-10",
+     "dur": 1105
+    },
+    {
+     "id": "6fHgpRsw3dY",
+     "t": "여자 혼자 위험한 도시 마닐라에 가봤습니다",
+     "ch": "네로실험실",
+     "cid": "UC0nC5sNGwj9ay2_ePlvShIA",
+     "views": 37797,
+     "at": "2026-05-24",
+     "dur": 1422
+    }
+   ]
+  },
+  "clark": {
+   "at": "2026-11-25T21:59:09.921Z",
+   "list": [
+    {
+     "id": "4XG-Bn5mmAI",
+     "t": "필리핀 클락&앙헬레스 지금은 어떻게 변했을까?",
+     "ch": "정용국",
+     "cid": "UCwwcYxDTCBw1e5zehstNtUQ",
+     "views": 405554,
+     "at": "2026-09-20",
+     "dur": 2457
+    },
+    {
+     "id": "2gk_NgDJRtM",
+     "t": "용투어 2기 필리핀 클락 현장 영상 공개",
+     "ch": "정용국",
+     "cid": "UCwwcYxDTCBw1e5zehstNtUQ",
+     "views": 190348,
+     "at": "2026-10-12",
+     "dur": 2128
+    },
+    {
+     "id": "qFzHBktsVTY",
+     "t": "클락 골프 여행 가실 분 필독! 3박 5일 30만 원대 일정 & 리얼 후기 총정리",
+     "ch": "타이거골프TV",
+     "cid": "UCNaQKyamRzY518a2Sns8bDg",
+     "views": 176207,
+     "at": "2026-09-22",
+     "dur": 4152
+    },
+    {
+     "id": "sFJwajsdLMQ",
+     "t": "클락 3박5일 76만원? 항공은? 차량·풀빌라·골프비까지 견적 직접 파헤쳐봤습니다",
+     "ch": "클락프로 CLARK PRO",
+     "cid": "UCUWto8e8lwRvm1mEeEOsFnQ",
+     "views": 89758,
+     "at": "2026-10-23",
+     "dur": 1036
+    },
+    {
+     "id": "ghG1RG16s20",
+     "t": "#클락골프 #풀빌라 놀거리 먹거리.. 천국이라 불리는이유? 보면 다~ 알수가있습니다~!!",
+     "ch": "내놔이선생",
+     "cid": "UCZjOkifuo7L6BO3ZHAxqmnw",
+     "views": 81347,
+     "at": "2026-01-10",
+     "dur": 818
+    },
+    {
+     "id": "HlpAoZ8dGRo",
+     "t": "요즘 클락 이렇게 갑니다… 마닐라 공항 통해 직접 가봤습니다",
+     "ch": "클락프로 CLARK PRO",
+     "cid": "UCUWto8e8lwRvm1mEeEOsFnQ",
+     "views": 63776,
+     "at": "2026-03-27",
+     "dur": 922
+    },
+    {
+     "id": "nKr1cdMgJu0",
+     "t": " 🇵🇭 눈만 마주치면 술마시자는 이곳...필리핀 앙헬레스 클락에서 17km 환상적인 당일치기 코스~! 🇵🇭 ",
+     "ch": "진고 jingo Travel 여행기",
+     "cid": "UCnyPvXDcnxJIUu2eElDJ5bA",
+     "views": 37132,
+     "at": "2026-05-29",
+     "dur": 1068
+    },
+    {
+     "id": "9_t4T59ZVWk",
+     "t": "필리핀 클락 앙헬레스 이젠 정말 답이 없습니다",
+     "ch": "아델투어김이사",
+     "cid": "UCgxqonJYsOyFiii3SzQU0Nw",
+     "views": 29280,
+     "at": "2026-10-10",
+     "dur": 828
+    }
+   ]
+  },
+  "palawan": {
+   "at": "2026-11-25T21:59:10.624Z",
+   "list": [
+    {
+     "id": "M5lz98nBoDg",
+     "t": "팔라완 여행 첫날 느닷없이 교도소로 가게 된 필리핀 독거노인",
+     "ch": "웰컴투필리핀",
+     "cid": "UCjrURSwAmx08BCVvZT8shcA",
+     "views": 19736,
+     "at": "2026-03-01",
+     "dur": 2321
+    },
+    {
+     "id": "1zsP5qAQ9Qg",
+     "t": "🇵🇭팔라완 코론엘니도여행 브이로그 [ep.2] ｡˚𓇼 ⋆｡˚🫧ㅣ듀공투어•바라쿠다레이크•스켈레톤렉•마퀴닛해수온천•바닐라비치•필리핀태풍",
+     "ch": "윤깨 yunkkae",
+     "cid": "UCV0zCocv3CGTtXaQwaQ2a-g",
+     "views": 15130,
+     "at": "2026-04-20",
+     "dur": 1013
+    },
+    {
+     "id": "OlW6VAprWDw",
+     "t": "팔라완 엘니도에서 제 생애 최악의 마사지를 경험했던 날",
+     "ch": "웰컴투필리핀",
+     "cid": "UCjrURSwAmx08BCVvZT8shcA",
+     "views": 9562,
+     "at": "2026-03-22",
+     "dur": 2081
+    },
+    {
+     "id": "_jTAOXlpMZ8",
+     "t": "필리핀 밤문화 탐방(마닐라 제외) - 보라카이 / 보홀 / 세부 / 민도로 / 수빅 / 팔라완 몰아보기",
+     "ch": "비스티마닐라",
+     "cid": "UCM2gGoS9OLuAyUWnuhcIdvA",
+     "views": 9139,
+     "at": "2026-11-17",
+     "dur": 5905
+    },
+    {
+     "id": "m8N5k_vtLTE",
+     "t": "필리핀 팔라완 엘니도 여행 몰아보기",
+     "ch": "비스티마닐라",
+     "cid": "UCM2gGoS9OLuAyUWnuhcIdvA",
+     "views": 7295,
+     "at": "2025-11-29",
+     "dur": 2670
+    },
+    {
+     "id": "E9sX25Ov-C0",
+     "t": "40대 주부 일상 | 필리핀 팔라완 코론 여행 vlog 🇵🇭 | 남편과 두번째 팔라완 여행",
+     "ch": "심심해서 하는 브이로그",
+     "cid": "UCiJs5RqOTQl_voqzFFbG6qQ",
+     "views": 6657,
+     "at": "2026-03-28",
+     "dur": 2252
+    },
+    {
+     "id": "tb85tPFyfPQ",
+     "t": "코론섬, 도대체 어떻게 가지?#필리핀#팔라완#코론섬#El Rio y Mar Resort",
+     "ch": "여행한판",
+     "cid": "UCt6MNu8BvsZqJTZEF1w8_TA",
+     "views": 4500,
+     "at": "2026-09-12",
+     "dur": 967
+    },
+    {
+     "id": "6kwBAfyX6Zc",
+     "t": "필리핀 현지인들이 추천하는 휴양지 - 팔라완 엘니도[EP.1]",
+     "ch": "소심이 소시민",
+     "cid": "UCufpCfnsGUrR5QtiGSfuhtw",
+     "views": 3493,
+     "at": "2026-09-14",
+     "dur": 1792
+    }
+   ]
+  },
+  "bali": {
+   "at": "2026-11-25T21:59:11.388Z",
+   "list": [
+    {
+     "id": "do1S8t5mXCU",
+     "t": "🇮🇩발리여행 vlog | 극효율주의 J일정 | 짱구 물가 | ✅여행꿀팁 대방출 | 쇼핑스팟, 맛집, 선셋명당, 라브리사 비치클럽, 선데이마켓🛍️",
+     "ch": "상희sanghui",
+     "cid": "UCic3NdKj7b3E8AApEBl8v1g",
+     "views": 70774,
+     "at": "2026-05-02",
+     "dur": 2086
+    },
+    {
+     "id": "Y2qg1S8UZ9c",
+     "t": "🇮🇩 발리에서 할 수 있는 22가지 - 2026 최신 발리 투어 가이드",
+     "ch": "아일랜드 트래블러",
+     "cid": "UCwF77i_Ks5M4Dpx9ULT0_Sw",
+     "views": 67824,
+     "at": "2026-06-20",
+     "dur": 1580
+    },
+    {
+     "id": "LCHXiheVxfM",
+     "t": "아이들은 잠시 안녕! 아이들 없이 아내와 떠난 발리 여행🌴",
+     "ch": "알베르토 몬디 Alberto Mondi",
+     "cid": "UCuvn16uFbrYooJ6k9EqPaMQ",
+     "views": 57340,
+     "at": "2026-11-16",
+     "dur": 944
+    },
+    {
+     "id": "f8nvREIpEpU",
+     "t": "발리 3회차의 느좋코스 모음 zip. 🪷 (발리 또간집, 인스타 핫플, 맛집, 숙소 추천)",
+     "ch": "지예 JIYE",
+     "cid": "UCH8DDAppMTQrjJ6qcP__hLg",
+     "views": 52252,
+     "at": "2026-10-05",
+     "dur": 1633
+    },
+    {
+     "id": "5Aza8FH5ghY",
+     "t": "발리여행 루피아 환율 왜이래? 안 오면 손해인 요즘 발리 물가",
+     "ch": "이니두아 INIDUA",
+     "cid": "UCPdDhN6cNXtKy3W5_y4h9lA",
+     "views": 48545,
+     "at": "2026-10-25",
+     "dur": 1405
+    },
+    {
+     "id": "InYSP5cjVtE",
+     "t": "발리 여행🧳 초급부터 고급코스까지 한번에 정리🌴 #쿠타 #우붓 #길리 #창구 #스미냑 #사누르 완전정복",
+     "ch": "혜인 HEYNEE",
+     "cid": "UCs0dIu9USYQnSyPcekI8Y6A",
+     "views": 48440,
+     "at": "2026-08-08",
+     "dur": 2683
+    },
+    {
+     "id": "EAPJgeBeCMk",
+     "t": "승무원들의 6박 7일 발리여행 🏝️ / 야무진 여행 코스 대공개‼️ / 퍼피요가, 스미냑, 짱구, 울루와뚜, 발리밸리 까지 (설참)",
+     "ch": "세계를지나",
+     "cid": "UCIpYfg5E5Ng4YIozUsgPx4A",
+     "views": 31274,
+     "at": "2026-06-30",
+     "dur": 1925
+    },
+    {
+     "id": "RvDzwwyO6po",
+     "t": "🇮🇩 부모님 만족도 1000% 6인 발리 가족여행 총정리 🏖️ 효도 성공 보장 여행코스‼️ 총경비•여행일정•필수준비물•칠순파티🥳•구글맵공유까지 다 드려요🙊",
+     "ch": "홍밋너 hongmeetu",
+     "cid": "UCqYbBN2_eqevziQVindTfaQ",
+     "views": 30545,
+     "at": "2026-08-02",
+     "dur": 1601
+    }
+   ]
+  },
+  "jakarta": {
+   "at": "2026-11-25T21:59:12.131Z",
+   "list": [
+    {
+     "id": "ydLU7HUTU20",
+     "t": "[4K] 인도네시아 최고급 열차 타고 족자카르타까지 가봤습니다",
+     "ch": "하데 HADE",
+     "cid": "UCAm6FCt7aP7mG7kw5aTDWAw",
+     "views": 347385,
+     "at": "2026-06-16",
+     "dur": 1657
+    },
+    {
+     "id": "VCwnNdMZGuE",
+     "t": "아무도 추천 안하던 도시, 자카르타 입국 - 인도네시아 여행[1]",
+     "ch": "하루살렘",
+     "cid": "UCRLkQj_6rLr6zUXgaSsZCJg",
+     "views": 216676,
+     "at": "2025-12-24",
+     "dur": 1730
+    },
+    {
+     "id": "z4DcXnXweFM",
+     "t": "자카르타 1% 상류층의 삶 [인도네시아4]",
+     "ch": "샤르르",
+     "cid": "UCWn8oVS66IjDDgJStZ5oJgA",
+     "views": 42403,
+     "at": "2026-09-18",
+     "dur": 823
+    },
+    {
+     "id": "zTRM6ux7OE8",
+     "t": "자카르타 여행 [걸어서세계속으로] KBS 160102 방송",
+     "ch": "KBS 트래블-걸어서 세계속으로",
+     "cid": "UCFw4M1BJYYdN1YtS8SzlDzg",
+     "views": 41420,
+     "at": "2026-08-30",
+     "dur": 2854
+    },
+    {
+     "id": "a03C0Db5hT8",
+     "t": "남들 발리갈때 저는 이곳으로 갑니다! 통계로 즐겨본 자카르타 여행 [인도네시아1]",
+     "ch": "쉬었음현종",
+     "cid": "UCl27de140Ga8TOxJVSIYjtw",
+     "views": 40477,
+     "at": "2026-09-14",
+     "dur": 1088
+    },
+    {
+     "id": "ZQQ5xp51yc8",
+     "t": "자카르타말고 여기가세요!일주일 10만원으로 누리는 상위 1%의 삶 🇮🇩Skip Jakarta. Live Like the Top 1% for $100 a Week",
+     "ch": "현실여행자 황백합 Lily Hwang ",
+     "cid": "UCUBptxFCII8lN3qWneHRXOQ",
+     "views": 35490,
+     "at": "2026-04-04",
+     "dur": 1066
+    },
+    {
+     "id": "BnOHfDxd5UA",
+     "t": "[4K] 인도네시아(자카르타) 장단점 빠르게 알아보기",
+     "ch": "하데 HADE",
+     "cid": "UCAm6FCt7aP7mG7kw5aTDWAw",
+     "views": 22663,
+     "at": "2026-04-21",
+     "dur": 521
+    },
+    {
+     "id": "m4z_MRE7F3Y",
+     "t": "세계에서 가장 인구가 많이 사는 도시 인도네시아 자카르타🇮🇩 입국기",
+     "ch": "두인간 twohumans",
+     "cid": "UCWF60SAjBRnUBcHQ35k6ZEw",
+     "views": 20795,
+     "at": "2026-04-12",
+     "dur": 1315
     }
    ]
   }

@@ -1,5 +1,17 @@
 [
  {
+  "id": "us6000udef",
+  "mag": 5.3,
+  "place": "83 km ESE of Hengchun, Taiwan",
+  "time": 1795596436394,
+  "lat": 21.8,
+  "lon": 121.5,
+  "depth": 10,
+  "tsunami": 0,
+  "alert": null,
+  "url": "https://earthquake.usgs.gov/earthquakes/eventpage/us6000udef"
+ },
+ {
   "id": "us6000ude3",
   "mag": 5.2,
   "place": "175 km N of Hicks Bay, New Zealand",

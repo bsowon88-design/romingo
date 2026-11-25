@@ -1,5 +1,17 @@
 [
  {
+  "id": "us6000ude3",
+  "mag": 5.2,
+  "place": "175 km N of Hicks Bay, New Zealand",
+  "time": 1795588448672,
+  "lat": -36,
+  "lon": 178.4,
+  "depth": 25,
+  "tsunami": 0,
+  "alert": null,
+  "url": "https://earthquake.usgs.gov/earthquakes/eventpage/us6000ude3"
+ },
+ {
   "id": "us6000udd1",
   "mag": 5.9,
   "place": "Balleny Islands region",
@@ -1610,8 +1622,8 @@
  {
   "id": "us7000ttw2",
   "mag": 5.4,
-  "place": "113 km ENE of Barcelona, Philippines",
-  "time": 1793243874507,
+  "place": "106 km ENE of Barcelona, Philippines",
+  "time": 1793243874280,
   "lat": 8.4,
   "lon": 127.4,
   "depth": 10,

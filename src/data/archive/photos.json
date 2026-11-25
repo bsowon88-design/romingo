@@ -2338,5 +2338,35 @@
   "userUrl": "https://unsplash.com/@deeurbn",
   "page": "https://unsplash.com/photos/a-large-building-with-a-dome-roof-IyeWrvpt7sQ",
   "pick": 0
+ },
+ "spot:kyoto:0": {
+  "id": "62IRMCiDaPY",
+  "raw": "https://images.unsplash.com/photo-1613487691352-7d9b4ee5045b?ixid=M3wxMTQzNTA5fDB8MXxzZWFyY2h8MXx8RnVzaGltaSUyMEluYXJpJTIwc2hyaW5lJTIwdG9yaWl8ZW58MXwwfHx8MTc5NTYzMjg2OXww&ixlib=rb-4.1.0",
+  "color": "#c0260c",
+  "alt": "orange and black tunnel with orange lights",
+  "name": "Stefan K",
+  "userUrl": "https://unsplash.com/@stefankst",
+  "page": "https://unsplash.com/photos/orange-and-black-tunnel-with-orange-lights-62IRMCiDaPY",
+  "pick": 0
+ },
+ "spot:kyoto:1": {
+  "id": "4Q-Rbu8Ipcg",
+  "raw": "https://images.unsplash.com/photo-1761141954476-2921e2e43e99?ixid=M3wxMTQzNTA5fDB8MXxzZWFyY2h8Mnx8S2l5b21penUtZGVyYSUyMHRlbXBsZSUyMEt5b3RvfGVufDF8MHx8fDE3OTU2MzI4NzB8MA&ixlib=rb-4.1.0",
+  "color": "#f3d9c0",
+  "alt": "Traditional japanese temple with cherry blossoms at sunset",
+  "name": "Nathalie Lays",
+  "userUrl": "https://unsplash.com/@nath_lays",
+  "page": "https://unsplash.com/photos/traditional-japanese-temple-with-cherry-blossoms-at-sunset-4Q-Rbu8Ipcg",
+  "pick": 0
+ },
+ "spot:kyoto:2": {
+  "id": "1u0B0akEQx0",
+  "raw": "https://images.unsplash.com/photo-1511364033374-07ffa0c99c4c?ixid=M3wxMTQzNTA5fDB8MXxzZWFyY2h8Mnx8QXJhc2hpeWFtYSUyMGJhbWJvbyUyMGdyb3ZlfGVufDF8MHx8fDE3OTU2MzI4NzB8MA&ixlib=rb-4.1.0",
+  "color": "#262626",
+  "alt": "empty pathway between bamboo trees",
+  "name": "Matteo Ferrero",
+  "userUrl": "https://unsplash.com/@thessd",
+  "page": "https://unsplash.com/photos/empty-pathway-between-bamboo-trees-1u0B0akEQx0",
+  "pick": 0
  }
 }

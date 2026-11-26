@@ -18,6 +18,20 @@ const nav = [
   ['/videos/', '여행 영상', 'clapperboard', true],
   ['/prep/', '여행 준비', 'map', true],
 ];
+// 폰 아래 고정 메뉴 (5칸) — [주소, 이름, 아이콘]
+const tabs = [
+  ['/', '홈', 'house'],
+  ['/domestic/', '국내여행', 'map-pin'],
+  ['/find/', '여행지 찾기', 'compass'],
+  ['/my/', '나의 여행', 'luggage'],
+];
+const tabOn = (href) => (href === '/' ? path === '/' : path.startsWith(href));
+// 전체 메뉴 (폰) — 여행 준비는 맨 위에 따로
+const allMenu = [
+  ['해외여행', [['/popular/', '✈️', '인기 도시'], ['/country/', '🌏', '나라별'], ['/guide/', '📖', '여행가이드'], ['/videos/', '📺', '여행 영상'], ['/find/', '🧭', '여행지 찾기'], ['/compare/', '⚖️', '여행지 비교']]],
+  ['국내여행', [['/domestic/', '🗺️', '국내여행 홈'], ['/domestic/festival/', '🎉', '축제 달력']]],
+  ['여행 정보', [['/weather/', '🌤️', '날씨'], ['/safety/', '🛡️', '안전 정보'], ['/map/', '🗾', '안전 지도'], ['/rates/', '💱', '환율'], ['/holidays/', '📅', '연차 꿀팁'], ['/my/', '🧳', '나의 여행']]],
+];
 const isOn = (href) => (href === '/' ? path === '/' : path.startsWith(href) || (href === '/safety/' && (path.startsWith('/quakes') || path.startsWith('/disasters') || path.startsWith('/quake/'))));
 ---
 <!doctype html>
@@ -84,6 +98,25 @@ const isOn = (href) => (href === '/' ? path === '/' : path.startsWith(href) || (
   <main class="wrap">
     <slot />
   </main>
+  <nav class="tabbar" aria-label="빠른 메뉴">
+    {tabs.map(([href, label, icon]) => (
+      <a href={href} class:list={{ on: tabOn(href) }}><Icon name={icon} size={22} /><span>{label}</span></a>
+    ))}
+    <button type="button" id="mopen" aria-label="전체 메뉴" aria-expanded="false"><Icon name="menu" size={22} /><span>전체 메뉴</span></button>
+  </nav>
+  <div class="msheet" id="msheet" hidden>
+    <div class="msheet-in" role="dialog" aria-label="전체 메뉴">
+      <div class="mhead"><b>전체 메뉴</b><button type="button" id="mclose" aria-label="닫기"><Icon name="x" size={22} /></button></div>
+      <a class="mprep" href="/prep/"><span>✈️</span><b>여행 준비</b><small>eSIM·보험·숙소·입장권 한 번에</small></a>
+      {allMenu.map(([h, items]) => (
+        <section class="mgrp">
+          <p>{h}</p>
+          <div class="mlist">{items.map(([href, e, label]) => <a href={href} class:list={{ on: href !== '/domestic/' ? path.startsWith(href) : path === href }}><i>{e}</i>{label}</a>)}</div>
+        </section>
+      ))}
+      <p class="mfoot"><a href="/about/">트립베리 소개</a> · <a href="/privacy/">개인정보처리방침</a> · <a href="/credits/">사진 출처</a></p>
+    </div>
+  </div>
   <footer class="foot">
     <div class="wrap">
       <p><b>자료 출처</b> 미국 지질조사국(USGS) · 국제 재난경보(GDACS) · 외교부 · 한국은행 · 인천국제공항공사 · 한국공항공사 · 노르웨이 기상청(MET Norway, CC BY 4.0) · NASA POWER · 한국관광공사(TourAPI, 공공누리) — 공식 데이터를 자동으로 정리해요. 나라 기본 정보는 여행 전에 한 번 더 확인하세요.</p>
@@ -210,6 +243,17 @@ const isOn = (href) => (href === '/' ? path === '/' : path.startsWith(href) || (
       });
       document.addEventListener('click', (e) => { if (out && wrap && !wrap.contains(e.target as Node)) out.hidden = true; });
     });
+  </script>
+  <script>
+    // 폰 전체 메뉴 — 아래에서 올라오는 판
+    const ms = document.getElementById('msheet');
+    const mo = document.getElementById('mopen');
+    const mOpen = () => { if (!ms) return; ms.hidden = false; document.body.classList.add('noscroll'); mo?.setAttribute('aria-expanded', 'true'); };
+    const mClose = () => { if (!ms) return; ms.hidden = true; document.body.classList.remove('noscroll'); mo?.setAttribute('aria-expanded', 'false'); };
+    mo?.addEventListener('click', () => (ms?.hidden ? mOpen() : mClose()));
+    document.getElementById('mclose')?.addEventListener('click', mClose);
+    ms?.addEventListener('click', (e) => { if (e.target === ms) mClose(); });
+    document.addEventListener('keydown', (e) => { if (e.key === 'Escape') mClose(); });
   </script>
   <script>
     // 폰에서 지금 메뉴가 화면 밖이면 보이게 옆으로 밀어 둠
@@ -376,6 +420,38 @@ const isOn = (href) => (href === '/' ? path === '/' : path.startsWith(href) || (
     .sbtn span { display: none; }
     .sbox-wrap { padding: 10px; }
     .sbox-in { max-height: calc(100vh - 20px); }
+  }
+
+  /* ── 폰 아래 고정 메뉴 · 전체 메뉴 (760px 이하에서만) ── */
+  .tabbar, .msheet { display: none; }
+  @media (max-width: 760px) {
+    .top nav { display: none; }
+    .top-in { grid-template-areas: 'logo act'; padding: 8px 0; }
+    .tact .mytrip { display: none; }
+    body { padding-bottom: calc(62px + env(safe-area-inset-bottom)); }
+    .tabbar { display: grid; grid-template-columns: repeat(5, 1fr); position: fixed; left: 0; right: 0; bottom: 0; z-index: 40; background: rgba(255,253,251,.97); backdrop-filter: blur(10px); border-top: 1px solid var(--line); padding: 6px 4px calc(6px + env(safe-area-inset-bottom)); }
+    .tabbar a, .tabbar button { display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 2px; min-height: 50px; font: inherit; font-size: 11.5px; font-weight: 600; color: #8A776C; text-decoration: none; background: none; border: 0; padding: 0; cursor: pointer; -webkit-tap-highlight-color: transparent; }
+    .tabbar .ico { color: #B8A196; }
+    .tabbar .on, .tabbar button[aria-expanded='true'] { color: var(--sea); font-weight: 800; }
+    .tabbar .on .ico, .tabbar button[aria-expanded='true'] .ico { color: var(--sea); }
+    .msheet:not([hidden]) { display: flex; position: fixed; inset: 0; z-index: 39; background: rgba(60,35,20,.4); align-items: flex-end; }
+    .msheet-in { width: 100%; max-height: 82vh; overflow-y: auto; background: #FFFBF8; border-radius: 22px 22px 0 0; padding: 14px 16px calc(78px + env(safe-area-inset-bottom)); box-shadow: 0 -10px 40px rgba(0,0,0,.15); animation: mup .2s ease-out; }
+    @keyframes mup { from { transform: translateY(30px); opacity: .6; } to { transform: none; opacity: 1; } }
+    .mhead { display: flex; align-items: center; justify-content: space-between; margin: 0 0 12px; }
+    .mhead b { font-size: 18px; }
+    .mhead button { background: none; border: 0; color: var(--sub); padding: 4px; cursor: pointer; }
+    .mprep { display: grid; grid-template-columns: auto 1fr; grid-template-rows: auto auto; column-gap: 12px; align-items: center; text-decoration: none; color: #fff; background: linear-gradient(135deg, var(--coral), var(--sea)); border-radius: 16px; padding: 14px 16px; margin-bottom: 8px; }
+    .mprep span { grid-row: 1 / 3; font-size: 26px; }
+    .mprep b { font-size: 16.5px; }
+    .mprep small { font-size: 12.5px; opacity: .92; }
+    .mgrp p { margin: 16px 2px 8px; font-size: 13px; font-weight: 800; color: var(--sub); }
+    .mlist { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 8px; }
+    .mlist a { display: flex; flex-direction: column; align-items: center; gap: 4px; text-decoration: none; background: #fff; border: 1px solid var(--line); border-radius: 14px; padding: 12px 4px; font-size: 13.5px; font-weight: 700; color: var(--ink); text-align: center; }
+    .mlist a i { font-style: normal; font-size: 22px; line-height: 1; }
+    .mlist a.on { border-color: var(--sea); color: var(--sea); background: #FFF4EC; }
+    .mfoot { margin: 18px 2px 0; font-size: 12.5px; color: var(--sub); }
+    .mfoot a { color: var(--sub); }
+    .toast { bottom: calc(80px + env(safe-area-inset-bottom)); }
   }
 
   h1 { font-size: 26px; line-height: 1.35; letter-spacing: -0.02em; margin: 6px 0 8px; }

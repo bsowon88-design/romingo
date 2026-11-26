@@ -76,7 +76,8 @@ const MINUS = [
 ];
 
 // 인기 순위(티맵 연관 관광지)와 이름 맞추기용 — 띄어쓰기·괄호·기호를 뺀 이름
-export const popKey = (s) => String(s || '').replace(/\s|\(.*?\)|\[.*?\]|·|-/g, '').toLowerCase();
+export const popKey = (s) =>
+  String(s || '').replace(/\s|\(.*?\)|\[.*?\]|·|-|\/.*$/g, '').replace(/해수욕장$/, '해변').toLowerCase();
 // 그 시·군·구 인기 순위에서 몇 위인지 (없으면 -1)
 function popRank(p, pop) {
   const m = pop?.[`${p.rg}-${p.sg}`];
@@ -85,7 +86,8 @@ function popRank(p, pop) {
   const names = Object.keys(m);
   let i = names.indexOf(k);
   // '경포해수욕장' ↔ '경포해변' 처럼 앞부분이 같으면 같은 곳으로
-  if (i < 0 && k.length >= 3) i = names.findIndex((n) => n.length >= 3 && (n.startsWith(k) || k.startsWith(n)));
+  // '강릉 오죽헌·시립박물관' ↔ '오죽헌' 처럼 이름 안에 들어 있어도 같은 곳으로
+  if (i < 0 && k.length >= 3) i = names.findIndex((n) => n.length >= 3 && (n.startsWith(k) || k.startsWith(n) || n.endsWith(k) || k.includes(n)));
   return i;
 }
 

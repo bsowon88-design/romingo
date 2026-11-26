@@ -134,3 +134,16 @@ export function nolQ(regionKo, dist = '') {
   const s = dist.length >= 3 ? dist.replace(/[시군]$/, '') : dist;
   return s === '고성' ? `${r} ${s}` : s;
 }
+
+// 라쿠텐 트래블 일본 도시 호텔 목록 (2026-11-26 확인: 날짜 없이 열림, 17곳 모두 제목·숙소 수 확인)
+const RK = 'https://travel.rakuten.com/kor/ko-kr/hotel_list/cnt_japan/';
+export const RAKUTEN_CITY = {
+  tokyo: 'sub_tokyo/', osaka: 'sub_osaka/cty_osaka_city/', kyoto: 'sub_kyoto/cty_kyoto_city/',
+  fukuoka: 'sub_fukuoka_prefecture/cty_fukuoka_city/', sapporo: 'sub_hokkaido/cty_sapporo_city/', okinawa: 'sub_okinawa/',
+  nagoya: 'sub_aichi_prefecture/cty_nagoya_city/', kagoshima: 'sub_kagoshima_prefecture/cty_kagoshima_city/',
+  kobe: 'sub_hyogo_prefecture/cty_kobe_city/', miyakojima: 'sub_okinawa/cty_miyakojima_city/', ishigaki: 'sub_okinawa/cty_ishigaki_city/',
+  hiroshima: 'sub_hiroshima_prefecture/cty_hiroshima_city/', kumamoto: 'sub_kumamoto_prefecture/cty_kumamoto_city/',
+  oita: 'sub_oita_prefecture/', matsuyama: 'sub_ehime_prefecture/cty_matsuyama_city/',
+  takamatsu: 'sub_kagawa_prefecture/cty_takamatsu_city/', shizuoka: 'sub_shizuoka_prefecture/',
+};
+export const rakutenCity = (city) => (RAKUTEN_CITY[city] ? lpDeep('rakutentr', RK + RAKUTEN_CITY[city]) : '');

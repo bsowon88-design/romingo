@@ -4,7 +4,7 @@ import PhotoCredit from '../../components/PhotoCredit.astro';
 import { cityPhoto, countryPhoto, photoOf } from '../../data/photos.js';
 import PhotoSlider from '../../components/PhotoSlider.astro';
 import KlookChips from '../../components/KlookChips.astro';
-import { agodaCity, mrtSearch, hcCity } from '../../data/partners.js';
+import { agodaCity, mrtSearch, hcCity, ttangSearch } from '../../data/partners.js';
 import CitySafety from '../../components/CitySafety.astro';
 import Forecast from '../../components/Forecast.astro';
 import CityVideo from '../../components/CityVideo.astro';
@@ -107,6 +107,9 @@ const title = `${city.ko} 여행가이드 - 숙소 위치·공항 이동·추천
 
   <h2 id="airport">✈️ 공항에서 시내 가기</h2>
   <ul class="card list">{g.airport.map((x) => <li>{x}</li>)}</ul>
+  <a class="agoda" href={ttangSearch(city.ko)} target="_blank" rel="sponsored nofollow noopener">
+    <span>✈️</span><b>땡처리닷컴에서 {city.ko} 특가 항공·패키지 보기</b><small>출발이 가까운 마감 특가</small><em>광고</em><i>↗</i>
+  </a>
 
   <h2 id="move">🚇 시내 교통</h2>
   <ul class="card list">{g.transport.map((x) => <li>{x}</li>)}</ul>

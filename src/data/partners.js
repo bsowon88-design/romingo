@@ -117,3 +117,6 @@ export const usimsaCountry = (slug) => (USIMSA_SIM[slug] ? lpDeep('usimsa', `htt
 // 호텔스컴바인 도시 호텔 페이지 (2026-11-26 확인: https://www.hotelscombined.co.kr/Place/<이름>.htm — 30곳 모두 제목 확인)
 export const HC_PLACE = { tokyo:'Tokyo', osaka:'Osaka', kyoto:'Kyoto', fukuoka:'Fukuoka', sapporo:'Sapporo', okinawa:'Okinawa_Prefecture', nagoya:'Nagoya', danang:'Da_Nang', nhatrang:'Nha_Trang', phuquoc:'Phu_Quoc', hanoi:'Hanoi', hochiminh:'Ho_Chi_Minh_City', dalat:'Da_Lat', bangkok:'Bangkok', phuket:'Phuket', chiangmai:'Chiang_Mai_Province', pattaya:'Pattaya', cebu:'Cebu', boracay:'Boracay', taipei:'Taipei', hongkong:'Hong_Kong', macau:'Macau', singapore:'Singapore', bali:'Bali', kotakinabalu:'Kota_Kinabalu', kualalumpur:'Kuala_Lumpur', guam:'Guam', saipan:'Saipan', shanghai:'Shanghai', qingdao:'Qingdao' };
 export const hcCity = (city) => (HC_PLACE[city] ? lpDeep('hcombine2', `https://www.hotelscombined.co.kr/Place/${HC_PLACE[city]}.htm`) : '');
+
+// 땡처리닷컴 검색 (2026-11-26 사장님 확인: https://www.ttang.com/search/search_list.do?srh_keyword=다낭)
+export const ttangSearch = (q) => lpDeep('072com', `https://www.ttang.com/search/search_list.do?srh_keyword=${encodeURIComponent(q)}`);

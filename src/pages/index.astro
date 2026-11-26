@@ -32,6 +32,20 @@ for (const c of COUNTRIES) for (const i of c.iso2) if (!isoSlug[i]) isoSlug[i] =
 // 국내 축제 — 이번 주말 것 먼저, 없으면 지금·곧 열리는 것
 const krFest = [...festWeekend(), ...festNow(), ...festSoon(30)].filter((f, i, a) => a.findIndex((x) => x.id === f.id) === i).slice(0, 4);
 const guides = GUIDES.map((g) => CITIES.find((x) => x.slug === g.city)).filter(Boolean);
+// 휴대폰: 인기 12곳 + '전체 보기'를 누르면 지역 탭으로 정리된 목록
+const G_GROUPS = [
+  ['일본', ['japan']],
+  ['동남아', ['vietnam', 'thailand', 'philippines', 'malaysia', 'singapore', 'indonesia', 'laos', 'cambodia']],
+  ['중국·대만·홍콩', ['china', 'taiwan', 'hongkong', 'macau']],
+  ['괌·하와이·대양주', ['guam-saipan', 'hawaii', 'australia', 'new-zealand']],
+  ['유럽', ['france', 'uk', 'italy', 'spain', 'greece', 'czechia', 'switzerland', 'germany', 'turkiye']],
+  ['미주', ['usa', 'canada', 'mexico']],
+];
+const gGroups = G_GROUPS.map(([label, cs]) => ({ label, list: guides.filter((c) => cs.includes(c.country)) }));
+const gUsed = new Set(G_GROUPS.flatMap(([, cs]) => cs));
+const gEtc = guides.filter((c) => !gUsed.has(c.country));
+if (gEtc.length) gGroups.push({ label: '그 밖의 아시아', list: gEtc });
+const gTop = guides.slice(0, 12);
 ---
 <Base>
   <section class="hero">
@@ -134,9 +148,26 @@ const guides = GUIDES.map((g) => CITIES.find((x) => x.slug === g.city)).filter(B
   {guides.length > 0 && (
     <>
       <h2>📖 여행가이드</h2>
-      <div class="chips">
+      <div class="chips gpc">
         {guides.map((x) => <a href={`/guide/${x.slug}/`}><Flag iso={flagOf(bySlug[x.country])} size={18} /> {x.ko}</a>)}
         <a href="/guide/" class="all">전체 보기 →</a>
+      </div>
+      <div class="gmob" id="gmob">
+        <div class="chips">
+          {gTop.map((x) => <a href={`/guide/${x.slug}/`}><Flag iso={flagOf(bySlug[x.country])} size={18} /> {x.ko}</a>)}
+        </div>
+        <button type="button" class="gmore" aria-expanded="false" aria-controls="gall">전체 {guides.length}곳 보기 ▾</button>
+        <div class="gall" id="gall" hidden>
+          <div class="gtabs" role="tablist">
+            {gGroups.map((g, i) => <button type="button" role="tab" aria-selected={i === 0 ? 'true' : 'false'} data-i={i}>{g.label} <small>{g.list.length}</small></button>)}
+          </div>
+          {gGroups.map((g, i) => (
+            <div class="chips gpanel" data-i={i} hidden={i !== 0}>
+              {g.list.map((x) => <a href={`/guide/${x.slug}/`}><Flag iso={flagOf(bySlug[x.country])} size={18} /> {x.ko}</a>)}
+            </div>
+          ))}
+          <a href="/guide/" class="gpage">여행가이드 전체 페이지 →</a>
+        </div>
       </div>
     </>
   )}
@@ -223,6 +254,21 @@ const guides = GUIDES.map((g) => CITIES.find((x) => x.slug === g.city)).filter(B
   .chips { display: flex; flex-wrap: wrap; gap: 8px; }
   .chips a { display: inline-flex; align-items: center; gap: 6px; text-decoration: none; background: #fff; border: 1px solid var(--line); border-radius: 999px; padding: 8px 14px; font-weight: 600; font-size: 14.5px; }
   .chips a.all { color: var(--sea); }
+  .gmob { display: none; }
+  @media (max-width: 760px) {
+    .gpc { display: none; }
+    .gmob { display: block; }
+    .gmore { display: block; width: 100%; margin-top: 10px; padding: 11px; border: 1px solid var(--line); border-radius: 12px; background: #fff; color: var(--sea); font: inherit; font-weight: 700; font-size: 14.5px; cursor: pointer; }
+    .gall { margin-top: 12px; }
+    .gall[hidden], .gpanel[hidden] { display: none; }
+    .gtabs { display: flex; gap: 6px; overflow-x: auto; padding-bottom: 8px; margin-bottom: 8px; scrollbar-width: none; }
+    .gtabs::-webkit-scrollbar { display: none; }
+    .gtabs button { flex: none; border: 1px solid var(--line); background: #fff; border-radius: 999px; padding: 7px 12px; font: inherit; font-size: 13.5px; font-weight: 600; color: var(--ink); cursor: pointer; }
+    .gtabs button small { color: #9a8a80; font-weight: 600; }
+    .gtabs button[aria-selected='true'] { background: var(--sea); border-color: var(--sea); color: #fff; }
+    .gtabs button[aria-selected='true'] small { color: #fde3d6; }
+    .gpage { display: inline-block; margin-top: 12px; color: var(--sea); font-weight: 700; text-decoration: none; font-size: 14px; }
+  }
   .two { display: grid; grid-template-columns: 1fr 1fr; gap: 0 22px; }
   .core { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin: 26px 0 8px; }
   .core a { display: flex; flex-direction: column; text-decoration: none; color: inherit; background: #fff; border: 1px solid var(--line); border-radius: 18px; overflow: hidden; transition: transform .15s, box-shadow .15s; }
@@ -262,3 +308,22 @@ const guides = GUIDES.map((g) => CITIES.find((x) => x.slug === g.city)).filter(B
     .good > .gn { flex-basis: 42%; }
   }
 </style>
+
+<script>
+  const gm = document.getElementById('gmob');
+  if (gm) {
+    const more = gm.querySelector('.gmore');
+    const all = gm.querySelector('.gall');
+    const total = more.textContent.replace(' ▾', '');
+    more.addEventListener('click', () => {
+      const open = all.hidden;
+      all.hidden = !open;
+      more.setAttribute('aria-expanded', String(open));
+      more.textContent = open ? '접기 ▴' : `${total} ▾`;
+    });
+    gm.querySelectorAll('.gtabs button').forEach((b) => b.addEventListener('click', () => {
+      gm.querySelectorAll('.gtabs button').forEach((x) => x.setAttribute('aria-selected', String(x === b)));
+      gm.querySelectorAll('.gpanel').forEach((p) => { p.hidden = p.dataset.i !== b.dataset.i; });
+    }));
+  }
+</script>

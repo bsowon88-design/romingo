@@ -89,7 +89,7 @@ export const COUNTRIES = [
     emergency: [['긴급 신고', '911']],
     flight: '약 4시간 30분', cities: ['괌 투몬', '사이판', '로타'],
     color: ['#0fa3b1', '#7fdcd2'] },
-  { slug: 'hawaii', landmark: '와이키키 해변', photoQ: 'Waikiki beach Hawaii', cur: 'USD', curName: '달러', iso2: [], ko: '하와이', flag: '🌺', region: 'resort', iso3: [], keys: ['hawaii'],
+  { slug: 'hawaii', fi: 'us', landmark: '와이키키 해변', photoQ: 'Waikiki beach Hawaii', cur: 'USD', curName: '달러', iso2: [], ko: '하와이', flag: '🌺', region: 'resort', iso3: [], keys: ['hawaii'],
     tz: 'Pacific/Honolulu', capital: '호놀룰루', currency: '미국 달러 (USD)', lang: '영어',
     volt: '120V', plug: 'A·B 타입', adapter: true,
     emergency: [['긴급 신고', '911']],

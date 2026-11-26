@@ -2518,5 +2518,35 @@
   "userUrl": "https://unsplash.com/@destroymayor",
   "page": "https://unsplash.com/photos/man-sits-outside-millilit-cafe-with-striped-awning-YA6E8sP_cc0",
   "pick": 0
+ },
+ "spot:chiangmai:3": {
+  "id": "OaKRXa1tlUI",
+  "raw": "https://images.unsplash.com/photo-1524189791114-9781ece3d3ed?ixid=M3wxMTQzNTA5fDB8MXxzZWFyY2h8M3x8Q2hpYW5nJTIwTWFpJTIwU3VuZGF5JTIwd2Fsa2luZyUyMHN0cmVldCUyMG1hcmtldHxlbnwxfDB8fHwxNzk1NjU1NjMyfDA&ixlib=rb-4.1.0",
+  "color": "#0c2626",
+  "alt": "brown and black Asian temple",
+  "name": "matt mu",
+  "userUrl": "https://unsplash.com/@mattmu",
+  "page": "https://unsplash.com/photos/brown-and-black-asian-temple-OaKRXa1tlUI",
+  "pick": 0
+ },
+ "spot:chiangmai:4": {
+  "id": "EbBv8RzFI7I",
+  "raw": "https://images.unsplash.com/photo-1768534528910-0fdde9adf330?ixid=M3wxMTQzNTA5fDB8MXxzZWFyY2h8Mnx8Q2hpYW5nJTIwTWFpJTIwZWxlcGhhbnQlMjBzYW5jdHVhcnl8ZW58MXwwfHx8MTc5NTY1NTYzMnww&ixlib=rb-4.1.0",
+  "color": "#262626",
+  "alt": "An elephant stands on a dirt mound in a forest",
+  "name": "panpan ma",
+  "userUrl": "https://unsplash.com/@mymphoebe",
+  "page": "https://unsplash.com/photos/an-elephant-stands-on-a-dirt-mound-in-a-forest-EbBv8RzFI7I",
+  "pick": 0
+ },
+ "spot:paris:0": {
+  "id": "nnzkZNYWHaU",
+  "raw": "https://images.unsplash.com/photo-1502602898657-3e91760cbb34?ixid=M3wxMTQzNTA5fDB8MXxzZWFyY2h8MXx8RWlmZmVsJTIwVG93ZXIlMjBQYXJpc3xlbnwxfDB8fHwxNzk1NjU1NjMzfDA&ixlib=rb-4.1.0",
+  "color": "#d9c0c0",
+  "alt": "Eiffel Tower, Paris France",
+  "name": "Chris Karidis",
+  "userUrl": "https://unsplash.com/@chriskaridis",
+  "page": "https://unsplash.com/photos/eiffel-tower-paris-france-nnzkZNYWHaU",
+  "pick": 0
  }
 }

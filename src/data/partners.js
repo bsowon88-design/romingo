@@ -95,4 +95,21 @@ export function dosirakCountry(slug) {
   return iso3 ? lpDeep('dosirak1', `https://www.dosirakesim.com/Product/List?cId=${iso3}`) : '';
 }
 // 화면에 쓸 링크 — 나라가 정해진 곳에서는 업체 첫 화면 대신 그 나라 상품으로
-export const partnerUrl = (p, country) => (p.id === 'dosirak' && country && dosirakCountry(country)) || p.url;
+export const partnerUrl = (p, country) => (country && ((p.id === 'dosirak' && dosirakCountry(country)) || (p.id === 'usimsa' && usimsaCountry(country)))) || p.url;
+
+// 유심사 나라별 상품 (2026-11-26 확인: usimsa.com/product/more 의 나라 목록 · https://shop.usimsa.com/sim/<나라 코드>)
+// 유심사에 없는 나라(네팔·우즈베키스탄)는 첫 화면으로
+const G = '-6A69-EE11-BBF0-28187860D6D3', H = '-836E-EE11-BBF0-28187860D6D3';
+export const USIMSA_SIM = {
+  japan: '179D30E5' + G, china: '1B9D30E5' + G, vietnam: '1A9D30E5' + G, taiwan: '189D30E5' + G,
+  philippines: '1F9D30E5' + G, thailand: '199D30E5' + G, malaysia: '1E9D30E5' + G, usa: '1C9D30E5' + G,
+  hawaii: '1C9D30E5' + G, indonesia: '239D30E5' + G, australia: '2A9D30E5' + G, hongkong: '219D30E5' + G,
+  'guam-saipan': '209D30E5' + G, macau: '229D30E5' + G, singapore: '1D9D30E5' + G, uae: '289D30E5' + G,
+  germany: '259D30E5' + G, uk: '279D30E5' + G, italy: '299D30E5' + G, france: '269D30E5' + G,
+  mongolia: 'B2578299' + H, mexico: 'BE578299' + H, spain: 'B4578299' + H, cambodia: 'BD578299' + H,
+  canada: 'B3578299' + H,
+  greece: '10E06A0B-2F5A-F111-8FCB-002248F6DB4A', 'new-zealand': 'A2472A10-7BDB-EE11-85F9-002248F774EE',
+  laos: 'B83E155F-8BAE-EE11-BE9E-002248F7DBDD', switzerland: 'BEA57CC8-92DB-EE11-85F9-002248F774EE',
+  czechia: '3CCB0AB2-0433-F111-9A49-002248F610B2', turkiye: 'D68AECFE-93DB-EE11-85F9-002248F774EE',
+};
+export const usimsaCountry = (slug) => (USIMSA_SIM[slug] ? lpDeep('usimsa', `https://shop.usimsa.com/sim/${USIMSA_SIM[slug]}`) : '');

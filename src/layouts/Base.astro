@@ -30,7 +30,7 @@ const tabOn = (href) => (href === '/' ? path === '/' : path.startsWith(href));
 const allMenu = [
   ['해외여행', [['/popular/', '✈️', '인기 도시'], ['/country/', '🌏', '나라별'], ['/guide/', '📖', '여행가이드'], ['/videos/', '📺', '여행 영상'], ['/find/', '🧭', '여행지 찾기'], ['/compare/', '⚖️', '여행지 비교']]],
   ['국내여행', [['/domestic/', '🗺️', '국내여행 홈'], ['/domestic/festival/', '🎉', '축제 달력']]],
-  ['여행 정보', [['/weather/', '🌤️', '날씨'], ['/safety/', '🛡️', '안전 정보'], ['/map/', '🗾', '안전 지도'], ['/rates/', '💱', '환율'], ['/holidays/', '📅', '연차 꿀팁'], ['/my/', '🧳', '나의 여행']]],
+  ['여행 정보', [['/weather/', '🌤️', '날씨'], ['/safety/', '🛡️', '안전 정보'], ['/map/', '🗺️', '안전 지도'], ['/rates/', '💱', '환율'], ['/holidays/', '📅', '연차 꿀팁'], ['/my/', '🧳', '나의 여행']]],
 ];
 const isOn = (href) => (href === '/' ? path === '/' : path.startsWith(href) || (href === '/safety/' && (path.startsWith('/quakes') || path.startsWith('/disasters') || path.startsWith('/quake/'))));
 ---

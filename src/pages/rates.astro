@@ -134,7 +134,7 @@ const mv = (cur) => { const h = rates?.[cur]?.hist; const v = rates?.[cur]?.valu
       g.fillStyle = '#C85E30'; g.font = '800 22px Pretendard, sans-serif'; const tw = g.measureText(b).width; g.fillText(b, x + 298 - tw, y - 6);
     });
     g.fillStyle = '#B39C8F'; g.font = '500 15px Pretendard, sans-serif';
-    g.fillText('트립베리 · romingo.pages.dev · 실제 환전·카드 환율과는 조금 달라요', 36, H - 28);
+    g.fillText('트립베리 · tripberry.kr · 실제 환전·카드 환율과는 조금 달라요', 36, H - 28);
     const link = document.createElement('a');
     link.download = `트립베리-${r.ko}-금액표.png`;
     link.href = cv.toDataURL('image/png');

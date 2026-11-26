@@ -1,8 +1,8 @@
 # 트립베리 (Tripberry) — 사이트 인수인계 문서
 
 > 해외 여행지 **안전 · 날씨 · 가이드**를 한곳에서 보여 주는 사이트  
-> 주소: https://romingo.pages.dev  ·  저장소: https://github.com/bsowon88-design/romingo  
-> 마지막 정리: 2026-11-24 · 예전 이름 "로밍고(romingo)" — 사이트 주소(romingo.pages.dev)·저장소·폴더 이름은 아직 예전 이름 그대로예요. 정식 도메인을 살 때 주소를 바꿔요.
+> 주소: https://tripberry.kr (예전 주소 romingo.pages.dev 도 열림)  ·  저장소: https://github.com/bsowon88-design/romingo  
+> 마지막 정리: 2026-11-26 · 예전 이름 "로밍고(romingo)" — 저장소·폴더·Cloudflare Pages 프로젝트 이름은 예전 이름 그대로예요. 도메인 tripberry.kr 은 가비아에서 사고(2026-11-26), 네임서버를 Cloudflare(ivy/noah.ns.cloudflare.com)로 옮겨 Pages 에 tripberry.kr·www.tripberry.kr 을 붙였어요. 주소를 또 바꾸려면 src/site.js 의 SITE_URL 한 줄만 고치면 돼요.
 
 이 문서 하나로 사이트가 **무엇을 보여 주는지**, **어떻게 자동으로 돌아가는지**, **어떻게 고치는지**를 알 수 있게 정리했어요.  
 비밀번호·인증키 값은 이 문서에 없어요. 어디서 새로 받아서 어디에 넣는지만 적었어요.

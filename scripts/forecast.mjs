@@ -3,7 +3,7 @@
 import { bySlug } from '../src/data/countries.js';
 
 const API = 'https://api.met.no/weatherapi/locationforecast/2.0/compact';
-const UA = 'romingo/1.0 (https://romingo.pages.dev; github.com/bsowon88-design/romingo)';
+const UA = 'romingo/1.0 (https://tripberry.kr; github.com/bsowon88-design/romingo)';
 const r1 = (n) => Math.round(n * 10) / 10;
 
 function localParts(iso, tz) {

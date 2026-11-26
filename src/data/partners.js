@@ -60,3 +60,9 @@ export const partnersOf = (cat, country) =>
 export const PREP_GUIDES = [
   { slug: 'japan-esim', cat: 'data', country: 'japan', title: '일본 eSIM 고르는 법: 도시락eSIM vs 유심사', short: '일본 eSIM 고르는 법', desc: '로컬망·로밍망 차이, 무제한과 매일 ○GB 중 고르는 법, 사기 전에 확인할 4가지', date: '2026-11-25' },
 ];
+
+// 클룩 검색 결과로 바로 가는 링크 (링크프라이스 딥링크, 트립베리 사이트 번호)
+// 검색 주소 모양은 2026-11-26 사장님 화면에서 확인: https://www.klook.com/ko/search/result/?query=…
+export const LP_SITE = 'A100710605';
+export const klookSearch = (q) =>
+  `https://click.linkprice.com/click.php?m=klook&a=${LP_SITE}&l=9999&l_cd1=3&l_cd2=0&tu=${encodeURIComponent(`https://www.klook.com/ko/search/result/?query=${encodeURIComponent(q)}`)}`;

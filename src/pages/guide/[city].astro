@@ -3,6 +3,7 @@ import Flag from '../../components/Flag.astro';
 import PhotoCredit from '../../components/PhotoCredit.astro';
 import { cityPhoto, countryPhoto, photoOf } from '../../data/photos.js';
 import PhotoSlider from '../../components/PhotoSlider.astro';
+import KlookChips from '../../components/KlookChips.astro';
 import CitySafety from '../../components/CitySafety.astro';
 import Forecast from '../../components/Forecast.astro';
 import CityVideo from '../../components/CityVideo.astro';
@@ -67,6 +68,7 @@ const title = `${city.ko} 여행가이드 - 숙소 위치·공항 이동·추천
       ) : (
         <div class="spotlist">{spots.map((sp) => <div class="card"><b>{sp.name}</b><p>{sp.desc}</p></div>)}</div>
       )}
+      <KlookChips title={`${city.ko} 관광지 입장권·투어 찾기`} items={[[`${city.ko} 전체`, city.ko], ...spots.map((sp) => [sp.name, sp.name])]} />
     </>
   )}
 

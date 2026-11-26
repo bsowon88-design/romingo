@@ -1,0 +1,27 @@
+---
+// 클룩 검색 바로가기 (광고) — items: [[보일 이름, 검색어], ...]
+import { klookSearch, AD_NOTE } from '../data/partners.js';
+const { title = '입장권·투어 찾기', items = [] } = Astro.props;
+---
+{items.length > 0 && (
+  <aside class="kk">
+    <p class="kk-h"><span>🎟️ {title}</span><em>광고</em></p>
+    <div class="kk-l">
+      {items.map(([label, q]) => (
+        <a href={klookSearch(q)} target="_blank" rel="sponsored nofollow noopener">{label}<i>↗</i></a>
+      ))}
+    </div>
+    <p class="kk-f">클룩 검색 결과로 이동해요. {AD_NOTE}</p>
+  </aside>
+)}
+
+<style>
+  .kk { margin: 14px 0 6px; padding: 12px 14px 10px; border: 1px solid var(--line); border-radius: 14px; background: #FFFBF8; }
+  .kk-h { display: flex; justify-content: space-between; align-items: center; margin: 0 0 8px; font-weight: 800; font-size: 14.5px; }
+  .kk-h em { font-style: normal; font-size: 11px; font-weight: 700; color: var(--sub); border: 1px solid var(--line); border-radius: 6px; padding: 1px 6px; background: #fff; }
+  .kk-l { display: flex; flex-wrap: wrap; gap: 6px; }
+  .kk-l a { display: inline-flex; align-items: center; gap: 5px; padding: 7px 12px; border-radius: 999px; background: #fff; border: 1px solid #F3E4DA; text-decoration: none; color: var(--ink); font-size: 14px; font-weight: 700; }
+  .kk-l a:hover { border-color: var(--coral); color: var(--sea); }
+  .kk-l i { font-style: normal; color: var(--sea); font-size: 12px; }
+  .kk-f { margin: 8px 0 0; font-size: 12px; color: var(--sub); }
+</style>

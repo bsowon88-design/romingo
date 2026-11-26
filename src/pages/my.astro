@@ -19,7 +19,7 @@ const quick = ['danang', 'osaka', 'tokyo', 'bangkok', 'cebu', 'taipei'];
   <PageBanner name="my">
     <p class="crumb"><a href="/">홈</a> › 나의 여행</p>
     <h1>🧳 나의 여행</h1>
-    <p class="lead">여행지와 날짜를 넣어 두면, 들어올 때마다 <b>D-day · 안전 · 날씨 · 환율 · 운항</b>을 한 번에 보여 줘요.<br /><small>로그인 없이 이 브라우저에만 저장돼요.</small></p>
+    <p class="lead">여행지와 날짜만 넣어 두면 <b>D-day · 안전 · 날씨 · 환율 · 운항</b>을 한 화면에서 확인<br /><small>로그인 없이 이 브라우저에만 저장돼요.</small></p>
   </PageBanner>
 
   <form class="tform card" id="tform">
@@ -47,7 +47,7 @@ const quick = ['danang', 'osaka', 'tokyo', 'bangkok', 'cebu', 'taipei'];
   </div>
 
   <Updated />
-  <p class="muted small">안전 현황은 위 시각 기준, 운항 현황과 날씨 예보는 들어올 때 새로 불러와요. 예보: 노르웨이 기상청(MET Norway) · 환율: 한국은행</p>
+  <p class="muted small">안전 현황은 위 시각 기준이에요. 운항 현황과 날씨 예보는 열 때마다 최신으로 불러와요. 예보: 노르웨이 기상청(MET Norway) · 환율: 한국은행</p>
 
   <script type="application/json" id="tdata" set:html={JSON.stringify(TRIP_DATA)}></script>
   <script type="application/json" id="tlabels" set:html={JSON.stringify(labels)}></script>

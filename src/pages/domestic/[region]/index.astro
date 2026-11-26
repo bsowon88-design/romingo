@@ -24,7 +24,7 @@ const top = places.slice(0, 3).map((p) => p.t.replace(/\s*\[.*?\]\s*/g, ' ').tri
 <Base title={`${r.ko} 여행 - 가볼 만한 곳·축제·날씨`} desc={`${r.full} 가볼 만한 곳 ${places.length}곳과 지금 열리는 축제, 9일 날씨 예보. ${top.join(', ')} 등 한국관광공사 자료로 정리했어요.`}>
   <p class="crumb"><a href="/">홈</a> › <a href="/domestic/">국내여행</a> › {r.ko}</p>
   <h1>{r.ko} 여행</h1>
-  <p class="lead">{r.full}에서 주말에 일부러 찾아갈 만한 곳 {places.length}곳{fests.length > 0 && `과 축제 ${fests.length}개`}를 모았어요.</p>
+  <p class="lead">{r.full}에서 주말에 일부러 찾아갈 만한 곳 {places.length}곳{fests.length > 0 && `과 축제 ${fests.length}개`}</p>
 
   <div class="kchips scroll rnav">
     {KR_REGIONS.map((x) => <a href={`/domestic/${x.slug}/`} class:list={{ on: x.slug === r.slug }}>{x.ko}</a>)}

@@ -18,7 +18,7 @@ const sibs = CITIES.filter((x) => x.country === city.country && x.slug !== city.
 <Base title={`${city.ko} 여행 브이로그 - 한국 유튜버 여행 영상 모음`} desc={`${city.ko} 여행 가기 전에 보면 좋은 한국 여행 유튜버 영상 ${list.length}개. ${list.slice(0, 3).map((v) => v.ch).join(', ')} 등의 최신 ${city.ko} 여행 영상을 모았어요.`}>
   <p class="crumb"><a href="/">홈</a> › <a href="/videos/">여행 영상</a> › {city.ko}</p>
   <h1><Flag iso={flagOf(co)} size={28} /> {city.ko} 여행 영상</h1>
-  <p class="lead">한국 여행 유튜버들이 다녀온 {city.ko} 영상이에요. 누르면 이 화면에서 바로 재생돼요.</p>
+  <p class="lead">한국 여행 유튜버의 {city.ko} 여행 영상. 누르면 이 화면에서 바로 재생돼요.</p>
 
   <YtCards list={list} />
 
@@ -33,7 +33,7 @@ const sibs = CITIES.filter((x) => x.country === city.country && x.slug !== city.
       <div class="chips">{sibs.map((x) => <a href={`/videos/${x.slug}/`}>{x.ko}</a>)}</div>
     </>
   )}
-  <p class="muted note">유튜브에서 찾은 한국어 여행 영상 중 조회수가 높은 영상을 일주일마다 자동으로 골라요. 영상의 저작권은 만든 유튜버에게 있어요. <a href="/videos/">다른 도시 영상 보기</a></p>
+  <p class="muted note">유튜브에서 찾은 한국어 여행 영상 중 조회수가 높은 영상을 일주일마다 업데이트해요. 영상의 저작권은 만든 유튜버에게 있어요. <a href="/videos/">다른 도시 영상 보기</a></p>
 </Base>
 
 <style>

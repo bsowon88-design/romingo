@@ -8,7 +8,7 @@ const past = disasters.filter((d) => !activeIds.has(d.id)).slice(0, 60);
 <Base title="전세계 재난 경보 - 태풍·홍수·화산·지진" desc="국제 재난경보(GDACS)의 주의·위험 단계 태풍, 홍수, 화산, 지진, 산불 경보를 한국어로 정리했어요.">
   <p class="crumb"><a href="/">홈</a> › 재난 경보</p>
   <h1>전세계 재난 경보</h1>
-  <p class="lead">국제 재난경보(GDACS)에서 <b>주의</b>(주황)·<b>위험</b>(빨강) 단계로 발표한 재난만 모았어요.</p>
+  <p class="lead">국제 재난경보(GDACS) <b>주의</b>(주황)·<b>위험</b>(빨강) 단계 재난 경보</p>
 
   <h2>🚨 지금·최근 7일</h2>
   {activeDisasters.length ? <div class="grid">{activeDisasters.map((d) => <DisasterCard d={d} />)}</div>

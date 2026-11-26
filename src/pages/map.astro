@@ -18,7 +18,7 @@ const list = [...MAP_WORLD.qs].sort((a, b) => b.time - a.time);
 <Base title="여행 안전 지도 - 최근 지진·태풍·홍수 한눈에" desc="최근 30일 지진과 지금 내려진 태풍·홍수·화산 경보를 지도에서 확인하세요. 외교부 여행경보 단계도 색으로 표시해요.">
   <p class="crumb"><a href="/">홈</a> › <a href="/safety/">안전 정보</a> › 안전 지도</p>
   <h1>🗺️ 여행 안전 지도</h1>
-  <p class="lead">최근 30일 지진(규모 4.5 이상)과 지금 내려진 재난 경보를 지도에 찍었어요. 점을 누르면 자세히 볼 수 있어요.</p>
+  <p class="lead">최근 30일 지진(규모 4.5 이상)과 현재 발령 중인 재난 경보 지도. 점을 누르면 자세히 볼 수 있어요.</p>
 
   <div class="mtabs" role="tablist">
     {views.map(([k, l], i) => <button type="button" role="tab" data-v={k} class={i === 0 ? 'on' : ''}>{l}</button>)}

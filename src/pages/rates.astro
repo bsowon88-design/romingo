@@ -14,7 +14,7 @@ const mv = (cur) => { const h = rates?.[cur]?.hist; const v = rates?.[cur]?.valu
   <PageBanner name="rates">
     <p class="crumb"><a href="/">홈</a> › 환율</p>
     <h1>오늘 여행 환율</h1>
-    <p class="lead">한국은행 매매기준율{date && ` · ${date} 기준`}이에요. 실제 환전·카드 환율과는 조금 달라요.</p>
+    <p class="lead">한국은행 매매기준율{date && ` · ${date} 기준`}. 실제 환전·카드 환율과는 차이가 있습니다.</p>
   </PageBanner>
 
   {data.length ? (

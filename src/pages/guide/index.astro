@@ -17,7 +17,7 @@ const regs = REGIONS.map(([k, l]) => [k, l, list.filter((o) => o.co.region === k
 <Base title="해외 도시 여행가이드 - 숙소 위치·공항 이동·추천 일정" desc="오사카, 다낭, 방콕, 파리, 하와이 등 87개 해외 도시의 숙소 잡기 좋은 곳, 공항에서 시내 가는 법, 추천 일정, 주의할 점을 정리했어요.">
   <p class="crumb"><a href="/">홈</a> › 여행가이드</p>
   <h1>도시 여행가이드</h1>
-  <p class="lead">{list.length}개 도시의 숙소 위치, 공항 이동, 추천 일정, 주의할 점을 정리했어요.</p>
+  <p class="lead">{list.length}개 도시의 숙소 위치 · 공항 이동 · 추천 일정 · 주의할 점</p>
   <div class="gfil" id="gfil">
     <button type="button" class="on" data-r="">전체 <small>{list.length}</small></button>
     {regs.map(([k, l, n]) => <button type="button" data-r={k}>{l} <small>{n}</small></button>)}

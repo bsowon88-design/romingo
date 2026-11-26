@@ -68,7 +68,7 @@ const label = (k) => (k === 0 ? '이번 달' : k === 1 ? '다음 달' : '다다�
 {groups.length > 0 && (
   <section class="bn" id="bestnow">
     <div class="bn-h">
-      <h2>🧭 지금 떠나기 좋은 곳 <small>날씨 · 안전 · 환율을 합쳐 매일 자동으로 골라요</small></h2>
+      <h2>🧭 지금 떠나기 좋은 곳 <small>날씨 · 안전 · 환율 종합 · 매일 업데이트</small></h2>
       <div class="bn-tabs" role="tablist">
         {groups.map((g, k) => <button type="button" role="tab" class:list={{ on: k === 0 }} data-k={k}>{g.m}월 <span>{label(k)}</span></button>)}
       </div>

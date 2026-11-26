@@ -4,7 +4,7 @@ import PhotoCredit from '../../components/PhotoCredit.astro';
 import { cityPhoto, countryPhoto, photoOf } from '../../data/photos.js';
 import PhotoSlider from '../../components/PhotoSlider.astro';
 import KlookChips from '../../components/KlookChips.astro';
-import { agodaCity } from '../../data/partners.js';
+import { agodaCity, mrtSearch } from '../../data/partners.js';
 import CitySafety from '../../components/CitySafety.astro';
 import Forecast from '../../components/Forecast.astro';
 import CityVideo from '../../components/CityVideo.astro';
@@ -70,6 +70,9 @@ const title = `${city.ko} 여행가이드 - 숙소 위치·공항 이동·추천
         <div class="spotlist">{spots.map((sp) => <div class="card"><b>{sp.name}</b><p>{sp.desc}</p></div>)}</div>
       )}
       <KlookChips title={`${city.ko} 관광지 입장권·투어 찾기`} items={[[`${city.ko} 전체`, city.ko], ...spots.map((sp) => [sp.name, sp.name])]} />
+      <a class="agoda" href={mrtSearch(city.ko)} target="_blank" rel="sponsored nofollow noopener">
+        <span>🎫</span><b>마이리얼트립에서 {city.ko} 투어·티켓 보기</b><small>한국어 가이드 투어·현지 체험</small><em>광고</em><i>↗</i>
+      </a>
     </>
   )}
 

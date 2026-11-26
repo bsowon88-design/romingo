@@ -64,8 +64,11 @@ export const PREP_GUIDES = [
 // 클룩 검색 결과로 바로 가는 링크 (링크프라이스 딥링크, 트립베리 사이트 번호)
 // 검색 주소 모양은 2026-11-26 사장님 화면에서 확인: https://www.klook.com/ko/search/result/?query=…
 export const LP_SITE = 'A100710605';
-export const klookSearch = (q) =>
-  `https://click.linkprice.com/click.php?m=klook&a=${LP_SITE}&l=9999&l_cd1=3&l_cd2=0&tu=${encodeURIComponent(`https://www.klook.com/ko/search/result/?query=${encodeURIComponent(q)}`)}`;
+// 링크프라이스 딥링크 — m: 업체 코드, url: 보낼 업체 페이지
+export const lpDeep = (m, url) => `https://click.linkprice.com/click.php?m=${m}&a=${LP_SITE}&l=9999&l_cd1=3&l_cd2=0&tu=${encodeURIComponent(url)}`;
+export const klookSearch = (q) => lpDeep('klook', `https://www.klook.com/ko/search/result/?query=${encodeURIComponent(q)}`);
+// 마이리얼트립 검색 결과 (2026-11-26 사장님 화면에서 확인: https://www.myrealtrip.com/search?q=다낭)
+export const mrtSearch = (q) => lpDeep('myrealtrip', `https://www.myrealtrip.com/search?q=${encodeURIComponent(q)}`);
 
 // 아고다 도시 숙소 페이지 (링크프라이스 딥링크) — 주소 이름은 도시마다 달라서 확인한 곳만.
 // 2026-11-26: ✔ = 아고다 실제 페이지 확인 / 나머지는 규칙(영어이름-나라코드)이 분명한 곳. 새 도시는 확인 후 추가.
@@ -80,7 +83,4 @@ export const AGODA_CITY = {
   bali: 'bali-id' /* ✔ */, kotakinabalu: 'kota-kinabalu-my' /* ✔ */, kualalumpur: 'kuala-lumpur-my' /* ✔ */,
   guam: 'guam-gu' /* ✔ */, saipan: 'saipan-mp' /* ✔ */, shanghai: 'shanghai-cn', qingdao: 'qingdao-cn',
 };
-export const agodaCity = (city) =>
-  AGODA_CITY[city]
-    ? `https://click.linkprice.com/click.php?m=agoda&a=${LP_SITE}&l=9999&l_cd1=3&l_cd2=0&tu=${encodeURIComponent(`https://www.agoda.com/ko-kr/city/${AGODA_CITY[city]}.html`)}`
-    : '';
+export const agodaCity = (city) => (AGODA_CITY[city] ? lpDeep('agoda', `https://www.agoda.com/ko-kr/city/${AGODA_CITY[city]}.html`) : '');

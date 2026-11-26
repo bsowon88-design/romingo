@@ -4,7 +4,7 @@ import PhotoCredit from '../../components/PhotoCredit.astro';
 import { cityPhoto, countryPhoto, photoOf } from '../../data/photos.js';
 import PhotoSlider from '../../components/PhotoSlider.astro';
 import KlookChips from '../../components/KlookChips.astro';
-import { agodaCity, mrtSearch } from '../../data/partners.js';
+import { agodaCity, mrtSearch, hcCity } from '../../data/partners.js';
 import CitySafety from '../../components/CitySafety.astro';
 import Forecast from '../../components/Forecast.astro';
 import CityVideo from '../../components/CityVideo.astro';
@@ -96,6 +96,11 @@ const title = `${city.ko} 여행가이드 - 숙소 위치·공항 이동·추천
   {agodaCity(city.slug) && (
     <a class="agoda" href={agodaCity(city.slug)} target="_blank" rel="sponsored nofollow noopener">
       <span>🏨</span><b>아고다에서 {city.ko} 숙소 모아 보기</b><small>지역·가격·평점으로 골라 보세요</small><em>광고</em><i>↗</i>
+    </a>
+  )}
+  {hcCity(city.slug) && (
+    <a class="agoda" href={hcCity(city.slug)} target="_blank" rel="sponsored nofollow noopener">
+      <span>🔎</span><b>호텔스컴바인에서 {city.ko} 숙소 요금 비교</b><small>여러 예약 사이트 요금을 한눈에</small><em>광고</em><i>↗</i>
     </a>
   )}
   <PrepLinks cat="stay" country={city.country} title={`${city.ko} 숙소 찾기`} />

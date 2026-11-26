@@ -113,3 +113,7 @@ export const USIMSA_SIM = {
   czechia: '3CCB0AB2-0433-F111-9A49-002248F610B2', turkiye: 'D68AECFE-93DB-EE11-85F9-002248F774EE',
 };
 export const usimsaCountry = (slug) => (USIMSA_SIM[slug] ? lpDeep('usimsa', `https://shop.usimsa.com/sim/${USIMSA_SIM[slug]}`) : '');
+
+// 호텔스컴바인 도시 호텔 페이지 (2026-11-26 확인: https://www.hotelscombined.co.kr/Place/<이름>.htm — 30곳 모두 제목 확인)
+export const HC_PLACE = { tokyo:'Tokyo', osaka:'Osaka', kyoto:'Kyoto', fukuoka:'Fukuoka', sapporo:'Sapporo', okinawa:'Okinawa_Prefecture', nagoya:'Nagoya', danang:'Da_Nang', nhatrang:'Nha_Trang', phuquoc:'Phu_Quoc', hanoi:'Hanoi', hochiminh:'Ho_Chi_Minh_City', dalat:'Da_Lat', bangkok:'Bangkok', phuket:'Phuket', chiangmai:'Chiang_Mai_Province', pattaya:'Pattaya', cebu:'Cebu', boracay:'Boracay', taipei:'Taipei', hongkong:'Hong_Kong', macau:'Macau', singapore:'Singapore', bali:'Bali', kotakinabalu:'Kota_Kinabalu', kualalumpur:'Kuala_Lumpur', guam:'Guam', saipan:'Saipan', shanghai:'Shanghai', qingdao:'Qingdao' };
+export const hcCity = (city) => (HC_PLACE[city] ? lpDeep('hcombine2', `https://www.hotelscombined.co.kr/Place/${HC_PLACE[city]}.htm`) : '');

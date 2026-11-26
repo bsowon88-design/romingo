@@ -1,5 +1,29 @@
 [
  {
+  "id": "us6000udmc",
+  "mag": 5.2,
+  "place": "265 km WNW of Houma, Tonga",
+  "time": 1795684965352,
+  "lat": -20.5,
+  "lon": -177.8,
+  "depth": 494,
+  "tsunami": 0,
+  "alert": null,
+  "url": "https://earthquake.usgs.gov/earthquakes/eventpage/us6000udmc"
+ },
+ {
+  "id": "us6000udm8",
+  "mag": 5.5,
+  "place": "204 km S of Taliwang, Indonesia",
+  "time": 1795684120640,
+  "lat": -10.6,
+  "lon": 117.2,
+  "depth": 15,
+  "tsunami": 0,
+  "alert": "green",
+  "url": "https://earthquake.usgs.gov/earthquakes/eventpage/us6000udm8"
+ },
+ {
   "id": "us6000udjz",
   "mag": 5,
   "place": "184 km N of Hicks Bay, New Zealand",

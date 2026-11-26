@@ -2958,5 +2958,125 @@
   "userUrl": "https://unsplash.com/@mertkahveci",
   "page": "https://unsplash.com/photos/brown-and-white-concrete-building-qUey2pOvbvc",
   "pick": 0
+ },
+ "spot:istanbul:3": {
+  "id": "iQTmygr_WTY",
+  "raw": "https://images.unsplash.com/photo-1623439845420-6eb167001b2a?ixid=M3wxMTQzNTA5fDB8MXxzZWFyY2h8MXx8R3JhbmQlMjBCYXphYXIlMjBJc3RhbmJ1bHxlbnwxfDB8fHwxNzk1Njg4MTgxfDA&ixlib=rb-4.1.0",
+  "color": "#262626",
+  "alt": "a view of a city with a lot of buildings",
+  "name": "Ibrahim Uzun",
+  "userUrl": "https://unsplash.com/@ibuzn",
+  "page": "https://unsplash.com/photos/a-view-of-a-city-with-a-lot-of-buildings-iQTmygr_WTY",
+  "pick": 0
+ },
+ "spot:istanbul:4": {
+  "id": "WA1u0scVLZU",
+  "raw": "https://images.unsplash.com/photo-1589561454226-796a8aa89b05?ixid=M3wxMTQzNTA5fDB8MXxzZWFyY2h8MXx8Qm9zcGhvcnVzJTIwY3J1aXNlJTIwSXN0YW5idWx8ZW58MXwwfHx8MTc5NTY4ODE4MXww&ixlib=rb-4.1.0",
+  "color": "#a6c0c0",
+  "alt": "A ferry crossing the Bosphorus with the skyline of Eminönü, Istanbul, in the background",
+  "name": "Engin Yapici",
+  "userUrl": "https://unsplash.com/@yapici",
+  "page": "https://unsplash.com/photos/ferry-crossing-bosphorus-in-istanbul-WA1u0scVLZU",
+  "pick": 0
+ },
+ "spot:honolulu:0": {
+  "id": "9bl-h_RX8NY",
+  "raw": "https://images.unsplash.com/photo-1698094276348-c542aa9c5609?ixid=M3wxMTQzNTA5fDB8MXxzZWFyY2h8MXx8V2Fpa2lraSUyMGJlYWNoJTIwSG9ub2x1bHV8ZW58MXwwfHx8MTc5NTY4ODE4Mnww&ixlib=rb-4.1.0",
+  "color": "#f3f3f3",
+  "alt": "an aerial view of a city next to the ocean",
+  "name": "Spenser Sembrat",
+  "userUrl": "https://unsplash.com/@spensersembrat",
+  "page": "https://unsplash.com/photos/an-aerial-view-of-a-city-next-to-the-ocean-9bl-h_RX8NY",
+  "pick": 0
+ },
+ "spot:honolulu:1": {
+  "id": "TgGIn-tFF1g",
+  "raw": "https://images.unsplash.com/photo-1684004790361-8a576e3b292b?ixid=M3wxMTQzNTA5fDB8MXxzZWFyY2h8MXx8RGlhbW9uZCUyMEhlYWQlMjBjcmF0ZXIlMjBoaWtlfGVufDF8MHx8fDE3OTU2ODgxODJ8MA&ixlib=rb-4.1.0",
+  "color": "#595940",
+  "alt": "a scenic view of a city and the ocean",
+  "name": "Patrick Nguyen",
+  "userUrl": "https://unsplash.com/@pokiepatt",
+  "page": "https://unsplash.com/photos/a-scenic-view-of-a-city-and-the-ocean-TgGIn-tFF1g",
+  "pick": 0
+ },
+ "spot:honolulu:2": {
+  "id": "DXJpzDAHwds",
+  "raw": "https://images.unsplash.com/photo-1579917448663-8a173ab18748?ixid=M3wxMTQzNTA5fDB8MXxzZWFyY2h8MXx8SGFuYXVtYSUyMEJheSUyMHNub3JrZWxpbmd8ZW58MXwwfHx8MTc5NTY4ODE4M3ww&ixlib=rb-4.1.0",
+  "color": "#0c73c0",
+  "alt": "green grass field near blue sea under blue sky during daytime",
+  "name": "Amanda Phung",
+  "userUrl": "https://unsplash.com/@amandabereckonedwith",
+  "page": "https://unsplash.com/photos/green-grass-field-near-blue-sea-under-blue-sky-during-daytime-DXJpzDAHwds",
+  "pick": 0
+ },
+ "spot:honolulu:3": {
+  "id": "gyv33zW7Op4",
+  "raw": "https://images.unsplash.com/photo-1733712058043-c2fe8d8c935e?ixid=M3wxMTQzNTA5fDB8MXxzZWFyY2h8MXx8UGVhcmwlMjBIYXJib3IlMjBVU1MlMjBBcml6b25hJTIwTWVtb3JpYWx8ZW58MXwwfHx8MTc5NTY4ODE4M3ww&ixlib=rb-4.1.0",
+  "color": "#f3f3f3",
+  "alt": "A large white building sitting on top of a body of water",
+  "name": "Winston Chen",
+  "userUrl": "https://unsplash.com/@winstonchen",
+  "page": "https://unsplash.com/photos/a-large-white-building-sitting-on-top-of-a-body-of-water-gyv33zW7Op4",
+  "pick": 0
+ },
+ "spot:honolulu:4": {
+  "id": "0QEG_xOoY7Y",
+  "raw": "https://images.unsplash.com/photo-1616141893496-fbc65370493e?ixid=M3wxMTQzNTA5fDB8MXxzZWFyY2h8MXx8Tm9ydGglMjBTaG9yZSUyME9haHUlMjBIYWxlaXdhfGVufDF8MHx8fDE3OTU2ODgxODR8MA&ixlib=rb-4.1.0",
+  "color": "#d9d9d9",
+  "alt": "white and blue ocean waves",
+  "name": "Matt Paul Catalano",
+  "userUrl": "https://unsplash.com/@mattpaul",
+  "page": "https://unsplash.com/photos/white-and-blue-ocean-waves-0QEG_xOoY7Y",
+  "pick": 0
+ },
+ "spot:newyork:0": {
+  "id": "-DQT1fnrNRo",
+  "raw": "https://images.unsplash.com/photo-1670968352611-c2f83aa5aa94?ixid=M3wxMTQzNTA5fDB8MXxzZWFyY2h8Mnx8VGltZXMlMjBTcXVhcmUlMjBOZXclMjBZb3JrfGVufDF8MHx8fDE3OTU2ODgxODR8MA&ixlib=rb-4.1.0",
+  "color": "#59a6f3",
+  "alt": "a city street filled with lots of tall buildings",
+  "name": "Andres Gavino",
+  "userUrl": "https://unsplash.com/@andresgavinbelson",
+  "page": "https://unsplash.com/photos/a-city-street-filled-with-lots-of-tall-buildings--DQT1fnrNRo",
+  "pick": 0
+ },
+ "spot:newyork:1": {
+  "id": "A2CChTZvzTE",
+  "raw": "https://images.unsplash.com/photo-1568515387631-8b650bbcdb90?ixid=M3wxMTQzNTA5fDB8MXxzZWFyY2h8MXx8Q2VudHJhbCUyMFBhcmslMjBOZXclMjBZb3JrfGVufDF8MHx8fDE3OTU2ODgxODR8MA&ixlib=rb-4.1.0",
+  "color": "#262626",
+  "alt": "New York Central Park",
+  "name": "Jermaine Ee",
+  "userUrl": "https://unsplash.com/@eejermaine",
+  "page": "https://unsplash.com/photos/new-york-central-park-A2CChTZvzTE",
+  "pick": 0
+ },
+ "spot:newyork:2": {
+  "id": "VMNG8BYFQfs",
+  "raw": "https://images.unsplash.com/photo-1605130284535-11dd9eedc58a?ixid=M3wxMTQzNTA5fDB8MXxzZWFyY2h8MXx8U3RhdHVlJTIwb2YlMjBMaWJlcnR5fGVufDF8MHx8fDE3OTU2ODgxODV8MA&ixlib=rb-4.1.0",
+  "color": "#0c8cc0",
+  "alt": "The Statue of Liberty standing before the Manhattan skyline under a clear blue sky",
+  "name": "Pierre Blaché",
+  "userUrl": "https://unsplash.com/@pierre9x6",
+  "page": "https://unsplash.com/photos/statue-of-liberty-and-manhattan-skyline-VMNG8BYFQfs",
+  "pick": 0
+ },
+ "spot:newyork:3": {
+  "id": "Ufh2j_ChvcM",
+  "raw": "https://images.unsplash.com/photo-1570501677759-490d84c3e526?ixid=M3wxMTQzNTA5fDB8MXxzZWFyY2h8MXx8QnJvb2tseW4lMjBCcmlkZ2UlMjBNYW5oYXR0YW4lMjBza3lsaW5lfGVufDF8MHx8fDE3OTU2ODgxODV8MA&ixlib=rb-4.1.0",
+  "color": "#0c2659",
+  "alt": "black and gray concrete bridge",
+  "name": "Gavin Spear",
+  "userUrl": "https://unsplash.com/@rustyspear11",
+  "page": "https://unsplash.com/photos/black-and-gray-concrete-bridge-Ufh2j_ChvcM",
+  "pick": 0
+ },
+ "spot:newyork:4": {
+  "id": "CQ56YBTp8Sw",
+  "raw": "https://images.unsplash.com/photo-1645793729490-b82a44905e5a?ixid=M3wxMTQzNTA5fDB8MXxzZWFyY2h8M3x8TWV0cm9wb2xpdGFuJTIwTXVzZXVtJTIwb2YlMjBBcnQlMjBOZXclMjBZb3JrfGVufDF8MHx8fDE3OTU2ODgxODZ8MA&ixlib=rb-4.1.0",
+  "color": "#262626",
+  "alt": "a double decker bus parked in front of a large building",
+  "name": "Clay LeConey",
+  "userUrl": "https://unsplash.com/@clayleconey",
+  "page": "https://unsplash.com/photos/a-double-decker-bus-parked-in-front-of-a-large-building-CQ56YBTp8Sw",
+  "pick": 0
  }
 }

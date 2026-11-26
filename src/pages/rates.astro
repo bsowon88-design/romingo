@@ -34,7 +34,7 @@ const mv = (cur) => { const h = rates?.[cur]?.hist; const v = rates?.[cur]?.valu
         <div class="crow">
           <label>현지 돈<input id="fx" type="number" inputmode="decimal" value="" min="0" /></label>
           <span class="arrow">→</span>
-          <p class="res2" id="res2">원화로 얼마인지 보여 줘요</p>
+          <p class="res2" id="res2">원화 환산 금액 표시</p>
         </div>
       </section>
 
@@ -43,7 +43,7 @@ const mv = (cur) => { const h = rates?.[cur]?.hist; const v = rates?.[cur]?.valu
           <h2>📋 현지에서 보는 금액표 <small id="ch-name"></small></h2>
           <button type="button" class="btn ghost" id="ch-save">🖼️ 이미지로 저장</button>
         </div>
-        <p class="muted ch-n">현지에서 값을 볼 때 원화로 얼마쯤인지 바로 보세요. 위 계산기에서 나라를 바꾸면 같이 바뀌어요. 인터넷이 없을 때를 위해 이미지로 저장해 두세요.</p>
+        <p class="muted ch-n">현지에서 값을 볼 때 원화로 얼마쯤인지 바로 보세요. 위 계산기에서 국가를 변경하면 함께 업데이트됩니다. 인터넷이 없을 때를 위해 이미지로 저장해 두세요.</p>
         <div class="ch-g" id="ch-g"></div>
         <p class="ch-trend" id="ch-trend"></p>
       </section>
@@ -60,7 +60,7 @@ const mv = (cur) => { const h = rates?.[cur]?.hist; const v = rates?.[cur]?.valu
       </div>
     </>
   ) : (
-    <p class="card empty">환율 자료를 모으는 중이에요.</p>
+    <p class="card empty">환율 자료 수집 중</p>
   )}
 
   <script type="application/json" id="rates-data" set:html={JSON.stringify(data)}></script>
@@ -82,7 +82,7 @@ const mv = (cur) => { const h = rates?.[cur]?.hist; const v = rates?.[cur]?.valu
     const w = +(won?.value || 0);
     res.textContent = `${fmt(w)}원 ≈ ${fmt((w / r.value) * r.unit)} ${r.name}`;
     const f = +(fx?.value || 0);
-    res2.textContent = f ? `${fmt(f)} ${r.name} ≈ ${fmt((f / r.unit) * r.value)}원` : `${r.name} 금액을 넣으면 원화로 바꿔 줘요`;
+    res2.textContent = f ? `${fmt(f)} ${r.name} ≈ ${fmt((f / r.unit) * r.value)}원` : `${r.name} 금액을 입력하면 원화로 환산해요`;
   }
   [won, cur, fx].forEach((el) => el?.addEventListener('input', calc));
   calc();
@@ -106,7 +106,7 @@ const mv = (cur) => { const h = rates?.[cur]?.hist; const v = rates?.[cur]?.valu
       const h = r.hist;
       if (Array.isArray(h) && h.length >= 8 && h[0]) {
         const p = ((r.value - h[0]) / h[0]) * 100;
-        chTrend.textContent = Math.abs(p) < 0.1 ? '최근 한 달 동안 거의 그대로예요.' : `최근 한 달 사이 ${r.name} 값이 ${Math.abs(p).toFixed(1)}% ${p > 0 ? '올랐어요 (원화로 더 비싸졌어요)' : '내렸어요 (원화로 더 싸졌어요)'}.`;
+        chTrend.textContent = Math.abs(p) < 0.1 ? '최근 한 달간 큰 변동 없음' : `최근 한 달 사이 ${r.name} 값이 ${Math.abs(p).toFixed(1)}% ${p > 0 ? '올랐어요 (원화로 더 비싸졌어요)' : '내렸어요 (원화로 더 싸졌어요)'}.`;
       } else chTrend.textContent = '';
     }
   }

@@ -14,7 +14,7 @@ const list = GUIDES.map((g) => ({ g, x: cityBySlug[g.city] })).filter((o) => o.x
   .sort((a, b) => rOrder.indexOf(a.co.region) - rOrder.indexOf(b.co.region) || cOrder.indexOf(a.co.slug) - cOrder.indexOf(b.co.slug) || a.i - b.i);
 const regs = REGIONS.map(([k, l]) => [k, l, list.filter((o) => o.co.region === k).length]).filter((r) => r[2] > 0);
 ---
-<Base title="해외 도시 여행가이드 - 숙소 위치·공항 이동·추천 일정" desc="오사카, 다낭, 방콕, 파리, 하와이 등 87개 해외 도시의 숙소 잡기 좋은 곳, 공항에서 시내 가는 법, 추천 일정, 주의할 점을 정리했어요.">
+<Base title="해외 도시 여행가이드 - 숙소 위치·공항 이동·추천 일정" desc="오사카, 다낭, 방콕, 파리, 하와이 등 87개 해외 도시의 숙소 잡기 좋은 곳, 공항에서 시내 가는 법, 추천 일정, 주의할 점을 정리했습니다.">
   <p class="crumb"><a href="/">홈</a> › 여행가이드</p>
   <h1>도시 여행가이드</h1>
   <p class="lead">{list.length}개 도시의 숙소 위치 · 공항 이동 · 추천 일정 · 주의할 점</p>

@@ -3,7 +3,7 @@ export const SITE_NAME = '트립베리';
 export const SITE_TAGLINE = '해외·국내 여행 안전 · 날씨 · 가이드';
 export const SITE_URL = 'https://tripberry.kr';
 export const SITE_DESC =
-  '일본·대만·동남아 등 해외 여행지의 안전 상태와 날씨·환율·입국 정보, 그리고 이번 주말 전국 축제와 지역별 가볼 만한 곳까지. 외교부·한국관광공사 등 공식 데이터로 매일 자동 정리해요.';
+  '일본·대만·동남아 등 해외 여행지의 안전 상태와 날씨·환율·입국 정보, 그리고 이번 주말 전국 축제와 지역별 가볼 만한 곳까지. 외교부·한국관광공사 등 공식 데이터를 바탕으로 매일 정보를 갱신합니다.';
 
 // 외교부 해외안전여행 (공식)
 export const MOFA_URL = 'https://www.0404.go.kr/';

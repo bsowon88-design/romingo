@@ -21,7 +21,7 @@ const dists = [...new Set(places.map((p) => p.dist).filter(Boolean))].sort((a, b
 const distN = Object.fromEntries(dists.map((x) => [x, places.filter((p) => p.dist === x).length]));
 const top = places.slice(0, 3).map((p) => p.t.replace(/\s*\[.*?\]\s*/g, ' ').trim());
 ---
-<Base title={`${r.ko} 여행 - 가볼 만한 곳·축제·날씨`} desc={`${r.full} 가볼 만한 곳 ${places.length}곳과 지금 열리는 축제, 9일 날씨 예보. ${top.join(', ')} 등 한국관광공사 자료로 정리했어요.`}>
+<Base title={`${r.ko} 여행 - 가볼 만한 곳·축제·날씨`} desc={`${r.full} 가볼 만한 곳 ${places.length}곳과 지금 열리는 축제, 9일 날씨 예보. ${top.join(', ')} 등 한국관광공사 자료를 바탕으로 정리했습니다.`}>
   <p class="crumb"><a href="/">홈</a> › <a href="/domestic/">국내여행</a> › {r.ko}</p>
   <h1>{r.ko} 여행</h1>
   <p class="lead">{r.full}에서 주말에 일부러 찾아갈 만한 곳 {places.length}곳{fests.length > 0 && `과 축제 ${fests.length}개`}</p>
@@ -45,7 +45,7 @@ const top = places.slice(0, 3).map((p) => p.t.replace(/\s*\[.*?\]\s*/g, ' ').tri
     </div>
   )}
   <div class="kgrid f4" id="plist">{places.map((p) => <PlaceCard p={p} />)}</div>
-  <p class="kempty" id="pnone" hidden>고른 조건에 맞는 곳이 없어요.</p>
+  <p class="kempty" id="pnone" hidden>선택한 조건에 맞는 장소 없음</p>
   <p class="pmore-w"><button type="button" class="btn ghost" id="pmore" hidden>더 보기</button></p>
   {r.slug === 'jeju' && <JejuPass />}
   <NolLink region={r.ko} live />
@@ -64,7 +64,7 @@ const top = places.slice(0, 3).map((p) => p.t.replace(/\s*\[.*?\]\s*/g, ' ').tri
   <div id="wx"><KrForecast region={r} /></div>
 
   <p class="ksrcnote">
-    관광지 정보와 사진: 한국관광공사 국문 관광정보(TourAPI, 공공누리). 시·군마다 계곡·해변·수목원·전망대·한옥마을처럼 일부러 찾아갈 만한 곳을 골라 실었어요.
+    관광지 정보와 사진: 한국관광공사 국문 관광정보(TourAPI, 공공누리). 시·군마다 계곡·해변·수목원·전망대·한옥마을처럼 일부러 찾아갈 만한 곳을 선별해 소개합니다.
     운영 시간·요금은 바뀔 수 있으니 가기 전에 확인하세요.
   </p>
 </Base>

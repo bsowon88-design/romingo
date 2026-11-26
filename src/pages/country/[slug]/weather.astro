@@ -39,8 +39,8 @@ const cities = CITIES.filter((x) => x.country === c.slug && HAS_CLIMATE(x.slug))
           </div>
         </section>
       );
-    }) : <p class="card empty">{c.ko} 도시 날씨는 준비 중이에요.</p>}
-    <p class="muted" style="margin-top:14px">칸 색: 초록 = 여행하기 좋아요, 회색 = 무난해요, 주황 = 조금 아쉬워요. 숫자는 평균 최고·최저 기온이에요.</p>
+    }) : <p class="card empty">{c.ko} 도시 날씨 준비 중</p>}
+    <p class="muted" style="margin-top:14px">칸 색: 초록 = 여행하기 좋음, 회색 = 보통, 주황 = 다소 불리함. 숫자는 평균 최고·최저 기온입니다.</p>
   </CountryShell>
 </Base>
 

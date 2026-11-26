@@ -85,7 +85,7 @@ export const ALARM_KO = {
   1: { label: '여행유의', cls: 'm1', act: '신변 안전에 유의하세요' },
   2: { label: '여행자제', cls: 'm2', act: '불필요한 여행은 자제하세요' },
   3: { label: '출국권고', cls: 'm3', act: '여행을 취소·연기하고, 현지에 있으면 출국을 권고해요' },
-  4: { label: '여행금지', cls: 'm4', act: '방문이 금지된 곳이에요 (허가 없이 방문하면 처벌될 수 있어요)' },
+  4: { label: '여행금지', cls: 'm4', act: '방문이 금지된 지역입니다 (허가 없이 방문하면 처벌될 수 있습니다)' },
 };
 export const HAS_ALARMS = Object.keys(alarmArchive || {}).length > 0;
 

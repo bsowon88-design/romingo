@@ -24,7 +24,7 @@ const maxT = Math.ceil(Math.max(...allHi)) + 2;
 const pct = (t) => ((t - minT) / (maxT - minT)) * 100;
 const others = CITIES.filter((x) => x.country === city.country && x.slug !== city.slug && HAS_CLIMATE(x.slug));
 ---
-<Base title={`${city.ko} 월별 날씨 - 여행하기 좋은 달, 기온·강수량`} desc={`${city.ko} 1월부터 12월까지 평균 기온과 강수량, 옷차림. 여행하기 좋은 달은 ${best.map((m) => `${m}월`).join(', ')}이에요.`}>
+<Base title={`${city.ko} 월별 날씨 - 여행하기 좋은 달, 기온·강수량`} desc={`${city.ko} 1월부터 12월까지 평균 기온과 강수량, 옷차림. 여행하기 좋은 달은 ${best.map((m) => `${m}월`).join(', ')}입니다.`}>
   <p class="crumb"><a href="/">홈</a> › <a href="/weather/">월별 날씨</a> › {city.ko}</p>
   <h1><Flag iso={flagOf(co)} /> {city.ko} 월별 날씨</h1>
   <p class="lead">여행하기 좋은 달: <b class="best">{best.map((m) => `${m}월`).join(' · ')}</b></p>
@@ -63,7 +63,7 @@ const others = CITIES.filter((x) => x.country === city.country && x.slug !== cit
     </>
   )}
   <CitySafety city={city} />
-  <p class="muted" style="margin-top:20px">최근 10년({cl.years}) 평균이에요. 자료: NASA POWER. 실제 날씨는 해마다 다를 수 있어요.</p>
+  <p class="muted" style="margin-top:20px">최근 10년({cl.years}) 평균 기준입니다. 자료: NASA POWER. 실제 날씨는 해마다 다를 수 있습니다.</p>
 </Base>
 
 <style>

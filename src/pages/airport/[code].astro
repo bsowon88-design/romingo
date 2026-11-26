@@ -70,10 +70,10 @@ const others = DEP_AIRPORTS.filter((x) => x.code !== a.code);
       {other.length > 0 && (
         <p class="muted oth"><b>그 밖의 직항</b> {other.map((r) => `${r.ko} ${r.flights}편`).join(' · ')}</p>
       )}
-      <p class="muted src">편수는 앞으로 7일 출발 예정 국제선 여객편이에요(인천국제공항공사·한국공항공사 운항 정보). 비행시간은 직선거리로 어림한 값이라 실제와 조금 다를 수 있어요. 날씨는 10년 평균(NASA POWER).</p>
+      <p class="muted src">편수는 앞으로 7일간 출발 예정인 국제선 여객편 기준입니다(인천국제공항공사·한국공항공사 운항 정보). 비행시간은 직선거리로 추정한 값이라 실제와 다를 수 있습니다. 날씨는 10년 평균(NASA POWER).</p>
     </>
   ) : (
-    <p class="card empty">공항별 노선 자료를 모으는 중이에요. 하루 안에 채워져요. 그동안은 <a href="/popular/">전체 인기 도시 순위</a>를 보세요.</p>
+    <p class="card empty">공항별 노선 자료 수집 중 · 하루 안에 표시됩니다. 그동안은 <a href="/popular/">전체 인기 도시 순위</a>를 보세요.</p>
   )}
 
   <h2>다른 공항 보기</h2>

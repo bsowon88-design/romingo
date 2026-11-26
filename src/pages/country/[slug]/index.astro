@@ -123,8 +123,8 @@ const desc = `${c.ko} 여행 전 한눈에: 안전 상태, 외교부 여행경�
     <h2>✅ 출발 전 체크리스트</h2>
     <ul class="card list">
       {en && en.musts.length > 0 && <li>출발 전 꼭 할 일: <b>{en.musts.map((m) => m.t.replace(/ \(.*\)$/, '')).join(', ')}</b> <a href={`/country/${c.slug}/info/`}>방법 보기</a></li>}
-      {en && en.until && <li>{en.until.replace(/-/g, '.')}까지 한시 무비자예요. 그 뒤 여행이면 연장 여부를 확인하세요.</li>}
-      <li>외교부 해외안전여행 앱에서 <b>동행서비스</b>를 신청하면 현지 안전 소식을 받을 수 있어요.</li>
+      {en && en.until && <li>{en.until.replace(/-/g, '.')}까지 한시적으로 무비자 입국이 가능합니다. 이후 여행이라면 연장 여부를 확인하세요.</li>}
+      <li>외교부 해외안전여행 앱에서 <b>동행서비스</b>를 신청하면 현지 안전 소식을 받을 수 있습니다.</li>
       <li>여행자보험에 자연재해로 인한 일정 취소·지연이 보장되는지 확인하세요.</li>
       {c.adapter && <li>{c.plug} 콘센트용 <b>변환 어댑터</b>를 챙기세요.</li>}
       <li>긴급 연락처(현지 경찰·영사콜센터)를 휴대폰에 저장해 두세요. <a href={`/country/${c.slug}/info/`}>번호 보기</a></li>
@@ -136,7 +136,7 @@ const desc = `${c.ko} 여행 전 한눈에: 안전 상태, 외교부 여행경�
         <div class="chips">{others.map((o) => <a href={`/country/${o.slug}/`}><Flag iso={flagOf(o)} size={18} /> {o.ko}</a>)}</div>
       </>
     )}
-    <p class="muted" style="margin-top:20px">{kstDate(Date.now())} 기준 · 기본 정보는 바뀔 수 있어요. 출발 전에 외교부 안내로 한 번 더 확인하세요.</p>
+    <p class="muted" style="margin-top:20px">{kstDate(Date.now())} 기준 · 기본 정보는 변경될 수 있습니다. 출발 전에 외교부 안내로 한 번 더 확인하세요.</p>
   </CountryShell>
 </Base>
 

@@ -38,7 +38,7 @@ const avg = cl ? cl.m[nowM - 1] : null;
       })
       .catch(() => {
         wrap.innerHTML = '';
-        wrap.append(el('p', 'fwait', '⏳ 예보 확인 중이에요. 잠시 뒤 다시 열어 보세요.'));
+        wrap.append(el('p', 'fwait', '⏳ 예보 불러오는 중 · 잠시 후 다시 확인해 주세요.'));
       });
   });
 </script>

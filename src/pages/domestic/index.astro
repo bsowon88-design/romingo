@@ -44,7 +44,7 @@ const rows = SEASON.map((th) => [th, SEASON_TITLE[th], spread(th)]);
   </section>
 
   {!KR_READY ? (
-    <p class="kempty">⏳ 국내 여행 자료를 모으는 중이에요. 하루 안에 채워져요.</p>
+    <p class="kempty">⏳ 국내 여행 자료 수집 중 · 하루 안에 표시됩니다.</p>
   ) : (
     <>
       <h2 id="regions">🗺️ 지역별 여행</h2>
@@ -71,7 +71,7 @@ const rows = SEASON.map((th) => [th, SEASON_TITLE[th], spread(th)]);
       {(weekend.length ? weekend : nowList).length ? (
         <div class="fmini lim">{(weekend.length ? weekend : nowList).slice(0, 8).map((f) => <FestCard f={f} mini />)}</div>
       ) : (
-        <p class="kempty">이번 주말에 열리는 축제 소식이 아직 없어요. <a href="/domestic/festival/">축제 달력</a>에서 다가오는 축제를 확인해 보세요.</p>
+        <p class="kempty">이번 주말 축제 정보 없음 <a href="/domestic/festival/">축제 달력</a>에서 다가오는 축제를 확인해 보세요.</p>
       )}
 
       <section id="weekend-wx" class="wkx">
@@ -85,7 +85,7 @@ const rows = SEASON.map((th) => [th, SEASON_TITLE[th], spread(th)]);
             </a>
           ))}
         </div>
-        <p class="ksrcnote wknote">예보: 노르웨이 기상청(MET Norway) · 지역마다 한 지점 기준이라 산간·해안은 다를 수 있어요.</p>
+        <p class="ksrcnote wknote">예보: 노르웨이 기상청(MET Norway) · 지역마다 한 지점 기준이라 산간·해안은 다를 수 있습니다.</p>
       </section>
 
       {rows.slice(1).map(([th, title, list]) => list.length > 0 && (
@@ -96,7 +96,7 @@ const rows = SEASON.map((th) => [th, SEASON_TITLE[th], spread(th)]);
       ))}
 
       <p class="ksrcnote">
-        축제·관광지 정보와 사진: 한국관광공사 국문 관광정보(TourAPI, 공공누리) — 매일 자동으로 새로 받아 정리해요.
+        축제·관광지 정보와 사진: 한국관광공사 국문 관광정보(TourAPI, 공공누리) — 매일 자동으로 갱신합니다.
         일정·요금·운영 시간은 바뀔 수 있으니 가기 전에 공식 홈페이지에서 한 번 더 확인하세요.
       </p>
     </>
@@ -128,7 +128,7 @@ const rows = SEASON.map((th) => [th, SEASON_TITLE[th], spread(th)]);
         if (!any) throw new Error('none');
       })
       .catch(() => {
-        grid.closest('section')?.querySelector('.wknote')?.replaceChildren(document.createTextNode('⏳ 주말 예보를 준비하고 있어요. 몇 시간 안에 채워져요.'));
+        grid.closest('section')?.querySelector('.wknote')?.replaceChildren(document.createTextNode('⏳ 주말 예보 준비 중 · 몇 시간 안에 표시됩니다.'));
         grid.querySelectorAll('.wd').forEach((s) => (s.textContent = '–'));
       });
   }

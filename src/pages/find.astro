@@ -53,7 +53,7 @@ const nowM = +new Intl.DateTimeFormat('en-US', { timeZone: 'Asia/Seoul', month: 
 const nextM = (nowM % 12) + 1;
 const AL = Object.fromEntries(Object.entries(ALARM_KO).map(([k, v]) => [k, [v.label, v.cls]]));
 ---
-<Base title="조건으로 해외 여행지 찾기 - 여행 달·출발 공항·비행시간·스타일" desc="언제 가는지, 어느 공항에서 출발하는지, 비행시간과 여행 스타일을 고르면 날씨·안전까지 따져 맞는 해외 여행지를 골라 드려요.">
+<Base title="조건으로 해외 여행지 찾기 - 여행 달·출발 공항·비행시간·스타일" desc="언제 가는지, 어느 공항에서 출발하는지, 비행시간과 여행 스타일을 고르면 날씨·안전까지 고려해 조건에 맞는 해외 여행지를 추천합니다.">
   <PageBanner name="find">
     <p class="crumb"><a href="/">홈</a> › 조건으로 찾기</p>
     <h1>조건으로 여행지 찾기</h1>
@@ -93,7 +93,7 @@ const AL = Object.fromEntries(Object.entries(ALARM_KO).map(([k, v]) => [k, [v.la
   <div class="rhw"><p class="rh" id="rh"></p><button type="button" class="shr" id="shr" style="display:none">🔗 친구에게 공유</button></div>
   <div class="res" id="res"></div>
   <button type="button" class="btn ghost more" id="more" style="display:none">더 보기</button>
-  <p class="muted src">날씨는 10년 평균(NASA POWER), 비행시간은 서울에서 직선거리로 어림한 값, 출발 공항은 이번 주 운항 예정 기준이에요. 외교부 여행경보는 출발 전에 꼭 다시 확인하세요.</p>
+  <p class="muted src">날씨는 10년 평균(NASA POWER), 비행시간은 서울 기준 직선거리로 추정한 값, 출발 공항은 이번 주 운항 예정편 기준입니다. 외교부 여행경보는 출발 전에 꼭 다시 확인하세요.</p>
 
   <script type="application/json" id="fdata" set:html={JSON.stringify({ d: DATA, al: AL })}></script>
 </Base>
@@ -172,7 +172,7 @@ const AL = Object.fromEntries(Object.entries(ALARM_KO).map(([k, v]) => [k, [v.la
       const img = el('img') as HTMLImageElement;
       img.src = `/flags/${c.f}.svg`; img.width = 22; img.height = 16; img.alt = '';
       h.append(img, el('b', '', c.k), el('small', '', c.co));
-      const sc = s >= 75 ? ['good', '여행하기 좋아요'] : s >= 50 ? ['ok', '무난해요'] : ['bad', '조금 아쉬워요'];
+      const sc = s >= 75 ? ['good', '여행하기 좋음'] : s >= 50 ? ['ok', '무난'] : ['bad', '다소 아쉬움'];
       h.append(el('span', `sc ${sc[0]}`, sc[1]));
       const ul = el('ul', 'ri');
       const li = (k: string, v: string) => { const x = el('li'); x.append(el('span', '', k), el('b', '', v)); ul.append(x); };

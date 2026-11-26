@@ -28,7 +28,7 @@ const guides = GUIDES.map((g) => cityBySlug[g.city]).filter(Boolean);
     <span class="gl">🛂 외교부 여행경보</span>
     {FILTERS.map(([k, l, n, cls], i) => <button type="button" data-lv={k} class:list={[{ on: i === 0 }]}><i class={`dot ${cls}`}></i>{l} <small>{n}</small></button>)}
   </div>
-  <p class="muted lvn">나라 안에서 가장 높은 단계 기준이에요. 일부 지역에만 내려진 경보도 있으니 나라 페이지에서 지역을 확인하세요.</p>
+  <p class="muted lvn">국가 내 최고 경보 단계를 기준으로 표시합니다. 일부 지역에만 내려진 경보도 있으니 국가 페이지에서 지역을 확인하세요.</p>
   {REGIONS.map(([key, label]) => (
     <section class="rsec">
       <h2>{label}</h2>

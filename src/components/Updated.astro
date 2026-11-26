@@ -6,7 +6,7 @@ const miss = [!QUAKE_OK && '지진', !GDACS_OK && '재난 경보'].filter(Boolea
 ---
 <p class="upd">
   <span>🔄 {kstShort(BUILT_AT)} 업데이트 (한국 시간)</span>
-  {miss.length > 0 && <span class="chk">⏳ {miss.join('·')} 자료 확인 중 · 지난 자료로 보여 줘요</span>}
+  {miss.length > 0 && <span class="chk">⏳ {miss.join('·')} 자료 확인 중 · 이전 자료로 표시</span>}
 </p>
 
 <style>

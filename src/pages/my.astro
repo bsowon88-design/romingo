@@ -47,7 +47,7 @@ const quick = ['danang', 'osaka', 'tokyo', 'bangkok', 'cebu', 'taipei'];
   </div>
 
   <Updated />
-  <p class="muted small">안전 현황은 위 시각 기준이에요. 운항 현황과 날씨 예보는 열 때마다 최신으로 불러와요. 예보: 노르웨이 기상청(MET Norway) · 환율: 한국은행</p>
+  <p class="muted small">안전 현황은 위 시각 기준입니다. 운항 현황과 날씨 예보는 페이지를 열 때마다 최신 정보로 불러옵니다. 예보: 노르웨이 기상청(MET Norway) · 환율: 한국은행</p>
 
   <script type="application/json" id="tdata" set:html={JSON.stringify(TRIP_DATA)}></script>
   <script type="application/json" id="tlabels" set:html={JSON.stringify(labels)}></script>
@@ -170,7 +170,7 @@ const quick = ['danang', 'osaka', 'tokyo', 'bangkok', 'cebu', 'taipei'];
       const mon = +t.from.slice(5, 7);
       const [hi, lo, , cls, lbl, rain] = c.m[mon - 1];
       w.append(el('b', '', `${mon}월 평균 ${hi}° / ${lo}°`), el('small', `sc-${cls}`, `${rain} · ${lbl}`));
-      if (dnum(t.from) - dnum(today()) > 0) w.append(el('small', '', '출발 9일 전쯤부터 실제 예보로 바뀌어요'));
+      if (dnum(t.from) - dnum(today()) > 0) w.append(el('small', '', '출발 9일 전쯤부터 실제 예보로 표시'));
     } else {
       w.append(el('b', '', '날씨 보기 →'));
     }
@@ -210,14 +210,14 @@ const quick = ['danang', 'osaka', 'tokyo', 'bangkok', 'cebu', 'taipei'];
     const back = dnum(t.to) - dnum(today());
     const tip =
       back < 0 ? ['✈️', '잘 다녀오셨어요? 다음 여행지는 이번 달·다음 달 날씨로 골라 보세요.', '/#bestnow', '떠나기 좋은 곳 보기']
-      : n < 0 ? ['🧭', '여행 중이에요. 긴급번호와 현지 안전 소식을 한 번씩 확인하세요.', `/country/${c.cs}/info/`, '긴급번호 보기']
+      : n < 0 ? ['🧭', '여행 중 · 긴급번호와 현지 안전 소식을 수시로 확인하세요.', `/country/${c.cs}/info/`, '긴급번호 보기']
       : n === 0 ? ['🛫', '오늘 출발! 여권·충전기·결제 카드 챙겼는지 보고, 항공편 상태를 확인하세요.', '', '']
-      : n <= 3 ? ['📋', '출발이 코앞이에요. 재난·경보 소식과 입국 서류(전자입국신고 등)를 확인하세요.', `/country/${c.cs}/safety/`, '안전 정보']
+      : n <= 3 ? ['📋', '출발 임박 · 재난·경보 소식과 입국 서류(전자입국신고 등)를 확인하세요.', `/country/${c.cs}/safety/`, '안전 정보']
       : n <= 7 ? ['🧥', '이제 실제 예보가 보여요. 날씨에 맞춰 옷을 챙기고 환전·데이터를 준비하세요.', `/weather/${t.city}/`, '날씨 보기']
-      : n <= 14 ? ['📶', '데이터(eSIM·유심)와 환전을 준비할 때예요. 현지 공휴일과 겹치는지도 보세요.', '/prep/#data', '데이터 준비']
+      : n <= 14 ? ['📶', '데이터(eSIM·유심)와 환전을 준비하세요. 현지 공휴일과 겹치는지도 확인하세요.', '/prep/#data', '데이터 준비']
       : n <= 30 ? ['🛡️', '여행자보험과 여권 유효기간(보통 6개월 이상 남아야 해요)을 확인하세요.', `/country/${c.cs}/`, `${c.co} 정보`]
-      : n <= 60 ? ['🎟️', '입장권·투어처럼 미리 사면 좋은 것들을 알아볼 때예요.', c.g ? `/guide/${t.city}/` : `/weather/${t.city}/`, c.g ? '여행가이드' : '날씨 보기']
-      : ['🗓️', '항공권·숙소를 비교할 때예요. 여행 달 날씨가 괜찮은지도 미리 보세요.', `/weather/${t.city}/${+t.from.slice(5, 7)}/`, `${+t.from.slice(5, 7)}월 날씨`];
+      : n <= 60 ? ['🎟️', '입장권·투어처럼 미리 예약하면 좋은 상품을 확인하세요.', c.g ? `/guide/${t.city}/` : `/weather/${t.city}/`, c.g ? '여행가이드' : '날씨 보기']
+      : ['🗓️', '항공권·숙소를 비교해 보세요. 여행하는 달의 날씨도 미리 확인하세요.', `/weather/${t.city}/${+t.from.slice(5, 7)}/`, `${+t.from.slice(5, 7)}월 날씨`];
     const tipBox = el('div', 'ttip');
     tipBox.append(el('span', 'ti', tip[0]), el('span', '', tip[1]));
     if (tip[2]) tipBox.append(link(tip[2], `${tip[3]} →`));

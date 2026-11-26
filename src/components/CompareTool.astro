@@ -35,7 +35,7 @@ const rest = PAIRS.slice(8);
 
   <div id="cmp" class="cmp" data-a={a} data-b={b}></div>
   <Updated />
-  <p class="muted small">비행시간은 서울에서 직선거리로 어림한 값이에요(직항 기준, 실제와 조금 다를 수 있어요). 날씨는 최근 10년 평균(NASA POWER), 오늘 운항은 인천국제공항공사·한국공항공사 자료예요(인천·김포·김해·제주 출발).</p>
+  <p class="muted small">비행시간은 서울 기준 직선거리로 추정한 값입니다(직항 기준, 실제와 다를 수 있음). 날씨는 최근 10년 평균(NASA POWER), 오늘 운항은 인천국제공항공사·한국공항공사 자료 기준입니다(인천·김포·김해·제주 출발).</p>
 
   {rest.length > 0 && (
     <p class="morepairs"><b>다른 비교</b> {rest.map(([x, y], i) => <>{i ? ' · ' : ' '}<a href={`/compare/${x}-vs-${y}/`}>{TRIP_DATA[x].ko} vs {TRIP_DATA[y].ko}</a></>)}</p>

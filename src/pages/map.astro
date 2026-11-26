@@ -63,7 +63,7 @@ const list = [...MAP_WORLD.qs].sort((a, b) => b.time - a.time);
     <span class="lt">외교부 여행경보</span>
     {[1, 2, 3, 4].map((n) => <span><i class="lf" style={`background:${LV_FILL[n]}`}></i>{n}단계 {ALARM_KO[n].label}</span>)}
   </div>
-  <p class="muted small">나라 색은 그 나라 안에서 가장 높은 단계예요. 일부 지역에만 내려진 경보일 수 있으니 나라 페이지에서 지역을 확인하세요.</p>
+  <p class="muted small">국가별 색상은 해당 국가의 최고 경보 단계를 기준으로 표시합니다. 일부 지역에만 내려진 경보일 수 있으니 국가 페이지에서 지역을 확인하세요.</p>
   <Updated />
 
   <h2>최근 지진 {list.length}건</h2>

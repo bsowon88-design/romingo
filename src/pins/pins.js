@@ -190,7 +190,7 @@ export function pinList() {
       id: `guide-${c.slug}-r${d}`,
       date: dayDate(d),
       title: `${c.ko} 여행 준비 - 날씨 좋은 달·꼭 가볼 곳·공항 가는 법`,
-      desc: `${g.intro} 언제 가면 좋은지, 어디부터 둘러볼지 트립베리 가이드에 정리했어요. #${c.ko}여행 #${bySlug[c.country]?.ko || ''}여행 #여행준비 #해외여행`,
+      desc: `${g.intro} 언제 가면 좋은지, 어디부터 둘러볼지 트립베리 가이드에 정리했습니다. #${c.ko}여행 #${bySlug[c.country]?.ko || ''}여행 #여행준비 #해외여행`,
       link: `https://tripberry.kr/guide/${c.slug}/`,
       svg: () => cityCard(c),
     });
@@ -212,7 +212,7 @@ export function pinList() {
       id: `best-${kst.getUTCFullYear()}-${MONTH}`,
       date: dayDate(DAY),
       title: `${MONTH}월 해외여행 추천 - 날씨 좋은 여행지 ${picks.length}곳`,
-      desc: `${MONTH}월에 날씨가 좋은 해외 여행지 ${picks.map((p) => p.c.ko).join(', ')}. 10년 평균 날씨와 외교부 여행경보를 함께 반영했어요. #${MONTH}월해외여행 #해외여행추천 #여행지추천`,
+      desc: `${MONTH}월에 날씨가 좋은 해외 여행지 ${picks.map((p) => p.c.ko).join(', ')}. 10년 평균 날씨와 외교부 여행경보를 함께 반영했습니다. #${MONTH}월해외여행 #해외여행추천 #여행지추천`,
       link: 'https://tripberry.kr/find/',
       svg: () => monthCard(picks),
     });

@@ -16,7 +16,7 @@ const regs = REGIONS.map(([k, l]) => [k, l, cities.filter((o) => o.co.region ===
 const seen = new Set();
 const top = cities.map((o) => o.list[0]).filter((v) => v && !seen.has(v.id) && seen.add(v.id)).sort((a, b) => b.views - a.views).slice(0, 8);
 ---
-<Base title="여행 영상 - 한국 여행 유튜버가 다녀온 해외 도시 영상 모음" desc="도쿄, 오사카, 다낭, 방콕, 파리 등 해외 도시별로 한국 여행 유튜버의 최신 여행 영상을 모았어요. 가기 전에 영상으로 미리 둘러보세요.">
+<Base title="여행 영상 - 한국 여행 유튜버가 다녀온 해외 도시 영상 모음" desc="도쿄, 오사카, 다낭, 방콕, 파리 등 해외 도시별로 한국 여행 유튜버의 최신 여행 영상을 모았습니다. 가기 전에 영상으로 미리 둘러보세요.">
   <section class="vhero">
     <p class="crumb"><a href="/">홈</a> › 여행 영상</p>
     <h1>📺 여행 영상</h1>
@@ -24,7 +24,7 @@ const top = cities.map((o) => o.list[0]).filter((v) => v && !seen.has(v.id) && s
   </section>
 
   {cities.length === 0 ? (
-    <p class="empty">⏳ 영상을 모으는 중이에요. 하루 안에 도시별 영상이 채워져요.</p>
+    <p class="empty">⏳ 영상 수집 중 · 하루 안에 도시별 영상이 표시됩니다.</p>
   ) : (
     <>
       <h2>🔥 요즘 많이 본 여행 영상</h2>
@@ -45,7 +45,7 @@ const top = cities.map((o) => o.list[0]).filter((v) => v && !seen.has(v.id) && s
       </div>
     </>
   )}
-  <p class="muted note">유튜브에서 도시 이름으로 찾은 한국어 여행 영상 중 조회수가 높은 영상을 일주일마다 업데이트해요. 영상의 저작권은 만든 유튜버에게 있고, 재생은 유튜브가 허락한 방식을 따라요.</p>
+  <p class="muted note">유튜브에서 도시 이름으로 찾은 한국어 여행 영상 중 조회수가 높은 영상을 일주일마다 업데이트됩니다. 영상의 저작권은 만든 유튜버에게 있고, 재생은 유튜브가 허락한 방식을 따라요.</p>
 </Base>
 
 <script>

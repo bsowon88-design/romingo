@@ -25,9 +25,9 @@ export function rainInfo(d) {
     return { lv: 1, snow: true, label: '가끔 눈', text: '가끔 눈이 와요. 미끄럽지 않은 신발을 챙기세요.' };
   }
   if (d.rain >= 250 || d.rdays >= 22) return { lv: 3, label: '우기', text: '비가 아주 많이 와요. 우산·우비를 꼭 챙기고, 실내 일정을 섞어 두세요.' };
-  if (d.rain >= 120 || d.rdays >= 16) return { lv: 2, label: '비 자주', text: '비 오는 날이 꽤 있어요. 접이식 우산을 챙기세요.' };
+  if (d.rain >= 120 || d.rdays >= 16) return { lv: 2, label: '비 자주', text: '비 오는 날이 많아요. 접이식 우산을 챙기세요.' };
   if (d.rain >= 50 || d.rdays >= 9) return { lv: 1, label: '가끔 비', text: '가끔 비가 와요. 작은 우산 하나면 충분해요.' };
-  return { lv: 0, label: '맑은 편', text: '비가 거의 안 오는 건기예요.' };
+  return { lv: 0, label: '맑은 편', text: '비가 거의 오지 않는 건기입니다.' };
 }
 
 // 여행하기 좋은지 0~100 (기온 쾌적함 + 비)
@@ -43,9 +43,9 @@ export function travelScore(d) {
 }
 
 export function scoreLabel(s) {
-  if (s >= 75) return { label: '여행하기 좋아요', cls: 'good' };
-  if (s >= 50) return { label: '무난해요', cls: 'ok' };
-  return { label: '조금 아쉬워요', cls: 'bad' };
+  if (s >= 75) return { label: '여행하기 좋음', cls: 'good' };
+  if (s >= 50) return { label: '무난', cls: 'ok' };
+  return { label: '다소 아쉬움', cls: 'bad' };
 }
 
 export function bestMonths(slug, n = 3) {

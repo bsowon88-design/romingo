@@ -31,7 +31,7 @@ const { region, title = '' } = Astro.props;
       })
       .catch(() => {
         wrap.innerHTML = '';
-        wrap.append(el('p', 'kwait', '⏳ 예보를 준비하고 있어요. 몇 시간 안에 채워져요.'));
+        wrap.append(el('p', 'kwait', '⏳ 예보 준비 중 · 몇 시간 안에 표시됩니다.'));
       });
   });
 </script>

@@ -20,8 +20,8 @@ const title = `${kstDate(q.time)} ${region} 규모 ${q.mag.toFixed(1)} 지진`;
 const desc = `${kstDateTime(q.time)}(한국 시간) ${where}에서 규모 ${q.mag.toFixed(1)} 지진이 났어요. 깊이 ${q.depth}km${q.tsunami ? ', 쓰나미 관련 안내 발표' : ''}. 여행자가 확인할 내용을 정리했어요.`;
 
 let guide;
-if (q.mag >= 7) guide = '아주 큰 지진이에요. 여진과 쓰나미 관련 발표가 이어질 수 있어요. 이 지역 여행 예정이면 항공사·숙소 공지와 외교부 안내를 꼭 확인하세요.';
-else if (q.mag >= 6) guide = '건물 피해가 날 수 있는 세기예요. 진앙과 가까운 지역 여행 예정이면 현지 공지와 교통 운행 상황을 확인하세요.';
+if (q.mag >= 7) guide = '규모가 매우 큰 지진입니다. 여진과 쓰나미 관련 발표가 이어질 수 있습니다. 이 지역을 여행할 예정이라면 항공사·숙소 공지와 외교부 안내를 꼭 확인하세요.';
+else if (q.mag >= 6) guide = '건물 피해가 발생할 수 있는 규모입니다. 진앙과 가까운 지역을 여행할 예정이라면 현지 공지와 교통 운행 상황을 확인하세요.';
 else guide = '진앙 가까이에서는 흔들림을 느낄 수 있어요. 피해 정도는 지역마다 다르니 여행 지역과 거리를 확인해 보세요.';
 
 const d = 1.5;
@@ -41,7 +41,7 @@ const near = quakes
       <dt>위치</dt><dd>{where}<br /><small class="muted">{q.place}</small></dd>
       <dt>시각</dt><dd>{kstDateTime(q.time)} (한국 시간)</dd>
       <dt>깊이</dt><dd>{q.depth}km {q.depth < 70 ? '(얕은 지진 — 흔들림이 크게 느껴질 수 있어요)' : ''}</dd>
-      {q.tsunami ? <><dt>쓰나미</dt><dd>쓰나미 관련 안내가 발표된 지진이에요. (실제로 쓰나미가 왔다는 뜻은 아니에요)</dd></> : null}
+      {q.tsunami ? <><dt>쓰나미</dt><dd>쓰나미 관련 안내가 발표된 지진입니다. (실제 쓰나미 발생을 뜻하지는 않습니다)</dd></> : null}
     </dl>
   </section>
 

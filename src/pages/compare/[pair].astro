@@ -28,7 +28,7 @@ const desc = `${A.ko}${josa(A.ko, '과', '와')} ${B.ko} 어디가 좋을까? ${
   </PageBanner>
   <ul class="sum card">
     {[A, B].map((c) => <li><b>{c.ko}</b> — {nowM}월 낮 {w(c)?.[0]}° · 밤 {w(c)?.[1]}°, {w(c)?.[5]} · 비행 {ft(c.fm)} · 좋은 달 {bestOf(c).map((m) => `${m}월`).join('·')}</li>)}
-    <li class="muted">{same ? `둘 다 ${A.co}라 시차·환율·전압은 같아요.` : `${A.co}${josa(A.co, '과', '와')} ${B.co}는 시차·환율·전압이 달라요. 아래 표에서 확인하세요.`} 비행시간은 서울 기준 어림값이에요.</li>
+    <li class="muted">{same ? `둘 다 ${A.co}라 시차·환율·전압은 같아요.` : `${A.co}${josa(A.co, '과', '와')} ${B.co}는 시차·환율·전압이 달라요. 아래 표에서 확인하세요.`} 비행시간은 서울 기준 추정값입니다.</li>
   </ul>
   <CompareTool a={a} b={b} />
 </Base>

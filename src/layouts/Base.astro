@@ -86,10 +86,10 @@ const isOn = (href) => (href === '/' ? path === '/' : path.startsWith(href) || (
     <div class="sbox-in">
       <div class="sbar">
         <Icon name="search" size={20} />
-        <input id="sq" type="search" placeholder="나라나 도시 (예: 다낭, 오사카, japan)" autocomplete="off" />
+        <input id="sq" type="search" placeholder="나라·도시·국내 여행지 (예: 다낭, 강릉)" autocomplete="off" />
         <button id="sclose" aria-label="닫기"><Icon name="x" size={22} /></button>
       </div>
-      <div id="sres" class="sres"><p class="shint">나라나 도시 이름을 쳐 보세요.</p></div>
+      <div id="sres" class="sres"><p class="shint">나라·도시나 국내 여행지 이름을 쳐 보세요.</p></div>
     </div>
   </div>
   <script type="application/json" id="sidx" set:html={JSON.stringify(SEARCH_INDEX)}></script>
@@ -166,17 +166,52 @@ const isOn = (href) => (href === '/' ? path === '/' : path.startsWith(href) || (
       return n;
     };
 
+    // 국내 여행지 검색 자료 — 처음 칠 때 한 번만 불러옴
+    let KR: any = null;
+    let krLoading: Promise<void> | null = null;
+    const loadKr = (again: () => void) => {
+      if (KR || krLoading) return;
+      krLoading = fetch('/kr-search.json').then((r) => r.json()).then((j) => { KR = j; again(); }).catch(() => { KR = { r: [], d: [], f: [], p: [] }; });
+    };
+    const fmtMD = (s: string) => `${+s.slice(4, 6)}.${+s.slice(6, 8)}`;
+    // 국내 결과 묶음 (없으면 null)
+    function krGroup(t: string) {
+      if (!KR) return null;
+      const has = (x: string) => x.replace(/\s/g, '').toLowerCase().includes(t);
+      const regs = KR.r.filter((r: any) => has(r[1]) || has(r[2]));
+      const dists = t.length >= 2 ? KR.d.filter((d: any) => has(d[0])).slice(0, 4) : [];
+      const fests = t.length >= 2 ? KR.f.filter((f: any) => has(f[1]) || has(f[3])).slice(0, 4) : [];
+      const places = t.length >= 2 ? KR.p.filter((p: any) => has(p[1])).slice(0, 6) : [];
+      if (!regs.length && !dists.length && !fests.length && !places.length) return null;
+      const g = el('div', 'sgrp');
+      const head = el('a', 'shead', '', '/domestic/');
+      head.append(el('span', 'skr', '🇰🇷'), el('b', '', '국내여행'), el('span', 'sgo', '국내여행 홈 →'));
+      g.append(head);
+      const list = el('div', 'slinks');
+      for (const r of regs) list.append(el('a', 'sl', `🗺️ ${r[1]} 여행 · 가볼 만한 곳·축제·날씨`, `/domestic/${r[0]}/`));
+      for (const d of dists) list.append(el('a', 'sl', `📍 ${d[2]} ${d[0]} 가볼 만한 곳`, `/domestic/${d[1]}/?d=${encodeURIComponent(d[0])}#places`));
+      for (const f of fests) list.append(el('a', 'sl', `🎉 ${f[1]} · ${fmtMD(f[4])}~${fmtMD(f[5])} ${f[2]}`, `/domestic/festival/${f[0]}/`));
+      for (const p of places) list.append(el('a', 'sl', `🏞️ ${p[1]} · ${p[4]} ${p[2]} ${p[3]}`, `/domestic/place/${p[0]}/`));
+      g.append(list);
+      return g;
+    }
+
     function render(text: string, res: HTMLElement | null) {
       if (!res) return;
       const t = text.trim().toLowerCase().replace(/\s+/g, '');
       res.replaceChildren();
-      if (!t) { res.append(el('p', 'shint', '나라나 도시 이름을 쳐 보세요.')); return; }
+      if (!t) { res.append(el('p', 'shint', '나라·도시나 국내 여행지 이름을 쳐 보세요.')); return; }
+      res.dataset.q = text;
+      loadKr(() => { if (res.dataset.q === text) render(text, res); });
+      const kr = krGroup(t);
       const hits = [];
       for (const c of idx()) {
         const cHit = c.k.replace(/\s/g, '').includes(t) || c.e.replace(/\s/g, '').includes(t);
         const cityHits = c.c.filter((x) => x.k.replace(/\s/g, '').includes(t) || x.s.includes(t) || x.e.replace(/\s/g, '').includes(t));
         if (cHit || cityHits.length) hits.push({ c, cityHits, cHit });
       }
+      if (!hits.length && kr) { res.append(kr); return; }
+      if (!hits.length && !KR) { res.append(el('p', 'shint', '찾는 중…')); return; }
       if (!hits.length) {
         // 트립베리에 없는 나라 → 외교부 여행경보라도 보여 주고 외교부로 연결
         let A: any = { a: [], l: {}, u: '' };
@@ -224,6 +259,7 @@ const isOn = (href) => (href === '/' ? path === '/' : path.startsWith(href) || (
         g.append(list);
         res.append(g);
       }
+      if (kr) res.append(kr);
     }
     q?.addEventListener('input', () => render(q.value, res));
     q?.addEventListener('keydown', (e) => {
@@ -377,6 +413,7 @@ const isOn = (href) => (href === '/' ? path === '/' : path.startsWith(href) || (
   .sl { display: block; text-decoration: none; padding: 7px 8px; border-radius: 8px; font-size: 15px; }
   a.sl:hover { background: #FFF0E6; }
   .wrow a { color: var(--sea); text-decoration: none; font-weight: 600; }
+  .skr { font-size: 20px; line-height: 1; }
   body.noscroll { overflow: hidden; }
   .isearch { position: relative; }
   .ires { position: absolute; left: 0; right: 0; top: calc(100% + 6px); z-index: 30; background: #fff; border: 1px solid var(--line); border-radius: 16px; box-shadow: 0 16px 40px rgba(90,50,30,.18); max-height: 70vh; }

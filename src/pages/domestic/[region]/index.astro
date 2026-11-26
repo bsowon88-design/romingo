@@ -92,6 +92,9 @@ const top = places.slice(0, 3).map((p) => p.t.replace(/\s*\[.*?\]\s*/g, ' ').tri
   th?.addEventListener('click', (e) => { const b = (e.target as HTMLElement).closest('button'); if (b) { t = b.dataset.t || ''; show = STEP; apply(); } });
   sel?.addEventListener('change', () => { show = STEP; apply(); });
   more.addEventListener('click', () => { show += 24; apply(); });
+  // 검색에서 시·군·구로 들어오면 (?d=강릉시) 그 시·군·구만
+  const dq = new URLSearchParams(location.search).get('d');
+  if (dq && sel && [...sel.options].some((o) => o.value === dq)) sel.value = dq;
   apply();
 </script>
 

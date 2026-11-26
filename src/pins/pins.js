@@ -180,6 +180,20 @@ export function pinList() {
         svg: () => cityCard(c),
       });
     }
+    // 4번째 카드: 거꾸로 도는 순서(인스타·페이스북이 서로 다른 카드를 쓰도록 하루 4장)
+    const used = new Set([0, 1, 2].map((k) => (d * 3 + k) % N));
+    let r = ((N - 1 - d) % N + N) % N;
+    while (used.has(r)) r = (r + N - 1) % N;
+    const c = GUIDE_CITIES[r];
+    const g = guideByCity[c.slug];
+    out.push({
+      id: `guide-${c.slug}-r${d}`,
+      date: dayDate(d),
+      title: `${c.ko} 여행 준비 - 날씨 좋은 달·꼭 가볼 곳·공항 가는 법`,
+      desc: `${g.intro} 언제 가면 좋은지, 어디부터 둘러볼지 트립베리 가이드에 정리했어요. #${c.ko}여행 #${bySlug[c.country]?.ko || ''}여행 #여행준비 #해외여행`,
+      link: `https://tripberry.kr/guide/${c.slug}/`,
+      svg: () => cityCard(c),
+    });
   }
   const fests = festWeekend();
   if (fests.length >= 3) {

@@ -1,4 +1,4 @@
-// 페이스북 페이지(트립베리) 자동 게시 — 하루 1번 (.github/workflows/facebook.yml)
+// 페이스북 페이지(트립베리) 자동 게시 — 하루 2번 (.github/workflows/facebook.yml)
 // 핀터레스트 RSS(https://tripberry.kr/pins.xml)의 카드(/pins/ig/<id>.jpg)에 누를 수 있는 링크를 붙여 올림.
 // 최근 게시물에 같은 링크가 있으면 건너뜀.
 // 필요한 비밀 값: FB_TOKEN (GitHub Secrets) — 페이지 토큰 또는 시스템 사용자 토큰
@@ -52,17 +52,23 @@ async function main() {
     recent = (j.data || []).map((p) => p.message || '').join('\n');
   } catch (e) { console.log('최근 게시물 확인 실패:', e.message); }
 
-  const dow = new Date(Date.now() + 9 * 3600e3).getUTCDay();
-  const city = items.filter((x) => x.id.startsWith('guide-')).sort((a, b) => b.date - a.date);
+  const kst = new Date(Date.now() + 9 * 3600e3);
+  const dow = kst.getUTCDay();
+  const pm = kst.getUTCHours() >= 15; // 하루 2번: 낮에는 도시 가이드, 저녁에는 요일별(축제·이달의 여행지·도시)
+  // 인스타·페이스북이 같은 카드를 쓰지 않도록 하루 4장 중 인스타는 1·3번째, 페이스북은 2·4번째
+  const seen = {};
+  const city = items.filter((x) => x.id.startsWith('guide-'))
+    .filter((x) => { const k = x.date.toISOString(); seen[k] = (seen[k] ?? -1) + 1; return seen[k] % 2 === 1; })
+    .sort((a, b) => b.date - a.date);
   const fest = items.filter((x) => x.id.startsWith('fest-'));
   const best = items.filter((x) => x.id.startsWith('best-'));
-  const order = dow >= 4 && dow <= 6 ? [...fest, ...city] : dow === 1 ? [...best, ...city] : city;
+  const order = !pm ? city : dow >= 4 && dow <= 6 ? [...fest, ...city] : city; // 이달의 여행지 카드는 인스타
   const pick = order.find((x) => x.link && !recent.includes(x.link));
   if (!pick) { console.log('새로 올릴 카드가 없어요'); return; }
 
   const body = pick.desc.replace(/\s*#\S+/g, '').trim();
   const tags = [...new Set([...(pick.desc.match(/#\S+/g) || []).slice(0, 2), '#트립베리', '#여행정보'])].join(' ');
-  const message = `${pick.title}\n\n${body}\n\n👉 ${pick.link}\n\n${tags}`;
+  const message = `📍 ${pick.title}\n\n${body}\n\n자세히 보기 👉 ${pick.link}\n\n${tags}`;
   const img = `https://tripberry.kr/pins/ig/${pick.id}.jpg`;
   console.log(`올릴 카드: ${pick.id}\n${img}\n${message}`);
   if (DRY) return;

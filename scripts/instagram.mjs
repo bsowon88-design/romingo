@@ -1,4 +1,4 @@
-// 인스타그램(@tripberry.kr) 자동 게시 — 하루 1번 (.github/workflows/instagram.yml)
+// 인스타그램(@tripberry.kr) 자동 게시 — 하루 2번 (.github/workflows/instagram.yml)
 // 핀터레스트 RSS(https://tripberry.kr/pins.xml)의 카드를 인스타 비율(1080×1350 JPG, /pins/ig/<id>.jpg)로 올림.
 // 최근 게시물 설명에 같은 카드 표시(🔖id)가 있으면 건너뜀.
 // 필요한 비밀 값: IG_TOKEN (GitHub Secrets)
@@ -47,11 +47,17 @@ async function main() {
     recent = (j.data || []).map((p) => p.caption || '').join('\n');
   } catch (e) { console.log('최근 게시물 확인 실패:', e.message); }
 
-  const dow = new Date(Date.now() + 9 * 3600e3).getUTCDay();
-  const city = items.filter((x) => x.id.startsWith('guide-')).sort((a, b) => b.date - a.date);
+  const kst = new Date(Date.now() + 9 * 3600e3);
+  const dow = kst.getUTCDay();
+  const pm = kst.getUTCHours() >= 15; // 하루 2번: 낮에는 도시 가이드, 저녁에는 요일별(축제·이달의 여행지·도시)
+  // 인스타·페이스북이 같은 카드를 쓰지 않도록 하루 4장 중 인스타는 1·3번째, 페이스북은 2·4번째
+  const seen = {};
+  const city = items.filter((x) => x.id.startsWith('guide-'))
+    .filter((x) => { const k = x.date.toISOString(); seen[k] = (seen[k] ?? -1) + 1; return seen[k] % 2 === 0; })
+    .sort((a, b) => b.date - a.date);
   const fest = items.filter((x) => x.id.startsWith('fest-'));
   const best = items.filter((x) => x.id.startsWith('best-'));
-  const order = dow >= 4 && dow <= 6 ? [...fest, ...city] : dow === 1 ? [...best, ...city] : city;
+  const order = !pm ? city : dow === 1 ? [...best, ...city] : city; // 축제 카드는 페이스북(링크 누를 수 있음)
   const pick = order.find((x) => !recent.includes(`🔖${x.id}`));
   if (!pick) { console.log('새로 올릴 카드가 없어요'); return; }
 

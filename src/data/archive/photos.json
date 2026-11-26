@@ -4008,5 +4008,125 @@
   "userUrl": "https://unsplash.com/@cobblepot",
   "page": "https://unsplash.com/photos/buddha-statue-G4fZjI14WpU",
   "pick": 0
+ },
+ "spot:kohsamui:3": {
+  "id": "rFBCIbx0jss",
+  "raw": "https://images.unsplash.com/photo-1647675309048-7bcdc81af7cc?ixid=M3wxMTQzNTA5fDB8MXxzZWFyY2h8MXx8RmlzaGVybWFucyUyMFZpbGxhZ2UlMjBCb3BodXR8ZW58MXwwfHx8MTc5NTczMDI1OHww&ixlib=rb-4.1.0",
+  "color": "#262626",
+  "alt": "a group of people standing next to a body of water",
+  "name": "Aditya Gupta",
+  "userUrl": "https://unsplash.com/@ghumanto_",
+  "page": "https://unsplash.com/photos/a-group-of-people-standing-next-to-a-body-of-water-rFBCIbx0jss",
+  "pick": 0
+ },
+ "spot:kohsamui:4": {
+  "id": "9mhfEEjKIm8",
+  "raw": "https://images.unsplash.com/photo-1682517164517-90f56a89743b?ixid=M3wxMTQzNTA5fDB8MXxzZWFyY2h8MXx8SGluJTIwVGElMjBIaW4lMjBZYWklMjBLb2glMjBTYW11aXxlbnwxfDB8fHwxNzk1NzMwMjU4fDA&ixlib=rb-4.1.0",
+  "color": "#a6c0f3",
+  "alt": "A body of water surrounded by trees and rocks",
+  "name": "Martti Salmi",
+  "userUrl": "https://unsplash.com/@marttisalmi",
+  "page": "https://unsplash.com/photos/a-body-of-water-surrounded-by-trees-and-rocks-9mhfEEjKIm8",
+  "pick": 0
+ },
+ "spot:bohol:0": {
+  "id": "qg_bHLQuC0I",
+  "raw": "https://images.unsplash.com/photo-1476988186444-a7189cf07b3f?ixid=M3wxMTQzNTA5fDB8MXxzZWFyY2h8MXx8Q2hvY29sYXRlJTIwSGlsbHMlMjBCb2hvbHxlbnwxfDB8fHwxNzk1NzMwMjU5fDA&ixlib=rb-4.1.0",
+  "color": "#c0d9d9",
+  "alt": "green mountain",
+  "name": "Jakob Owens",
+  "userUrl": "https://unsplash.com/@jakobowens1",
+  "page": "https://unsplash.com/photos/green-mountain-qg_bHLQuC0I",
+  "pick": 0
+ },
+ "spot:bohol:1": {
+  "id": "8_zEhDQuhG0",
+  "raw": "https://images.unsplash.com/flagged/photo-1557958565-080cf03087e8?ixid=M3wxMTQzNTA5fDB8MXxzZWFyY2h8MXx8UGhpbGlwcGluZSUyMHRhcnNpZXIlMjBCb2hvbHxlbnwxfDB8fHwxNzk1NzMwMjU5fDA&ixlib=rb-4.1.0",
+  "color": "#262626",
+  "alt": "tarsier on tree",
+  "name": "Nick Kulyakhtin",
+  "userUrl": "https://unsplash.com/@hardsurface",
+  "page": "https://unsplash.com/photos/tarsier-on-tree-8_zEhDQuhG0",
+  "pick": 0
+ },
+ "spot:bohol:2": {
+  "id": "KrF0WvXhr1Y",
+  "raw": "https://images.unsplash.com/photo-1741717609743-a830b59a58ba?ixid=M3wxMTQzNTA5fDB8MXxzZWFyY2h8MXx8TG9ib2MlMjByaXZlciUyMGNydWlzZXxlbnwxfDB8fHwxNzk1NzMwMjU5fDA&ixlib=rb-4.1.0",
+  "color": "#0c260c",
+  "alt": "Scenic river with boats and lush greenery surrounds",
+  "name": "Alice Kotlyarenko",
+  "userUrl": "https://unsplash.com/@onegrandtrip",
+  "page": "https://unsplash.com/photos/scenic-river-with-boats-and-lush-greenery-surrounds-KrF0WvXhr1Y",
+  "pick": 0
+ },
+ "spot:bohol:3": {
+  "id": "yr6GhjHDk0Q",
+  "raw": "https://images.unsplash.com/photo-1753029054860-cd6466a78958?ixid=M3wxMTQzNTA5fDB8MXxzZWFyY2h8MXx8QmFsaWNhc2FnJTIwaXNsYW5kfGVufDF8MHx8fDE3OTU3MzAyNjB8MA&ixlib=rb-4.1.0",
+  "color": "#d9f3f3",
+  "alt": "A beautiful island is surrounded by turquoise waters",
+  "name": "Adam Juman",
+  "userUrl": "https://unsplash.com/@jumanjiphotos",
+  "page": "https://unsplash.com/photos/a-beautiful-island-is-surrounded-by-turquoise-waters-yr6GhjHDk0Q",
+  "pick": 0
+ },
+ "spot:bohol:4": {
+  "id": "Bq8LJBue4vY",
+  "raw": "https://images.unsplash.com/photo-1574244980072-fe5f32c4676b?ixid=M3wxMTQzNTA5fDB8MXxzZWFyY2h8MXx8QWxvbmElMjBiZWFjaHxlbnwxfDB8fHwxNzk1NzMwMjYxfDA&ixlib=rb-4.1.0",
+  "color": "#0ca6f3",
+  "alt": "underwater photo of seaweeds",
+  "name": "Olga ga",
+  "userUrl": "https://unsplash.com/@olgaga",
+  "page": "https://unsplash.com/photos/underwater-photo-of-seaweeds-Bq8LJBue4vY",
+  "pick": 0
+ },
+ "spot:manila:0": {
+  "id": "TBDUapl7H_4",
+  "raw": "https://images.unsplash.com/photo-1736122094944-da4deea774ab?ixid=M3wxMTQzNTA5fDB8MXxzZWFyY2h8MXx8SW50cmFtdXJvcyUyME1hbmlsYXxlbnwxfDB8fHwxNzk1NzMwMjYxfDA&ixlib=rb-4.1.0",
+  "color": "#f3f3f3",
+  "alt": "A stone gate with a clock tower in the background",
+  "name": "German Rivera De La Torre",
+  "userUrl": "https://unsplash.com/@potato_traveler",
+  "page": "https://unsplash.com/photos/a-stone-gate-with-a-clock-tower-in-the-background-TBDUapl7H_4",
+  "pick": 0
+ },
+ "spot:manila:1": {
+  "id": "2jW-z_DQDpQ",
+  "raw": "https://images.unsplash.com/photo-1613901877667-dc0154f14358?ixid=M3wxMTQzNTA5fDB8MXxzZWFyY2h8MXx8Rm9ydCUyMFNhbnRpYWdvJTIwTWFuaWxhfGVufDF8MHx8fDE3OTU3MzAyNjF8MA&ixlib=rb-4.1.0",
+  "color": "#a6c0c0",
+  "alt": "blue and white boat on water near city buildings during daytime",
+  "name": "Wander Fleur",
+  "userUrl": "https://unsplash.com/@wanderfleur",
+  "page": "https://unsplash.com/photos/blue-and-white-boat-on-water-near-city-buildings-during-daytime-2jW-z_DQDpQ",
+  "pick": 0
+ },
+ "spot:manila:2": {
+  "id": "iU--vL-eynM",
+  "raw": "https://images.unsplash.com/photo-1638751260202-2e0e7839a9e6?ixid=M3wxMTQzNTA5fDB8MXxzZWFyY2h8MXx8TWFuaWxhJTIwQ2F0aGVkcmFsfGVufDF8MHx8fDE3OTU3MzAyNjJ8MA&ixlib=rb-4.1.0",
+  "color": "#a6c0c0",
+  "alt": "a large building with a green dome on top of it",
+  "name": "Kevin Rein Bantang",
+  "userUrl": "https://unsplash.com/@kevinrein05",
+  "page": "https://unsplash.com/photos/a-large-building-with-a-green-dome-on-top-of-it-iU--vL-eynM",
+  "pick": 0
+ },
+ "spot:manila:3": {
+  "id": "oM79-BEzKrM",
+  "raw": "https://images.unsplash.com/photo-1710956298942-e9976856d32a?ixid=M3wxMTQzNTA5fDB8MXxzZWFyY2h8MXx8Uml6YWwlMjBQYXJrJTIwTWFuaWxhfGVufDF8MHx8fDE3OTU3MzAyNjJ8MA&ixlib=rb-4.1.0",
+  "color": "#8cc00c",
+  "alt": "a bunch of blue flowers that are in the grass",
+  "name": "Aeron Oracion",
+  "userUrl": "https://unsplash.com/@aoracion27",
+  "page": "https://unsplash.com/photos/a-bunch-of-blue-flowers-that-are-in-the-grass-oM79-BEzKrM",
+  "pick": 0
+ },
+ "spot:manila:4": {
+  "id": "tKiaYOzmszQ",
+  "raw": "https://images.unsplash.com/photo-1555814663-40be19597593?ixid=M3wxMTQzNTA5fDB8MXxzZWFyY2h8MXx8TWFuaWxhJTIwQmF5JTIwc3Vuc2V0fGVufDF8MHx8fDE3OTU3MzAyNjN8MA&ixlib=rb-4.1.0",
+  "color": "#595959",
+  "alt": "high rise building near body of water",
+  "name": "Michael Buillerey",
+  "userUrl": "https://unsplash.com/@mbcaptures",
+  "page": "https://unsplash.com/photos/high-rise-building-near-body-of-water-tKiaYOzmszQ",
+  "pick": 0
  }
 }

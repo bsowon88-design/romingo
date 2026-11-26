@@ -1,7 +1,7 @@
 {
  "meta": {
   "day": "2026-11-26",
-  "units": 816
+  "units": 1326
  },
  "cities": {
   "tokyo": {
@@ -6478,6 +6478,391 @@
      "views": 2576,
      "at": "2026-04-21",
      "dur": 1424
+    }
+   ]
+  },
+  "auckland": {
+   "at": "2026-11-26T02:56:12.540Z",
+   "list": [
+    {
+     "id": "eHV8XvP9ePI",
+     "t": "지금 오클랜드를 가야하는 이유 ✈️ 뉴질랜드 오클랜드 추천 여행 일정 총정리 / 클로즈업",
+     "ch": "스튜디오KE [STUDIO KE]",
+     "cid": "UCVn4RmpptjdAmizuuB1Z0YQ",
+     "views": 24413,
+     "at": "2026-01-19",
+     "dur": 369
+    },
+    {
+     "id": "JttbVJPZkHs",
+     "t": "9박 10일 뉴질랜드 신혼여행 (렌트카/남섬/퀸스타운/와나카/푸카키/테카포/오클랜드) ",
+     "ch": "한 숟갈 순간",
+     "cid": "UC3bIOKw6kat4m1s2EJ_vEtQ",
+     "views": 12477,
+     "at": "2025-11-28",
+     "dur": 1909
+    },
+    {
+     "id": "8ivSrF6WTJc",
+     "t": "[뉴질랜드 골프여행 시즌2] #1 북섬 골프여행 시작! 오클랜드 근교 골프장 3곳 탐방 South Head GC -·Redwood Park GC - Waitakere GC 후기",
+     "ch": "여행보단 골프",
+     "cid": "UCcp9RNCAQJlJtk72H2pGfgw",
+     "views": 5521,
+     "at": "2026-05-27",
+     "dur": 777
+    },
+    {
+     "id": "y-oc5rSObb8",
+     "t": "뉴질랜드 오클랜드 시티 8년 후 모습 그리고 주 $750 집 구경 EP05",
+     "ch": "On Lee Family [Only패밀리]",
+     "cid": "UCCdkbJzt5gM4IFZw2FI-UqA",
+     "views": 5275,
+     "at": "2026-03-17",
+     "dur": 904
+    },
+    {
+     "id": "Lhf9Bz1QSRU",
+     "t": "🇳🇿 뉴질랜드 여행 브이로그 | 오클랜드 북섬 여행, 맛집·기념품·농구 직관까지",
+     "ch": "떠나연",
+     "cid": "UCtTxi4Og0OFcOgV-XQlDviA",
+     "views": 2170,
+     "at": "2026-08-08",
+     "dur": 1302
+    },
+    {
+     "id": "y8-aFcJetU0",
+     "t": "뉴질랜드 신혼여행 ep01 | 오길 잘했다! 북섬 오클랜드 시내투어 & 남섬 퀸즈타운 (루지, 데본포트, 디어파크하이츠 강추)",
+     "ch": "킹쨉이",
+     "cid": "UCsezXtNSWK2INfHcEGPeuUg",
+     "views": 2068,
+     "at": "2026-03-08",
+     "dur": 1251
+    },
+    {
+     "id": "unJ0GVXPMOM",
+     "t": "🇳🇿뉴질랜드 신혼여행 VLOG) 오클랜드 동화같은 숙소와 현지 마트 점령후기🤤",
+     "ch": "하고마니 HagoMani",
+     "cid": "UCQqZzb6Jm7Gp0M8X7GJivsg",
+     "views": 1394,
+     "at": "2026-04-19",
+     "dur": 2030
+    },
+    {
+     "id": "4Z4XgFMRRys",
+     "t": "[Vlog] 엄마랑 둘이 떠난 뉴질랜드 브이로그 🇳🇿 | 북섬 코스 추천 | 대자연 끝판왕 🐏 | 천국 같던 와이헤케섬🏝️, 오클랜드, 로토루아 호수, 와이너리 투어 ",
+     "ch": "라이프안 Lifeahn",
+     "cid": "UCLlSEMS_ZOxEx96JrZj_BcA",
+     "views": 1387,
+     "at": "2026-08-23",
+     "dur": 1036
+    }
+   ]
+  },
+  "queenstown": {
+   "at": "2026-11-26T02:56:13.253Z",
+   "list": [
+    {
+     "id": "lzP_uSrbSNY",
+     "t": "물가 미쳐버린 극성수기 뉴질랜드 여행🥵🇳🇿 액티비티 완전 정복(ft.패러글라이딩&루지) • 퍼그버거🍔 • 애로우마을 • 퀸스타운 한식집 • 뉴질랜드 기념품 • 마트털기🥩",
+     "ch": "콩빈Cong Been",
+     "cid": "UCTmK4iKaaLWfh2gXrt1fH9g",
+     "views": 69373,
+     "at": "2026-02-09",
+     "dur": 1467
+    },
+    {
+     "id": "JttbVJPZkHs",
+     "t": "9박 10일 뉴질랜드 신혼여행 (렌트카/남섬/퀸스타운/와나카/푸카키/테카포/오클랜드) ",
+     "ch": "한 숟갈 순간",
+     "cid": "UC3bIOKw6kat4m1s2EJ_vEtQ",
+     "views": 12477,
+     "at": "2025-11-28",
+     "dur": 1909
+    },
+    {
+     "id": "-Z2TP5F1lFc",
+     "t": "뉴질랜드 여행 4인가족 퀸스타운부터 밀포드 사운드까지 생생한 후기! 🇳🇿",
+     "ch": "올트(all_travelday)",
+     "cid": "UCRFcjIb9ZGc9Tk7no-dmMAQ",
+     "views": 11173,
+     "at": "2026-09-06",
+     "dur": 1081
+    },
+    {
+     "id": "4woVFahNffo",
+     "t": "[🇳🇿신혼여행 브이로그 Ep.01-1]ㅣ뉴질랜드 신혼여행ㅣ입국절차ㅣ뉴질랜드 여행전 필수시청ㅣ퀸스타운 가성비 숙소ㅣ와카티푸 호수ㅣ퀸스타운 맛집ㅣ퍼그버그ㅣ",
+     "ch": "고양이부부의 지구생활",
+     "cid": "UCHsGO4Y1ETk_1cZVMVqhDUA",
+     "views": 6718,
+     "at": "2026-02-22",
+     "dur": 1755
+    },
+    {
+     "id": "w0ECl_lwb6k",
+     "t": "[🇳🇿뉴질랜드 남섬] 퀸스타운 3박 4일 맛집 뿌시기부터 밀포드사운드 압도적 스케일까지!!  (feat. 키위새 보기 꿀팁)",
+     "ch": "그리고여행 gleego",
+     "cid": "UCkmli6dg3Fi25vVLRaCmtsg",
+     "views": 5534,
+     "at": "2026-06-27",
+     "dur": 1563
+    },
+    {
+     "id": "QSdw_f_eW1g",
+     "t": "뉴질랜드 남섬 7박9일 신혼여행🇳🇿 [ep.1] 퀸스타운 맛집 • 기념품샵 추천 • 와카티푸호수 • 온센핫풀",
+     "ch": "우리집정원으로놀러와",
+     "cid": "UCFnoRb1XRDr4KwMjOiLZfzw",
+     "views": 5464,
+     "at": "2026-02-17",
+     "dur": 614
+    },
+    {
+     "id": "h6IM9mxR-II",
+     "t": "[4K] 뉴질랜드 남섬 여행 (퀸스타운 | 온센핫풀 | 루지) - 12월의 신혼여행(5)",
+     "ch": "이스트 레이닝 East Raining",
+     "cid": "UC3--ajKebM2OPDbVbdit8wQ",
+     "views": 4064,
+     "at": "2025-12-26",
+     "dur": 532
+    },
+    {
+     "id": "mZIFZ2jwga0",
+     "t": "🇳🇿뉴질랜드 남섬 여행  Ep.1/ 웃다 배꼽빠지는 퀸스타운 여행 / 스카이라인 루지 / 밀포드 사운드 투어 / 퀸스타운 5박 6일",
+     "ch": "이브박_evepark",
+     "cid": "UCYUCPEuRHez1_zIkc70d7qQ",
+     "views": 3940,
+     "at": "2025-12-18",
+     "dur": 2401
+    }
+   ]
+  },
+  "istanbul": {
+   "at": "2026-11-26T02:56:13.962Z",
+   "list": [
+    {
+     "id": "cEqWLBMhy0A",
+     "t": "맛의 도시 이스탄불 미식 여행 - 튀르키예(下)",
+     "ch": "곽튜브",
+     "cid": "UClRNDVO8093rmRTtLe4GEPw",
+     "views": 1314915,
+     "at": "2026-01-30",
+     "dur": 2596
+    },
+    {
+     "id": "kpUQGqP3fy4",
+     "t": "튀르키예 가면 반드시 먹어야 하는데 육식맨에는 못 올렸던 음식들 (이스탄불 평점 1위)",
+     "ch": "잡식맨 JOBXICMAN",
+     "cid": "UCVILvX9vIp-vMFGmCYJtG3A",
+     "views": 602448,
+     "at": "2026-05-20",
+     "dur": 952
+    },
+    {
+     "id": "qUMMZJeRDaA",
+     "t": "여에스더, 이스탄불에서 행복을 외치다 (현지 메이크업, 쇼핑, 맛집, 아야 소피아, 튀르키예 여행)",
+     "ch": "여에스더의 에스더TV",
+     "cid": "UCbe-PEd4rZPMmITwDvgBj1Q",
+     "views": 438022,
+     "at": "2026-11-06",
+     "dur": 1402
+    },
+    {
+     "id": "fzWwSHxbrgM",
+     "t": "여에스더X홍혜걸 이스탄불 여행기",
+     "ch": "여에스더의 에스더TV",
+     "cid": "UCbe-PEd4rZPMmITwDvgBj1Q",
+     "views": 201997,
+     "at": "2026-10-31",
+     "dur": 4562
+    },
+    {
+     "id": "RNJ8zLi6rFw",
+     "t": "이스탄불 여행 🇹🇷 더 좋아진 이유 | 보스포러스 해협과 맛있는 여행",
+     "ch": "소윤키친 | Soyun",
+     "cid": "UCAQOHum50weWYuDbOZe2Lww",
+     "views": 189557,
+     "at": "2026-11-11",
+     "dur": 441
+    },
+    {
+     "id": "aQfJphSd1cg",
+     "t": "여자 둘이 터키 갔다가 진짜 안 돌아오고 싶었던 이유.. 🇹🇷 🕌 터키 5박7일 Vlog ✈️ #이스탄불 #카파도키아 #페티예",
+     "ch": "여행윤Tripyun",
+     "cid": "UC8kc2va6H18AF-O-NfGgIkw",
+     "views": 143547,
+     "at": "2026-06-26",
+     "dur": 2875
+    },
+    {
+     "id": "rLQEilCvM2w",
+     "t": "낭만 가득했던 튀르키예 여행.∗̥✩⁺˚♡🇹🇷 이스탄불,안탈리아,카쉬까지! 인생여행지 등극이실게 ~ 🌟",
+     "ch": "령령 Ryeongryeong",
+     "cid": "UCp3FqH9y9X2wqGelph2hk9A",
+     "views": 139335,
+     "at": "2026-11-04",
+     "dur": 2428
+    },
+    {
+     "id": "xTRo-XDHJHg",
+     "t": "이스탄불 여행, 왜 이제야 왔을까? | 튀르키예 여행 브이로그 1부",
+     "ch": "소윤키친 | Soyun",
+     "cid": "UCAQOHum50weWYuDbOZe2Lww",
+     "views": 123536,
+     "at": "2026-10-30",
+     "dur": 471
+    }
+   ]
+  },
+  "santorini": {
+   "at": "2026-11-26T02:56:14.870Z",
+   "list": [
+    {
+     "id": "XwVxdRzI4Yc",
+     "t": "동양인이 점령해 버린 산토리니 섬에 한국인이 갔더니? - 🇬🇷유라시아(32)",
+     "ch": "나강 NAkANG",
+     "cid": "UCisYbbOKLN32oQ-lLJcBabA",
+     "views": 182616,
+     "at": "2025-12-07",
+     "dur": 2349
+    },
+    {
+     "id": "xndyTABAKM0",
+     "t": "VLOG🇬🇷산토리니+아테네🩵여기 완전 고양이 천국이잖아..? and 1일1 젤라또 필수🍦",
+     "ch": "세빈 SEBIN",
+     "cid": "UCpOtHjfr_hcAhPTky6OWcHA",
+     "views": 132472,
+     "at": "2026-05-25",
+     "dur": 2312
+    },
+    {
+     "id": "ov97QO0axvU",
+     "t": "그리스 8박 9일 여행 vlog 🏛️🍯 🏝️ 아테네·크레타·산토리니 (관광, 마트 쇼핑 추천템, 비치 클럽🍹)",
+     "ch": "CHACHABBO",
+     "cid": "UCNwit7NodTM9GrQh2z9GgnA",
+     "views": 36773,
+     "at": "2026-07-28",
+     "dur": 1658
+    },
+    {
+     "id": "wARTRNJP3-w",
+     "t": "지중해 여행지 모음ㅣ그리스 산토리니ㅣ이탈리아 베네치아ㅣ프랑스 니스 [걸어서세계속으로] KBS 2020.07.04 방송",
+     "ch": "KBS 트래블-걸어서 세계속으로",
+     "cid": "UCFw4M1BJYYdN1YtS8SzlDzg",
+     "views": 22786,
+     "at": "2026-05-10",
+     "dur": 2859
+    },
+    {
+     "id": "eQ_QiK3NbOY",
+     "t": "그리스 여행 몰아보기⭐️ 산토리니, 크레타, 미코노스, 아테네, 델피, 메테오라🇬🇷",
+     "ch": "재아포핀스 JaeA Poppins",
+     "cid": "UCoowRioScWoWcF420t10BxQ",
+     "views": 19200,
+     "at": "2026-08-22",
+     "dur": 1995
+    },
+    {
+     "id": "ec1Irxk_p48",
+     "t": "🇬🇷1등휴양지 산토리니... 진짜 천국의 섬일까?",
+     "ch": "트래블 메이커 Travel Maker",
+     "cid": "UCoDqzkqxDRGqZHAGAR9ez9A",
+     "views": 17046,
+     "at": "2026-04-18",
+     "dur": 918
+    },
+    {
+     "id": "jfav8cU2U_Y",
+     "t": "15일 그리스 여행 몰아보기🇬🇷 | 고대도시 아테네부터 미감 끝판왕 그리스 섬들까지✨ (아테네, 산토리니, 미코노스)",
+     "ch": "팝홍 pop hong",
+     "cid": "UC99Q0Ib8YjpddcAzAJXWBKw",
+     "views": 15170,
+     "at": "2026-06-07",
+     "dur": 4449
+    },
+    {
+     "id": "AwwbRDpbDj0",
+     "t": "저는 정말 그리스 산토리니로 신혼여행을 다녀온걸까요? 농담!!! #여행 #trip #santorini #style",
+     "ch": "RedBallVictor 레드볼빅터",
+     "cid": "UCSRbmJdBGJXtZBqi7lQRkpA",
+     "views": 11188,
+     "at": "2026-08-14",
+     "dur": 1122
+    }
+   ]
+  },
+  "rome": {
+   "at": "2026-11-26T02:56:15.573Z",
+   "list": [
+    {
+     "id": "fjWnTZqDa-Q",
+     "t": "시작부터 삐그덕대는 유럽 가족여행..(유럽 처음 간 60대 엄마아빠 현실반응ㅋㅋ l 로마 여행브이로그)",
+     "ch": "거누파파네 Dog family",
+     "cid": "UCfFxcJWFHcisvS946HhSaJw",
+     "views": 689709,
+     "at": "2026-11-01",
+     "dur": 3561
+    },
+    {
+     "id": "Ztkk8NDfaSc",
+     "t": "우재 지원의 먹고 걷고 사랑한 로마 5일",
+     "ch": "신우지 SHINWOOJI",
+     "cid": "UCKZyGQXv9xNyW94zmS7UgJA",
+     "views": 350127,
+     "at": "2026-11-15",
+     "dur": 2499
+    },
+    {
+     "id": "skuN5U-8NBo",
+     "t": "오버투어리즘, 소매치기, 높은 물가로 혼란스럽다는 로마 최신 근황",
+     "ch": "시칠리안 SICILIAN",
+     "cid": "UCchu6XLsbV9PISj5b7XArQA",
+     "views": 283414,
+     "at": "2026-06-21",
+     "dur": 2179
+    },
+    {
+     "id": "7Pqhc7P_PkE",
+     "t": "【#TVPP】 로마에 간 광규🤩, 나 홀로 첫 해외여행에 허둥지둥하지만 나름 알찬 여행✈ | 나혼자산다 | TVPP | MBC 131220 방송 외",
+     "ch": "TV-People",
+     "cid": "UC1cWTErb7vw_UmmuB0dYgsQ",
+     "views": 248862,
+     "at": "2025-12-18",
+     "dur": 5392
+    },
+    {
+     "id": "kxwdwNXkJ8o",
+     "t": "VLOG🇮🇹 열심히 먹고 돌아다닌 로마 여행 + 남부투어를 곁들인..🍋 인생 젤라또, 쇼핑, 까르보나라까지",
+     "ch": "세빈 SEBIN",
+     "cid": "UCpOtHjfr_hcAhPTky6OWcHA",
+     "views": 237777,
+     "at": "2026-05-04",
+     "dur": 2401
+    },
+    {
+     "id": "fHK49BGxfVw",
+     "t": "\"밤에 혼자 절대 나가지 마세요” 세계 1위 여행지 로마의 충격적인 두 얼굴 【세계일주 74】",
+     "ch": "태미월드 Tami World",
+     "cid": "UC4YKq-9KMKhhX0yRSrvAUVA",
+     "views": 169757,
+     "at": "2026-01-25",
+     "dur": 1355
+    },
+    {
+     "id": "YobD6OBYToE",
+     "t": "로마에 가면 로마 법을 따르라..🍦 나 홀로 13박14일 유럽 ep.5🇮🇹 이탈리아 최고의 휴양지 포지타노, 폼페이 남부 투어🌞 트레비 분수, 콜로세움, 바티칸 시티 투어까",
+     "ch": "유정 YUJEONG",
+     "cid": "UCBoQ8_HIOVbOA_FuYtTapqA",
+     "views": 144111,
+     "at": "2026-06-20",
+     "dur": 1631
+    },
+    {
+     "id": "GqlPt1YpNRQ",
+     "t": "사진에 진심인 한국인 전용 이탈리아 여행코스. 12년차 국가 공인가이드가 알려주는대로 필수 로마 관광지부터 지중해 풍경 가득담은 휴양지까지 따라가봤더니 | 세계테마기행 | #세테깅",
+     "ch": "EBS 세계테마기행",
+     "cid": "UCbeZPOz8uaHstEIbkqBOnGg",
+     "views": 141336,
+     "at": "2026-05-10",
+     "dur": 4346
     }
    ]
   }

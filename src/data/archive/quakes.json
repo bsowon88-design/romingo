@@ -1,5 +1,29 @@
 [
  {
+  "id": "us6000udjz",
+  "mag": 5,
+  "place": "184 km N of Hicks Bay, New Zealand",
+  "time": 1795658957972,
+  "lat": -35.9,
+  "lon": 178.3,
+  "depth": 10,
+  "tsunami": 0,
+  "alert": null,
+  "url": "https://earthquake.usgs.gov/earthquakes/eventpage/us6000udjz"
+ },
+ {
+  "id": "us6000udjx",
+  "mag": 5.2,
+  "place": "183 km N of Hicks Bay, New Zealand",
+  "time": 1795657724213,
+  "lat": -36,
+  "lon": 178.6,
+  "depth": 13,
+  "tsunami": 0,
+  "alert": null,
+  "url": "https://earthquake.usgs.gov/earthquakes/eventpage/us6000udjx"
+ },
+ {
   "id": "us6000udf2",
   "mag": 5,
   "place": "67 km NNE of Luwuk, Indonesia",
@@ -1634,10 +1658,10 @@
  {
   "id": "us7000ttw5",
   "mag": 5.7,
-  "place": "82 km NE of Kiunga, Papua New Guinea",
-  "time": 1793244402275,
+  "place": "91 km NE of Kiunga, Papua New Guinea",
+  "time": 1793244401929,
   "lat": -5.7,
-  "lon": 141.9,
+  "lon": 142,
   "depth": 10,
   "tsunami": 0,
   "alert": "green",

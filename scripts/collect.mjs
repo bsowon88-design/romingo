@@ -12,6 +12,7 @@ import { fetchYoutube } from './youtube.mjs';
 import { fetchFestivals, fetchPlaces, fetchDetails, kstDate } from './tour.mjs';
 import { pickPlaces } from '../src/data/kr-pick.js';
 import { KR_WX } from '../src/data/kr-regions.js';
+import { fetchRlte } from './rlte.mjs';
 import { updatePopular, fetchTodayFlights } from './icn.mjs';
 import { fetchForecasts } from './forecast.mjs';
 import { mkdir } from 'node:fs/promises';
@@ -35,6 +36,7 @@ const KF_FILE = new URL('../src/data/archive/kr-festivals.json', import.meta.url
 const KP_FILE = new URL('../src/data/archive/kr-places.json', import.meta.url);
 const KT_FILE = new URL('../live/tour.json', import.meta.url);
 const KD_FILE = new URL('../src/data/archive/kr-detail.json', import.meta.url);
+const KR_FILE = new URL('../src/data/archive/kr-popular.json', import.meta.url);
 
 async function readList(file) {
   try {
@@ -244,7 +246,9 @@ if (KEY) {
     const pl = (await readList(KP_FILE)).list || [];
     const oldD = await readList(KD_FILE);
     const baseD = Array.isArray(oldD) ? {} : oldD;
-    const ids = pickPlaces(pl, baseD.d || {}, { cap: 13, min: 7 }).map((o) => o.p.id);
+    let pop = null;
+    try { pop = JSON.parse(await readFile(KR_FILE, 'utf8')).s || null; } catch {}
+    const ids = pickPlaces(pl, baseD.d || {}, { cap: 13, min: 7 }, pop).map((o) => o.p.id);
     const r = await fetchDetails(KEY, baseD, clock, fl, ids);
     if (!r) console.log('상세: 오늘은 이미 받음');
     else {
@@ -256,6 +260,23 @@ if (KEY) {
     }
   } catch (e) {
     console.warn('상세 수집 실패:', e.message);
+  }
+  // 지역별 인기 관광지 (티맵 연관 관광지) — 하루 한 번, 며칠에 걸쳐 전국을 채우고 한 달에 한 번 새로
+  try {
+    const pl = (await readList(KP_FILE)).list || [];
+    let oldR = null;
+    try { oldR = JSON.parse(await readFile(KR_FILE, 'utf8')); } catch {}
+    const r = await fetchRlte(KEY, oldR, clock, pl);
+    if (!r) console.log('연관 관광지: 오늘은 이미 받음');
+    else {
+      if (!r.stop) clock.rlte = kstDate();
+      if (r.done && JSON.stringify(r.out) !== JSON.stringify(oldR)) {
+        await writeFile(KR_FILE, JSON.stringify(r.out) + '\n');
+        changed = true;
+      }
+    }
+  } catch (e) {
+    console.warn('연관 관광지 수집 실패:', e.message);
   }
   await mkdir(LIVE_DIR, { recursive: true });
   await writeFile(KT_FILE, JSON.stringify(clock) + '\n');

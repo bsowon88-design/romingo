@@ -8,6 +8,9 @@ import { pickPlaces, buildDistricts, districtKey } from './kr-pick.js';
 const dmod = import.meta.glob('./archive/kr-detail.json', { eager: true });
 const DETAIL = Object.values(dmod)[0]?.default?.d || {};
 export const detailOf = (id) => DETAIL[id] || null;
+// 지역별 인기 순위 (티맵 연관 관광지, 한 달에 한 번) — 없으면 이름·분류 점수로만 고름
+const pmod = import.meta.glob('./archive/kr-popular.json', { eager: true });
+const POP = Object.values(pmod)[0]?.default?.s || null;
 
 export { KR_REGIONS };
 export const regionBySlug = Object.fromEntries(KR_REGIONS.map((r) => [r.slug, r]));
@@ -85,7 +88,7 @@ export const themeOf = (c3) => (THEMES.find(([, , re]) => re.test(c3 || '')) || 
 // ── 관광지 (골라 둔 곳만) ──
 const ALL_PLACES = places?.list || [];
 const DIST = buildDistricts(ALL_PLACES);
-export const PLACES = pickPlaces(ALL_PLACES, DETAIL, { cap: 13, min: 7 })
+export const PLACES = pickPlaces(ALL_PLACES, DETAIL, { cap: 13, min: 7 }, POP)
   .map(({ p, sc, name }) => ({ ...p, sc, dist: name, region: regionOf(p) }))
   .filter((p) => p.region);
 export const placeById = Object.fromEntries(PLACES.map((p) => [p.id, p]));

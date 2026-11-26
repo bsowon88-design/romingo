@@ -75,8 +75,24 @@ const MINUS = [
   [/\(?폐쇄\)?|임시휴장|휴업|공사중/, -20],
 ];
 
-export function placeScore(p, detail) {
-  const base = W[p.c3];
+// 인기 순위(티맵 연관 관광지)와 이름 맞추기용 — 띄어쓰기·괄호·기호를 뺀 이름
+export const popKey = (s) => String(s || '').replace(/\s|\(.*?\)|\[.*?\]|·|-/g, '').toLowerCase();
+// 그 시·군·구 인기 순위에서 몇 위인지 (없으면 -1)
+function popRank(p, pop) {
+  const m = pop?.[`${p.rg}-${p.sg}`];
+  if (!m) return -1;
+  const k = popKey(p.t);
+  const names = Object.keys(m);
+  let i = names.indexOf(k);
+  // '경포해수욕장' ↔ '경포해변' 처럼 앞부분이 같으면 같은 곳으로
+  if (i < 0 && k.length >= 3) i = names.findIndex((n) => n.length >= 3 && (n.startsWith(k) || k.startsWith(n)));
+  return i;
+}
+
+export function placeScore(p, detail, pop) {
+  const r = popRank(p, pop);
+  // 분류 목록에 없는 곳(시장·카페거리 등)도 그 지역 인기 15위 안이면 실음
+  const base = W[p.c3] || (r >= 0 && r < 15 ? 4 : 0);
   if (!base || !p.img) return 0;
   let s = base;
   for (const [re, v] of PLUS) if (re.test(p.t)) s += v;
@@ -84,6 +100,8 @@ export function placeScore(p, detail) {
   if (p.img2) s += 0.5;
   const o = detail?.o;
   if (o) s += o.length > 600 ? 2 : o.length > 250 ? 1 : 0;
+  // 실제로 많이 찾는 곳 (티맵 이동 자료) — 순위가 높을수록 크게
+  if (r >= 0) s += r < 5 ? 10 : r < 15 ? 7 : r < 30 ? 5 : 3;
   return s;
 }
 
@@ -113,12 +131,12 @@ export function buildDistricts(list) {
 }
 
 // 시·군마다 점수 높은 순으로 최대 cap 곳. 같은 이름(설악산 내설악·남설악 등) 겹치는 것도 정리.
-export function pickPlaces(list, details = {}, { cap = 15, min = 7 } = {}) {
+export function pickPlaces(list, details = {}, { cap = 15, min = 7 } = {}, pop = null) {
   const dist = buildDistricts(list);
   const groups = {};
   for (const p of list) {
     if (!p.x || !p.y) continue;
-    const sc = placeScore(p, details[p.id]);
+    const sc = placeScore(p, details[p.id], pop);
     if (sc < min) continue;
     const name = dist[districtKey(p)] || '';
     const g = `${p.rg}|${name}`;

@@ -2618,5 +2618,15 @@
   "userUrl": "https://unsplash.com/@ramonkagie",
   "page": "https://unsplash.com/photos/white-boat-docked-on-seashore-4EZKcKxOlRE",
   "pick": 0
+ },
+ "spot:kotakinabalu:0": {
+  "id": "jE1ckb-i5EQ",
+  "raw": "https://images.unsplash.com/photo-1733206612653-f6f62b645ec6?ixid=M3wxMTQzNTA5fDB8MXxzZWFyY2h8MXx8VGFuanVuZyUyMEFydSUyMGJlYWNoJTIwc3Vuc2V0fGVufDF8MHx8fDE3OTU2NjU2Mzl8MA&ixlib=rb-4.1.0",
+  "color": "#738ca6",
+  "alt": "The sun is setting over the ocean with boats in the water",
+  "name": "Jiachen Lin",
+  "userUrl": "https://unsplash.com/@jiachenlin",
+  "page": "https://unsplash.com/photos/the-sun-is-setting-over-the-ocean-with-boats-in-the-water-jE1ckb-i5EQ",
+  "pick": 0
  }
 }

@@ -2608,5 +2608,15 @@
   "userUrl": "https://unsplash.com/@easilan",
   "page": "https://unsplash.com/photos/a-sailboat-sailing-in-the-ocean-at-sunset-GSey1JeQoek",
   "pick": 0
+ },
+ "spot:boracay:4": {
+  "id": "4EZKcKxOlRE",
+  "raw": "https://images.unsplash.com/photo-1542213448375-a03409f44bfb?ixid=M3wxMTQzNTA5fDB8MXxzZWFyY2h8N3x8Qm9yYWNheSUyMGlzbGFuZCUyMGhvcHBpbmclMjBzbm9ya2VsaW5nfGVufDF8MHx8fDE3OTU2NjQ1Nzh8MA&ixlib=rb-4.1.0",
+  "color": "#404040",
+  "alt": "white boat docked on seashore",
+  "name": "Ramon Kagie",
+  "userUrl": "https://unsplash.com/@ramonkagie",
+  "page": "https://unsplash.com/photos/white-boat-docked-on-seashore-4EZKcKxOlRE",
+  "pick": 0
  }
 }

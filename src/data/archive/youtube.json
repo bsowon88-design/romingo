@@ -1,7 +1,7 @@
 {
  "meta": {
   "day": "2026-11-26",
-  "units": 1836
+  "units": 2040
  },
  "cities": {
   "tokyo": {
@@ -7248,6 +7248,160 @@
      "views": 38844,
      "at": "2026-06-28",
      "dur": 1084
+    }
+   ]
+  },
+  "madrid": {
+   "at": "2026-11-26T03:42:59.391Z",
+   "list": [
+    {
+     "id": "GR9bkLyixI4",
+     "t": "샹그리아만 마셔도 번따 당하는 스페인 마드리드 여행 (+현지 클럽 체험)",
+     "ch": "예또세상 Yeddo World",
+     "cid": "UCfCU2Gzl7KFx33fhk9imTDw",
+     "views": 109376,
+     "at": "2026-07-28",
+     "dur": 2027
+    },
+    {
+     "id": "kQ3zJyPpxdA",
+     "t": "스페인 태양은 각막을 찢어… 유럽 폭염속에서 나홀로 정열의 여행 (마드리드/세비야 편)",
+     "ch": "홀로나나 NANA",
+     "cid": "UCCDln2DxCvHo1ABZxsghc9w",
+     "views": 83288,
+     "at": "2026-07-21",
+     "dur": 2414
+    },
+    {
+     "id": "uNGdLGkjSH4",
+     "t": "스페인 9박 10일 여행코스. 마드리드/바르셀로나/세비야/그라나다/톨레도/시체스/몬세라트 핵심코스 안내",
+     "ch": "여행과 지도",
+     "cid": "UCzhsb0SBOVbroMJXLagpZwA",
+     "views": 38567,
+     "at": "2026-01-12",
+     "dur": 464
+    },
+    {
+     "id": "XWfdLmbv0Os",
+     "t": "🇪🇸십년만에 다시 마드리드로/ 60대 홀로 여행 / EES 등록 키오스크문항 ",
+     "ch": "토끼여사의vlog (Sra. Rabbit)",
+     "cid": "UC1S0GrzIfrf-7jzICDJNnMA",
+     "views": 29947,
+     "at": "2026-05-16",
+     "dur": 1154
+    },
+    {
+     "id": "Di1LleGrWBc",
+     "t": "🇪🇸 마드리드 한 달 살기 ep.1 에어비앤비 입성! 유럽 한 달 살기의 꿈 이루다!🌟 레알마드리드 유니폼 사고 여기저기 돌아다니며 마드리드랑 친해지기 🚶🏻‍♀️",
+     "ch": "라젤Razel",
+     "cid": "UCS_qkVR-fC0d5JqiUnJrqQA",
+     "views": 27174,
+     "at": "2025-12-04",
+     "dur": 2281
+    },
+    {
+     "id": "85AZMPIibV0",
+     "t": "마드리드 여행 총정리! 미술관 투어, 축제 소개, 예술의 본고장 스페인 마드리드 / 클로즈업",
+     "ch": "스튜디오KE [STUDIO KE]",
+     "cid": "UCVn4RmpptjdAmizuuB1Z0YQ",
+     "views": 26852,
+     "at": "2026-02-09",
+     "dur": 341
+    },
+    {
+     "id": "ffJ-j3hpQzw",
+     "t": "🇪🇸 마드리드 한 달 살기 ep.4 관광지 말고 현지인이 노는 동네 돌아다니며 여행 🧵 마드리드 노잼 도시 누명 벗기기 프로젝트 .. 💌 맛집 카페 추천, 레티로공원, 마드",
+     "ch": "라젤Razel",
+     "cid": "UCS_qkVR-fC0d5JqiUnJrqQA",
+     "views": 21191,
+     "at": "2026-08-10",
+     "dur": 2060
+    },
+    {
+     "id": "lASdnoQibvg",
+     "t": "골목길 감성 낭낭~스페인 마드리드에서 아침밥 해먹기,4인 가족 자유여행☺️ 2박3일 후 포르투go/1월 여행/베르나베우 투어,솔광장, 산미구엘,엘 꼬르떼,스페인 선물사기, 콜론광장",
+     "ch": "앤비AnnBee",
+     "cid": "UC7rh9AAM32CL_VRyZDJvMzQ",
+     "views": 18218,
+     "at": "2026-02-15",
+     "dur": 2377
+    }
+   ]
+  },
+  "interlaken": {
+   "at": "2026-11-26T03:43:00.459Z",
+   "list": [
+    {
+     "id": "B_MA404Hm-Y",
+     "t": "패키지보다 저렴한 🇨🇭 스위스여행의 모든것👀 | 총경비 | 꿀팁 총정리 🍯| 융프라우 | 피르스트 | 루체른 베른 | 인터라켄 travel with me to switzer",
+     "ch": "느리별",
+     "cid": "UCAZ6NHcSP1kUhbxqiQ6rpFw",
+     "views": 81100,
+     "at": "2026-01-04",
+     "dur": 4227
+    },
+    {
+     "id": "_oS6vd_2AwY",
+     "t": "5박 6일 스위스 여행 총정리 🧀👨🏻‍🍳🇨🇭(그린델발트 숙소, 융프라우 신라면, 이젤발트, 브리엔츠 유람선, 피자 맛집)",
+     "ch": "하옹",
+     "cid": "UCFzCEdnu2xBBwNvhgPMY1Jg",
+     "views": 29334,
+     "at": "2026-02-15",
+     "dur": 1167
+    },
+    {
+     "id": "3-C41OWUFu8",
+     "t": "[2026 최신] 40만원짜리 \"스위스 융프라우 VIP 패스\" 악착같이 뽕뽑는 200% 활용법",
+     "ch": "심시메로이드",
+     "cid": "UCg3mFCkEwJ-uXBwvD4CLtfg",
+     "views": 18428,
+     "at": "2026-06-27",
+     "dur": 1080
+    },
+    {
+     "id": "Gpg_Mq68AOs",
+     "t": "인터라켄 여행 코스, 이 영상 하나로 종결합니다! 호수와 알프스를 즐기는 35분 완벽 루트",
+     "ch": "jkfree",
+     "cid": "UCbLpP5Ts_3tFUGJeaggH16g",
+     "views": 13001,
+     "at": "2025-12-07",
+     "dur": 2112
+    },
+    {
+     "id": "9KaShsveFGM",
+     "t": "6박 7일 스위스 여행 150분 몰아보기 (인터라켄, 그린델발트, 융프라우요흐, 라우터브루넨) [🇨🇭 스위스 여행 07]",
+     "ch": "뿅뿅여행 PopPopTravel",
+     "cid": "UCpxxoNKsEHkXNdkxg1mqu6A",
+     "views": 9092,
+     "at": "2026-03-11",
+     "dur": 8908
+    },
+    {
+     "id": "Sq-pW_dplSg",
+     "t": "🇨🇭8월 스위스 여행 vlog 1 인터라켄 가는 기차에서 갑자기 내리래요 😨 l 인터라켄에서 꼭 할 것들 l 하더쿨름 l 튠 호수 l 융프라우 l Switzerland Tra",
+     "ch": "눈눈",
+     "cid": "UCva_HqpMlIvhrJKkSRKEr5g",
+     "views": 6820,
+     "at": "2025-12-28",
+     "dur": 1241
+    },
+    {
+     "id": "LAdvh28ymKE",
+     "t": "vlog. 스위스 신혼여행 브이로그🇨🇭 | 인생 여행지 등극 3박4일 스위스 여행 | 뷰 맛집 그린델발트 숙소 추천 | 인터라켄 패러글라이딩🪂 | 융프라우. 피르스트. 이젤발",
+     "ch": "이소 leeso",
+     "cid": "UCe67Vl_BWe55IGYBHkvZ84Q",
+     "views": 4679,
+     "at": "2026-09-18",
+     "dur": 1216
+    },
+    {
+     "id": "kTqivSRJcIE",
+     "t": "여름 스위스 4박6일 여행코스🇨🇭 |  루체른 • 인터라켄 • 이젤발트 자전거🚲 • 브리엔츠호수 • 기념품 | 한인민박 추천🏡 | 🇨🇭 스위스 여행 브이로그 Ep.1 ",
+     "ch": "Jinzi_찐즈로그",
+     "cid": "UCkcyOc-njhrF-jhIb7gerKA",
+     "views": 3688,
+     "at": "2026-07-19",
+     "dur": 971
     }
    ]
   }

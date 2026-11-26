@@ -1,5 +1,17 @@
 [
  {
+  "id": "us6000udq5",
+  "mag": 5.7,
+  "place": "Revilla Gigedo Islands region",
+  "time": 1795706804294,
+  "lat": 19.8,
+  "lon": -109.3,
+  "depth": 10,
+  "tsunami": 0,
+  "alert": "green",
+  "url": "https://earthquake.usgs.gov/earthquakes/eventpage/us6000udq5"
+ },
+ {
   "id": "us6000udmc",
   "mag": 5.2,
   "place": "265 km WNW of Houma, Tonga",

@@ -4128,5 +4128,115 @@
   "userUrl": "https://unsplash.com/@mbcaptures",
   "page": "https://unsplash.com/photos/high-rise-building-near-body-of-water-tKiaYOzmszQ",
   "pick": 0
+ },
+ "spot:clark:0": {
+  "id": "3BT-lIzagrA",
+  "raw": "https://images.unsplash.com/photo-1771640614732-1e092f7f5312?ixid=M3wxMTQzNTA5fDB8MXxzZWFyY2h8M3x8TW91bnQlMjBQaW5hdHVibyUyMGNyYXRlciUyMGxha2V8ZW58MXwwfHx8MTc5NTczMzkxMnww&ixlib=rb-4.1.0",
+  "color": "#c0a673",
+  "alt": "Crater lake surrounded by mountains under a cloudy sky",
+  "name": "Eugene Vince Alfred Santarin",
+  "userUrl": "https://unsplash.com/@alfred_santarin",
+  "page": "https://unsplash.com/photos/crater-lake-surrounded-by-mountains-under-a-cloudy-sky-3BT-lIzagrA",
+  "pick": 0
+ },
+ "spot:clark:1": {
+  "id": "uW25F1wbi2E",
+  "raw": "https://images.unsplash.com/photo-1716295821938-002b8b407f48?ixid=M3wxMTQzNTA5fDB8MXxzZWFyY2h8Mnx8QXF1YSUyMFBsYW5ldHxlbnwxfDB8fHwxNzk1NzMzOTEzfDA&ixlib=rb-4.1.0",
+  "color": "#26260c",
+  "alt": "a grassy field next to a body of water",
+  "name": "Sung Jin Cho",
+  "userUrl": "https://unsplash.com/@mbuff",
+  "page": "https://unsplash.com/photos/a-grassy-field-next-to-a-body-of-water-uW25F1wbi2E",
+  "pick": 0
+ },
+ "spot:clark:3": {
+  "id": "b5REflPg2-I",
+  "raw": "https://images.unsplash.com/photo-1712237286737-730c6f4c9b5a?ixid=M3wxMTQzNTA5fDB8MXxzZWFyY2h8Mnx8SG9seSUyMFJvc2FyeSUyMFBhcmlzaCUyMENodXJjaCUyMEFuZ2VsZXN8ZW58MXwwfHx8MTc5NTczMzkxNHww&ixlib=rb-4.1.0",
+  "color": "#8c8c8c",
+  "alt": "a black and white photo of a church",
+  "name": "Annie Spratt",
+  "userUrl": "https://unsplash.com/@anniespratt",
+  "page": "https://unsplash.com/photos/a-black-and-white-photo-of-a-church-b5REflPg2-I",
+  "pick": 0
+ },
+ "spot:palawan:0": {
+  "id": "3T9dDY0WqDI",
+  "raw": "https://images.unsplash.com/photo-1531761535209-180857e963b9?ixid=M3wxMTQzNTA5fDB8MXxzZWFyY2h8Mnx8RWwlMjBOaWRvfGVufDF8MHx8fDE3OTU3MzM5MTV8MA&ixlib=rb-4.1.0",
+  "color": "#c0c0d9",
+  "alt": "An aerial view of the coastal town of El Nido in the Philippines",
+  "name": "Eibner Saliba",
+  "userUrl": "https://unsplash.com/@zilch",
+  "page": "https://unsplash.com/photos/el-nido-coastal-town-aerial-view-3T9dDY0WqDI",
+  "pick": 0
+ },
+ "spot:palawan:1": {
+  "id": "dKEnae8Xteo",
+  "raw": "https://images.unsplash.com/photo-1707794378371-e5875d17db4c?ixid=M3wxMTQzNTA5fDB8MXxzZWFyY2h8MXx8S2F5YW5nYW4lMjBMYWtlJTIwQ29yb258ZW58MXwwfHx8MTc5NTczMzkxNXww&ixlib=rb-4.1.0",
+  "color": "#737359",
+  "alt": "a group of boats that are sitting in the water",
+  "name": "CJ",
+  "userUrl": "https://unsplash.com/@c_j_",
+  "page": "https://unsplash.com/photos/a-group-of-boats-that-are-sitting-in-the-water-dKEnae8Xteo",
+  "pick": 0
+ },
+ "spot:palawan:2": {
+  "id": "L_jCxEvAqmc",
+  "raw": "https://images.unsplash.com/photo-1753482774971-9d99f726bbe0?ixid=M3wxMTQzNTA5fDB8MXxzZWFyY2h8NHx8UHVlcnRvJTIwUHJpbmNlc2ElMjB1bmRlcmdyb3VuZCUyMHJpdmVyfGVufDF8MHx8fDE3OTU3MzM5MTV8MA&ixlib=rb-4.1.0",
+  "color": "#0c2626",
+  "alt": "A beautiful beach lies between two rocky mountains",
+  "name": "Matthew Stephenson",
+  "userUrl": "https://unsplash.com/@matthewryanstephenson",
+  "page": "https://unsplash.com/photos/a-beautiful-beach-lies-between-two-rocky-mountains-L_jCxEvAqmc",
+  "pick": 0
+ },
+ "spot:palawan:3": {
+  "id": "yzDK3Wh-OFY",
+  "raw": "https://images.unsplash.com/photo-1746573581478-87c3efa110fd?ixid=M3wxMTQzNTA5fDB8MXxzZWFyY2h8MXx8SG9uZGElMjBCYXl8ZW58MXwwfHx8MTc5NTczMzkxNnww&ixlib=rb-4.1.0",
+  "color": "#262626",
+  "alt": "Blue sports car with its hood open, engine exposed",
+  "name": "Paul Esch-Laurent",
+  "userUrl": "https://unsplash.com/@pinjasaur",
+  "page": "https://unsplash.com/photos/blue-sports-car-with-its-hood-open-engine-exposed-yzDK3Wh-OFY",
+  "pick": 0
+ },
+ "spot:palawan:4": {
+  "id": "Lu1sfUU-FTQ",
+  "raw": "https://images.unsplash.com/photo-1561459832-f79f04d51e4a?ixid=M3wxMTQzNTA5fDB8MXxzZWFyY2h8MXx8TmFjcGFuJTIwYmVhY2glMjBFbCUyME5pZG98ZW58MXwwfHx8MTc5NTczMzkxNnww&ixlib=rb-4.1.0",
+  "color": "#8cc0d9",
+  "alt": "blue canoe boat seashore scenery",
+  "name": "Arjohn Janroe Queral",
+  "userUrl": "https://unsplash.com/@arjohnjanroe",
+  "page": "https://unsplash.com/photos/blue-canoe-boat-seashore-scenery-Lu1sfUU-FTQ",
+  "pick": 0
+ },
+ "spot:jakarta:0": {
+  "id": "UjJS-liCzIE",
+  "raw": "https://images.unsplash.com/photo-1555605976-8bf855afd253?ixid=M3wxMTQzNTA5fDB8MXxzZWFyY2h8Mnx8TW9uYXMlMjBOYXRpb25hbCUyME1vbnVtZW50JTIwSmFrYXJ0YXxlbnwxfDB8fHwxNzk1NzMzOTE3fDA&ixlib=rb-4.1.0",
+  "color": "#0c73a6",
+  "alt": "white monument",
+  "name": "Uray Zulfikar",
+  "userUrl": "https://unsplash.com/@uray_z",
+  "page": "https://unsplash.com/photos/white-monument-UjJS-liCzIE",
+  "pick": 0
+ },
+ "spot:jakarta:1": {
+  "id": "ION9_iEUQyo",
+  "raw": "https://images.unsplash.com/photo-1680244116826-467f252cf503?ixid=M3wxMTQzNTA5fDB8MXxzZWFyY2h8MXx8SXN0aXFsYWwlMjBNb3NxdWUlMjBKYWthcnRhfGVufDF8MHx8fDE3OTU3MzM5MTd8MA&ixlib=rb-4.1.0",
+  "color": "#a6d9d9",
+  "alt": "a view of a city from a distance",
+  "name": "Affan Fadhlan",
+  "userUrl": "https://unsplash.com/@affanfadhlan",
+  "page": "https://unsplash.com/photos/a-view-of-a-city-from-a-distance-ION9_iEUQyo",
+  "pick": 0
+ },
+ "spot:jakarta:2": {
+  "id": "kMCNkiaJIuc",
+  "raw": "https://images.unsplash.com/photo-1705221818019-894716a04892?ixid=M3wxMTQzNTA5fDB8MXxzZWFyY2h8Mnx8S290YSUyMFR1YSUyMEpha2FydGElMjBGYXRhaGlsbGFofGVufDF8MHx8fDE3OTU3MzM5MTh8MA&ixlib=rb-4.1.0",
+  "color": "#595940",
+  "alt": "a large white building with a red roof",
+  "name": "Alif Zainuri",
+  "userUrl": "https://unsplash.com/@alifzainuri",
+  "page": "https://unsplash.com/photos/a-large-white-building-with-a-red-roof-kMCNkiaJIuc",
+  "pick": 0
  }
 }

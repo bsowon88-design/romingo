@@ -5,6 +5,7 @@ import FestCard from '../../../components/kr/FestCard.astro';
 import PlaceCard from '../../../components/kr/PlaceCard.astro';
 import KrForecast from '../../../components/kr/KrForecast.astro';
 import NolLink from '../../../components/kr/NolLink.astro';
+import JejuPass from '../../../components/kr/JejuPass.astro';
 import '../../../components/kr/kr.css';
 import { KR_REGIONS, placesOfRegion, festOfRegion, THEMES, themeOf } from '../../../data/domestic.js';
 
@@ -46,6 +47,7 @@ const top = places.slice(0, 3).map((p) => p.t.replace(/\s*\[.*?\]\s*/g, ' ').tri
   <div class="kgrid f4" id="plist">{places.map((p) => <PlaceCard p={p} />)}</div>
   <p class="kempty" id="pnone" hidden>고른 조건에 맞는 곳이 없어요.</p>
   <p class="pmore-w"><button type="button" class="btn ghost" id="pmore" hidden>더 보기</button></p>
+  {r.slug === 'jeju' && <JejuPass />}
   <NolLink region={r.ko} live />
 
 

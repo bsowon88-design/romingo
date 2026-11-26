@@ -1,0 +1,18 @@
+---
+// 제주패스 버튼 (광고) — 제주 지역 페이지·제주 관광지 페이지에만
+import { JEJUPASS } from '../../data/partners.js';
+---
+<a class="jp" href={JEJUPASS} target="_blank" rel="sponsored nofollow noopener">
+  <span>🚗</span><b>제주패스에서 렌터카·입장권 보기</b><small>제주 렌터카 비교·관광지 할인</small><em>광고</em><i>↗</i>
+</a>
+
+<style>
+  .jp { display: flex; align-items: center; gap: 10px; margin: 18px 0 -8px; padding: 12px 14px; border: 1px solid #F3D7C6; border-radius: 14px; background: #fff; text-decoration: none; color: var(--ink); }
+  .jp:hover { border-color: var(--coral); }
+  .jp > span { font-size: 22px; }
+  .jp b { font-size: 15.5px; }
+  .jp small { font-size: 13px; color: var(--sub); }
+  .jp em { margin-left: auto; font-style: normal; font-size: 11px; font-weight: 700; color: var(--sub); border: 1px solid var(--line); border-radius: 6px; padding: 1px 6px; }
+  .jp i { font-style: normal; color: var(--sea); }
+  @media (max-width: 620px) { .jp small { display: none; } }
+</style>

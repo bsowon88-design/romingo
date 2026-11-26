@@ -147,3 +147,6 @@ export const RAKUTEN_CITY = {
   takamatsu: 'sub_kagawa_prefecture/cty_takamatsu_city/', shizuoka: 'sub_shizuoka_prefecture/',
 };
 export const rakutenCity = (city) => (RAKUTEN_CITY[city] ? lpDeep('rakutentr', RK + RAKUTEN_CITY[city]) : '');
+
+// 제주패스 (제주 렌터카·입장권) — 대표 링크, 제주 지역·관광지 페이지에만
+export const JEJUPASS = 'https://click.linkprice.com/click.php?m=jejupass&a=A100710605&l=0000';

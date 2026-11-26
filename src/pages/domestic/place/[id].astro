@@ -6,6 +6,7 @@ import PlaceCard from '../../../components/kr/PlaceCard.astro';
 import KrForecast from '../../../components/kr/KrForecast.astro';
 import KlookChips from '../../../components/KlookChips.astro';
 import NolLink from '../../../components/kr/NolLink.astro';
+import JejuPass from '../../../components/kr/JejuPass.astro';
 import '../../../components/kr/kr.css';
 import { PLACES, detailOf, catOf, imgUrl, nearPlaces, nearFests, kakaoMap, naverMap } from '../../../data/domestic.js';
 
@@ -59,6 +60,7 @@ const rows = [
   </div>
 
   {klook && <KlookChips title="입장권·이용권 찾기" items={[[name, name.replace(/\(.*?\)/g, '').trim()]]} />}
+  {p.region.slug === 'jeju' && <JejuPass />}
   <NolLink region={p.region.ko} dist={p.dist} />
 
   {d.o && (

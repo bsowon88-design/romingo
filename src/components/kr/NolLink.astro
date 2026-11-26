@@ -1,0 +1,25 @@
+---
+// NOL(야놀자) 국내 숙소 검색 버튼 (광고). region 페이지에서는 시·군 고르면 글자·주소가 바뀜(id="nol").
+import { nolSearch, nolQ, NOL_PRE, NOL_BASE } from '../../data/partners.js';
+const { region, dist = '', live = false } = Astro.props;
+const q = nolQ(region, dist);
+const where = dist || region;
+---
+<a class="nol" id={live ? 'nol' : undefined} href={nolSearch(q)} target="_blank" rel="sponsored nofollow noopener"
+  data-r={region} data-pre={NOL_PRE} data-u={NOL_BASE}>
+  <span>🛏️</span><b>NOL에서 <span class="nw">{where}</span> 숙소 보기</b><small>호텔·펜션·풀빌라·글램핑</small><em>광고</em><i>↗</i>
+</a>
+<p class="nol-n">이 링크로 예약하면 트립베리가 제휴 수수료를 받을 수 있어요. 여러분이 내는 가격은 똑같아요.</p>
+
+<style>
+  .nol { display: flex; align-items: center; gap: 10px; margin: 18px 0 4px; padding: 12px 14px; border: 1px solid #F3D7C6; border-radius: 14px; background: #fff; text-decoration: none; color: var(--ink); }
+  .nol:hover { border-color: var(--coral); }
+  .nol > span { font-size: 22px; }
+  .nol b { font-size: 15.5px; }
+  .nol b span { font-size: inherit; }
+  .nol small { font-size: 13px; color: var(--sub); }
+  .nol em { margin-left: auto; font-style: normal; font-size: 11px; font-weight: 700; color: var(--sub); border: 1px solid var(--line); border-radius: 6px; padding: 1px 6px; }
+  .nol i { font-style: normal; color: var(--sea); }
+  .nol-n { margin: 0 0 8px; font-size: 12px; color: var(--sub); }
+  @media (max-width: 620px) { .nol small { display: none; } }
+</style>

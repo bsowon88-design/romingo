@@ -120,3 +120,17 @@ export const hcCity = (city) => (HC_PLACE[city] ? lpDeep('hcombine2', `https://w
 
 // 땡처리닷컴 검색 (2026-11-26 사장님 확인: https://www.ttang.com/search/search_list.do?srh_keyword=다낭)
 export const ttangSearch = (q) => lpDeep('072com', `https://www.ttang.com/search/search_list.do?srh_keyword=${encodeURIComponent(q)}`);
+
+// NOL(야놀자) 국내 숙소 검색 (2026-11-26 확인: 지역 이름만 바꾸면 됨, 날짜는 NOL 이 오늘로 채움)
+export const NOL_BASE = 'https://nol.yanolja.com/discovery/list/search/PRODUCT_CATEGORY_KOREA_ACCOMMODATION?q=';
+export const NOL_PRE = lpDeep('yanolja', '');
+export const nolSearch = (q) => lpDeep('yanolja', NOL_BASE + encodeURIComponent(q));
+// 검색어: 시·군은 '시/군' 떼고(강릉시→강릉), 구는 시도 붙여서(서울 중구), 고성처럼 겹치는 이름은 시도 붙임
+export function nolQ(regionKo, dist = '') {
+  const r = regionKo.replace('전남·광주', '전남');
+  if (!dist) return r;
+  if (/\s/.test(dist)) return dist;
+  if (/구$/.test(dist)) return `${r} ${dist}`;
+  const s = dist.length >= 3 ? dist.replace(/[시군]$/, '') : dist;
+  return s === '고성' ? `${r} ${s}` : s;
+}

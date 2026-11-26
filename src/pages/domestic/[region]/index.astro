@@ -4,6 +4,7 @@ import Base from '../../../layouts/Base.astro';
 import FestCard from '../../../components/kr/FestCard.astro';
 import PlaceCard from '../../../components/kr/PlaceCard.astro';
 import KrForecast from '../../../components/kr/KrForecast.astro';
+import NolLink from '../../../components/kr/NolLink.astro';
 import '../../../components/kr/kr.css';
 import { KR_REGIONS, placesOfRegion, festOfRegion, THEMES, themeOf } from '../../../data/domestic.js';
 
@@ -45,6 +46,7 @@ const top = places.slice(0, 3).map((p) => p.t.replace(/\s*\[.*?\]\s*/g, ' ').tri
   <div class="kgrid f4" id="plist">{places.map((p) => <PlaceCard p={p} />)}</div>
   <p class="kempty" id="pnone" hidden>고른 조건에 맞는 곳이 없어요.</p>
   <p class="pmore-w"><button type="button" class="btn ghost" id="pmore" hidden>더 보기</button></p>
+  <NolLink region={r.ko} live />
 
 
   {fests.length > 0 && (
@@ -64,6 +66,28 @@ const top = places.slice(0, 3).map((p) => p.t.replace(/\s*\[.*?\]\s*/g, ' ').tri
     운영 시간·요금은 바뀔 수 있으니 가기 전에 확인하세요.
   </p>
 </Base>
+
+<script>
+  // 시·군 고르면 NOL 버튼도 그 지역으로 (partners.js nolQ 와 같은 규칙)
+  const nol = document.getElementById('nol') as HTMLAnchorElement | null;
+  const ds = document.getElementById('pdist') as HTMLSelectElement | null;
+  const q = (r: string, d: string) => {
+    r = r.replace('전남·광주', '전남');
+    if (!d) return r;
+    if (/\s/.test(d)) return d;
+    if (/구$/.test(d)) return `${r} ${d}`;
+    const s = d.length >= 3 ? d.replace(/[시군]$/, '') : d;
+    return s === '고성' ? `${r} ${s}` : s;
+  };
+  const upd = () => {
+    if (!nol) return;
+    const r = nol.dataset.r || '', d = ds?.value || '';
+    nol.href = (nol.dataset.pre || '') + encodeURIComponent((nol.dataset.u || '') + encodeURIComponent(q(r, d)));
+    const w = nol.querySelector('.nw'); if (w) w.textContent = d || r;
+  };
+  ds?.addEventListener('change', upd);
+  upd();
+</script>
 
 <script>
   const th = document.getElementById('pth');

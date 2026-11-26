@@ -1,0 +1,33 @@
+name: 스레드 자동 게시
+
+on:
+  schedule:
+    - cron: '31 23 * * *' # 한국 아침 8시 31분
+    - cron: '43 10 * * *' # 한국 저녁 7시 43분
+  workflow_dispatch:
+    inputs:
+      slot:
+        description: 'am(아침 글) 또는 pm(저녁 글)'
+        required: false
+        default: 'am'
+
+permissions:
+  contents: read
+
+concurrency:
+  group: threads
+  cancel-in-progress: false
+
+jobs:
+  post:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - name: 스레드에 올리기
+        run: node scripts/threads.mjs
+        env:
+          THREADS_TOKEN: ${{ secrets.THREADS_TOKEN }}
+          SLOT: ${{ github.event.inputs.slot }}

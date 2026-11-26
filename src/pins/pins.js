@@ -4,6 +4,7 @@
 import fs from 'node:fs';
 import path from 'node:path';
 import { Resvg } from '@resvg/resvg-js';
+import sharp from 'sharp';
 import { CITIES } from '../data/cities.js';
 import { bySlug } from '../data/countries.js';
 import { guideByCity } from '../data/guides.js';
@@ -206,4 +207,12 @@ export function pinList() {
 }
 
 export const pinPng = (p) => toPng(p.svg());
+// 인스타그램용 (세로 4:5 · JPG) — 핀 카드를 1080×1350 가운데에 놓고 양옆은 살구색
+export async function pinJpg(p) {
+  const card = await sharp(pinPng(p)).resize({ height: 1350 }).toBuffer();
+  return sharp({ create: { width: 1080, height: 1350, channels: 3, background: '#F7D9C8' } })
+    .composite([{ input: card, gravity: 'center' }])
+    .jpeg({ quality: 88 })
+    .toBuffer();
+}
 export { ymd as PIN_DAY };

@@ -1,5 +1,17 @@
 [
  {
+  "id": "us6000udry",
+  "mag": 5.1,
+  "place": "Bonin Islands, Japan region",
+  "time": 1795721588628,
+  "lat": 28.4,
+  "lon": 141.3,
+  "depth": 85,
+  "tsunami": 0,
+  "alert": null,
+  "url": "https://earthquake.usgs.gov/earthquakes/eventpage/us6000udry"
+ },
+ {
   "id": "us6000udq5",
   "mag": 5.7,
   "place": "Revilla Gigedo Islands region",

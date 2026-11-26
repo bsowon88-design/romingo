@@ -1,0 +1,147 @@
+// 국내 관광지 고르기 — 한국관광공사 관광지·문화시설 1만 5천여 곳 중
+// "주말에 일부러 찾아갈 만한 곳"만 시·군마다 추려서 전국 1~2천 곳으로.
+// 사이트(Astro)와 자동 수집(scripts/tour.mjs, 상세 설명 받을 곳 고르기) 양쪽에서 씀 — 다른 파일을 불러오지 않는 순수 함수만.
+
+// 분류(lclsSystm3)별 기본 점수. 없는 분류는 아예 뺌 (근린공원·동상·비석·묘·약수터·도서관·문화원 등)
+const W = {
+  // 자연
+  NA040100: 12, // 국립공원
+  NA020900: 11, // 해수욕장·해변
+  NA010400: 10, // 계곡
+  NA010300: 10, // 폭포
+  NA040700: 10, // 수목원·정원
+  NA040600: 9, // 자연휴양림
+  NA020800: 10, // 해안 절경
+  NA020500: 9, // 섬
+  NA030100: 10, // 동굴
+  NA030300: 9, // 기암·주상절리
+  NA030400: 9, // 습지
+  NA030500: 8, // 협곡
+  NA040200: 9, // 도립공원
+  NA040300: 7, // 군립공원
+  NA040400: 8, // 지질공원
+  NA050100: 9, // 명승·경관
+  NA020200: 8, // 호수
+  NA010200: 7, // 숲
+  NA010100: 6, // 산
+  NA020400: 6, // 연못·늪
+  NA020700: 5, // 항구·포구
+  NA020100: 4, // 강
+  // 역사
+  HS010100: 7, // 궁·관아
+  HS010200: 7, // 성
+  HS010600: 9, // 민속마을·한옥마을
+  HS010400: 5, // 고택
+  HS011000: 5, // 유적지
+  HS030100: 5, // 사찰
+  HS030200: 5, // 성당·성지
+  HS040100: 6, // 안보관광 (전망대·땅굴)
+  // 볼거리·놀거리
+  VE010200: 9, // 전망대
+  VE010300: 8, // 다리 (출렁다리 등)
+  VE010600: 6, // 터널
+  VE010800: 7, // 등대
+  VE020100: 9, // 테마파크
+  VE020200: 9, // 워터파크
+  VE020300: 7, // 동물원
+  VE020400: 9, // 아쿠아리움
+  VE020500: 7, // 천문대
+  VE040100: 6, // 거리
+  VE040200: 6, // 마을
+  VE040300: 7, // 길 (둘레길·숲길)
+  VE050100: 7, // 관광단지
+  VE030100: 4, // 도시공원 (한강공원 등)
+  VE030500: 4, // 테마공원
+  VE070100: 6, // 박물관
+  VE070500: 6, // 과학관
+  VE070600: 5, // 미술관
+  // 체험
+  EX030200: 8, // 목장
+  EX050100: 7, // 온천
+  EX050600: 7, // 치유의 숲
+  EX070100: 7, // 유람선
+  EX060800: 4, // 농원·양조장
+};
+
+// 이름에 들어 있으면 더하거나 빼는 말
+const PLUS = [
+  [/국립공원/, 5], [/유네스코/, 5], [/세계유산/, 3], [/한옥마을/, 4], [/출렁다리/, 5], [/스카이워크/, 5], [/케이블카/, 4],
+  [/레일바이크/, 4], [/해수욕장/, 3], [/해변/, 2], [/계곡/, 2], [/폭포/, 2], [/전망대/, 2], [/수목원/, 2], [/휴양림/, 1],
+  [/[가-힣]궁$/, 5], [/민속촌/, 5], [/대교$/, 1], [/생태공원|습지/, 1], [/지질공원/, 1], [/(산|도립|군립)공원/, 1],
+];
+const MINUS = [
+  [/약수|비석|송덕비|공적비|기념비|묘$|묘소|사당|재실|정려|효자|열녀|공덕|향교|서원지|사지$|요지$|선돌|석조|입상|부도/, -8],
+  [/근린|소공원|어린이공원|체육공원|경로당|주차장|도서관|문화원|복지관/, -8],
+  [/\(?폐쇄\)?|임시휴장|휴업|공사중/, -20],
+];
+
+export function placeScore(p, detail) {
+  const base = W[p.c3];
+  if (!base || !p.img) return 0;
+  let s = base;
+  for (const [re, v] of PLUS) if (re.test(p.t)) s += v;
+  for (const [re, v] of MINUS) if (re.test(p.t)) s += v;
+  if (p.img2) s += 0.5;
+  const o = detail?.o;
+  if (o) s += o.length > 600 ? 2 : o.length > 250 ? 1 : 0;
+  return s;
+}
+
+// 시·군·구 이름 — 같은 지역 번호를 가진 곳들의 주소 두 번째 낱말 중 가장 많이 나온 것.
+// 수원시 장안구·권선구처럼 일반구는 시 하나로 묶음. 옛 광주광역시의 구는 '광주 ○구'.
+export function districtKey(p) {
+  return `${p.rg}-${p.sg || ''}`;
+}
+export function buildDistricts(list) {
+  const cnt = {};
+  for (const p of list) {
+    const w = (p.a || '').trim().split(/\s+/);
+    const name = w[1] || '';
+    if (!name || /[로길]$|\d/.test(name)) continue;
+    const k = districtKey(p);
+    (cnt[k] ||= {})[name] = (cnt[k][name] || 0) + 1;
+  }
+  const out = {};
+  for (const [k, m] of Object.entries(cnt)) {
+    let name = Object.entries(m).sort((a, b) => b[1] - a[1])[0][0];
+    const [rg, sg] = k.split('-');
+    if (rg === '12' && /^(동|서|남|북|광산)구$/.test(name)) name = `광주 ${name}`;
+    if (rg === '36110') name = '세종';
+    out[k] = name;
+  }
+  return out;
+}
+
+// 시·군마다 점수 높은 순으로 최대 cap 곳. 같은 이름(설악산 내설악·남설악 등) 겹치는 것도 정리.
+export function pickPlaces(list, details = {}, { cap = 15, min = 7 } = {}) {
+  const dist = buildDistricts(list);
+  const groups = {};
+  for (const p of list) {
+    if (!p.x || !p.y) continue;
+    const sc = placeScore(p, details[p.id]);
+    if (sc < min) continue;
+    const name = dist[districtKey(p)] || '';
+    const g = `${p.rg}|${name}`;
+    (groups[g] ||= []).push({ p, sc, name });
+  }
+  const out = [];
+  for (const arr of Object.values(groups)) {
+    arr.sort((a, b) => b.sc - a.sc || a.p.t.localeCompare(b.p.t, 'ko'));
+    // 한 종류(해변·계곡 등)가 다 차지하지 않게 — 같은 분류는 먼저 4곳까지, 자리가 남으면 나머지로 채움
+    const seen = new Set();
+    const byCat = {};
+    const pick = [];
+    const left = [];
+    for (const o of arr) {
+      const key = o.p.t.replace(/\s|\(.*?\)|\[.*?\]/g, '');
+      if (seen.has(key)) continue;
+      seen.add(key);
+      if ((byCat[o.p.c3] = (byCat[o.p.c3] || 0) + 1) <= 4) pick.push(o);
+      else left.push(o);
+    }
+    const all = [...pick.slice(0, cap), ...left].slice(0, cap);
+    all.sort((a, b) => b.sc - a.sc);
+    out.push(...all);
+  }
+  return out;
+}

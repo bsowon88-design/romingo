@@ -1,0 +1,100 @@
+---
+// 관광지 상세 — 한국관광공사 자료. 사이트에 싣기로 고른 곳(시·군마다 이름난 곳)만 페이지를 만듦.
+import Base from '../../../layouts/Base.astro';
+import FestCard from '../../../components/kr/FestCard.astro';
+import PlaceCard from '../../../components/kr/PlaceCard.astro';
+import KrForecast from '../../../components/kr/KrForecast.astro';
+import '../../../components/kr/kr.css';
+import { PLACES, detailOf, catOf, imgUrl, nearPlaces, nearFests, kakaoMap, naverMap } from '../../../data/domestic.js';
+
+export function getStaticPaths() {
+  return PLACES.map((p) => ({ params: { id: p.id }, props: { p } }));
+}
+const { p } = Astro.props;
+const d = detailOf(p.id) || {};
+const name = p.t.replace(/\s*\[.*?\]\s*/g, ' ').trim();
+const tag = (p.t.match(/\[(.*?)\]/) || [])[1] || '';
+const cat = catOf(p.c3);
+const near = nearPlaces(p, 8, 20, p.id);
+const fests = nearFests(p, 4, 30);
+const thin = !d.o;
+const desc = `${p.region.ko} ${p.dist} ${cat} ${name}. ${(d.o || '').replace(/\s+/g, ' ').slice(0, 100)}`.trim();
+const rows = [
+  ['주소', p.a || ''],
+  ['이용 시간', d.tm || ''],
+  ['쉬는 날', d.rest || ''],
+  ['요금', d.fee || ''],
+  ['주차', d.park || ''],
+  ['문의', d.info || p.tel || ''],
+].filter(([, v]) => v);
+---
+<Base title={`${name} - ${p.region.ko} ${p.dist} ${cat}`} desc={desc} noindex={thin}>
+  <p class="crumb"><a href="/">홈</a> › <a href="/domestic/">국내여행</a> › <a href={`/domestic/${p.region.slug}/`}>{p.region.ko}</a> › {p.dist}</p>
+  <div class="phead">
+    <span class="pcat">{cat}</span>{tag && <span class="ptag">{tag}</span>}
+    <h1>{name}</h1>
+    <p class="lead"><a href={`/domestic/${p.region.slug}/`}>{p.region.ko}</a> {p.dist}</p>
+  </div>
+
+  <div class="ptop">
+    <figure class="pph">
+      <img src={imgUrl(p.img)} alt={name} width="800" height="530" fetchpriority="high" />
+      <figcaption>사진: 한국관광공사 (공공누리)</figcaption>
+    </figure>
+    <div class="pinfo">
+      <dl>{rows.map(([k, v]) => <><dt>{k}</dt><dd>{v}</dd></>)}</dl>
+      <div class="pbtn">
+        {d.hp && <a class="btn" href={d.hp} target="_blank" rel="noopener nofollow">공식 홈페이지 ↗</a>}
+        <a class="btn ghost" href={kakaoMap(p)} target="_blank" rel="noopener">카카오맵</a>
+        <a class="btn ghost" href={naverMap(p)} target="_blank" rel="noopener">네이버 지도</a>
+      </div>
+      {!(d.tm || d.fee) && <p class="muted">이용 시간·요금은 공식 홈페이지 확인 필요.</p>}
+    </div>
+  </div>
+
+  {d.o && (
+    <section class="pabout">
+      <h2>📝 소개</h2>
+      {d.o.split('\n').map((t) => <p>{t}</p>)}
+    </section>
+  )}
+
+  <div id="wx"><KrForecast region={p.region} /></div>
+
+  {fests.length > 0 && (
+    <>
+      <h2>🎉 근처에서 열리는 축제 <small>30km 안</small></h2>
+      <div class="kgrid f4">{fests.map(({ f }) => <FestCard f={f} />)}</div>
+    </>
+  )}
+
+  {near.length > 0 && (
+    <>
+      <h2>📍 함께 가 볼 만한 곳 <small>가까운 순</small></h2>
+      <div class="kgrid f4">{near.map((o) => <PlaceCard p={o.p} d={o.d} />)}</div>
+    </>
+  )}
+
+  <p class="ksrcnote">
+    정보와 사진: 한국관광공사 국문 관광정보(TourAPI, 공공누리 저작물). 운영 시간·요금·휴무는 바뀔 수 있어요. 가기 전에 공식 홈페이지나 전화로 확인하세요.
+  </p>
+</Base>
+
+<style>
+  .phead h1 { margin: 6px 0 4px; }
+  .phead .lead a { color: var(--sea); text-decoration: none; font-weight: 700; }
+  .pcat, .ptag { display: inline-block; font-size: 12.5px; font-weight: 800; padding: 3px 10px; border-radius: 999px; background: #FFE9DC; color: var(--sea); margin-right: 6px; }
+  .ptag { background: #E6F1EA; color: #1d7a4c; }
+  .ptop { display: grid; grid-template-columns: minmax(0, 1.25fr) minmax(0, 1fr); gap: 22px; margin-top: 18px; align-items: start; }
+  .pph { margin: 0; background: #F6E6DA; border-radius: 18px; overflow: hidden; }
+  .pph img { width: 100%; height: auto; max-height: 520px; object-fit: contain; display: block; background: #F6E6DA; }
+  .pph figcaption { font-size: 12px; color: var(--sub); padding: 6px 12px; background: #fff; }
+  .pinfo { background: #fff; border: 1px solid var(--line); border-radius: 18px; padding: 18px 20px; }
+  dl { display: grid; grid-template-columns: 64px 1fr; gap: 9px 12px; margin: 0; font-size: 15px; }
+  dt { font-weight: 800; color: var(--sub); font-size: 14px; padding-top: 1px; }
+  dd { margin: 0; white-space: pre-line; overflow-wrap: anywhere; }
+  .pbtn { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 16px; }
+  .pabout p { margin: 0 0 10px; line-height: 1.85; font-size: 16px; }
+  h2 small { font-size: 13px; color: var(--sub); font-weight: 600; }
+  @media (max-width: 860px) { .ptop { grid-template-columns: 1fr; gap: 14px; } }
+</style>

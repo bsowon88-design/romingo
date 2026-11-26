@@ -9,7 +9,9 @@ import { fetchRates } from './ecos.mjs';
 import { fetchClimate } from './climate.mjs';
 import { fetchPhotos } from './photos.mjs';
 import { fetchYoutube } from './youtube.mjs';
-import { fetchFestivals, fetchPlaces, kstDate } from './tour.mjs';
+import { fetchFestivals, fetchPlaces, fetchDetails, kstDate } from './tour.mjs';
+import { pickPlaces } from '../src/data/kr-pick.js';
+import { KR_WX } from '../src/data/kr-regions.js';
 import { updatePopular, fetchTodayFlights } from './icn.mjs';
 import { fetchForecasts } from './forecast.mjs';
 import { mkdir } from 'node:fs/promises';
@@ -32,6 +34,7 @@ const LW_FILE = new URL('../live/forecast.json', import.meta.url);
 const KF_FILE = new URL('../src/data/archive/kr-festivals.json', import.meta.url);
 const KP_FILE = new URL('../src/data/archive/kr-places.json', import.meta.url);
 const KT_FILE = new URL('../live/tour.json', import.meta.url);
+const KD_FILE = new URL('../src/data/archive/kr-detail.json', import.meta.url);
 
 async function readList(file) {
   try {
@@ -165,7 +168,7 @@ try {
   let old = null;
   try { old = JSON.parse(await readFile(LW_FILE, 'utf8')); } catch {}
   if (!old || Date.now() - (old.at || 0) > 170 * 60000) {
-    const fc = await fetchForecasts(CITIES);
+    const fc = await fetchForecasts([...CITIES, ...KR_WX]); // 해외 도시 + 국내 시도별 기준 지점
     if (fc) {
       await writeFile(LW_FILE, JSON.stringify(fc) + '\n');
       console.log(`예보: 도시 ${Object.keys(fc.c).length}곳`);
@@ -234,6 +237,25 @@ if (KEY) {
     } catch (e) {
       console.warn(`${label} 수집 실패:`, e.message);
     }
+  }
+  // 상세 설명 — 하루 한 번, 축제 먼저 그다음 사이트에 싣는 관광지
+  try {
+    const fl = (await readList(KF_FILE)).list || [];
+    const pl = (await readList(KP_FILE)).list || [];
+    const oldD = await readList(KD_FILE);
+    const baseD = Array.isArray(oldD) ? {} : oldD;
+    const ids = pickPlaces(pl, baseD.d || {}, { cap: 13, min: 7 }).map((o) => o.p.id);
+    const r = await fetchDetails(KEY, baseD, clock, fl, ids);
+    if (!r) console.log('상세: 오늘은 이미 받음');
+    else {
+      clock.detail = kstDate();
+      if (JSON.stringify(r.d) !== JSON.stringify(baseD.d || {})) {
+        await writeFile(KD_FILE, JSON.stringify({ d: r.d }) + '\n');
+        changed = true;
+      }
+    }
+  } catch (e) {
+    console.warn('상세 수집 실패:', e.message);
   }
   await mkdir(LIVE_DIR, { recursive: true });
   await writeFile(KT_FILE, JSON.stringify(clock) + '\n');

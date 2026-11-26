@@ -1,0 +1,105 @@
+---
+// 시도 페이지 — 날씨 예보 · 지금/다가오는 축제 · 가볼 만한 곳 (종류·시군으로 좁히기)
+import Base from '../../../layouts/Base.astro';
+import FestCard from '../../../components/kr/FestCard.astro';
+import PlaceCard from '../../../components/kr/PlaceCard.astro';
+import KrForecast from '../../../components/kr/KrForecast.astro';
+import '../../../components/kr/kr.css';
+import { KR_REGIONS, placesOfRegion, festOfRegion, THEMES, themeOf } from '../../../data/domestic.js';
+
+export function getStaticPaths() {
+  return KR_REGIONS.map((r) => ({ params: { region: r.slug }, props: { r } }));
+}
+const { r } = Astro.props;
+const places = placesOfRegion(r.slug).sort((a, b) => b.sc - a.sc);
+const fests = festOfRegion(r.slug);
+const themes = THEMES.map(([k, l]) => [k, l, places.filter((p) => themeOf(p.c3) === k).length]).filter((t) => t[2] > 0);
+// 시·군 (곳 수 많은 순이 아니라 가나다순)
+const dists = [...new Set(places.map((p) => p.dist).filter(Boolean))].sort((a, b) => a.localeCompare(b, 'ko'));
+const distN = Object.fromEntries(dists.map((x) => [x, places.filter((p) => p.dist === x).length]));
+const top = places.slice(0, 3).map((p) => p.t.replace(/\s*\[.*?\]\s*/g, ' ').trim());
+---
+<Base title={`${r.ko} 여행 - 가볼 만한 곳·축제·날씨`} desc={`${r.full} 가볼 만한 곳 ${places.length}곳과 지금 열리는 축제, 9일 날씨 예보. ${top.join(', ')} 등 한국관광공사 자료로 정리했어요.`}>
+  <p class="crumb"><a href="/">홈</a> › <a href="/domestic/">국내여행</a> › {r.ko}</p>
+  <h1>{r.ko} 여행</h1>
+  <p class="lead">{r.full}에서 주말에 일부러 찾아갈 만한 곳 {places.length}곳{fests.length > 0 && `과 축제 ${fests.length}개`}를 모았어요.</p>
+
+  <div class="kchips scroll rnav">
+    {KR_REGIONS.map((x) => <a href={`/domestic/${x.slug}/`} class:list={{ on: x.slug === r.slug }}>{x.ko}</a>)}
+  </div>
+
+  <div id="wx"><KrForecast region={r} /></div>
+
+  {fests.length > 0 && (
+    <>
+      <div class="khead">
+        <h2>🎉 {r.ko} 축제 <small>지금·다가오는</small></h2>
+        {fests.length > 8 && <a class="kmore" href={`/domestic/festival/?w=all&r=${r.slug}`}>{fests.length}개 모두 보기 →</a>}
+      </div>
+      <div class="kgrid f4">{fests.slice(0, 8).map((f) => <FestCard f={f} />)}</div>
+    </>
+  )}
+
+  <h2 id="places">📍 가볼 만한 곳 <small id="pn">{places.length}곳</small></h2>
+  <div class="kchips scroll" id="pth">
+    <button type="button" data-t="" class="on">전체</button>
+    {themes.map(([k, l, n]) => <button type="button" data-t={k}>{l} <small>{n}</small></button>)}
+  </div>
+  {dists.length > 1 && (
+    <div class="dsel">
+      <label for="pdist">시·군·구</label>
+      <select id="pdist">
+        <option value="">전체</option>
+        {dists.map((x) => <option value={x}>{x} ({distN[x]})</option>)}
+      </select>
+    </div>
+  )}
+  <div class="kgrid f4" id="plist">{places.map((p) => <PlaceCard p={p} />)}</div>
+  <p class="kempty" id="pnone" hidden>고른 조건에 맞는 곳이 없어요.</p>
+  <p class="pmore-w"><button type="button" class="btn ghost" id="pmore" hidden>더 보기</button></p>
+
+  <p class="ksrcnote">
+    관광지 정보와 사진: 한국관광공사 국문 관광정보(TourAPI, 공공누리). 시·군마다 계곡·해변·수목원·전망대·한옥마을처럼 일부러 찾아갈 만한 곳을 골라 실었어요.
+    운영 시간·요금은 바뀔 수 있으니 가기 전에 확인하세요.
+  </p>
+</Base>
+
+<script>
+  const th = document.getElementById('pth');
+  const sel = document.getElementById('pdist') as HTMLSelectElement | null;
+  const cards = [...document.querySelectorAll<HTMLElement>('#plist .pcard')];
+  const pn = document.getElementById('pn')!;
+  const none = document.getElementById('pnone')!;
+  const more = document.getElementById('pmore') as HTMLButtonElement;
+  const STEP = 24;
+  let t = '';
+  let show = STEP;
+  function apply() {
+    const dv = sel?.value || '';
+    th?.querySelectorAll<HTMLElement>('button').forEach((b) => b.classList.toggle('on', (b.dataset.t || '') === t));
+    let n = 0;
+    for (const c of cards) {
+      const ok = (!t || c.dataset.th === t) && (!dv || c.dataset.dist === dv);
+      if (ok) n++;
+      c.style.display = ok && n <= show ? '' : 'none';
+    }
+    pn.textContent = `${n}곳`;
+    none.hidden = n > 0;
+    more.hidden = n <= show;
+    more.textContent = `더 보기 (${n - show}곳 더)`;
+  }
+  th?.addEventListener('click', (e) => { const b = (e.target as HTMLElement).closest('button'); if (b) { t = b.dataset.t || ''; show = STEP; apply(); } });
+  sel?.addEventListener('change', () => { show = STEP; apply(); });
+  more.addEventListener('click', () => { show += STEP * 2; apply(); });
+  apply();
+</script>
+
+<style>
+  .rnav { margin-top: 14px; }
+  .pmore-w { text-align: center; margin: 18px 0 0; }
+  .pmore-w .btn { font: inherit; font-weight: 700; cursor: pointer; padding: 11px 26px; }
+  h2 small { font-size: 13px; color: var(--sub); font-weight: 600; }
+  .dsel { display: flex; align-items: center; gap: 8px; margin: -4px 0 14px; }
+  .dsel label { font-size: 14px; font-weight: 700; color: var(--sub); }
+  .dsel select { font: inherit; font-size: 15px; padding: 7px 12px; border: 1px solid var(--line); border-radius: 10px; background: #fff; color: var(--ink); }
+</style>

@@ -11,6 +11,7 @@ const path = Astro.url.pathname;
 const nav = [
   ['/popular/', '인기 도시', 'plane', true],
   ['/country/', '나라별', 'globe', true],
+  ['/domestic/', '국내여행', 'map-pin', true],
   ['/weather/', '날씨', 'cloud-sun', false],
   ['/safety/', '안전 정보', 'shield-check', true],
   ['/rates/', '환율', 'coins', true],
@@ -37,7 +38,7 @@ const isOn = (href) => (href === '/' ? path === '/' : path.startsWith(href) || (
   <meta property="og:image" content={new URL('/og.png', SITE_URL).href} />
   <meta property="og:image:width" content="1200" />
   <meta property="og:image:height" content="630" />
-  <meta property="og:image:alt" content="트립베리 - 해외 여행지 안전 · 날씨 · 가이드" />
+  <meta property="og:image:alt" content="트립베리 - 해외·국내 여행 안전 · 날씨 · 가이드" />
   <meta property="og:locale" content="ko_KR" />
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:image" content={new URL('/og.png', SITE_URL).href} />
@@ -85,7 +86,7 @@ const isOn = (href) => (href === '/' ? path === '/' : path.startsWith(href) || (
   </main>
   <footer class="foot">
     <div class="wrap">
-      <p><b>자료 출처</b> 미국 지질조사국(USGS) · 국제 재난경보(GDACS) · 외교부 · 한국은행 · 인천국제공항공사 · 한국공항공사 · 노르웨이 기상청(MET Norway, CC BY 4.0) · NASA POWER — 공식 데이터를 자동으로 정리해요. 나라 기본 정보는 여행 전에 한 번 더 확인하세요.</p>
+      <p><b>자료 출처</b> 미국 지질조사국(USGS) · 국제 재난경보(GDACS) · 외교부 · 한국은행 · 인천국제공항공사 · 한국공항공사 · 노르웨이 기상청(MET Norway, CC BY 4.0) · NASA POWER · 한국관광공사(TourAPI, 공공누리) — 공식 데이터를 자동으로 정리해요. 나라 기본 정보는 여행 전에 한 번 더 확인하세요.</p>
       <p>트립베리는 참고용 정보예요. 여행 전에는 꼭 <a href={MOFA_URL} target="_blank" rel="noopener">외교부 해외안전여행</a>과 현지 정부·항공사 공지를 확인하세요.</p>
       <p class="foot-links"><a href="/about/">트립베리 소개</a> · <a href="/privacy/">개인정보처리방침</a> · <a href="/credits/">사진 출처</a> · <a href="/prep/">여행 준비 (제휴 안내)</a></p>
       <p class="copy">© {new Date().getFullYear()} {SITE_NAME}</p>
@@ -340,7 +341,11 @@ const isOn = (href) => (href === '/' ? path === '/' : path.startsWith(href) || (
   .hasbg > .bgimg { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; z-index: -2; }
   .hasbg.photo::after { content: ''; position: absolute; inset: 0; z-index: -1; background: linear-gradient(180deg, rgba(0,0,0,.15) 0%, rgba(0,0,0,.55) 100%); }
   .flag { display: inline-block; vertical-align: -2px; border-radius: 2px; box-shadow: 0 0 0 1px rgba(0,0,0,.08); object-fit: cover; }
-  @media (max-width: 1480px) { .logo small { display: none; } }
+  .logo small, .sbtn span { white-space: nowrap; }
+  @media (max-width: 1720px) { .logo small { display: none; } }
+  /* 메뉴가 8개라 PC 폭이 좁으면 오른쪽 버튼은 아이콘만 */
+  @media (min-width: 1024px) and (max-width: 1560px) { .tact .sbtn span { display: none; } .tact .sbtn { padding: 0; width: 36px; height: 36px; display: grid; place-items: center; border-radius: 50%; } }
+  @media (min-width: 1024px) and (max-width: 1180px) { .top nav { gap: 6px !important; } .top nav a { padding: 8px 6px !important; font-size: 15px !important; } .top nav a.hot { padding: 6px 11px !important; } }
   @media (max-width: 1023px) {
     .top nav a .ico, .top nav a .hx { display: none; }
     .top nav a { font-size: 15px; padding: 10px 8px; }

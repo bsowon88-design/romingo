@@ -41,7 +41,7 @@ async function one(city, tz) {
 export async function fetchForecasts(cities) {
   const c = {};
   for (const city of cities) {
-    const tz = bySlug[city.country]?.tz || 'UTC';
+    const tz = city.tz || bySlug[city.country]?.tz || 'UTC';
     try {
       c[city.slug] = await one(city, tz);
     } catch (e) {

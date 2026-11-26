@@ -1,0 +1,53 @@
+---
+// 국내 지역 9일 예보 — 노르웨이 기상청 예보를 3시간마다 받아 둔 것(live/forecast.json 의 kr-지역)을 화면에서 바로 불러옴
+const { region, title = '' } = Astro.props;
+---
+<section class="kfc" data-kfc={`kr-${region.slug}`}>
+  <h2>🌤️ {title || `${region.ko} 날씨`} <small>{region.wx.ko} 기준 · 앞으로 9일쯤</small></h2>
+  <div class="kdays"><p class="kwait">예보 불러오는 중…</p></div>
+  <p class="ksrc">예보: 노르웨이 기상청(MET Norway)</p>
+</section>
+
+<script>
+  import { loadLive, sym, dayLabel, kstHM, el } from '../../scripts/live';
+  document.querySelectorAll<HTMLElement>('[data-kfc]').forEach((box) => {
+    const wrap = box.querySelector('.kdays')!;
+    loadLive('forecast')
+      .then((j) => {
+        const days = j.c?.[box.dataset.kfc || ''];
+        if (!days?.length) throw new Error('none');
+        wrap.innerHTML = '';
+        for (const [date, hi, lo, rain, s] of days.slice(0, 9)) {
+          const [ic, ko] = sym(s);
+          const d = dayLabel(date);
+          const it = el('div', 'kd' + (d.we ? ' we' : ''));
+          it.append(el('span', 'kdt', `${d.md} ${d.wd}`), el('span', 'kic', ic), el('span', 'kko', ko));
+          const t = el('span', 'kt');
+          t.append(el('b', 'hi', `${Math.round(hi)}°`), el('span', 'lo', ` ${Math.round(lo)}°`));
+          it.append(t, el('span', 'kr', rain >= 0.5 ? `💧${rain >= 10 ? Math.round(rain) : rain}mm` : ' '));
+          wrap.append(it);
+        }
+        box.querySelector('.ksrc')!.textContent = `예보: 노르웨이 기상청(MET Norway) · ${kstHM(j.at)} 기준`;
+      })
+      .catch(() => {
+        wrap.innerHTML = '';
+        wrap.append(el('p', 'kwait', '⏳ 예보를 준비하고 있어요. 몇 시간 안에 채워져요.'));
+      });
+  });
+</script>
+
+<style>
+  .kfc h2 small { font-size: 13px; color: var(--sub); font-weight: 600; }
+  .kdays { display: grid; grid-template-columns: repeat(9, minmax(70px, 1fr)); gap: 6px; overflow-x: auto; scrollbar-width: thin; padding-bottom: 4px; }
+  .kdays :global(.kwait) { grid-column: 1 / -1; margin: 0; color: var(--sub); background: #fff; border: 1px dashed var(--line); border-radius: 12px; padding: 14px; }
+  .kdays :global(.kd) { display: flex; flex-direction: column; align-items: center; gap: 2px; background: #fff; border: 1px solid var(--line); border-radius: 12px; padding: 10px 4px; text-align: center; }
+  .kdays :global(.kdt) { font-size: 12.5px; font-weight: 700; }
+  .kdays :global(.we .kdt) { color: var(--sea); }
+  .kdays :global(.kic) { font-size: 24px; line-height: 1.2; }
+  .kdays :global(.kko) { font-size: 11.5px; color: var(--sub); }
+  .kdays :global(.kt) { font-size: 13.5px; }
+  .kdays :global(.hi) { color: #d9603b; }
+  .kdays :global(.lo) { color: #2f78c4; }
+  .kdays :global(.kr) { font-size: 11.5px; color: #2f78c4; min-height: 15px; }
+  .ksrc { margin: 8px 0 0; font-size: 12px; color: var(--sub); }
+</style>

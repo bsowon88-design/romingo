@@ -1,0 +1,38 @@
+/* 국내여행 페이지 공용 */
+.kgrid { display: grid; gap: 14px; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); }
+.kgrid.f4 { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+@media (max-width: 1023px) { .kgrid.f4 { grid-template-columns: repeat(3, minmax(0, 1fr)); } }
+@media (max-width: 760px) {
+  .kgrid, .kgrid.f4 { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px; }
+}
+.khead { display: flex; align-items: baseline; justify-content: space-between; gap: 12px; }
+.khead h2 { margin-bottom: 12px; }
+.kmore { font-size: 14px; font-weight: 700; color: var(--sea); text-decoration: none; white-space: nowrap; }
+.kmore:hover { text-decoration: underline; }
+.kchips { display: flex; flex-wrap: wrap; gap: 6px; margin: 0 0 14px; }
+.kchips button, .kchips a { font: inherit; font-size: 14px; font-weight: 700; color: #5C4A40; background: #fff; border: 1px solid var(--line); border-radius: 999px; padding: 6px 13px; cursor: pointer; text-decoration: none; white-space: nowrap; }
+.kchips button small { font-weight: 600; color: var(--sub); margin-left: 2px; }
+.kchips button:hover, .kchips a:hover { border-color: var(--coral); color: var(--sea); }
+.kchips button.on, .kchips a.on { background: var(--sea); border-color: var(--sea); color: #fff; }
+.kchips button.on small { color: #FFE3D1; }
+@media (max-width: 760px) {
+  .kchips.scroll { flex-wrap: nowrap; overflow-x: auto; scrollbar-width: none; margin-left: -18px; margin-right: -18px; padding: 0 18px; }
+  .kchips.scroll::-webkit-scrollbar { display: none; }
+}
+.kempty { background: #fff; border: 1px dashed var(--line); border-radius: 14px; padding: 22px; text-align: center; color: var(--sub); margin: 0; }
+.ksrcnote { font-size: 12.5px; color: var(--sub); margin: 26px 0 0; line-height: 1.7; }
+.ksrcnote a { color: var(--sub); }
+.kregions { display: grid; gap: 10px; grid-template-columns: repeat(8, minmax(0, 1fr)); }
+@media (max-width: 1023px) { .kregions { grid-template-columns: repeat(4, minmax(0, 1fr)); } }
+.kreg { position: relative; display: block; aspect-ratio: 4 / 3; border-radius: 14px; overflow: hidden; text-decoration: none; color: #fff; background: #C9A897; isolation: isolate; }
+.kreg img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; z-index: -2; transition: transform .3s; }
+.kreg::after { content: ''; position: absolute; inset: 0; z-index: -1; background: linear-gradient(180deg, rgba(0,0,0,0) 35%, rgba(0,0,0,.6) 100%); }
+.kreg:hover img { transform: scale(1.05); }
+.kreg b { position: absolute; left: 10px; bottom: 8px; font-size: 16px; text-shadow: 0 1px 4px rgba(0,0,0,.4); }
+.kreg small { position: absolute; right: 9px; bottom: 9px; font-size: 11.5px; font-weight: 700; opacity: .9; }
+.kreg.on { outline: 3px solid var(--sea); outline-offset: 2px; }
+@media (max-width: 760px) {
+  .kreg small { display: none; }
+  .kreg b { font-size: 14.5px; left: 8px; bottom: 6px; }
+  .kgrid.lim > :nth-child(n+5) { display: none; }
+}

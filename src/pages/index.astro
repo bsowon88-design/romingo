@@ -16,6 +16,9 @@ import HeroSlider from '../components/HeroSlider.astro';
 import VideoRow from '../components/VideoRow.astro';
 import RateBoard from '../components/RateBoard.astro';
 import BestNow from '../components/BestNow.astro';
+import FestCard from '../components/kr/FestCard.astro';
+import '../components/kr/kr.css';
+import { festWeekend, festNow, festSoon } from '../data/domestic.js';
 
 // 인기 여행지 (처음에 보이는 카드)
 const POP = ['japan', 'vietnam', 'thailand', 'philippines', 'taiwan', 'china', 'guam-saipan', 'singapore'];
@@ -26,6 +29,8 @@ const nowM = +new Intl.DateTimeFormat('en-US', { timeZone: 'Asia/Seoul', month: 
 const popTop = popularCities(8).list;
 const isoSlug = {};
 for (const c of COUNTRIES) for (const i of c.iso2) if (!isoSlug[i]) isoSlug[i] = c.slug;
+// 국내 축제 — 이번 주말 것 먼저, 없으면 지금·곧 열리는 것
+const krFest = [...festWeekend(), ...festNow(), ...festSoon(30)].filter((f, i, a) => a.findIndex((x) => x.id === f.id) === i).slice(0, 4);
 const guides = GUIDES.map((g) => CITIES.find((x) => x.slug === g.city)).filter(Boolean);
 ---
 <Base>
@@ -78,6 +83,16 @@ const guides = GUIDES.map((g) => CITIES.find((x) => x.slug === g.city)).filter(B
   </section>
 
   <BestNow />
+
+  {krFest.length > 0 && (
+    <section class="krfest">
+      <div class="khead">
+        <h2>{festWeekend().length ? '🎉 이번 주말 국내 축제' : '🎉 국내 축제 소식'}</h2>
+        <a class="kmore" href="/domestic/">국내여행 전체 →</a>
+      </div>
+      <div class="kgrid f4">{krFest.map((f) => <FestCard f={f} />)}</div>
+    </section>
+  )}
 
   <h2 id="pop-title">🧳 인기 여행지</h2>
   <div class="grid cgrid" id="countries">

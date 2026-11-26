@@ -104,3 +104,79 @@ export async function fetchPlaces(key, old, clock = {}) {
   const list = Object.values(out).sort((a, b) => a.id.localeCompare(b.id));
   return { list };
 }
+
+// ── 상세 설명 (소개 글·이용 시간·요금·장소 등) — 하루 한 번, 정해 둔 횟수만큼 조금씩 ──
+// 축제(끝나지 않은 것) 먼저, 그다음 사이트에 싣는 관광지(src/data/kr-pick.js 로 고른 곳).
+// 개발 계정 하루 한도(1,000회)를 넘지 않게 하루 최대 DETAIL_CALLS 회만 부름. 한도에 걸리면 그때까지 받은 것만 저장.
+const DETAIL_CALLS = 500;
+const clean = (v) =>
+  String(v || '')
+    .replace(/<br\s*\/?>/gi, '\n')
+    .replace(/<[^>]+>/g, '')
+    .replace(/&nbsp;/g, ' ')
+    .replace(/&amp;/g, '&')
+    .replace(/&lt;/g, '<')
+    .replace(/&gt;/g, '>')
+    .replace(/&quot;/g, '"')
+    .replace(/[ \t]+/g, ' ')
+    .replace(/\n\s*\n+/g, '\n')
+    .trim();
+const firstUrl = (h) => (String(h || '').match(/https?:\/\/[^\s"'<>]+/) || [''])[0];
+const INTRO = {
+  15: { eventplace: 'pl', playtime: 'tm', usetimefestival: 'fee', sponsor1: 'org', sponsor1tel: 'otel', agelimit: 'age' },
+  12: { infocenter: 'info', restdate: 'rest', usetime: 'tm', parking: 'park' },
+  14: { infocenterculture: 'info', usefee: 'fee', usetimeculture: 'tm', restdateculture: 'rest', parkingculture: 'park' },
+};
+
+export async function fetchDetails(key, old, clock, festList, placeIds) {
+  const today = kstDate();
+  if (clock.detail === today) return null;
+  const d = { ...(old?.d || {}) };
+  const now = Date.now();
+  const todayY = today.replace(/-/g, '');
+  const want = [];
+  for (const f of festList) {
+    if (!f.e || f.e < todayY) continue;
+    const have = d[f.id];
+    if (!have || now - (have.at || 0) > 10 * 864e5) want.push({ id: f.id, ty: 15 });
+  }
+  for (const id of placeIds) if (!d[id]) want.push({ id, ty: null });
+  let calls = 0;
+  let got = 0;
+  let fails = 0;
+  outer: for (const w of want) {
+    if (calls + 2 > DETAIL_CALLS) break;
+    try {
+      calls++;
+      const c = (await call('detailCommon2', { key, contentId: w.id })).items[0];
+      if (!c) continue;
+      const ty = w.ty || +c.contenttypeid || 12;
+      const o = { at: now };
+      const ov = clean(c.overview);
+      if (ov) o.o = ov.slice(0, 1500);
+      const hp = firstUrl(c.homepage);
+      if (hp) o.hp = hp;
+      if (INTRO[ty]) {
+        calls++;
+        const it = (await call('detailIntro2', { key, contentId: w.id, contentTypeId: ty })).items[0] || {};
+        for (const [src, dst] of Object.entries(INTRO[ty])) {
+          const v = clean(it[src]);
+          if (v) o[dst] = v.slice(0, 300);
+        }
+      }
+      d[w.id] = o;
+      got++;
+      fails = 0;
+    } catch (e) {
+      console.warn(`  상세 ${w.id} 실패:`, e.message);
+      // 하루 한도에 걸렸거나 계속 실패하면 오늘은 멈춤 (받은 것까지만 저장)
+      if (/LIMITED|SERVICE_KEY|한도|초과/.test(e.message) || ++fails >= 5) break outer;
+    }
+    await new Promise((r) => setTimeout(r, 150));
+  }
+  // 더 이상 쓰지 않는 것 정리 (끝난 지 1년 지난 축제·목록에서 빠진 관광지)
+  const keep = new Set([...festList.map((f) => f.id), ...placeIds]);
+  for (const id of Object.keys(d)) if (!keep.has(id)) delete d[id];
+  console.log(`상세: 이번에 ${got}곳 (호출 ${calls}회), 남은 곳 ${Math.max(0, want.length - got)}, 보관 ${Object.keys(d).length}곳`);
+  return { d, done: got, left: want.length - got };
+}

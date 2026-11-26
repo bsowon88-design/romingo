@@ -1,0 +1,87 @@
+---
+// 축제 달력 — 이번 주말 / 지금 열리는 / 달별, 지역으로 좁히기 (화면에서 바로 거름)
+import Base from '../../../layouts/Base.astro';
+import FestCard from '../../../components/kr/FestCard.astro';
+import '../../../components/kr/kr.css';
+import { FESTIVALS, KR_REGIONS, TODAY, WEEKEND, MONTHS_AHEAD, inMonth, longRun, fmtDW } from '../../../data/domestic.js';
+
+// 끝나지 않은 축제만 (시작일 순, 오래 하는 상설 행사는 뒤로)
+const list = FESTIVALS.filter((f) => f.e >= TODAY).sort((a, b) => longRun(a) - longRun(b) || a.s.localeCompare(b.s));
+const months = MONTHS_AHEAD.map((x) => ({ ...x, n: list.filter((f) => inMonth(f, x.ym)).length })).filter((x) => x.n > 0);
+const regN = Object.fromEntries(KR_REGIONS.map((r) => [r.slug, list.filter((f) => f.region.slug === r.slug).length]));
+const wkN = list.filter((f) => f.s <= WEEKEND[1] && f.e >= WEEKEND[0]).length;
+const nowN = list.filter((f) => f.s <= TODAY).length;
+---
+<Base title="전국 축제 달력 - 이번 주말·이번 달 축제 일정" desc="이번 주말과 이번 달 전국에서 열리는 축제를 지역별로 모았어요. 기간·장소·사진을 한국관광공사 공식 자료로 매일 새로 정리해요.">
+  <p class="crumb"><a href="/">홈</a> › <a href="/domestic/">국내여행</a> › 축제 달력</p>
+  <h1>🎉 전국 축제 달력</h1>
+  <p class="lead">지금 열리고 있거나 곧 열리는 축제 {list.length}개. 기간과 지역으로 골라 보세요.</p>
+
+  <div class="kchips scroll" id="fwhen">
+    <button type="button" data-w="wk" class="on">이번 주말 <small>{wkN}</small></button>
+    <button type="button" data-w="now">지금 열리는 <small>{nowN}</small></button>
+    <button type="button" data-w="all">전체 <small>{list.length}</small></button>
+    {months.map((x) => <button type="button" data-w={x.ym}>{x.y !== MONTHS_AHEAD[0].y && `${String(x.y).slice(2)}년 `}{x.m}월 <small>{x.n}</small></button>)}
+  </div>
+  <div class="kchips scroll" id="freg">
+    <button type="button" data-r="" class="on">전국</button>
+    {KR_REGIONS.filter((r) => regN[r.slug]).map((r) => <button type="button" data-r={r.slug}>{r.ko} <small>{regN[r.slug]}</small></button>)}
+  </div>
+
+  <p class="fsum" id="fsum">이번 주말({fmtDW(WEEKEND[0])} ~ {fmtDW(WEEKEND[1])}) 열리는 축제</p>
+  <div class="kgrid f4" id="flist">
+    {list.map((f, i) => <FestCard f={f} lazy={i > 7} />)}
+  </div>
+  <p class="kempty" id="fnone" hidden>조건에 맞는 축제가 없어요. 다른 달이나 지역을 골라 보세요.</p>
+
+  <p class="ksrcnote">
+    축제 정보와 사진: 한국관광공사 국문 관광정보(TourAPI, 공공누리) — 6시간마다 새로 받아요. 새 축제는 보통 열리기 한두 달 전에 올라와요.
+    일정은 날씨나 사정에 따라 바뀔 수 있으니 가기 전에 공식 홈페이지에서 확인하세요.
+  </p>
+  <script type="application/json" id="fmeta" set:html={JSON.stringify({ today: TODAY, wk: WEEKEND, wkN })}></script>
+</Base>
+
+<script>
+  const meta = JSON.parse(document.getElementById('fmeta')?.textContent || '{}');
+  const cards = [...document.querySelectorAll<HTMLElement>('#flist .fcard')];
+  const sum = document.getElementById('fsum')!;
+  const none = document.getElementById('fnone')!;
+  const when = document.getElementById('fwhen')!;
+  const reg = document.getElementById('freg')!;
+  const p = new URLSearchParams(location.search);
+  let w = p.get('w') || (meta.wkN ? 'wk' : 'now');
+  let r = p.get('r') || '';
+  const fmt = (s: string) => `${+s.slice(4, 6)}.${+s.slice(6, 8)}`;
+  function apply() {
+    when.querySelectorAll<HTMLElement>('button').forEach((b) => b.classList.toggle('on', b.dataset.w === w));
+    reg.querySelectorAll<HTMLElement>('button').forEach((b) => b.classList.toggle('on', (b.dataset.r || '') === r));
+    let n = 0;
+    for (const c of cards) {
+      const s = c.dataset.s!, e = c.dataset.e!;
+      let ok = true;
+      if (w === 'wk') ok = s <= meta.wk[1] && e >= meta.wk[0];
+      else if (w === 'now') ok = s <= meta.today;
+      else if (/^\d{6}$/.test(w)) ok = s.slice(0, 6) <= w && e.slice(0, 6) >= w;
+      if (r && c.dataset.r !== r) ok = false;
+      c.style.display = ok ? '' : 'none';
+      if (ok) n++;
+    }
+    none.hidden = n > 0;
+    const rb = reg.querySelector<HTMLElement>(`button[data-r="${r}"]`);
+    const rl = r && rb ? `${rb.firstChild?.textContent?.trim()} ` : '';
+    const wl = w === 'wk' ? `이번 주말(${fmt(meta.wk[0])} ~ ${fmt(meta.wk[1])})` : w === 'now' ? '지금' : w === 'all' ? '앞으로' : `${+w.slice(4)}월에`;
+    sum.textContent = `${rl}${wl} 열리는 축제 ${n}개`;
+    const q = new URLSearchParams();
+    if (w !== 'wk') q.set('w', w);
+    if (r) q.set('r', r);
+    history.replaceState(null, '', q.toString() ? `?${q}` : location.pathname);
+  }
+  when.addEventListener('click', (e) => { const b = (e.target as HTMLElement).closest('button'); if (b) { w = b.dataset.w!; apply(); } });
+  reg.addEventListener('click', (e) => { const b = (e.target as HTMLElement).closest('button'); if (b) { r = b.dataset.r || ''; apply(); } });
+  if (!when.querySelector(`button[data-w="${w}"]`)) w = 'wk';
+  apply();
+</script>
+
+<style>
+  .fsum { font-weight: 700; margin: 4px 0 12px; }
+</style>

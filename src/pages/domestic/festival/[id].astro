@@ -1,0 +1,115 @@
+---
+// 축제 상세 — 한국관광공사 자료(기본 정보 + 자동 수집이 조금씩 받아 두는 상세 설명)
+import Base from '../../../layouts/Base.astro';
+import FestCard from '../../../components/kr/FestCard.astro';
+import PlaceCard from '../../../components/kr/PlaceCard.astro';
+import KrForecast from '../../../components/kr/KrForecast.astro';
+import '../../../components/kr/kr.css';
+import { FESTIVALS, detailOf, festStatus, longRun, fmtFull, fmtDW, imgUrl, nearPlaces, festOfRegion, kakaoMap, naverMap, TODAY } from '../../../data/domestic.js';
+
+export function getStaticPaths() {
+  return FESTIVALS.map((f) => ({ params: { id: f.id }, props: { f } }));
+}
+const { f } = Astro.props;
+const d = detailOf(f.id) || {};
+const st = festStatus(f);
+const name = f.t.replace(/\s*\[.*?\]\s*/g, ' ').trim();
+const days = (() => {
+  const t = (s) => Date.UTC(+s.slice(0, 4), +s.slice(4, 6) - 1, +s.slice(6, 8));
+  return Math.round((t(f.s) - t(TODAY)) / 864e5);
+})();
+const stLabel = st === 'now' ? (longRun(f) ? '상시 운영 중' : '지금 열리는 중') : st === 'soon' ? `${days}일 뒤 시작` : '끝난 축제';
+const near = f.x && f.y ? nearPlaces(f, 8, 25) : [];
+const others = festOfRegion(f.region.slug).filter((x) => x.id !== f.id).slice(0, 4);
+// 9일 안에 시작하거나 지금 열리는 중이면 날씨 예보를 함께
+const showWx = st === 'now' || (st === 'soon' && days <= 8);
+const period = f.s === f.e ? fmtFull(f.s) : `${fmtFull(f.s)} ~ ${fmtFull(f.e)}`;
+const desc = `${name} — ${f.s === f.e ? fmtDW(f.s) : `${fmtDW(f.s)} ~ ${fmtDW(f.e)}`}, ${f.region.ko} ${f.dist}. ${(d.o || '').replace(/\s+/g, ' ').slice(0, 90)}`.trim();
+// 소개 글이 아직 없으면 검색엔진에는 싣지 않음 (빈 페이지처럼 보이지 않게)
+const thin = !d.o;
+const rows = [
+  ['기간', period],
+  ['장소', d.pl || ''],
+  ['주소', f.a || ''],
+  ['시간', d.tm || ''],
+  ['요금', d.fee || ''],
+  ['주최', d.org || ''],
+  ['문의', d.otel || f.tel || ''],
+].filter(([, v]) => v);
+---
+<Base title={`${name} ${f.s.slice(0, 4)} - 기간·장소·날씨`} desc={desc} noindex={thin}>
+  <p class="crumb"><a href="/">홈</a> › <a href="/domestic/">국내여행</a> › <a href="/domestic/festival/">축제 달력</a> › {f.region.ko}</p>
+  <div class="fhead">
+    <span class={`fst ${st}`}>{stLabel}</span>
+    <h1>{name}</h1>
+    <p class="lead">{period} · <a href={`/domestic/${f.region.slug}/`}>{f.region.ko}</a>{f.dist && ` ${f.dist}`}</p>
+  </div>
+
+  <div class="ftop">
+    {f.img && (
+      <figure class="fph">
+        <img src={imgUrl(f.img)} alt={name} width="800" height="530" fetchpriority="high" />
+        <figcaption>사진: 한국관광공사 (공공누리)</figcaption>
+      </figure>
+    )}
+    <div class="finfo">
+      <dl>{rows.map(([k, v]) => <><dt>{k}</dt><dd>{v}</dd></>)}</dl>
+      <div class="fbtn">
+        {d.hp && <a class="btn" href={d.hp} target="_blank" rel="noopener nofollow">공식 홈페이지 ↗</a>}
+        {f.x && f.y && <a class="btn ghost" href={kakaoMap(f)} target="_blank" rel="noopener">카카오맵</a>}
+        <a class="btn ghost" href={naverMap(f)} target="_blank" rel="noopener">네이버 지도</a>
+      </div>
+      {!d.hp && <p class="muted">시간·요금 등 자세한 내용은 공식 홈페이지 확인 필요.</p>}
+    </div>
+  </div>
+
+  {d.o && (
+    <section class="fabout">
+      <h2>📝 축제 소개</h2>
+      {d.o.split('\n').map((p) => <p>{p}</p>)}
+    </section>
+  )}
+
+  {showWx && <div id="wx"><KrForecast region={f.region} title={`${f.region.ko} 날씨`} /></div>}
+
+  {near.length > 0 && (
+    <>
+      <h2>📍 근처 가볼 만한 곳 <small>축제장에서 가까운 순</small></h2>
+      <div class="kgrid f4">{near.map(({ p, d }) => <PlaceCard p={p} d={d} />)}</div>
+    </>
+  )}
+
+  {others.length > 0 && (
+    <>
+      <div class="khead">
+        <h2>🎉 {f.region.ko}의 다른 축제</h2>
+        <a class="kmore" href={`/domestic/festival/?w=all&r=${f.region.slug}`}>더 보기 →</a>
+      </div>
+      <div class="kgrid f4">{others.map((x) => <FestCard f={x} />)}</div>
+    </>
+  )}
+
+  <p class="ksrcnote">
+    정보와 사진: 한국관광공사 국문 관광정보(TourAPI, 공공누리 저작물). 일정·요금은 주최 측 사정이나 날씨로 바뀔 수 있어요. 가기 전에 공식 홈페이지에서 확인하세요.
+  </p>
+</Base>
+
+<style>
+  .fhead h1 { margin: 6px 0 4px; }
+  .fhead .lead a { color: var(--sea); text-decoration: none; font-weight: 700; }
+  .fst { display: inline-block; font-size: 12.5px; font-weight: 800; padding: 3px 10px; border-radius: 999px; background: #FFE9DC; color: var(--sea); }
+  .fst.now { background: var(--sea); color: #fff; }
+  .fst.end { background: #EEE6E0; color: var(--sub); }
+  .ftop { display: grid; grid-template-columns: minmax(0, 1.25fr) minmax(0, 1fr); gap: 22px; margin-top: 18px; align-items: start; }
+  .fph { margin: 0; background: #F6E6DA; border-radius: 18px; overflow: hidden; }
+  .fph img { width: 100%; height: auto; max-height: 520px; object-fit: contain; display: block; background: #F6E6DA; }
+  .fph figcaption { font-size: 12px; color: var(--sub); padding: 6px 12px; background: #fff; }
+  .finfo { background: #fff; border: 1px solid var(--line); border-radius: 18px; padding: 18px 20px; }
+  dl { display: grid; grid-template-columns: 52px 1fr; gap: 9px 12px; margin: 0; font-size: 15px; }
+  dt { font-weight: 800; color: var(--sub); font-size: 14px; padding-top: 1px; }
+  dd { margin: 0; white-space: pre-line; overflow-wrap: anywhere; }
+  .fbtn { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 16px; }
+  .fabout p { margin: 0 0 10px; line-height: 1.85; font-size: 16px; }
+  h2 small { font-size: 13px; color: var(--sub); font-weight: 600; }
+  @media (max-width: 860px) { .ftop { grid-template-columns: 1fr; gap: 14px; } }
+</style>

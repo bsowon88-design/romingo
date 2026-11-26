@@ -1,0 +1,39 @@
+---
+// 축제 카드 — 사진(한국관광공사)·이름·기간·지역·진행 상태
+import { imgUrl, fmtDW, festStatus, longRun, TODAY } from '../../data/domestic.js';
+const { f, lazy = true } = Astro.props;
+const st = festStatus(f);
+const dd = (() => {
+  if (st !== 'soon') return '';
+  const d = (s) => Date.UTC(+s.slice(0, 4), +s.slice(4, 6) - 1, +s.slice(6, 8));
+  return `D-${Math.round((d(f.s) - d(TODAY)) / 864e5)}`;
+})();
+const label = st === 'now' ? (longRun(f) ? '상시 운영 중' : '진행 중') : st === 'soon' ? dd : '종료';
+---
+<a class="fcard" href={`/domestic/festival/${f.id}/`} data-s={f.s} data-e={f.e} data-r={f.region.slug}>
+  <span class="fimg">
+    {f.img ? <img src={imgUrl(f.img)} alt="" loading={lazy ? 'lazy' : 'eager'} decoding="async" width="400" height="260" /> : <span class="fnoimg">🎉</span>}
+    <span class={`fst ${st}`}>{label}</span>
+  </span>
+  <span class="fbody">
+    <b class="ft">{f.t}</b>
+    <span class="fd">{fmtDW(f.s)}{f.e !== f.s && <> ~ {fmtDW(f.e)}</>}</span>
+    <span class="fr">📍 {f.region.ko}{f.dist && ` · ${f.dist}`}</span>
+  </span>
+</a>
+
+<style>
+  .fcard { display: flex; flex-direction: column; background: #fff; border: 1px solid var(--line); border-radius: 16px; overflow: hidden; text-decoration: none; color: inherit; transition: transform .15s, box-shadow .15s; }
+  .fcard:hover { transform: translateY(-2px); box-shadow: 0 10px 24px rgba(120,60,30,.12); }
+  .fimg { position: relative; aspect-ratio: 3 / 2; background: #F6E6DA; display: block; }
+  .fimg img { width: 100%; height: 100%; object-fit: cover; display: block; }
+  .fnoimg { display: grid; place-items: center; height: 100%; font-size: 40px; }
+  .fst { position: absolute; left: 10px; top: 10px; font-size: 12px; font-weight: 800; padding: 3px 9px; border-radius: 999px; background: rgba(255,255,255,.94); color: var(--ink); }
+  .fst.now { background: var(--sea); color: #fff; }
+  .fst.soon { background: #fff; color: var(--sea); }
+  .fst.end { background: rgba(60,50,45,.75); color: #fff; }
+  .fbody { display: flex; flex-direction: column; gap: 3px; padding: 12px 14px 14px; }
+  .ft { font-size: 15.5px; line-height: 1.4; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
+  .fd { font-size: 13.5px; font-weight: 700; color: var(--sea); }
+  .fr { font-size: 13px; color: var(--sub); }
+</style>

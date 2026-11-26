@@ -29,8 +29,8 @@ const nowN = list.filter((f) => f.s <= TODAY).length;
   </div>
 
   <p class="fsum" id="fsum">이번 주말({fmtDW(WEEKEND[0])} ~ {fmtDW(WEEKEND[1])}) 열리는 축제</p>
-  <div class="kgrid f4" id="flist">
-    {list.map((f, i) => <FestCard f={f} lazy={i > 7} />)}
+  <div class="fmini" id="flist">
+    {list.map((f, i) => <FestCard f={f} lazy={i > 11} mini />)}
   </div>
   <p class="kempty" id="fnone" hidden>조건에 맞는 축제가 없어요. 다른 달이나 지역을 골라 보세요.</p>
 

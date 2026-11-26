@@ -90,7 +90,7 @@ const guides = GUIDES.map((g) => CITIES.find((x) => x.slug === g.city)).filter(B
         <h2>{festWeekend().length ? '🎉 이번 주말 국내 축제' : '🎉 국내 축제 소식'}</h2>
         <a class="kmore" href="/domestic/">국내여행 전체 →</a>
       </div>
-      <div class="kgrid f4">{krFest.map((f) => <FestCard f={f} />)}</div>
+      <div class="fmini">{krFest.map((f) => <FestCard f={f} mini />)}</div>
     </section>
   )}
 

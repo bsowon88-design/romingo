@@ -36,3 +36,6 @@
   .kreg b { font-size: 14.5px; left: 8px; bottom: 6px; }
   .kgrid.lim > :nth-child(n+5) { display: none; }
 }
+.fmini { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 10px; }
+@media (max-width: 1023px) { .fmini { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (max-width: 760px) { .fmini { grid-template-columns: 1fr; gap: 8px; } .fmini.lim > :nth-child(n+5) { display: none; } }

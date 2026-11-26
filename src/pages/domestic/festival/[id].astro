@@ -85,7 +85,7 @@ const rows = [
         <h2>🎉 {f.region.ko}의 다른 축제</h2>
         <a class="kmore" href={`/domestic/festival/?w=all&r=${f.region.slug}`}>더 보기 →</a>
       </div>
-      <div class="kgrid f4">{others.map((x) => <FestCard f={x} />)}</div>
+      <div class="fmini">{others.map((x) => <FestCard f={x} mini />)}</div>
     </>
   )}
 

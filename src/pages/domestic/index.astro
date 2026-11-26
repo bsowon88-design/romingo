@@ -69,7 +69,7 @@ const rows = SEASON.map((th) => [th, SEASON_TITLE[th], spread(th)]);
         <a class="kmore" href="/domestic/festival/">축제 달력 →</a>
       </div>
       {(weekend.length ? weekend : nowList).length ? (
-        <div class="fmini">{(weekend.length ? weekend : nowList).slice(0, 8).map((f) => <FestCard f={f} mini />)}</div>
+        <div class="fmini lim">{(weekend.length ? weekend : nowList).slice(0, 8).map((f) => <FestCard f={f} mini />)}</div>
       ) : (
         <p class="kempty">이번 주말에 열리는 축제 소식이 아직 없어요. <a href="/domestic/festival/">축제 달력</a>에서 다가오는 축제를 확인해 보세요.</p>
       )}
@@ -151,9 +151,6 @@ const rows = SEASON.map((th) => [th, SEASON_TITLE[th], spread(th)]);
   .wd[data-i='0']::before { content: '토'; font-size: 11.5px; font-weight: 800; color: var(--sea); }
   .wd[data-i='1']::before { content: '일'; font-size: 11.5px; font-weight: 800; color: var(--red); }
   .wknote { margin-top: 8px; }
-  .fmini { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 10px; }
-  @media (max-width: 1023px) { .fmini { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
-  @media (max-width: 760px) { .fmini { grid-template-columns: 1fr; gap: 8px; } .fmini > :global(:nth-child(n+5)) { display: none; } }
   @media (max-width: 760px) {
     .wkgrid { grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 5px; }
     .wk { padding: 7px 5px 6px; gap: 1px; border-radius: 10px; }

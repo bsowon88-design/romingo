@@ -28,18 +28,6 @@ const top = places.slice(0, 3).map((p) => p.t.replace(/\s*\[.*?\]\s*/g, ' ').tri
     {KR_REGIONS.map((x) => <a href={`/domestic/${x.slug}/`} class:list={{ on: x.slug === r.slug }}>{x.ko}</a>)}
   </div>
 
-  <div id="wx"><KrForecast region={r} /></div>
-
-  {fests.length > 0 && (
-    <>
-      <div class="khead">
-        <h2>🎉 {r.ko} 축제 <small>지금·다가오는</small></h2>
-        {fests.length > 8 && <a class="kmore" href={`/domestic/festival/?w=all&r=${r.slug}`}>{fests.length}개 모두 보기 →</a>}
-      </div>
-      <div class="kgrid f4">{fests.slice(0, 8).map((f) => <FestCard f={f} />)}</div>
-    </>
-  )}
-
   <h2 id="places">📍 가볼 만한 곳 <small id="pn">{places.length}곳</small></h2>
   <div class="kchips scroll" id="pth">
     <button type="button" data-t="" class="on">전체</button>
@@ -58,6 +46,19 @@ const top = places.slice(0, 3).map((p) => p.t.replace(/\s*\[.*?\]\s*/g, ' ').tri
   <p class="kempty" id="pnone" hidden>고른 조건에 맞는 곳이 없어요.</p>
   <p class="pmore-w"><button type="button" class="btn ghost" id="pmore" hidden>더 보기</button></p>
 
+
+  {fests.length > 0 && (
+    <>
+      <div class="khead">
+        <h2>🎉 {r.ko} 축제 <small>지금·다가오는</small></h2>
+        {fests.length > 8 && <a class="kmore" href={`/domestic/festival/?w=all&r=${r.slug}`}>{fests.length}개 모두 보기 →</a>}
+      </div>
+      <div class="fmini lim">{fests.slice(0, 8).map((f) => <FestCard f={f} mini />)}</div>
+    </>
+  )}
+
+  <div id="wx"><KrForecast region={r} /></div>
+
   <p class="ksrcnote">
     관광지 정보와 사진: 한국관광공사 국문 관광정보(TourAPI, 공공누리). 시·군마다 계곡·해변·수목원·전망대·한옥마을처럼 일부러 찾아갈 만한 곳을 골라 실었어요.
     운영 시간·요금은 바뀔 수 있으니 가기 전에 확인하세요.
@@ -71,7 +72,7 @@ const top = places.slice(0, 3).map((p) => p.t.replace(/\s*\[.*?\]\s*/g, ' ').tri
   const pn = document.getElementById('pn')!;
   const none = document.getElementById('pnone')!;
   const more = document.getElementById('pmore') as HTMLButtonElement;
-  const STEP = 24;
+  const STEP = 12;
   let t = '';
   let show = STEP;
   function apply() {
@@ -90,7 +91,7 @@ const top = places.slice(0, 3).map((p) => p.t.replace(/\s*\[.*?\]\s*/g, ' ').tri
   }
   th?.addEventListener('click', (e) => { const b = (e.target as HTMLElement).closest('button'); if (b) { t = b.dataset.t || ''; show = STEP; apply(); } });
   sel?.addEventListener('change', () => { show = STEP; apply(); });
-  more.addEventListener('click', () => { show += STEP * 2; apply(); });
+  more.addEventListener('click', () => { show += 24; apply(); });
   apply();
 </script>
 

@@ -1,6 +1,6 @@
 ---
 // 페이지 곳곳의 작은 "여행 준비" 링크 — 링크가 있는 업체만, 광고 표시 포함
-import { partnersOf, CATS, PREP_GUIDES } from '../data/partners.js';
+import { partnersOf, CATS, PREP_GUIDES, partnerUrl } from '../data/partners.js';
 const { cat, country = '', title = '' } = Astro.props;
 const list = partnersOf(cat, country);
 const c = CATS.find((x) => x.id === cat);
@@ -11,7 +11,7 @@ const guide = PREP_GUIDES.find((g) => g.cat === cat && (!g.country || g.country 
     <p class="prep-h"><span>{c.ico}&nbsp;{title || c.name}</span><em>광고</em></p>
     <div class="prep-l">
       {list.map((p) => (
-        <a href={p.url} target="_blank" rel="sponsored nofollow noopener"><b>{p.name}</b><span>{p.best}</span><i>↗</i></a>
+        <a href={partnerUrl(p, country)} target="_blank" rel="sponsored nofollow noopener"><b>{p.name}</b><span>{p.best}</span><i>↗</i></a>
       ))}
     </div>
     <p class="prep-f">{guide && <><a href={`/prep/${guide.slug}/`}>📖 {guide.short} →</a> · </>}<a href={`/prep/#${cat}`}>업체별 장점 비교 →</a></p>

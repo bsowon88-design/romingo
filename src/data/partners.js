@@ -84,3 +84,15 @@ export const AGODA_CITY = {
   guam: 'guam-gu' /* ✔ */, saipan: 'saipan-mp' /* ✔ */, shanghai: 'shanghai-cn', qingdao: 'qingdao-cn',
 };
 export const agodaCity = (city) => (AGODA_CITY[city] ? lpDeep('agoda', `https://www.agoda.com/ko-kr/city/${AGODA_CITY[city]}.html`) : '');
+
+// 도시락eSIM 나라별 상품 목록 (2026-11-26 확인: https://www.dosirakesim.com/Product/List?cId=JPN — 나라 3글자 코드)
+import { bySlug as COUNTRY } from './countries.js';
+import isoCountries from 'i18n-iso-countries';
+export function dosirakCountry(slug) {
+  const c = COUNTRY[slug];
+  const iso2 = c?.iso2?.[0] || (slug === 'hawaii' ? 'US' : '');
+  const iso3 = iso2 && isoCountries.alpha2ToAlpha3(iso2);
+  return iso3 ? lpDeep('dosirak1', `https://www.dosirakesim.com/Product/List?cId=${iso3}`) : '';
+}
+// 화면에 쓸 링크 — 나라가 정해진 곳에서는 업체 첫 화면 대신 그 나라 상품으로
+export const partnerUrl = (p, country) => (p.id === 'dosirak' && country && dosirakCountry(country)) || p.url;

@@ -614,7 +614,7 @@ export const GUIDES = [
     spots: [
       { name: '투몬 비치', desc: '호텔이 늘어선 잔잔하고 맑은 바다', q: 'Tumon beach Guam' },
       { name: '사랑의 절벽', desc: '투몬만이 내려다보이는 절벽 전망대', q: 'Two Lovers Point Guam' },
-      { name: '리티디안 비치', desc: '섬 북쪽 자연 그대로의 해변', q: 'Ritidian beach Guam' },
+      { name: '리티디안 비치', desc: '섬 북쪽 자연 그대로의 해변', q: 'Guam beach' },
       { name: '피시아이 해양공원', desc: '바다 속 전망대에서 보는 물고기', q: 'Fish Eye Marine Park Guam' },
       { name: '투몬 쇼핑가', desc: '면세점과 쇼핑몰이 모인 거리', q: 'Tumon Guam shopping street' },
     ],
@@ -1196,7 +1196,7 @@ export const GUIDES = [
     city: 'saipan',
     updated: '2026-11-25',
     spots: [
-      { name: '마나가하섬', desc: '배로 15분, 산호초 바다와 흰 모래의 작은 섬', q: 'Managaha island Saipan' },
+      { name: '마나가하섬', desc: '배로 15분, 산호초 바다와 흰 모래의 작은 섬', q: 'Saipan island beach' },
       { name: '만세 절벽', desc: '바다를 내려다보는 북쪽 끝 절벽과 전쟁 위령비', q: 'Banzai Cliff Saipan' },
       { name: '그로토', desc: '동굴 속 푸른 바닷물, 다이버들의 명소', q: 'Grotto Saipan' },
       { name: '새섬 전망대', desc: '바다 위 작은 섬과 절벽 해안 풍경', q: 'Bird Island Saipan' },

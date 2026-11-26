@@ -16,6 +16,7 @@ const QUERY = {
   kotakinabalu: '코타키나발루', hochiminh: '호치민', kualalumpur: '쿠알라룸푸르',
   guam: '괌', saipan: '사이판', okinawa: '오키나와', siemreap: '씨엠립',
   oita: '유후인', yanji: '연길', tashkent: '우즈베키스탄',
+  phuket: '푸켓', ulaanbaatar: '몽골', kathmandu: '네팔',
 };
 // 제목에 이 말 중 하나가 있어야 그 도시 영상으로 봄
 const ALSO = {
@@ -25,6 +26,7 @@ const ALSO = {
   luangprabang: ['루앙프라방'], ulaanbaatar: ['울란바토르', '몽골'], cebu: ['세부'], danang: ['다낭', '호이안'],
   oita: ['오이타', '벳부', '유후인'], yanji: ['옌지', '백두산', '연변'], xian: ['서안'], chengdu: ['성도'], xiamen: ['하문'], guilin: ['계림', '양숴', '양삭'], sanya: ['삼아', '하이난'], kunming: ['곤명'], chongqing: ['중경'], tianjin: ['천진'],
   miyakojima: ['미야코'], ishigaki: ['이시가키지마'], vancouver: ['벤쿠버'], frankfurt: ['프랑크프루트'], tashkent: ['우즈베키스탄', '우즈벡', '사마르칸트', '부하라'],
+  phuket: ['푸켓', '푸껫'], kathmandu: ['카트만두', '네팔', '포카라', '안나푸르나'], zurich: ['취리히', '스위스'], florence: ['피렌체', '토스카나'],
 };
 
 const HANGUL = /[가-힣]/;
@@ -106,6 +108,9 @@ export async function fetchYoutube(key, old) {
     } catch (e) {
       console.warn(`유튜브 ${c.slug} 실패:`, e.message);
       if (/HTTP 403/.test(e.message)) break; // 한도 초과 등
+      // 계속 실패하는 도시가 줄 맨 앞에 막혀 있지 않게: 실패 이유를 남기고 하루 뒤 다시
+      out.cities[c.slug] = { at: new Date(Date.now() - WEEK + 24 * 3600 * 1000).toISOString(), list: out.cities[c.slug]?.list || [], err: String(e.message).slice(0, 200) };
+      done++;
     }
   }
   return { out, done, left: Math.max(0, todo.length - done) };

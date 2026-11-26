@@ -1,0 +1,28 @@
+---
+// 쿠팡 파트너스 준비물 바로가기 (광고) — keys: data/coupang.js 의 CP 이름들. 주소 없는 것은 안 보임.
+import { cpItems, CP_NOTE } from '../data/coupang.js';
+const { title = '여행 전 챙겨 보세요', keys = [] } = Astro.props;
+const items = cpItems(keys);
+---
+{items.length > 0 && (
+  <aside class="cp">
+    <p class="cp-h"><span>🧳 {title}</span><em>광고</em></p>
+    <div class="cp-l">
+      {items.map(([ico, label, url]) => (
+        <a href={url} target="_blank" rel="sponsored nofollow noopener">{ico} {label}<i>↗</i></a>
+      ))}
+    </div>
+    <p class="cp-f">쿠팡 검색 결과로 이동해요. {CP_NOTE}</p>
+  </aside>
+)}
+
+<style>
+  .cp { margin: 14px 0 6px; padding: 12px 14px 10px; border: 1px solid var(--line); border-radius: 14px; background: #FFFBF8; }
+  .cp-h { display: flex; justify-content: space-between; align-items: center; margin: 0 0 8px; font-weight: 800; font-size: 14.5px; }
+  .cp-h em { font-style: normal; font-size: 11px; font-weight: 700; color: var(--sub); border: 1px solid var(--line); border-radius: 6px; padding: 1px 6px; background: #fff; }
+  .cp-l { display: flex; flex-wrap: wrap; gap: 6px; }
+  .cp-l a { display: inline-flex; align-items: center; gap: 5px; padding: 7px 12px; border-radius: 999px; background: #fff; border: 1px solid #F3E4DA; text-decoration: none; color: var(--ink); font-size: 14px; font-weight: 700; }
+  .cp-l a:hover { border-color: var(--coral); color: var(--sea); }
+  .cp-l i { font-style: normal; color: var(--sea); font-size: 12px; }
+  .cp-f { margin: 8px 0 0; font-size: 12px; color: var(--sub); }
+</style>

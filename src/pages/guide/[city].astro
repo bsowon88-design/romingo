@@ -11,6 +11,8 @@ import CityVideo from '../../components/CityVideo.astro';
 import YtCards from '../../components/YtCards.astro';
 import { ytOf } from '../../data/youtube.js';
 import PrepLinks from '../../components/PrepLinks.astro';
+import CoupangChips from '../../components/CoupangChips.astro';
+import { cpFor } from '../../data/coupang.js';
 import { VIDEOS } from '../../data/videos.js';
 import { flagOf } from '../../data/countries.js';
 import Base from '../../layouts/Base.astro';
@@ -123,6 +125,7 @@ const title = `${city.ko} 여행가이드 - 숙소 위치·공항 이동·추천
   <h2 id="money">💵 돈·결제·인터넷</h2>
   <ul class="card list">{[...g.money, ...g.sim].map((x) => <li>{x}</li>)}</ul>
   <PrepLinks cat="data" country={city.country} title={`${city.ko} 데이터 준비 (eSIM·유심)`} />
+  <CoupangChips keys={cpFor(city.slug, city.country)} title={`${city.ko} 여행 전 챙겨 보세요`} />
 
   <h2 id="caution">⚠️ 주의할 점</h2>
   <ul class="card list warn">{g.caution.map((x) => <li>{x}</li>)}</ul>

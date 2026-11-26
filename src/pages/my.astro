@@ -6,6 +6,8 @@ import Updated from '../components/Updated.astro';
 import { TRIP_DATA, CITY_GROUPS } from '../data/tripdata.js';
 import { STATUS_KO, ALARM_KO } from '../data/load.js';
 import { HOLIDAYS, BREAKS } from '../data/holidays.js';
+import { CP, CP_NOTE } from '../data/coupang.js';
+const CPL = Object.fromEntries(['pig', 'multi', 'battery'].filter((k) => CP[k].url).map((k) => [k, [CP[k].label, CP[k].url]]));
 const HOL = Object.fromEntries(Object.keys(HOLIDAYS).map((k) => [k, { h: HOLIDAYS[k].map((x) => [x.d, x.n]), b: BREAKS[k].map((x) => [x.from, x.to, x.days]) }]));
 const labels = {
   st: Object.fromEntries(Object.entries(STATUS_KO).map(([k, v]) => [k, v.label])),
@@ -50,6 +52,7 @@ const quick = ['danang', 'osaka', 'tokyo', 'bangkok', 'cebu', 'taipei'];
   <script type="application/json" id="tdata" set:html={JSON.stringify(TRIP_DATA)}></script>
   <script type="application/json" id="tlabels" set:html={JSON.stringify(labels)}></script>
   <script type="application/json" id="thol" set:html={JSON.stringify(HOL)}></script>
+  <script type="application/json" id="tcp" set:html={JSON.stringify({ l: CPL, n: CP_NOTE })}></script>
 </Base>
 
 <script>
@@ -59,6 +62,7 @@ const quick = ['danang', 'osaka', 'tokyo', 'bangkok', 'cebu', 'taipei'];
   const DATA = JSON.parse(document.getElementById('tdata')!.textContent || '{}');
   const LB = JSON.parse(document.getElementById('tlabels')!.textContent || '{}');
   const HOL = JSON.parse(document.getElementById('thol')!.textContent || '{}');
+  const CPD = JSON.parse(document.getElementById('tcp')!.textContent || '{}');
   const KEY = 'romingo-trips';
 
   const load = (): Trip[] => { try { return JSON.parse(localStorage.getItem(KEY) || '[]'); } catch { return []; } };
@@ -222,11 +226,13 @@ const quick = ['danang', 'osaka', 'tokyo', 'bangkok', 'cebu', 'taipei'];
     // 출국 준비 체크리스트 — 이 브라우저에 저장
     if (back >= 0) {
       const needAdapter = c.plug && !/C|F/.test(c.plug);
-      const items: [string, string?][] = [
+      // 세 번째 칸 = 쿠팡 준비물(광고) — 체크하면 숨김
+      const cpk = needAdapter ? (/^A/.test(c.plug) ? 'pig' : 'multi') : 'battery';
+      const items: [string, string?, string?][] = [
         ['항공권 예약'], ['숙소 예약'], ['여권 유효기간 확인 (보통 6개월 이상)'],
         ['입국 서류·전자입국신고 확인', `/country/${c.cs}/`], ['여행자보험'],
         ['데이터 준비 (eSIM·유심·로밍)', '/prep/#data'], ['환전·해외결제 카드'],
-        [needAdapter ? `변환 어댑터 (${c.plug})` : '충전기·보조배터리 (기내에만)', `/country/${c.cs}/info/`],
+        [needAdapter ? `변환 어댑터 (${c.plug})` : '충전기·보조배터리 (기내에만)', `/country/${c.cs}/info/`, cpk],
         ['긴급번호·영사콜센터 저장', `/country/${c.cs}/info/`], ['상비약'],
       ];
       const done: number[] = (loadCk()[t.id] || []).filter((i: number) => i < items.length);
@@ -240,7 +246,8 @@ const quick = ['danang', 'osaka', 'tokyo', 'bangkok', 'cebu', 'taipei'];
       upd(done);
       det.append(sum);
       const ul = el('ul', '');
-      items.forEach(([txt, href], i) => {
+      let hasCp = false;
+      items.forEach(([txt, href, cp], i) => {
         const li = el('li');
         const lb = el('label');
         const cb = document.createElement('input');
@@ -251,14 +258,19 @@ const quick = ['danang', 'osaka', 'tokyo', 'bangkok', 'cebu', 'taipei'];
           if (cb.checked) cur.push(i);
           all[t.id] = cur; saveCk(all); upd(cur);
           li.classList.toggle('done', cb.checked);
+          if (cpa) cpa.hidden = cb.checked;
         });
         lb.append(cb, el('span', '', txt));
         li.append(lb);
         if (href) li.append(link(href, '보기'));
+        const cpl = cp && CPD.l?.[cp];
+        const cpa = cpl ? el('a', 'tcp', `${cpl[0]} 쿠팡 ↗`) as HTMLAnchorElement : null;
+        if (cpa) { cpa.href = cpl[1]; cpa.target = '_blank'; cpa.rel = 'sponsored nofollow noopener'; cpa.hidden = cb.checked; li.append(cpa); hasCp = true; }
         li.classList.toggle('done', cb.checked);
         ul.append(li);
       });
       det.append(ul);
+      if (hasCp) det.append(el('p', 'tcpn', `광고 · ${CPD.n}`));
       box.append(det);
     }
 
@@ -333,6 +345,9 @@ const quick = ['danang', 'osaka', 'tokyo', 'bangkok', 'cebu', 'taipei'];
   .trips :global(.tchk li input) { width: 17px; height: 17px; accent-color: #1d9a5b; }
   .trips :global(.tchk li.done span) { color: var(--sub); text-decoration: line-through; }
   .trips :global(.tchk li .tl-a) { padding: 2px 8px; font-size: 12px; }
+  .trips :global(.tchk li .tcp) { font-size: 12px; font-weight: 700; color: var(--sea); text-decoration: none; white-space: nowrap; }
+  .trips :global(.tchk li .tcp[hidden]) { display: none; }
+  .trips :global(.tcpn) { margin: 0 0 10px; font-size: 11.5px; color: var(--sub); }
   @media (max-width: 760px) { .trips :global(.tchk ul) { grid-template-columns: 1fr; } }
   .empty { margin-top: 16px; }
   .empty p { margin: 0 0 10px; }

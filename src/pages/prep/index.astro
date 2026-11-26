@@ -4,6 +4,8 @@ import PageBanner from '../../components/PageBanner.astro';
 import Icon from '../../components/Icon.astro';
 const ICO = { data: 'wifi', flight: 'plane', tour: 'ticket', stay: 'bed-double', car: 'car' };
 import { PARTNERS, CATS, AD_NOTE, PREP_GUIDES } from '../../data/partners.js';
+import CoupangChips from '../../components/CoupangChips.astro';
+import { CP_COMMON } from '../../data/coupang.js';
 // 종류 순서대로 한 판에 (PC 4개씩 · 폰 2개씩)
 const catOf = Object.fromEntries(CATS.map((c) => [c.id, c]));
 const list = CATS.flatMap((c) => PARTNERS.filter((p) => p.cat === c.id));
@@ -36,6 +38,8 @@ const firstOf = new Set(CATS.map((c) => PARTNERS.find((p) => p.cat === c.id)?.id
       );
     })}
   </div>
+
+  <section id="items"><CoupangChips keys={CP_COMMON} title="여행 준비물" /></section>
 
   {PREP_GUIDES.length > 0 && (
     <section class="pgl">

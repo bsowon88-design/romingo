@@ -89,11 +89,22 @@ export async function fetchFestivals(key, old, clock = {}) {
   return { list };
 }
 
-// 관광지(12)·문화시설(14) — 대표 사진이 있는 곳만(arrange O). 하루 한 번.
+// 관광지(12)·문화시설(14)·쇼핑(38, 시장 고르기용) — 대표 사진이 있는 곳만(arrange O). 하루 한 번.
 export async function fetchPlaces(key, old, clock = {}) {
   const today = kstDate();
   if (clock.place === today) return null;
   const out = {};
+  // 쇼핑(38)은 덜 받거나 실패해도 관광지까지 버리지 않고 예전 쇼핑 자료를 그대로 씀
+  try {
+    const { rows, total } = await all('areaBasedList2', key, { contentTypeId: 38, arrange: 'O' }, 1000);
+    console.log(`관광 38: ${rows.length}/${total}`);
+    if (!rows.length || (total && rows.length < total * 0.5)) throw new Error('덜 받음');
+    for (const r of rows) out[String(r.contentid)] = slim(r);
+  } catch (e) {
+    const prev = (old?.list || []).filter((x) => x.ty === '38');
+    console.warn(`관광 38(쇼핑): ${e.message} — 예전 ${prev.length}곳 유지`);
+    for (const x of prev) out[x.id] = x;
+  }
   for (const ty of [12, 14]) {
     const { rows, total } = await all('areaBasedList2', key, { contentTypeId: ty, arrange: 'O' }, 1000);
     console.log(`관광 ${ty}: ${rows.length}/${total}`);
@@ -126,6 +137,7 @@ const INTRO = {
   15: { eventplace: 'pl', playtime: 'tm', usetimefestival: 'fee', sponsor1: 'org', sponsor1tel: 'otel', agelimit: 'age' },
   12: { infocenter: 'info', restdate: 'rest', usetime: 'tm', parking: 'park' },
   14: { infocenterculture: 'info', usefee: 'fee', usetimeculture: 'tm', restdateculture: 'rest', parkingculture: 'park' },
+  38: { infocentershopping: 'info', opentime: 'tm', restdateshopping: 'rest', parkingshopping: 'park', fairday: 'fair', saleitem: 'item' },
 };
 
 export async function fetchDetails(key, old, clock, festList, placeIds) {

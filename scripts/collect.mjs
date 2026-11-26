@@ -10,7 +10,7 @@ import { fetchClimate } from './climate.mjs';
 import { fetchPhotos } from './photos.mjs';
 import { fetchYoutube } from './youtube.mjs';
 import { fetchFestivals, fetchPlaces, fetchDetails, kstDate } from './tour.mjs';
-import { pickPlaces } from '../src/data/kr-pick.js';
+import { pickPlaces, pickMarkets } from '../src/data/kr-pick.js';
 import { KR_WX } from '../src/data/kr-regions.js';
 import { fetchRlte } from './rlte.mjs';
 import { updatePopular, fetchTodayFlights } from './icn.mjs';
@@ -254,7 +254,10 @@ if (KEY) {
     const baseD = Array.isArray(oldD) ? {} : oldD;
     let pop = null;
     try { pop = JSON.parse(await readFile(KR_FILE, 'utf8')).s || null; } catch {}
-    const ids = pickPlaces(pl, baseD.d || {}, { cap: 13, min: 7 }, pop).map((o) => o.p.id);
+    const ids = [
+      ...pickMarkets(pl, baseD.d || {}, { cap: 3 }, pop).map((o) => o.p.id), // 시장은 수가 적어 먼저
+      ...pickPlaces(pl, baseD.d || {}, { cap: 13, min: 7 }, pop).map((o) => o.p.id),
+    ];
     const r = await fetchDetails(KEY, baseD, clock, fl, ids);
     if (!r) console.log('상세: 오늘은 이미 받음');
     else {

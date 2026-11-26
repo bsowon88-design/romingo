@@ -137,7 +137,7 @@ export function pickPlaces(list, details = {}, { cap = 15, min = 7 } = {}, pop =
   const dist = buildDistricts(list);
   const groups = {};
   for (const p of list) {
-    if (!p.x || !p.y) continue;
+    if (!p.x || !p.y || p.ty === '38') continue; // 쇼핑(시장)은 pickMarkets 에서 따로
     const sc = placeScore(p, details[p.id], pop);
     if (sc < min) continue;
     const name = dist[districtKey(p)] || '';
@@ -162,6 +162,53 @@ export function pickPlaces(list, details = {}, { cap = 15, min = 7 } = {}, pop =
     const all = [...pick.slice(0, cap), ...left].slice(0, cap);
     all.sort((a, b) => b.sc - a.sc);
     out.push(...all);
+  }
+  return out;
+}
+
+// ── 시장·쇼핑 (한국관광공사 쇼핑 38) ──
+// 관광객이 일부러 찾는 곳만: 그 지역 인기 순위(티맵)에 있는 시장·쇼핑 명소 우선,
+// 순위에 없으면 이름으로 관광형 시장(관광·수산·어시장·야시장·민속·풍물·5일장 등)만. 백화점·마트·아울렛·면세점은 뺌.
+const MK_NO = /백화점|아울렛|아웃렛|면세|마트|홈플러스|코스트코|하나로|스타필드|쇼핑몰|몰$|상가|플라자|빌딩|타워|매장|대리점|직영점|[^시]점$|지하도|공판장|도매|가구|전자/;
+const MK_MARKET = /시장|장터|5일장|오일장/;
+const MK_TOUR = /관광|수산|어시장|야시장|민속|풍물|5일장|오일장|깡통|국제시장|중앙시장|올레|아리랑/;
+export const isMarket = (p) => MK_MARKET.test(p.t || '');
+export function marketScore(p, detail, pop) {
+  if (!p.img || !p.x || !p.y || MK_NO.test(p.t || '')) return 0;
+  const r = popRank(p, pop);
+  const market = isMarket(p);
+  let s = 0;
+  if (r >= 0) s = 10 + (r < 5 ? 10 : r < 15 ? 7 : r < 30 ? 5 : 3);
+  else if (market && MK_TOUR.test(p.t)) s = 7;
+  if (!s) return 0;
+  if (!market && r >= 30) return 0; // 시장이 아닌 쇼핑 명소는 인기 30위 안만
+  const o = detail?.o;
+  if (o) s += o.length > 400 ? 1 : 0;
+  return s;
+}
+// 시·군마다 최대 cap 곳, 이미 관광지로 실린 이름은 빼고
+export function pickMarkets(list, details = {}, { cap = 3 } = {}, pop = null, skipNames = new Set()) {
+  const dist = buildDistricts(list);
+  const groups = {};
+  for (const p of list) {
+    if (p.ty !== '38') continue;
+    const sc = marketScore(p, details[p.id], pop);
+    if (!sc) continue;
+    const k = popKey(p.t);
+    if (skipNames.has(k)) continue;
+    const name = dist[districtKey(p)] || '';
+    (groups[`${p.rg}|${name}`] ||= []).push({ p, sc, name, k });
+  }
+  const out = [];
+  for (const arr of Object.values(groups)) {
+    arr.sort((a, b) => b.sc - a.sc || a.p.t.localeCompare(b.p.t, 'ko'));
+    const seen = new Set();
+    for (const o of arr) {
+      if (seen.has(o.k)) continue;
+      seen.add(o.k);
+      out.push(o);
+      if (seen.size >= cap) break;
+    }
   }
   return out;
 }

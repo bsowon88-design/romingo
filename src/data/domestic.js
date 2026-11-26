@@ -2,7 +2,7 @@
 import fest from './archive/kr-festivals.json';
 import places from './archive/kr-places.json';
 import { KR_REGIONS } from './kr-regions.js';
-import { pickPlaces, buildDistricts, districtKey } from './kr-pick.js';
+import { pickPlaces, pickMarkets, isMarket, popKey, buildDistricts, districtKey } from './kr-pick.js';
 
 // 상세 설명은 자동 수집이 며칠에 걸쳐 조금씩 채움 — 파일이 아직 없어도 사이트는 만들어지게
 const dmod = import.meta.glob('./archive/kr-detail.json', { eager: true });
@@ -70,6 +70,9 @@ const CAT = {
   VE050100: '관광단지', VE030100: '공원', VE030500: '테마공원', VE070100: '박물관', VE070500: '과학관', VE070600: '미술관',
   EX030200: '목장', EX050100: '온천', EX050600: '치유의 숲', EX070100: '유람선', EX060800: '농원·양조장',
 };
+// 시장·쇼핑은 c3 를 MKT(전통시장)·MKS(쇼핑)로 바꿔 둠 (원래 분류는 c3o)
+CAT.MKT = '전통시장';
+CAT.MKS = '쇼핑 명소';
 export const catOf = (c3) => CAT[c3] || '관광지';
 // 큰 묶음 (지역 페이지 고르기 버튼)
 export const THEMES = [
@@ -82,15 +85,21 @@ export const THEMES = [
   ['fun', '테마파크·체험', /^VE02|^VE05|^EX0[367]|^EX0501/],
   ['culture', '박물관·미술관', /^VE07/],
   ['walk', '거리·마을·길', /^VE04|^VE03|^NA020[124]|^NA050/],
+  ['market', '시장·쇼핑', /^MK/],
 ];
 export const themeOf = (c3) => (THEMES.find(([, , re]) => re.test(c3 || '')) || ['etc'])[0];
 
 // ── 관광지 (골라 둔 곳만) ──
 const ALL_PLACES = places?.list || [];
 const DIST = buildDistricts(ALL_PLACES);
-export const PLACES = pickPlaces(ALL_PLACES, DETAIL, { cap: 13, min: 7 }, POP)
+const SIGHTS = pickPlaces(ALL_PLACES, DETAIL, { cap: 13, min: 7 }, POP)
   .map(({ p, sc, name }) => ({ ...p, sc, dist: name, region: regionOf(p) }))
   .filter((p) => p.region);
+// 시장·쇼핑 (시·군마다 최대 3곳, 이미 관광지로 실린 이름은 빼고)
+const MARKETS = pickMarkets(ALL_PLACES, DETAIL, { cap: 3 }, POP, new Set(SIGHTS.map((p) => popKey(p.t))))
+  .map(({ p, sc, name }) => ({ ...p, c3o: p.c3, c3: isMarket(p) ? 'MKT' : 'MKS', sc, dist: name, region: regionOf(p) }))
+  .filter((p) => p.region);
+export const PLACES = [...SIGHTS, ...MARKETS];
 export const placeById = Object.fromEntries(PLACES.map((p) => [p.id, p]));
 export const placesOfRegion = (slug) => PLACES.filter((p) => p.region.slug === slug);
 export const districtOf = (p) => DIST[districtKey(p)] || '';

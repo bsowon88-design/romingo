@@ -28,9 +28,11 @@ const klook = TICKET.test(p.c3 || '') || (/^VE0102/.test(p.c3 || '') && /스카�
 const desc = `${p.region.ko} ${p.dist} ${cat} ${name}. ${(d.o || '').replace(/\s+/g, ' ').slice(0, 100)}`.trim();
 const rows = [
   ['주소', p.a || ''],
+  ['장 서는 날', d.fair || ''],
   ['이용 시간', d.tm || ''],
   ['쉬는 날', d.rest || ''],
   ['요금', d.fee || ''],
+  ['파는 것', d.item || ''],
   ['주차', d.park || ''],
   ['문의', d.info || p.tel || ''],
 ].filter(([, v]) => v);

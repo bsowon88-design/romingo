@@ -37,7 +37,7 @@ const rows = [
   ['문의', d.otel || f.tel || ''],
 ].filter(([, v]) => v);
 ---
-<Base title={`${name} ${f.s.slice(0, 4)} - 기간·장소·날씨`} desc={desc} noindex={thin}>
+<Base title={`${name}${/20\d\d/.test(name) ? '' : ` ${f.s.slice(0, 4)}`} - 기간·장소·날씨`} desc={desc} noindex={thin}>
   <p class="crumb"><a href="/">홈</a> › <a href="/domestic/">국내여행</a> › <a href="/domestic/festival/">축제 달력</a> › {f.region.ko}</p>
   <div class="fhead">
     <span class={`fst ${st}`}>{stLabel}</span>

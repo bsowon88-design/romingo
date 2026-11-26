@@ -133,10 +133,25 @@ export function buildDistricts(list) {
 }
 
 // 시·군마다 점수 높은 순으로 최대 cap 곳. 같은 이름(설악산 내설악·남설악 등) 겹치는 것도 정리.
+// 관광공사 자료에 '국립공원'(NA040100)으로 잘못 들어간 일반 공원 바로잡기 (예: 삼성해맞이공원)
+const NP_NAME = /국립공원|생태탐방원|탐방안내소/;
+export const fixCat = (p) => (p.c3 === 'NA040100' && !NP_NAME.test(p.t || '') ? { ...p, c3: 'VE030100' } : p);
+// 같은 시설의 세부 장소(코엑스 → 코엑스 오디토리움·코엑스동측광장)는 대표 하나만
+const baseKey = (t) => t.replace(/\s|\(.*?\)|\[.*?\]/g, '');
+// 이름 앞 3글자 이상이 같고 500m 안이면 같은 시설로 봄 (국립중앙박물관·국립중앙도서관처럼 떨어진 곳은 따로)
+const sameSite = (k, key, p) => {
+  let n = 0;
+  while (n < k.key.length && n < key.length && k.key[n] === key[n]) n++;
+  if (n < 3) return false;
+  const dx = (k.x - p.x) * 88, dy = (k.y - p.y) * 111; // km
+  return Math.hypot(dx, dy) < 0.5;
+};
+
 export function pickPlaces(list, details = {}, { cap = 15, min = 7 } = {}, pop = null) {
   const dist = buildDistricts(list);
   const groups = {};
-  for (const p of list) {
+  for (const p0 of list) {
+    const p = fixCat(p0);
     if (!p.x || !p.y || p.ty === '38') continue; // 쇼핑(시장)은 pickMarkets 에서 따로
     const sc = placeScore(p, details[p.id], pop);
     if (sc < min) continue;
@@ -144,22 +159,28 @@ export function pickPlaces(list, details = {}, { cap = 15, min = 7 } = {}, pop =
     const g = `${p.rg}|${name}`;
     (groups[g] ||= []).push({ p, sc, name });
   }
+  // 시·군이 2곳 이하인 곳(제주·세종)은 한 곳에서 더 많이 보여 줌
+  const nDist = {};
+  for (const g of Object.keys(groups)) { const rg = g.split('|')[0]; nDist[rg] = (nDist[rg] || 0) + 1; }
   const out = [];
-  for (const arr of Object.values(groups)) {
+  for (const [g, arr] of Object.entries(groups)) {
+    const capG = nDist[g.split('|')[0]] <= 2 ? cap * 3 : cap;
     arr.sort((a, b) => b.sc - a.sc || a.p.t.localeCompare(b.p.t, 'ko'));
     // 한 종류(해변·계곡 등)가 다 차지하지 않게 — 같은 분류는 먼저 4곳까지, 자리가 남으면 나머지로 채움
     const seen = new Set();
     const byCat = {};
     const pick = [];
     const left = [];
+    const keys = [];
     for (const o of arr) {
-      const key = o.p.t.replace(/\s|\(.*?\)|\[.*?\]/g, '');
-      if (seen.has(key)) continue;
+      const key = baseKey(o.p.t);
+      if (seen.has(key) || keys.some((k) => sameSite(k, key, o.p))) continue;
       seen.add(key);
+      keys.push({ key, x: o.p.x, y: o.p.y });
       if ((byCat[o.p.c3] = (byCat[o.p.c3] || 0) + 1) <= 4) pick.push(o);
       else left.push(o);
     }
-    const all = [...pick.slice(0, cap), ...left].slice(0, cap);
+    const all = [...pick.slice(0, capG), ...left].slice(0, capG);
     all.sort((a, b) => b.sc - a.sc);
     out.push(...all);
   }
@@ -199,8 +220,12 @@ export function pickMarkets(list, details = {}, { cap = 3 } = {}, pop = null, sk
     const name = dist[districtKey(p)] || '';
     (groups[`${p.rg}|${name}`] ||= []).push({ p, sc, name, k });
   }
+  // 시·군이 2곳 이하인 곳(제주·세종)은 한 곳에서 더 많이 보여 줌
+  const nDist = {};
+  for (const g of Object.keys(groups)) { const rg = g.split('|')[0]; nDist[rg] = (nDist[rg] || 0) + 1; }
   const out = [];
-  for (const arr of Object.values(groups)) {
+  for (const [g, arr] of Object.entries(groups)) {
+    const capG = nDist[g.split('|')[0]] <= 2 ? cap * 3 : cap;
     arr.sort((a, b) => b.sc - a.sc || a.p.t.localeCompare(b.p.t, 'ko'));
     const seen = new Set();
     for (const o of arr) {

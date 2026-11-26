@@ -65,5 +65,5 @@ const guides = GUIDES.map((g) => cityBySlug[g.city]).filter(Boolean);
   .cw[hidden], .rsec[hidden] { display: none; }
   .cw > :global(a) { height: 100%; }
   .cgrid { grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); }
-  @media (max-width: 520px) { .cgrid { grid-template-columns: 1fr 1fr; gap: 10px; } }
+  @media (max-width: 520px) { .cgrid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px; } }
 </style>

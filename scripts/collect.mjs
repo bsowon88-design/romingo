@@ -180,7 +180,7 @@ try {
   console.warn('예보 실패:', e.message);
 }
 
-// 대표 사진 — 키가 있을 때, 아직 없는 곳만 (한 번에 20곳)
+// 대표 사진 — 키가 있을 때, 아직 없는 곳만 (한 번에 12곳, 못 찾은 곳은 잠시 미룸)
 const UKEY = process.env.UNSPLASH_KEY;
 if (!UKEY) {
   console.log('사진: UNSPLASH_KEY 없음, 건너뜀');
@@ -188,7 +188,13 @@ if (!UKEY) {
   try {
     const old = await readList(P_FILE);
     const base = Array.isArray(old) ? {} : old;
-    const { out, done, left } = await fetchPhotos(UKEY, base);
+    const MISS_FILE = new URL('../live/photo-miss.json', import.meta.url);
+    let miss = {};
+    try { miss = JSON.parse(await readFile(MISS_FILE, 'utf8')); } catch {}
+    const { out, done, left } = await fetchPhotos(UKEY, base, miss);
+    await mkdir(LIVE_DIR, { recursive: true });
+    await writeFile(MISS_FILE, JSON.stringify(miss) + '\n');
+    if (Object.keys(miss).length) console.log(`사진: 못 찾은 곳 ${Object.keys(miss).length}곳 (live/photo-miss.json)`);
     if (done) {
       console.log(`사진: ${done}곳 받음, 남은 곳 ${left}`);
       changed = (await save(P_FILE, old, out, '사진')) || changed;

@@ -1,9 +1,13 @@
 // 인스타그램(@tripberry.kr) 자동 게시 — 하루 1번 (.github/workflows/instagram.yml)
 // 핀터레스트 RSS(https://tripberry.kr/pins.xml)의 카드를 인스타 비율(1080×1350 JPG, /pins/ig/<id>.jpg)로 올림.
 // 최근 게시물 설명에 같은 카드 표시(🔖id)가 있으면 건너뜀.
-// 필요한 비밀 값: IG_TOKEN (GitHub Secrets, 인스타그램 로그인으로 만든 토큰)
-const API = 'https://graph.instagram.com/v23.0';
-let TOKEN = process.env.IG_TOKEN || '';
+// 필요한 비밀 값: IG_TOKEN (GitHub Secrets)
+//  - 통합 로그인 시스템 사용자 토큰(만료 없음) → graph.facebook.com + 인스타 계정 ID
+//  - 인스타그램 로그인 토큰(IG 로 시작, 60일) → graph.instagram.com + /me, 매번 기한 연장
+let TOKEN = (process.env.IG_TOKEN || '').trim();
+const IGLOGIN = TOKEN.startsWith('IG');
+const API = IGLOGIN ? 'https://graph.instagram.com/v23.0' : 'https://graph.facebook.com/v23.0';
+const ME = IGLOGIN ? '/me' : `/${process.env.IG_ID || '17841478065695574'}`; // @tripberry.kr
 const DRY = process.env.DRY === '1';
 
 const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
@@ -21,8 +25,8 @@ const tag = (x, t) => un((x.match(new RegExp(`<${t}[^>]*>([\\s\\S]*?)</${t}>`)) 
 async function main() {
   if (!TOKEN) { console.log('IG_TOKEN 이 없어요 → GitHub Secrets 에 넣어 주세요. 이번에는 건너뜀'); return; }
 
-  // 토큰 기한 늘리기 (60일, 하루 지난 뒤부터 가능)
-  try {
+  // 토큰 기한 늘리기 (인스타그램 로그인 토큰만, 60일)
+  if (IGLOGIN) try {
     const j = await api('https://graph.instagram.com/refresh_access_token', { grant_type: 'ig_refresh_token' });
     if (j.access_token) {
       if (j.access_token !== TOKEN) console.log('→ 토큰이 새로 바뀌었어요. 기한 안에 GitHub Secrets 의 IG_TOKEN 을 새로 넣어야 할 수 있어요.');
@@ -39,7 +43,7 @@ async function main() {
 
   let recent = '';
   try {
-    const j = await api('/me/media', { fields: 'caption,timestamp', limit: 40 });
+    const j = await api(`${ME}/media`, { fields: 'caption,timestamp', limit: 40 });
     recent = (j.data || []).map((p) => p.caption || '').join('\n');
   } catch (e) { console.log('최근 게시물 확인 실패:', e.message); }
 
@@ -58,14 +62,14 @@ async function main() {
   console.log(`올릴 카드: ${pick.id}\n${img}\n${caption}`);
   if (DRY) return;
 
-  const c = await api('/me/media', { image_url: img, caption }, 'POST');
+  const c = await api(`${ME}/media`, { image_url: img, caption }, 'POST');
   for (let i = 0; i < 10; i++) {
     await sleep(10000);
     const s = await api(`/${c.id}`, { fields: 'status_code' }).catch(() => ({}));
     if (s.status_code === 'FINISHED') break;
     if (s.status_code === 'ERROR') throw new Error('이미지 처리 실패');
   }
-  const p = await api('/me/media_publish', { creation_id: c.id }, 'POST');
+  const p = await api(`${ME}/media_publish`, { creation_id: c.id }, 'POST');
   console.log('올렸어요:', p.id);
 }
 

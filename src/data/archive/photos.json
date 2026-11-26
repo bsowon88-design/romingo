@@ -3078,5 +3078,125 @@
   "userUrl": "https://unsplash.com/@clayleconey",
   "page": "https://unsplash.com/photos/a-double-decker-bus-parked-in-front-of-a-large-building-CQ56YBTp8Sw",
   "pick": 0
+ },
+ "spot:london:0": {
+  "id": "iXqTqC-f6jI",
+  "raw": "https://images.unsplash.com/photo-1486299267070-83823f5448dd?ixid=M3wxMTQzNTA5fDB8MXxzZWFyY2h8MXx8QmlnJTIwQmVuJTIwV2VzdG1pbnN0ZXIlMjBMb25kb258ZW58MXwwfHx8MTc5NTY5NDYwN3ww&ixlib=rb-4.1.0",
+  "color": "#d9d9d9",
+  "alt": "Big Ben, London",
+  "name": "Marcin Nowak",
+  "userUrl": "https://unsplash.com/@marcin",
+  "page": "https://unsplash.com/photos/big-ben-london-iXqTqC-f6jI",
+  "pick": 0
+ },
+ "spot:london:1": {
+  "id": "Oja2ty_9ZLM",
+  "raw": "https://images.unsplash.com/photo-1513635269975-59663e0ac1ad?ixid=M3wxMTQzNTA5fDB8MXxzZWFyY2h8MXx8VG93ZXIlMjBCcmlkZ2UlMjBMb25kb258ZW58MXwwfHx8MTc5NTY5NDYwN3ww&ixlib=rb-4.1.0",
+  "color": "#d9d9d9",
+  "alt": "aerial photography of London skyline during daytime",
+  "name": "Benjamin Davies",
+  "userUrl": "https://unsplash.com/@bendavisual",
+  "page": "https://unsplash.com/photos/aerial-photography-of-london-skyline-during-daytime-Oja2ty_9ZLM",
+  "pick": 0
+ },
+ "spot:london:2": {
+  "id": "38jKmXFRrVY",
+  "raw": "https://images.unsplash.com/photo-1587508335272-0efe0e8a3eec?ixid=M3wxMTQzNTA5fDB8MXxzZWFyY2h8Mnx8QnJpdGlzaCUyME11c2V1bSUyMExvbmRvbnxlbnwxfDB8fHwxNzk1Njk0NjA3fDA&ixlib=rb-4.1.0",
+  "color": "#c0c0c0",
+  "alt": "beige concrete building with red and black door",
+  "name": "A Miah",
+  "userUrl": "https://unsplash.com/@amiah137",
+  "page": "https://unsplash.com/photos/beige-concrete-building-with-red-and-black-door-38jKmXFRrVY",
+  "pick": 0
+ },
+ "spot:london:3": {
+  "id": "MZPwImQUDM0",
+  "raw": "https://images.unsplash.com/photo-1532264251691-2ad92a2ec88f?ixid=M3wxMTQzNTA5fDB8MXxzZWFyY2h8MXx8QnVja2luZ2hhbSUyMFBhbGFjZSUyMGd1YXJkfGVufDF8MHx8fDE3OTU2OTQ2MDh8MA&ixlib=rb-4.1.0",
+  "color": "#d9d9d9",
+  "alt": "Royal Guard guarding the Buckingham Palace",
+  "name": "Kutan Ural",
+  "userUrl": "https://unsplash.com/@kutanural",
+  "page": "https://unsplash.com/photos/royal-guard-guarding-the-buckingham-palace-MZPwImQUDM0",
+  "pick": 0
+ },
+ "spot:london:4": {
+  "id": "Q__Zg57zOVg",
+  "raw": "https://images.unsplash.com/photo-1668860707686-b51826f68e69?ixid=M3wxMTQzNTA5fDB8MXxzZWFyY2h8Mnx8TmF0aW9uYWwlMjBHYWxsZXJ5JTIwVHJhZmFsZ2FyJTIwU3F1YXJlfGVufDF8MHx8fDE3OTU2OTQ2MDl8MA&ixlib=rb-4.1.0",
+  "color": "#d9c0c0",
+  "alt": "a large building with a statue in front of it",
+  "name": "George Ciobra",
+  "userUrl": "https://unsplash.com/@george_ciobra",
+  "page": "https://unsplash.com/photos/a-large-building-with-a-statue-in-front-of-it-Q__Zg57zOVg",
+  "pick": 0
+ },
+ "spot:rome:0": {
+  "id": "7Y015gklIDg",
+  "raw": "https://images.unsplash.com/photo-1663143050642-69240b347b2b?ixid=M3wxMTQzNTA5fDB8MXxzZWFyY2h8Mnx8Q29sb3NzZXVtJTIwUm9tZXxlbnwxfDB8fHwxNzk1Njk0NjA5fDA&ixlib=rb-4.1.0",
+  "color": "#c0d9f3",
+  "alt": "The Colosseum in Rome under a clear sky during the golden hour",
+  "name": "Matteo del Piano",
+  "userUrl": "https://unsplash.com/@matteodelpiano",
+  "page": "https://unsplash.com/photos/colosseum-in-rome-at-golden-hour-7Y015gklIDg",
+  "pick": 0
+ },
+ "spot:rome:1": {
+  "id": "X_BSAkrtuts",
+  "raw": "https://images.unsplash.com/photo-1576920507588-e9cd499887ec?ixid=M3wxMTQzNTA5fDB8MXxzZWFyY2h8MXx8VmF0aWNhbiUyME11c2V1bXMlMjBTaXN0aW5lfGVufDF8MHx8fDE3OTU2OTQ2MDl8MA&ixlib=rb-4.1.0",
+  "color": "#402626",
+  "alt": "architectural photography of brown building",
+  "name": "Nastya Dulhiier",
+  "userUrl": "https://unsplash.com/@dulhiier",
+  "page": "https://unsplash.com/photos/architectural-photography-of-brown-building-X_BSAkrtuts",
+  "pick": 0
+ },
+ "spot:rome:2": {
+  "id": "61rBB5NXuUw",
+  "raw": "https://images.unsplash.com/photo-1610655769765-be8a0dd9627a?ixid=M3wxMTQzNTA5fDB8MXxzZWFyY2h8MXx8U3QlMjBQZXRlcnMlMjBCYXNpbGljYSUyMFZhdGljYW58ZW58MXwwfHx8MTc5NTY5NDYxMHww&ixlib=rb-4.1.0",
+  "color": "#a6d9f3",
+  "alt": "St Peter's Basilica with its large dome and an obelisk in Vatican City",
+  "name": "Fabio Fistarol",
+  "userUrl": "https://unsplash.com/@fabiofistarol",
+  "page": "https://unsplash.com/photos/st-peters-basilica-in-vatican-city-61rBB5NXuUw",
+  "pick": 0
+ },
+ "spot:rome:3": {
+  "id": "2y6ojwauKJI",
+  "raw": "https://images.unsplash.com/photo-1596627116790-af6f46dddbda?ixid=M3wxMTQzNTA5fDB8MXxzZWFyY2h8MXx8VHJldmklMjBGb3VudGFpbiUyMFJvbWV8ZW58MXwwfHx8MTc5NTY5NDYxMHww&ixlib=rb-4.1.0",
+  "color": "#d9c0c0",
+  "alt": "water fountain in front of building",
+  "name": "Michele Bitetto",
+  "userUrl": "https://unsplash.com/@michelebit_",
+  "page": "https://unsplash.com/photos/water-fountain-in-front-of-building-2y6ojwauKJI",
+  "pick": 0
+ },
+ "spot:rome:4": {
+  "id": "gmzBR1iREcs",
+  "raw": "https://images.unsplash.com/photo-1684275507407-28032196faeb?ixid=M3wxMTQzNTA5fDB8MXxzZWFyY2h8Mnx8UGFudGhlb24lMjBSb21lfGVufDF8MHx8fDE3OTU2OTQ2MTF8MA&ixlib=rb-4.1.0",
+  "color": "#404040",
+  "alt": "a large building with columns on the front of it",
+  "name": "Nelson Rodz",
+  "userUrl": "https://unsplash.com/@nelsonrodz",
+  "page": "https://unsplash.com/photos/a-large-building-with-columns-on-the-front-of-it-gmzBR1iREcs",
+  "pick": 0
+ },
+ "spot:barcelona:0": {
+  "id": "hVhfqhDYciU",
+  "raw": "https://images.unsplash.com/photo-1583422409516-2895a77efded?ixid=M3wxMTQzNTA5fDB8MXxzZWFyY2h8MXx8U2FncmFkYSUyMEZhbWlsaWElMjBCYXJjZWxvbmF8ZW58MXwwfHx8MTc5NTY5NDYxMXww&ixlib=rb-4.1.0",
+  "color": "#735959",
+  "alt": "aerial view of city buildings during daytime",
+  "name": "Logan Armstrong",
+  "userUrl": "https://unsplash.com/@loganstrongarms",
+  "page": "https://unsplash.com/photos/aerial-view-of-city-buildings-during-daytime-hVhfqhDYciU",
+  "pick": 0
+ },
+ "spot:barcelona:1": {
+  "id": "aX5NLrKgRBc",
+  "raw": "https://images.unsplash.com/photo-1630219694734-fe47ab76b15e?ixid=M3wxMTQzNTA5fDB8MXxzZWFyY2h8MXx8UGFyayUyMEd1ZWxsJTIwQmFyY2Vsb25hfGVufDF8MHx8fDE3OTU2OTQ2MTJ8MA&ixlib=rb-4.1.0",
+  "color": "#73a6f3",
+  "alt": "aerial view of city buildings during daytime",
+  "name": "Dorian D1",
+  "userUrl": "https://unsplash.com/@doriandussartd",
+  "page": "https://unsplash.com/photos/aerial-view-of-city-buildings-during-daytime-aX5NLrKgRBc",
+  "pick": 0
  }
 }

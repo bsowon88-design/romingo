@@ -1,0 +1,22 @@
+name: 인스타그램 자동 게시
+on:
+  schedule:
+    - cron: '17 11 * * *' # 한국 저녁 8시 17분
+  workflow_dispatch: {}
+permissions:
+  contents: read
+concurrency:
+  group: instagram
+  cancel-in-progress: false
+jobs:
+  post:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - name: 인스타그램에 올리기
+        run: node scripts/instagram.mjs
+        env:
+          IG_TOKEN: ${{ secrets.IG_TOKEN }}

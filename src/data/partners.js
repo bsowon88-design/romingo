@@ -66,3 +66,21 @@ export const PREP_GUIDES = [
 export const LP_SITE = 'A100710605';
 export const klookSearch = (q) =>
   `https://click.linkprice.com/click.php?m=klook&a=${LP_SITE}&l=9999&l_cd1=3&l_cd2=0&tu=${encodeURIComponent(`https://www.klook.com/ko/search/result/?query=${encodeURIComponent(q)}`)}`;
+
+// 아고다 도시 숙소 페이지 (링크프라이스 딥링크) — 주소 이름은 도시마다 달라서 확인한 곳만.
+// 2026-11-26: ✔ = 아고다 실제 페이지 확인 / 나머지는 규칙(영어이름-나라코드)이 분명한 곳. 새 도시는 확인 후 추가.
+export const AGODA_CITY = {
+  tokyo: 'tokyo-jp', osaka: 'osaka-jp' /* ✔ */, kyoto: 'kyoto-jp', fukuoka: 'fukuoka-jp', sapporo: 'sapporo-jp',
+  okinawa: 'okinawa-main-island-jp' /* ✔ */, nagoya: 'nagoya-jp',
+  danang: 'da-nang-vn' /* ✔ */, nhatrang: 'nha-trang-vn' /* ✔ */, phuquoc: 'phu-quoc-island-vn' /* ✔ */, hanoi: 'hanoi-vn',
+  hochiminh: 'ho-chi-minh-city-vn' /* ✔ */, dalat: 'dalat-vn' /* ✔ */,
+  bangkok: 'bangkok-th', phuket: 'phuket-th', chiangmai: 'chiang-mai-th' /* ✔ */, pattaya: 'pattaya-th',
+  cebu: 'cebu-ph' /* ✔ */, boracay: 'boracay-island-ph' /* ✔ */,
+  taipei: 'taipei-tw', hongkong: 'hong-kong-hk' /* ✔ */, macau: 'macau-mo' /* ✔ */, singapore: 'singapore-sg',
+  bali: 'bali-id' /* ✔ */, kotakinabalu: 'kota-kinabalu-my' /* ✔ */, kualalumpur: 'kuala-lumpur-my' /* ✔ */,
+  guam: 'guam-gu' /* ✔ */, saipan: 'saipan-mp' /* ✔ */, shanghai: 'shanghai-cn', qingdao: 'qingdao-cn',
+};
+export const agodaCity = (city) =>
+  AGODA_CITY[city]
+    ? `https://click.linkprice.com/click.php?m=agoda&a=${LP_SITE}&l=9999&l_cd1=3&l_cd2=0&tu=${encodeURIComponent(`https://www.agoda.com/ko-kr/city/${AGODA_CITY[city]}.html`)}`
+    : '';

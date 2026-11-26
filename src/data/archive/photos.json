@@ -4238,5 +4238,125 @@
   "userUrl": "https://unsplash.com/@alifzainuri",
   "page": "https://unsplash.com/photos/a-large-white-building-with-a-red-roof-kMCNkiaJIuc",
   "pick": 0
+ },
+ "spot:jakarta:3": {
+  "id": "kffl7xbxEVQ",
+  "raw": "https://images.unsplash.com/photo-1595003898139-0d057373a2ca?ixid=M3wxMTQzNTA5fDB8MXxzZWFyY2h8MXx8VGFtYW4lMjBNaW5pJTIwSW5kb25lc2lhJTIwSW5kYWh8ZW58MXwwfHx8MTc5NTczNzQ0MHww&ixlib=rb-4.1.0",
+  "color": "#0c2640",
+  "alt": "text",
+  "name": "Rizki Oceano",
+  "userUrl": "https://unsplash.com/@roceano",
+  "page": "https://unsplash.com/photos/text-kffl7xbxEVQ",
+  "pick": 0
+ },
+ "spot:jakarta:4": {
+  "id": "zh4eZqer168",
+  "raw": "https://images.unsplash.com/photo-1624700002386-293f8247c0bd?ixid=M3wxMTQzNTA5fDB8MXxzZWFyY2h8MXx8R3JhbmQlMjBJbmRvbmVzaWElMjBtYWxsJTIwSmFrYXJ0YXxlbnwxfDB8fHwxNzk1NzM3NDQwfDA&ixlib=rb-4.1.0",
+  "color": "#8c8c8c",
+  "alt": "white and red basketball hoop near white concrete building during daytime",
+  "name": "Afif Ramdhasuma",
+  "userUrl": "https://unsplash.com/@javaistan",
+  "page": "https://unsplash.com/photos/white-and-red-basketball-hoop-near-white-concrete-building-during-daytime-zh4eZqer168",
+  "pick": 0
+ },
+ "spot:penang:0": {
+  "id": "Yt468PHtQ80",
+  "raw": "https://images.unsplash.com/photo-1574674826492-cbcd09c5db3c?ixid=M3wxMTQzNTA5fDB8MXxzZWFyY2h8MXx8R2VvcmdlJTIwVG93biUyMHN0cmVldCUyMGFydCUyMFBlbmFuZ3xlbnwxfDB8fHwxNzk1NzM3NDQxfDA&ixlib=rb-4.1.0",
+  "color": "#404040",
+  "alt": "mural painting",
+  "name": "Lightscape",
+  "userUrl": "https://unsplash.com/@lightscape",
+  "page": "https://unsplash.com/photos/mural-painting-Yt468PHtQ80",
+  "pick": 0
+ },
+ "spot:penang:1": {
+  "id": "wlyiPNaTobo",
+  "raw": "https://images.unsplash.com/photo-1542031362-d686938a306b?ixid=M3wxMTQzNTA5fDB8MXxzZWFyY2h8MXx8UGVuYW5nJTIwSGlsbHxlbnwxfDB8fHwxNzk1NzM3NDQyfDA&ixlib=rb-4.1.0",
+  "color": "#0c2626",
+  "alt": "city buildings",
+  "name": "fidel",
+  "userUrl": "https://unsplash.com/@fidelzheng",
+  "page": "https://unsplash.com/photos/city-buildings-wlyiPNaTobo",
+  "pick": 0
+ },
+ "spot:penang:2": {
+  "id": "q3q9TKV7jjI",
+  "raw": "https://images.unsplash.com/photo-1581258464836-c8a75b2ed430?ixid=M3wxMTQzNTA5fDB8MXxzZWFyY2h8MXx8S2VrJTIwTG9rJTIwU2klMjB0ZW1wbGUlMjBQZW5hbmd8ZW58MXwwfHx8MTc5NTczNzQ0Mnww&ixlib=rb-4.1.0",
+  "color": "#8cc0d9",
+  "alt": "red and white concrete building under blue sky during daytime",
+  "name": "Geraldine Ng",
+  "userUrl": "https://unsplash.com/@ger_aldinee",
+  "page": "https://unsplash.com/photos/red-and-white-concrete-building-under-blue-sky-during-daytime-q3q9TKV7jjI",
+  "pick": 0
+ },
+ "spot:penang:3": {
+  "id": "npWWZQaziJY",
+  "raw": "https://images.unsplash.com/photo-1654201935898-a096c66db700?ixid=M3wxMTQzNTA5fDB8MXxzZWFyY2h8MXx8Q2hldyUyMEpldHR5JTIwUGVuYW5nfGVufDF8MHx8fDE3OTU3Mzc0NDN8MA&ixlib=rb-4.1.0",
+  "color": "#8cc0d9",
+  "alt": "a body of water with a bunch of houses on it",
+  "name": "Job Savelsberg",
+  "userUrl": "https://unsplash.com/@jobsavelsberg",
+  "page": "https://unsplash.com/photos/a-body-of-water-with-a-bunch-of-houses-on-it-npWWZQaziJY",
+  "pick": 0
+ },
+ "spot:penang:4": {
+  "id": "fJI7Y5WKQ-k",
+  "raw": "https://images.unsplash.com/photo-1742391309564-32126a29102a?ixid=M3wxMTQzNTA5fDB8MXxzZWFyY2h8MXx8R3VybmV5JTIwRHJpdmV8ZW58MXwwfHx8MTc5NTczNzQ0NHww&ixlib=rb-4.1.0",
+  "color": "#f3d9d9",
+  "alt": "A drinks stall offers colorful beverages and desserts",
+  "name": "Kelvin Zyteng",
+  "userUrl": "https://unsplash.com/@zyteng",
+  "page": "https://unsplash.com/photos/a-drinks-stall-offers-colorful-beverages-and-desserts-fJI7Y5WKQ-k",
+  "pick": 0
+ },
+ "spot:langkawi:0": {
+  "id": "NAQZhTNGIWQ",
+  "raw": "https://images.unsplash.com/photo-1570533459920-076b827c7b69?ixid=M3wxMTQzNTA5fDB8MXxzZWFyY2h8MXx8TGFuZ2thd2klMjBiZWFjaCUyME1hbGF5c2lhfGVufDF8MHx8fDE3OTU3Mzc0NDV8MA&ixlib=rb-4.1.0",
+  "color": "#d9d9f3",
+  "alt": "palm trees under cloudy sky",
+  "name": "Sasha India",
+  "userUrl": "https://unsplash.com/@sasha_india",
+  "page": "https://unsplash.com/photos/palm-trees-under-cloudy-sky-NAQZhTNGIWQ",
+  "pick": 0
+ },
+ "spot:langkawi:1": {
+  "id": "mvqyBwPmE08",
+  "raw": "https://images.unsplash.com/photo-1661153803504-bd74a8f2d603?ixid=M3wxMTQzNTA5fDB8MXxzZWFyY2h8MXx8UGFudGFpJTIwQ2VuYW5nJTIwTGFuZ2thd2l8ZW58MXwwfHx8MTc5NTczNzQ0NXww&ixlib=rb-4.1.0",
+  "color": "#f3f3f3",
+  "alt": "a building with palm trees and a sign in front of it",
+  "name": "Kelvin Zyteng",
+  "userUrl": "https://unsplash.com/@zyteng",
+  "page": "https://unsplash.com/photos/a-building-with-palm-trees-and-a-sign-in-front-of-it-mvqyBwPmE08",
+  "pick": 0
+ },
+ "spot:langkawi:2": {
+  "id": "joD43b_YEIg",
+  "raw": "https://images.unsplash.com/photo-1565930421205-ffa06d785b44?ixid=M3wxMTQzNTA5fDB8MXxzZWFyY2h8MXx8S2lsaW0lMjBtYW5ncm92ZSUyMExhbmdrYXdpfGVufDF8MHx8fDE3OTU3Mzc0NDZ8MA&ixlib=rb-4.1.0",
+  "color": "#d9d9d9",
+  "alt": "boats on sea viewing mountain during daytime",
+  "name": "Pranesh Ravi",
+  "userUrl": "https://unsplash.com/@praneshr",
+  "page": "https://unsplash.com/photos/boats-on-sea-viewing-mountain-during-daytime-joD43b_YEIg",
+  "pick": 0
+ },
+ "spot:langkawi:3": {
+  "id": "7UbwqxRHSkQ",
+  "raw": "https://images.unsplash.com/photo-1576274332804-33382d557b76?ixid=M3wxMTQzNTA5fDB8MXxzZWFyY2h8MXx8RWFnbGUlMjBTcXVhcmUlMjBMYW5na2F3aXxlbnwxfDB8fHwxNzk1NzM3NDQ2fDA&ixlib=rb-4.1.0",
+  "color": "#262626",
+  "alt": "brown bird on air",
+  "name": "Ramzi Bezzoudji",
+  "userUrl": "https://unsplash.com/@ramzigraphy",
+  "page": "https://unsplash.com/photos/brown-bird-on-air-7UbwqxRHSkQ",
+  "pick": 0
+ },
+ "spot:langkawi:4": {
+  "id": "yAnklpY716k",
+  "raw": "https://images.unsplash.com/photo-1785439009525-8ad94389622c?ixid=M3wxMTQzNTA5fDB8MXxzZWFyY2h8MXx8TGFuZ2thd2klMjBpc2xhbmQlMjBob3BwaW5nJTIwRGF5YW5nJTIwQnVudGluZ3xlbnwxfDB8fHwxNzk1NzM3NDQ3fDA&ixlib=rb-4.1.0",
+  "color": "#26260c",
+  "alt": "Cable car over lush mountains overlooking a bay with islands",
+  "name": "belettenoir",
+  "userUrl": "https://unsplash.com/@belettenoir",
+  "page": "https://unsplash.com/photos/cable-car-over-lush-mountains-overlooking-a-bay-with-islands-yAnklpY716k",
+  "pick": 0
  }
 }

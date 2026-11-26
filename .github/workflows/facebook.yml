@@ -1,0 +1,23 @@
+name: 페이스북 자동 게시
+on:
+  schedule:
+    - cron: '23 3 * * *' # 한국 낮 12시 23분
+    - cron: '53 9 * * *' # 한국 저녁 6시 53분
+  workflow_dispatch: {}
+permissions:
+  contents: read
+concurrency:
+  group: facebook
+  cancel-in-progress: false
+jobs:
+  post:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - name: 페이스북에 올리기
+        run: node scripts/facebook.mjs
+        env:
+          FB_TOKEN: ${{ secrets.FB_TOKEN }}

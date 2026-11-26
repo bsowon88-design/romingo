@@ -53,7 +53,7 @@ const isOn = (href) => (href === '/' ? path === '/' : path.startsWith(href) || (
 <body>
   <header class="top">
     <div class="wrap top-in">
-      <a href="/" class="logo"><img class="logo-img" src="/favicon-48.png" srcset="/favicon-48.png 1x, /apple-touch-icon.png 2x" width="30" height="30" alt="트립베리 홈" /><span class="logo-txt">트립베리</span><small>{SITE_TAGLINE}</small></a>
+      <a href="/" class="logo"><img class="logo-img" src="/favicon-48.png" srcset="/favicon-48.png 1x, /apple-touch-icon.png 2x" width="30" height="30" alt="트립베리 홈" /><span class="logo-txt">트립베리</span><small>여행 정보</small></a>
       <nav id="mainnav">
         {nav.map(([href, label, icon]) => (
           <a href={href} class:list={{ on: isOn(href), hot: href === '/prep/' }}><Icon name={icon} size={18} />{href === '/prep/' && <span class="hx">✈️ </span>}{label}</a>
@@ -342,7 +342,8 @@ const isOn = (href) => (href === '/' ? path === '/' : path.startsWith(href) || (
   .hasbg.photo::after { content: ''; position: absolute; inset: 0; z-index: -1; background: linear-gradient(180deg, rgba(0,0,0,.15) 0%, rgba(0,0,0,.55) 100%); }
   .flag { display: inline-block; vertical-align: -2px; border-radius: 2px; box-shadow: 0 0 0 1px rgba(0,0,0,.08); object-fit: cover; }
   .logo small, .sbtn span { white-space: nowrap; }
-  @media (max-width: 1720px) { .logo small { display: none; } }
+  /* 로고 옆 짧은 말 — 메뉴 자리가 좁은 폭에서는 숨김 */
+  @media (max-width: 1279px) { .logo small { display: none; } }
   /* 메뉴가 8개라 PC 폭이 좁으면 오른쪽 버튼은 아이콘만 */
   @media (min-width: 1024px) and (max-width: 1560px) { .tact .sbtn span { display: none; } .tact .sbtn { padding: 0; width: 36px; height: 36px; display: grid; place-items: center; border-radius: 50%; } }
   @media (min-width: 1024px) and (max-width: 1180px) { .top nav { gap: 6px !important; } .top nav a { padding: 8px 6px !important; font-size: 15px !important; } .top nav a.hot { padding: 6px 11px !important; } }

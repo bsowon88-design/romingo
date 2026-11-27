@@ -5418,5 +5418,125 @@
   "userUrl": "https://unsplash.com/@mikhail_mamaev",
   "page": "https://unsplash.com/photos/a-bridge-over-a-river-with-a-city-in-the-background-5hgjihqBmAE",
   "pick": 0
+ },
+ "spot:zurich:0": {
+  "id": "6p-I-X-sPUY",
+  "raw": "https://images.unsplash.com/photo-1620563092215-0fbc6b55cfc5?ixid=M3wxMTQzNTA5fDB8MXxzZWFyY2h8MXx8WnVyaWNoJTIwb2xkJTIwdG93biUyMExpbW1hdHxlbnwxfDB8fHwxNzk1NzkxNTE2fDA&ixlib=rb-4.1.0",
+  "color": "#c0d9d9",
+  "alt": "aerial view of city buildings during daytime",
+  "name": "Henrique Ferreira",
+  "userUrl": "https://unsplash.com/@rickpsd",
+  "page": "https://unsplash.com/photos/aerial-view-of-city-buildings-during-daytime-6p-I-X-sPUY",
+  "pick": 0
+ },
+ "spot:zurich:1": {
+  "id": "omiTbS-nb_M",
+  "raw": "https://images.unsplash.com/photo-1643981670720-eef07ebdb179?ixid=M3wxMTQzNTA5fDB8MXxzZWFyY2h8MXx8TGFrZSUyMFp1cmljaHxlbnwxfDB8fHwxNzk1NzkxNTE2fDA&ixlib=rb-4.1.0",
+  "color": "#73a6c0",
+  "alt": "a river running through a city surrounded by tall buildings",
+  "name": "Henrique Ferreira",
+  "userUrl": "https://unsplash.com/@rickpsd",
+  "page": "https://unsplash.com/photos/a-river-running-through-a-city-surrounded-by-tall-buildings-omiTbS-nb_M",
+  "pick": 0
+ },
+ "spot:zurich:2": {
+  "id": "IiDIZcPI87A",
+  "raw": "https://images.unsplash.com/photo-1723404243930-2ff7b127b684?ixid=M3wxMTQzNTA5fDB8MXxzZWFyY2h8MXx8RnJhdW11bnN0ZXIlMjBDaGFnYWxsJTIwd2luZG93c3xlbnwxfDB8fHwxNzk1NzkxNTE3fDA&ixlib=rb-4.1.0",
+  "color": "#c0d9f3",
+  "alt": "Two stained glass windows in a dark room",
+  "name": "Noah Sawallisch",
+  "userUrl": "https://unsplash.com/@noahsawa",
+  "page": "https://unsplash.com/photos/two-stained-glass-windows-in-a-dark-room-IiDIZcPI87A",
+  "pick": 0
+ },
+ "spot:zurich:3": {
+  "id": "6p-I-X-sPUY",
+  "raw": "https://images.unsplash.com/photo-1620563092215-0fbc6b55cfc5?ixid=M3wxMTQzNTA5fDB8MXxzZWFyY2h8MXx8VWV0bGliZXJnJTIwWnVyaWNoJTIwdmlld3xlbnwxfDB8fHwxNzk1NzkxNTE3fDA&ixlib=rb-4.1.0",
+  "color": "#c0d9d9",
+  "alt": "aerial view of city buildings during daytime",
+  "name": "Henrique Ferreira",
+  "userUrl": "https://unsplash.com/@rickpsd",
+  "page": "https://unsplash.com/photos/aerial-view-of-city-buildings-during-daytime-6p-I-X-sPUY",
+  "pick": 0
+ },
+ "spot:zurich:4": {
+  "id": "awMsp96lBD4",
+  "raw": "https://images.unsplash.com/photo-1729506712731-9b80d00a4a0d?ixid=M3wxMTQzNTA5fDB8MXxzZWFyY2h8MXx8UmhpbmUlMjBGYWxscyUyMFN3aXR6ZXJsYW5kfGVufDF8MHx8fDE3OTU3OTE1MTh8MA&ixlib=rb-4.1.0",
+  "color": "#262626",
+  "alt": "A river running through a lush green forest",
+  "name": "Michaela Böhm (Římáková)",
+  "userUrl": "https://unsplash.com/@michaelarimakova",
+  "page": "https://unsplash.com/photos/a-river-running-through-a-lush-green-forest-awMsp96lBD4",
+  "pick": 0
+ },
+ "spot:interlaken:0": {
+  "id": "DROztSfud60",
+  "raw": "https://images.unsplash.com/photo-1773997777374-6f1df5c6b9c9?ixid=M3wxMTQzNTA5fDB8MXxzZWFyY2h8MXx8SnVuZ2ZyYXVqb2NoJTIwU3BoaW54fGVufDF8MHx8fDE3OTU3OTE1MTh8MA&ixlib=rb-4.1.0",
+  "color": "#d9d9d9",
+  "alt": "A building sits atop a snow-covered mountain peak",
+  "name": "Daniel R.",
+  "userUrl": "https://unsplash.com/@misterjackdaniel",
+  "page": "https://unsplash.com/photos/a-building-sits-atop-a-snow-covered-mountain-peak-DROztSfud60",
+  "pick": 0
+ },
+ "spot:interlaken:1": {
+  "id": "bTCqAE3_z2E",
+  "raw": "https://images.unsplash.com/photo-1628061897223-e16373af6a8b?ixid=M3wxMTQzNTA5fDB8MXxzZWFyY2h8MXx8R3JpbmRlbHdhbGQlMjBGaXJzdCUyMGNsaWZmJTIwd2Fsa3xlbnwxfDB8fHwxNzk1NzkxNTE5fDA&ixlib=rb-4.1.0",
+  "color": "#f3f3f3",
+  "alt": "white metal bridge over the river",
+  "name": "Polina Kocheva",
+  "userUrl": "https://unsplash.com/@kocheva",
+  "page": "https://unsplash.com/photos/white-metal-bridge-over-the-river-bTCqAE3_z2E",
+  "pick": 0
+ },
+ "spot:interlaken:2": {
+  "id": "xSwbxr2dpts",
+  "raw": "https://images.unsplash.com/photo-1544986588-da9de4fb3021?ixid=M3wxMTQzNTA5fDB8MXxzZWFyY2h8MXx8TGF1dGVyYnJ1bm5lbiUyMHZhbGxleSUyMHdhdGVyZmFsbHxlbnwxfDB8fHwxNzk1NzkxNTE5fDA&ixlib=rb-4.1.0",
+  "color": "#262626",
+  "alt": "view of mountain during daytime",
+  "name": "Alev Takil",
+  "userUrl": "https://unsplash.com/@alevtakil",
+  "page": "https://unsplash.com/photos/view-of-mountain-during-daytime-xSwbxr2dpts",
+  "pick": 0
+ },
+ "spot:interlaken:3": {
+  "id": "SgThLSbYrsU",
+  "raw": "https://images.unsplash.com/photo-1664989587480-311c2a56ad2a?ixid=M3wxMTQzNTA5fDB8MXxzZWFyY2h8MXx8SGFyZGVyJTIwS3VsbSUyMEludGVybGFrZW58ZW58MXwwfHx8MTc5NTc5MTUyMHww&ixlib=rb-4.1.0",
+  "color": "#0c59a6",
+  "alt": "a building on a hill with a lake and mountains in the background",
+  "name": "allPhoto Bangkok",
+  "userUrl": "https://unsplash.com/@allphotobangkok",
+  "page": "https://unsplash.com/photos/a-building-on-a-hill-with-a-lake-and-mountains-in-the-background-SgThLSbYrsU",
+  "pick": 0
+ },
+ "spot:interlaken:4": {
+  "id": "pn5QFm6U3Lw",
+  "raw": "https://images.unsplash.com/photo-1573592648121-c06aa4473d61?ixid=M3wxMTQzNTA5fDB8MXxzZWFyY2h8MXx8TGFrZSUyMEJyaWVueiUyMGJvYXR8ZW58MXwwfHx8MTc5NTc5MTUyMHww&ixlib=rb-4.1.0",
+  "color": "#a6d9f3",
+  "alt": "body of water and gray mountains",
+  "name": "Cristian Negraia",
+  "userUrl": "https://unsplash.com/@cris9846",
+  "page": "https://unsplash.com/photos/body-of-water-and-gray-mountains-pn5QFm6U3Lw",
+  "pick": 0
+ },
+ "spot:dubai:0": {
+  "id": "Fr6zexbmjmc",
+  "raw": "https://images.unsplash.com/photo-1512453979798-5ea266f8880c?ixid=M3wxMTQzNTA5fDB8MXxzZWFyY2h8MXx8QnVyaiUyMEtoYWxpZmElMjBEdWJhaXxlbnwxfDB8fHwxNzk1NzkxNTIwfDA&ixlib=rb-4.1.0",
+  "color": "#262626",
+  "alt": "The Burj Khalifa and skyscrapers above a multi-level highway interchange in Dubai",
+  "name": "David Rodrigo",
+  "userUrl": "https://unsplash.com/@david__r",
+  "page": "https://unsplash.com/photos/burj-khalifa-and-highway-in-dubai-Fr6zexbmjmc",
+  "pick": 0
+ },
+ "spot:dubai:1": {
+  "id": "7mRq4hHioz0",
+  "raw": "https://images.unsplash.com/photo-1698948684109-01de0994a832?ixid=M3wxMTQzNTA5fDB8MXxzZWFyY2h8MXx8RHViYWklMjBGb3VudGFpbiUyMEJ1cmolMjBLaGFsaWZhfGVufDF8MHx8fDE3OTU3OTE1MjF8MA&ixlib=rb-4.1.0",
+  "color": "#594040",
+  "alt": "a large swimming pool surrounded by tall buildings",
+  "name": "David Barros",
+  "userUrl": "https://unsplash.com/@db4visuals",
+  "page": "https://unsplash.com/photos/a-large-swimming-pool-surrounded-by-tall-buildings-7mRq4hHioz0",
+  "pick": 0
  }
 }

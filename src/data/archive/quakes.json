@@ -1,5 +1,17 @@
 [
  {
+  "id": "us6000udua",
+  "mag": 5,
+  "place": "Off the coast of Aisen, Chile",
+  "time": 1795754676196,
+  "lat": -44.6,
+  "lon": -79.8,
+  "depth": 10,
+  "tsunami": 0,
+  "alert": null,
+  "url": "https://earthquake.usgs.gov/earthquakes/eventpage/us6000udua"
+ },
+ {
   "id": "us6000udtu",
   "mag": 5,
   "place": "89 km SSE of Sola, Vanuatu",

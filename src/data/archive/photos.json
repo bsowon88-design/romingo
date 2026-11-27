@@ -5058,5 +5058,125 @@
   "userUrl": "https://unsplash.com/@gburgos10",
   "page": "https://unsplash.com/photos/winding-path-on-santorini-volcanic-cliffs-WWXsAEH0_Tg",
   "pick": 0
+ },
+ "spot:santorini:3": {
+  "id": "w3Bee3kA898",
+  "raw": "https://images.unsplash.com/photo-1446822735065-ab34e50b392f?ixid=M3wxMTQzNTA5fDB8MXxzZWFyY2h8Mnx8UmVkJTIwQmVhY2glMjBTYW50b3Jpbml8ZW58MXwwfHx8MTc5NTc3NDUyMXww&ixlib=rb-4.1.0",
+  "color": "#0c8c8c",
+  "alt": "aerial photography of buildings on shore",
+  "name": "Anthony DELANOIX",
+  "userUrl": "https://unsplash.com/@anthonydelanoix",
+  "page": "https://unsplash.com/photos/aerial-photography-of-buildings-on-shore-w3Bee3kA898",
+  "pick": 0
+ },
+ "spot:santorini:4": {
+  "id": "6N2mSJsKTtA",
+  "raw": "https://images.unsplash.com/photo-1580502304784-8985b7eb7260?ixid=M3wxMTQzNTA5fDB8MXxzZWFyY2h8MXx8QWtyb3RpcmklMjBTYW50b3Jpbml8ZW58MXwwfHx8MTc5NTc3NDUyMnww&ixlib=rb-4.1.0",
+  "color": "#262626",
+  "alt": "White buildings on a cliffside in Oia, Greece, illuminated by warm evening light",
+  "name": "James Ting",
+  "userUrl": "https://unsplash.com/@jamesting",
+  "page": "https://unsplash.com/photos/white-buildings-on-oia-cliffside-6N2mSJsKTtA",
+  "pick": 0
+ },
+ "spot:florence:0": {
+  "id": "NN_vPCzkU3M",
+  "raw": "https://images.unsplash.com/photo-1687817997684-c9335cce7c5c?ixid=M3wxMTQzNTA5fDB8MXxzZWFyY2h8MXx8RmxvcmVuY2UlMjBEdW9tbyUyMGNhdGhlZHJhbHxlbnwxfDB8fHwxNzk1Nzc0NTIyfDA&ixlib=rb-4.1.0",
+  "color": "#73a6d9",
+  "alt": "a view of a city with a cathedral and mountains in the background",
+  "name": "Joseph Quam",
+  "userUrl": "https://unsplash.com/@jquam",
+  "page": "https://unsplash.com/photos/a-view-of-a-city-with-a-cathedral-and-mountains-in-the-background-NN_vPCzkU3M",
+  "pick": 0
+ },
+ "spot:florence:1": {
+  "id": "fB4QEJVMMCA",
+  "raw": "https://images.unsplash.com/photo-1751312964822-8ff3c731f512?ixid=M3wxMTQzNTA5fDB8MXxzZWFyY2h8M3x8VWZmaXppJTIwR2FsbGVyeSUyMEZsb3JlbmNlfGVufDF8MHx8fDE3OTU3NzQ1MjJ8MA&ixlib=rb-4.1.0",
+  "color": "#594026",
+  "alt": "A beautiful cityscape is illuminated by golden light",
+  "name": "Dipen Patel",
+  "userUrl": "https://unsplash.com/@dipenpatel0810",
+  "page": "https://unsplash.com/photos/a-beautiful-cityscape-is-illuminated-by-golden-light-fB4QEJVMMCA",
+  "pick": 0
+ },
+ "spot:florence:2": {
+  "id": "hH6IAUtVLQw",
+  "raw": "https://images.unsplash.com/photo-1559004328-d65ee06c5947?ixid=M3wxMTQzNTA5fDB8MXxzZWFyY2h8MXx8QWNjYWRlbWlhJTIwRGF2aWQlMjBGbG9yZW5jZXxlbnwxfDB8fHwxNzk1Nzc0NTIzfDA&ixlib=rb-4.1.0",
+  "color": "#595940",
+  "alt": "Statue of David",
+  "name": "Mateus Campos Felipe",
+  "userUrl": "https://unsplash.com/@matcfelipe",
+  "page": "https://unsplash.com/photos/statue-of-david-hH6IAUtVLQw",
+  "pick": 0
+ },
+ "spot:florence:3": {
+  "id": "hjmV0xG-KPk",
+  "raw": "https://images.unsplash.com/photo-1601195576601-346d58e024c0?ixid=M3wxMTQzNTA5fDB8MXxzZWFyY2h8MXx8UG9udGUlMjBWZWNjaGlvJTIwRmxvcmVuY2V8ZW58MXwwfHx8MTc5NTc3NDUyM3ww&ixlib=rb-4.1.0",
+  "color": "#26260c",
+  "alt": "brown concrete building near river during daytime",
+  "name": "Ilse Orsel",
+  "userUrl": "https://unsplash.com/@beertje60",
+  "page": "https://unsplash.com/photos/brown-concrete-building-near-river-during-daytime-hjmV0xG-KPk",
+  "pick": 0
+ },
+ "spot:florence:4": {
+  "id": "8ZQxfiRYHE4",
+  "raw": "https://images.unsplash.com/photo-1689323768678-8e91ca96238b?ixid=M3wxMTQzNTA5fDB8MXxzZWFyY2h8Mnx8UGlhenphbGUlMjBNaWNoZWxhbmdlbG8lMjBzdW5zZXR8ZW58MXwwfHx8MTc5NTc3NDUyM3ww&ixlib=rb-4.1.0",
+  "color": "#a68c8c",
+  "alt": "the sun is setting over a city with tall buildings",
+  "name": "Qingqing Cai",
+  "userUrl": "https://unsplash.com/@qingqingok",
+  "page": "https://unsplash.com/photos/the-sun-is-setting-over-a-city-with-tall-buildings-8ZQxfiRYHE4",
+  "pick": 0
+ },
+ "spot:venice:0": {
+  "id": "vTU-IgBcVTg",
+  "raw": "https://images.unsplash.com/photo-1528031567665-e8a301f0ca7b?ixid=M3wxMTQzNTA5fDB8MXxzZWFyY2h8M3x8UGlhenphJTIwU2FuJTIwTWFyY28lMjBWZW5pY2V8ZW58MXwwfHx8MTc5NTc3NDUyNHww&ixlib=rb-4.1.0",
+  "color": "#0c4073",
+  "alt": "brown and white buildings at nighttime",
+  "name": "Alessio Furlan",
+  "userUrl": "https://unsplash.com/@alessiofurlan",
+  "page": "https://unsplash.com/photos/brown-and-white-buildings-at-nighttime-vTU-IgBcVTg",
+  "pick": 0
+ },
+ "spot:venice:1": {
+  "id": "zunQwMy5B6M",
+  "raw": "https://images.unsplash.com/photo-1498307833015-e7b400441eb8?ixid=M3wxMTQzNTA5fDB8MXxzZWFyY2h8MXx8UmlhbHRvJTIwQnJpZGdlJTIwVmVuaWNlfGVufDF8MHx8fDE3OTU3NzQ1MjR8MA&ixlib=rb-4.1.0",
+  "color": "#f3c0c0",
+  "alt": "Gondolas on the Grand Canal in Venice under a warm orange sky",
+  "name": "Rebe Adelaida",
+  "userUrl": "https://unsplash.com/@rrebba",
+  "page": "https://unsplash.com/photos/gondolas-on-grand-canal-in-venice-zunQwMy5B6M",
+  "pick": 0
+ },
+ "spot:venice:2": {
+  "id": "X-D3bzF-_ss",
+  "raw": "https://images.unsplash.com/photo-1770462957072-88c5d8b84203?ixid=M3wxMTQzNTA5fDB8MXxzZWFyY2h8MXx8RG9nZXMlMjBQYWxhY2UlMjBWZW5pY2V8ZW58MXwwfHx8MTc5NTc3NDUyNXww&ixlib=rb-4.1.0",
+  "color": "#2673a6",
+  "alt": "Historic venetian palace and bell tower with canal",
+  "name": "Chelaxy Designs",
+  "userUrl": "https://unsplash.com/@chelaxydp",
+  "page": "https://unsplash.com/photos/historic-venetian-palace-and-bell-tower-with-canal-X-D3bzF-_ss",
+  "pick": 0
+ },
+ "spot:venice:3": {
+  "id": "NDVvMHrqvCc",
+  "raw": "https://images.unsplash.com/photo-1619339163285-0b384b75b5e8?ixid=M3wxMTQzNTA5fDB8MXxzZWFyY2h8MXx8QnVyYW5vJTIwY29sb3JmdWwlMjBob3VzZXN8ZW58MXwwfHx8MTc5NTc3NDUyNXww&ixlib=rb-4.1.0",
+  "color": "#735940",
+  "alt": "red and yellow concrete building during daytime",
+  "name": "Angelo Casto",
+  "userUrl": "https://unsplash.com/@jddartphotographer",
+  "page": "https://unsplash.com/photos/red-and-yellow-concrete-building-during-daytime-NDVvMHrqvCc",
+  "pick": 0
+ },
+ "spot:venice:4": {
+  "id": "V92cQegtuOs",
+  "raw": "https://images.unsplash.com/photo-1566984991763-91b985a3f9c2?ixid=M3wxMTQzNTA5fDB8MXxzZWFyY2h8MXx8VmVuaWNlJTIwZ29uZG9sYSUyMGNhbmFsfGVufDF8MHx8fDE3OTU3NzQ1MjV8MA&ixlib=rb-4.1.0",
+  "color": "#f3f3f3",
+  "alt": "black boat on water",
+  "name": "Diego Gennaro",
+  "userUrl": "https://unsplash.com/@_nnaro_",
+  "page": "https://unsplash.com/photos/black-boat-on-water-V92cQegtuOs",
+  "pick": 0
  }
 }

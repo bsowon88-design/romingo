@@ -5178,5 +5178,125 @@
   "userUrl": "https://unsplash.com/@_nnaro_",
   "page": "https://unsplash.com/photos/black-boat-on-water-V92cQegtuOs",
   "pick": 0
+ },
+ "spot:madrid:0": {
+  "id": "moxOkmPxxG4",
+  "raw": "https://images.unsplash.com/photo-1651902519299-9eaf6548b364?ixid=M3wxMTQzNTA5fDB8MXxzZWFyY2h8MXx8UHJhZG8lMjBNdXNldW0lMjBNYWRyaWR8ZW58MXwwfHx8MTc5NTc4MDc4NHww&ixlib=rb-4.1.0",
+  "color": "#73a6d9",
+  "alt": "a large building with many windows",
+  "name": "Robert Katzki",
+  "userUrl": "https://unsplash.com/@ro_ka",
+  "page": "https://unsplash.com/photos/a-large-building-with-many-windows-moxOkmPxxG4",
+  "pick": 0
+ },
+ "spot:madrid:1": {
+  "id": "GsMQ8mhqb6A",
+  "raw": "https://images.unsplash.com/photo-1658922184330-001b78430070?ixid=M3wxMTQzNTA5fDB8MXxzZWFyY2h8MXx8Um95YWwlMjBQYWxhY2UlMjBNYWRyaWR8ZW58MXwwfHx8MTc5NTc4MDc4NXww&ixlib=rb-4.1.0",
+  "color": "#738cc0",
+  "alt": "a large building with columns and a flag on top with Royal Palace of Madrid in the background",
+  "name": "Kristijan Arsov",
+  "userUrl": "https://unsplash.com/@aarsoph",
+  "page": "https://unsplash.com/photos/a-large-building-with-columns-and-a-flag-on-top-with-royal-palace-of-madrid-in-the-background-GsMQ8mhqb6A",
+  "pick": 0
+ },
+ "spot:madrid:2": {
+  "id": "deHobw1fklU",
+  "raw": "https://images.unsplash.com/photo-1594547290750-aac228651d21?ixid=M3wxMTQzNTA5fDB8MXxzZWFyY2h8MXx8UmV0aXJvJTIwUGFyayUyMENyeXN0YWwlMjBQYWxhY2V8ZW58MXwwfHx8MTc5NTc4MDc4NXww&ixlib=rb-4.1.0",
+  "color": "#404026",
+  "alt": "green tree near white building",
+  "name": "Eduardo Rodriguez",
+  "userUrl": "https://unsplash.com/@rodriguezedm",
+  "page": "https://unsplash.com/photos/green-tree-near-white-building-deHobw1fklU",
+  "pick": 0
+ },
+ "spot:madrid:3": {
+  "id": "rH96m-z1TmI",
+  "raw": "https://images.unsplash.com/photo-1658922184767-d5335cb2a9d2?ixid=M3wxMTQzNTA5fDB8MXxzZWFyY2h8MXx8UGxhemElMjBNYXlvciUyME1hZHJpZHxlbnwxfDB8fHwxNzk1NzgwNzg2fDA&ixlib=rb-4.1.0",
+  "color": "#a6c0d9",
+  "alt": "a large building with a statue in front of it with Plaza Mayor, Madrid in the background",
+  "name": "Kristijan Arsov",
+  "userUrl": "https://unsplash.com/@aarsoph",
+  "page": "https://unsplash.com/photos/a-large-building-with-a-statue-in-front-of-it-with-plaza-mayor-madrid-in-the-background-rH96m-z1TmI",
+  "pick": 0
+ },
+ "spot:madrid:4": {
+  "id": "EKYwNpl-DGQ",
+  "raw": "https://images.unsplash.com/photo-1571414313976-3ec6681fa192?ixid=M3wxMTQzNTA5fDB8MXxzZWFyY2h8MXx8UmVpbmElMjBTb2ZpYSUyMEd1ZXJuaWNhfGVufDF8MHx8fDE3OTU3ODA3ODZ8MA&ixlib=rb-4.1.0",
+  "color": "#262626",
+  "alt": "woman with pink lips",
+  "name": "Theo Swanepoel",
+  "userUrl": "https://unsplash.com/@tewtew",
+  "page": "https://unsplash.com/photos/woman-with-pink-lips-EKYwNpl-DGQ",
+  "pick": 0
+ },
+ "spot:nanjing:0": {
+  "id": "jH9Vr0W7Wys",
+  "raw": "https://images.unsplash.com/photo-1585102883188-fd6ec2cdc8c6?ixid=M3wxMTQzNTA5fDB8MXxzZWFyY2h8MXx8U3VuJTIwWWF0LXNlbiUyME1hdXNvbGV1bSUyME5hbmppbmd8ZW58MXwwfHx8MTc5NTc4MDc4N3ww&ixlib=rb-4.1.0",
+  "color": "#d9d9d9",
+  "alt": "a group of people walking up a hill with umbrellas",
+  "name": "Jennifer Chen",
+  "userUrl": "https://unsplash.com/@jnnfrchn",
+  "page": "https://unsplash.com/photos/a-group-of-people-walking-up-a-hill-with-umbrellas-jH9Vr0W7Wys",
+  "pick": 0
+ },
+ "spot:nanjing:1": {
+  "id": "3GhCwY6oCaE",
+  "raw": "https://images.unsplash.com/photo-1666605956042-358761718c9b?ixid=M3wxMTQzNTA5fDB8MXxzZWFyY2h8MXx8RnV6aW1pYW8lMjBRaW5odWFpJTIwcml2ZXIlMjBuaWdodHxlbnwxfDB8fHwxNzk1NzgwNzg3fDA&ixlib=rb-4.1.0",
+  "color": "#0c2626",
+  "alt": "a river running through a valley between mountains",
+  "name": "Maria Kuklina",
+  "userUrl": "https://unsplash.com/@mari_kuklina",
+  "page": "https://unsplash.com/photos/a-river-running-through-a-valley-between-mountains-3GhCwY6oCaE",
+  "pick": 0
+ },
+ "spot:nanjing:2": {
+  "id": "kwLTsZ80Z8Y",
+  "raw": "https://images.unsplash.com/photo-1604488248829-c4748ac1b408?ixid=M3wxMTQzNTA5fDB8MXxzZWFyY2h8MXx8TWluZyUyMFhpYW9saW5nJTIwTWF1c29sZXVtfGVufDF8MHx8fDE3OTU3ODA3ODh8MA&ixlib=rb-4.1.0",
+  "color": "#262626",
+  "alt": "brown and white concrete building",
+  "name": "Magic Ma",
+  "userUrl": "https://unsplash.com/@sammmagic",
+  "page": "https://unsplash.com/photos/brown-and-white-concrete-building-kwLTsZ80Z8Y",
+  "pick": 0
+ },
+ "spot:nanjing:3": {
+  "id": "hP8B7wQ1rEs",
+  "raw": "https://images.unsplash.com/photo-1674207219156-d400b15943ff?ixid=M3wxMTQzNTA5fDB8MXxzZWFyY2h8MXx8TmFuamluZyUyMGNpdHklMjBDaGluYXxlbnwxfDB8fHwxNzk1NzgwNzg5fDA&ixlib=rb-4.1.0",
+  "color": "#f3f3f3",
+  "alt": "a blue building with a sign that says nanning",
+  "name": "yun swj",
+  "userUrl": "https://unsplash.com/@yunswj",
+  "page": "https://unsplash.com/photos/a-blue-building-with-a-sign-that-says-nanning-hP8B7wQ1rEs",
+  "pick": 0
+ },
+ "spot:nanjing:4": {
+  "id": "YH0DRrutygA",
+  "raw": "https://images.unsplash.com/photo-1651237491958-9a6b5b230c35?ixid=M3wxMTQzNTA5fDB8MXxzZWFyY2h8MXx8WHVhbnd1JTIwTGFrZSUyME5hbmppbmd8ZW58MXwwfHx8MTc5NTc4MDc5MHww&ixlib=rb-4.1.0",
+  "color": "#c0c0d9",
+  "alt": "a body of water with boats in it and a city in the background",
+  "name": "Yuze Zhang",
+  "userUrl": "https://unsplash.com/@zhangyuze",
+  "page": "https://unsplash.com/photos/a-body-of-water-with-boats-in-it-and-a-city-in-the-background-YH0DRrutygA",
+  "pick": 0
+ },
+ "spot:yantai:0": {
+  "id": "3gIinkie0fM",
+  "raw": "https://images.unsplash.com/photo-1786674336310-c27ffadc3e5e?ixid=M3wxMTQzNTA5fDB8MXxzZWFyY2h8MXx8UGVuZ2xhaSUyMFBhdmlsaW9ufGVufDF8MHx8fDE3OTU3ODA3OTB8MA&ixlib=rb-4.1.0",
+  "color": "#f3f3f3",
+  "alt": "A stone wall winding up a lush green hill toward traditional buildings and a tower",
+  "name": "MChe Lee",
+  "userUrl": "https://unsplash.com/@mclee",
+  "page": "https://unsplash.com/photos/stone-wall-on-green-hill-3gIinkie0fM",
+  "pick": 0
+ },
+ "spot:yantai:1": {
+  "id": "DkcJRsrfPds",
+  "raw": "https://images.unsplash.com/photo-1752306062043-1457b8f2123b?ixid=M3wxMTQzNTA5fDB8MXxzZWFyY2h8MXx8WWFudGFpJTIwY29hc3QlMjBDaGluYXxlbnwxfDB8fHwxNzk1NzgwNzkxfDA&ixlib=rb-4.1.0",
+  "color": "#a6c0c0",
+  "alt": "Boats sailing in front of a coastal city",
+  "name": "Haomeng Yang",
+  "userUrl": "https://unsplash.com/@haomeng_yang",
+  "page": "https://unsplash.com/photos/boats-sailing-in-front-of-a-coastal-city-DkcJRsrfPds",
+  "pick": 0
  }
 }

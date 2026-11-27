@@ -3,4 +3,5 @@
 // 글자: Unsplash 사진 주소 끝의 사진 id (예: 'abc123XYZ')
 // 예) 'country:japan': 1,   'city:osaka': 'Xy12AbCd',
 export const PHOTO_PICK = {
+  'city:guam': 'kxb7AxdHRUI', // 11/27 흰 건물 사진 → 괌 해변 사진 (yeojin yun, Unsplash)
 };

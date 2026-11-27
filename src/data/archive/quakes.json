@@ -1383,10 +1383,10 @@
   "id": "us7000tvie",
   "mag": 5.2,
   "place": "Volcano Islands, Japan region",
-  "time": 1793724492006,
+  "time": 1793724491987,
   "lat": 24.2,
-  "lon": 141.7,
-  "depth": 129,
+  "lon": 141.6,
+  "depth": 130,
   "tsunami": 0,
   "alert": null,
   "url": "https://earthquake.usgs.gov/earthquakes/eventpage/us7000tvie"

@@ -1,5 +1,17 @@
 [
  {
+  "id": "us6000udtu",
+  "mag": 5,
+  "place": "89 km SSE of Sola, Vanuatu",
+  "time": 1795745601018,
+  "lat": -14.6,
+  "lon": 167.9,
+  "depth": 9,
+  "tsunami": 0,
+  "alert": null,
+  "url": "https://earthquake.usgs.gov/earthquakes/eventpage/us6000udtu"
+ },
+ {
   "id": "us6000udt9",
   "mag": 5.1,
   "place": "107 km SSE of Auki, Solomon Islands",

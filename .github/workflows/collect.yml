@@ -40,11 +40,11 @@ jobs:
             echo "바뀐 것 없음"
             exit 0
           fi
-          # Cloudflare 무료 빌드는 한 달 500번 — 사이트는 3시간에 한 번만 다시 만듦
-          # (마지막으로 다시 만든 지 2시간 50분이 안 됐으면 자료만 저장해 두고, 다음 빌드 때 한꺼번에 반영)
+          # Cloudflare 무료 빌드는 한 달 500번(게임토리 · 모델콕과 계정 공유) — 사이트는 6시간에 한 번만 다시 만듦 (11/28 3시간 → 6시간)
+          # (마지막으로 다시 만든 지 5시간 50분이 안 됐으면 자료만 저장해 두고, 다음 빌드 때 한꺼번에 반영)
           LAST=$(git log -1 --format=%ct --invert-grep --grep='skip ci' || echo 0)
           AGO=$(( $(date +%s) - ${LAST:-0} ))
-          if [ "$ARCH" = "1" ] && [ "$AGO" -ge 10200 ]; then
+          if [ "$ARCH" = "1" ] && [ "$AGO" -ge 21000 ]; then
             git commit -m "자동: 재난 자료 갱신"
           elif [ "$ARCH" = "1" ]; then
             echo "마지막 빌드 $((AGO / 60))분 전 — 자료만 저장"

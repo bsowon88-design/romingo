@@ -1,5 +1,17 @@
 [
  {
+  "id": "us6000udt9",
+  "mag": 5.1,
+  "place": "107 km SSE of Auki, Solomon Islands",
+  "time": 1795738020857,
+  "lat": -9.6,
+  "lon": 161.2,
+  "depth": 74,
+  "tsunami": 0,
+  "alert": null,
+  "url": "https://earthquake.usgs.gov/earthquakes/eventpage/us6000udt9"
+ },
+ {
   "id": "us6000udry",
   "mag": 5.1,
   "place": "Bonin Islands, Japan region",

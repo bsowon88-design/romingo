@@ -4358,5 +4358,125 @@
   "userUrl": "https://unsplash.com/@belettenoir",
   "page": "https://unsplash.com/photos/cable-car-over-lush-mountains-overlooking-a-bay-with-islands-yAnklpY716k",
   "pick": 0
+ },
+ "spot:vientiane:0": {
+  "id": "sMEnL4SLXRs",
+  "raw": "https://images.unsplash.com/photo-1557410840-256354e8f9f6?ixid=M3wxMTQzNTA5fDB8MXxzZWFyY2h8Mnx8UGF0dXhhaSUyMFZpZW50aWFuZXxlbnwxfDB8fHwxNzk1NzQyMzY2fDA&ixlib=rb-4.1.0",
+  "color": "#c0c0c0",
+  "alt": "white and brown concrete building",
+  "name": "Camille San Vicente",
+  "userUrl": "https://unsplash.com/@camillesanvicente",
+  "page": "https://unsplash.com/photos/white-and-brown-concrete-building-sMEnL4SLXRs",
+  "pick": 0
+ },
+ "spot:vientiane:1": {
+  "id": "gg-owke2lz0",
+  "raw": "https://images.unsplash.com/photo-1642084964357-a8188eef679a?ixid=M3wxMTQzNTA5fDB8MXxzZWFyY2h8MXx8UGhhJTIwVGhhdCUyMEx1YW5nJTIwVmllbnRpYW5lfGVufDF8MHx8fDE3OTU3NDIzNjd8MA&ixlib=rb-4.1.0",
+  "color": "#40598c",
+  "alt": "a large golden building with a sky background",
+  "name": "Life on the road",
+  "userUrl": "https://unsplash.com/@lifeontheroad",
+  "page": "https://unsplash.com/photos/a-large-golden-building-with-a-sky-background-gg-owke2lz0",
+  "pick": 0
+ },
+ "spot:vientiane:2": {
+  "id": "NyMqkY7BCBc",
+  "raw": "https://images.unsplash.com/photo-1704212685546-3086abc1e6a1?ixid=M3wxMTQzNTA5fDB8MXxzZWFyY2h8MXx8V2F0JTIwU2klMjBTYWtldCUyMFZpZW50aWFuZXxlbnwxfDB8fHwxNzk1NzQyMzY3fDA&ixlib=rb-4.1.0",
+  "color": "#404026",
+  "alt": "an aerial view of a city with many buildings",
+  "name": "Meklay YOTKHAMSAY",
+  "userUrl": "https://unsplash.com/@meklaymeklay",
+  "page": "https://unsplash.com/photos/an-aerial-view-of-a-city-with-many-buildings-NyMqkY7BCBc",
+  "pick": 0
+ },
+ "spot:vientiane:3": {
+  "id": "k_YhLwRYei4",
+  "raw": "https://images.unsplash.com/photo-1595708280858-e693510e1789?ixid=M3wxMTQzNTA5fDB8MXxzZWFyY2h8MXx8VmllbnRpYW5lJTIwTWVrb25nfGVufDF8MHx8fDE3OTU3NDIzNjh8MA&ixlib=rb-4.1.0",
+  "color": "#a6a6a6",
+  "alt": "people on beach during sunset",
+  "name": "Kylli Kittus",
+  "userUrl": "https://unsplash.com/@kyllik",
+  "page": "https://unsplash.com/photos/people-on-beach-during-sunset-k_YhLwRYei4",
+  "pick": 0
+ },
+ "spot:vientiane:4": {
+  "id": "PCCMr02jbT8",
+  "raw": "https://images.unsplash.com/photo-1788026782211-3a168ae3ce84?ixid=M3wxMTQzNTA5fDB8MXxzZWFyY2h8MXx8QnVkZGhhJTIwUGFyayUyMFhpZW5nJTIwS2h1YW58ZW58MXwwfHx8MTc5NTc0MjM2OHww&ixlib=rb-4.1.0",
+  "color": "#59a6f3",
+  "alt": "Wat Xieng Thong temple with tiered roof and bougainvillea flowers in Luang Prabang",
+  "name": "Frank Eiffert",
+  "userUrl": "https://unsplash.com/@feiffert",
+  "page": "https://unsplash.com/photos/wat-xieng-thong-temple-in-luang-prabang-PCCMr02jbT8",
+  "pick": 0
+ },
+ "spot:luangprabang:0": {
+  "id": "yJR-BvLDYbw",
+  "raw": "https://images.unsplash.com/photo-1731990549901-21b977b0016a?ixid=M3wxMTQzNTA5fDB8MXxzZWFyY2h8MXx8THVhbmclMjBQcmFiYW5nJTIwYWxtcyUyMGdpdmluZyUyMG1vbmtzfGVufDF8MHx8fDE3OTU3NDIzNjl8MA&ixlib=rb-4.1.0",
+  "color": "#597373",
+  "alt": "A group of monks walking down a street",
+  "name": "Marco J Haenssgen",
+  "userUrl": "https://unsplash.com/@marcohaenssgen",
+  "page": "https://unsplash.com/photos/a-group-of-monks-walking-down-a-street-yJR-BvLDYbw",
+  "pick": 0
+ },
+ "spot:luangprabang:1": {
+  "id": "9Ct73yKbpEo",
+  "raw": "https://images.unsplash.com/photo-1535961652354-923cb08225a7?ixid=M3wxMTQzNTA5fDB8MXxzZWFyY2h8MXx8S3VhbmclMjBTaSUyMHdhdGVyZmFsbHxlbnwxfDB8fHwxNzk1NzQyMzcwfDA&ixlib=rb-4.1.0",
+  "color": "#262626",
+  "alt": "waterfalls and trees",
+  "name": "simon",
+  "userUrl": "https://unsplash.com/@simon_berger",
+  "page": "https://unsplash.com/photos/waterfalls-and-trees-9Ct73yKbpEo",
+  "pick": 0
+ },
+ "spot:luangprabang:2": {
+  "id": "t7mSUQcTPsY",
+  "raw": "https://images.unsplash.com/photo-1693498792915-f989b430034a?ixid=M3wxMTQzNTA5fDB8MXxzZWFyY2h8MXx8V2F0JTIwWGllbmclMjBUaG9uZ3xlbnwxfDB8fHwxNzk1NzQyMzcwfDA&ixlib=rb-4.1.0",
+  "color": "#8ca6c0",
+  "alt": "a row of buildings sitting next to each other",
+  "name": "Hongbin",
+  "userUrl": "https://unsplash.com/@hbsun2013",
+  "page": "https://unsplash.com/photos/a-row-of-buildings-sitting-next-to-each-other-t7mSUQcTPsY",
+  "pick": 0
+ },
+ "spot:luangprabang:3": {
+  "id": "l_HhB_a_kI8",
+  "raw": "https://images.unsplash.com/photo-1602426973528-040a2abb486c?ixid=M3wxMTQzNTA5fDB8MXxzZWFyY2h8MXx8TW91bnQlMjBQaG91c2klMjBzdW5zZXR8ZW58MXwwfHx8MTc5NTc0MjM3MXww&ixlib=rb-4.1.0",
+  "color": "#d9a673",
+  "alt": "silhouette of mountains during sunset",
+  "name": "Taylor Brandon",
+  "userUrl": "https://unsplash.com/@house_42",
+  "page": "https://unsplash.com/photos/silhouette-of-mountains-during-sunset-l_HhB_a_kI8",
+  "pick": 0
+ },
+ "spot:luangprabang:4": {
+  "id": "fwtPzBjW-A0",
+  "raw": "https://images.unsplash.com/photo-1543676774-064b3f7c5ad7?ixid=M3wxMTQzNTA5fDB8MXxzZWFyY2h8M3x8THVhbmclMjBQcmFiYW5nJTIwbmlnaHQlMjBtYXJrZXR8ZW58MXwwfHx8MTc5NTc0MjM3MXww&ixlib=rb-4.1.0",
+  "color": "#260c0c",
+  "alt": "aerial photography of city buildings during night time",
+  "name": "Florian Wehde",
+  "userUrl": "https://unsplash.com/@florianwehde",
+  "page": "https://unsplash.com/photos/aerial-photography-of-city-buildings-during-night-time-fwtPzBjW-A0",
+  "pick": 0
+ },
+ "spot:siemreap:0": {
+  "id": "lrG4nki2kYM",
+  "raw": "https://images.unsplash.com/photo-1653959864991-c828b72c82a8?ixid=M3wxMTQzNTA5fDB8MXxzZWFyY2h8MXx8QW5na29yJTIwV2F0JTIwc3VucmlzZXxlbnwxfDB8fHwxNzk1NzQyMzcyfDA&ixlib=rb-4.1.0",
+  "color": "#262626",
+  "alt": "the sun is setting over a large body of water",
+  "name": "Sebastian Latorre",
+  "userUrl": "https://unsplash.com/@sebalatorre",
+  "page": "https://unsplash.com/photos/the-sun-is-setting-over-a-large-body-of-water-lrG4nki2kYM",
+  "pick": 0
+ },
+ "spot:siemreap:1": {
+  "id": "Q1a1jrV8KQw",
+  "raw": "https://images.unsplash.com/photo-1759629274346-5e5f036254ef?ixid=M3wxMTQzNTA5fDB8MXxzZWFyY2h8Mnx8QmF5b24lMjB0ZW1wbGUlMjBmYWNlc3xlbnwxfDB8fHwxNzk1NzQyMzcyfDA&ixlib=rb-4.1.0",
+  "color": "#d9f3f3",
+  "alt": "Ancient stone faces on temple towers in cambodia",
+  "name": "Husha Bilimale",
+  "userUrl": "https://unsplash.com/@husha",
+  "page": "https://unsplash.com/photos/ancient-stone-faces-on-temple-towers-in-cambodia-Q1a1jrV8KQw",
+  "pick": 0
  }
 }

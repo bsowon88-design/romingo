@@ -31,6 +31,7 @@ const firstOf = new Set(CATS.map((c) => PARTNERS.find((p) => p.cat === c.id)?.id
           </div>
           <p class="pbest">👍 {p.best}</p>
           <ul>{p.pros.slice(0, 2).map((x) => <li>{x}</li>)}</ul>
+          {p.note && <p class="pnote">{p.note}</p>}
           {p.url
             ? <a class="pgo" href={p.url} target="_blank" rel="sponsored nofollow noopener">보러 가기 ↗</a>
             : <span class="pgo off">링크 준비 중</span>}
@@ -81,6 +82,7 @@ const firstOf = new Set(CATS.map((c) => PARTNERS.find((p) => p.cat === c.id)?.id
   .t-car { background: #FFF6D9; color: #8A6A0E; }
   .pc h3 { margin: 7px 0 0; font-size: 18px; }
   .pbest { margin: 4px 0 6px; font-size: 13px; font-weight: 700; color: var(--sea); }
+  .pnote { margin: -4px 0 10px; font-size: 11px; line-height: 1.5; color: var(--sub); }
   .pc ul { margin: 0 0 10px; padding-left: 16px; font-size: 13px; line-height: 1.6; color: #4a3b33; }
   .pgo { margin-top: auto; display: block; text-align: center; text-decoration: none; font-size: 14px; font-weight: 800; color: #fff; background: var(--sea); border-radius: 10px; padding: 8px; }
   .pgo:hover { filter: brightness(1.06); }

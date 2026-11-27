@@ -15,6 +15,7 @@ const guide = PREP_GUIDES.find((g) => g.cat === cat && (!g.country || g.country 
         <a href={p.city || p.extra ? p.url : partnerUrl(p, country)} target="_blank" rel="sponsored nofollow noopener"><b>{p.name}</b><span>{p.best}</span><i>↗</i></a>
       ))}
     </div>
+    {[...new Set(list.map((p) => p.note).filter(Boolean))].map((n) => <p class="prep-n">{n}</p>)}
     <p class="prep-f">{guide && <><a href={`/prep/${guide.slug}/`}>📖 {guide.short} →</a> · </>}<a href={`/prep/#${cat}`}>업체별 장점 비교 →</a></p>
   </aside>
 )}
@@ -30,6 +31,7 @@ const guide = PREP_GUIDES.find((g) => g.cat === cat && (!g.country || g.country 
   .prep-l span { font-size: 12.5px; color: var(--sub); overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
   @media (max-width: 620px) { .prep-l span { white-space: normal; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; line-height: 1.45; } }
   .prep-l i { margin-left: auto; font-style: normal; color: var(--sea); }
+  .prep-n { margin: 8px 0 0; font-size: 11.5px; color: var(--sub); }
   .prep-f { margin: 8px 0 0; font-size: 12.5px; text-align: right; }
   .prep-f a { color: var(--sea); text-decoration: none; font-weight: 700; }
 </style>

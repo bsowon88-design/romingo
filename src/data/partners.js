@@ -1,6 +1,6 @@
 // 여행 준비 제휴 링크 (링크프라이스). url 이 비어 있으면 화면에 안 나옴.
 // 장점은 각 업체 공식 앱스토어 설명·공식 사이트에서 확인한 것만 (2026-11-25 확인).
-export const AD_NOTE = '이 링크로 구매·예약하면 트립베리가 제휴 수수료를 받을 수 있어요. 여러분이 내는 가격은 똑같아요.';
+export const AD_NOTE = '이 링크로 구매·예약하면 트립베리가 제휴 수수료를 받을 수 있습니다. 이용자가 결제하는 금액은 동일합니다.';
 
 export const CATS = [
   { id: 'data', ico: '📶', name: '데이터 (eSIM·유심)', lead: '도착하자마자 지도·번역·택시 앱을 쓰려면 데이터부터 준비하세요. eSIM은 휴대폰이 eSIM을 지원해야 쓸 수 있어요.' },
@@ -20,6 +20,13 @@ export const PARTNERS = [
     id: 'usimsa', cat: 'data', name: '유심사', url: 'https://click.linkprice.com/click.php?m=usimsa&a=A100710605&l=0000',
     best: '여행 중에도 앱 하나로 충전·연장까지 자유로운 eSIM·유심',
     pros: ['365일 24시간 고객센터', '앱에서 데이터 사용량 조회·충전·연장', '유심사케어: 통신 장애로 생긴 비용 보장 (적용 상품만)'],
+  },
+  {
+    // 에어알로 — 링크프라이스 조건: 대가성 문구 그대로 표시 (note). 장점은 airalo.com/ko 확인 (2026-11-27)
+    id: 'airalo', cat: 'data', name: '에어알로', url: 'https://click.linkprice.com/click.php?m=airalo&a=A100710605&l=0000',
+    best: '여러 나라를 도는 여행에 맞는 현지·지역·글로벌 eSIM',
+    pros: ['200곳 이상의 목적지 · 현지·지역·글로벌 eSIM', '앱에서 eSIM 구매·관리·충전', '연중무휴 24시간 다국어 고객 지원'],
+    note: '이 포스팅은 제휴마케팅이 포함된 광고로 커미션을 지급 받습니다.',
   },
   {
     id: 'klook', cat: 'tour', name: '클룩', url: 'https://click.linkprice.com/click.php?m=klook&a=A100710605&l=0000',

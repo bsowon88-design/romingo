@@ -6138,5 +6138,125 @@
   "userUrl": "https://unsplash.com/@ak687686",
   "page": "https://unsplash.com/photos/an-aerial-view-of-a-city-and-a-body-of-water-30LZG4gvIE0",
   "pick": 0
+ },
+ "spot:xiamen:2": {
+  "id": "CVQTnVele1E",
+  "raw": "https://images.unsplash.com/photo-1681222897726-d3fdcb278117?ixid=M3wxMTQzNTA5fDB8MXxzZWFyY2h8MXx8WGlhbWVuJTIwVW5pdmVyc2l0eXxlbnwxfDB8fHwxNzk1ODE2NzMzfDA&ixlib=rb-4.1.0",
+  "color": "#c0c0a6",
+  "alt": "a black and white photo of a construction site",
+  "name": "Criphc",
+  "userUrl": "https://unsplash.com/@criphc",
+  "page": "https://unsplash.com/photos/a-black-and-white-photo-of-a-construction-site-CVQTnVele1E",
+  "pick": 0
+ },
+ "spot:xiamen:3": {
+  "id": "KfiCyKPGq34",
+  "raw": "https://images.unsplash.com/photo-1662165572188-1c3b00a917e7?ixid=M3wxMTQzNTA5fDB8MXxzZWFyY2h8MXx8WmVuZ2N1b2FuJTIwWGlhbWVufGVufDF8MHx8fDE3OTU4MTY3MzR8MA&ixlib=rb-4.1.0",
+  "color": "#262626",
+  "alt": "a sign on a pole",
+  "name": "Yetepireg ILes",
+  "userUrl": "https://unsplash.com/@pestahdurbs",
+  "page": "https://unsplash.com/photos/a-sign-on-a-pole-KfiCyKPGq34",
+  "pick": 0
+ },
+ "spot:xiamen:4": {
+  "id": "-Jdk_Y4_ltE",
+  "raw": "https://images.unsplash.com/photo-1719919570408-365e3027e503?ixid=M3wxMTQzNTA5fDB8MXxzZWFyY2h8MXx8RnVqaWFuJTIwVHVsb3V8ZW58MXwwfHx8MTc5NTgxNjczNHww&ixlib=rb-4.1.0",
+  "color": "#264059",
+  "alt": "A building that has a lot of lights on it",
+  "name": "CY",
+  "userUrl": "https://unsplash.com/@bearcy",
+  "page": "https://unsplash.com/photos/a-building-that-has-a-lot-of-lights-on-it--Jdk_Y4_ltE",
+  "pick": 0
+ },
+ "spot:phnompenh:0": {
+  "id": "A_Ye33lYg1g",
+  "raw": "https://images.unsplash.com/photo-1672858818108-f698cd979ce8?ixid=M3wxMTQzNTA5fDB8MXxzZWFyY2h8MXx8Um95YWwlMjBQYWxhY2UlMjBQaG5vbSUyMFBlbmh8ZW58MXwwfHx8MTc5NTgxNjczNXww&ixlib=rb-4.1.0",
+  "color": "#8c400c",
+  "alt": "a large building lit up at night with a clock tower",
+  "name": "sam onn chan",
+  "userUrl": "https://unsplash.com/@samonn",
+  "page": "https://unsplash.com/photos/a-large-building-lit-up-at-night-with-a-clock-tower-A_Ye33lYg1g",
+  "pick": 0
+ },
+ "spot:phnompenh:1": {
+  "id": "GRK6KO4exaI",
+  "raw": "https://images.unsplash.com/photo-1706583733600-08e942012484?ixid=M3wxMTQzNTA5fDB8MXxzZWFyY2h8MXx8TmF0aW9uYWwlMjBNdXNldW0lMjBvZiUyMENhbWJvZGlhfGVufDF8MHx8fDE3OTU4MTY3MzV8MA&ixlib=rb-4.1.0",
+  "color": "#8cc0d9",
+  "alt": "a building that has a lot of plants in front of it",
+  "name": "Chanratanak Nay",
+  "userUrl": "https://unsplash.com/@nakk__",
+  "page": "https://unsplash.com/photos/a-building-that-has-a-lot-of-plants-in-front-of-it-GRK6KO4exaI",
+  "pick": 0
+ },
+ "spot:phnompenh:2": {
+  "id": "NoThJusBagc",
+  "raw": "https://images.unsplash.com/photo-1694782981192-3b758e46d996?ixid=M3wxMTQzNTA5fDB8MXxzZWFyY2h8MXx8VHVvbCUyMFNsZW5nJTIwR2Vub2NpZGUlMjBNdXNldW18ZW58MXwwfHx8MTc5NTgxNjczNnww&ixlib=rb-4.1.0",
+  "color": "#404040",
+  "alt": "a car driving past a tall building with a sign on it",
+  "name": "Kimism",
+  "userUrl": "https://unsplash.com/@kimism",
+  "page": "https://unsplash.com/photos/a-car-driving-past-a-tall-building-with-a-sign-on-it-NoThJusBagc",
+  "pick": 0
+ },
+ "spot:phnompenh:3": {
+  "id": "W-QhI-8iFR8",
+  "raw": "https://images.unsplash.com/photo-1635674013535-9b2aab61a057?ixid=M3wxMTQzNTA5fDB8MXxzZWFyY2h8MXx8Q2hvZXVuZyUyMEVrJTIwS2lsbGluZyUyMEZpZWxkcyUyMG1lbW9yaWFsfGVufDF8MHx8fDE3OTU4MTY3MzZ8MA&ixlib=rb-4.1.0",
+  "color": "#f3f3f3",
+  "alt": "a monument in a park with trees in the background",
+  "name": "Cross-Keys Media",
+  "userUrl": "https://unsplash.com/@crosskeysmedia",
+  "page": "https://unsplash.com/photos/a-monument-in-a-park-with-trees-in-the-background-W-QhI-8iFR8",
+  "pick": 0
+ },
+ "spot:phnompenh:4": {
+  "id": "XsaTFZ6lih4",
+  "raw": "https://images.unsplash.com/photo-1651158523033-02f1516bdb0c?ixid=M3wxMTQzNTA5fDB8MXxzZWFyY2h8MXx8U2lzb3dhdGglMjBRdWF5JTIwUGhub20lMjBQZW5ofGVufDF8MHx8fDE3OTU4MTY3Mzd8MA&ixlib=rb-4.1.0",
+  "color": "#f3f3f3",
+  "alt": "a large gold statue in front of a group of buildings",
+  "name": "Thoeun Ratana",
+  "userUrl": "https://unsplash.com/@thoeunratana",
+  "page": "https://unsplash.com/photos/a-large-gold-statue-in-front-of-a-group-of-buildings-XsaTFZ6lih4",
+  "pick": 0
+ },
+ "spot:chongqing:0": {
+  "id": "-y3sidWvDxg",
+  "raw": "https://images.unsplash.com/photo-1508009603885-50cf7c579365?ixid=M3wxMTQzNTA5fDB8MXxzZWFyY2h8MXx8SG9uZ3lhZG9uZyUyMENob25ncWluZyUyMG5pZ2h0fGVufDF8MHx8fDE3OTU4MTY3Mzh8MA&ixlib=rb-4.1.0",
+  "color": "#262626",
+  "alt": "two auto rickshaw on the street",
+  "name": "Florian Wehde",
+  "userUrl": "https://unsplash.com/@florianwehde",
+  "page": "https://unsplash.com/photos/two-auto-rickshaw-on-the-street--y3sidWvDxg",
+  "pick": 0
+ },
+ "spot:chongqing:1": {
+  "id": "IqNVI-gkSdE",
+  "raw": "https://images.unsplash.com/photo-1774405040758-142f6fca903d?ixid=M3wxMTQzNTA5fDB8MXxzZWFyY2h8MXx8TGl6aWJhJTIwc3RhdGlvbiUyMG1vbm9yYWlsJTIwQ2hvbmdxaW5nfGVufDF8MHx8fDE3OTU4MTY3Mzh8MA&ixlib=rb-4.1.0",
+  "color": "#f3f3f3",
+  "alt": "Monorail train passes through a building in a city",
+  "name": "MChe Lee",
+  "userUrl": "https://unsplash.com/@mclee",
+  "page": "https://unsplash.com/photos/monorail-train-passes-through-a-building-in-a-city-IqNVI-gkSdE",
+  "pick": 0
+ },
+ "spot:chongqing:2": {
+  "id": "qaS7H-r2mWU",
+  "raw": "https://images.unsplash.com/photo-1707562964332-17b12df6f241?ixid=M3wxMTQzNTA5fDB8MXxzZWFyY2h8MXx8WWFuZ3R6ZSUyMFJpdmVyJTIwY2FibGV3YXklMjBDaG9uZ3Fpbmd8ZW58MXwwfHx8MTc5NTgxNjczOXww&ixlib=rb-4.1.0",
+  "color": "#f3f3f3",
+  "alt": "a cable car going over a bridge with a city in the background",
+  "name": "Wenhao Ruan",
+  "userUrl": "https://unsplash.com/@wenhao_ruan",
+  "page": "https://unsplash.com/photos/a-cable-car-going-over-a-bridge-with-a-city-in-the-background-qaS7H-r2mWU",
+  "pick": 0
+ },
+ "spot:chongqing:3": {
+  "id": "Hvjx3cywvM4",
+  "raw": "https://images.unsplash.com/photo-1556966346-0215efedf4d3?ixid=M3wxMTQzNTA5fDB8MXxzZWFyY2h8MXx8S29yZWFuJTIwUHJvdmlzaW9uYWwlMjBHb3Zlcm5tZW50JTIwQ2hvbmdxaW5nfGVufDF8MHx8fDE3OTU4MTY3Mzl8MA&ixlib=rb-4.1.0",
+  "color": "#73c0d9",
+  "alt": "white and black temple",
+  "name": "pan zhen",
+  "userUrl": "https://unsplash.com/@alpacccca",
+  "page": "https://unsplash.com/photos/white-and-black-temple-Hvjx3cywvM4",
+  "pick": 0
  }
 }

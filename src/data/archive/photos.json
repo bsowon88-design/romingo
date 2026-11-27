@@ -5658,5 +5658,125 @@
   "userUrl": "https://unsplash.com/@iamavi",
   "page": "https://unsplash.com/photos/pashupatinath-temple-with-a-gold-roof-UzRYQaWA0LI",
   "pick": 0
+ },
+ "spot:kathmandu:4": {
+  "id": "H9C496Nfd7Q",
+  "raw": "https://images.unsplash.com/photo-1679578064614-ba0ad375c143?ixid=M3wxMTQzNTA5fDB8MXxzZWFyY2h8Mnx8Qmhha3RhcHVyJTIwRHVyYmFyJTIwU3F1YXJlfGVufDF8MHx8fDE3OTU3OTk0MTN8MA&ixlib=rb-4.1.0",
+  "color": "#c0d9f3",
+  "alt": "a group of buildings that are next to each other",
+  "name": "Hongbin",
+  "userUrl": "https://unsplash.com/@hbsun2013",
+  "page": "https://unsplash.com/photos/a-group-of-buildings-that-are-next-to-each-other-H9C496Nfd7Q",
+  "pick": 0
+ },
+ "spot:pokhara:0": {
+  "id": "X08i7QDlXI8",
+  "raw": "https://images.unsplash.com/photo-1735533441842-33c5e47b22ae?ixid=M3wxMTQzNTA5fDB8MXxzZWFyY2h8MXx8UGhld2ElMjBMYWtlJTIwUG9raGFyYXxlbnwxfDB8fHwxNzk1Nzk5NDEzfDA&ixlib=rb-4.1.0",
+  "color": "#8cc0f3",
+  "alt": "A bunch of boats that are sitting in the water",
+  "name": "Ratul Raha",
+  "userUrl": "https://unsplash.com/@ratulraha",
+  "page": "https://unsplash.com/photos/a-bunch-of-boats-that-are-sitting-in-the-water-X08i7QDlXI8",
+  "pick": 0
+ },
+ "spot:pokhara:1": {
+  "id": "aKBtbbVP970",
+  "raw": "https://images.unsplash.com/photo-1552685807-525433b008dc?ixid=M3wxMTQzNTA5fDB8MXxzZWFyY2h8MXx8U2FyYW5na290JTIwc3VucmlzZSUyMEFubmFwdXJuYXxlbnwxfDB8fHwxNzk1Nzk5NDE0fDA&ixlib=rb-4.1.0",
+  "color": "#a68c8c",
+  "alt": "crepuscular clouds",
+  "name": "Clicker Babu",
+  "userUrl": "https://unsplash.com/@clicker_babu",
+  "page": "https://unsplash.com/photos/crepuscular-clouds-aKBtbbVP970",
+  "pick": 0
+ },
+ "spot:pokhara:2": {
+  "id": "VhKot3A5ZE4",
+  "raw": "https://images.unsplash.com/photo-1522376382758-57cc8c505cdb?ixid=M3wxMTQzNTA5fDB8MXxzZWFyY2h8MXx8V29ybGQlMjBQZWFjZSUyMFBhZ29kYSUyMFBva2hhcmF8ZW58MXwwfHx8MTc5NTc5OTQxNHww&ixlib=rb-4.1.0",
+  "color": "#d9d9d9",
+  "alt": "white and gray concrete structure",
+  "name": "Prasesh Shiwakoti (Lomash)",
+  "userUrl": "https://unsplash.com/@lomash_s",
+  "page": "https://unsplash.com/photos/white-and-gray-concrete-structure-VhKot3A5ZE4",
+  "pick": 0
+ },
+ "spot:pokhara:3": {
+  "id": "zJ9k4xJyv34",
+  "raw": "https://images.unsplash.com/photo-1580114826229-eed7d458d123?ixid=M3wxMTQzNTA5fDB8MXxzZWFyY2h8MXx8RGV2aXMlMjBGYWxsfGVufDF8MHx8fDE3OTU3OTk0MTV8MA&ixlib=rb-4.1.0",
+  "color": "#260c0c",
+  "alt": "a waterfall in the middle of a forest",
+  "name": "Rasul Kireev",
+  "userUrl": "https://unsplash.com/@rasulkireev",
+  "page": "https://unsplash.com/photos/a-waterfall-in-the-middle-of-a-forest-zJ9k4xJyv34",
+  "pick": 0
+ },
+ "spot:pokhara:4": {
+  "id": "NHQwyfSp0I0",
+  "raw": "https://images.unsplash.com/photo-1643549163519-1cfe94f80182?ixid=M3wxMTQzNTA5fDB8MXxzZWFyY2h8MXx8UG9vbiUyMEhpbGwlMjBzdW5yaXNlJTIwdHJla3xlbnwxfDB8fHwxNzk1Nzk5NDE1fDA&ixlib=rb-4.1.0",
+  "color": "#405973",
+  "alt": "a view of a mountain range in the distance",
+  "name": "Himalayan Local Guide",
+  "userUrl": "https://unsplash.com/@himalayanlocalguide",
+  "page": "https://unsplash.com/photos/a-view-of-a-mountain-range-in-the-distance-NHQwyfSp0I0",
+  "pick": 0
+ },
+ "spot:kobe:0": {
+  "id": "NXs7vXUgAKo",
+  "raw": "https://images.unsplash.com/photo-1756007847884-8b0c3ec53db3?ixid=M3wxMTQzNTA5fDB8MXxzZWFyY2h8MXx8S29iZSUyMEhhcmJvcmxhbmQlMjBQb3J0JTIwVG93ZXJ8ZW58MXwwfHx8MTc5NTc5OTQxNnww&ixlib=rb-4.1.0",
+  "color": "#a6c0d9",
+  "alt": "Kobe cityscape with port tower at dusk",
+  "name": "PJH",
+  "userUrl": "https://unsplash.com/@dokae",
+  "page": "https://unsplash.com/photos/kobe-cityscape-with-port-tower-at-dusk-NXs7vXUgAKo",
+  "pick": 0
+ },
+ "spot:kobe:1": {
+  "id": "1BrdlMkwD5g",
+  "raw": "https://images.unsplash.com/photo-1672492641964-ddf3a60333e4?ixid=M3wxMTQzNTA5fDB8MXxzZWFyY2h8MXx8S2l0YW5vJTIwSWppbmthbiUyMEtvYmV8ZW58MXwwfHx8MTc5NTc5OTQxNnww&ixlib=rb-4.1.0",
+  "color": "#262626",
+  "alt": "a view of a city from a window",
+  "name": "Clark Gu",
+  "userUrl": "https://unsplash.com/@atluminon",
+  "page": "https://unsplash.com/photos/a-view-of-a-city-from-a-window-1BrdlMkwD5g",
+  "pick": 0
+ },
+ "spot:kobe:2": {
+  "id": "ktPxEmq1PbE",
+  "raw": "https://images.unsplash.com/photo-1636393720339-7624e15effd1?ixid=M3wxMTQzNTA5fDB8MXxzZWFyY2h8MXx8TmFua2lubWFjaGklMjBLb2JlJTIwQ2hpbmF0b3dufGVufDF8MHx8fDE3OTU3OTk0MTZ8MA&ixlib=rb-4.1.0",
+  "color": "#8c8c8c",
+  "alt": "a city street filled with lots of shops",
+  "name": "Kevin Pierson",
+  "userUrl": "https://unsplash.com/@explorebeyondlimit",
+  "page": "https://unsplash.com/photos/a-city-street-filled-with-lots-of-shops-ktPxEmq1PbE",
+  "pick": 0
+ },
+ "spot:kobe:3": {
+  "id": "BKWXBGl3zis",
+  "raw": "https://images.unsplash.com/photo-1610025074367-a6bb4da757a6?ixid=M3wxMTQzNTA5fDB8MXxzZWFyY2h8MXx8TW91bnQlMjBNYXlhfGVufDF8MHx8fDE3OTU3OTk0MTd8MA&ixlib=rb-4.1.0",
+  "color": "#d9d9d9",
+  "alt": "green grass field and trees covered with fog",
+  "name": "Federico Scarionati",
+  "userUrl": "https://unsplash.com/@federicoscarionati",
+  "page": "https://unsplash.com/photos/green-grass-field-and-trees-covered-with-fog-BKWXBGl3zis",
+  "pick": 0
+ },
+ "spot:kobe:4": {
+  "id": "eqCH01apZhg",
+  "raw": "https://images.unsplash.com/photo-1630829142271-e449ee8f315b?ixid=M3wxMTQzNTA5fDB8MXxzZWFyY2h8MXx8QXJpbWElMjBPbnNlbnxlbnwxfDB8fHwxNzk1Nzk5NDE3fDA&ixlib=rb-4.1.0",
+  "color": "#8c8c8c",
+  "alt": "red and blue train on train station during daytime",
+  "name": "note thanun",
+  "userUrl": "https://unsplash.com/@notethanun",
+  "page": "https://unsplash.com/photos/red-and-blue-train-on-train-station-during-daytime-eqCH01apZhg",
+  "pick": 0
+ },
+ "spot:hiroshima:0": {
+  "id": "Iy4knRd9CGU",
+  "raw": "https://images.unsplash.com/photo-1669682241084-fe2a789ee8ae?ixid=M3wxMTQzNTA5fDB8MXxzZWFyY2h8MXx8SGlyb3NoaW1hJTIwQXRvbWljJTIwQm9tYiUyMERvbWV8ZW58MXwwfHx8MTc5NTc5OTQxOHww&ixlib=rb-4.1.0",
+  "color": "#73a6c0",
+  "alt": "a large stone building with Hiroshima Peace Memorial in the background",
+  "name": "Douglas Lima",
+  "userUrl": "https://unsplash.com/@douglima",
+  "page": "https://unsplash.com/photos/a-large-stone-building-with-hiroshima-peace-memorial-in-the-background-Iy4knRd9CGU",
+  "pick": 0
  }
 }

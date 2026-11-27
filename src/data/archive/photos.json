@@ -2650,14 +2650,14 @@
   "pick": 0
  },
  "city:guam": {
-  "id": "Ipv9JBShV0Y",
-  "raw": "https://images.unsplash.com/photo-1733714559758-9c8b06aa25ea?ixid=M3wxMTQzNTA5fDB8MXxzZWFyY2h8NHx8R3VhbSUyMFR1bW9ufGVufDF8MHx8fDE3OTU2Njk5MDd8MA&ixlib=rb-4.1.0",
-  "color": "#c0d9f3",
-  "alt": "A large white building with a large glass window",
-  "name": "Winston Chen",
-  "userUrl": "https://unsplash.com/@winstonchen",
-  "page": "https://unsplash.com/photos/a-large-white-building-with-a-large-glass-window-Ipv9JBShV0Y",
-  "pick": 0
+  "id": "kxb7AxdHRUI",
+  "raw": "https://images.unsplash.com/photo-1751543593210-0875e6c939b4?ixid=M3wxMTQzNTA5fDB8MXxhbGx8fHx8fHx8fHwxNzk1NzYzOTQ3fA&ixlib=rb-4.1.0",
+  "color": "#73a6c0",
+  "alt": "Beach with buildings and a beautiful blue sky",
+  "name": "yeojin yun",
+  "userUrl": "https://unsplash.com/@seoul_lover_lily",
+  "page": "https://unsplash.com/photos/beach-with-buildings-and-a-beautiful-blue-sky-kxb7AxdHRUI",
+  "pick": "kxb7AxdHRUI"
  },
  "city:saipan": {
   "id": "Cwn3tyv8iqo",
@@ -4837,6 +4837,116 @@
   "name": "Hongbin",
   "userUrl": "https://unsplash.com/@hbsun2013",
   "page": "https://unsplash.com/photos/a-large-field-of-green-grass-with-a-hill-in-the-background-EkAIi_ugze8",
+  "pick": 0
+ },
+ "spot:auckland:2": {
+  "id": "jGhxb1g7IxM",
+  "raw": "https://images.unsplash.com/photo-1595125990263-bedff96361a6?ixid=M3wxMTQzNTA5fDB8MXxzZWFyY2h8MXx8TW91bnQlMjBFZGVuJTIwY3JhdGVyJTIwQXVja2xhbmR8ZW58MXwwfHx8MTc5NTc2Mzk0OHww&ixlib=rb-4.1.0",
+  "color": "#262626",
+  "alt": "aerial view of city near body of water during daytime",
+  "name": "Sulthan Auliya",
+  "userUrl": "https://unsplash.com/@swafie",
+  "page": "https://unsplash.com/photos/aerial-view-of-city-near-body-of-water-during-daytime-jGhxb1g7IxM",
+  "pick": 0
+ },
+ "spot:auckland:3": {
+  "id": "B587f4cdHgw",
+  "raw": "https://images.unsplash.com/photo-1550992402-9b1fc58fd76d?ixid=M3wxMTQzNTA5fDB8MXxzZWFyY2h8MXx8V2FpdG9tbyUyMGdsb3d3b3JtJTIwY2F2ZXN8ZW58MXwwfHx8MTc5NTc2Mzk0OHww&ixlib=rb-4.1.0",
+  "color": "#402626",
+  "alt": "cave with calm body of water during daytime",
+  "name": "Timo Volz",
+  "userUrl": "https://unsplash.com/@magict1911",
+  "page": "https://unsplash.com/photos/cave-with-calm-body-of-water-during-daytime-B587f4cdHgw",
+  "pick": 0
+ },
+ "spot:auckland:4": {
+  "id": "NB8stCglg9w",
+  "raw": "https://images.unsplash.com/photo-1584956861988-913b8c1c7270?ixid=M3wxMTQzNTA5fDB8MXxzZWFyY2h8MXx8SG9iYml0b24lMjBtb3ZpZSUyMHNldHxlbnwxfDB8fHwxNzk1NzYzOTQ4fDA&ixlib=rb-4.1.0",
+  "color": "#40590c",
+  "alt": "brown concrete building near green grass field during daytime",
+  "name": "Adrien Aletti",
+  "userUrl": "https://unsplash.com/@ahda_gallery",
+  "page": "https://unsplash.com/photos/brown-concrete-building-near-green-grass-field-during-daytime-NB8stCglg9w",
+  "pick": 0
+ },
+ "spot:queenstown:0": {
+  "id": "3_WtaooeGdU",
+  "raw": "https://images.unsplash.com/photo-1706795331036-77f5a7d47b91?ixid=M3wxMTQzNTA5fDB8MXxzZWFyY2h8MXx8UXVlZW5zdG93biUyMFNreWxpbmUlMjBnb25kb2xhJTIwbHVnZXxlbnwxfDB8fHwxNzk1NzYzOTQ5fDA&ixlib=rb-4.1.0",
+  "color": "#8ca6a6",
+  "alt": "a large body of water surrounded by mountains",
+  "name": "Sung Jin Cho",
+  "userUrl": "https://unsplash.com/@mbuff",
+  "page": "https://unsplash.com/photos/a-large-body-of-water-surrounded-by-mountains-3_WtaooeGdU",
+  "pick": 0
+ },
+ "spot:queenstown:1": {
+  "id": "oXgPDa0OtAk",
+  "raw": "https://images.unsplash.com/photo-1591640040362-f55d95a6b2bc?ixid=M3wxMTQzNTA5fDB8MXxzZWFyY2h8MXx8TWlsZm9yZCUyMFNvdW5kfGVufDF8MHx8fDE3OTU3NjM5NDl8MA&ixlib=rb-4.1.0",
+  "color": "#f3f3f3",
+  "alt": "body of water near mountain under blue sky during daytime",
+  "name": "Sébastien Goldberg",
+  "userUrl": "https://unsplash.com/@sebastiengoldberg",
+  "page": "https://unsplash.com/photos/body-of-water-near-mountain-under-blue-sky-during-daytime-oXgPDa0OtAk",
+  "pick": 0
+ },
+ "spot:queenstown:2": {
+  "id": "SS1ofBW89_8",
+  "raw": "https://images.unsplash.com/photo-1708235900013-ef91f543966f?ixid=M3wxMTQzNTA5fDB8MXxzZWFyY2h8Mnx8S2F3YXJhdSUyMGJyaWRnZSUyMGJ1bmd5fGVufDF8MHx8fDE3OTU3NjM5NDl8MA&ixlib=rb-4.1.0",
+  "color": "#404026",
+  "alt": "a river running through a lush green valley",
+  "name": "Sung Jin Cho",
+  "userUrl": "https://unsplash.com/@mbuff",
+  "page": "https://unsplash.com/photos/a-river-running-through-a-lush-green-valley-SS1ofBW89_8",
+  "pick": 0
+ },
+ "spot:queenstown:3": {
+  "id": "rGMG_EMa7_w",
+  "raw": "https://images.unsplash.com/photo-1645950266137-5a13619c5b0e?ixid=M3wxMTQzNTA5fDB8MXxzZWFyY2h8MXx8QXJyb3d0b3duJTIwYXV0dW1ufGVufDF8MHx8fDE3OTU3NjM5NTB8MA&ixlib=rb-4.1.0",
+  "color": "#598cf3",
+  "alt": "a mountain side with trees and a moon in the sky",
+  "name": "Hayley Shen",
+  "userUrl": "https://unsplash.com/@hayley_shen",
+  "page": "https://unsplash.com/photos/a-mountain-side-with-trees-and-a-moon-in-the-sky-rGMG_EMa7_w",
+  "pick": 0
+ },
+ "spot:queenstown:4": {
+  "id": "v6xkhMC4-gE",
+  "raw": "https://images.unsplash.com/photo-1669123565088-2c71f61ef6a3?ixid=M3wxMTQzNTA5fDB8MXxzZWFyY2h8MXx8R2xlbm9yY2h5JTIwcm9hZCUyMGxha2UlMjBXYWthdGlwdXxlbnwxfDB8fHwxNzk1NzYzOTUwfDA&ixlib=rb-4.1.0",
+  "color": "#a6c0d9",
+  "alt": "a lake surrounded by mountains",
+  "name": "Sarah Precious",
+  "userUrl": "https://unsplash.com/@sarahpresh",
+  "page": "https://unsplash.com/photos/a-lake-surrounded-by-mountains-v6xkhMC4-gE",
+  "pick": 0
+ },
+ "spot:cappadocia:0": {
+  "id": "f7oe3-tlm0I",
+  "raw": "https://images.unsplash.com/photo-1631152282084-b8f1b380ccab?ixid=M3wxMTQzNTA5fDB8MXxzZWFyY2h8MXx8Q2FwcGFkb2NpYSUyMGhvdCUyMGFpciUyMGJhbGxvb25zJTIwc3VucmlzZXxlbnwxfDB8fHwxNzk1NzYzOTUxfDA&ixlib=rb-4.1.0",
+  "color": "#738ca6",
+  "alt": "hot air balloons on brown field during daytime",
+  "name": "yyzvic",
+  "userUrl": "https://unsplash.com/@yyzvic",
+  "page": "https://unsplash.com/photos/hot-air-balloons-on-brown-field-during-daytime-f7oe3-tlm0I",
+  "pick": 0
+ },
+ "spot:cappadocia:1": {
+  "id": "AQ9bYGSuU8s",
+  "raw": "https://images.unsplash.com/photo-1765794144925-11508ad9ba21?ixid=M3wxMTQzNTA5fDB8MXxzZWFyY2h8MXx8R29yZW1lJTIwT3BlbiUyMEFpciUyME11c2V1bXxlbnwxfDB8fHwxNzk1NzYzOTUxfDA&ixlib=rb-4.1.0",
+  "color": "#f3d9c0",
+  "alt": "Ancient cave dwellings carved into a rocky hillside",
+  "name": "Fatih Beki",
+  "userUrl": "https://unsplash.com/@mfbeki",
+  "page": "https://unsplash.com/photos/ancient-cave-dwellings-carved-into-a-rocky-hillside-AQ9bYGSuU8s",
+  "pick": 0
+ },
+ "spot:cappadocia:2": {
+  "id": "p15UAU-xe6Y",
+  "raw": "https://images.unsplash.com/photo-1669046639202-339a501ae245?ixid=M3wxMTQzNTA5fDB8MXxzZWFyY2h8MXx8RGVyaW5rdXl1JTIwdW5kZXJncm91bmQlMjBjaXR5fGVufDF8MHx8fDE3OTU3NjM5NTF8MA&ixlib=rb-4.1.0",
+  "color": "#8c5940",
+  "alt": "a wooden structure with a light inside",
+  "name": "Igor Sporynin",
+  "userUrl": "https://unsplash.com/@igorharrier",
+  "page": "https://unsplash.com/photos/a-wooden-structure-with-a-light-inside-p15UAU-xe6Y",
   "pick": 0
  }
 }

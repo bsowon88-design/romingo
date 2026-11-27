@@ -43,6 +43,14 @@ const isOn = (href) => (href === '/' ? path === '/' : path.startsWith(href) || (
   <meta name="description" content={desc} />
   <meta name="naver-site-verification" content="76e63b154995a1d099682b8c0cae7a4f3c627442" />
   <meta name="p:domain_verify" content="9141eb15fcf28bf010f6f4c82a49d486" />
+  <!-- Google Analytics (GA4) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-8XP59EVWCL"></script>
+  <script is:inline>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-8XP59EVWCL');
+  </script>
   <meta name="google-adsense-account" content="ca-pub-8490251663156003" />
   <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8490251663156003" crossorigin="anonymous"></script>
   <link rel="canonical" href={canonical} />

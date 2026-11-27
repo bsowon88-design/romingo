@@ -5778,5 +5778,125 @@
   "userUrl": "https://unsplash.com/@douglima",
   "page": "https://unsplash.com/photos/a-large-stone-building-with-hiroshima-peace-memorial-in-the-background-Iy4knRd9CGU",
   "pick": 0
+ },
+ "spot:hiroshima:1": {
+  "id": "FPnmBrl_dUM",
+  "raw": "https://images.unsplash.com/photo-1753159392738-67affcab4548?ixid=M3wxMTQzNTA5fDB8MXxzZWFyY2h8MXx8SGlyb3NoaW1hJTIwUGVhY2UlMjBNZW1vcmlhbCUyME11c2V1bXxlbnwxfDB8fHwxNzk1ODA2MDA3fDA&ixlib=rb-4.1.0",
+  "color": "#f3f3f3",
+  "alt": "Hiroshima peace memorial park and architecture",
+  "name": "Fluke",
+  "userUrl": "https://unsplash.com/@fluke132",
+  "page": "https://unsplash.com/photos/hiroshima-peace-memorial-park-and-architecture-FPnmBrl_dUM",
+  "pick": 0
+ },
+ "spot:hiroshima:2": {
+  "id": "aXHYBxDnIks",
+  "raw": "https://images.unsplash.com/photo-1660212918322-d8b71f3c8ffe?ixid=M3wxMTQzNTA5fDB8MXxzZWFyY2h8MXx8SXRzdWt1c2hpbWElMjBzaHJpbmUlMjBmbG9hdGluZyUyMHRvcmlpfGVufDF8MHx8fDE3OTU4MDYwMDh8MA&ixlib=rb-4.1.0",
+  "color": "#c0d9f3",
+  "alt": "a large red structure on a beach with Itsukushima in the background",
+  "name": "Alessandro Stech",
+  "userUrl": "https://unsplash.com/@alessandrostech",
+  "page": "https://unsplash.com/photos/a-large-red-structure-on-a-beach-with-itsukushima-in-the-background-aXHYBxDnIks",
+  "pick": 0
+ },
+ "spot:hiroshima:3": {
+  "id": "xUOsWM9GLpU",
+  "raw": "https://images.unsplash.com/photo-1580137524725-2975600b0a0a?ixid=M3wxMTQzNTA5fDB8MXxzZWFyY2h8MXx8SGlyb3NoaW1hJTIwQ2FzdGxlfGVufDF8MHx8fDE3OTU4MDYwMDl8MA&ixlib=rb-4.1.0",
+  "color": "#26260c",
+  "alt": "brown and white pagoda temple surrounded by green trees under white clouds and blue sky during",
+  "name": "Nicholas Doherty",
+  "userUrl": "https://unsplash.com/@nrdoherty",
+  "page": "https://unsplash.com/photos/brown-and-white-pagoda-temple-surrounded-by-green-trees-under-white-clouds-and-blue-sky-during-xUOsWM9GLpU",
+  "pick": 0
+ },
+ "spot:hiroshima:4": {
+  "id": "GptJ5L7niVk",
+  "raw": "https://images.unsplash.com/photo-1580355275559-10c832e123f1?ixid=M3wxMTQzNTA5fDB8MXxzZWFyY2h8MXx8T2tvbm9taW11cmElMjBIaXJvc2hpbWF8ZW58MXwwfHx8MTc5NTgwNjAwOXww&ixlib=rb-4.1.0",
+  "color": "#f3f3d9",
+  "alt": "brown wooden gazebo near green trees during daytime",
+  "name": "Juliana Barquero",
+  "userUrl": "https://unsplash.com/@juliebaa",
+  "page": "https://unsplash.com/photos/brown-wooden-gazebo-near-green-trees-during-daytime-GptJ5L7niVk",
+  "pick": 0
+ },
+ "spot:kumamoto:0": {
+  "id": "anLkBWlu0A8",
+  "raw": "https://images.unsplash.com/photo-1705695464723-56195396666b?ixid=M3wxMTQzNTA5fDB8MXxzZWFyY2h8MXx8S3VtYW1vdG8lMjBDYXN0bGV8ZW58MXwwfHx8MTc5NTgwNjAxMHww&ixlib=rb-4.1.0",
+  "color": "#f3f3f3",
+  "alt": "a tall white and black building surrounded by trees",
+  "name": "Mohammed Kertiou",
+  "userUrl": "https://unsplash.com/@demahom1412",
+  "page": "https://unsplash.com/photos/a-tall-white-and-black-building-surrounded-by-trees-anLkBWlu0A8",
+  "pick": 0
+ },
+ "spot:kumamoto:1": {
+  "id": "iBkeYuLVhXQ",
+  "raw": "https://images.unsplash.com/photo-1786073590942-3f494a7be4d4?ixid=M3wxMTQzNTA5fDB8MXxzZWFyY2h8MXx8U3VpemVuamklMjBnYXJkZW4lMjBLdW1hbW90b3xlbnwxfDB8fHwxNzk1ODA2MDEwfDA&ixlib=rb-4.1.0",
+  "color": "#c0d9f3",
+  "alt": "Two stone arched bridges over a pond in a lush Japanese garden",
+  "name": "Arinal Izzah",
+  "userUrl": "https://unsplash.com/@arinalizzah",
+  "page": "https://unsplash.com/photos/stone-bridges-in-japanese-garden-iBkeYuLVhXQ",
+  "pick": 0
+ },
+ "spot:kumamoto:2": {
+  "id": "IWkFEbXFMdI",
+  "raw": "https://images.unsplash.com/photo-1698879434759-0a54b36a3233?ixid=M3wxMTQzNTA5fDB8MXxzZWFyY2h8MXx8TW91bnQlMjBBc28lMjBjcmF0ZXJ8ZW58MXwwfHx8MTc5NTgwNjAxMXww&ixlib=rb-4.1.0",
+  "color": "#73a6d9",
+  "alt": "a view of a mountain range with a cloud of smoke coming out of the top",
+  "name": "Winged Jedi",
+  "userUrl": "https://unsplash.com/@wingedjedi",
+  "page": "https://unsplash.com/photos/a-view-of-a-mountain-range-with-a-cloud-of-smoke-coming-out-of-the-top-IWkFEbXFMdI",
+  "pick": 0
+ },
+ "spot:kumamoto:3": {
+  "id": "01gTvHYIjD4",
+  "raw": "https://images.unsplash.com/photo-1706017595998-91459e6bfd4e?ixid=M3wxMTQzNTA5fDB8MXxzZWFyY2h8MXx8S3Vyb2thd2ElMjBPbnNlbnxlbnwxfDB8fHwxNzk1ODA2MDExfDA&ixlib=rb-4.1.0",
+  "color": "#0c2626",
+  "alt": "a river running through a lush green forest",
+  "name": "Nichika Sakurai",
+  "userUrl": "https://unsplash.com/@nichiyoshi",
+  "page": "https://unsplash.com/photos/a-river-running-through-a-lush-green-forest-01gTvHYIjD4",
+  "pick": 0
+ },
+ "spot:kumamoto:4": {
+  "id": "anLkBWlu0A8",
+  "raw": "https://images.unsplash.com/photo-1705695464723-56195396666b?ixid=M3wxMTQzNTA5fDB8MXxzZWFyY2h8MXx8S3VtYW1vdG8lMjBDYXN0bGV8ZW58MXwwfHx8MTc5NTgwNjAxMHww&ixlib=rb-4.1.0",
+  "color": "#f3f3f3",
+  "alt": "a tall white and black building surrounded by trees",
+  "name": "Mohammed Kertiou",
+  "userUrl": "https://unsplash.com/@demahom1412",
+  "page": "https://unsplash.com/photos/a-tall-white-and-black-building-surrounded-by-trees-anLkBWlu0A8",
+  "pick": 0
+ },
+ "spot:oita:0": {
+  "id": "8O-wh4uRfVM",
+  "raw": "https://images.unsplash.com/photo-1794224462510-b8e0773322e3?ixid=M3wxMTQzNTA5fDB8MXxzZWFyY2h8MXx8QmVwcHUlMjBKaWdva3UlMjBVbWklMjBoZWxsfGVufDF8MHx8fDE3OTU4MDYwMTJ8MA&ixlib=rb-4.1.0",
+  "color": "#262626",
+  "alt": "Steam rising from a vibrant orange thermal pool surrounded by dark rocks and lush greenery",
+  "name": "Red Shuheart",
+  "userUrl": "https://unsplash.com/@mirrors_are_more_fun",
+  "page": "https://unsplash.com/photos/orange-thermal-pool-with-rising-steam-8O-wh4uRfVM",
+  "pick": 0
+ },
+ "spot:oita:1": {
+  "id": "pDmndWCyGUc",
+  "raw": "https://images.unsplash.com/photo-1624517608532-c6cd07c012eb?ixid=M3wxMTQzNTA5fDB8MXxzZWFyY2h8MXx8WXVmdWluJTIwTGFrZXxlbnwxfDB8fHwxNzk1ODA2MDEzfDA&ixlib=rb-4.1.0",
+  "color": "#0c2626",
+  "alt": "brown and white house near lake surrounded by green trees during daytime",
+  "name": "Tayawee Supan",
+  "userUrl": "https://unsplash.com/@banktayawee",
+  "page": "https://unsplash.com/photos/brown-and-white-house-near-lake-surrounded-by-green-trees-during-daytime-pDmndWCyGUc",
+  "pick": 0
+ },
+ "spot:oita:2": {
+  "id": "uaGkgvAsHI0",
+  "raw": "https://images.unsplash.com/photo-1696749265703-fead8b8c4194?ixid=M3wxMTQzNTA5fDB8MXxzZWFyY2h8MXx8WXVmdWluJTIwWXVub3RzdWJvJTIwc3RyZWV0fGVufDF8MHx8fDE3OTU4MDYwMTR8MA&ixlib=rb-4.1.0",
+  "color": "#73a6c0",
+  "alt": "a van is parked on the side of a street",
+  "name": "XD GE",
+  "userUrl": "https://unsplash.com/@gexi7n",
+  "page": "https://unsplash.com/photos/a-van-is-parked-on-the-side-of-a-street-uaGkgvAsHI0",
+  "pick": 0
  }
 }

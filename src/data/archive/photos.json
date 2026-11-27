@@ -5538,5 +5538,125 @@
   "userUrl": "https://unsplash.com/@db4visuals",
   "page": "https://unsplash.com/photos/a-large-swimming-pool-surrounded-by-tall-buildings-7mRq4hHioz0",
   "pick": 0
+ },
+ "spot:dubai:2": {
+  "id": "2dtvA_QgF6Q",
+  "raw": "https://images.unsplash.com/photo-1549944850-84e00be4203b?ixid=M3wxMTQzNTA5fDB8MXxzZWFyY2h8MXx8RHViYWklMjBkZXNlcnQlMjBzYWZhcml8ZW58MXwwfHx8MTc5NTc5NTQwNXww&ixlib=rb-4.1.0",
+  "color": "#f3f3f3",
+  "alt": "herd of camel sitting on desert sand",
+  "name": "Fernando Jorge",
+  "userUrl": "https://unsplash.com/@fx24",
+  "page": "https://unsplash.com/photos/herd-of-camel-sitting-on-desert-sand-2dtvA_QgF6Q",
+  "pick": 0
+ },
+ "spot:dubai:3": {
+  "id": "QnCpZJt03ls",
+  "raw": "https://images.unsplash.com/photo-1598343530164-8f8922e123ba?ixid=M3wxMTQzNTA5fDB8MXxzZWFyY2h8MXx8RHViYWklMjBDcmVlayUyMGFicmElMjBzb3VrfGVufDF8MHx8fDE3OTU3OTU0MDZ8MA&ixlib=rb-4.1.0",
+  "color": "#265973",
+  "alt": "brown boat on sea near city buildings during daytime",
+  "name": "Saj Shafique",
+  "userUrl": "https://unsplash.com/@saj_shafique",
+  "page": "https://unsplash.com/photos/brown-boat-on-sea-near-city-buildings-during-daytime-QnCpZJt03ls",
+  "pick": 0
+ },
+ "spot:dubai:4": {
+  "id": "GrM3kKeH6zU",
+  "raw": "https://images.unsplash.com/photo-1682410601904-24ec1d9858e6?ixid=M3wxMTQzNTA5fDB8MXxzZWFyY2h8MXx8UGFsbSUyMEp1bWVpcmFoJTIwRHViYWl8ZW58MXwwfHx8MTc5NTc5NTQwN3ww&ixlib=rb-4.1.0",
+  "color": "#0c73d9",
+  "alt": "an aerial view of the city of abura",
+  "name": "Jhonwayne Pumaras",
+  "userUrl": "https://unsplash.com/@spiraleyebrows",
+  "page": "https://unsplash.com/photos/an-aerial-view-of-the-city-of-abura-GrM3kKeH6zU",
+  "pick": 0
+ },
+ "spot:ulaanbaatar:0": {
+  "id": "PkJ7kRQZmHo",
+  "raw": "https://images.unsplash.com/photo-1707663154646-06390356b683?ixid=M3wxMTQzNTA5fDB8MXxzZWFyY2h8MXx8U3VraGJhYXRhciUyMFNxdWFyZSUyMFVsYWFuYmFhdGFyfGVufDF8MHx8fDE3OTU3OTU0MDd8MA&ixlib=rb-4.1.0",
+  "color": "#2673c0",
+  "alt": "a monument with a light tower in the background",
+  "name": "KIRILL TALALAEV 🇷🇺",
+  "userUrl": "https://unsplash.com/@kirill_photographer",
+  "page": "https://unsplash.com/photos/a-monument-with-a-light-tower-in-the-background-PkJ7kRQZmHo",
+  "pick": 0
+ },
+ "spot:ulaanbaatar:1": {
+  "id": "pTJE-EWQ9ro",
+  "raw": "https://images.unsplash.com/photo-1558185730-de9e0c515c85?ixid=M3wxMTQzNTA5fDB8MXxzZWFyY2h8MXx8R2FuZGFuJTIwbW9uYXN0ZXJ5JTIwVWxhYW5iYWF0YXJ8ZW58MXwwfHx8MTc5NTc5NTQwOHww&ixlib=rb-4.1.0",
+  "color": "#0c408c",
+  "alt": "people in front of a pagoda during daytime",
+  "name": "Snowscat",
+  "userUrl": "https://unsplash.com/@snowscat",
+  "page": "https://unsplash.com/photos/people-in-front-of-a-pagoda-during-daytime-pTJE-EWQ9ro",
+  "pick": 0
+ },
+ "spot:ulaanbaatar:2": {
+  "id": "R0ydcg6wQ1I",
+  "raw": "https://images.unsplash.com/photo-1685389213849-088712cbd3fe?ixid=M3wxMTQzNTA5fDB8MXxzZWFyY2h8MXx8WmFpc2FuJTIwbWVtb3JpYWx8ZW58MXwwfHx8MTc5NTc5NTQwOHww&ixlib=rb-4.1.0",
+  "color": "#a6a6a6",
+  "alt": "the names of the world war i veterans on a wall",
+  "name": "David Trinks",
+  "userUrl": "https://unsplash.com/@dtrinksrph",
+  "page": "https://unsplash.com/photos/the-names-of-the-world-war-i-veterans-on-a-wall-R0ydcg6wQ1I",
+  "pick": 0
+ },
+ "spot:ulaanbaatar:3": {
+  "id": "GUwlwDVQN_g",
+  "raw": "https://images.unsplash.com/photo-1695554468837-35c3c3b1ee66?ixid=M3wxMTQzNTA5fDB8MXxzZWFyY2h8MXx8VGVyZWxqJTIwTmF0aW9uYWwlMjBQYXJrJTIwVHVydGxlJTIwUm9ja3xlbnwxfDB8fHwxNzk1Nzk1NDA5fDA&ixlib=rb-4.1.0",
+  "color": "#595940",
+  "alt": "a large rock in the middle of a field",
+  "name": "Adil Edin",
+  "userUrl": "https://unsplash.com/@artististanbul",
+  "page": "https://unsplash.com/photos/a-large-rock-in-the-middle-of-a-field-GUwlwDVQN_g",
+  "pick": 0
+ },
+ "spot:ulaanbaatar:4": {
+  "id": "x--bwTEzJBU",
+  "raw": "https://images.unsplash.com/photo-1695554110372-fd7bc19ebcdb?ixid=M3wxMTQzNTA5fDB8MXxzZWFyY2h8Mnx8R2VuZ2hpcyUyMEtoYW4lMjBFcXVlc3RyaWFuJTIwU3RhdHVlfGVufDF8MHx8fDE3OTU3OTU0MDl8MA&ixlib=rb-4.1.0",
+  "color": "#737359",
+  "alt": "a group of horses that are standing in the dirt",
+  "name": "Adil Edin",
+  "userUrl": "https://unsplash.com/@artististanbul",
+  "page": "https://unsplash.com/photos/a-group-of-horses-that-are-standing-in-the-dirt-x--bwTEzJBU",
+  "pick": 0
+ },
+ "spot:kathmandu:0": {
+  "id": "cjFokz6C78A",
+  "raw": "https://images.unsplash.com/photo-1737388139374-28f33382c6c7?ixid=M3wxMTQzNTA5fDB8MXxzZWFyY2h8M3x8S2F0aG1hbmR1JTIwRHVyYmFyJTIwU3F1YXJlfGVufDF8MHx8fDE3OTU3OTU0MTB8MA&ixlib=rb-4.1.0",
+  "color": "#d9a68c",
+  "alt": "A close up of a sculpture of a buddha",
+  "name": "Bishan Thapa Magar",
+  "userUrl": "https://unsplash.com/@bishantm",
+  "page": "https://unsplash.com/photos/a-close-up-of-a-sculpture-of-a-buddha-cjFokz6C78A",
+  "pick": 0
+ },
+ "spot:kathmandu:1": {
+  "id": "ejjRgncBkpg",
+  "raw": "https://images.unsplash.com/photo-1650638987536-6fbcb9bc6085?ixid=M3wxMTQzNTA5fDB8MXxzZWFyY2h8MXx8U3dheWFtYmh1bmF0aCUyMHN0dXBhfGVufDF8MHx8fDE3OTU3OTU0MTB8MA&ixlib=rb-4.1.0",
+  "color": "#262626",
+  "alt": "a wooden gate with carvings",
+  "name": "Bijay Pakhrin",
+  "userUrl": "https://unsplash.com/@monkeytempal",
+  "page": "https://unsplash.com/photos/a-wooden-gate-with-carvings-ejjRgncBkpg",
+  "pick": 0
+ },
+ "spot:kathmandu:2": {
+  "id": "Pqk8WhRrEIs",
+  "raw": "https://images.unsplash.com/photo-1699202700754-1e5cbf0f8660?ixid=M3wxMTQzNTA5fDB8MXxzZWFyY2h8MXx8Qm91ZGhhbmF0aCUyMHN0dXBhfGVufDF8MHx8fDE3OTU3OTU0MTF8MA&ixlib=rb-4.1.0",
+  "color": "#262626",
+  "alt": "a very tall building with a lot of flags on top of it",
+  "name": "Jochen van Wylick",
+  "userUrl": "https://unsplash.com/@jochenvw",
+  "page": "https://unsplash.com/photos/a-very-tall-building-with-a-lot-of-flags-on-top-of-it-Pqk8WhRrEIs",
+  "pick": 0
+ },
+ "spot:kathmandu:3": {
+  "id": "UzRYQaWA0LI",
+  "raw": "https://images.unsplash.com/photo-1655827660902-fd200443d7b9?ixid=M3wxMTQzNTA5fDB8MXxzZWFyY2h8MXx8UGFzaHVwYXRpbmF0aCUyMHRlbXBsZXxlbnwxfDB8fHwxNzk1Nzk1NDExfDA&ixlib=rb-4.1.0",
+  "color": "#8c8ca6",
+  "alt": "Pashupatinath Temple with a gold roof",
+  "name": "Abinash Bhatta",
+  "userUrl": "https://unsplash.com/@iamavi",
+  "page": "https://unsplash.com/photos/pashupatinath-temple-with-a-gold-roof-UzRYQaWA0LI",
+  "pick": 0
  }
 }

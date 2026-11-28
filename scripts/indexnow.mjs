@@ -88,6 +88,7 @@ for (const [name, endpoint] of Object.entries(ENGINES)) {
   for (let i = 0; i < todo.length; i += CHUNK) {
     const part = todo.slice(i, i + CHUNK);
     let status = 0;
+    let bodyText = '';
     try {
       const r = await fetch(endpoint, {
         method: 'POST',
@@ -95,6 +96,7 @@ for (const [name, endpoint] of Object.entries(ENGINES)) {
         body: JSON.stringify({ host: HOST, key: KEY, keyLocation: KEY_URL, urlList: part }),
       });
       status = r.status;
+      if (status !== 200 && status !== 202) bodyText = (await r.text().catch(() => '')).slice(0, 300);
     } catch (e) {
       warn(`[${name}] 연결 실패: ${e.message}`);
     }
@@ -106,7 +108,7 @@ for (const [name, endpoint] of Object.entries(ENGINES)) {
       engineFailed = true;
       // 429(잠깐 많음)·5xx 는 다음 실행에서 다시, 400/403/422 는 설정 문제
       const why = status === 429 ? '요청이 많아 잠시 막힘' : status === 403 ? '열쇠 불일치(403)' : status === 422 ? '주소가 사이트와 안 맞음(422)' : `응답 ${status || '없음'}`;
-      warn(`[${name}] ${why} — 남은 주소는 다음 실행에서 다시 보냅니다`);
+      warn(`[${name}] ${why} — 남은 주소는 다음 실행에서 다시 보냅니다${bodyText ? ' · 응답: ' + bodyText.replace(/\s+/g, ' ') : ''}`);
       break;
     }
   }

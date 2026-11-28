@@ -20,21 +20,24 @@ const SEA = ['vn', 'th', 'ph', 'id', 'my', 'sg', 'kh', 'la', 'mm', 'bn'];
 const rgOf = (iso) => (iso === 'jp' ? 'jp' : ['cn', 'hk', 'mo'].includes(iso) ? 'cn' : iso === 'tw' ? 'tw' : SEA.includes(iso) ? 'sea' : 'etc');
 const RG = [['', '전체'], ['jp', '일본'], ['cn', '중국·홍콩'], ['tw', '대만'], ['sea', '동남아'], ['etc', '그 외']];
 ---
-<Base title="인기 도시 - 이번 주 한국에서 출발 많은 해외 도시 순위" desc="이번 주 인천·김포·김해·제주에서 출발하는 국제선이 가장 많은 해외 도시 순위. 요즘 사람들이 많이 가는 여행지를 실제 항공편 수로 확인하세요.">
+<Base blocks={true} title="인기 도시 - 이번 주 한국에서 출발 많은 해외 도시 순위" desc="이번 주 인천·김포·김해·제주에서 출발하는 국제선이 가장 많은 해외 도시 순위. 요즘 사람들이 많이 가는 여행지를 실제 항공편 수로 확인하세요.">
   <PageBanner name="popular">
     <p class="crumb"><a href="/">홈</a> › 인기 도시</p>
     <h1>인기 도시</h1>
     <p class="lead">이번 주 <b>인천·김포·김해·제주에서 출발하는 국제선 여객기</b>가 가장 많은 도시 순위. 여행객 수가 아닌 <b>출발 운항편 수</b> 기준으로, 최근 노선이 늘어난 곳을 알 수 있습니다.</p>
   </PageBanner>
-  <p class="aplink">내 동네 공항에서 바로 가는 곳은? <a href="/airport/icn/">인천</a> · <a href="/airport/gmp/">김포</a> · <a href="/airport/pus/">김해(부산)</a> · <a href="/airport/cju/">제주</a> <a href="/airport/">공항별 직항 →</a></p>
 
   {POP_READY && list.length ? (
     <>
+      <section class="blk topbar">
+        <p class="aplink">내 동네 공항에서 바로 가는 곳은? <a href="/airport/icn/">인천</a> · <a href="/airport/gmp/">김포</a> · <a href="/airport/pus/">김해(부산)</a> · <a href="/airport/cju/">제주</a> <a href="/airport/">공항별 직항 →</a></p>
       <p class="muted when">{range && `${fmt(range.from)} ~ ${fmt(range.to)} 출발편 기준`} · 매일 업데이트 · 같은 비행기의 공동운항 편명은 한 번만 셌어요</p>
       <div class="rgf" role="group" aria-label="지역 고르기">
         {RG.filter(([k]) => k === '' || list.some((r) => rgOf(r.iso) === k)).map(([k, l]) => <button type="button" data-rg={k} class:list={{ on: k === '' }}>{l}</button>)}
       </div>
+  </section>
 
+      <section class="blk" id="podw"><h2><small>TOP 3</small>이번 주 가장 많이 떠나는 도시</h2>
       <div class="pod" id="pod">
         {list.slice(0, 3).map((r, i) => {
           const c = r.city ? cityBySlug[r.city] : null;
@@ -67,7 +70,10 @@ const RG = [['', '전체'], ['jp', '일본'], ['cn', '중국·홍콩'], ['tw', '
           );
         })}
       </div>
+      </section>
 
+      <section class="blk"><h2><small>DEPARTURES</small>출발 전광판</h2>
+      <div class="board">
       <ol class="tl" id="tl">
         {list.map((r, i) => {
           const c = r.city ? cityBySlug[r.city] : null;
@@ -84,7 +90,9 @@ const RG = [['', '전체'], ['jp', '일본'], ['cn', '중국·홍콩'], ['tw', '
           );
         })}
       </ol>
+      </div>
       <p class="muted" style="margin-top:16px">▲▼는 지난주 같은 기간 대비 출발편 증감을 나타냅니다. 자료: 인천국제공항공사·한국공항공사 운항 정보 (공공데이터포털). 청주·대구 등 다른 지방공항 출발은 포함되지 않았어요.</p>
+      </section>
     </>
   ) : (
     <p class="card empty">출발편 자료 수집 중 · 하루 안에 순위가 표시됩니다.</p>
@@ -99,50 +107,55 @@ const RG = [['', '전체'], ['jp', '일본'], ['cn', '중국·홍콩'], ['tw', '
   btns.forEach((b) => b.addEventListener('click', () => {
     btns.forEach((x) => x.classList.toggle('on', x === b));
     const k = b.dataset.rg || '';
-    if (pod) pod.hidden = !!k; // 지역을 고르면 큰 카드는 숨기고 표에 1~3위도 같이
+    const pw = document.getElementById('podw'); if (pw) pw.hidden = !!k; // 지역을 고르면 큰 카드는 숨기고 표에 1~3위도 같이
     document.getElementById('tl')?.classList.toggle('all', !!k);
     rows.forEach((r) => (r.hidden = !!k && r.dataset.rg !== k));
   }));
 </script>
 
 <style>
-  .when { margin: 10px 0 12px; }
-  .rgf { display: flex; flex-wrap: wrap; gap: 6px; margin: 0 0 14px; }
-  .rgf button { font: inherit; font-size: 14px; font-weight: 700; border: 1px solid var(--line); background: #fff; color: var(--ink); border-radius: 999px; padding: 6px 13px; cursor: pointer; }
-  .rgf button.on { background: var(--ink); border-color: var(--ink); color: #fff; }
-  .pod { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; margin-bottom: 14px; }
-  .pod[hidden] { display: none; }
-  .pc { position: relative; display: flex; flex-direction: column; background: #fff; border: 1px solid #d9e1e6; border-radius: 16px; overflow: hidden; }
-  .pc:has(.pmain):hover { border-color: var(--coral); }
-  .pcimg { position: relative; display: grid; place-items: center; aspect-ratio: 2 / 1; background: #f2f6f9; }
+  .topbar .aplink { margin: 0 0 12px; }
+  .when { margin: 0 0 12px; }
+  .rgf { display: flex; flex-wrap: wrap; gap: 6px; margin: 0; }
+  .rgf button { font: inherit; font-size: 14px; font-weight: 700; border: 1px solid var(--edge); background: #fff; color: var(--ink); padding: 7px 14px; cursor: pointer; }
+  .rgf button:hover { border-color: var(--sky); }
+  .rgf button.on { background: var(--emerald-d); border-color: var(--emerald-d); color: #fff; }
+  #podw[hidden] { display: none; }
+  .pod { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; }
+  .pc { position: relative; display: flex; flex-direction: column; background: #fff; border: 1px solid var(--edge); overflow: hidden; }
+  .pc:has(.pmain):hover { border-color: var(--sky); }
+  .pcimg { position: relative; display: grid; place-items: center; aspect-ratio: 2 / 1; background: #eaf4f9; }
   .pcimg img { width: 100%; height: 100%; object-fit: cover; display: block; }
-  .pcrk { position: absolute; left: 10px; top: 10px; font-size: 14px; font-weight: 900; color: #fff; background: var(--sea); border-radius: 999px; padding: 4px 11px; box-shadow: 0 2px 8px rgba(0,0,0,.2); }
-  .pc.r1 .pcrk { background: #D9822B; }
-  .pcb { display: flex; flex-direction: column; gap: 7px; padding: 11px 13px 13px; }
+  .pcrk { position: absolute; left: 0; top: 0; font-size: 22px; font-weight: 900; color: #fff; background: #0f2233; padding: 6px 14px 7px; letter-spacing: -0.03em; }
+  .pc.r1 .pcrk { background: var(--coral); }
+  .pcb { display: flex; flex-direction: column; gap: 7px; padding: 12px 14px 14px; }
   .pc .pmain::after { content: ''; position: absolute; inset: 0; }
-  .tl { list-style: none; margin: 0; padding: 0; columns: 3; column-gap: 14px; }
-  .tl .tr { break-inside: avoid; display: grid; grid-template-columns: 26px 20px minmax(0, 1fr) 70px 44px 46px; align-items: center; gap: 6px; padding: 7px 8px; border-bottom: 1px solid #f2f6f9; font-size: 14px; }
-  .tl .tr.p3 { display: none; }
-  .tl.all .tr.p3 { display: grid; }
+  .board { background: #0b1a28; border-top: 4px solid var(--sky); padding: 10px 22px 14px; }
+  .bh { display: grid; grid-template-columns: 30px 22px minmax(0, 1fr) 70px 70px 60px; gap: 8px; padding: 6px 8px 8px; border-bottom: 1px solid #28506e; font-size: 11px; font-weight: 800; letter-spacing: .16em; color: #7fb4cf; }
+  .bh span:nth-child(5), .bh span:nth-child(6) { text-align: right; }
+  .tl { list-style: none; margin: 0; padding: 0; columns: 2; column-gap: 44px; }
+  .tl .tr { break-inside: avoid; display: grid; grid-template-columns: 30px 22px minmax(0, 1fr) 54px 54px 48px; align-items: center; gap: 8px; padding: 9px 8px; border-bottom: 1px solid #16324a; font-size: 15px; color: #fff; }
   .tl .tr[hidden] { display: none !important; }
-  .trk { font-weight: 800; color: var(--sub); text-align: center; }
-  .tn { font-weight: 700; color: var(--ink); text-decoration: none; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
-  a.tn:hover { color: var(--sea); }
+  .trk { font-weight: 900; color: #ffd24a; text-align: center; font-variant-numeric: tabular-nums; font-size: 16px; }
+  .tn { font-weight: 800; color: #fff; text-decoration: none; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; letter-spacing: -0.02em; }
+  a.tn:hover { color: #6fe0d2; }
   .nf { width: 18px; }
-  .tbar { height: 8px; background: #f2f6f9; border-radius: 4px; overflow: hidden; }
-  .tbar span { display: block; height: 100%; background: #ef6a2a; }
-  .tf { font-size: 12.5px; font-weight: 700; text-align: right; font-variant-numeric: tabular-nums; }
-  .tc { font-size: 11.5px; font-weight: 800; text-align: right; }
-  .tc.up { color: #c0392b; } .tc.down { color: #2257b8; }
-  @media (max-width: 1000px) { .tl { columns: 2; } }
+  .tbar { height: 6px; background: #16324a; overflow: hidden; }
+  .tbar span { display: block; height: 100%; background: var(--emerald); }
+  .tf { font-size: 16px; font-weight: 900; text-align: right; font-variant-numeric: tabular-nums; color: #ffd24a; }
+  .tc { font-size: 12px; font-weight: 800; text-align: right; }
+  .tc.up { color: #ff9b7a; } .tc.down { color: #7cc4ff; }
   @media (max-width: 760px) {
-    .pod { grid-template-columns: 1fr 1fr; }
+    .pod { grid-template-columns: 1fr 1fr; gap: 10px; }
     .pod .pc.r3 { display: none; }
     .pod .pl { display: none; }
+    .board { padding: 6px 10px 10px; }
     .tl { columns: 1; }
-    .tl .tr.p3 { display: grid; }
-    .tl .tr:nth-child(-n+2) { display: none; }
-    .tl.all .tr:nth-child(-n+2) { display: grid; }
+    .bh, .tl .tr { grid-template-columns: 24px 20px minmax(0, 1fr) 48px 58px 44px; gap: 6px; padding-left: 2px; padding-right: 2px; font-size: 14px; }
+    .tbar { display: none; }
+    .bh span:nth-child(4) { display: none; }
+    .tl .tr { grid-template-columns: 24px 20px minmax(0, 1fr) 58px 44px; }
+    .bh { grid-template-columns: 24px 20px minmax(0, 1fr) 58px 44px; }
   }
   .plist { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 8px; }
   .pi { display: grid; grid-template-columns: 34px 92px 1fr; gap: 12px; align-items: center; background: #fff; border: 1px solid var(--line); border-radius: 14px; padding: 8px 14px 8px 8px; }

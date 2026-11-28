@@ -6718,5 +6718,45 @@
   "userUrl": "https://unsplash.com/@hasanmajed__",
   "page": "https://unsplash.com/photos/imam-husayn-shrine-in-karbala-E0RryWDcsWw",
   "pick": 0
+ },
+ "spot:tashkent:1": {
+  "id": "-9jMMaNuhOk",
+  "raw": "https://images.unsplash.com/photo-1601963404496-e6fcffa44f71?ixid=M3wxMTQzNTA5fDB8MXxzZWFyY2h8MXx8Q2hvcnN1JTIwQmF6YWFyJTIwVGFzaGtlbnR8ZW58MXwwfHx8MTc5NTgzODI2NHww&ixlib=rb-4.1.0",
+  "color": "#594040",
+  "alt": "jack daniels old no 7 brand",
+  "name": "Zuyet Awarmatik",
+  "userUrl": "https://unsplash.com/@zuyetawarmatik",
+  "page": "https://unsplash.com/photos/jack-daniels-old-no-7-brand--9jMMaNuhOk",
+  "pick": 0
+ },
+ "spot:tashkent:2": {
+  "id": "jkcUA73MfDc",
+  "raw": "https://images.unsplash.com/photo-1687259989980-c52af5206b30?ixid=M3wxMTQzNTA5fDB8MXxzZWFyY2h8MXx8VGFzaGtlbnQlMjBtZXRybyUyMHN0YXRpb258ZW58MXwwfHx8MTc5NTgzODI2NHww&ixlib=rb-4.1.0",
+  "color": "#262626",
+  "alt": "a subway station with a train in the background",
+  "name": "Spencer Hawken",
+  "userUrl": "https://unsplash.com/@spencer_hawken",
+  "page": "https://unsplash.com/photos/a-subway-station-with-a-train-in-the-background-jkcUA73MfDc",
+  "pick": 0
+ },
+ "spot:tashkent:3": {
+  "id": "XaBjNfCRBw0",
+  "raw": "https://images.unsplash.com/photo-1743406820631-bd67d2fa41ad?ixid=M3wxMTQzNTA5fDB8MXxzZWFyY2h8MXx8QW1pciUyMFRpbXVyJTIwc3F1YXJlJTIwVGFzaGtlbnR8ZW58MXwwfHx8MTc5NTgzODI2NHww&ixlib=rb-4.1.0",
+  "color": "#8ca6c0",
+  "alt": "Horses parade in front of the hotel uzbekistan",
+  "name": "Dasha Novikova",
+  "userUrl": "https://unsplash.com/@dashanovasha",
+  "page": "https://unsplash.com/photos/horses-parade-in-front-of-the-hotel-uzbekistan-XaBjNfCRBw0",
+  "pick": 0
+ },
+ "spot:tashkent:4": {
+  "id": "l3AwHYiUGG0",
+  "raw": "https://images.unsplash.com/photo-1728565721798-cf65c7bf1efe?ixid=M3wxMTQzNTA5fDB8MXxzZWFyY2h8MXx8UmVnaXN0YW4lMjBTYW1hcmthbmR8ZW58MXwwfHx8MTc5NTgzODI2NXww&ixlib=rb-4.1.0",
+  "color": "#73a6d9",
+  "alt": "A large building with many pillars and arches",
+  "name": "Aleksander Stypczynski",
+  "userUrl": "https://unsplash.com/@aleksander_stypczynski",
+  "page": "https://unsplash.com/photos/a-large-building-with-many-pillars-and-arches-l3AwHYiUGG0",
+  "pick": 0
  }
 }

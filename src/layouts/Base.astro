@@ -3,7 +3,7 @@ import { SITE_NAME, SITE_TAGLINE, SITE_URL, SITE_DESC, MOFA_URL } from '../site.
 import Icon from '../components/Icon.astro';
 import { SEARCH_INDEX, ALARM_INDEX } from '../data/search.js';
 import { ALARM_KO } from '../data/load.js';
-const { title, desc = SITE_DESC, noindex = false, bare = false } = Astro.props;
+const { title, desc = SITE_DESC, noindex = false, bare = false, blocks = false } = Astro.props;
 const full = title ? `${title} | ${SITE_NAME}` : `${SITE_NAME} - ${SITE_TAGLINE}`;
 const canonical = new URL(Astro.url.pathname, SITE_URL).href;
 const path = Astro.url.pathname;
@@ -107,7 +107,7 @@ const isOn = (href) => (href === '/' ? path === '/' : path.startsWith(href) || (
   <script type="application/json" id="sidx" set:html={JSON.stringify(SEARCH_INDEX)}></script>
   <script type="application/json" id="aidx" set:html={JSON.stringify({ a: ALARM_INDEX, l: Object.fromEntries(Object.entries(ALARM_KO).map(([k, v]) => [k, [v.label, v.cls]])), u: MOFA_URL })}></script>
 
-  <main class:list={['wrap', { panel: !bare }]}>
+  <main class:list={['wrap', { panel: !bare, blocks }]}>
     <slot />
   </main>
   <nav class="tabbar" aria-label="빠른 메뉴">
@@ -620,6 +620,21 @@ const isOn = (href) => (href === '/' ? path === '/' : path.startsWith(href) || (
   @media (max-width: 760px) {
     main.wrap { margin: 10px 8px 0; }
     main.wrap.panel { padding-top: 20px; }
+  }
+
+  /* 블록 모드 — 큰 흰 판 대신 섹션마다 따로 떨어진 칸 (배경이 사이로 보임) */
+  main.wrap.panel.blocks { background: none; border: 0; padding: 0; min-height: 0; }
+  main.wrap.panel.blocks .pbn { background: #0f2233; border: 0; border-top: 4px solid var(--sky); margin: 0; padding: 34px 32px 30px; }
+  main.wrap.panel.blocks .pbn::before { background: var(--emerald); }
+  main.wrap.panel.blocks .pbn .crumb, main.wrap.panel.blocks .pbn .crumb a { color: #9fc4d6; }
+  main.wrap.panel.blocks .pbn h1 { color: #fff; }
+  main.wrap.panel.blocks .pbn .lead { color: #d3e6ef; }
+  main.wrap.panel.blocks .blk { background: #fff; border: 1px solid var(--edge); border-top: 3px solid var(--sky); padding: 24px 28px 28px; margin-top: 14px; }
+  main.wrap.panel.blocks .blk > h2:first-child { display: flex; align-items: baseline; gap: 12px; margin: 0 0 16px; padding: 0 0 10px; border-bottom: 2px solid #0f2233; font-size: 22px; letter-spacing: -0.04em; font-weight: 900; }
+  main.wrap.panel.blocks .blk > h2:first-child small { font-size: 12px; font-weight: 800; letter-spacing: .14em; color: var(--emerald-d); }
+  @media (max-width: 760px) {
+    main.wrap.panel.blocks .pbn { padding: 22px 16px 20px; }
+    main.wrap.panel.blocks .blk { padding: 16px 14px 20px; margin-top: 10px; }
   }
   .cty .ctabs { background: rgba(255,255,255,.96) !important; }
   .card, .qlist, .gn, .tools a, .core a { border-color: var(--line); }

@@ -1,5 +1,29 @@
 [
  {
+  "id": "us6000ue1h",
+  "mag": 5.2,
+  "place": "93 km W of San Antonio de los Cobres, Argentina",
+  "time": 1795832705520,
+  "lat": -24.3,
+  "lon": -67.2,
+  "depth": 175,
+  "tsunami": 0,
+  "alert": null,
+  "url": "https://earthquake.usgs.gov/earthquakes/eventpage/us6000ue1h"
+ },
+ {
+  "id": "us6000ue1b",
+  "mag": 5.1,
+  "place": "73 km NNW of Phôngsali, Laos",
+  "time": 1795828662722,
+  "lat": 22.3,
+  "lon": 101.7,
+  "depth": 10,
+  "tsunami": 0,
+  "alert": null,
+  "url": "https://earthquake.usgs.gov/earthquakes/eventpage/us6000ue1b"
+ },
+ {
   "id": "us6000udua",
   "mag": 5,
   "place": "Off the coast of Aisen, Chile",

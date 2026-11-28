@@ -1,0 +1,39 @@
+name: 검색엔진 알림 (IndexNow)
+on:
+  schedule:
+    - cron: '40 2,14 * * *' # UTC 02:40 · 14:40 = 한국 11:40 · 23:40
+  workflow_dispatch:
+    inputs:
+      dry:
+        description: '1 이면 보내지 않고 개수만 확인 (시험)'
+        required: false
+        default: ''
+permissions:
+  contents: read
+concurrency:
+  group: indexnow
+  cancel-in-progress: false
+jobs:
+  ping:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - name: 이미 알린 주소 기록 불러오기
+        uses: actions/cache/restore@v4
+        with:
+          path: .indexnow
+          key: indexnow-none
+          restore-keys: indexnow-
+      - name: 새 주소 알리기
+        run: node scripts/indexnow.mjs
+        env:
+          DRY: ${{ github.event.inputs.dry }}
+      - name: 기록 저장
+        if: ${{ always() && github.event.inputs.dry != '1' }}
+        uses: actions/cache/save@v4
+        with:
+          path: .indexnow
+          key: indexnow-${{ github.run_id }}

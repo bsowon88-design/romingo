@@ -79,7 +79,7 @@ const isOn = (href) => (href === '/' ? path === '/' : path.startsWith(href) || (
   <div class="mast" aria-hidden="true"><span>TRIPBERRY — TRAVEL MAGAZINE</span><span id="mastdate">TRAVEL SAFETY · WEATHER · GUIDE</span></div>
   <header class="top">
     <div class="wrap top-in">
-      <a href="/" class="logo"><img class="logo-img" src="/favicon-48.png" srcset="/favicon-48.png 1x, /apple-touch-icon.png 2x" width="30" height="30" alt="트립베리 홈" /><span class="logo-txt">트립베리</span><small>여행 정보</small></a>
+      <a href="/" class="logo"><img class="logo-img" src="/favicon-48.png" srcset="/favicon-48.png 1x, /logo-96.png 2x" width="32" height="32" alt="트립베리 홈" /><span class="logo-txt">트립베리</span><small>여행 정보</small></a>
       <nav id="mainnav">
         {nav.map(([href, label, icon]) => (
           <a href={href} class:list={{ on: isOn(href), hot: href === '/prep/' }}><Icon name={icon} size={18} />{href === '/prep/' && <span class="hx">✈️ </span>}{label}</a>

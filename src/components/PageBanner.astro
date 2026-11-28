@@ -7,16 +7,15 @@ const { name = '' } = Astro.props;
 </section>
 
 <style>
-  .pbn { position: relative; margin: 0 0 26px; padding: 0 0 22px; border-bottom: 2px solid var(--sky); }
-  .pbn::before { content: ''; display: block; width: 44px; height: 6px; background: var(--emerald); margin: 0 0 16px; }
-  .pbn-in { max-width: 760px; }
-  .pbn-in :global(.crumb) { margin: 0 0 8px; font-size: 12.5px; font-weight: 700; letter-spacing: .04em; color: #566877; }
-  .pbn-in :global(h1) { margin: 0 0 10px; font-size: 46px; line-height: 1.12; letter-spacing: -0.055em; font-weight: 900; color: #0f2233; }
-  .pbn-in :global(.lead) { margin: 0; color: #243c4e; font-size: 17px; line-height: 1.6; font-weight: 500; }
+  .pbn { position: relative; text-align: center; margin: 0 0 44px; padding: 64px 0 28px; border: 0; }
+  .pbn-in { max-width: 820px; margin: 0 auto; }
+  .pbn-in :global(.crumb) { margin: 0 0 14px; font-size: 12px; font-weight: 800; letter-spacing: .16em; color: #243c4e; }
+  .pbn-in :global(.crumb a) { color: #243c4e; text-decoration: none; }
+  .pbn-in :global(h1) { margin: 0 0 14px; font-size: 56px; line-height: 1.12; letter-spacing: -0.03em; font-weight: 800; color: #0f2233; }
+  .pbn-in :global(.lead) { margin: 0 auto; max-width: 40em; color: #243c4e; font-size: 17px; line-height: 1.65; font-weight: 500; }
   @media (max-width: 760px) {
-    .pbn { margin-bottom: 20px; padding-bottom: 16px; }
-    .pbn::before { margin-bottom: 12px; }
-    .pbn-in :global(h1) { font-size: 31px; }
+    .pbn { margin-bottom: 28px; padding: 36px 0 18px; }
+    .pbn-in :global(h1) { font-size: 33px; }
     .pbn-in :global(.lead) { font-size: 14.5px; }
   }
 </style>

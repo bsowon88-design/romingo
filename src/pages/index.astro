@@ -6,7 +6,7 @@ import CountryCard from '../components/CountryCard.astro';
 import { countryCards, latestAdjusts, activeDisasters } from '../data/load.js';
 import { COUNTRIES, bySlug, flagOf } from '../data/countries.js';
 import { CITIES } from '../data/cities.js';
-import { GUIDES } from '../data/guides.js';
+import { GUIDES, guideByCity } from '../data/guides.js';
 import { popularCities } from '../data/popular.js';
 import { cityBySlug } from '../data/cities.js';
 import PhotoCredit from '../components/PhotoCredit.astro';
@@ -21,7 +21,7 @@ import '../components/kr/kr.css';
 import { festWeekend, festNow, festSoon } from '../data/domestic.js';
 
 // 인기 여행지 (처음에 보이는 카드)
-const POP = ['japan', 'vietnam', 'thailand', 'philippines', 'taiwan', 'china', 'guam-saipan', 'singapore'];
+const POP = ['japan', 'taiwan', 'vietnam', 'thailand', 'china'];
 const warn = countryCards.filter((c) => c.st.level !== 'calm');
 
 
@@ -49,6 +49,10 @@ const gTop = guides.slice(0, 12);
 // 첫 화면 '이번 주 인기' 칩 · 인기 도시 사진 카드 (실제 운항편 자료)
 const chips = popTop.slice(0, 6);
 const popCards = popTop.map((r) => ({ r, c: r.city ? cityBySlug[r.city] : null })).map((x) => ({ ...x, ph: x.c ? cityPhoto(x.c.slug) : null })).filter((x) => x.ph).slice(0, 4);
+// 에디토리얼 3단 — 사진 있는 인기 도시 최대 8곳 (1위=가운데 큰 글, 2·3위=왼쪽, 4~8위=오른쪽 목록)
+const ed = popTop.map((r) => ({ r, c: r.city ? cityBySlug[r.city] : null })).map((x) => ({ ...x, ph: x.c ? cityPhoto(x.c.slug) : null })).filter((x) => x.ph && x.c).slice(0, 10);
+const edHref = (c) => (guideByCity[c.slug] ? `/guide/${c.slug}/` : `/weather/${c.slug}/${nowM}/`);
+const edNote = (r) => (r.change != null && Math.abs(r.change) >= 5 ? `지난주보다 출발편이 ${Math.abs(r.change)}% ${r.change > 0 ? '늘었어요' : '줄었어요'}.` : '인천·김포·김해·제주 출발 운항편 기준이에요.');
 // 홈 아이콘 줄 — [주소, 이름, 설명, 아이콘, 색]
 const QUICK = [
   ['/find/', '여행지 찾기', '시기·스타일로 찾기'],
@@ -99,36 +103,44 @@ const QUICK = [
     ))}
   </nav>
 
-  <div class="duo">
-    {popCards.length > 0 && (
-      <section class="gcard popc">
-        <div class="sh"><div><p class="k">THIS WEEK · TOP {popCards.length}</p><h2>이번 주 인기 도시</h2></div><a class="gmoreb" href="/popular/">전체 순위 →</a></div>
-        <p class="sub2">인천·김포·김해·제주 출발 운항편 기준</p>
-        <div class="pgrid">
-          {popCards.map(({ r, c, ph }, i) => (
-            <a class="pc" href={`/weather/${c.slug}/${nowM}/`}>
-              <span class="pimg hasbg"><img class="bgimg" src={ph.src(420, 300)} alt={r.ko} loading="lazy" /><span class="prk">{i + 1}</span><PhotoCredit p={ph} link={false} /></span>
-              <span class="pname">{r.iso && <Flag iso={r.iso} size={16} />} <b>{r.ko}</b></span>
-              <span class="muted">출발 {r.flights}편</span>
-            </a>
-          ))}
-        </div>
-      </section>
-    )}
-    <section class="gcard prepc">
-      <div class="sh"><div><p class="k">BEFORE YOU GO</p><h2>여행 준비 가이드</h2></div><a class="gmoreb" href="/prep/">전체 보기 →</a></div>
-      <ul class="plist">
-        <li><a href="/prep/"><span>eSIM · 데이터 로밍</span><i>→</i></a></li>
-        <li><a href="/prep/"><span>항공권 예약</span><i>→</i></a></li>
-        <li><a href="/prep/"><span>숙소 · 렌터카</span><i>→</i></a></li>
-        <li><a href="/prep/"><span>투어 · 입장권</span><i>→</i></a></li>
-        <li><a href="/rates/"><span>환율 · 환전 시세</span><i>→</i></a></li>
-        <li><a href="/safety/"><span>안전 정보 · 여행경보</span><i>→</i></a></li>
-      </ul>
+  {ed.length >= 4 && (
+    <section class="ed" aria-label="이번 주 인기 도시">
+      <div class="ed-l">
+        {ed.slice(1, 3).map(({ r, c, ph }, i) => (
+          <a class="ec" href={edHref(c)}>
+            <span class="ecimg hasbg"><img class="bgimg" src={ph.src(560, 380)} alt={r.ko} loading="lazy" /><PhotoCredit p={ph} link={false} /></span>
+            <span class="eck">인기 도시 · {i + 2}위</span>
+            <b class="ect">{r.ko}, 이번 주 출발 {r.flights}편</b>
+            <span class="ecb">{edNote(r)}</span>
+            <span class="ecs">자료 · 인천국제공항공사</span>
+          </a>
+        ))}
+      </div>
+      <div class="ed-c">
+        <a class="ec lead1" href={edHref(ed[0].c)}>
+          <span class="ecimg hasbg"><img class="bgimg" src={ed[0].ph.src(1000, 640)} alt={ed[0].r.ko} loading="eager" /><PhotoCredit p={ed[0].ph} link={false} /></span>
+          <span class="eck">THIS WEEK · 인기 도시 1위</span>
+          <b class="ect">{ed[0].r.ko}, 이번 주 가장 많이 떠난 도시</b>
+          <span class="ecb">출발 {ed[0].r.flights}편. {edNote(ed[0].r)}</span>
+          <span class="ecs">자료 · 인천국제공항공사 · 한국공항공사</span>
+        </a>
+        <a class="ec wide" href="/safety/">
+          <span class="ecw"><span class="eck">SAFETY</span><b class="ect">{activeDisasters.length ? `지금 주의·위험 단계 재난 경보 ${activeDisasters.length}건` : '지금 주의·위험 단계의 국제 재난 경보는 없어요'}</b><span class="ecb">외교부 여행경보, 재난 경보, 실시간 지진을 한곳에서 확인하세요.</span></span>
+        </a>
+      </div>
+      <div class="ed-r">
+        <p class="edk">이번 주 순위 <a href="/popular/">전체 →</a></p>
+        {ed.slice(3, 10).map(({ r, c, ph }, i) => (
+          <a class="er" href={edHref(c)}>
+            <span class="ert"><span class="eck">{i + 4}위</span><b>{r.ko} · 출발 {r.flights}편</b></span>
+            <span class="erimg hasbg"><img class="bgimg" src={ph.src(240, 170)} alt={r.ko} loading="lazy" /></span>
+          </a>
+        ))}
+      </div>
     </section>
-  </div>
+  )}
 
-  <section class="core" aria-label="트립베리 핵심 기능">
+  <section class="core" aria-label="트립베리 핵심 기능"><p class="corek">PLAN YOUR TRIP</p>
     <a href="/find/"><span class="cn">A</span><span class="ctx"><b>나에게 맞는 여행지 찾기</b><small>여행 시기·비행시간·여행 스타일로 찾는 여행지</small></span><i>→</i></a>
     <a href="/compare/"><span class="cn">B</span><span class="ctx"><b>여행지 비교</b><small>다낭 vs 나트랑, 어디가 더 좋을까?</small></span><i>→</i></a>
     <a href="/my/"><span class="cn">C</span><span class="ctx"><b>나의 여행</b><small>D-day·안전·날씨·준비물을 한눈에</small></span><i>→</i></a>
@@ -160,7 +172,6 @@ const QUICK = [
   <div class="tools">
     <a href="/holidays/"><b>연차 꿀팁</b><span>공휴일에 연차 붙여 오래 쉬는 날 + 갈 곳</span></a>
     <a href="/airport/"><b>공항별 직항</b><span>인천·김포·김해·제주에서 바로 가는 곳</span></a>
-    <a href="/videos/"><b>여행 영상</b><span>한국 유튜버가 다녀온 도시별 영상</span></a>
     <a href="/map/"><b>안전 지도</b><span>최근 지진·태풍을 지도에서</span></a>
   </div>
 
@@ -215,7 +226,7 @@ const QUICK = [
   .hero-l { display: flex; flex-direction: column; gap: 16px; min-width: 0; }
   .eyebrow { display: flex; align-items: center; gap: 12px; margin: 0; font-size: 12px; font-weight: 800; letter-spacing: .2em; color: #0f2233; }
   .eyebrow i { flex: 0 0 38px; height: 2px; background: #ef6a2a; }
-  .hero h1 { margin: 0; font-size: 56px; line-height: 1.12; letter-spacing: -0.055em; font-weight: 900; color: #0f2233; }
+  .hero h1 { margin: 0; font-size: 56px; line-height: 1.15; letter-spacing: -0.03em; font-weight: 800; color: #0f2233; }
   .hero h1 em { font-style: normal; color: #ef6a2a; }
   .hero .lead { margin: 0; font-size: 16.5px; font-weight: 500; color: #243c4e; max-width: 30em; }
   .isearch { width: 100%; max-width: 560px; }
@@ -232,62 +243,68 @@ const QUICK = [
   .warnline a { color: var(--sea); }
   .hero-r { min-width: 0; }
 
-  .toc { display: grid; grid-template-columns: repeat(7, 1fr); background: #fff; border: 1px solid var(--edge); border-top: 4px solid var(--sky); }
-  .toc a { display: flex; flex-direction: column; gap: 2px; text-decoration: none; padding: 14px 16px 16px; border-left: 1px solid #cfe6ef; transition: background .15s; }
+  .toc { display: grid; grid-template-columns: repeat(7, 1fr); background: #fff; border-top: 1px solid #0f2233; border-bottom: 1px solid #d5dde2; margin-top: 8px; }
+  .toc a { display: flex; flex-direction: column; gap: 2px; text-decoration: none; padding: 16px 16px 18px; border-left: 1px solid #e4eaee; }
   .toc a:first-child { border-left: 0; }
-  .toc a:hover { background: var(--emerald-d); }
-  .toc a:hover b, .toc a:hover small, .toc a:hover .n { color: #fff; }
+  .toc a:hover b { color: var(--sea); }
   .toc .n { font-size: 12px; font-weight: 800; letter-spacing: .12em; color: var(--emerald-d); }
   .toc b { font-size: 17px; letter-spacing: -0.03em; color: #0f2233; }
   .toc small { font-size: 12.5px; color: var(--sub); }
 
-  .duo { display: grid; grid-template-columns: minmax(0, 1.5fr) minmax(0, 1fr); gap: 14px; margin-top: 14px; }
-  .gcard { background: #fff; border: 1px solid var(--edge); border-top: 4px solid var(--sky); padding: 18px 22px 22px; min-width: 0; }
-  .sh { display: flex; align-items: flex-end; justify-content: space-between; gap: 10px; }
-  .sh .k { margin: 0 0 3px; font-size: 11.5px; font-weight: 800; letter-spacing: .18em; color: var(--emerald-d); }
-  .sh h2 { margin: 0; font-size: 24px; letter-spacing: -0.04em; font-weight: 900; display: block; color: #0f2233; }
-  .sub2 { margin: 6px 0 14px; font-size: 12.5px; color: var(--sub); padding-bottom: 12px; border-bottom: 1px solid var(--edge); }
-  .prepc .sh { padding-bottom: 12px; border-bottom: 1px solid var(--edge); }
-  .gmoreb { font-size: 13.5px; font-weight: 800; color: #0f2233; text-decoration: none; white-space: nowrap; border-bottom: 2px solid #ef6a2a; }
-  .pgrid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 14px; }
-  .pc { display: flex; flex-direction: column; gap: 2px; text-decoration: none; min-width: 0; }
-  .pimg { display: block; height: 150px; margin-bottom: 8px; }
-  .pimg .prk { position: absolute; top: 0; left: 0; z-index: 2; margin: 0; width: 30px; height: 30px; font-size: 15px; background: var(--sky); }
-  .pc:hover .bgimg { transform: scale(1.05); }
-  .pimg .bgimg { transition: transform .4s; }
-  .pname { display: flex; align-items: center; gap: 6px; font-size: 16px; }
-  .plist { list-style: none; margin: 0; padding: 0; }
-  .plist li { border-bottom: 1px solid #cfe6ef; }
-  .plist a { display: flex; align-items: center; justify-content: space-between; padding: 13px 2px; text-decoration: none; font-weight: 700; font-size: 16px; color: #0f2233; }
-  .plist a:hover { color: #ef6a2a; padding-left: 8px; }
-  .plist a { transition: padding .15s; }
-  .plist i { font-style: normal; font-weight: 800; color: #ef6a2a; }
+  .ed { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.9fr) minmax(0, 1fr); gap: 0; margin-top: 44px; border-top: 1px solid #0f2233; }
+  .ed-l, .ed-c, .ed-r { padding: 26px 24px 8px; min-width: 0; }
+  .ed-l { padding-left: 0; display: flex; flex-direction: column; gap: 30px; }
+  .ed-r { padding-right: 0; }
+  .ed-c { border-left: 1px solid #d5dde2; border-right: 1px solid #d5dde2; display: flex; flex-direction: column; gap: 26px; }
+  .ec { display: flex; flex-direction: column; gap: 7px; text-decoration: none; color: inherit; }
+  .ecimg { display: block; aspect-ratio: 3 / 2; background: #cfe6ef; }
+  .ec:hover .bgimg { transform: scale(1.03); }
+  .ecimg .bgimg { transition: transform .5s; }
+  .eck { font-size: 11px; font-weight: 800; letter-spacing: .16em; color: var(--sub); text-transform: uppercase; margin-top: 4px; }
+  .ect { font-family: var(--serif); font-size: 22px; line-height: 1.28; letter-spacing: -0.025em; font-weight: 800; color: #0f2233; }
+  .ec:hover .ect { text-decoration: underline; text-decoration-thickness: 1px; text-underline-offset: 4px; }
+  .lead1 .ect { font-size: 34px; }
+  .ecb { font-family: var(--serif); font-size: 14.5px; line-height: 1.6; color: #314757; }
+  .ecs { font-size: 11px; font-weight: 700; letter-spacing: .06em; color: #7d8d99; text-transform: uppercase; margin-top: 2px; }
+  .ec.wide { border-top: 1px solid #d5dde2; padding-top: 20px; }
+  .ecw { display: flex; flex-direction: column; gap: 7px; }
+  .ec.wide .ect { font-size: 24px; }
+  .edk { display: flex; justify-content: space-between; margin: 0 0 4px; padding-bottom: 12px; border-bottom: 1px solid #d5dde2; font-size: 12px; font-weight: 800; letter-spacing: .14em; color: #0f2233; }
+  .edk a { color: #0f2233; text-decoration: none; letter-spacing: .04em; border-bottom: 2px solid var(--coral); }
+  .er { display: grid; grid-template-columns: minmax(0, 1fr) 88px; gap: 14px; align-items: center; text-decoration: none; color: inherit; padding: 16px 0; border-bottom: 1px solid #e4eaee; }
+  .er .ert { display: flex; flex-direction: column; gap: 5px; min-width: 0; }
+  .er .ert b { font-family: var(--serif); font-size: 17px; line-height: 1.35; letter-spacing: -0.025em; font-weight: 800; color: #0f2233; }
+  .er:hover .ert b { text-decoration: underline; text-underline-offset: 4px; text-decoration-thickness: 1px; }
+  .erimg { display: block; aspect-ratio: 4 / 3; background: #cfe6ef; }
 
-  .lower { background: #fff; border: 1px solid var(--edge); border-top: 4px solid var(--sky); padding: 4px 32px 40px; margin-top: 14px; }
-  .lower :global(h2) { padding-bottom: 8px; border-bottom: 1px solid var(--edge); }
+  .lower { padding: 0; margin-top: 12px; }
+  .lower :global(h2) { padding-bottom: 8px; border-bottom: 1px solid #0f2233; }
   @media (max-width: 1023px) {
     .hero { grid-template-columns: 1fr; gap: 22px; padding: 18px 4px 18px; }
     .hero h1 { font-size: 42px; }
     .toc { grid-template-columns: repeat(4, 1fr); }
     .toc a:nth-child(5) { border-left: 0; }
-    .toc a:nth-child(n+5) { border-top: 1px solid #cfe6ef; }
-    .duo { grid-template-columns: 1fr; }
+    .toc a:nth-child(n+5) { border-top: 1px solid #e4eaee; }
+    .ed { grid-template-columns: 1fr 1fr; }
+    .ed-c { grid-column: 1 / 3; grid-row: 1; border: 0; padding: 22px 0 8px; }
+    .ed-l { grid-row: 2; padding-right: 20px; }
+    .ed-r { grid-row: 2; padding-left: 20px; border-left: 1px solid #d5dde2; }
   }
   @media (max-width: 760px) {
     .hero h1 { font-size: 34px; }
     .eyebrow i, .eyebrow span + i + span { display: none; }
-    .toc a:nth-child(4) { border-left: 1px solid #cfe6ef; }
+    .toc a:nth-child(4) { border-left: 1px solid #e4eaee; }
     .hero .lead { font-size: 14.5px; }
     .search input { padding: 13px 14px; font-size: 15px; }
     .search button { padding: 0 18px; }
     .toc a { padding: 11px 10px 12px; }
     .toc b { font-size: 14.5px; }
     .toc small { display: none; }
-    .gcard { padding: 16px 14px 16px; }
-    .sh h2 { font-size: 21px; }
-    .pgrid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-    .pimg { height: 112px; }
-    .lower { padding: 2px 18px 28px; }
+    .ed { grid-template-columns: 1fr; margin-top: 30px; }
+    .ed-c, .ed-l, .ed-r { grid-column: auto; grid-row: auto; padding: 20px 0 4px; border: 0; }
+    .ed-c { order: 1; } .ed-l { order: 2; } .ed-r { order: 3; }
+    .lead1 .ect { font-size: 26px; }
+    .ect { font-size: 20px; }
   }
   .cgrid { grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); }
   .cwrap.hide { display: none; }
@@ -336,26 +353,26 @@ const QUICK = [
   @media (max-width: 1023px) { .gcols { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 0 22px; } }
   @media (max-width: 520px) { .gcols { gap: 0 14px; } .gcol li a { font-size: 15px; } .sh2 { margin-top: 34px; } }
   .two { display: grid; grid-template-columns: 1fr 1fr; gap: 0 22px; }
-  .core { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; margin: 14px 0 0; }
-  .core a { display: flex; align-items: center; gap: 16px; text-decoration: none; color: inherit; background: #fff; border: 1px solid var(--edge); border-top: 4px solid var(--sky); padding: 20px 22px; transition: background .15s; }
-  .core a:hover { background: var(--emerald-d); }
-  .core a:hover b, .core a:hover small, .core a:hover i { color: #fff; }
-  .core .cn { flex: none; display: grid; place-items: center; width: 40px; height: 40px; background: var(--emerald-d); color: #fff; font-weight: 900; font-size: 18px; }
-  .core .ctx { display: flex; flex-direction: column; gap: 3px; flex: 1; min-width: 0; }
-  .core b { font-size: 18px; letter-spacing: -0.03em; color: #0f2233; }
-  .core small { font-size: 13.5px; color: var(--sub); }
-  .core i { font-style: normal; font-weight: 800; color: #ef6a2a; font-size: 20px; }
-  @media (max-width: 1023px) { .core { grid-template-columns: 1fr; } }
-  @media (max-width: 760px) { .core { gap: 8px; } .core a { padding: 14px 16px; } .core b { font-size: 16px; } }
-  .tools { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; margin-top: 34px; }
-  .tools a { position: relative; display: flex; flex-direction: column; gap: 4px; text-decoration: none; color: inherit; background: #fff; border: 1px solid var(--edge); border-left: 6px solid var(--sky); padding: 18px 44px 18px 20px; transition: background .15s; }
-  .tools a:nth-child(even) { border-left-color: var(--emerald); }
-  .tools a::after { content: '→'; position: absolute; right: 16px; top: 50%; transform: translateY(-50%); font-weight: 800; font-size: 18px; color: var(--emerald-d); }
-  .tools a:hover { background: #e9f7fb; }
-  .tools b { font-size: 17px; letter-spacing: -0.03em; color: #0f2233; }
+  .core { position: relative; display: grid; grid-template-columns: repeat(3, 1fr); gap: 0; margin: 52px 0 0; padding: 40px 0 34px; }
+  .core::before { content: ''; position: absolute; top: 0; bottom: 0; left: 50%; width: 100vw; transform: translateX(-50%); background: #eef7fb; z-index: -1; }
+  .corek { grid-column: 1 / -1; margin: 0 0 22px; text-align: center; font-family: var(--serif); font-size: 13px; font-weight: 800; letter-spacing: .26em; color: #0f2233; padding-bottom: 14px; border-bottom: 1px solid #c3dde8; }
+  .core a { display: flex; align-items: flex-start; gap: 16px; text-decoration: none; color: inherit; padding: 10px 26px; border-left: 1px solid #c3dde8; }
+  .core a:nth-of-type(1) { border-left: 0; }
+  .core a:hover b { text-decoration: underline; text-underline-offset: 4px; text-decoration-thickness: 1px; }
+  .core .cn { flex: none; font-family: var(--serif); font-size: 44px; line-height: 1; font-weight: 800; color: var(--emerald-d); }
+  .core .ctx { display: flex; flex-direction: column; gap: 6px; flex: 1; min-width: 0; }
+  .core b { font-family: var(--serif); font-size: 19px; line-height: 1.3; letter-spacing: -0.025em; color: #0f2233; }
+  .core small { font-size: 13.5px; color: var(--sub); line-height: 1.55; }
+  .core i { display: none; }
+  @media (max-width: 1023px) { .core { grid-template-columns: 1fr; } .core a { border-left: 0; border-top: 1px solid #c3dde8; padding: 16px 4px; } .core a:nth-of-type(1) { border-top: 0; } }
+  @media (max-width: 760px) { .core { margin-top: 36px; padding: 28px 0 22px; } .core .cn { font-size: 34px; } .core b { font-size: 17px; } }
+  .tools { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0 28px; margin-top: 44px; border-top: 1px solid #0f2233; }
+  .tools a { position: relative; display: flex; flex-direction: column; gap: 4px; text-decoration: none; color: inherit; padding: 18px 40px 20px 0; border-bottom: 1px solid #e4eaee; }
+  .tools a::after { content: '→'; position: absolute; right: 4px; top: 50%; transform: translateY(-50%); font-weight: 800; font-size: 18px; color: var(--coral); }
+  .tools a:hover b { color: var(--sea); }
+  .tools b { font-family: var(--serif); font-size: 19px; letter-spacing: -0.025em; color: #0f2233; }
   .tools span { font-size: 13px; color: var(--sub); }
-  @media (max-width: 1023px) { .tools { grid-template-columns: 1fr 1fr; } }
-  @media (max-width: 560px) { .tools { grid-template-columns: 1fr; gap: 8px; } }
+  @media (max-width: 760px) { .tools { grid-template-columns: 1fr; } }
   .sbox p { margin: 0 0 8px; }
   @media (max-width: 820px) { .two { grid-template-columns: 1fr; } }
   @media (max-width: 760px) {

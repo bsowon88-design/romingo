@@ -72,6 +72,7 @@ const isOn = (href) => (href === '/' ? path === '/' : path.startsWith(href) || (
   <link rel="icon" href="/favicon-48.png" type="image/png" sizes="48x48" />
   <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
   <link rel="preconnect" href="https://cdn.jsdelivr.net" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fontsource-variable/noto-serif-kr@5/index.css" />
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css" />
   <slot name="head" />
 </head>
@@ -621,6 +622,15 @@ const isOn = (href) => (href === '/' ? path === '/' : path.startsWith(href) || (
     main.wrap { margin: 10px 8px 0; }
     main.wrap.panel { padding-top: 20px; }
   }
+
+
+  /* 제목 글씨체 — 명조(세리프). 본문·숫자·메뉴는 Pretendard 그대로 */
+  :root { --serif: 'Noto Serif KR Variable', 'Noto Serif KR', 'Nanum Myeongjo', 'Batang', serif; }
+  main h1, main h2, main h3, .foot h3 { font-family: var(--serif); letter-spacing: -0.025em !important; }
+  main h1 { font-weight: 800; }
+  main h2, main h3 { font-weight: 800; }
+  .top h1, .top h2, .top h3, .tabbar h3, .msheet h3 { font-family: inherit; }
+  .pbn-in h1 { font-weight: 800; letter-spacing: -0.03em !important; }
 
   /* 블록 모드 — 큰 흰 판 대신 섹션마다 따로 떨어진 칸 (배경이 사이로 보임) */
   main.wrap.panel.blocks { background: none; border: 0; padding: 0; min-height: 0; }

@@ -14,11 +14,11 @@
  {
   "id": "ci41581136",
   "mag": 5,
-  "place": "6 km WSW of Manhattan Beach, CA",
-  "time": 1795887029840,
+  "place": "5 km SW of Manhattan Beach, CA",
+  "time": 1795887029730,
   "lat": 33.9,
   "lon": -118.5,
-  "depth": 12,
+  "depth": 13,
   "tsunami": 1,
   "alert": "green",
   "url": "https://earthquake.usgs.gov/earthquakes/eventpage/ci41581136"

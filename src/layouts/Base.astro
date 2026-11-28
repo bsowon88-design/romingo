@@ -3,7 +3,7 @@ import { SITE_NAME, SITE_TAGLINE, SITE_URL, SITE_DESC, MOFA_URL } from '../site.
 import Icon from '../components/Icon.astro';
 import { SEARCH_INDEX, ALARM_INDEX } from '../data/search.js';
 import { ALARM_KO } from '../data/load.js';
-const { title, desc = SITE_DESC, noindex = false } = Astro.props;
+const { title, desc = SITE_DESC, noindex = false, bare = false } = Astro.props;
 const full = title ? `${title} | ${SITE_NAME}` : `${SITE_NAME} - ${SITE_TAGLINE}`;
 const canonical = new URL(Astro.url.pathname, SITE_URL).href;
 const path = Astro.url.pathname;
@@ -106,7 +106,7 @@ const isOn = (href) => (href === '/' ? path === '/' : path.startsWith(href) || (
   <script type="application/json" id="sidx" set:html={JSON.stringify(SEARCH_INDEX)}></script>
   <script type="application/json" id="aidx" set:html={JSON.stringify({ a: ALARM_INDEX, l: Object.fromEntries(Object.entries(ALARM_KO).map(([k, v]) => [k, [v.label, v.cls]])), u: MOFA_URL })}></script>
 
-  <main class="wrap">
+  <main class:list={['wrap', { panel: !bare }]}>
     <slot />
   </main>
   <nav class="tabbar" aria-label="빠른 메뉴">
@@ -572,4 +572,38 @@ const isOn = (href) => (href === '/' ? path === '/' : path.startsWith(href) || (
   .foot { background: #F7EAE0; color: var(--sub); font-size: 13px; padding: 26px 0 36px; }
   .foot p { margin: 4px 0; }
   .foot .copy { margin-top: 12px; }
+
+  /* ══ 2026-11 디자인 개편: 하늘·바다 전체 배경 + 둥둥 뜬 메뉴 + 흰 반투명 카드 ══ */
+  :root { --bg: #d7f0fb; --glass: rgba(255,255,255,.84); --glass-line: rgba(255,255,255,.7); }
+  body { background: #d7f0fb; }
+  /* 배경은 화면에 고정된 그림 한 장 (폰에서 덜덜거리지 않게 background-attachment 대신 fixed 요소) */
+  body::before { content: ''; position: fixed; inset: 0; z-index: -1; background: #cdeefb url('/bg/sky-pc.webp') center / cover no-repeat; }
+  @media (max-width: 760px) { body::before { background-image: url('/bg/sky-m.webp'); background-position: center top; } }
+
+  /* 상단 메뉴 — 위에 둥둥 뜬 반투명 막대 */
+  .top { background: transparent; border-bottom: 0; backdrop-filter: none; padding-top: 12px; pointer-events: none; }
+  .top-in { pointer-events: auto; background: var(--glass); -webkit-backdrop-filter: blur(14px) saturate(1.3); backdrop-filter: blur(14px) saturate(1.3); border: 1px solid var(--glass-line); border-radius: 20px; box-shadow: 0 10px 30px rgba(20,100,150,.16); padding-left: 22px; padding-right: 22px; }
+  @media (max-width: 1260px) { .top-in { margin-left: 12px; margin-right: 12px; } }
+  @media (max-width: 760px) {
+    .top { padding-top: 8px; }
+    .top-in { margin: 0 8px; padding: 8px 14px; border-radius: 18px; }
+  }
+  .tabbar { background: rgba(255,255,255,.9) !important; }
+
+  /* 본문 — 정보가 읽히도록 흰 반투명 판 위에 올림 (홈은 bare 라서 따로 꾸밈) */
+  main.wrap { margin-top: 18px; }
+  main.wrap.panel { background: var(--glass); -webkit-backdrop-filter: blur(10px); backdrop-filter: blur(10px); border: 1px solid var(--glass-line); border-radius: 26px; box-shadow: 0 14px 40px rgba(20,100,150,.12); padding-top: 28px; padding-bottom: 44px; min-height: 60vh; }
+  @media (min-width: 1024px) { main.wrap.panel { padding-left: 32px; padding-right: 32px; } }
+  @media (max-width: 1260px) { main.wrap { margin-left: 12px; margin-right: 12px; } }
+  @media (max-width: 760px) {
+    main.wrap { margin: 10px 8px 0; }
+    main.wrap.panel { border-radius: 20px; padding-top: 20px; }
+  }
+  main.wrap.bare-main { background: none; }
+  .cty .ctabs { background: rgba(255,255,255,.92) !important; }
+
+  /* 맨 아래 */
+  .foot { background: var(--glass); -webkit-backdrop-filter: blur(10px); backdrop-filter: blur(10px); border: 1px solid var(--glass-line); border-radius: 26px; max-width: 1200px; margin: 22px auto 0; }
+  @media (max-width: 1260px) { .foot { margin-left: 12px; margin-right: 12px; } }
+  @media (max-width: 760px) { .foot { margin: 14px 8px 0; border-radius: 20px; } }
 </style>

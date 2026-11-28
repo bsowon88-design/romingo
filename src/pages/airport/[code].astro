@@ -44,7 +44,7 @@ const others = DEP_AIRPORTS.filter((x) => x.code !== a.code);
     <>
       <p class="muted when">{range && `${fmt(range.from)} ~ ${fmt(range.to)} 출발 국제선 ${total}편 기준`} · 매일 업데이트 · 공동운항 편명은 한 번만 셌어요</p>
       {short.length > 0 && (
-        <p class="short">⏱️ <b>3시간 안에 닿는 곳</b> {short.map((r, i) => <>{i ? ' · ' : ' '}<a href={`#d-${r.c.slug}`}>{r.c.ko}</a></>)}</p>
+        <p class="short"><b>3시간 안에 닿는 곳</b> {short.map((r, i) => <>{i ? ' · ' : ' '}<a href={`#d-${r.c.slug}`}>{r.c.ko}</a></>)}</p>
       )}
       <div class="dlist">
         {known.map((r) => (
@@ -60,9 +60,9 @@ const others = DEP_AIRPORTS.filter((x) => x.code !== a.code);
               <li><span>좋은 달</span><b>{r.best.length ? r.best.map((m) => `${m}월`).join('·') : '-'}</b></li>
             </ul>
             <div class="dl">
-              {guideByCity[r.c.slug] && <a href={`/guide/${r.c.slug}/`}>📖 가이드</a>}
-              {HAS_CLIMATE(r.c.slug) && <a href={`/weather/${r.c.slug}/`}>🌤️ 날씨</a>}
-              <a href={`/country/${r.c.country}/`}>🛡️ 나라 정보</a>
+              {guideByCity[r.c.slug] && <a href={`/guide/${r.c.slug}/`}>가이드</a>}
+              {HAS_CLIMATE(r.c.slug) && <a href={`/weather/${r.c.slug}/`}>날씨</a>}
+              <a href={`/country/${r.c.country}/`}>나라 정보</a>
             </div>
           </article>
         ))}
@@ -85,14 +85,14 @@ const others = DEP_AIRPORTS.filter((x) => x.code !== a.code);
   .aptabs a { text-decoration: none; font-weight: 700; font-size: 14px; color: var(--ink); border: 1px solid var(--line); background: #fff; border-radius: 999px; padding: 7px 14px; }
   .aptabs a.on { background: var(--ink); border-color: var(--ink); color: #fff; }
   .when { font-size: 13px; margin: 6px 0 10px; }
-  .short { font-size: 14px; background: #FFF6EF; border: 1px solid var(--line); border-radius: 12px; padding: 9px 12px; }
+  .short { font-size: 14px; background: #f2f6f9; border: 1px solid var(--line); border-radius: 12px; padding: 9px 12px; }
   .short a { color: var(--sea); font-weight: 700; text-decoration: none; }
   .dlist { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; margin-top: 12px; }
   .dc { border: 1px solid var(--line); border-radius: 16px; background: #fff; padding: 13px 14px 12px; scroll-margin-top: 80px; }
   .dh { display: flex; align-items: center; gap: 7px; }
   .dh b { font-size: 17px; }
   .dh small { font-size: 12.5px; color: var(--sub); }
-  .dh .fl { margin-left: auto; font-size: 13px; font-weight: 800; color: var(--sea); background: #FFF0E6; border-radius: 999px; padding: 3px 9px; white-space: nowrap; }
+  .dh .fl { margin-left: auto; font-size: 13px; font-weight: 800; color: var(--sea); background: #f2f6f9; border-radius: 999px; padding: 3px 9px; white-space: nowrap; }
   .dm { list-style: none; margin: 10px 0 8px; padding: 0; display: flex; flex-direction: column; gap: 4px; }
   .dm li { display: flex; justify-content: space-between; gap: 8px; font-size: 13.5px; }
   .dm span { color: var(--sub); }

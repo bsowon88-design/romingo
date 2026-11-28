@@ -10,11 +10,11 @@ const past = disasters.filter((d) => !activeIds.has(d.id)).slice(0, 60);
   <h1>전세계 재난 경보</h1>
   <p class="lead">국제 재난경보(GDACS) <b>주의</b>(주황)·<b>위험</b>(빨강) 단계 재난 경보</p>
 
-  <h2>🚨 지금·최근 7일</h2>
+  <h2>지금·최근 7일</h2>
   {activeDisasters.length ? <div class="grid">{activeDisasters.map((d) => <DisasterCard d={d} />)}</div>
     : <p class="card empty">지금 주의·위험 단계 경보는 없어요.</p>}
 
-  <h2>📋 지난 경보</h2>
+  <h2>지난 경보</h2>
   {past.length ? <div class="grid">{past.map((d) => <DisasterCard d={d} />)}</div>
     : <p class="card empty">아직 기록이 없어요. 곧 자동으로 채워져요.</p>}
 </Base>

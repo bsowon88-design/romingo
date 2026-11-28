@@ -17,7 +17,7 @@ const list = [...MAP_WORLD.qs].sort((a, b) => b.time - a.time);
 ---
 <Base title="여행 안전 지도 - 최근 지진·태풍·홍수 한눈에" desc="최근 30일 지진과 지금 내려진 태풍·홍수·화산 경보를 지도에서 확인하세요. 외교부 여행경보 단계도 색으로 표시해요.">
   <p class="crumb"><a href="/">홈</a> › <a href="/safety/">안전 정보</a> › 안전 지도</p>
-  <h1>🗺️ 여행 안전 지도</h1>
+  <h1>여행 안전 지도</h1>
   <p class="lead">최근 30일 지진(규모 4.5 이상)과 현재 발령 중인 재난 경보 지도. 점을 누르면 자세히 볼 수 있어요.</p>
 
   <div class="mtabs" role="tablist">
@@ -31,7 +31,7 @@ const list = [...MAP_WORLD.qs].sort((a, b) => b.time - a.time);
         {m.lands.map((l) => <path d={l.d} fill={LV_FILL[l.lv]} stroke="#fff" stroke-width="0.6" />)}
         {m.cities.map((c) => (
           <a href={c.g ? `/guide/${c.slug}/#city-safety` : `/weather/${c.slug}/#city-safety`}>
-            <circle cx={c.x} cy={c.y} r="3" fill="#2E2420" />
+            <circle cx={c.x} cy={c.y} r="3" fill="#0f2233" />
             {c.g && <text x={c.x + 5} y={c.y + 4} class="clbl">{c.ko}</text>}
             <title>{c.ko} 안전 현황</title>
           </a>
@@ -56,7 +56,7 @@ const list = [...MAP_WORLD.qs].sort((a, b) => b.time - a.time);
   <div class="legend">
     <span><i class="lq q7"></i>지진 (최근 7일)</span>
     <span><i class="lq"></i>지진 (8~30일)</span>
-    <span>🌀🌊🌋 재난 경보</span>
+    <span>재난 경보</span>
     <span><i class="lc"></i>트립베리 도시</span>
   </div>
   <div class="legend">
@@ -90,20 +90,20 @@ const list = [...MAP_WORLD.qs].sort((a, b) => b.time - a.time);
   .mtabs button.on { background: var(--ink); border-color: var(--ink); color: #fff; }
   .mapbox { border-radius: 16px; overflow: hidden; border: 1px solid var(--line); background: #EAF3F8; }
   .mapbox svg { display: block; width: 100%; height: auto; }
-  .q { fill: rgba(232, 121, 74, .35); stroke: #C85E30; stroke-width: 1; }
+  .q { fill: rgba(232, 121, 74, .35); stroke: #d4470f; stroke-width: 1; }
   .q7 { fill: rgba(214, 48, 49, .55); stroke: #b3261e; }
   .dz { fill: #fff; stroke-width: 3; }
   .d-Red { stroke: #d63031; }
   .d-Orange { stroke: #e67e22; }
   .dic { font-size: 14px; }
-  .clbl { font-size: 11px; font-weight: 700; fill: #2E2420; paint-order: stroke; stroke: #fff; stroke-width: 3px; }
+  .clbl { font-size: 11px; font-weight: 700; fill: #0f2233; paint-order: stroke; stroke: #fff; stroke-width: 3px; }
   svg a:hover circle { stroke-width: 2.5; }
   .legend { display: flex; flex-wrap: wrap; gap: 6px 14px; margin-top: 10px; font-size: 13px; align-items: center; }
   .legend span { display: inline-flex; align-items: center; gap: 5px; }
   .lt { font-weight: 700; }
-  .lq { width: 12px; height: 12px; border-radius: 50%; background: rgba(232, 121, 74, .35); border: 1px solid #C85E30; }
+  .lq { width: 12px; height: 12px; border-radius: 50%; background: rgba(232, 121, 74, .35); border: 1px solid #d4470f; }
   .lq.q7 { background: rgba(214, 48, 49, .55); border-color: #b3261e; }
-  .lc { width: 7px; height: 7px; border-radius: 50%; background: #2E2420; }
+  .lc { width: 7px; height: 7px; border-radius: 50%; background: #0f2233; }
   .lf { width: 14px; height: 10px; border-radius: 3px; border: 1px solid rgba(0,0,0,.08); }
   .small { font-size: 12.5px; }
   .mlist a { text-decoration: none; display: block; padding: 8px 12px; }

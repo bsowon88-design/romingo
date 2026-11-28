@@ -90,7 +90,7 @@ const AL = Object.fromEntries(Object.entries(ALARM_KO).map(([k, v]) => [k, [v.la
     </div>
   </form>
 
-  <div class="rhw"><p class="rh" id="rh"></p><button type="button" class="shr" id="shr" style="display:none">🔗 친구에게 공유</button></div>
+  <div class="rhw"><p class="rh" id="rh"></p><button type="button" class="shr" id="shr" style="display:none">친구에게 공유</button></div>
   <div class="res" id="res"></div>
   <button type="button" class="btn ghost more" id="more" style="display:none">더 보기</button>
   <p class="muted src">날씨는 10년 평균(NASA POWER), 비행시간은 서울 기준 직선거리로 추정한 값, 출발 공항은 이번 주 운항 예정편 기준입니다. 외교부 여행경보는 출발 전에 꼭 다시 확인하세요.</p>
@@ -196,11 +196,11 @@ const AL = Object.fromEntries(Object.entries(ALARM_KO).map(([k, v]) => [k, [v.la
     try {
       if (navigator.share) { await navigator.share({ title: '트립베리 여행지 찾기', text, url }); return; }
       await navigator.clipboard.writeText(url);
-      shr.textContent = '✅ 주소를 복사했어요';
+      shr.textContent = '주소를 복사했어요';
     } catch {
       prompt('이 주소를 복사해서 보내세요', url);
     }
-    setTimeout(() => (shr.textContent = '🔗 친구에게 공유'), 2500);
+    setTimeout(() => (shr.textContent = '친구에게 공유'), 2500);
   });
   run();
 </script>
@@ -216,13 +216,13 @@ const AL = Object.fromEntries(Object.entries(ALARM_KO).map(([k, v]) => [k, [v.la
   .chips button:disabled { opacity: .4; cursor: default; }
   .rhw { display: flex; align-items: center; justify-content: space-between; gap: 10px; margin: 18px 0 10px; flex-wrap: wrap; }
   .rh { font-weight: 800; margin: 0; }
-  .shr { font: inherit; font-size: 14px; font-weight: 700; color: var(--sea); background: #FFF4EC; border: 1px solid #F3C9AE; border-radius: 999px; padding: 7px 14px; cursor: pointer; }
+  .shr { font: inherit; font-size: 14px; font-weight: 700; color: var(--sea); background: #f2f6f9; border: 1px solid #F3C9AE; border-radius: 999px; padding: 7px 14px; cursor: pointer; }
   .shr:hover { background: #FFE9DA; }
   .chips.big { display: grid; grid-template-columns: repeat(6, minmax(0, 1fr)); gap: 8px; width: 100%; }
   .chips.big button { display: flex; flex-direction: column; align-items: center; gap: 4px; border-radius: 14px; padding: 12px 6px 10px; }
   .chips.big i { font-style: normal; font-size: 26px; line-height: 1; }
   .chips.big span { font-size: 13.5px; font-weight: 700; }
-  .chips.big button.on { background: #FFF4EC; border: 2px solid var(--sea); color: var(--sea); padding: 11px 5px 9px; }
+  .chips.big button.on { background: #f2f6f9; border: 2px solid var(--sea); color: var(--sea); padding: 11px 5px 9px; }
   .res { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; }
   .res :global(.rc) { display: flex; flex-direction: column; gap: 8px; border: 1px solid var(--line); border-radius: 16px; background: #fff; padding: 13px 14px; text-decoration: none; color: var(--ink); }
   .res :global(.rc:hover) { border-color: var(--coral); }
@@ -232,8 +232,8 @@ const AL = Object.fromEntries(Object.entries(ALARM_KO).map(([k, v]) => [k, [v.la
   .res :global(.rt small) { font-size: 12.5px; color: var(--sub); }
   .res :global(.sc) { margin-left: auto; font-size: 12px; font-weight: 800; border-radius: 999px; padding: 3px 8px; white-space: nowrap; }
   .res :global(.sc.good) { background: #E6F5EC; color: #1d7a4c; }
-  .res :global(.sc.ok) { background: #FFF3E6; color: #A8621E; }
-  .res :global(.sc.bad) { background: #F4F1EF; color: #8A7B72; }
+  .res :global(.sc.ok) { background: #f2f6f9; color: #A8621E; }
+  .res :global(.sc.bad) { background: #f2f6f9; color: #8A7B72; }
   .res :global(.ri) { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 3px; }
   .res :global(.ri li) { display: flex; justify-content: space-between; font-size: 13.5px; }
   .res :global(.ri span) { color: var(--sub); }

@@ -68,7 +68,7 @@ const label = (k) => (k === 0 ? '이번 달' : k === 1 ? '다음 달' : '다다�
 {groups.length > 0 && (
   <section class="bn" id="bestnow">
     <div class="bn-h">
-      <h2>🧭 지금 떠나기 좋은 곳 <small>날씨 · 안전 · 환율 종합 · 매일 업데이트</small></h2>
+      <h2>지금 떠나기 좋은 곳 <small>날씨 · 안전 · 환율 종합 · 매일 업데이트</small></h2>
       <div class="bn-tabs" role="tablist">
         {groups.map((g, k) => <button type="button" role="tab" class:list={{ on: k === 0 }} data-k={k}>{g.m}월 <span>{label(k)}</span></button>)}
       </div>
@@ -88,8 +88,8 @@ const label = (k) => (k === 0 ? '이번 달' : k === 1 ? '다음 달' : '다다�
                 <span class="bn-name"><Flag iso={flagOf(r.c)} size={18} /> <b>{r.x.ko}</b><small>{r.c.ko}</small></span>
                 <span class="tags">
                   <span class="tg w">{r.rain.snow ? '❄️' : r.rain.lv >= 2 ? '🌦️' : '☀️'} {Math.round(r.d.hi)}° / {Math.round(r.d.lo)}° · {r.rain.label}</span>
-                  {r.max ? <span class={`tg mchip ${ALARM_KO[r.max].cls}`}>여행경보 {r.partial ? '일부 지역 ' : ''}{r.max}단계</span> : <span class="tg ok">🛡️ 여행경보 없음</span>}
-                  {r.mv < -1 && <span class="tg fx">💱 {CUR_KO[r.c.cur] || r.c.cur} 한 달 새 {Math.abs(r.mv).toFixed(1)}% ↓</span>}
+                  {r.max ? <span class={`tg mchip ${ALARM_KO[r.max].cls}`}>여행경보 {r.partial ? '일부 지역 ' : ''}{r.max}단계</span> : <span class="tg ok">여행경보 없음</span>}
+                  {r.mv < -1 && <span class="tg fx">{CUR_KO[r.c.cur] || r.c.cur} 한 달 새 {Math.abs(r.mv).toFixed(1)}% ↓</span>}
                 </span>
               </span>
             </a>
@@ -126,13 +126,13 @@ const label = (k) => (k === 0 ? '이번 달' : k === 1 ? '다음 달' : '다다�
   .bn-g[hidden] { display: none; }
   .bc { display: flex; flex-direction: column; border: 1px solid var(--line); border-radius: 16px; overflow: hidden; background: #fff; text-decoration: none; color: var(--ink); transition: transform .2s, box-shadow .2s; }
   .bc:hover { transform: translateY(-2px); box-shadow: 0 10px 24px -14px rgba(46,36,32,.35); }
-  .bimg { display: block; aspect-ratio: 16 / 10; background: #E9DDD4; }
+  .bimg { display: block; aspect-ratio: 16 / 10; background: #d9e1e6; }
   .bb { display: flex; flex-direction: column; gap: 8px; padding: 12px 14px 14px; }
   .bn-name { display: flex; align-items: center; gap: 6px; font-size: 17px; }
   .bn-name small { font-size: 12.5px; color: var(--sub); margin-left: 2px; }
   .tags { display: flex; flex-wrap: wrap; gap: 5px; }
   .tg { font-size: 12px; font-weight: 600; border-radius: 7px; padding: 3px 7px; line-height: 1.35; }
-  .tg.w { background: #FFF3EA; color: #8A4A26; }
+  .tg.w { background: #f2f6f9; color: #8A4A26; }
   .tg.ok { background: #EAF6EE; color: #2D6B45; }
   .tg.fx { background: #EEF4FF; color: #2F5FA8; }
   .bn-f { margin: 10px 0 0; font-size: 12.5px; color: var(--sub); }

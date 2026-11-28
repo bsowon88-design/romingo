@@ -43,7 +43,7 @@ const desc = `${c.ko} 여행 전 한눈에: 안전 상태, 외교부 여행경�
   <CountryShell c={c}>
     {guides.length > 0 && (
       <>
-        <h2 class="gtop">📖 {c.ko} 여행가이드</h2>
+        <h2 class="gtop">{c.ko} 여행가이드</h2>
         <div class="gcards">
           {guides.map((x) => {
             const p = cityPhoto(x.slug);
@@ -76,7 +76,7 @@ const desc = `${c.ko} 여행 전 한눈에: 안전 상태, 외교부 여행경�
     </section>
     <Updated />
 
-    <h2>⚡ 한눈에</h2>
+    <h2>한눈에</h2>
     <div class="tiles">
       {en && <a class="tile" href={`/country/${c.slug}/info/`}><span class="tl">입국</span><b>{en.stay}</b><small class={en.kind === 'free' && !en.musts.length ? 'ok' : 'need'}>{en.musts.length ? `출발 전 ${en.musts.length}가지 준비 →` : en.kind === 'free' ? '미리 신청할 것 없음' : '입국 안내 보기 →'}</small></a>}
       <a class="tile" href={`/country/${c.slug}/info/`}><span class="tl">시차{c.tzLabel && ` (${c.tzLabel})`}</span><b>{tzDiffText(diff)}</b></a>
@@ -87,7 +87,7 @@ const desc = `${c.ko} 여행 전 한눈에: 안전 상태, 외교부 여행경�
 
     {wc.length > 0 && (
       <>
-        <h2>🌤️ 지금({nowM}월) 날씨</h2>
+        <h2>지금({nowM}월) 날씨</h2>
         <div class="wrow">
           {wc.map(({ x, d, s }) => (
             <a class="card wbox" href={`/weather/${x.slug}/${nowM}/`}>
@@ -105,7 +105,7 @@ const desc = `${c.ko} 여행 전 한눈에: 안전 상태, 외교부 여행경�
 
     {(adjusts.length > 0 || bigQ.length > 0) && (
       <>
-        <h2>📢 최근 안전 소식</h2>
+        <h2>최근 안전 소식</h2>
         <ul class="qlist">
           {adjusts.map((a) => <li><a class="qrow" href={`/country/${c.slug}/safety/`}><span><span class="t">{a.title}</span><br /><span class="s">{a.date} · 외교부</span></span></a></li>)}
           {bigQ.map((q) => <li><a class="qrow" href={`/quake/${q.id}/`}><span class="mag yellow">{q.mag.toFixed(1)}</span><span><span class="t">{translatePlace(q.place)} 지진</span><br /><span class="s">{kstShort(q.time)} (한국 시간)</span></span></a></li>)}
@@ -114,13 +114,13 @@ const desc = `${c.ko} 여행 전 한눈에: 안전 상태, 외교부 여행경�
       </>
     )}
 
-    <h2>📞 긴급 연락처</h2>
+    <h2>긴급 연락처</h2>
     <div class="calls">
       {c.emergency.map(([n, num]) => <a href={`tel:${num}`}><span>{n}</span><b>{num}</b></a>)}
       <a href={`tel:${CONSULAR_CALL.replace(/-/g, '')}`}><span>영사콜센터</span><b>{CONSULAR_CALL}</b></a>
     </div>
 
-    <h2>✅ 출발 전 체크리스트</h2>
+    <h2>출발 전 체크리스트</h2>
     <ul class="card list">
       {en && en.musts.length > 0 && <li>출발 전 꼭 할 일: <b>{en.musts.map((m) => m.t.replace(/ \(.*\)$/, '')).join(', ')}</b> <a href={`/country/${c.slug}/info/`}>방법 보기</a></li>}
       {en && en.until && <li>{en.until.replace(/-/g, '.')}까지 한시적으로 무비자 입국이 가능합니다. 이후 여행이라면 연장 여부를 확인하세요.</li>}
@@ -132,7 +132,7 @@ const desc = `${c.ko} 여행 전 한눈에: 안전 상태, 외교부 여행경�
 
     {others.length > 0 && (
       <>
-        <h2>🗺️ 비슷한 여행지</h2>
+        <h2>비슷한 여행지</h2>
         <div class="chips">{others.map((o) => <a href={`/country/${o.slug}/`}><Flag iso={flagOf(o)} size={18} /> {o.ko}</a>)}</div>
       </>
     )}
@@ -148,7 +148,7 @@ const desc = `${c.ko} 여행 전 한눈에: 안전 상태, 외교부 여행경�
   .sbox .badge, .sbox .mchip { font-size: 14px; padding: 5px 11px; }
   .sbox small { color: var(--sub); }
   .s-alert { border-color: #f1b3b4; background: #fff5f5; }
-  .s-watch { border-color: #f4cfa8; background: #fffaf3; }
+  .s-watch { border-color: #f4cfa8; background: #f2f6f9; }
   .wrow { display: grid; grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); gap: 10px; }
   .wbox { display: flex; flex-direction: column; gap: 4px; text-decoration: none; }
   .wbox:hover { border-color: var(--sea); }
@@ -165,7 +165,7 @@ const desc = `${c.ko} 여행 전 한눈에: 안전 상태, 외교부 여행경�
   .gimg { display: block; height: 110px; background: linear-gradient(135deg, var(--c1), var(--c2)); }
   .gcard b { padding: 10px 12px; }
   .calls { display: flex; flex-wrap: wrap; gap: 8px; }
-  .calls a { display: inline-flex; align-items: baseline; gap: 8px; text-decoration: none; background: #FFF8F3; border: 1px solid #F6D9C7; border-radius: 12px; padding: 9px 14px; }
+  .calls a { display: inline-flex; align-items: baseline; gap: 8px; text-decoration: none; background: #f2f6f9; border: 1px solid #d9e1e6; border-radius: 12px; padding: 9px 14px; }
   .calls span { font-size: 13px; color: var(--sub); font-weight: 600; }
   .calls b { color: var(--sea); font-size: 17px; }
   @media (max-width: 620px) {

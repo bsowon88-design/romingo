@@ -45,11 +45,11 @@ const near = quakes
     </dl>
   </section>
 
-  <p class="note" style="margin-top:12px">✈️ <b>여행자 안내</b> — {guide}</p>
+  <p class="note" style="margin-top:12px"><b>여행자 안내</b> — {guide}</p>
 
-  <h2>📍 위치</h2>
+  <h2>위치</h2>
   <iframe class="map" src={map} title="지진 위치 지도" loading="lazy"></iframe>
-  <p class="muted">지도 © OpenStreetMap 기여자</p>
+  <p class="muted">지도 ©OpenStreetMap 기여자</p>
 
   <div class="links">
     {c && <a class="btn" href={`/country/${c.slug}/`}><Flag iso={flagOf(c)} /> {c.ko} 안전 정보 보기</a>}
@@ -59,7 +59,7 @@ const near = quakes
 
   {near.length > 0 && (
     <>
-      <h2>🔁 근처 앞뒤 2주 지진 <small>여진 등</small></h2>
+      <h2>근처 앞뒤 2주 지진 <small>여진 등</small></h2>
       <ul class="qlist">{near.map((x) => <QuakeRow q={x} />)}</ul>
     </>
   )}

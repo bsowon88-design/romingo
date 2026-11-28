@@ -18,7 +18,7 @@ const quick = ['danang', 'osaka', 'tokyo', 'bangkok', 'cebu', 'taipei'];
 <Base title="나의 여행 - D-day·안전·날씨·환율 한눈에" desc="여행지와 날짜를 넣어 두면 D-day, 도시 안전 현황, 여행 기간 날씨, 환율, 오늘 운항 현황을 한 화면에서 확인할 수 있어요." noindex>
   <PageBanner name="my">
     <p class="crumb"><a href="/">홈</a> › 나의 여행</p>
-    <h1>🧳 나의 여행</h1>
+    <h1>나의 여행</h1>
     <p class="lead">여행지와 날짜만 넣어 두면 <b>D-day · 안전 · 날씨 · 환율 · 운항</b>을 한 화면에서 확인<br /><small>로그인 없이 이 브라우저에만 저장돼요.</small></p>
   </PageBanner>
 
@@ -200,8 +200,8 @@ const quick = ['danang', 'osaka', 'tokyo', 'bangkok', 'cebu', 'taipei'];
     const bs = H.b.filter((x: any) => x[1] >= t.from && x[0] <= t.to);
     if (hs.length || bs.length) {
       const hb = el('div', 'thol');
-      if (hs.length) hb.append(el('span', '', `📅 여행 기간 ${c.co} 공휴일: ${hs.map((x: any) => `${dayLabel(x[0]).md} ${x[1]}`).join(' · ')}`));
-      if (bs.length) hb.append(el('span', 'warn', `⚠️ 현지 연휴(${bs.map((x: any) => `${dayLabel(x[0]).md}~${dayLabel(x[1]).md}`).join(', ')})와 겹쳐요. 관광지·숙소가 붐빌 수 있어요.`));
+      if (hs.length) hb.append(el('span', '', `여행 기간 ${c.co} 공휴일: ${hs.map((x: any) => `${dayLabel(x[0]).md} ${x[1]}`).join(' · ')}`));
+      if (bs.length) hb.append(el('span', 'warn', `현지 연휴(${bs.map((x: any) => `${dayLabel(x[0]).md}~${dayLabel(x[1]).md}`).join(', ')})와 겹쳐요. 관광지·숙소가 붐빌 수 있어요.`));
       box.append(hb);
     }
 
@@ -209,15 +209,15 @@ const quick = ['danang', 'osaka', 'tokyo', 'bangkok', 'cebu', 'taipei'];
     const n = dnum(t.from) - dnum(today());
     const back = dnum(t.to) - dnum(today());
     const tip =
-      back < 0 ? ['✈️', '잘 다녀오셨어요? 다음 여행지는 이번 달·다음 달 날씨로 골라 보세요.', '/#bestnow', '떠나기 좋은 곳 보기']
-      : n < 0 ? ['🧭', '여행 중 · 긴급번호와 현지 안전 소식을 수시로 확인하세요.', `/country/${c.cs}/info/`, '긴급번호 보기']
-      : n === 0 ? ['🛫', '오늘 출발! 여권·충전기·결제 카드 챙겼는지 보고, 항공편 상태를 확인하세요.', '', '']
-      : n <= 3 ? ['📋', '출발 임박 · 재난·경보 소식과 입국 서류(전자입국신고 등)를 확인하세요.', `/country/${c.cs}/safety/`, '안전 정보']
-      : n <= 7 ? ['🧥', '이제 실제 예보가 보여요. 날씨에 맞춰 옷을 챙기고 환전·데이터를 준비하세요.', `/weather/${t.city}/`, '날씨 보기']
-      : n <= 14 ? ['📶', '데이터(eSIM·유심)와 환전을 준비하세요. 현지 공휴일과 겹치는지도 확인하세요.', '/prep/#data', '데이터 준비']
-      : n <= 30 ? ['🛡️', '여행자보험과 여권 유효기간(보통 6개월 이상 남아야 해요)을 확인하세요.', `/country/${c.cs}/`, `${c.co} 정보`]
-      : n <= 60 ? ['🎟️', '입장권·투어처럼 미리 예약하면 좋은 상품을 확인하세요.', c.g ? `/guide/${t.city}/` : `/weather/${t.city}/`, c.g ? '여행가이드' : '날씨 보기']
-      : ['🗓️', '항공권·숙소를 비교해 보세요. 여행하는 달의 날씨도 미리 확인하세요.', `/weather/${t.city}/${+t.from.slice(5, 7)}/`, `${+t.from.slice(5, 7)}월 날씨`];
+      back < 0 ? ['', '잘 다녀오셨어요? 다음 여행지는 이번 달·다음 달 날씨로 골라 보세요.', '/#bestnow', '떠나기 좋은 곳 보기']
+      : n < 0 ? ['', '여행 중 · 긴급번호와 현지 안전 소식을 수시로 확인하세요.', `/country/${c.cs}/info/`, '긴급번호 보기']
+      : n === 0 ? ['', '오늘 출발! 여권·충전기·결제 카드 챙겼는지 보고, 항공편 상태를 확인하세요.', '', '']
+      : n <= 3 ? ['', '출발 임박 · 재난·경보 소식과 입국 서류(전자입국신고 등)를 확인하세요.', `/country/${c.cs}/safety/`, '안전 정보']
+      : n <= 7 ? ['', '이제 실제 예보가 보여요. 날씨에 맞춰 옷을 챙기고 환전·데이터를 준비하세요.', `/weather/${t.city}/`, '날씨 보기']
+      : n <= 14 ? ['', '데이터(eSIM·유심)와 환전을 준비하세요. 현지 공휴일과 겹치는지도 확인하세요.', '/prep/#data', '데이터 준비']
+      : n <= 30 ? ['', '여행자보험과 여권 유효기간(보통 6개월 이상 남아야 해요)을 확인하세요.', `/country/${c.cs}/`, `${c.co} 정보`]
+      : n <= 60 ? ['', '입장권·투어처럼 미리 예약하면 좋은 상품을 확인하세요.', c.g ? `/guide/${t.city}/` : `/weather/${t.city}/`, c.g ? '여행가이드' : '날씨 보기']
+      : ['', '항공권·숙소를 비교해 보세요. 여행하는 달의 날씨도 미리 확인하세요.', `/weather/${t.city}/${+t.from.slice(5, 7)}/`, `${+t.from.slice(5, 7)}월 날씨`];
     const tipBox = el('div', 'ttip');
     tipBox.append(el('span', 'ti', tip[0]), el('span', '', tip[1]));
     if (tip[2]) tipBox.append(link(tip[2], `${tip[3]} →`));
@@ -240,7 +240,7 @@ const quick = ['danang', 'osaka', 'tokyo', 'bangkok', 'cebu', 'taipei'];
       if (n <= 14) det.open = true;
       const sum = el('summary', '', '');
       const cnt = el('b', '', `${done.length}/${items.length}`);
-      sum.append(el('span', '', '✅ 출국 준비 체크리스트 '), cnt);
+      sum.append(el('span', '', '출국 준비 체크리스트 '), cnt);
       const bar = el('span', 'cbar'); const fill = el('i'); bar.append(fill); sum.append(bar);
       const upd = (d: number[]) => { cnt.textContent = `${d.length}/${items.length}`; fill.style.width = `${(d.length / items.length) * 100}%`; };
       upd(done);
@@ -275,8 +275,8 @@ const quick = ['danang', 'osaka', 'tokyo', 'bangkok', 'cebu', 'taipei'];
     }
 
     const links = el('div', 'tlinks');
-    if (c.g) links.append(link(`/guide/${t.city}/`, '📖 여행가이드'));
-    links.append(link(`/weather/${t.city}/`, '🌤️ 날씨'), link(`/country/${c.cs}/`, `🛡️ ${c.co} 안전 정보`), link(`/compare/?a=${t.city}`, '↔️ 비교'));
+    if (c.g) links.append(link(`/guide/${t.city}/`, '여행가이드'));
+    links.append(link(`/weather/${t.city}/`, '날씨'), link(`/country/${c.cs}/`, `${c.co} 안전 정보`), link(`/compare/?a=${t.city}`, '비교'));
 
     box.insertBefore(head, box.firstChild);
     box.insertBefore(tiles, head.nextSibling);
@@ -314,7 +314,7 @@ const quick = ['danang', 'osaka', 'tokyo', 'bangkok', 'cebu', 'taipei'];
   .trips :global(.dday.past) { background: #b9aba2; }
   .trips :global(.tdel) { font: inherit; font-size: 12.5px; color: var(--sub); background: none; border: 0; cursor: pointer; padding: 4px; }
   .trips :global(.ttiles) { display: grid; grid-template-columns: repeat(4, 1fr); gap: 8px; margin-top: 12px; }
-  .trips :global(.tile) { display: flex; flex-direction: column; gap: 4px; background: #FFF8F3; border: 1px solid #F6E3D6; border-radius: 12px; padding: 11px 12px; text-decoration: none; color: inherit; min-width: 0; }
+  .trips :global(.tile) { display: flex; flex-direction: column; gap: 4px; background: #f2f6f9; border: 1px solid #d9e1e6; border-radius: 12px; padding: 11px 12px; text-decoration: none; color: inherit; min-width: 0; }
   .trips :global(a.tile:hover) { border-color: var(--coral); }
   .trips :global(.tl) { font-size: 12px; color: var(--sub); font-weight: 600; }
   .trips :global(.tile b) { font-size: 16px; }
@@ -327,20 +327,20 @@ const quick = ['danang', 'osaka', 'tokyo', 'bangkok', 'cebu', 'taipei'];
   .trips :global(.sc-bad) { color: #b3452a !important; font-weight: 700; }
   .trips :global(.bad) { color: #c0392b !important; font-weight: 700; }
   .trips :global(.warn) { color: #b5651d !important; font-weight: 700; }
-  .trips :global(.thol) { display: flex; flex-direction: column; gap: 4px; margin-top: 10px; font-size: 13.5px; background: #FFF8F3; border-radius: 10px; padding: 8px 12px; }
+  .trips :global(.thol) { display: flex; flex-direction: column; gap: 4px; margin-top: 10px; font-size: 13.5px; background: #f2f6f9; border-radius: 10px; padding: 8px 12px; }
   .trips :global(.tlinks) { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 12px; }
   .trips :global(.tl-a) { text-decoration: none; font-size: 13.5px; font-weight: 600; background: #fff; border: 1px solid var(--line); border-radius: 999px; padding: 6px 12px; }
-  .trips :global(.ttip) { display: flex; align-items: center; flex-wrap: wrap; gap: 6px 8px; margin-top: 12px; padding: 10px 12px; border-radius: 12px; background: #FFF0E6; border: 1px solid #F6D9C7; font-size: 14px; font-weight: 600; color: #5a3a2a; }
+  .trips :global(.ttip) { display: flex; align-items: center; flex-wrap: wrap; gap: 6px 8px; margin-top: 12px; padding: 10px 12px; border-radius: 12px; background: #f2f6f9; border: 1px solid #d9e1e6; font-size: 14px; font-weight: 600; color: #5a3a2a; }
   .trips :global(.ttip .ti) { font-size: 18px; }
   .trips :global(.ttip .tl-a) { margin-left: auto; padding: 4px 10px; font-size: 12.5px; }
   .trips :global(.tchk) { margin-top: 10px; border: 1px solid var(--line); border-radius: 12px; padding: 0 12px; background: #fff; }
   .trips :global(.tchk summary) { display: flex; align-items: center; gap: 8px; padding: 10px 0; cursor: pointer; font-size: 14px; font-weight: 700; list-style: none; }
   .trips :global(.tchk summary::-webkit-details-marker) { display: none; }
   .trips :global(.tchk summary b) { color: var(--sea); }
-  .trips :global(.cbar) { flex: 1; max-width: 160px; height: 6px; border-radius: 99px; background: #F3E7DF; overflow: hidden; margin-left: auto; }
+  .trips :global(.cbar) { flex: 1; max-width: 160px; height: 6px; border-radius: 99px; background: #d9e1e6; overflow: hidden; margin-left: auto; }
   .trips :global(.cbar i) { display: block; height: 100%; background: #1d9a5b; transition: width .2s; }
   .trips :global(.tchk ul) { list-style: none; margin: 0; padding: 0 0 10px; display: grid; grid-template-columns: 1fr 1fr; gap: 2px 16px; }
-  .trips :global(.tchk li) { display: flex; align-items: center; gap: 6px; font-size: 14px; padding: 5px 0; border-top: 1px dashed #F3E4DA; }
+  .trips :global(.tchk li) { display: flex; align-items: center; gap: 6px; font-size: 14px; padding: 5px 0; border-top: 1px dashed #d9e1e6; }
   .trips :global(.tchk li label) { display: flex; align-items: center; gap: 8px; flex: 1; cursor: pointer; }
   .trips :global(.tchk li input) { width: 17px; height: 17px; accent-color: #1d9a5b; }
   .trips :global(.tchk li.done span) { color: var(--sub); text-decoration: line-through; }

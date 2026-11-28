@@ -29,7 +29,7 @@ const firstOf = new Set(CATS.map((c) => PARTNERS.find((p) => p.cat === c.id)?.id
             <h3>{p.name}</h3>
             <span class="big"><Icon name={ICO[p.cat]} size={76} stroke={1.5} /></span>
           </div>
-          <p class="pbest">👍 {p.best}</p>
+          <p class="pbest">{p.best}</p>
           <ul>{p.pros.slice(0, 2).map((x) => <li>{x}</li>)}</ul>
           {p.note && <p class="pnote">{p.note}</p>}
           {p.url
@@ -44,7 +44,7 @@ const firstOf = new Set(CATS.map((c) => PARTNERS.find((p) => p.cat === c.id)?.id
 
   {PREP_GUIDES.length > 0 && (
     <section class="pgl">
-      <h2>📖 준비 가이드</h2>
+      <h2>준비 가이드</h2>
       <div class="pgl-g">
         {PREP_GUIDES.map((g) => <a href={`/prep/${g.slug}/`}><b>{g.title}</b><span>{g.desc}</span></a>)}
       </div>
@@ -60,7 +60,7 @@ const firstOf = new Set(CATS.map((c) => PARTNERS.find((p) => p.cat === c.id)?.id
 </Base>
 
 <style>
-  .adn { font-size: 13px; color: var(--sub); background: #FFF6EF; border: 1px solid var(--line); border-radius: 12px; padding: 10px 12px; margin: 0 0 14px; }
+  .adn { font-size: 13px; color: var(--sub); background: #f2f6f9; border: 1px solid var(--line); border-radius: 12px; padding: 10px 12px; margin: 0 0 14px; }
   .adn em { font-style: normal; font-weight: 800; color: var(--sea); margin-right: 4px; }
   .pcards { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; }
   .pc { display: flex; flex-direction: column; border: 1px solid var(--line); border-radius: 16px; padding: 0 14px 12px; background: #fff; scroll-margin-top: 80px; overflow: hidden; }
@@ -68,13 +68,13 @@ const firstOf = new Set(CATS.map((c) => PARTNERS.find((p) => p.cat === c.id)?.id
   .hd .tag { position: relative; z-index: 1; align-self: flex-start; font-size: 11.5px; font-weight: 800; border-radius: 7px; padding: 3px 8px; background: rgba(255,255,255,.25); color: #fff; backdrop-filter: blur(2px); }
   .hd h3 { position: relative; z-index: 1; margin: 10px 0 0 !important; font-size: 20px !important; color: #fff; text-shadow: 0 1px 3px rgba(0,0,0,.18); }
   .hd .big { position: absolute; right: -6px; bottom: -14px; color: rgba(255,255,255,.28); transform: rotate(-8deg); }
-  .h-data { background: linear-gradient(135deg, #5B8DEF, #2F5FA8); }
-  .h-flight { background: linear-gradient(135deg, #4CB782, #2D7A55); }
-  .h-tour { background: linear-gradient(135deg, #F49A5C, #D0602A); }
-  .h-stay { background: linear-gradient(135deg, #A57BD6, #6A3E91); }
-  .h-car { background: linear-gradient(135deg, #F2C14E, #C38A12); }
+  .h-data { background: #1b4d7a; }
+  .h-flight { background: #1d6b55; }
+  .h-tour { background: #c4480f; }
+  .h-stay { background: #5b3b86; }
+  .h-car { background: #9a6a0c; }
   .pc:target { border-color: var(--coral); box-shadow: 0 0 0 3px #FFE3D2; }
-  .tag { align-self: flex-start; font-size: 11.5px; font-weight: 800; border-radius: 7px; padding: 3px 8px; background: #F4F1EF; color: #6B5B52; }
+  .tag { align-self: flex-start; font-size: 11.5px; font-weight: 800; border-radius: 7px; padding: 3px 8px; background: #f2f6f9; color: #6B5B52; }
   .t-data { background: #EEF4FF; color: #2F5FA8; }
   .t-flight { background: #EAF6EE; color: #2D6B45; }
   .t-tour { background: #FFF1E6; color: #A8521E; }

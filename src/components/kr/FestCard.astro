@@ -12,20 +12,20 @@ const label = st === 'now' ? (longRun(f) ? '상시 운영 중' : '진행 중') :
 ---
 <a class:list={["fcard", { mini }]} href={`/domestic/festival/${f.id}/`} data-s={f.s} data-e={f.e} data-r={f.region.slug}>
   <span class="fimg">
-    {f.img ? <img src={imgUrl(f.img)} alt="" loading={lazy ? 'lazy' : 'eager'} decoding="async" width="400" height="260" /> : <span class="fnoimg">🎉</span>}
+    {f.img ? <img src={imgUrl(f.img)} alt="" loading={lazy ? 'lazy' : 'eager'} decoding="async" width="400" height="260" /> : <span class="fnoimg"></span>}
     <span class={`fst ${st}`}>{label}</span>
   </span>
   <span class="fbody">
     <b class="ft">{f.t}</b>
     <span class="fd">{fmtDW(f.s)}{f.e !== f.s && <> ~ {fmtDW(f.e)}</>}</span>
-    <span class="fr">📍 {f.region.ko}{f.dist && ` · ${f.dist}`}</span>
+    <span class="fr">{f.region.ko}{f.dist && ` · ${f.dist}`}</span>
   </span>
 </a>
 
 <style>
   .fcard { display: flex; flex-direction: column; background: #fff; border: 1px solid var(--line); border-radius: 16px; overflow: hidden; text-decoration: none; color: inherit; transition: transform .15s, box-shadow .15s; }
   .fcard:hover { transform: translateY(-2px); box-shadow: 0 10px 24px rgba(120,60,30,.12); }
-  .fimg { position: relative; aspect-ratio: 3 / 2; background: #F6E6DA; display: block; }
+  .fimg { position: relative; aspect-ratio: 3 / 2; background: #d9e1e6; display: block; }
   .fimg img { width: 100%; height: 100%; object-fit: cover; display: block; }
   .fnoimg { display: grid; place-items: center; height: 100%; font-size: 40px; }
   .fst { position: absolute; left: 10px; top: 10px; font-size: 12px; font-weight: 800; padding: 3px 9px; border-radius: 999px; background: rgba(255,255,255,.94); color: var(--ink); }

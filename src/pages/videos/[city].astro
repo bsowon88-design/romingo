@@ -23,8 +23,8 @@ const sibs = CITIES.filter((x) => x.country === city.country && x.slug !== city.
   <YtCards list={list} />
 
   <div class="more">
-    {guideByCity[city.slug] && <a class="mb" href={`/guide/${city.slug}/`}>📖 {city.ko} 여행가이드 보기 →</a>}
-    <a class="mb" href={`/country/${co.slug}/`}>🧭 {co.ko} 안전·환율·입국 정보 →</a>
+    {guideByCity[city.slug] && <a class="mb" href={`/guide/${city.slug}/`}>{city.ko} 여행가이드 보기 →</a>}
+    <a class="mb" href={`/country/${co.slug}/`}>{co.ko} 안전·환율·입국 정보 →</a>
   </div>
 
   {sibs.length > 0 && (
@@ -40,7 +40,7 @@ const sibs = CITIES.filter((x) => x.country === city.country && x.slug !== city.
   h1 { display: flex; align-items: center; gap: 10px; }
   .lead { margin-bottom: 20px; }
   .more { display: flex; gap: 10px; flex-wrap: wrap; margin-top: 24px; }
-  .mb { text-decoration: none; font-weight: 700; color: var(--sea); background: #FFF8F3; border: 1px solid #F6D9C7; border-radius: 12px; padding: 12px 16px; }
+  .mb { text-decoration: none; font-weight: 700; color: var(--sea); background: #f2f6f9; border: 1px solid #d9e1e6; border-radius: 12px; padding: 12px 16px; }
   .chips { display: flex; gap: 8px; flex-wrap: wrap; }
   .chips a { text-decoration: none; font-weight: 700; color: var(--ink); background: #fff; border: 1px solid var(--line); border-radius: 999px; padding: 8px 14px; }
   .note { margin-top: 26px; font-size: 13px; }

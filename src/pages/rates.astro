@@ -20,7 +20,7 @@ const mv = (cur) => { const h = rates?.[cur]?.hist; const v = rates?.[cur]?.valu
   {data.length ? (
     <>
       <section class="card calc">
-        <h2>🧮 환율 계산기</h2>
+        <h2>환율 계산기</h2>
         <div class="crow">
           <label>원화<input id="won" type="number" inputmode="numeric" value="100000" min="0" step="1000" /></label>
           <span class="arrow">→</span>
@@ -40,15 +40,15 @@ const mv = (cur) => { const h = rates?.[cur]?.hist; const v = rates?.[cur]?.valu
 
       <section class="card cheat" id="cheat">
         <div class="ch-h">
-          <h2>📋 현지에서 보는 금액표 <small id="ch-name"></small></h2>
-          <button type="button" class="btn ghost" id="ch-save">🖼️ 이미지로 저장</button>
+          <h2>현지에서 보는 금액표 <small id="ch-name"></small></h2>
+          <button type="button" class="btn ghost" id="ch-save">이미지로 저장</button>
         </div>
         <p class="muted ch-n">현지에서 값을 볼 때 원화로 얼마쯤인지 바로 보세요. 위 계산기에서 국가를 변경하면 함께 업데이트됩니다. 인터넷이 없을 때를 위해 이미지로 저장해 두세요.</p>
         <div class="ch-g" id="ch-g"></div>
         <p class="ch-trend" id="ch-trend"></p>
       </section>
 
-      <h2>💱 나라별 환율</h2>
+      <h2>나라별 환율</h2>
       <div class="rtab card">
         {rateList.map((r) => (
           <a class="rr" href={`/country/${r.c.slug}/info/`}>
@@ -122,16 +122,16 @@ const mv = (cur) => { const h = rates?.[cur]?.hist; const v = rates?.[cur]?.valu
     cv.width = W * 2; cv.height = H * 2;
     const g = cv.getContext('2d')!;
     g.scale(2, 2);
-    g.fillStyle = '#FFF6EF'; g.fillRect(0, 0, W, H);
-    g.fillStyle = '#2E2420'; g.font = '800 34px Pretendard, sans-serif';
+    g.fillStyle = '#f2f6f9'; g.fillRect(0, 0, W, H);
+    g.fillStyle = '#0f2233'; g.font = '800 34px Pretendard, sans-serif';
     g.fillText(`${r.ko} 금액표`, 36, 64);
-    g.fillStyle = '#7A665B'; g.font = '500 18px Pretendard, sans-serif';
+    g.fillStyle = '#566877'; g.font = '500 18px Pretendard, sans-serif';
     g.fillText(`${r.name} → 원화 · 한국은행 매매기준율 ${document.getElementById('rates-date')?.textContent || ''}`, 36, 100);
     rowsNow.forEach(([a, b], i) => {
       const x = 36 + (i % 2) * 330, y = top + Math.floor(i / 2) * rowH;
       g.fillStyle = '#FFFFFF'; g.beginPath(); (g as any).roundRect ? (g as any).roundRect(x, y - 40, 314, 54, 12) : g.rect(x, y - 40, 314, 54); g.fill();
-      g.fillStyle = '#7A665B'; g.font = '600 18px Pretendard, sans-serif'; g.fillText(a, x + 16, y - 6);
-      g.fillStyle = '#C85E30'; g.font = '800 22px Pretendard, sans-serif'; const tw = g.measureText(b).width; g.fillText(b, x + 298 - tw, y - 6);
+      g.fillStyle = '#566877'; g.font = '600 18px Pretendard, sans-serif'; g.fillText(a, x + 16, y - 6);
+      g.fillStyle = '#d4470f'; g.font = '800 22px Pretendard, sans-serif'; const tw = g.measureText(b).width; g.fillText(b, x + 298 - tw, y - 6);
     });
     g.fillStyle = '#B39C8F'; g.font = '500 15px Pretendard, sans-serif';
     g.fillText('트립베리 · tripberry.kr · 실제 환전·카드 환율과는 조금 달라요', 36, H - 28);
@@ -157,7 +157,7 @@ const mv = (cur) => { const h = rates?.[cur]?.hist; const v = rates?.[cur]?.valu
   .ch-h h2 small { font-size: 14px; color: var(--sub); font-weight: 600; }
   .ch-n { font-size: 13px; margin: 6px 0 10px; }
   .ch-g { display: grid; grid-template-columns: repeat(4, 1fr); gap: 8px; }
-  .ch-g :global(.ch-r) { display: flex; flex-direction: column; gap: 2px; background: #FFF8F3; border: 1px solid #F6E3D6; border-radius: 12px; padding: 10px 12px; }
+  .ch-g :global(.ch-r) { display: flex; flex-direction: column; gap: 2px; background: #f2f6f9; border: 1px solid #d9e1e6; border-radius: 12px; padding: 10px 12px; }
   .ch-g :global(.ch-r span) { font-size: 13px; color: var(--sub); font-weight: 600; }
   .ch-g :global(.ch-r b) { font-size: 18px; color: var(--sea); font-variant-numeric: tabular-nums; }
   .ch-trend { font-size: 13.5px; font-weight: 600; margin: 10px 0 0; }
@@ -167,7 +167,7 @@ const mv = (cur) => { const h = rates?.[cur]?.hist; const v = rates?.[cur]?.valu
   .rtab { padding: 4px 0; }
   .rr { display: grid; grid-template-columns: 1.3fr 1fr 1fr; gap: 10px; align-items: center; padding: 12px 16px; text-decoration: none; }
   .rr + .rr { border-top: 1px solid var(--line); }
-  .rr:hover { background: #FFF8F3; }
+  .rr:hover { background: #f2f6f9; }
   .nm { display: inline-flex; align-items: center; gap: 8px; font-weight: 700; }
   .nm small { color: var(--sub); font-weight: 500; }
   @media (max-width: 620px) {

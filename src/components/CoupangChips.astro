@@ -6,7 +6,7 @@ const items = cpItems(keys);
 ---
 {items.length > 0 && (
   <aside class="cp">
-    <p class="cp-h"><span>🧳 {title}</span><em>광고</em></p>
+    <p class="cp-h"><span>{title}</span><em>광고</em></p>
     <div class="cp-l">
       {items.map(([ico, label, url]) => (
         <a href={url} target="_blank" rel="sponsored nofollow noopener">{ico} {label}<i>↗</i></a>
@@ -17,11 +17,11 @@ const items = cpItems(keys);
 )}
 
 <style>
-  .cp { margin: 14px 0 6px; padding: 12px 14px 10px; border: 1px solid var(--line); border-radius: 14px; background: #FFFBF8; }
+  .cp { margin: 14px 0 6px; padding: 12px 14px 10px; border: 1px solid var(--line); border-radius: 14px; background: #f2f6f9; }
   .cp-h { display: flex; justify-content: space-between; align-items: center; margin: 0 0 8px; font-weight: 800; font-size: 14.5px; }
   .cp-h em { font-style: normal; font-size: 11px; font-weight: 700; color: var(--sub); border: 1px solid var(--line); border-radius: 6px; padding: 1px 6px; background: #fff; }
   .cp-l { display: flex; flex-wrap: wrap; gap: 6px; }
-  .cp-l a { display: inline-flex; align-items: center; gap: 5px; padding: 7px 12px; border-radius: 999px; background: #fff; border: 1px solid #F3E4DA; text-decoration: none; color: var(--ink); font-size: 14px; font-weight: 700; }
+  .cp-l a { display: inline-flex; align-items: center; gap: 5px; padding: 7px 12px; border-radius: 999px; background: #fff; border: 1px solid #d9e1e6; text-decoration: none; color: var(--ink); font-size: 14px; font-weight: 700; }
   .cp-l a:hover { border-color: var(--coral); color: var(--sea); }
   .cp-l i { font-style: normal; color: var(--sea); font-size: 12px; }
   .cp-f { margin: 8px 0 0; font-size: 12px; color: var(--sub); }

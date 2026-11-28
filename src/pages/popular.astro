@@ -18,7 +18,7 @@ const hrefOf = (c) => (c ? (guideByCity[c.slug] ? `/guide/${c.slug}/` : HAS_CLIM
 // 지역 버튼 — 국기 코드로 묶음
 const SEA = ['vn', 'th', 'ph', 'id', 'my', 'sg', 'kh', 'la', 'mm', 'bn'];
 const rgOf = (iso) => (iso === 'jp' ? 'jp' : ['cn', 'hk', 'mo'].includes(iso) ? 'cn' : iso === 'tw' ? 'tw' : SEA.includes(iso) ? 'sea' : 'etc');
-const RG = [['', '전체'], ['jp', '🇯🇵 일본'], ['cn', '🇨🇳 중국·홍콩'], ['tw', '🇹🇼 대만'], ['sea', '🌴 동남아'], ['etc', '🌏 그 외']];
+const RG = [['', '전체'], ['jp', '일본'], ['cn', '중국·홍콩'], ['tw', '대만'], ['sea', '동남아'], ['etc', '그 외']];
 ---
 <Base title="인기 도시 - 이번 주 한국에서 출발 많은 해외 도시 순위" desc="이번 주 인천·김포·김해·제주에서 출발하는 국제선이 가장 많은 해외 도시 순위. 요즘 사람들이 많이 가는 여행지를 실제 항공편 수로 확인하세요.">
   <PageBanner name="popular">
@@ -26,7 +26,7 @@ const RG = [['', '전체'], ['jp', '🇯🇵 일본'], ['cn', '🇨🇳 중국·
     <h1>인기 도시</h1>
     <p class="lead">이번 주 <b>인천·김포·김해·제주에서 출발하는 국제선 여객기</b>가 가장 많은 도시 순위. 여행객 수가 아닌 <b>출발 운항편 수</b> 기준으로, 최근 노선이 늘어난 곳을 알 수 있습니다.</p>
   </PageBanner>
-  <p class="aplink">✈️ 내 동네 공항에서 바로 가는 곳은? <a href="/airport/icn/">인천</a> · <a href="/airport/gmp/">김포</a> · <a href="/airport/pus/">김해(부산)</a> · <a href="/airport/cju/">제주</a> <a href="/airport/">공항별 직항 →</a></p>
+  <p class="aplink">내 동네 공항에서 바로 가는 곳은? <a href="/airport/icn/">인천</a> · <a href="/airport/gmp/">김포</a> · <a href="/airport/pus/">김해(부산)</a> · <a href="/airport/cju/">제주</a> <a href="/airport/">공항별 직항 →</a></p>
 
   {POP_READY && list.length ? (
     <>
@@ -112,16 +112,16 @@ const RG = [['', '전체'], ['jp', '🇯🇵 일본'], ['cn', '🇨🇳 중국·
   .rgf button.on { background: var(--ink); border-color: var(--ink); color: #fff; }
   .pod { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; margin-bottom: 14px; }
   .pod[hidden] { display: none; }
-  .pc { position: relative; display: flex; flex-direction: column; background: #fff; border: 1px solid #F2CDB6; border-radius: 16px; overflow: hidden; }
+  .pc { position: relative; display: flex; flex-direction: column; background: #fff; border: 1px solid #d9e1e6; border-radius: 16px; overflow: hidden; }
   .pc:has(.pmain):hover { border-color: var(--coral); }
-  .pcimg { position: relative; display: grid; place-items: center; aspect-ratio: 2 / 1; background: #FFF0E6; }
+  .pcimg { position: relative; display: grid; place-items: center; aspect-ratio: 2 / 1; background: #f2f6f9; }
   .pcimg img { width: 100%; height: 100%; object-fit: cover; display: block; }
   .pcrk { position: absolute; left: 10px; top: 10px; font-size: 14px; font-weight: 900; color: #fff; background: var(--sea); border-radius: 999px; padding: 4px 11px; box-shadow: 0 2px 8px rgba(0,0,0,.2); }
   .pc.r1 .pcrk { background: #D9822B; }
   .pcb { display: flex; flex-direction: column; gap: 7px; padding: 11px 13px 13px; }
   .pc .pmain::after { content: ''; position: absolute; inset: 0; }
   .tl { list-style: none; margin: 0; padding: 0; columns: 3; column-gap: 14px; }
-  .tl .tr { break-inside: avoid; display: grid; grid-template-columns: 26px 20px minmax(0, 1fr) 70px 44px 46px; align-items: center; gap: 6px; padding: 7px 8px; border-bottom: 1px solid #F6ECE5; font-size: 14px; }
+  .tl .tr { break-inside: avoid; display: grid; grid-template-columns: 26px 20px minmax(0, 1fr) 70px 44px 46px; align-items: center; gap: 6px; padding: 7px 8px; border-bottom: 1px solid #f2f6f9; font-size: 14px; }
   .tl .tr.p3 { display: none; }
   .tl.all .tr.p3 { display: grid; }
   .tl .tr[hidden] { display: none !important; }
@@ -129,8 +129,8 @@ const RG = [['', '전체'], ['jp', '🇯🇵 일본'], ['cn', '🇨🇳 중국·
   .tn { font-weight: 700; color: var(--ink); text-decoration: none; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
   a.tn:hover { color: var(--sea); }
   .nf { width: 18px; }
-  .tbar { height: 8px; background: #FFF3EB; border-radius: 4px; overflow: hidden; }
-  .tbar span { display: block; height: 100%; background: linear-gradient(90deg, #F6B48A, #E8794A); }
+  .tbar { height: 8px; background: #f2f6f9; border-radius: 4px; overflow: hidden; }
+  .tbar span { display: block; height: 100%; background: #ef6a2a; }
   .tf { font-size: 12.5px; font-weight: 700; text-align: right; font-variant-numeric: tabular-nums; }
   .tc { font-size: 11.5px; font-weight: 800; text-align: right; }
   .tc.up { color: #c0392b; } .tc.down { color: #2257b8; }
@@ -151,10 +151,10 @@ const RG = [['', '전체'], ['jp', '🇯🇵 일본'], ['cn', '🇨🇳 중국·
   .pmain::after { content: ''; position: absolute; inset: 0; border-radius: 14px; }
   .pi:has(.pmain):hover { border-color: var(--coral); }
   .pl { position: relative; z-index: 1; }
-  .pi.top { border-color: #F2CDB6; background: #FFFBF8; }
+  .pi.top { border-color: #d9e1e6; background: #f2f6f9; }
   .rk { text-align: center; font-size: 20px; font-weight: 800; color: var(--sub); }
   .pi.top .rk { color: var(--coral); font-size: 24px; }
-  .pimg { display: grid; place-items: center; height: 64px; border-radius: 10px; overflow: hidden; background: #FFF0E6; }
+  .pimg { display: grid; place-items: center; height: 64px; border-radius: 10px; overflow: hidden; background: #f2f6f9; }
   .pimg img { width: 100%; height: 100%; object-fit: cover; display: block; }
   .pb { display: flex; flex-direction: column; gap: 5px; min-width: 0; }
   .ph { display: flex; align-items: center; gap: 7px; flex-wrap: wrap; }
@@ -162,8 +162,8 @@ const RG = [['', '전체'], ['jp', '🇯🇵 일본'], ['cn', '🇨🇳 중국·
   .chg { font-size: 12px; font-weight: 800; padding: 1px 7px; border-radius: 999px; }
   .chg.up { background: #fde8e3; color: #c0392b; }
   .chg.down { background: #e4eefc; color: #2257b8; }
-  .bar { position: relative; height: 18px; background: #FFF3EB; border-radius: 6px; }
-  .bar span { display: block; height: 100%; border-radius: 6px; background: linear-gradient(90deg, #F6B48A, #E8794A); }
+  .bar { position: relative; height: 18px; background: #f2f6f9; border-radius: 6px; }
+  .bar span { display: block; height: 100%; border-radius: 6px; background: #ef6a2a; }
   .bar em { position: absolute; right: 8px; top: 0; line-height: 18px; font-style: normal; font-size: 12px; font-weight: 800; color: var(--ink); }
   .pl { display: flex; gap: 12px; flex-wrap: wrap; font-size: 13px; font-weight: 700; }
   .pl a { color: var(--sea); text-decoration: none; }

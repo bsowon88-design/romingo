@@ -31,7 +31,7 @@ const regionText = (r) => (/일부/.test(r) ? '일부 지역' : /전/.test(r) ? 
 ---
 <Base title={`${c.ko} 안전 정보 - 외교부 여행경보·지진·재난`} desc={`${c.ko} 외교부 여행경보 단계와 지역, 최근 경보 조정 소식, 지진·태풍 등 재난 정보를 정리했어요.`}>
   <CountryShell c={c} tab="safety">
-    <h2>🛂 외교부 여행경보</h2>
+    <h2>외교부 여행경보</h2>
     <div class="card mofa">
       {alarm && alarm.levels.length ? (
         <ul class="alv">
@@ -51,14 +51,14 @@ const regionText = (r) => (/일부/.test(r) ? '일부 지역' : /전/.test(r) ? 
 
     {adjusts.length > 0 && (
       <>
-        <h2>📢 여행경보 조정 소식</h2>
+        <h2>여행경보 조정 소식</h2>
         <ul class="qlist">
           {adjusts.map((a) => <li><div class="qrow"><span><span class="t">{a.title}</span><br /><span class="s">{a.date} · 외교부</span></span></div></li>)}
         </ul>
       </>
     )}
 
-    <h2>🌋 자연재난</h2>
+    <h2>자연재난</h2>
     <div class={`card stat s-${st.level}`}>
       <span class={`badge b-${st.level}`}>{S.label}</span> <b>{S.note}</b>
       {st.maxQ && <p class="muted">30일 동안 가장 큰 지진: <a href={`/quake/${st.maxQ.id}/`}>규모 {st.maxQ.mag.toFixed(1)} · {translatePlace(st.maxQ.place)}</a> ({kstDate(st.maxQ.time)})</p>}
@@ -67,7 +67,7 @@ const regionText = (r) => (/일부/.test(r) ? '일부 지역' : /전/.test(r) ? 
 
     {cityRows.length > 0 && (
       <>
-        <h2>🏙️ 도시별 안전 <small>반경 {QUAKE_KM}km · 최근 30일</small></h2>
+        <h2>도시별 안전 <small>반경 {QUAKE_KM}km · 최근 30일</small></h2>
         <div class="crows">
           {cityRows.map(({ x, s }) => (
             <a class="crow" href={cityHref(x)}>
@@ -85,26 +85,26 @@ const regionText = (r) => (/일부/.test(r) ? '일부 지역' : /전/.test(r) ? 
 
     {st.active.length > 0 && (
       <>
-        <h2>🚨 지금 재난 경보</h2>
+        <h2>지금 재난 경보</h2>
         <div class="grid">{st.active.map((d) => <DisasterCard d={d} />)}</div>
       </>
     )}
 
-    <h2>🌐 최근 지진 <small>최근 90일 · 규모 4.5 이상</small></h2>
+    <h2>최근 지진 <small>최근 90일 · 규모 4.5 이상</small></h2>
     <ul class="qlist">
       {q90.length ? q90.map((q) => <QuakeRow q={q} />) : <li class="empty">최근 90일 동안 규모 4.5 이상 지진 기록이 없어요.</li>}
     </ul>
 
     {older.length > 0 && (
       <>
-        <h2>📁 지난 큰 지진 <small>규모 6 이상</small></h2>
+        <h2>지난 큰 지진 <small>규모 6 이상</small></h2>
         <ul class="qlist">{older.map((q) => <QuakeRow q={q} />)}</ul>
       </>
     )}
 
     {ds.length > 0 && (
       <>
-        <h2>📋 재난 경보 기록</h2>
+        <h2>재난 경보 기록</h2>
         <div class="grid">{ds.map((d) => <DisasterCard d={d} />)}</div>
       </>
     )}
@@ -127,5 +127,5 @@ const regionText = (r) => (/일부/.test(r) ? '일부 지역' : /전/.test(r) ? 
   .cdesc { font-size: 13.5px; color: var(--sub); }
   @media (max-width: 560px) { .crow { grid-template-columns: auto auto; } .cdesc { grid-column: 1 / -1; } }
   .s-alert { border-color: #f1b3b4; background: #fff5f5; }
-  .s-watch { border-color: #f4cfa8; background: #fffaf3; }
+  .s-watch { border-color: #f4cfa8; background: #f2f6f9; }
 </style>

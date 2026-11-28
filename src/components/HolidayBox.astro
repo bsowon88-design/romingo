@@ -10,7 +10,7 @@ const list = (HOLIDAYS[c.slug] || []).filter((h) => h.d >= now && h.d <= until);
 ---
 {list.length > 0 && (
   <section class="hol" id="holidays">
-    <h2>📅 {c.ko} 공휴일·연휴 <small>앞으로 {months}개월</small></h2>
+    <h2>{c.ko} 공휴일·연휴 <small>앞으로 {months}개월</small></h2>
     {brk.length > 0 && (
       <ul class="brk">
         {brk.map((b) => (
@@ -22,8 +22,8 @@ const list = (HOLIDAYS[c.slug] || []).filter((h) => h.d >= now && h.d <= until);
         ))}
       </ul>
     )}
-    {HOLIDAY_NOTE[c.slug] && <p class="hnote">📌 {HOLIDAY_NOTE[c.slug]}</p>}
-    {brk.length > 0 && <p class="hnote">⚠️ 연휴에는 현지 사람들도 여행을 많이 가서 관광지·교통·숙소가 붐비고 값이 오를 수 있어요.</p>}
+    {HOLIDAY_NOTE[c.slug] && <p class="hnote">{HOLIDAY_NOTE[c.slug]}</p>}
+    {brk.length > 0 && <p class="hnote">연휴에는 현지 사람들도 여행을 많이 가서 관광지·교통·숙소가 붐비고 값이 오를 수 있어요.</p>}
     <div class="hlist">
       {list.map((h) => <span><b>{md(h.d)}</b> {h.n}</span>)}
     </div>
@@ -34,7 +34,7 @@ const list = (HOLIDAYS[c.slug] || []).filter((h) => h.d >= now && h.d <= until);
 <style>
   .hol h2 small { font-size: 13px; color: var(--sub); font-weight: 600; }
   .brk { list-style: none; margin: 0 0 8px; padding: 0; display: flex; flex-direction: column; gap: 6px; }
-  .brk li { display: grid; grid-template-columns: 190px 80px 1fr; gap: 10px; align-items: center; background: #FFF4EC; border: 1px solid #F6D3BD; border-radius: 12px; padding: 10px 14px; }
+  .brk li { display: grid; grid-template-columns: 190px 80px 1fr; gap: 10px; align-items: center; background: #f2f6f9; border: 1px solid #F6D3BD; border-radius: 12px; padding: 10px 14px; }
   .bd { font-weight: 700; }
   .brk b { color: var(--sea); }
   .bn { font-size: 14px; color: var(--sub); }

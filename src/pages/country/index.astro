@@ -20,12 +20,12 @@ const guides = GUIDES.map((g) => cityBySlug[g.city]).filter(Boolean);
   </PageBanner>
   {guides.length > 0 && (
     <div class="gbar">
-      <span class="gl">📖 여행가이드</span>
+      <span class="gl">여행가이드</span>
       {guides.map((x) => <a href={`/guide/${x.slug}/`}><Flag iso={flagOf(bySlug[x.country])} size={16} /> {x.ko}</a>)}
     </div>
   )}
   <div class="lvf" role="group" aria-label="외교부 여행경보 단계로 거르기">
-    <span class="gl">🛂 외교부 여행경보</span>
+    <span class="gl">외교부 여행경보</span>
     {FILTERS.map(([k, l, n, cls], i) => <button type="button" data-lv={k} class:list={[{ on: i === 0 }]}><i class={`dot ${cls}`}></i>{l} <small>{n}</small></button>)}
   </div>
   <p class="muted lvn">국가 내 최고 경보 단계를 기준으로 표시합니다. 일부 지역에만 내려진 경보도 있으니 국가 페이지에서 지역을 확인하세요.</p>

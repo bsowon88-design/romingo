@@ -28,9 +28,9 @@ const tabs = [
 const tabOn = (href) => (href === '/' ? path === '/' : path.startsWith(href));
 // 전체 메뉴 (폰) — 여행 준비는 맨 위에 따로
 const allMenu = [
-  ['해외여행', [['/popular/', '✈️', '인기 도시'], ['/country/', '🌏', '나라별'], ['/guide/', '📖', '여행가이드'], ['/videos/', '📺', '여행 영상'], ['/find/', '🧭', '여행지 찾기'], ['/compare/', '⚖️', '여행지 비교']]],
-  ['국내여행', [['/domestic/', '🗺️', '국내여행 홈'], ['/domestic/festival/', '🎉', '축제 달력']]],
-  ['여행 정보', [['/weather/', '🌤️', '날씨'], ['/safety/', '🛡️', '안전 정보'], ['/map/', '🗺️', '안전 지도'], ['/rates/', '💱', '환율'], ['/holidays/', '📅', '연차 꿀팁'], ['/my/', '🧳', '나의 여행']]],
+  ['해외여행', [['/popular/', '', '인기 도시'], ['/country/', '', '나라별'], ['/guide/', '', '여행가이드'], ['/videos/', '', '여행 영상'], ['/find/', '', '여행지 찾기'], ['/compare/', '', '여행지 비교']]],
+  ['국내여행', [['/domestic/', '', '국내여행 홈'], ['/domestic/festival/', '', '축제 달력']]],
+  ['여행 정보', [['/weather/', '', '날씨'], ['/safety/', '', '안전 정보'], ['/map/', '', '안전 지도'], ['/rates/', '', '환율'], ['/holidays/', '', '연차 꿀팁'], ['/my/', '', '나의 여행']]],
 ];
 const isOn = (href) => (href === '/' ? path === '/' : path.startsWith(href) || (href === '/safety/' && (path.startsWith('/quakes') || path.startsWith('/disasters') || path.startsWith('/quake/'))));
 ---
@@ -82,7 +82,7 @@ const isOn = (href) => (href === '/' ? path === '/' : path.startsWith(href) || (
       <a href="/" class="logo"><img class="logo-img" src="/favicon-48.png" srcset="/favicon-48.png 1x, /logo-96.png 2x" width="32" height="32" alt="트립베리 홈" /><span class="logo-txt">트립베리</span><small>여행 정보</small></a>
       <nav id="mainnav">
         {nav.map(([href, label, icon]) => (
-          <a href={href} class:list={{ on: isOn(href), hot: href === '/prep/' }}><Icon name={icon} size={18} />{href === '/prep/' && <span class="hx">✈️ </span>}{label}</a>
+          <a href={href} class:list={{ on: isOn(href), hot: href === '/prep/' }}><Icon name={icon} size={18} />{label}</a>
         ))}
       </nav>
       <div class="tact">
@@ -119,11 +119,11 @@ const isOn = (href) => (href === '/' ? path === '/' : path.startsWith(href) || (
   <div class="msheet" id="msheet" hidden>
     <div class="msheet-in" role="dialog" aria-label="전체 메뉴">
       <div class="mhead"><b>전체 메뉴</b><button type="button" id="mclose" aria-label="닫기"><Icon name="x" size={22} /></button></div>
-      <a class="mprep" href="/prep/"><span>✈️</span><b>여행 준비</b><small>eSIM·보험·숙소·입장권 한 번에</small></a>
+      <a class="mprep" href="/prep/"><b>여행 준비</b><small>eSIM·보험·숙소·입장권 한 번에</small></a>
       {allMenu.map(([h, items]) => (
         <section class="mgrp">
           <p>{h}</p>
-          <div class="mlist">{items.map(([href, e, label]) => <a href={href} class:list={{ on: href !== '/domestic/' ? path.startsWith(href) : path === href }}><i>{e}</i>{label}</a>)}</div>
+          <div class="mlist">{items.map(([href, e, label]) => <a href={href} class:list={{ on: href !== '/domestic/' ? path.startsWith(href) : path === href }}>{label}</a>)}</div>
         </section>
       ))}
       <p class="mfoot"><a href="/about/">트립베리 소개</a> · <a href="/privacy/">개인정보처리방침</a> · <a href="/credits/">사진 출처</a></p>
@@ -134,7 +134,7 @@ const isOn = (href) => (href === '/' ? path === '/' : path.startsWith(href) || (
       <p><b>자료 출처</b> 미국 지질조사국(USGS) · 국제 재난경보(GDACS) · 외교부 · 한국은행 · 인천국제공항공사 · 한국공항공사 · 노르웨이 기상청(MET Norway, CC BY 4.0) · NASA POWER · 한국관광공사(TourAPI, 공공누리) — 공식 데이터를 자동으로 수집·정리합니다. 나라 기본 정보는 여행 전에 한 번 더 확인하세요.</p>
       <p>트립베리의 정보는 참고용입니다. 여행 전에는 꼭 <a href={MOFA_URL} target="_blank" rel="noopener">외교부 해외안전여행</a>과 현지 정부·항공사 공지를 확인하세요.</p>
       <p class="foot-links"><a href="/about/">트립베리 소개</a> · <a href="/privacy/">개인정보처리방침</a> · <a href="/credits/">사진 출처</a> · <a href="/prep/">여행 준비 (제휴 안내)</a> · <a href="https://blog.naver.com/modelkok" target="_blank" rel="noopener">트립베리 네이버 블로그</a></p>
-      <p class="copy">© {new Date().getFullYear()} {SITE_NAME}</p>
+      <p class="copy">©{new Date().getFullYear()} {SITE_NAME}</p>
     </div>
   </footer>
   <script>
@@ -197,13 +197,13 @@ const isOn = (href) => (href === '/' ? path === '/' : path.startsWith(href) || (
       if (!regs.length && !dists.length && !fests.length && !places.length) return null;
       const g = el('div', 'sgrp');
       const head = el('a', 'shead', '', '/domestic/');
-      head.append(el('span', 'skr', '🇰🇷'), el('b', '', '국내여행'), el('span', 'sgo', '국내여행 홈 →'));
+      head.append(el('span', 'skr', ''), el('b', '', '국내여행'), el('span', 'sgo', '국내여행 홈 →'));
       g.append(head);
       const list = el('div', 'slinks');
-      for (const r of regs) list.append(el('a', 'sl', `🗺️ ${r[1]} 여행 · 가볼 만한 곳·축제·날씨`, `/domestic/${r[0]}/`));
-      for (const d of dists) list.append(el('a', 'sl', `📍 ${d[2]} ${d[0]} 가볼 만한 곳`, `/domestic/${d[1]}/?d=${encodeURIComponent(d[0])}#places`));
-      for (const f of fests) list.append(el('a', 'sl', `🎉 ${f[1]} · ${fmtMD(f[4])}~${fmtMD(f[5])} ${f[2]}`, `/domestic/festival/${f[0]}/`));
-      for (const p of places) list.append(el('a', 'sl', `🏞️ ${p[1]} · ${p[4]} ${p[2]} ${p[3]}`, `/domestic/place/${p[0]}/`));
+      for (const r of regs) list.append(el('a', 'sl', `${r[1]} 여행 · 가볼 만한 곳·축제·날씨`, `/domestic/${r[0]}/`));
+      for (const d of dists) list.append(el('a', 'sl', `${d[2]} ${d[0]} 가볼 만한 곳`, `/domestic/${d[1]}/?d=${encodeURIComponent(d[0])}#places`));
+      for (const f of fests) list.append(el('a', 'sl', `${f[1]} · ${fmtMD(f[4])}~${fmtMD(f[5])} ${f[2]}`, `/domestic/festival/${f[0]}/`));
+      for (const p of places) list.append(el('a', 'sl', `${p[1]} · ${p[4]} ${p[2]} ${p[3]}`, `/domestic/place/${p[0]}/`));
       g.append(list);
       return g;
     }
@@ -258,16 +258,16 @@ const isOn = (href) => (href === '/' ? path === '/' : path.startsWith(href) || (
         const list = el('div', 'slinks');
         // 나라 이름이 맞으면 그 나라 도시 전부, 도시만 맞으면 그 도시 먼저
         const cities = cHit ? [...cityHits, ...c.c.filter((x) => !cityHits.includes(x))] : cityHits;
-        for (const x of cities.filter((x) => x.g)) list.append(el('a', 'sl', `📖 ${x.k} 여행가이드`, `/guide/${x.s}/`));
+        for (const x of cities.filter((x) => x.g)) list.append(el('a', 'sl', `${x.k} 여행가이드`, `/guide/${x.s}/`));
         const wc = cities.filter((x) => x.w).slice(0, 6);
         if (wc.length) {
           const row = el('span', 'sl wrow');
-          row.append(el('span', '', '🌤️ 날씨 '));
+          row.append(el('span', '', '날씨 '));
           wc.forEach((x, i) => { if (i) row.append(document.createTextNode(' · ')); row.append(el('a', '', x.k, `/weather/${x.s}/`)); });
           list.append(row);
         }
-        list.append(el('a', 'sl', `🛡️ 안전 정보${c.a ? ` (${c.a})` : ''}`, `/country/${c.s}/safety/`));
-        list.append(el('a', 'sl', `💱 환율·긴급번호${c.r ? ` (${c.r})` : ''}`, `/country/${c.s}/info/`));
+        list.append(el('a', 'sl', `안전 정보${c.a ? ` (${c.a})` : ''}`, `/country/${c.s}/safety/`));
+        list.append(el('a', 'sl', `환율·긴급번호${c.r ? ` (${c.r})` : ''}`, `/country/${c.s}/info/`));
         g.append(list);
         res.append(g);
       }
@@ -335,7 +335,6 @@ const isOn = (href) => (href === '/' ? path === '/' : path.startsWith(href) || (
   <script is:inline>
     // PC 에서는 제목 앞 이모티콘을 빼서 깔끔하게 (폰은 그대로)
     (function () {
-      if (!matchMedia('(min-width: 1024px)').matches) return;
       if (document.querySelector('[data-keep-emoji]')) return; // 여행가이드처럼 칸 구분이 필요한 곳은 그대로 둠
       var re = /^\s*(?:\p{Extended_Pictographic}|\p{Regional_Indicator}|[\u200d\ufe0f\u20e3])+\s*/u;
       document.querySelectorAll('main h1, main h2, main h3, .tools b').forEach(function (h) {
@@ -350,15 +349,15 @@ const isOn = (href) => (href === '/' ? path === '/' : path.startsWith(href) || (
 
 <style is:global>
   :root {
-    --ink: #2E2420;
-    --sub: #7A665B;
-    --line: #F0E2D8;
-    --bg: #FFF6EF;
+    --ink: #0f2233;
+    --sub: #566877;
+    --line: #d9e1e6;
+    --bg: #f2f6f9;
     --card: #fff;
     --navy: #12324a;
-    --sea: #C85E30;
-    --coral: #E8794A;
-    --apricot: #FFE3D1;
+    --sea: #d4470f;
+    --coral: #ef6a2a;
+    --apricot: #fde7dc;
     --red: #d6383a;
     --orange: #e8822a;
     --yellow: #d9a514;
@@ -387,13 +386,13 @@ const isOn = (href) => (href === '/' ? path === '/' : path.startsWith(href) || (
   .logo-img { width: 30px; height: 30px; flex: none; align-self: center; }
   .logo small { font-weight: 500; font-size: 12px; color: var(--sub); }
   .top nav { display: flex; justify-content: center; gap: 4px; }
-  .top nav a { position: relative; display: inline-flex; align-items: center; gap: 6px; text-decoration: none; font-size: 16px; font-weight: 700; color: #4A3A32; padding: 10px 12px; border-radius: 10px; white-space: nowrap; }
-  .top nav a .ico { color: #C9A897; }
-  .top nav a:hover { background: #FFF0E6; color: var(--sea); }
+  .top nav a { position: relative; display: inline-flex; align-items: center; gap: 6px; text-decoration: none; font-size: 16px; font-weight: 700; color: #243c4e; padding: 10px 12px; border-radius: 10px; white-space: nowrap; }
+  .top nav a .ico { color: #9fb0bc; }
+  .top nav a:hover { background: #f2f6f9; color: var(--sea); }
   .top nav a:hover .ico, .top nav a.on .ico { color: var(--sea); }
   .top nav a.on { color: var(--sea); }
   .top nav a.on::after { content: ''; position: absolute; left: 12px; right: 12px; bottom: -3px; height: 3px; border-radius: 3px; background: var(--sea); }
-  .sbtn { display: inline-flex; align-items: center; gap: 6px; font: inherit; font-weight: 700; font-size: 15px; color: #4A3A32; background: #FFF0E6; border: 1px solid var(--line); border-radius: 999px; padding: 8px 14px; cursor: pointer; }
+  .sbtn { display: inline-flex; align-items: center; gap: 6px; font: inherit; font-weight: 700; font-size: 15px; color: #243c4e; background: #f2f6f9; border: 1px solid var(--line); border-radius: 999px; padding: 8px 14px; cursor: pointer; }
   .sbtn:hover { border-color: var(--sea); color: var(--sea); }
   .snone { display: flex; flex-direction: column; gap: 8px; padding: 4px 2px; }
   .snone .shint { margin: 0; }
@@ -406,11 +405,11 @@ const isOn = (href) => (href === '/' ? path === '/' : path.startsWith(href) || (
   .mytrip { background: #fff; }
   .mytrip.on { border-color: var(--sea); color: var(--sea); }
   .tact { display: flex; align-items: center; gap: 6px; }
-  .ibtn { display: grid; place-items: center; width: 40px; height: 40px; border-radius: 50%; border: 1px solid var(--line); background: #fff; color: #4A3A32; cursor: pointer; }
+  .ibtn { display: grid; place-items: center; width: 40px; height: 40px; border-radius: 50%; border: 1px solid var(--line); background: #fff; color: #243c4e; cursor: pointer; }
   .ibtn:hover { border-color: var(--sea); color: var(--sea); }
   .toast { position: fixed; left: 50%; bottom: 90px; transform: translateX(-50%); z-index: 60; background: rgba(46,36,32,.92); color: #fff; font-size: 14px; font-weight: 600; padding: 10px 16px; border-radius: 999px; pointer-events: none; }
 
-  .sbox-wrap { position: fixed; inset: 0; z-index: 50; background: rgba(60,35,20,.45); display: flex; justify-content: center; align-items: flex-start; padding: 70px 14px 14px; }
+  .sbox-wrap { position: fixed; inset: 0; z-index: 50; background: rgba(10,22,34,.45); display: flex; justify-content: center; align-items: flex-start; padding: 70px 14px 14px; }
   .sbox-wrap[hidden] { display: none; }
   .sbox-in { width: 100%; max-width: 640px; background: #fff; border-radius: 18px; box-shadow: 0 20px 60px rgba(0,0,0,.25); overflow: hidden; display: flex; flex-direction: column; max-height: calc(100vh - 90px); }
   .sbar { display: flex; align-items: center; gap: 10px; padding: 12px 14px; border-bottom: 1px solid var(--line); color: var(--sub); }
@@ -421,12 +420,12 @@ const isOn = (href) => (href === '/' ? path === '/' : path.startsWith(href) || (
   .sres { overflow-y: auto; padding: 8px 10px 14px; }
   .shint { color: var(--sub); padding: 14px 6px; margin: 0; }
   .sgrp { border: 1px solid var(--line); border-radius: 14px; margin: 8px 0; overflow: hidden; }
-  .shead { display: flex; align-items: center; gap: 10px; padding: 12px 14px; background: #FFF4EC; text-decoration: none; font-size: 17px; }
+  .shead { display: flex; align-items: center; gap: 10px; padding: 12px 14px; background: #f2f6f9; text-decoration: none; font-size: 17px; }
   .shead:hover { background: #FFEBDF; }
   .sgo { margin-left: auto; font-size: 13px; font-weight: 700; color: var(--sea); }
   .slinks { display: flex; flex-direction: column; padding: 6px 8px 10px; }
   .sl { display: block; text-decoration: none; padding: 7px 8px; border-radius: 8px; font-size: 15px; }
-  a.sl:hover { background: #FFF0E6; }
+  a.sl:hover { background: #f2f6f9; }
   .wrow a { color: var(--sea); text-decoration: none; font-weight: 600; }
   .skr { font-size: 20px; line-height: 1; }
   body.noscroll { overflow: hidden; }
@@ -446,7 +445,7 @@ const isOn = (href) => (href === '/' ? path === '/' : path.startsWith(href) || (
   @media (max-width: 1023px) {
     .top nav a .ico, .top nav a .hx { display: none; }
     .top nav a { font-size: 15px; padding: 10px 8px; }
-    .top nav a.hot { padding: 6px 12px; border: 1.5px solid var(--coral); border-radius: 999px; background: #FFF4EC; color: var(--sea); font-weight: 800; }
+    .top nav a.hot { padding: 6px 12px; border: 1.5px solid var(--coral); border-radius: 999px; background: #f2f6f9; color: var(--sea); font-weight: 800; }
     .top nav a.hot.on::after { display: none; }
     .sbtn span { display: none; }
   }
@@ -461,7 +460,7 @@ const isOn = (href) => (href === '/' ? path === '/' : path.startsWith(href) || (
     .top nav { justify-content: space-around; gap: 2px; overflow-x: auto; scrollbar-width: none; padding: 0; }
     .top nav.ovf { -webkit-mask-image: linear-gradient(90deg, #000 85%, transparent); mask-image: linear-gradient(90deg, #000 85%, transparent); padding-right: 18px; }
     .top nav::-webkit-scrollbar { display: none; }
-    .top nav a { flex: none; font-size: 15px; font-weight: 600; letter-spacing: 0; color: #7A665B; padding: 8px 6px; border-radius: 8px; }
+    .top nav a { flex: none; font-size: 15px; font-weight: 600; letter-spacing: 0; color: #566877; padding: 8px 6px; border-radius: 8px; }
     .top nav a .ico { display: none; }
     .top nav a.on { color: var(--ink); font-weight: 800; }
     .top nav a.on::after { left: 6px; right: 6px; bottom: 2px; height: 2.5px; background: var(--coral); }
@@ -486,21 +485,20 @@ const isOn = (href) => (href === '/' ? path === '/' : path.startsWith(href) || (
     .tabbar .ico { color: #B8A196; }
     .tabbar .on, .tabbar button[aria-expanded='true'] { color: var(--sea); font-weight: 800; }
     .tabbar .on .ico, .tabbar button[aria-expanded='true'] .ico { color: var(--sea); }
-    .msheet:not([hidden]) { display: flex; position: fixed; inset: 0; z-index: 39; background: rgba(60,35,20,.4); align-items: flex-end; }
-    .msheet-in { width: 100%; max-height: 82vh; overflow-y: auto; background: #FFFBF8; border-radius: 22px 22px 0 0; padding: 14px 16px calc(78px + env(safe-area-inset-bottom)); box-shadow: 0 -10px 40px rgba(0,0,0,.15); animation: mup .2s ease-out; }
+    .msheet:not([hidden]) { display: flex; position: fixed; inset: 0; z-index: 39; background: rgba(10,22,34,.4); align-items: flex-end; }
+    .msheet-in { width: 100%; max-height: 82vh; overflow-y: auto; background: #f2f6f9; border-radius: 22px 22px 0 0; padding: 14px 16px calc(78px + env(safe-area-inset-bottom)); box-shadow: 0 -10px 40px rgba(0,0,0,.15); animation: mup .2s ease-out; }
     @keyframes mup { from { transform: translateY(30px); opacity: .6; } to { transform: none; opacity: 1; } }
     .mhead { display: flex; align-items: center; justify-content: space-between; margin: 0 0 12px; }
     .mhead b { font-size: 18px; }
     .mhead button { background: none; border: 0; color: var(--sub); padding: 4px; cursor: pointer; }
-    .mprep { display: grid; grid-template-columns: auto 1fr; grid-template-rows: auto auto; column-gap: 12px; align-items: center; text-decoration: none; color: #fff; background: linear-gradient(135deg, var(--coral), var(--sea)); border-radius: 16px; padding: 14px 16px; margin-bottom: 8px; }
-    .mprep span { grid-row: 1 / 3; font-size: 26px; }
-    .mprep b { font-size: 16.5px; }
-    .mprep small { font-size: 12.5px; opacity: .92; }
+    .mprep { display: block; text-decoration: none; color: #fff; background: var(--coral); padding: 14px 16px; margin-bottom: 8px; }
+    .mprep b { display: block; font-size: 16.5px; }
+    .mprep small { display: block; font-size: 12.5px; opacity: .92; }
     .mgrp p { margin: 16px 2px 8px; font-size: 13px; font-weight: 800; color: var(--sub); }
     .mlist { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 8px; }
-    .mlist a { display: flex; flex-direction: column; align-items: center; gap: 4px; text-decoration: none; background: #fff; border: 1px solid var(--line); border-radius: 14px; padding: 12px 4px; font-size: 13.5px; font-weight: 700; color: var(--ink); text-align: center; }
+    .mlist a { display: flex; flex-direction: column; align-items: center; justify-content: center; min-height: 52px; gap: 4px; text-decoration: none; background: #fff; border: 1px solid var(--line); border-radius: 14px; padding: 12px 4px; font-size: 13.5px; font-weight: 700; color: var(--ink); text-align: center; }
     .mlist a i { font-style: normal; font-size: 22px; line-height: 1; }
-    .mlist a.on { border-color: var(--sea); color: var(--sea); background: #FFF4EC; }
+    .mlist a.on { border-color: var(--sea); color: var(--sea); background: #f2f6f9; }
     .mfoot { margin: 18px 2px 0; font-size: 12.5px; color: var(--sub); }
     .mfoot a { color: var(--sub); }
     .toast { bottom: calc(80px + env(safe-area-inset-bottom)); }
@@ -524,7 +522,7 @@ const isOn = (href) => (href === '/' ? path === '/' : path.startsWith(href) || (
     .top nav a.on { color: var(--ink); font-weight: 800; }
     .top nav a.on::after { bottom: -11px; height: 2px; left: 10px; right: 10px; background: var(--ink); }
     /* 여행 준비 — 수익 메뉴라 버튼 모양으로 */
-    .top nav a.hot { margin-left: 6px; padding: 7px 16px; border: 1.5px solid var(--coral); border-radius: 999px; background: #FFF4EC; color: var(--sea); font-weight: 800; }
+    .top nav a.hot { margin-left: 6px; padding: 7px 16px; border: 1.5px solid var(--coral); border-radius: 999px; background: #f2f6f9; color: var(--sea); font-weight: 800; }
     .top nav a.hot:hover { background: var(--coral); color: #fff; }
     .top nav a.hot.on { background: var(--sea); border-color: var(--sea); color: #fff; }
     .top nav a.hot.on::after { display: none; }
@@ -561,14 +559,14 @@ const isOn = (href) => (href === '/' ? path === '/' : path.startsWith(href) || (
   .qlist { list-style: none; margin: 0; padding: 0; background: var(--card); border: 1px solid var(--line); border-radius: var(--radius); overflow: hidden; }
   .qlist li + li { border-top: 1px solid var(--line); }
   .qrow { display: flex; gap: 12px; align-items: center; padding: 12px 14px; text-decoration: none; }
-  a.qrow:hover { background: #FFF3EB; }
+  a.qrow:hover { background: #f2f6f9; }
   .qrow .t { font-weight: 650; line-height: 1.4; }
   .qrow .s { font-size: 13px; color: var(--sub); }
-  .qrow .tag { font-size: 11px; font-weight: 700; color: var(--sea); background: #FFE9DC; padding: 1px 6px; border-radius: 6px; margin-left: 4px; }
+  .qrow .tag { font-size: 11px; font-weight: 700; color: var(--sea); background: #fde7dc; padding: 1px 6px; border-radius: 6px; margin-left: 4px; }
   .empty { padding: 22px; text-align: center; color: var(--sub); }
 
   .btn { display: inline-flex; align-items: center; gap: 6px; background: var(--sea); color: #fff; text-decoration: none; font-weight: 700; padding: 10px 14px; border-radius: 10px; font-size: 15px; }
-  .btn.ghost { background: #fff; color: var(--sea); border: 1px solid #F2CDB6; }
+  .btn.ghost { background: #fff; color: var(--sea); border: 1px solid #d9e1e6; }
   .btn.coral { background: var(--coral); }
 
   .note { background: #fff8e6; border: 1px solid #f1dfa9; border-radius: 12px; padding: 12px 14px; font-size: 14px; color: #6b5310; }

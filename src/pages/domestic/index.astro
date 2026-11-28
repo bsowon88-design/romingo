@@ -17,8 +17,8 @@ const regions = KR_REGIONS.map((r) => {
 const m = +new Intl.DateTimeFormat('en-US', { timeZone: 'Asia/Seoul', month: 'numeric' }).format(new Date());
 const SEASON = m >= 6 && m <= 8 ? ['sea', 'valley', 'forest'] : m >= 9 && m <= 11 ? ['mountain', 'forest', 'history'] : m >= 3 && m <= 5 ? ['forest', 'walk', 'history'] : ['fun', 'view', 'culture'];
 const SEASON_TITLE = {
-  sea: '🏖️ 바다·섬', valley: '💦 계곡·폭포', forest: '🌲 숲·수목원', mountain: '⛰️ 산·국립공원', history: '🏯 역사·한옥',
-  view: '🌉 전망대·다리', fun: '🎡 테마파크·체험', culture: '🖼️ 박물관·미술관', walk: '🚶 거리·마을·걷기 길',
+  sea: '바다·섬', valley: '계곡·폭포', forest: '숲·수목원', mountain: '산·국립공원', history: '역사·한옥',
+  view: '전망대·다리', fun: '테마파크·체험', culture: '박물관·미술관', walk: '거리·마을·걷기 길',
 };
 // 전국에서 고르게 — 지역마다 1곳씩 돌아가며
 function spread(th, n = 8) {
@@ -36,18 +36,18 @@ const rows = SEASON.map((th) => [th, SEASON_TITLE[th], spread(th)]);
     <h1>국내여행</h1>
     <p class="lead">이번 주말 전국 축제 · 지역별 가볼 만한 곳 · 주말 날씨</p>
     <div class="kchips kq">
-      <a href="#regions">🗺️ 지역별 여행</a>
-      <a href="#weekend">🎉 이번 주말 축제</a>
-      <a href="#weekend-wx">🌤️ 주말 날씨</a>
-      <a href="/domestic/festival/">📅 축제 달력</a>
+      <a href="#regions">지역별 여행</a>
+      <a href="#weekend">이번 주말 축제</a>
+      <a href="#weekend-wx">주말 날씨</a>
+      <a href="/domestic/festival/">축제 달력</a>
     </div>
   </section>
 
   {!KR_READY ? (
-    <p class="kempty">⏳ 국내 여행 자료 수집 중 · 하루 안에 표시됩니다.</p>
+    <p class="kempty">국내 여행 자료 수집 중 · 하루 안에 표시됩니다.</p>
   ) : (
     <>
-      <h2 id="regions">🗺️ 지역별 여행</h2>
+      <h2 id="regions">지역별 여행</h2>
       <div class="kregions">
         {regions.map(({ r, img, n }) => (
           <a class="kreg" href={`/domestic/${r.slug}/`}>
@@ -65,7 +65,7 @@ const rows = SEASON.map((th) => [th, SEASON_TITLE[th], spread(th)]);
       ))}
 
       <div class="khead" id="weekend">
-        <h2>🎉 이번 주말 축제 <small>{fmtDW(WEEKEND[0])} ~ {fmtDW(WEEKEND[1])}</small></h2>
+        <h2>이번 주말 축제 <small>{fmtDW(WEEKEND[0])} ~ {fmtDW(WEEKEND[1])}</small></h2>
         <a class="kmore" href="/domestic/festival/">축제 달력 →</a>
       </div>
       {(weekend.length ? weekend : nowList).length ? (
@@ -75,7 +75,7 @@ const rows = SEASON.map((th) => [th, SEASON_TITLE[th], spread(th)]);
       )}
 
       <section id="weekend-wx" class="wkx">
-        <h2>🌤️ 이번 주말 날씨 <small>{fmtDW(WEEKEND[0])} · {fmtDW(WEEKEND[1])}</small></h2>
+        <h2>이번 주말 날씨 <small>{fmtDW(WEEKEND[0])} · {fmtDW(WEEKEND[1])}</small></h2>
         <div class="wkgrid" data-wk={WEEKEND.join(',')}>
           {KR_REGIONS.map((r) => (
             <a class="wk" href={`/domestic/${r.slug}/#wx`} data-k={`kr-${r.slug}`}>
@@ -128,7 +128,7 @@ const rows = SEASON.map((th) => [th, SEASON_TITLE[th], spread(th)]);
         if (!any) throw new Error('none');
       })
       .catch(() => {
-        grid.closest('section')?.querySelector('.wknote')?.replaceChildren(document.createTextNode('⏳ 주말 예보 준비 중 · 몇 시간 안에 표시됩니다.'));
+        grid.closest('section')?.querySelector('.wknote')?.replaceChildren(document.createTextNode('주말 예보 준비 중 · 몇 시간 안에 표시됩니다.'));
         grid.querySelectorAll('.wd').forEach((s) => (s.textContent = '–'));
       });
   }

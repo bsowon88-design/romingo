@@ -65,7 +65,7 @@ const rows = [
 
   {d.o && (
     <section class="fabout">
-      <h2>📝 축제 소개</h2>
+      <h2>축제 소개</h2>
       {d.o.split('\n').map((p) => <p>{p}</p>)}
     </section>
   )}
@@ -74,7 +74,7 @@ const rows = [
 
   {near.length > 0 && (
     <>
-      <h2>📍 근처 가볼 만한 곳 <small>축제장에서 가까운 순</small></h2>
+      <h2>근처 가볼 만한 곳 <small>축제장에서 가까운 순</small></h2>
       <div class="kgrid f4">{near.map(({ p, d }) => <PlaceCard p={p} d={d} />)}</div>
     </>
   )}
@@ -82,7 +82,7 @@ const rows = [
   {others.length > 0 && (
     <>
       <div class="khead">
-        <h2>🎉 {f.region.ko}의 다른 축제</h2>
+        <h2>{f.region.ko}의 다른 축제</h2>
         <a class="kmore" href={`/domestic/festival/?w=all&r=${f.region.slug}`}>더 보기 →</a>
       </div>
       <div class="fmini">{others.map((x) => <FestCard f={x} mini />)}</div>
@@ -97,12 +97,12 @@ const rows = [
 <style>
   .fhead h1 { margin: 6px 0 4px; }
   .fhead .lead a { color: var(--sea); text-decoration: none; font-weight: 700; }
-  .fst { display: inline-block; font-size: 12.5px; font-weight: 800; padding: 3px 10px; border-radius: 999px; background: #FFE9DC; color: var(--sea); }
+  .fst { display: inline-block; font-size: 12.5px; font-weight: 800; padding: 3px 10px; border-radius: 999px; background: #fde7dc; color: var(--sea); }
   .fst.now { background: var(--sea); color: #fff; }
   .fst.end { background: #EEE6E0; color: var(--sub); }
   .ftop { display: grid; grid-template-columns: minmax(0, 1.25fr) minmax(0, 1fr); gap: 22px; margin-top: 18px; align-items: start; }
-  .fph { margin: 0; background: #F6E6DA; border-radius: 18px; overflow: hidden; }
-  .fph img { width: 100%; height: auto; max-height: 520px; object-fit: contain; display: block; background: #F6E6DA; }
+  .fph { margin: 0; background: #d9e1e6; border-radius: 18px; overflow: hidden; }
+  .fph img { width: 100%; height: auto; max-height: 520px; object-fit: contain; display: block; background: #d9e1e6; }
   .fph figcaption { font-size: 12px; color: var(--sub); padding: 6px 12px; background: #fff; }
   .finfo { background: #fff; border: 1px solid var(--line); border-radius: 18px; padding: 18px 20px; }
   dl { display: grid; grid-template-columns: 52px 1fr; gap: 9px 12px; margin: 0; font-size: 15px; }

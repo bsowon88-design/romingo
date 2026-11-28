@@ -50,9 +50,9 @@ const title = `${city.ko} 여행가이드 - 숙소 위치·공항 이동·추천
   </section>
 
   <nav class="toc">
-    {spots.length > 0 && <a href="#spots">📸 인기 관광지</a>}
-    {VIDEOS[city.slug] && <a href="#video">🎬 홍보영상</a>}<a href="#forecast">🌤️ 날씨 예보</a><a href="#city-safety">🛡️ 안전 현황</a><a href="#areas">🏨 숙소 위치</a><a href="#airport">✈️ 공항 이동</a><a href="#move">🚇 시내 교통</a>
-    <a href="#plan">🗓️ 추천 일정</a><a href="#money">💵 돈·결제</a><a href="#caution">⚠️ 주의할 점</a>
+    {spots.length > 0 && <a href="#spots">인기 관광지</a>}
+    {VIDEOS[city.slug] && <a href="#video">홍보영상</a>}<a href="#forecast">날씨 예보</a><a href="#city-safety">안전 현황</a><a href="#areas">숙소 위치</a><a href="#airport">공항 이동</a><a href="#move">시내 교통</a>
+    <a href="#plan">추천 일정</a><a href="#money">돈·결제</a><a href="#caution">주의할 점</a>
   </nav>
 
   <div class="quick">
@@ -65,7 +65,7 @@ const title = `${city.ko} 여행가이드 - 숙소 위치·공항 이동·추천
 
   {spots.length > 0 && (
     <>
-      <h2 id="spots">📸 {city.ko} 인기 관광지</h2>
+      <h2 id="spots">{city.ko} 인기 관광지</h2>
       {spotItems.some((x) => x.ph) ? (
         <PhotoSlider items={spotItems} label={`${city.ko} 인기 관광지`} />
       ) : (
@@ -79,16 +79,16 @@ const title = `${city.ko} 여행가이드 - 숙소 위치·공항 이동·추천
   <CityVideo city={city} />
   {ytOf(city.slug).length > 0 && (
     <section class="ytsec" id="vlog">
-      <h2>📺 한국 유튜버 {city.ko} 여행 영상</h2>
+      <h2>한국 유튜버 {city.ko} 여행 영상</h2>
       <YtCards list={ytOf(city.slug).slice(0, 4)} />
       {ytOf(city.slug).length > 4 && <a class="ytmore" href={`/videos/${city.slug}/`}>영상 {ytOf(city.slug).length}개 모두 보기 →</a>}
     </section>
   )}
   <Forecast city={city} />
   <CitySafety city={city} />
-  <a class="addtrip" href={`/my/?add=${city.slug}`}>🧳 {city.ko} 여행을 나의 여행에 추가</a>
+  <a class="addtrip" href={`/my/?add=${city.slug}`}>{city.ko} 여행을 나의 여행에 추가</a>
 
-  <h2 id="areas">🏨 숙소 잡기 좋은 곳</h2>
+  <h2 id="areas">숙소 잡기 좋은 곳</h2>
   <div class="areas">
     {g.areas.map((a) => <div class="card"><b>{a.name}</b><p>{a.why}</p></div>)}
   </div>
@@ -96,27 +96,27 @@ const title = `${city.ko} 여행가이드 - 숙소 위치·공항 이동·추천
     urls={{ ...(agodaCity(city.slug) ? { agoda: agodaCity(city.slug) } : {}), ...(hcCity(city.slug) ? { hotelscombined: hcCity(city.slug) } : {}) }}
     extra={rakutenCity(city.slug) ? [{ id: 'rakuten', name: '라쿠텐 트래블', best: '일본 호텔부터 온천 료칸까지 한곳에서', url: rakutenCity(city.slug), extra: true }] : []} />
 
-  <h2 id="airport">✈️ 공항에서 시내 가기</h2>
+  <h2 id="airport">공항에서 시내 가기</h2>
   <ul class="card list">{g.airport.map((x) => <li>{x}</li>)}</ul>
   <a class="agoda" href={ttangSearch(city.ko)} target="_blank" rel="sponsored nofollow noopener">
-    <span>✈️</span><b>땡처리닷컴에서 {city.ko} 특가 항공·패키지 보기</b><small>출발이 가까운 마감 특가</small><em>광고</em><i>↗</i>
+    <b>땡처리닷컴에서 {city.ko} 특가 항공·패키지 보기</b><small>출발이 가까운 마감 특가</small><em>광고</em><i>↗</i>
   </a>
 
-  <h2 id="move">🚇 시내 교통</h2>
+  <h2 id="move">시내 교통</h2>
   <ul class="card list">{g.transport.map((x) => <li>{x}</li>)}</ul>
   {city.country === 'japan' && <PrepLinks cat="car" country="japan" title="일본 렌터카" />}
 
-  <h2 id="plan">🗓️ 추천 일정</h2>
+  <h2 id="plan">추천 일정</h2>
   <ol class="plan">
     {g.itinerary.map((d) => <li class="card"><b>{d.day}</b><span>{d.plan}</span></li>)}
   </ol>
 
-  <h2 id="money">💵 돈·결제·인터넷</h2>
+  <h2 id="money">돈·결제·인터넷</h2>
   <ul class="card list">{[...g.money, ...g.sim].map((x) => <li>{x}</li>)}</ul>
   <PrepLinks cat="data" country={city.country} title={`${city.ko} 데이터 준비 (eSIM·유심)`} />
   <CoupangChips keys={cpFor(city.slug, city.country)} title={`${city.ko} 여행 전 챙겨 보세요`} />
 
-  <h2 id="caution">⚠️ 주의할 점</h2>
+  <h2 id="caution">주의할 점</h2>
   <ul class="card list warn">{g.caution.map((x) => <li>{x}</li>)}</ul>
 
   <p class="muted" style="margin-top:22px">마지막 확인 {g.updated} · 교통·요금·운영 시간은 수시로 변경될 수 있습니다. 출발 전에 공식 안내를 한 번 더 확인하세요.</p>
@@ -128,15 +128,15 @@ const title = `${city.ko} 여행가이드 - 숙소 위치·공항 이동·추천
   .ghero .eyebrow { margin: 0; font-weight: 700; opacity: .9; }
   .ghero h1 { margin: 2px 0 6px; font-size: 30px; text-shadow: 0 1px 2px rgba(0,0,0,.15); }
   .ghero p { margin: 0; line-height: 1.6; }
-  .addtrip { display: inline-block; margin-top: 12px; text-decoration: none; font-weight: 700; color: var(--sea); background: #FFF0E6; border: 1px solid #F6D9C7; border-radius: 999px; padding: 8px 14px; }
+  .addtrip { display: inline-block; margin-top: 12px; text-decoration: none; font-weight: 700; color: var(--sea); background: #f2f6f9; border: 1px solid #d9e1e6; border-radius: 999px; padding: 8px 14px; }
   .toc { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 14px; }
   .toc a { text-decoration: none; background: #fff; border: 1px solid var(--line); border-radius: 999px; padding: 6px 12px; font-size: 13.5px; font-weight: 600; }
   .ytmore { display: inline-block; margin-top: 12px; color: var(--sea); font-weight: 700; text-decoration: none; }
   .quick { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 10px; margin-top: 14px; }
-  .q { display: flex; flex-direction: column; text-decoration: none; background: #FFF8F3; border: 1px solid #F6D9C7; border-radius: 14px; padding: 12px 14px; }
+  .q { display: flex; flex-direction: column; text-decoration: none; background: #f2f6f9; border: 1px solid #d9e1e6; border-radius: 14px; padding: 12px 14px; }
   .q span { font-size: 12.5px; color: var(--sub); font-weight: 600; }
   .q b { color: var(--sea); }
-  .agoda { display: flex; align-items: center; gap: 10px; margin: 16px 0 -6px; padding: 12px 14px; border: 1px solid #F3D7C6; border-radius: 14px; background: #fff; text-decoration: none; color: var(--ink); }
+  .agoda { display: flex; align-items: center; gap: 10px; margin: 16px 0 -6px; padding: 12px 14px; border: 1px solid #d9e1e6; border-radius: 14px; background: #fff; text-decoration: none; color: var(--ink); }
   .agoda:hover { border-color: var(--coral); }
   .agoda span { font-size: 22px; }
   .agoda b { font-size: 15.5px; }
@@ -150,7 +150,7 @@ const title = `${city.ko} 여행가이드 - 숙소 위치·공항 이동·추천
   .areas p { margin: 4px 0 0; color: var(--sub); font-size: 14.5px; }
   .list { margin: 0; padding-left: 34px; }
   .list li { margin: 5px 0; }
-  .warn { background: #fffaf3; border-color: #f4dcbc; }
+  .warn { background: #f2f6f9; border-color: #f4dcbc; }
   .plan { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 8px; }
   .plan li { display: flex; gap: 14px; align-items: baseline; }
   .plan b { color: var(--sea); min-width: 46px; }

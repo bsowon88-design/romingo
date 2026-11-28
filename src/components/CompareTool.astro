@@ -160,9 +160,9 @@ const rest = PAIRS.slice(8);
     t.append(row('더 보기', slugs.map((s, i) => {
       const f = el('div', 'lk');
       const add = (h: string, x: string) => { const a = el('a', '', x); a.href = h; f.append(a); };
-      if (cs[i].g) add(`/guide/${s}/`, '📖 가이드');
-      add(`/weather/${s}/${m}/`, `🌤️ ${m}월 날씨`);
-      add(`/my/?add=${s}`, '🧳 나의 여행');
+      if (cs[i].g) add(`/guide/${s}/`, '가이드');
+      add(`/weather/${s}/${m}/`, `${m}월 날씨`);
+      add(`/my/?add=${s}`, '나의 여행');
       return f;
     })));
     box.append(t);
@@ -185,21 +185,21 @@ const rest = PAIRS.slice(8);
   .pairs { display: flex; flex-wrap: wrap; align-items: center; gap: 6px; margin-top: 12px; }
   .pairs span { font-size: 13px; font-weight: 700; color: var(--sub); margin-right: 4px; }
   .pairs a { text-decoration: none; font-size: 13.5px; font-weight: 600; background: #fff; border: 1px solid var(--line); border-radius: 999px; padding: 6px 12px; }
-  .pairs a.on { border-color: var(--coral); color: var(--sea); background: #FFF0E6; }
+  .pairs a.on { border-color: var(--coral); color: var(--sea); background: #f2f6f9; }
   .cmp { margin-top: 16px; }
   .cmp :global(.ctable) { width: 100%; border-collapse: separate; border-spacing: 0; background: #fff; border: 1px solid var(--line); border-radius: 16px; overflow: hidden; table-layout: fixed; }
   .cmp :global(th), .cmp :global(td) { padding: 12px 14px; border-bottom: 1px solid var(--line); text-align: left; vertical-align: top; font-size: 14.5px; }
   .cmp :global(tr:last-child th), .cmp :global(tr:last-child td) { border-bottom: 0; }
-  .cmp :global(tr > th:first-child) { width: 130px; color: var(--sub); font-size: 13px; background: #FFFAF6; }
-  .cmp :global(.ch) { background: #FFF3EA; }
-  .cmp :global(tr.same td) { background: #FFFAF6; color: var(--sub); font-size: 12.5px; font-weight: 600; padding: 8px 14px; }
+  .cmp :global(tr > th:first-child) { width: 130px; color: var(--sub); font-size: 13px; background: #f2f6f9; }
+  .cmp :global(.ch) { background: #f2f6f9; }
+  .cmp :global(tr.same td) { background: #f2f6f9; color: var(--sub); font-size: 12.5px; font-weight: 600; padding: 8px 14px; }
   .cmp :global(.ch img) { vertical-align: -3px; margin-right: 6px; border-radius: 3px; }
   .cmp :global(.ch b) { font-size: 18px; }
   .cmp :global(.ch small) { display: block; color: var(--sub); font-weight: 600; font-size: 12.5px; margin-top: 2px; }
   .cmp :global(td b) { display: block; }
   .cmp :global(td small) { display: block; color: var(--sub); font-size: 12.5px; margin-top: 3px; }
   .cmp :global(td.win) { background: #F1FAF4; }
-  .cmp :global(td.win)::after { content: '👍'; font-size: 13px; }
+  .cmp :global(td.win)::after { content: ''; font-size: 13px; }
   .cmp :global(.sc-good) { color: #1d7a4c !important; font-weight: 700; }
   .cmp :global(.sc-bad) { color: #b3452a !important; font-weight: 700; }
   .cmp :global(.bad) { color: #c0392b !important; font-weight: 700; }

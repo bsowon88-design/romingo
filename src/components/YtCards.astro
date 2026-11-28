@@ -11,7 +11,7 @@ const { list = [], cols = 4 } = Astro.props;
           <span class="yc-img">
             <img src={`https://i.ytimg.com/vi/${v.id}/mqdefault.jpg`} alt="" loading="lazy" width="320" height="180" />
             <span class="yc-d">{fmtDur(v.dur)}</span>
-            <span class="yc-p" aria-hidden="true">▶</span>
+            <span class="yc-p" aria-hidden="true"></span>
           </span>
           <span class="yc-txt">
             <span class="yc-t">{v.t}</span>
@@ -59,7 +59,7 @@ const { list = [], cols = 4 } = Astro.props;
   .yt-g { display: grid; grid-template-columns: repeat(var(--cols), 1fr); gap: 16px 14px; }
   .yc { display: flex; flex-direction: column; gap: 6px; padding: 0; border: 0; background: none; text-align: left; cursor: pointer; font: inherit; color: inherit; min-width: 0; }
   .yc[hidden] { display: none; }
-  .yc-img { position: relative; display: block; aspect-ratio: 16 / 9; border-radius: 12px; overflow: hidden; background: #2E2420; }
+  .yc-img { position: relative; display: block; aspect-ratio: 16 / 9; border-radius: 12px; overflow: hidden; background: #0f2233; }
   .yc-img img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform .4s; }
   .yc:hover .yc-img img { transform: scale(1.04); }
   .yc-d { position: absolute; right: 6px; bottom: 6px; background: rgba(0,0,0,.78); color: #fff; font-size: 11.5px; font-weight: 700; padding: 1px 6px; border-radius: 5px; }
@@ -74,7 +74,7 @@ const { list = [], cols = 4 } = Astro.props;
   .yt-in { position: relative; }
   .yt-f :global(iframe) { display: block; width: 100%; aspect-ratio: 16 / 9; border: 0; border-radius: 16px; }
   .yt-x { position: absolute; top: -44px; right: 0; width: 36px; height: 36px; border-radius: 50%; border: 0; background: rgba(255,255,255,.92); font-size: 16px; cursor: pointer; }
-  .yt-s { position: absolute; left: 0; bottom: -30px; margin: 0; font-size: 12.5px; color: #E8DAD1; }
+  .yt-s { position: absolute; left: 0; bottom: -30px; margin: 0; font-size: 12.5px; color: #d9e1e6; }
   @media (max-width: 900px) { .yt-g { grid-template-columns: repeat(2, 1fr); } }
   @media (max-width: 520px) { .yt-g { grid-template-columns: 1fr; } .yc { flex-direction: row; gap: 10px; } .yc-img { flex: 0 0 44%; } .yc-t { font-size: 14px; } .yc-m { white-space: normal; } }
 </style>

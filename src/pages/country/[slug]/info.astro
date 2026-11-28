@@ -21,7 +21,7 @@ const ck = ENTRY_CHECKED.split('-').map(Number);
   <CountryShell c={c} tab="info">
     {en && (
       <>
-        <h2>🛂 입국·비자</h2>
+        <h2>입국·비자</h2>
         <div class="ent">
           <div class={`estay ${K.cls}`}>
             <span class="ek">{K.label}</span>
@@ -31,8 +31,8 @@ const ck = ENTRY_CHECKED.split('-').map(Number);
           {en.until && (
             <p class={`ewarn ${en.expired ? 'gone' : ''}`}>
               {en.expired
-                ? `⚠️ 한시 무비자 기한(${en.until.replace(/-/g, '.')})이 지났어요. 연장됐는지 대사관 공지를 꼭 확인하세요.`
-                : `⏰ ${en.until.replace(/-/g, '.')}까지 한시적으로 무비자 입국이 가능합니다. 이후 출발한다면 연장 여부를 꼭 확인하세요.`}
+                ? `한시 무비자 기한(${en.until.replace(/-/g, '.')})이 지났어요. 연장됐는지 대사관 공지를 꼭 확인하세요.`
+                : `${en.until.replace(/-/g, '.')}까지 한시적으로 무비자 입국이 가능합니다. 이후 출발한다면 연장 여부를 꼭 확인하세요.`}
             </p>
           )}
           {en.items.length > 0 ? (
@@ -46,15 +46,15 @@ const ck = ENTRY_CHECKED.split('-').map(Number);
               ))}
             </ul>
           ) : (
-            <p class="enone">✅ 출발 전에 따로 신청할 서류가 없어요.</p>
+            <p class="enone">출발 전에 따로 신청할 서류가 없어요.</p>
           )}
-          {en.notes && en.notes.map((n) => <p class="enote">💡 {n}</p>)}
+          {en.notes && en.notes.map((n) => <p class="enote">{n}</p>)}
           <p class="esrc">한국 일반 여권 · 관광 목적 기준 · {ck[0]}년 {ck[1]}월 {ck[2]}일 확인. 규칙은 갑자기 바뀔 수 있어요. 출발 전 <a href={MOFA_URL} target="_blank" rel="noopener">외교부 해외안전여행</a>에서 한 번 더 확인하세요. 대부분 나라가 여권이 6개월 이상 남아 있기를 요구해요.</p>
         </div>
       </>
     )}
 
-    <h2>💱 통화·환율</h2>
+    <h2>통화·환율</h2>
     <div class="tiles">
       <div class={`tile ${rate ? 'rate' : ''}`}>
         <span class="tl">{c.currency}</span>
@@ -64,7 +64,7 @@ const ck = ENTRY_CHECKED.split('-').map(Number);
     </div>
     <PrepLinks cat="data" country={c.slug} title={`${c.ko} 데이터 준비 (eSIM·유심)`} />
 
-    <h2>📞 긴급 연락처</h2>
+    <h2>긴급 연락처</h2>
     <div class="tiles">
       {c.emergency.map(([n, num]) => (
         <a class="tile call" href={`tel:${num}`}><span class="tl">{n}</span><b class="num">{num}</b></a>
@@ -72,16 +72,16 @@ const ck = ENTRY_CHECKED.split('-').map(Number);
       <a class="tile call" href={`tel:${CONSULAR_CALL.replace(/-/g, '')}`}><span class="tl">영사콜센터 (24시간, 한국어)</span><b class="num">{CONSULAR_CALL}</b></a>
     </div>
 
-    <h2>🧳 기본 정보</h2>
+    <h2>기본 정보</h2>
     <div class="tiles">
-      <div class="tile"><span class="ti">🕐</span><span class="tl">시차</span><b>{tzDiffText(diff)}</b>{c.tzLabel && <small>{c.tzLabel} · 지역마다 시차가 달라요 · 서머타임 자동 반영</small>}{c.tzMore && <small class="tzm">{c.tzMore.map(([n, z]) => `${n} ${tzDiffText(tzDiff(z)).replace('한국보다 ', '')}`).join(' · ')}</small>}</div>
-      <div class="tile"><span class="ti">🔌</span><span class="tl">전압·플러그</span><b>{c.volt} · {c.plug}</b>
+      <div class="tile"><span class="ti"></span><span class="tl">시차</span><b>{tzDiffText(diff)}</b>{c.tzLabel && <small>{c.tzLabel} · 지역마다 시차가 달라요 · 서머타임 자동 반영</small>}{c.tzMore && <small class="tzm">{c.tzMore.map(([n, z]) => `${n} ${tzDiffText(tzDiff(z)).replace('한국보다 ', '')}`).join(' · ')}</small>}</div>
+      <div class="tile"><span class="ti"></span><span class="tl">전압·플러그</span><b>{c.volt} · {c.plug}</b>
         <small class={c.adapter ? 'need' : 'ok'}>{c.adapter ? '변환 어댑터 필요' : '한국 플러그 대부분 사용 가능'}</small>
         {c.adapterNote && <small>{c.adapterNote}</small>}
       </div>
-      <div class="tile"><span class="ti">🗣️</span><span class="tl">언어</span><b>{c.lang}</b></div>
-      <div class="tile"><span class="ti">🏛️</span><span class="tl">수도</span><b>{c.capital}</b></div>
-      {c.flight && <div class="tile"><span class="ti">✈️</span><span class="tl">인천에서 직항</span><b>{c.flight}</b></div>}
+      <div class="tile"><span class="ti"></span><span class="tl">언어</span><b>{c.lang}</b></div>
+      <div class="tile"><span class="ti"></span><span class="tl">수도</span><b>{c.capital}</b></div>
+      {c.flight && <div class="tile"><span class="ti"></span><span class="tl">인천에서 직항</span><b>{c.flight}</b></div>}
     </div>
     <p class="muted" style="margin-top:18px">전압·긴급번호 같은 기본 정보는 바뀔 수 있어요. 출발 전에 외교부 안내로 한 번 더 확인하세요. 환율은 은행 간 기준이라 실제 환전·카드 환율과 조금 달라요.</p>
   </CountryShell>
@@ -97,7 +97,7 @@ const ck = ENTRY_CHECKED.split('-').map(Number);
   .estay .ek { align-self: flex-start; font-size: 12px; font-weight: 800; padding: 3px 10px; border-radius: 999px; color: #fff; }
   .estay.ok { background: #F0FAF4; border-color: #CDEBD8; } .estay.ok .ek { background: #2E9E5B; }
   .estay.auth { background: #F1F5FF; border-color: #D3DEFA; } .estay.auth .ek { background: #3F6FD8; }
-  .estay.need { background: #FFF4EC; border-color: #F6D6C2; } .estay.need .ek { background: #E8743B; }
+  .estay.need { background: #f2f6f9; border-color: #F6D6C2; } .estay.need .ek { background: #E8743B; }
   .ewarn { margin: 0; padding: 12px 14px; border-radius: 12px; background: #FFF8E1; border: 1px solid #F3DE9B; font-size: 14px; font-weight: 600; }
   .ewarn.gone { background: #FDECEC; border-color: #F4B9B9; color: #B3261E; }
   .eitems { list-style: none; margin: 0; padding: 0; display: grid; gap: 10px; }

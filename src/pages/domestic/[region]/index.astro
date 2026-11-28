@@ -30,7 +30,7 @@ const top = places.slice(0, 3).map((p) => p.t.replace(/\s*\[.*?\]\s*/g, ' ').tri
     {KR_REGIONS.map((x) => <a href={`/domestic/${x.slug}/`} class:list={{ on: x.slug === r.slug }}>{x.ko}</a>)}
   </div>
 
-  <h2 id="places">📍 가볼 만한 곳 <small id="pn">{places.length}곳</small></h2>
+  <h2 id="places">가볼 만한 곳 <small id="pn">{places.length}곳</small></h2>
   <div class="kchips scroll" id="pth">
     <button type="button" data-t="" class="on">전체</button>
     {themes.map(([k, l, n]) => <button type="button" data-t={k}>{l} <small>{n}</small></button>)}
@@ -54,7 +54,7 @@ const top = places.slice(0, 3).map((p) => p.t.replace(/\s*\[.*?\]\s*/g, ' ').tri
   {fests.length > 0 && (
     <>
       <div class="khead">
-        <h2>🎉 {r.ko} 축제 <small>지금·다가오는</small></h2>
+        <h2>{r.ko} 축제 <small>지금·다가오는</small></h2>
         {fests.length > 8 && <a class="kmore" href={`/domestic/festival/?w=all&r=${r.slug}`}>{fests.length}개 모두 보기 →</a>}
       </div>
       <div class="fmini lim">{fests.slice(0, 8).map((f) => <FestCard f={f} mini />)}</div>

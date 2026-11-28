@@ -16,7 +16,7 @@ const byLevel = [4, 3, 2, 1].map((lv) => ({ lv, items: alarmList.filter((a) => a
 const adj = (adjustAll || []).slice(0, 15);
 const linkOf = (iso) => (isoSlug[iso] ? `/country/${isoSlug[iso]}/safety/` : null);
 ---
-<Base title="해외 안전 정보 - 외교부 여행경보 단계·재난 경보·지진" desc="외교부 여행경보 단계별 나라 목록, 최근 여행경보 조정 소식, 국제 재난 경보와 실시간 지진 정보를 한곳에서 확인하세요.">
+<Base blocks={true} title="해외 안전 정보 - 외교부 여행경보 단계·재난 경보·지진" desc="외교부 여행경보 단계별 나라 목록, 최근 여행경보 조정 소식, 국제 재난 경보와 실시간 지진 정보를 한곳에서 확인하세요.">
   <PageBanner name="safety">
     <p class="crumb"><a href="/">홈</a> › 안전 정보</p>
     <h1>해외 안전 정보</h1>
@@ -28,11 +28,12 @@ const linkOf = (iso) => (isoSlug[iso] ? `/country/${isoSlug[iso]}/safety/` : nul
     <a href="#alarm">여행경보 단계</a><a href="#adjust">경보 조정 소식</a><a href="#disaster">재난 경보</a><a href="#quake">실시간 지진</a><a href="/map/">안전 지도</a>
   </nav>
 
+  <section class="blk">
   <h2 id="alarm">외교부 여행경보 단계</h2>
   {HAS_ALARMS ? (
     <div class="levels">
       {byLevel.map(({ lv, items }) => items.length > 0 && (
-        <section class="card lvbox">
+        <section class={`card lvbox lv${lv}`}>
           <div class="lvh"><span class={`mchip ${ALARM_KO[lv].cls}`}>{lv}단계 {ALARM_KO[lv].label}</span><small class="muted">{ALARM_KO[lv].act}</small></div>
           <div class="ncl">
             {items.map((a) => {
@@ -50,9 +51,11 @@ const linkOf = (iso) => (isoSlug[iso] ? `/country/${isoSlug[iso]}/safety/` : nul
     <p class="card empty">여행경보 자료 수집 중</p>
   )}
   <p><a class="btn" href={MOFA_URL} target="_blank" rel="noopener">외교부 해외안전여행 ↗</a></p>
+  </section>
 
   {adj.length > 0 && (
     <>
+      <section class="blk">
       <h2 id="adjust">최근 여행경보 조정 소식</h2>
       <ul class="qlist">
         {adj.map((a) => {
@@ -61,9 +64,11 @@ const linkOf = (iso) => (isoSlug[iso] ? `/country/${isoSlug[iso]}/safety/` : nul
           return <li>{href ? <a class="qrow" href={href}>{body}</a> : <div class="qrow">{body}</div>}</li>;
         })}
       </ul>
+      </section>
     </>
   )}
 
+  <section class="blk">
   <h2 id="disaster">지금 재난 경보 <small>국제 재난경보(GDACS) 주의·위험 단계</small></h2>
   {activeDisasters.length ? (
     <div class="grid">{activeDisasters.slice(0, 6).map((d) => <DisasterCard d={d} />)}</div>
@@ -71,22 +76,29 @@ const linkOf = (iso) => (isoSlug[iso] ? `/country/${isoSlug[iso]}/safety/` : nul
     <p class="card empty">지금 주의·위험 단계의 국제 재난 경보는 없어요.</p>
   )}
   <p><a class="btn ghost" href="/disasters/">재난 경보 전체·지난 기록</a></p>
+  </section>
 
+  <section class="blk">
   <h2 id="quake">실시간 지진</h2>
   <LiveQuakes n={12} />
   <p><a class="btn ghost" href="/quakes/">큰 지진 기록 전체 보기</a></p>
+  </section>
 </Base>
 
 <style>
-  .stabs { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 14px; }
-  .stabs a { text-decoration: none; background: #fff; border: 1px solid var(--line); border-radius: 999px; padding: 7px 13px; font-size: 14px; font-weight: 600; }
+  .stabs { display: flex; flex-wrap: wrap; gap: 0; margin-top: 14px; background: #0f2233; border-top: 4px solid var(--sky); }
+  .stabs a { text-decoration: none; color: #fff; padding: 13px 20px; font-size: 15px; font-weight: 800; letter-spacing: -0.02em; border-right: 1px solid #28506e; }
+  .stabs a:hover { background: var(--emerald-d); }
   h2 { scroll-margin-top: 70px; }
-  @media (max-width: 760px) { h2 { scroll-margin-top: 140px; } }
-  .levels { display: flex; flex-direction: column; gap: 10px; }
+  @media (max-width: 760px) { h2 { scroll-margin-top: 140px; } .stabs a { padding: 11px 12px; font-size: 14px; } }
+  .levels { display: flex; flex-direction: column; gap: 12px; }
+  .lvbox { border: 1px solid var(--edge); border-left-width: 10px; padding: 14px 16px; }
+  .lvbox.lv4 { border-left-color: #1a1a1a; } .lvbox.lv3 { border-left-color: #c0392b; } .lvbox.lv2 { border-left-color: #e0a81c; } .lvbox.lv1 { border-left-color: #2f6fb3; }
   .lvh { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; margin-bottom: 10px; }
   .lvh .mchip { font-size: 14px; padding: 4px 10px; }
   .ncl { display: flex; flex-wrap: wrap; gap: 6px; }
-  .nc { display: inline-flex; align-items: center; gap: 5px; font-size: 14px; padding: 5px 10px; border-radius: 8px; background: #f2f6f9; text-decoration: none; }
+  .nc { display: inline-flex; align-items: center; gap: 5px; font-size: 14px; padding: 5px 10px; background: #f1f8fb; text-decoration: none; }
   .nc small { font-size: 11px; color: var(--sub); }
-  .nc.mine { background: #fff; border: 1.5px solid var(--sea); font-weight: 600; }
+  .nc.mine { background: #fff; border: 1px solid var(--sky); font-weight: 700; }
+  .nc.mine:hover { background: #e9f7fb; }
 </style>

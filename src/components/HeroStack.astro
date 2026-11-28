@@ -1,5 +1,5 @@
 ---
-// 홈 첫 화면 오른쪽 — 비스듬히 겹쳐 놓은 사진 3장 (많이 가는 나라 순서, Unsplash 사진 + 작가 표시)
+// 홈 첫 화면 오른쪽 — 잡지 표지처럼 직각 사진 3장 (많이 가는 나라 순서, Unsplash 사진 + 작가 표시)
 import { bySlug } from '../data/countries.js';
 import { countryPhoto } from '../data/photos.js';
 
@@ -11,11 +11,11 @@ const items = ORDER.map((s) => bySlug[s])
   .slice(0, 3);
 ---
 {items.length > 0 && (
-  <div class="stack" aria-label="인기 여행지 사진">
+  <div class="cover" aria-label="인기 여행지 사진">
     {items.map(({ c, ph }, i) => (
       <a class={`pic p${i}`} href={`/country/${c.slug}/`} style={`--c:${ph.color || '#cde'}`}>
-        <img src={ph.src(i === 0 ? 900 : 560, i === 0 ? 620 : 420)} alt={ph.alt || c.ko} loading={i === 0 ? 'eager' : 'lazy'} decoding="async" fetchpriority={i === 0 ? 'high' : 'auto'} />
-        <span class="cap">{c.ko}</span>
+        <img src={ph.src(i === 0 ? 900 : 560, i === 0 ? 700 : 400)} alt={ph.alt || c.ko} loading={i === 0 ? 'eager' : 'lazy'} decoding="async" fetchpriority={i === 0 ? 'high' : 'auto'} />
+        <span class="cap"><b>{c.ko}</b>{i === 0 && c.landmark ? <small>{c.landmark}</small> : null}</span>
         <span class="cr">Photo · {ph.name} / Unsplash</span>
       </a>
     ))}
@@ -23,21 +23,17 @@ const items = ORDER.map((s) => bySlug[s])
 )}
 
 <style>
-  .stack { position: relative; width: 100%; aspect-ratio: 1.55 / 1; }
-  .pic { position: absolute; display: block; background: #fff; padding: 7px 7px 7px; border-radius: 6px; box-shadow: 0 16px 34px rgba(20,70,110,.28), 0 2px 6px rgba(20,70,110,.18); text-decoration: none; transition: transform .25s; }
-  .pic img { display: block; width: 100%; height: 100%; object-fit: cover; border-radius: 3px; background: var(--c); }
-  .p0 { left: 0; top: 4%; width: 70%; height: 86%; transform: rotate(-3deg); z-index: 3; }
-  .p1 { right: 6%; top: 0; width: 34%; height: 54%; transform: rotate(5deg); z-index: 2; }
-  .p2 { right: 0; bottom: 0; width: 32%; height: 50%; transform: rotate(8deg); z-index: 1; }
-  .p0::before { content: ''; position: absolute; z-index: 4; top: -12px; left: 38%; width: 84px; height: 24px; background: rgba(255,255,255,.55); box-shadow: 0 1px 3px rgba(0,0,0,.12); transform: rotate(-2deg); }
-  .pic:hover { transform: rotate(0deg) scale(1.03); z-index: 5; }
-  .cap { position: absolute; left: 14px; bottom: 14px; padding: 5px 12px; border-radius: 999px; background: rgba(255,255,255,.92); color: #2E2420; font-weight: 800; font-size: 14px; }
-  .p1 .cap, .p2 .cap { left: 10px; bottom: 10px; font-size: 12.5px; padding: 3px 9px; }
-  .cr { position: absolute; right: 12px; top: 12px; font-size: 10px; color: rgba(255,255,255,.9); text-shadow: 0 1px 2px rgba(0,0,0,.6); }
+  .cover { display: grid; grid-template-columns: 1.65fr 1fr; grid-template-rows: 1fr 1fr; gap: 6px; aspect-ratio: 1.42 / 1; background: #fff; padding: 6px; border: 1px solid #0f2233; }
+  .pic { position: relative; display: block; overflow: hidden; text-decoration: none; background: var(--c); min-height: 0; }
+  .p0 { grid-row: 1 / 3; }
+  .pic img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; transition: transform .6s; }
+  .pic:hover img { transform: scale(1.04); }
+  .cap { position: absolute; left: 0; bottom: 0; display: flex; align-items: baseline; gap: 10px; padding: 7px 14px; background: #0f2233; color: #fff; }
+  .cap b { font-size: 17px; letter-spacing: -0.02em; }
+  .cap small { font-size: 12.5px; opacity: .85; }
+  .p1 .cap, .p2 .cap { padding: 5px 10px; }
+  .p1 .cap b, .p2 .cap b { font-size: 14px; }
+  .cr { position: absolute; right: 8px; top: 7px; font-size: 10px; color: rgba(255,255,255,.92); text-shadow: 0 1px 2px rgba(0,0,0,.65); }
   .p1 .cr, .p2 .cr { display: none; }
-  @media (max-width: 760px) {
-    .stack { aspect-ratio: 1.5 / 1; margin-top: 4px; }
-    .cap { font-size: 13px; left: 10px; bottom: 10px; }
-    .p0::before { width: 64px; height: 18px; top: -9px; }
-  }
+  @media (max-width: 760px) { .cover { aspect-ratio: 1.3 / 1; } .cap b { font-size: 15px; } .cap small { display: none; } }
 </style>

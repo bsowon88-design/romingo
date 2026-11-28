@@ -52,13 +52,13 @@ const chips = popTop.slice(0, 6);
 const popCards = popTop.map((r) => ({ r, c: r.city ? cityBySlug[r.city] : null })).map((x) => ({ ...x, ph: x.c ? cityPhoto(x.c.slug) : null })).filter((x) => x.ph).slice(0, 4);
 // 홈 아이콘 줄 — [주소, 이름, 설명, 아이콘, 색]
 const QUICK = [
-  ['/find/', '여행지 찾기', '시기·스타일로 찾기', 'compass', '#2f78c4'],
-  ['/guide/', '도시 가이드', '도시별 여행가이드', 'book-open', '#1d9a8a'],
-  ['/domestic/', '국내여행', '축제·가볼 만한 곳', 'map-pin', '#e8822a'],
-  ['/prep/', '여행 준비', 'eSIM·보험·숙소', 'luggage', '#7a5bc4'],
-  ['/safety/', '안전 정보', '여행경보·재난·지진', 'shield-check', '#2f9e6a'],
-  ['/weather/', '날씨 정보', '도시별 월별 날씨', 'cloud-sun', '#3aa0d8'],
-  ['/videos/', '여행 영상', '한국 유튜버 영상', 'clapperboard', '#d6383a'],
+  ['/find/', '여행지 찾기', '시기·스타일로 찾기'],
+  ['/guide/', '도시 가이드', '도시별 여행가이드'],
+  ['/domestic/', '국내여행', '축제·가볼 만한 곳'],
+  ['/prep/', '여행 준비', 'eSIM·보험·숙소'],
+  ['/safety/', '안전 정보', '여행경보·재난·지진'],
+  ['/weather/', '날씨 정보', '도시별 월별 날씨'],
+  ['/videos/', '여행 영상', '한국 유튜버 영상'],
 ];
 ---
 <Base bare={true}>
@@ -73,28 +73,28 @@ const QUICK = [
   )}
   <section class="hero">
     <div class="hero-l">
-      <p class="eyebrow">TRAVEL SAFETY × TRAVEL GUIDE</p>
-      <h1>다음 <em>여행,</em> 어디로 떠날까요?</h1>
+      <p class="eyebrow"><span>TRAVEL MAGAZINE</span><i></i><span>SAFETY · WEATHER · GUIDE</span></p>
+      <h1>다음 <em>여행,</em><br />어디로 떠날까요?</h1>
       <p class="lead">국내·해외 여행 안전 · 날씨 · 가이드를 트립베리 한곳에서 확인하세요.</p>
       <div class="isearch">
         <label class="search">
-          <Icon name="search" size={20} />
-          <input data-search-inline type="search" placeholder="나라·도시·국내 여행지 (예: 다낭, 강릉)" autocomplete="off" />
+          <input data-search-inline type="search" placeholder="나라 · 도시 · 국내 여행지 (예: 다낭, 강릉)" autocomplete="off" />
+          <button type="button" id="hsgo">검색</button>
         </label>
         <div class="ires sres" hidden></div>
       </div>
       {chips.length > 0 && (
-        <div class="hot">
-          <span class="hot-l">🔥 이번 주 인기</span>
+        <p class="hot">
+          <b>인기 검색</b>
           {chips.map((r) => {
             const c = r.city ? cityBySlug[r.city] : null;
             return <a href={c ? `/weather/${c.slug}/${nowM}/` : '/popular/'}>{r.ko}</a>;
           })}
-        </div>
+        </p>
       )}
       {warn.length > 0 && (
-        <p class="warnline">⚠️ 재난 소식 확인:
-          {warn.map((c, i) => <>{i ? ', ' : ' '}<a href={`/country/${c.slug}/safety/`}><Flag iso={flagOf(c)} size={16} /> {c.ko}</a></>)}
+        <p class="warnline">재난 소식 확인:
+          {warn.map((c, i) => <>{i ? ', ' : ' '}<a href={`/country/${c.slug}/safety/`}>{c.ko}</a></>)}
         </p>
       )}
     </div>
@@ -103,16 +103,17 @@ const QUICK = [
     </div>
   </section>
 
-  <nav class="quick" aria-label="바로가기">
-    {QUICK.map(([href, name, sub, icon, color]) => (
-      <a href={href} style={`--ic:${color}`}><span class="qi"><Icon name={icon} size={30} stroke={1.7} /></span><b>{name}</b><small>{sub}</small></a>
+  <nav class="toc" aria-label="바로가기">
+    {QUICK.map(([href, name, sub], i) => (
+      <a href={href}><span class="n">{String(i + 1).padStart(2, '0')}</span><b>{name}</b><small>{sub}</small></a>
     ))}
   </nav>
 
   <div class="duo">
     {popCards.length > 0 && (
       <section class="gcard popc">
-        <div class="gh"><h2>이번 주 인기 도시 <small>인천·김포·김해·제주 출발 운항편 기준</small></h2><a class="gmoreb" href="/popular/">전체 순위 →</a></div>
+        <div class="sh"><div><p class="k">THIS WEEK · TOP {popCards.length}</p><h2>이번 주 인기 도시</h2></div><a class="gmoreb" href="/popular/">전체 순위 →</a></div>
+        <p class="sub2">인천·김포·김해·제주 출발 운항편 기준</p>
         <div class="pgrid">
           {popCards.map(({ r, c, ph }, i) => (
             <a class="pc" href={`/weather/${c.slug}/${nowM}/`}>
@@ -125,14 +126,14 @@ const QUICK = [
       </section>
     )}
     <section class="gcard prepc">
-      <div class="gh"><h2>여행 준비 가이드</h2><a class="gmoreb" href="/prep/">전체 보기 →</a></div>
+      <div class="sh"><div><p class="k">BEFORE YOU GO</p><h2>여행 준비 가이드</h2></div><a class="gmoreb" href="/prep/">전체 보기 →</a></div>
       <ul class="plist">
-        <li><a href="/prep/"><i>✓</i>eSIM · 데이터 로밍</a></li>
-        <li><a href="/prep/"><i>✓</i>항공권 예약</a></li>
-        <li><a href="/prep/"><i>✓</i>숙소 · 렌터카</a></li>
-        <li><a href="/prep/"><i>✓</i>투어 · 입장권</a></li>
-        <li><a href="/rates/"><i>✓</i>환율 · 환전 시세</a></li>
-        <li><a href="/safety/"><i>✓</i>안전 정보 · 여행경보</a></li>
+        <li><a href="/prep/"><span>eSIM · 데이터 로밍</span><i>→</i></a></li>
+        <li><a href="/prep/"><span>항공권 예약</span><i>→</i></a></li>
+        <li><a href="/prep/"><span>숙소 · 렌터카</span><i>→</i></a></li>
+        <li><a href="/prep/"><span>투어 · 입장권</span><i>→</i></a></li>
+        <li><a href="/rates/"><span>환율 · 환전 시세</span><i>→</i></a></li>
+        <li><a href="/safety/"><span>안전 정보 · 여행경보</span><i>→</i></a></li>
       </ul>
     </section>
   </div>
@@ -229,73 +230,83 @@ const QUICK = [
 
 
 <style>
-  .hero { position: relative; z-index: 5; display: grid; grid-template-columns: minmax(0, 1.05fr) minmax(0, 1fr); gap: 36px; align-items: center; padding: 26px 8px 22px; }
-  .hero-l { display: flex; flex-direction: column; gap: 14px; min-width: 0; }
-  .eyebrow { margin: 0; font-size: 13px; font-weight: 800; letter-spacing: .18em; color: #2f78c4; }
-  .hero h1 { margin: 0; font-size: 46px; line-height: 1.2; letter-spacing: -0.045em; font-weight: 800; color: #16324a; }
-  .hero h1 em { font-style: normal; color: #ef7a2e; }
-  .hero .lead { margin: 0; font-size: 16.5px; font-weight: 500; color: #35586f; }
+  .hero { position: relative; z-index: 5; display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.05fr); gap: 40px; align-items: center; padding: 34px 10px 30px; }
+  .hero-l { display: flex; flex-direction: column; gap: 16px; min-width: 0; }
+  .eyebrow { display: flex; align-items: center; gap: 12px; margin: 0; font-size: 12px; font-weight: 800; letter-spacing: .2em; color: #0f2233; }
+  .eyebrow i { flex: 0 0 38px; height: 2px; background: #ef6a2a; }
+  .hero h1 { margin: 0; font-size: 56px; line-height: 1.12; letter-spacing: -0.055em; font-weight: 900; color: #0f2233; }
+  .hero h1 em { font-style: normal; color: #ef6a2a; }
+  .hero .lead { margin: 0; font-size: 16.5px; font-weight: 500; color: #243c4e; max-width: 30em; }
   .isearch { width: 100%; max-width: 560px; }
-  .search { display: flex; align-items: center; gap: 10px; width: 100%; background: #fff; border: 1px solid rgba(255,255,255,.9); border-radius: 999px; padding: 14px 22px; box-shadow: 0 10px 28px rgba(20,100,150,.18); font: inherit; font-size: 16px; color: #7a98ac; cursor: text; }
-  .search input { flex: 1; min-width: 0; border: 0; outline: 0; font: inherit; font-size: 16px; color: var(--ink); background: transparent; padding: 0; }
-  .search:focus-within { box-shadow: 0 0 0 3px rgba(239,122,46,.28), 0 10px 28px rgba(20,100,150,.18); }
-  .hot { display: flex; flex-wrap: wrap; align-items: center; gap: 8px; }
-  .hot-l { font-weight: 800; font-size: 14px; color: #16324a; margin-right: 2px; }
-  .hot a { text-decoration: none; background: rgba(255,255,255,.88); border: 1px solid rgba(255,255,255,.9); border-radius: 999px; padding: 6px 14px; font-weight: 700; font-size: 14px; color: #24485f; box-shadow: 0 3px 10px rgba(20,100,150,.1); }
-  .hot a:hover { color: #ef7a2e; }
-  .warnline { margin: 0; font-size: 14px; font-weight: 600; color: #35586f; }
+  .search { display: flex; align-items: stretch; width: 100%; background: #fff; border: 2px solid #0f2233; padding: 0; font: inherit; }
+  .search input { flex: 1; min-width: 0; border: 0; outline: 0; font: inherit; font-size: 16px; color: var(--ink); background: transparent; padding: 15px 18px; }
+  .search button { border: 0; background: #0f2233; color: #fff; font: inherit; font-weight: 800; font-size: 15px; padding: 0 26px; cursor: pointer; }
+  .search button:hover { background: #ef6a2a; }
+  .search:focus-within { outline: 2px solid #ef6a2a; outline-offset: 2px; }
+  .hot { display: flex; flex-wrap: wrap; align-items: baseline; gap: 6px 16px; margin: 0; font-size: 14.5px; }
+  .hot b { font-size: 12px; letter-spacing: .14em; color: #0f2233; }
+  .hot a { text-decoration: none; font-weight: 700; color: #0f2233; border-bottom: 1px solid #0f2233; }
+  .hot a:hover { color: #ef6a2a; border-color: #ef6a2a; }
+  .warnline { margin: 0; font-size: 14px; font-weight: 600; color: #243c4e; }
   .warnline a { color: var(--sea); }
   .hero-r { min-width: 0; }
 
-  .quick { display: grid; grid-template-columns: repeat(7, 1fr); background: var(--glass); -webkit-backdrop-filter: blur(10px); backdrop-filter: blur(10px); border: 1px solid var(--glass-line); border-radius: 24px; box-shadow: 0 12px 34px rgba(20,100,150,.14); padding: 14px 6px; }
-  .quick a { display: flex; flex-direction: column; align-items: center; gap: 3px; text-align: center; text-decoration: none; padding: 8px 4px; border-left: 1px solid rgba(40,100,140,.12); }
-  .quick a:first-child { border-left: 0; }
-  .quick a:hover .qi { transform: translateY(-3px); }
-  .qi { display: grid; place-items: center; width: 48px; height: 48px; color: var(--ic); transition: transform .18s; }
-  .quick b { font-size: 16px; letter-spacing: -0.02em; color: #1b2f3d; }
-  .quick small { font-size: 12.5px; color: var(--sub); }
+  .toc { display: grid; grid-template-columns: repeat(7, 1fr); background: #fff; border: 1px solid #0f2233; border-top: 4px solid #0f2233; }
+  .toc a { display: flex; flex-direction: column; gap: 2px; text-decoration: none; padding: 14px 16px 16px; border-left: 1px solid #d9e1e6; transition: background .15s; }
+  .toc a:first-child { border-left: 0; }
+  .toc a:hover { background: #0f2233; }
+  .toc a:hover b, .toc a:hover small, .toc a:hover .n { color: #fff; }
+  .toc .n { font-size: 12px; font-weight: 800; letter-spacing: .12em; color: #ef6a2a; }
+  .toc b { font-size: 17px; letter-spacing: -0.03em; color: #0f2233; }
+  .toc small { font-size: 12.5px; color: var(--sub); }
 
-  .duo { display: grid; grid-template-columns: minmax(0, 1.5fr) minmax(0, 1fr); gap: 16px; margin-top: 16px; }
-  .gcard { background: var(--glass); -webkit-backdrop-filter: blur(10px); backdrop-filter: blur(10px); border: 1px solid var(--glass-line); border-radius: 24px; box-shadow: 0 12px 34px rgba(20,100,150,.12); padding: 18px 20px 20px; min-width: 0; }
-  .gh { display: flex; align-items: baseline; justify-content: space-between; gap: 10px; margin-bottom: 12px; }
-  .gh h2 { margin: 0; font-size: 20px; border-left: 4px solid #ef7a2e; padding-left: 10px; line-height: 1.2; display: block; }
-  .gh h2 small { display: block; margin-top: 3px; font-size: 12px; }
-  .gmoreb { font-size: 13.5px; font-weight: 700; color: #2f78c4; text-decoration: none; white-space: nowrap; }
-  .pgrid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 12px; }
+  .duo { display: grid; grid-template-columns: minmax(0, 1.5fr) minmax(0, 1fr); gap: 14px; margin-top: 14px; }
+  .gcard { background: #fff; border: 1px solid #0f2233; border-top: 4px solid #0f2233; padding: 18px 22px 22px; min-width: 0; }
+  .sh { display: flex; align-items: flex-end; justify-content: space-between; gap: 10px; }
+  .sh .k { margin: 0 0 3px; font-size: 11.5px; font-weight: 800; letter-spacing: .18em; color: #ef6a2a; }
+  .sh h2 { margin: 0; font-size: 24px; letter-spacing: -0.04em; font-weight: 900; display: block; color: #0f2233; }
+  .sub2 { margin: 6px 0 14px; font-size: 12.5px; color: var(--sub); padding-bottom: 12px; border-bottom: 1px solid #0f2233; }
+  .prepc .sh { padding-bottom: 12px; border-bottom: 1px solid #0f2233; }
+  .gmoreb { font-size: 13.5px; font-weight: 800; color: #0f2233; text-decoration: none; white-space: nowrap; border-bottom: 2px solid #ef6a2a; }
+  .pgrid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 14px; }
   .pc { display: flex; flex-direction: column; gap: 2px; text-decoration: none; min-width: 0; }
-  .pimg { display: block; height: 138px; border-radius: 14px; margin-bottom: 6px; }
-  .pimg .prk { position: absolute; top: 8px; left: 8px; z-index: 2; margin: 0; }
+  .pimg { display: block; height: 150px; margin-bottom: 8px; }
+  .pimg .prk { position: absolute; top: 0; left: 0; z-index: 2; margin: 0; width: 30px; height: 30px; font-size: 15px; background: #0f2233; }
   .pc:hover .bgimg { transform: scale(1.05); }
   .pimg .bgimg { transition: transform .4s; }
-  .pname { display: flex; align-items: center; gap: 6px; font-size: 15px; }
+  .pname { display: flex; align-items: center; gap: 6px; font-size: 16px; }
   .plist { list-style: none; margin: 0; padding: 0; }
-  .plist li + li { border-top: 1px solid rgba(40,100,140,.1); }
-  .plist a { display: flex; align-items: center; gap: 10px; padding: 11px 2px; text-decoration: none; font-weight: 600; font-size: 15.5px; color: #24323d; }
-  .plist a:hover { color: var(--sea); }
-  .plist i { display: grid; place-items: center; width: 22px; height: 22px; border-radius: 50%; background: #ef7a2e; color: #fff; font-style: normal; font-size: 13px; font-weight: 800; flex: none; }
+  .plist li { border-bottom: 1px solid #d9e1e6; }
+  .plist a { display: flex; align-items: center; justify-content: space-between; padding: 13px 2px; text-decoration: none; font-weight: 700; font-size: 16px; color: #0f2233; }
+  .plist a:hover { color: #ef6a2a; padding-left: 8px; }
+  .plist a { transition: padding .15s; }
+  .plist i { font-style: normal; font-weight: 800; color: #ef6a2a; }
 
-  .lower { background: var(--glass); -webkit-backdrop-filter: blur(10px); backdrop-filter: blur(10px); border: 1px solid var(--glass-line); border-radius: 26px; box-shadow: 0 14px 40px rgba(20,100,150,.12); padding: 4px 32px 40px; margin-top: 18px; }
+  .lower { background: #fff; border: 1px solid #0f2233; border-top: 4px solid #0f2233; padding: 4px 32px 40px; margin-top: 14px; }
+  .lower :global(h2) { padding-bottom: 8px; border-bottom: 1px solid #0f2233; }
   @media (max-width: 1023px) {
-    .hero { grid-template-columns: 1fr; gap: 18px; padding: 14px 4px 14px; }
-    .hero h1 { font-size: 36px; }
-    .hero-r { max-width: 560px; }
-    .quick { grid-template-columns: repeat(4, 1fr); row-gap: 4px; }
-    .quick a:nth-child(5) { border-left: 0; }
+    .hero { grid-template-columns: 1fr; gap: 22px; padding: 18px 4px 18px; }
+    .hero h1 { font-size: 42px; }
+    .toc { grid-template-columns: repeat(4, 1fr); }
+    .toc a:nth-child(5) { border-left: 0; }
+    .toc a:nth-child(n+5) { border-top: 1px solid #d9e1e6; }
     .duo { grid-template-columns: 1fr; }
   }
   @media (max-width: 760px) {
-    .hero h1 { font-size: 30px; }
+    .hero h1 { font-size: 34px; }
+    .eyebrow i, .eyebrow span + i + span { display: none; }
+    .toc a:nth-child(4) { border-left: 1px solid #d9e1e6; }
     .hero .lead { font-size: 14.5px; }
-    .search { padding: 12px 16px; }
-    .quick { padding: 10px 2px; border-radius: 20px; }
-    .qi { width: 40px; height: 40px; } .qi :global(svg) { width: 26px; height: 26px; }
-    .quick b { font-size: 13.5px; }
-    .quick small { display: none; }
-    .gcard { padding: 16px 14px 16px; border-radius: 20px; }
-    .gh h2 { font-size: 18px; }
+    .search input { padding: 13px 14px; font-size: 15px; }
+    .search button { padding: 0 18px; }
+    .toc a { padding: 11px 10px 12px; }
+    .toc b { font-size: 14.5px; }
+    .toc small { display: none; }
+    .gcard { padding: 16px 14px 16px; }
+    .sh h2 { font-size: 21px; }
     .pgrid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-    .pimg { height: 110px; }
-    .lower { padding: 2px 18px 28px; border-radius: 20px; }
+    .pimg { height: 112px; }
+    .lower { padding: 2px 18px 28px; }
   }
   .cgrid { grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); }
   .cwrap.hide { display: none; }
@@ -387,6 +398,13 @@ const QUICK = [
       gm.querySelectorAll('.gpanel').forEach((p) => { p.hidden = p.dataset.i !== b.dataset.i; });
     }));
   }
+</script>
+
+<script>
+  document.getElementById('hsgo')?.addEventListener('click', () => {
+    const a = document.querySelector('.hero .ires a');
+    if (a) location.href = a.href; else document.querySelector('[data-search-inline]')?.focus();
+  });
 </script>
 
 <script>

@@ -1,5 +1,17 @@
 [
  {
+  "id": "us6000ue52",
+  "mag": 5.2,
+  "place": "169 km N of Hicks Bay, New Zealand",
+  "time": 1795887494430,
+  "lat": -36.1,
+  "lon": 178.4,
+  "depth": 10,
+  "tsunami": 0,
+  "alert": null,
+  "url": "https://earthquake.usgs.gov/earthquakes/eventpage/us6000ue52"
+ },
+ {
   "id": "ci41581136",
   "mag": 5,
   "place": "6 km WSW of Manhattan Beach, CA",
@@ -8,7 +20,7 @@
   "lon": -118.5,
   "depth": 12,
   "tsunami": 1,
-  "alert": null,
+  "alert": "green",
   "url": "https://earthquake.usgs.gov/earthquakes/eventpage/ci41581136"
  },
  {

@@ -6478,5 +6478,125 @@
   "userUrl": "https://unsplash.com/@shinonk",
   "page": "https://unsplash.com/photos/a-road-with-cars-on-it-by-a-body-of-water-jnlorCOMnbA",
   "pick": 0
+ },
+ "spot:miyakojima:2": {
+  "id": "nmLUMFjMvFA",
+  "raw": "https://images.unsplash.com/photo-1706012955757-6c2048c32668?ixid=M3wxMTQzNTA5fDB8MXxzZWFyY2h8MXx8TWl5YWtvamltYSUyMFlvbmFoYSUyME1hZWhhbWElMjBiZWFjaHxlbnwxfDB8fHwxNzk1ODI4NDA2fDA&ixlib=rb-4.1.0",
+  "color": "#408cc0",
+  "alt": "a sandy beach with chairs and thatched huts",
+  "name": "Mary Anne Kimani",
+  "userUrl": "https://unsplash.com/@mn1_",
+  "page": "https://unsplash.com/photos/a-sandy-beach-with-chairs-and-thatched-huts-nmLUMFjMvFA",
+  "pick": 0
+ },
+ "spot:miyakojima:3": {
+  "id": "nmLUMFjMvFA",
+  "raw": "https://images.unsplash.com/photo-1706012955757-6c2048c32668?ixid=M3wxMTQzNTA5fDB8MXxzZWFyY2h8MXx8TWl5YWtvamltYSUyMFlvbmFoYSUyME1hZWhhbWElMjBiZWFjaHxlbnwxfDB8fHwxNzk1ODI4NDA2fDA&ixlib=rb-4.1.0",
+  "color": "#408cc0",
+  "alt": "a sandy beach with chairs and thatched huts",
+  "name": "Mary Anne Kimani",
+  "userUrl": "https://unsplash.com/@mn1_",
+  "page": "https://unsplash.com/photos/a-sandy-beach-with-chairs-and-thatched-huts-nmLUMFjMvFA",
+  "pick": 0
+ },
+ "spot:miyakojima:4": {
+  "id": "nmLUMFjMvFA",
+  "raw": "https://images.unsplash.com/photo-1706012955757-6c2048c32668?ixid=M3wxMTQzNTA5fDB8MXxzZWFyY2h8MXx8TWl5YWtvamltYSUyMFlvbmFoYSUyME1hZWhhbWElMjBiZWFjaHxlbnwxfDB8fHwxNzk1ODI4NDA2fDA&ixlib=rb-4.1.0",
+  "color": "#408cc0",
+  "alt": "a sandy beach with chairs and thatched huts",
+  "name": "Mary Anne Kimani",
+  "userUrl": "https://unsplash.com/@mn1_",
+  "page": "https://unsplash.com/photos/a-sandy-beach-with-chairs-and-thatched-huts-nmLUMFjMvFA",
+  "pick": 0
+ },
+ "spot:ishigaki:0": {
+  "id": "X0-jr-laVsM",
+  "raw": "https://images.unsplash.com/photo-1593297444768-5cc13c9d25b2?ixid=M3wxMTQzNTA5fDB8MXxzZWFyY2h8MXx8S2FiaXJhJTIwQmF5JTIwSXNoaWdha2l8ZW58MXwwfHx8MTc5NTgyODQwOHww&ixlib=rb-4.1.0",
+  "color": "#d9d9f3",
+  "alt": "white boat on sea during daytime",
+  "name": "Vladimir Haltakov",
+  "userUrl": "https://unsplash.com/@haltakov",
+  "page": "https://unsplash.com/photos/white-boat-on-sea-during-daytime-X0-jr-laVsM",
+  "pick": 0
+ },
+ "spot:ishigaki:1": {
+  "id": "kInzQWIYFMA",
+  "raw": "https://images.unsplash.com/photo-1583827260547-96b01fbf44b9?ixid=M3wxMTQzNTA5fDB8MXxzZWFyY2h8MXx8VGFrZXRvbWklMjBpc2xhbmR8ZW58MXwwfHx8MTc5NTgyODQwOXww&ixlib=rb-4.1.0",
+  "color": "#408cd9",
+  "alt": "white and brown concrete building under blue sky and white clouds during daytime",
+  "name": "Hiroko Yoshii",
+  "userUrl": "https://unsplash.com/@hiro0718",
+  "page": "https://unsplash.com/photos/white-and-brown-concrete-building-under-blue-sky-and-white-clouds-during-daytime-kInzQWIYFMA",
+  "pick": 0
+ },
+ "spot:ishigaki:2": {
+  "id": "X0-jr-laVsM",
+  "raw": "https://images.unsplash.com/photo-1593297444768-5cc13c9d25b2?ixid=M3wxMTQzNTA5fDB8MXxzZWFyY2h8MXx8SXNoaWdha2klMjBLYWJpcmElMjBCYXl8ZW58MXwwfHx8MTc5NTgyODQxMHww&ixlib=rb-4.1.0",
+  "color": "#d9d9f3",
+  "alt": "white boat on sea during daytime",
+  "name": "Vladimir Haltakov",
+  "userUrl": "https://unsplash.com/@haltakov",
+  "page": "https://unsplash.com/photos/white-boat-on-sea-during-daytime-X0-jr-laVsM",
+  "pick": 0
+ },
+ "spot:ishigaki:3": {
+  "id": "X0-jr-laVsM",
+  "raw": "https://images.unsplash.com/photo-1593297444768-5cc13c9d25b2?ixid=M3wxMTQzNTA5fDB8MXxzZWFyY2h8MXx8SXNoaWdha2klMjBLYWJpcmElMjBCYXl8ZW58MXwwfHx8MTc5NTgyODQxMHww&ixlib=rb-4.1.0",
+  "color": "#d9d9f3",
+  "alt": "white boat on sea during daytime",
+  "name": "Vladimir Haltakov",
+  "userUrl": "https://unsplash.com/@haltakov",
+  "page": "https://unsplash.com/photos/white-boat-on-sea-during-daytime-X0-jr-laVsM",
+  "pick": 0
+ },
+ "spot:ishigaki:4": {
+  "id": "X0-jr-laVsM",
+  "raw": "https://images.unsplash.com/photo-1593297444768-5cc13c9d25b2?ixid=M3wxMTQzNTA5fDB8MXxzZWFyY2h8MXx8SXNoaWdha2klMjBLYWJpcmElMjBCYXl8ZW58MXwwfHx8MTc5NTgyODQxMHww&ixlib=rb-4.1.0",
+  "color": "#d9d9f3",
+  "alt": "white boat on sea during daytime",
+  "name": "Vladimir Haltakov",
+  "userUrl": "https://unsplash.com/@haltakov",
+  "page": "https://unsplash.com/photos/white-boat-on-sea-during-daytime-X0-jr-laVsM",
+  "pick": 0
+ },
+ "spot:seattle:0": {
+  "id": "xsqF178XAhk",
+  "raw": "https://images.unsplash.com/photo-1556305078-869cc33a1b51?ixid=M3wxMTQzNTA5fDB8MXxzZWFyY2h8MXx8UGlrZSUyMFBsYWNlJTIwTWFya2V0JTIwU2VhdHRsZXxlbnwxfDB8fHwxNzk1ODI4NDEyfDA&ixlib=rb-4.1.0",
+  "color": "#0c73f3",
+  "alt": "public market center signage",
+  "name": "Sabine Ojeil",
+  "userUrl": "https://unsplash.com/@sabineojeil",
+  "page": "https://unsplash.com/photos/public-market-center-signage-xsqF178XAhk",
+  "pick": 0
+ },
+ "spot:seattle:1": {
+  "id": "QfhbK2pY0Ao",
+  "raw": "https://images.unsplash.com/photo-1542223616-740d5dff7f56?ixid=M3wxMTQzNTA5fDB8MXxzZWFyY2h8MXx8U3BhY2UlMjBOZWVkbGUlMjBTZWF0dGxlfGVufDF8MHx8fDE3OTU4Mjg0MTJ8MA&ixlib=rb-4.1.0",
+  "color": "#0c2640",
+  "alt": "Space Needle tower at night",
+  "name": "Andrea Leopardi",
+  "userUrl": "https://unsplash.com/@whatyouhide",
+  "page": "https://unsplash.com/photos/space-needle-tower-at-night-QfhbK2pY0Ao",
+  "pick": 0
+ },
+ "spot:seattle:2": {
+  "id": "8SybeS9_Kb4",
+  "raw": "https://images.unsplash.com/photo-1642827588589-804867437e8d?ixid=M3wxMTQzNTA5fDB8MXxzZWFyY2h8MXx8Q2hpaHVseSUyMEdhcmRlbiUyMGFuZCUyMEdsYXNzfGVufDF8MHx8fDE3OTU4Mjg0MTN8MA&ixlib=rb-4.1.0",
+  "color": "#730c0c",
+  "alt": "a glass ceiling with a bunch of flowers hanging from it",
+  "name": "Finn",
+  "userUrl": "https://unsplash.com/@finn_staygold",
+  "page": "https://unsplash.com/photos/a-glass-ceiling-with-a-bunch-of-flowers-hanging-from-it-8SybeS9_Kb4",
+  "pick": 0
+ },
+ "spot:seattle:3": {
+  "id": "pulhUnQfLpI",
+  "raw": "https://images.unsplash.com/photo-1618890187352-8e9d6b96b948?ixid=M3wxMTQzNTA5fDB8MXxzZWFyY2h8Mnx8S2VycnklMjBQYXJrJTIwU2VhdHRsZSUyMHZpZXd8ZW58MXwwfHx8MTc5NTgyODQxM3ww&ixlib=rb-4.1.0",
+  "color": "#a6a6c0",
+  "alt": "city skyline under gray sky during daytime",
+  "name": "Andrew S",
+  "userUrl": "https://unsplash.com/@sita2",
+  "page": "https://unsplash.com/photos/city-skyline-under-gray-sky-during-daytime-pulhUnQfLpI",
+  "pick": 0
  }
 }

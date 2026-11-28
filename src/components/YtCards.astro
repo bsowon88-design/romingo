@@ -11,7 +11,7 @@ const { list = [], cols = 4 } = Astro.props;
           <span class="yc-img">
             <img src={`https://i.ytimg.com/vi/${v.id}/mqdefault.jpg`} alt="" loading="lazy" width="320" height="180" />
             <span class="yc-d">{fmtDur(v.dur)}</span>
-            <span class="yc-p" aria-hidden="true"></span>
+            <span class="yc-p" aria-hidden="true">▶</span>
           </span>
           <span class="yc-txt">
             <span class="yc-t">{v.t}</span>

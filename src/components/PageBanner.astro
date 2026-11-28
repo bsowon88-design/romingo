@@ -7,8 +7,8 @@ const { name = '' } = Astro.props;
 </section>
 
 <style>
-  .pbn { position: relative; margin: 0 0 26px; padding: 0 0 22px; border-bottom: 2px solid #0f2233; }
-  .pbn::before { content: ''; display: block; width: 44px; height: 6px; background: #ef6a2a; margin: 0 0 16px; }
+  .pbn { position: relative; margin: 0 0 26px; padding: 0 0 22px; border-bottom: 2px solid var(--sky); }
+  .pbn::before { content: ''; display: block; width: 44px; height: 6px; background: var(--emerald); margin: 0 0 16px; }
   .pbn-in { max-width: 760px; }
   .pbn-in :global(.crumb) { margin: 0 0 8px; font-size: 12.5px; font-weight: 700; letter-spacing: .04em; color: #566877; }
   .pbn-in :global(h1) { margin: 0 0 10px; font-size: 46px; line-height: 1.12; letter-spacing: -0.055em; font-weight: 900; color: #0f2233; }

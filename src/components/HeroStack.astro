@@ -23,12 +23,12 @@ const items = ORDER.map((s) => bySlug[s])
 )}
 
 <style>
-  .cover { display: grid; grid-template-columns: 1.65fr 1fr; grid-template-rows: 1fr 1fr; gap: 6px; aspect-ratio: 1.42 / 1; background: #fff; padding: 6px; border: 1px solid #0f2233; }
+  .cover { display: grid; grid-template-columns: 1.65fr 1fr; grid-template-rows: 1fr 1fr; gap: 6px; aspect-ratio: 1.42 / 1; background: #fff; padding: 6px; border: 1px solid var(--edge); border-top: 4px solid var(--sky); }
   .pic { position: relative; display: block; overflow: hidden; text-decoration: none; background: var(--c); min-height: 0; }
   .p0 { grid-row: 1 / 3; }
   .pic img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; transition: transform .6s; }
   .pic:hover img { transform: scale(1.04); }
-  .cap { position: absolute; left: 0; bottom: 0; display: flex; align-items: baseline; gap: 10px; padding: 7px 14px; background: #0f2233; color: #fff; }
+  .cap { position: absolute; left: 0; bottom: 0; display: flex; align-items: baseline; gap: 10px; padding: 7px 14px; background: var(--emerald-d); color: #fff; }
   .cap b { font-size: 17px; letter-spacing: -0.02em; }
   .cap small { font-size: 12.5px; opacity: .85; }
   .p1 .cap, .p2 .cap { padding: 5px 10px; }

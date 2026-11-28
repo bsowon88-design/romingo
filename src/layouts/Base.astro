@@ -576,11 +576,13 @@ const isOn = (href) => (href === '/' ? path === '/' : path.startsWith(href) || (
   .foot .copy { margin-top: 12px; }
 
   /* ══ 2026-11 디자인 개편 (여행잡지 스타일): 하늘·바다 배경 위에 직각 · 가는 선 · 평평한 흰 판 ══ */
-  :root { --ink: #0f2233; --sub: #566877; --line: #d9e1e6; --rule: #0f2233; --sea: #d4470f; --coral: #ef6a2a; --bg: #d7f0fb; --paper: #fff; }
+  :root { --sky: #1f9fe6; --edge: #a9dcec; --emerald: #10b3a0; --emerald-d: #0a8f82; --ink: #0f2233; --sub: #566877; --line: #cfe6ef; --rule: #0f2233; --sea: #d4470f; --coral: #ef6a2a; --bg: #d7f0fb; --paper: #fff; }
   body { background: #d7f0fb; }
   /* 모서리는 모두 직각, 번지는 그림자 없음 — 칸은 선으로 나눔 */
   *, *::before, *::after { border-radius: 0 !important; box-shadow: none !important; }
   .flag { outline: 1px solid rgba(15,34,51,.18); }
+  .vt-p, .yc-p { background: #ef6a2a !important; color: #fff !important; }
+  .top nav a.on::after { background: var(--sky) !important; }
   :focus-visible { outline: 2px solid var(--coral); outline-offset: 2px; }
   body::before { content: ''; position: fixed; inset: 0; z-index: -1; background: #cdeefb url('/bg/sky-pc.webp') center / cover no-repeat; }
   @media (max-width: 760px) { body::before { background-image: url('/bg/sky-m.webp'); background-position: center top; } }
@@ -594,7 +596,7 @@ const isOn = (href) => (href === '/' ? path === '/' : path.startsWith(href) || (
 
   /* 상단 메뉴 — 흰 막대 + 굵은 윗줄 */
   .top { background: transparent; border-bottom: 0; backdrop-filter: none; padding-top: 0; pointer-events: none; }
-  .top-in { pointer-events: auto; background: #fff; border: 1px solid var(--ink); border-top: 4px solid var(--ink); padding-left: 22px; padding-right: 22px; }
+  .top-in { pointer-events: auto; background: #fff; border: 1px solid var(--edge); border-top: 4px solid var(--sky); padding-left: 22px; padding-right: 22px; }
   @media (max-width: 1260px) { .top-in { margin-left: 12px; margin-right: 12px; } }
   @media (max-width: 760px) {
     .top { padding-top: 8px; }
@@ -602,16 +604,17 @@ const isOn = (href) => (href === '/' ? path === '/' : path.startsWith(href) || (
   }
   .top nav a { letter-spacing: -0.01em; }
   .top nav a.hot { background: var(--coral); border: 0; color: #fff; padding: 8px 16px; }
-  .top nav a.hot:hover { background: var(--ink); color: #fff; }
-  .top nav a.hot.on { background: var(--ink); color: #fff; }
-  .sbtn, .ibtn { background: #fff; border-color: var(--ink); }
-  .tabbar { background: #fff !important; border-top: 2px solid var(--ink) !important; }
+  .top nav a.hot:hover { background: var(--emerald-d); color: #fff; }
+  .top nav a.hot.on { background: var(--emerald-d); color: #fff; }
+  .sbtn, .ibtn { background: #fff; border-color: var(--edge); }
+  .sbtn:hover, .ibtn:hover { border-color: var(--sky); color: var(--emerald-d); }
+  .tabbar { background: #fff !important; border-top: 3px solid var(--sky) !important; }
   .msheet-in { background: #fff !important; }
   .mprep { background: var(--ink) !important; }
 
   /* 본문 — 평평한 흰 판 (홈은 bare 라서 따로 꾸밈) */
   main.wrap { margin-top: 14px; }
-  main.wrap.panel { background: #fff; border: 1px solid var(--ink); border-top: 4px solid var(--ink); padding-top: 28px; padding-bottom: 44px; min-height: 60vh; }
+  main.wrap.panel { background: #fff; border: 1px solid var(--edge); border-top: 4px solid var(--sky); padding-top: 28px; padding-bottom: 44px; min-height: 60vh; }
   @media (min-width: 1024px) { main.wrap.panel { padding-left: 32px; padding-right: 32px; } }
   @media (max-width: 1260px) { main.wrap { margin-left: 12px; margin-right: 12px; } }
   @media (max-width: 760px) {
@@ -620,12 +623,12 @@ const isOn = (href) => (href === '/' ? path === '/' : path.startsWith(href) || (
   }
   .cty .ctabs { background: rgba(255,255,255,.96) !important; }
   .card, .qlist, .gn, .tools a, .core a { border-color: var(--line); }
-  .btn { background: var(--ink); }
-  .btn.ghost { background: #fff; color: var(--ink); border: 1px solid var(--ink); }
+  .btn { background: var(--emerald-d); }
+  .btn.ghost { background: #fff; color: var(--emerald-d); border: 1px solid var(--edge); }
   .btn.coral { background: var(--coral); }
 
   /* 맨 아래 */
-  .foot { background: #fff; color: var(--sub); border: 1px solid var(--ink); border-top: 4px solid var(--ink); max-width: 1200px; margin: 18px auto 0; }
+  .foot { background: #fff; color: var(--sub); border: 1px solid var(--edge); border-top: 4px solid var(--emerald); max-width: 1200px; margin: 18px auto 0; }
   @media (max-width: 1260px) { .foot { margin-left: 12px; margin-right: 12px; } }
   @media (max-width: 760px) { .foot { margin: 14px 8px 0; } }
 </style>

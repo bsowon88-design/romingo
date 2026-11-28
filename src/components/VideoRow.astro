@@ -15,7 +15,7 @@ const list = keys.map((k) => ({ k, v: VIDEOS[k], c: cityBySlug[k] })).filter((x)
     <div class="vr-g">
       {list.map(({ k, v, c }) => (
         <button type="button" class="vt" data-id={v.id} data-t={`${c.ko} 공식 홍보영상`} data-by={v.by}>
-          <span class="vt-img"><img src={`https://i.ytimg.com/vi/${v.id}/hqdefault.jpg`} alt="" loading="lazy" /><span class="vt-p" aria-hidden="true"></span></span>
+          <span class="vt-img"><img src={`https://i.ytimg.com/vi/${v.id}/hqdefault.jpg`} alt="" loading="lazy" /><span class="vt-p" aria-hidden="true">▶</span></span>
           <span class="vt-n"><Flag iso={flagOf(bySlug[c.country])} size={16} /> <b>{c.ko}</b><span>{v.by.replace(/ \(.*\)$/, '')}</span></span>
         </button>
       ))}

@@ -38,7 +38,7 @@ const top = cities.map((o) => o.list[0]).filter((v) => v && !seen.has(v.id) && s
       <div class="vcity" id="vcity">
         {cities.map(({ x, co, list }) => (
           <a class="vc" data-r={co.region} href={`/videos/${x.slug}/`}>
-            <span class="vc-img"><img src={`https://i.ytimg.com/vi/${list[0].id}/mqdefault.jpg`} alt="" loading="lazy" width="320" height="180" /><span class="vc-n">{list.length}</span></span>
+            <span class="vc-img"><img src={`https://i.ytimg.com/vi/${list[0].id}/mqdefault.jpg`} alt="" loading="lazy" width="320" height="180" /><span class="vc-n">▶ {list.length}</span></span>
             <span class="vc-t"><Flag iso={flagOf(co)} size={16} /> <b>{x.ko}</b><small>{co.ko}</small></span>
           </a>
         ))}

@@ -1,5 +1,17 @@
 [
  {
+  "id": "us6000ue3p",
+  "mag": 6.7,
+  "place": "62 km NNW of Yelizovo, Russia",
+  "time": 1795871706781,
+  "lat": 53.7,
+  "lon": 158.1,
+  "depth": 188,
+  "tsunami": 1,
+  "alert": "green",
+  "url": "https://earthquake.usgs.gov/earthquakes/eventpage/us6000ue3p"
+ },
+ {
   "id": "us6000ue1h",
   "mag": 5.2,
   "place": "93 km W of San Antonio de los Cobres, Argentina",

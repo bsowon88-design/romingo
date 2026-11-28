@@ -175,30 +175,21 @@ const QUICK = [
   </div>
 
   {guides.length > 0 && (
-    <>
-      <h2>여행가이드</h2>
-      <div class="chips gpc">
-        {guides.map((x) => <a href={`/guide/${x.slug}/`}><Flag iso={flagOf(bySlug[x.country])} size={18} /> {x.ko}</a>)}
-        <a href="/guide/" class="all">전체 보기 →</a>
+    <section class="gidx">
+      <div class="sh2">
+        <h2>여행가이드 <small>도시별 관광지 · 교통 · 일정 · 주의할 점</small></h2>
+        <a class="gmoreb" href="/guide/">전체 {guides.length}곳 →</a>
       </div>
-      <div class="gmob" id="gmob">
-        <div class="chips">
-          {gTop.map((x) => <a href={`/guide/${x.slug}/`}><Flag iso={flagOf(bySlug[x.country])} size={18} /> {x.ko}</a>)}
-        </div>
-        <button type="button" class="gmore" aria-expanded="false" aria-controls="gall">전체 {guides.length}곳 보기 ▾</button>
-        <div class="gall" id="gall" hidden>
-          <div class="gtabs" role="tablist">
-            {gGroups.map((g, i) => <button type="button" role="tab" aria-selected={i === 0 ? 'true' : 'false'} data-i={i}>{g.label} <small>{g.list.length}</small></button>)}
+      <div class="gcols">
+        {gGroups.filter((g) => g.list.length > 0).map((g) => (
+          <div class="gcol">
+            <p class="gk"><b>{g.label}</b><span>{g.list.length}</span></p>
+            <ul>{g.list.slice(0, 6).map((x) => <li><a href={`/guide/${x.slug}/`}>{x.ko}</a></li>)}</ul>
+            {g.list.length > 6 && <a class="gm" href="/guide/">+{g.list.length - 6}곳 더 보기</a>}
           </div>
-          {gGroups.map((g, i) => (
-            <div class="chips gpanel" data-i={i} hidden={i !== 0}>
-              {g.list.map((x) => <a href={`/guide/${x.slug}/`}><Flag iso={flagOf(bySlug[x.country])} size={18} /> {x.ko}</a>)}
-            </div>
-          ))}
-          <a href="/guide/" class="gpage">여행가이드 전체 페이지 →</a>
-        </div>
+        ))}
       </div>
-    </>
+    </section>
   )}
 
   <div class="two">
@@ -341,6 +332,21 @@ const QUICK = [
     .gtabs button[aria-selected='true'] small { color: #fde3d6; }
     .gpage { display: inline-block; margin-top: 12px; color: var(--sea); font-weight: 700; text-decoration: none; font-size: 14px; }
   }
+  .gidx { margin-top: 8px; }
+  .sh2 { display: flex; align-items: flex-end; justify-content: space-between; gap: 12px; border-bottom: 1px solid #0f2233; margin: 44px 0 6px; }
+  .sh2 h2 { margin: 0 !important; padding-bottom: 8px !important; border-bottom: 0 !important; }
+  .sh2 .gmoreb { margin-bottom: 8px; }
+  .gcols { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 0 36px; }
+  .gcol { padding: 18px 0 14px; }
+  .gk { display: flex; align-items: baseline; justify-content: space-between; margin: 0 0 6px; padding-bottom: 8px; border-bottom: 3px solid #0f2233; }
+  .gk b { font-size: 18px; letter-spacing: -0.03em; color: #0f2233; }
+  .gk span { font-size: 12.5px; font-weight: 800; letter-spacing: .1em; color: #ef6a2a; }
+  .gcol ul { list-style: none; margin: 0; padding: 0; }
+  .gcol li a { display: block; padding: 8px 2px; border-bottom: 1px solid #e3e9ed; text-decoration: none; font-size: 16px; font-weight: 600; color: #0f2233; transition: padding .15s, color .15s; }
+  .gcol li a:hover { padding-left: 8px; color: #ef6a2a; }
+  .gm { display: inline-block; margin-top: 10px; font-size: 13.5px; font-weight: 800; color: #0f2233; text-decoration: none; border-bottom: 2px solid #ef6a2a; }
+  @media (max-width: 1023px) { .gcols { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 0 22px; } }
+  @media (max-width: 520px) { .gcols { gap: 0 14px; } .gcol li a { font-size: 15px; } .sh2 { margin-top: 34px; } }
   .two { display: grid; grid-template-columns: 1fr 1fr; gap: 0 22px; }
   .core { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; margin: 14px 0 0; }
   .core a { display: flex; align-items: center; gap: 16px; text-decoration: none; color: inherit; background: #fff; border: 1px solid #0f2233; border-top: 4px solid #0f2233; padding: 20px 22px; transition: background .15s; }

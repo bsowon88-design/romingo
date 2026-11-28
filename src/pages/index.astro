@@ -13,7 +13,6 @@ import PhotoCredit from '../components/PhotoCredit.astro';
 import { cityPhoto } from '../data/photos.js';
 import Icon from '../components/Icon.astro';
 import HeroStack from '../components/HeroStack.astro';
-const RENEWAL_END = Date.parse('2026-11-30T23:59:59+09:00');
 import VideoRow from '../components/VideoRow.astro';
 import RateBoard from '../components/RateBoard.astro';
 import BestNow from '../components/BestNow.astro';
@@ -62,15 +61,6 @@ const QUICK = [
 ];
 ---
 <Base bare={true}>
-  {/* 리뉴얼 안내 배너 — 2026-11-30 23:59(한국 시간)이 지나면 빌드·화면 모두에서 자동으로 숨김 */}
-  {Date.now() < RENEWAL_END && (
-    <div class="renewal" id="renewal" data-end={RENEWAL_END} role="img" aria-label="트립베리 리뉴얼 진행 중 · 11월 28일(토) ~ 11월 30일(월)">
-      <picture>
-        <source media="(max-width: 760px)" srcset="/images/banner/renewal-m.webp" width="1080" height="540" />
-        <img src="/images/banner/renewal-pc.webp" width="1800" height="600" alt="트립베리 리뉴얼 진행 중 · 11월 28일(토) ~ 11월 30일(월)" fetchpriority="high" />
-      </picture>
-    </div>
-  )}
   <section class="hero">
     <div class="hero-l">
       <p class="eyebrow"><span>TRAVEL MAGAZINE</span><i></i><span>SAFETY · WEATHER · GUIDE</span></p>
@@ -315,8 +305,6 @@ const QUICK = [
   .chips { display: flex; flex-wrap: wrap; gap: 8px; }
   .chips a { display: inline-flex; align-items: center; gap: 6px; text-decoration: none; background: #fff; border: 1px solid var(--line); border-radius: 999px; padding: 8px 14px; font-weight: 600; font-size: 14.5px; }
   .chips a.all { color: var(--sea); }
-  .renewal { display: block; margin: 0 0 18px; border-radius: 14px; overflow: hidden; line-height: 0; }
-  .renewal img { width: 100%; height: auto; display: block; }
   .gmob { display: none; }
   @media (max-width: 760px) {
     .gpc { display: none; }
@@ -410,7 +398,3 @@ const QUICK = [
   });
 </script>
 
-<script>
-  const rb = document.getElementById('renewal');
-  if (rb && Date.now() > Number(rb.dataset.end)) rb.remove();
-</script>
